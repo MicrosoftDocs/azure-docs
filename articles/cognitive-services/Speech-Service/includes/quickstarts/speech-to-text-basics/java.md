@@ -39,12 +39,12 @@ Follow these steps to create a new console application for speech recognition.
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.Future;
     
-    public class Program {
+    public class SpeechRecognition {
         private static string YourSubscriptionKey = "YourSubscriptionKey";
         private static string YourServiceRegion = "YourServiceRegion";
     
         public static void main(String[] args) throws InterruptedException, ExecutionException {
-            SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+            SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
             speechConfig.setSpeechRecognitionLanguage("en-US");
             recognizeFromMicrophone(speechConfig);
         }
@@ -89,7 +89,7 @@ Follow these steps to create a new console application for speech recognition.
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-java Program
+java SpeechRecognition
 ```
 
 Speak into your microphone when prompted. What you speak should be output as text: 

@@ -31,46 +31,45 @@ Before you can do anything, you need to install the Speech SDK. Depending on you
 
 Follow these steps to create a new console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
+1. Open a command prompt where you want the new project, and create a new file named `SpeechSynthesis.java`.
 
     ```java
-    import com.microsoft.cognitiveservices.speech.*;
-    import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+    import java.util.Scanner;
     import java.util.concurrent.ExecutionException;
-    import java.util.concurrent.Future;
+    import com.microsoft.cognitiveservices.speech.*;
+    import com.microsoft.cognitiveservices.speech.audio.*;
     
-    public class Program {
+    public class SpeechSynthesis {
         private static string YourSubscriptionKey = "YourSubscriptionKey";
         private static string YourServiceRegion = "YourServiceRegion";
     
         public static void main(String[] args) throws InterruptedException, ExecutionException {
-            SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-            speechConfig.setSpeechRecognitionLanguage("en-US");
-            recognizeFromMicrophone(speechConfig);
-        }
-    
-        public static void recognizeFromMicrophone(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
-            //To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:
-            //AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-            AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-            SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-    
-            System.out.println("Speak into your microphone.");
-            Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
-            SpeechRecognitionResult speechRecognitionResult = task.get();
+            SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
             
+            speechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural"); 
+    
+            SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig);
+    
+            // Get text from the console and synthesize to the default speaker.
+            System.out.println("Enter some text that you want to speak...");
+            System.out.println("> ");
+            String text = new Scanner(System.in).nextLine();
+            if (text.isEmpty())
+            {
+                break;
+            }
+    
+            SpeechSynthesisResult result = speechSynthesizer.SpeakTextAsync(text).get();
+    
             switch (speechRecognitionResult.getReason()) {
-                case ResultReason.RecognizedSpeech:
-                    System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
+                case ResultReason.SynthesizingAudioCompleted:
+                    System.out.println("Speech synthesized to speaker for text [" + text + "]");
                     exitCode = 0;
-                    break;
-                case ResultReason.NoMatch:
-                    System.out.println("NOMATCH: Speech could not be recognized.");
                     break;
                 case ResultReason.Canceled: {
                     CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
                     System.out.println("CANCELED: Reason=" + cancellation.getReason());
-        
+    
                     if (cancellation.getReason() == CancellationReason.Error) {
                         System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                         System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
@@ -83,23 +82,25 @@ Follow these steps to create a new console application for speech recognition.
     }
     ```
 
-1. In `SpeechRecognition.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. In `SpeechSynthesis.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
-Run your new console application to start speech recognition from a microphone:
-
-```console
-java Program
-```
-
-Speak into your microphone when prompted. What you speak should be output as text: 
+Run your new console application to start speech synthesis to the default speaker.
 
 ```console
-Speak into your microphone.
-RECOGNIZED: Text=I'm excited to try speech to text.
+java SpeechSynthesis
 ```
 
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
+
+```console
+Enter some text that you want to speak...
+> I'm excited to try text to speech
+```
+
+This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>

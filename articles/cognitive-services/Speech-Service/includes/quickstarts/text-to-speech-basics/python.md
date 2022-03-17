@@ -33,42 +33,42 @@ Follow these steps to create a new console application and install the Speech SD
     ```console
     pip install azure-cognitiveservices-speech
     ```
-1. Replace the contents of `speech_recognition.py` with the following code. 
+1. Replace the contents of `speech_synthesis.py` with the following code. 
 
     ```Python
     import azure.cognitiveservices.speech as speechsdk
     
-    def recognize_from_microphone():
-        speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
-        speech_config.speech_recognition_language="en-US"
-
-        #To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
-        #audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
-        audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-        speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
-        
-        print("Speak into your microphone.")
-        speech_recognition_result = speech_recognizer.recognize_once_async().get()
+    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+    audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
     
-        if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
-            print("Recognized: {}".format(speech_recognition_result.text))
-        elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
-            print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
-        elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
-            cancellation_details = speech_recognition_result.cancellation_details
-            print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-            if cancellation_details.reason == speechsdk.CancellationReason.Error:
+    # The language of the voice that speaks.
+    speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
+    
+    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+    
+    # Get text from the console and synthesize to the default speaker.
+    print("Type some text that you want to speak > ")
+    text = input()
+    
+    speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
+    
+    if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+        print("Speech synthesized for text [{}]".format(text))
+    elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
+        cancellation_details = speech_synthesis_result.cancellation_details
+        print("Speech synthesis canceled: {}".format(cancellation_details.reason))
+        if cancellation_details.reason == speechsdk.CancellationReason.Error:
+            if cancellation_details.error_details:
                 print("Error details: {}".format(cancellation_details.error_details))
-    
-    recognize_from_microphone()
+        print("Did you update the subscription info?")
     ```
-1. In `speech_recognition.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. In `speech_synthesis.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-python speech_recognition.py
+python speech_synthesis.py
 ```
 
 Speak into your microphone when prompted. What you speak should be output as text: 
@@ -78,6 +78,10 @@ Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
+This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
+- 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 

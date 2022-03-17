@@ -35,64 +35,75 @@ Follow these steps to create a new console application and install the Speech SD
 1. Replace the contents of `main.cpp` with the following code:
     
     ```cpp
-    #include <iostream> 
+    #include <iostream> // cin, cout
     #include <speechapi_cxx.h>
-
+    
+    using namespace std;
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
-
+    
     auto YourSubscriptionKey = "YourSubscriptionKey";
     auto YourServiceRegion = "YourServiceRegion";
-
+    
     int main()
     {
         auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
-        speechConfig->SetSpeechRecognitionLanguage("en-US");
-
-        // To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
-        // auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
-        auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
-
-        std::cout << "Speak into your microphone.\n";
-        auto result = recognizer->RecognizeOnceAsync().get();
-
-        if (result->Reason == ResultReason::RecognizedSpeech)
+    
+        // The language of the voice that speaks.
+        speechConfig->SetSpeechSynthesisVoiceName("en-US-JennyNeural");
+    
+        auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    
+        // Get text from the console and synthesize to the default speaker.
+        cout << "Enter some text that you want to speak..." << std::endl;
+        cout << "> ";
+        std::string text;
+        getline(cin, text);
+    
+        auto result = synthesizer->SpeakTextAsync(text).get();
+    
+        // Checks result.
+        if (result->Reason == ResultReason::SynthesizingAudioCompleted)
         {
-            std::cout << "RECOGNIZED: Text=" << result->Text << std::endl;
-        }
-        else if (result->Reason == ResultReason::NoMatch)
-        {
-            std::cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            cout << "Speech synthesized to speaker for text [" << text << "]" << std::endl;
         }
         else if (result->Reason == ResultReason::Canceled)
         {
-            auto cancellation = CancellationDetails::FromResult(result);
-            std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
-
+            auto cancellation = SpeechSynthesisCancellationDetails::FromResult(result);
+            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+    
             if (cancellation->Reason == CancellationReason::Error)
             {
-                std::cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-                std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-                std::cout << "CANCELED: Double check the speech resource key and region" << std::endl;
+                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=[" << cancellation->ErrorDetails << "]" << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
             }
         }
-    }             
+    
+        cout << "Press enter to exit..." << std::endl;
+        cin.get();
+    }           
     ```
 
 1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
-Build and run your new console application to start speech recognition from a microphone.
-
-Speak into your microphone when prompted. What you speak should be output as text: 
+Build and run your new console application to start speech synthesis to the default speaker.
 
 ```console
-Speak into your microphone.
-RECOGNIZED: Text=I'm excited to try speech to text.
+dotnet run
 ```
 
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
+
+```console
+Enter some text that you want to speak...
+> I'm excited to try text to speech
+```
+
+This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>

@@ -29,9 +29,9 @@ The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.o
 
 ## Synthesize to speaker output
 
-Follow these steps to recognize speech in a macOS application.
+Follow these steps to synthesize speech in a macOS application.
 
-1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Recognize speech from a microphone in Objective-C on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone) sample project. The repository also has iOS samples. 
+1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Synthesize audio in Objective-C on macOS using the Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/text-to-speech) sample project. The repository also has iOS samples. 
 1. Navigate to the directory of the downloaded sample app (`helloworld`) in a terminal. 
 1. Run the command `pod install`. This will generate a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency. 
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
@@ -40,43 +40,44 @@ Follow these steps to recognize speech in a macOS application.
     ```ObjectiveC
     - (void)buttonPressed:(NSButton *)button {
         // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own subscription key // and service region (e.g., "westus").
+        // Replace with your own subscription key and service region (e.g., "westus").
         NSString *speechKey = @"YourSubscriptionKey";
         NSString *serviceRegion = @"YourServiceRegion";
-    
-        //To recognize speech from an audio file, use `initWithWavFileInput` instead of `initWithMicrophone`:
-        //SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithWavFileInput:YourAudioFile];
-        SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithMicrophone:nil];
+        
         SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:serviceRegion];
-        SPXSpeechRecognizer *speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:audioConfig];
+        speechConfig.speechSynthesisVoiceName = @"en-US-JennyNeural";
+        SPXSpeechSynthesizer *speechSynthesizer = [[SPXSpeechSynthesizer alloc] init:speechConfig];
 
-        NSLog(@"Speak into your microphone.");
-    
-        SPXSpeechRecognitionResult *speechResult = [speechRecognizer recognizeOnce];
-    
+        NSLog(@"Start synthesizing...");
+        
+        SPXSpeechSynthesisResult *speechResult = [speechSynthesizer speakText:[self.textField stringValue]];
+        
         // Checks result.
         if (SPXResultReason_Canceled == speechResult.reason) {
-            SPXCancellationDetails *details = [[SPXCancellationDetails alloc] initFromCanceledRecognitionResult:speechResult];
-            NSLog(@"Speech recognition was canceled: %@. Did you pass the correct key/region combination?", details.errorDetails);
-            [self.label setStringValue:([NSString stringWithFormat:@"Canceled: %@", details.errorDetails])];
-        } else if (SPXResultReason_RecognizedSpeech == speechResult.reason) {
-            NSLog(@"Speech recognition result received: %@", speechResult.text);
-            [self.label setStringValue:(speechResult.text)];
+            SPXSpeechSynthesisCancellationDetails *details = [[SPXSpeechSynthesisCancellationDetails alloc] initFromCanceledSynthesisResult:speechResult];
+            NSLog(@"Speech synthesis was canceled: %@. Did you pass the correct key/region combination?", details.errorDetails);
+        } else if (SPXResultReason_SynthesizingAudioCompleted == speechResult.reason) {
+            NSLog(@"Speech synthesis was completed");
         } else {
             NSLog(@"There was an error.");
-            [self.label setStringValue:(@"Speech Recognition Error")];
         }
     }
     ```
 
 1. In `AppDelegate.m`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. Optionally in `AppDelegate.m`, include a speech synthesis voice name as shown here: 
+    ```ObjectiveC
+    speechConfig.speechSynthesisVoiceName = @"en-US-JennyNeural";
+    ```
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Build and run the example code by selecting **Product** -> **Run** from the menu or selecting the **Play** button.
 
-After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
+After you input some text and select the button in the app, you should hear the synthesized audio played.
 
-This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+This quickstart uses the `SpeakText` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>

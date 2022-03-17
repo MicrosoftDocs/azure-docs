@@ -28,8 +28,8 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 
 Follow these steps to create a new GO module.
 
-1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
-1. Replace the contents of `speech-recognition.go` with the following code. 
+1. Open a command prompt where you want the new module, and create a new file named `speech-synthesis.go`.
+1. Replace the contents of `speech-synthesis.go` with the following code. 
 
     ```go
     package main
@@ -38,75 +38,110 @@ Follow these steps to create a new GO module.
     	"bufio"
     	"fmt"
     	"os"
+    	"strings"
+    	"time"
     
     	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
+    	"github.com/Microsoft/cognitive-services-speech-sdk-go/common"
     	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
     )
     
-    func sessionStartedHandler(event speech.SessionEventArgs) {
+    func synthesizeStartedHandler(event speech.SpeechSynthesisEventArgs) {
     	defer event.Close()
-    	fmt.Println("Session Started (ID=", event.SessionID, ")")
+    	fmt.Println("Synthesis started.")
     }
     
-    func sessionStoppedHandler(event speech.SessionEventArgs) {
+    func synthesizingHandler(event speech.SpeechSynthesisEventArgs) {
     	defer event.Close()
-    	fmt.Println("Session Stopped (ID=", event.SessionID, ")")
+    	fmt.Printf("Synthesizing, audio chunk size %d.\n", len(event.Result.AudioData))
     }
     
-    func recognizingHandler(event speech.SpeechRecognitionEventArgs) {
+    func synthesizedHandler(event speech.SpeechSynthesisEventArgs) {
     	defer event.Close()
-    	fmt.Println("Recognizing:", event.Result.Text)
+    	fmt.Printf("Synthesized, audio length %d.\n", len(event.Result.AudioData))
     }
     
-    func recognizedHandler(event speech.SpeechRecognitionEventArgs) {
+    func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
     	defer event.Close()
-    	fmt.Println("Recognized:", event.Result.Text)
-    }
-    
-    func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
-    	defer event.Close()
-    	fmt.Println("Received a cancellation: ", event.ErrorDetails)
+    	fmt.Println("Received a cancellation.")
     }
     
     func main() {
-        subscription :=  "YourSubscriptionKey"
+        key :=  "YourSubscriptionKey"
         region := "YourServiceRegion"
     
-    	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
+    	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
     	if err != nil {
     		fmt.Println("Got an error: ", err)
     		return
     	}
     	defer audioConfig.Close()
-    	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+    	speechConfig, err := speech.NewSpeechConfigFromSubscription(key, region)
     	if err != nil {
     		fmt.Println("Got an error: ", err)
     		return
     	}
     	defer speechConfig.Close()
-    	speechRecognizer, err := speech.NewSpeechRecognizerFromConfig(speechConfig, audioConfig)
+    
+    	speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")
+    
+    	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
     	if err != nil {
     		fmt.Println("Got an error: ", err)
     		return
     	}
-    	defer speechRecognizer.Close()
-    	speechRecognizer.SessionStarted(sessionStartedHandler)
-    	speechRecognizer.SessionStopped(sessionStoppedHandler)
-    	speechRecognizer.Recognizing(recognizingHandler)
-    	speechRecognizer.Recognized(recognizedHandler)
-    	speechRecognizer.Canceled(cancelledHandler)
-    	speechRecognizer.StartContinuousRecognitionAsync()
-    	defer speechRecognizer.StopContinuousRecognitionAsync()
-    	bufio.NewReader(os.Stdin).ReadBytes('\n')
-    }
+    	defer speechSynthesizer.Close()
+    
+    	speechSynthesizer.SynthesisStarted(synthesizeStartedHandler)
+    	speechSynthesizer.Synthesizing(synthesizingHandler)
+    	speechSynthesizer.SynthesisCompleted(synthesizedHandler)
+    	speechSynthesizer.SynthesisCanceled(cancelledHandler)
+    
+    	for {
+    		fmt.Printf("Enter some text that you want to speak, or enter empty text to exit.\n> ")
+    		text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+    		text = strings.TrimSuffix(text, "\n")
+    		if len(text) == 0 {
+    			break
+    		}
+    
+    		task := speechSynthesizer.SpeakTextAsync(text)
+    		var outcome speech.SpeechSynthesisOutcome
+    		select {
+    		case outcome = <-task:
+    		case <-time.After(60 * time.Second):
+    			fmt.Println("Timed out")
+    			return
+    		}
+    		defer outcome.Close()
+    		if outcome.Error != nil {
+    			fmt.Println("Got an error: ", outcome.Error)
+    			return
+    		}
+    
+    		if outcome.Result.Reason == common.SynthesizingAudioCompleted {
+    			fmt.Printf("Speech synthesized to speaker for text [%s].\n", text)
+    		} else {
+    			cancellation, _ := speech.NewCancellationDetailsFromSpeechSynthesisResult(outcome.Result)
+    			fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
+    
+    			if cancellation.Reason == common.Error {
+    				fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you update the subscription info?\n",
+    					cancellation.ErrorCode,
+    					cancellation.ErrorDetails)
+    			}
+    		}
+    	}
+    }                                                
     ```
 
-1. In `speech-recognition.go`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `speech-synthesis.go`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
 Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
 
 ```cmd
-go mod init speech-recognition
+go mod init speech-synthesis
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
@@ -114,7 +149,7 @@ Now build and run the code:
 
 ```cmd
 go build
-go run speech-recognition
+go run speech-synthesis
 ```
 
 > [!div class="nextstepaction"]

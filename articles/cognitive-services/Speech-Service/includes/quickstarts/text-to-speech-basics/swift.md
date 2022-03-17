@@ -28,22 +28,24 @@ The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.o
 
 ## Synthesize to speaker output
 
-Follow these steps to recognize speech in a macOS application.
+Follow these steps to synthesize speech in a macOS application.
 
-1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Recognize speech from a microphone in Swift on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone) sample project. The repository also has iOS samples. 
+1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Synthesize audio in Swift on macOS using the Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech) sample project. The repository also has iOS samples. 
 1. Navigate to the directory of the downloaded sample app (`helloworld`) in a terminal. 
 1. Run the command `pod install`. This will generate a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency. 
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
-1. Open the file named `AppDelegate.swift` and locate the `applicationDidFinishLaunching` and `recognizeFromMic` methods as shown here.
+1. Open the file named `AppDelegate.swift` and locate the `applicationDidFinishLaunching` and `synthesize` methods as shown here.
 
     ```swift
     import Cocoa
-
-    @NSApplicationMain
-    class AppDelegate: NSObject, NSApplicationDelegate {
-        var label: NSTextField!
-        var fromMicButton: NSButton!
     
+    @NSApplicationMain
+    class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
+        var textField: NSTextField!
+        var synthesisButton: NSButton!
+        
+        var inputText: String!
+        
         var sub: String!
         var region: String!
     
@@ -54,30 +56,32 @@ Follow these steps to recognize speech in a macOS application.
             // load subscription information
             sub = "YourSubscriptionKey"
             region = "YourServiceRegion"
-    
-            label = NSTextField(frame: NSRect(x: 100, y: 50, width: 200, height: 200))
-            label.textColor = NSColor.black
-            label.lineBreakMode = .byWordWrapping
-    
-            label.stringValue = "Recognition Result"
-            label.isEditable = false
-    
-            self.window.contentView?.addSubview(label)
-    
-            fromMicButton = NSButton(frame: NSRect(x: 100, y: 300, width: 200, height: 30))
-            fromMicButton.title = "Recognize"
-            fromMicButton.target = self
-            fromMicButton.action = #selector(fromMicButtonClicked)
-            self.window.contentView?.addSubview(fromMicButton)
+            
+            inputText = ""
+            
+            textField = NSTextField(frame: NSRect(x: 100, y: 200, width: 200, height: 50))
+            textField.textColor = NSColor.black
+            textField.lineBreakMode = .byWordWrapping
+            
+            textField.placeholderString = "Type something to synthesize."
+            textField.delegate = self
+            
+            self.window.contentView?.addSubview(textField)
+            
+            synthesisButton = NSButton(frame: NSRect(x: 100, y: 100, width: 200, height: 30))
+            synthesisButton.title = "Synthesize"
+            synthesisButton.target = self
+            synthesisButton.action = #selector(synthesisButtonClicked)
+            self.window.contentView?.addSubview(synthesisButton)
         }
-    
-        @objc func fromMicButtonClicked() {
+        
+        @objc func synthesisButtonClicked() {
             DispatchQueue.global(qos: .userInitiated).async {
-                self.recognizeFromMic()
+                self.synthesize()
             }
         }
-    
-        func recognizeFromMic() {
+        
+        func synthesize() {
             var speechConfig: SPXSpeechConfiguration?
             do {
                 try speechConfig = SPXSpeechConfiguration(subscription: sub, region: region)
@@ -85,48 +89,40 @@ Follow these steps to recognize speech in a macOS application.
                 print("error \(error) happened")
                 speechConfig = nil
             }
-            speechConfig?.speechRecognitionLanguage = "en-US"
 
-            let audioConfig = SPXAudioConfiguration()
-    
-            let reco = try! SPXSpeechRecognizer(speechConfiguration: speechConfig!, audioConfiguration: audioConfig)
-    
-            reco.addRecognizingEventHandler() {reco, evt in
-                print("intermediate recognition result: \(evt.result.text ?? "(no result)")")
-                self.updateLabel(text: evt.result.text, color: .gray)
-            }
-    
-            updateLabel(text: "Listening ...", color: .gray)
-            print("Listening...")
-    
-            let result = try! reco.recognizeOnce()
-            print("recognition result: \(result.text ?? "(no result)"), reason: \(result.reason.rawValue)")
-            updateLabel(text: result.text, color: .black)
-    
-            if result.reason != SPXResultReason.recognizedSpeech {
-                let cancellationDetails = try! SPXCancellationDetails(fromCanceledRecognitionResult: result)
-                print("cancelled: \(result.reason), \(cancellationDetails.errorDetails)")
-                updateLabel(text: "Error: \(cancellationDetails.errorDetails)", color: .red)
+            speechConfig?.speechSynthesisVoiceName = "en-US-JennyNeural";
+
+            let synthesizer = try! SPXSpeechSynthesizer(speechConfig!)
+            let result = try! synthesizer.speakText(inputText)
+            if result.reason == SPXResultReason.canceled
+            {
+                let cancellationDetails = try! SPXSpeechSynthesisCancellationDetails(fromCanceledSynthesisResult: result)
+                print("cancelled, error code: \(cancellationDetails.errorCode) detail: \(cancellationDetails.errorDetails!) ")
+                return
             }
         }
-    
-        func updateLabel(text: String?, color: NSColor) {
-            DispatchQueue.main.async {
-                self.label.stringValue = text!
-                self.label.textColor = color
-            }
-        }
+        
+        func controlTextDidChange(_ obj: Notification) {
+            let textFiled = obj.object as! NSTextField
+            inputText = textFiled.stringValue
+        }   
     }
     ```
 
 1. In `AppDelegate.m`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. Optionally in `AppDelegate.m`, include a speech synthesis voice name as shown here: 
+    ```swift
+    speechConfig?.speechSynthesisVoiceName = "en-US-JennyNeural";
+    ```
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 1. Make the debug output visible by selecting **View** > **Debug Area** > **Activate Console**.
 1. Build and run the example code by selecting **Product** -> **Run** from the menu or selecting the **Play** button.
 
-After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
+After you input some text and select the button in the app, you should hear the synthesized audio played.
 
-This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+This quickstart uses the `SpeakText` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>

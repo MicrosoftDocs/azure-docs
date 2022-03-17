@@ -17,32 +17,29 @@ ms.author: eur
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Synthesize to speaker output
+## Synthesize to a file
 
 At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```console
-# curl
-speech_key="YourSubscriptionKey"
+key="YourSubscriptionKey"
 region="YourServiceRegion"
 
-curl --location --request POST \
-"https://YourServiceRegion.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
---header "Ocp-Apim-Subscription-Key: YourSubscriptionKey" \
---header "Content-Type: audio/wav" \
---data-binary @'YourAudioFile.wav'
+curl --location --request POST 'https://$region.tts.speech.microsoft.com/cognitiveservices/v1' \
+--header 'Ocp-Apim-Subscription-Key: $key' \
+--header 'Content-Type: application/ssml+xml' \
+--header 'X-Microsoft-OutputFormat: audio-16khz-128kbitrate-mono-mp3' \
+--header 'User-Agent: curl' \
+--data-raw '<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
+    <voice xml:lang='\''en-US'\'' xml:gender='\''Female'\'' name='\''en-US-JennyNeural'\''>
+        my voice is my passport verify me
+    </voice>
+</speak>' > output.mp3
 ```
 
-You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file.
+The provided text should be output to an audio file named output.mp3.
 
-```console
-{
-    "RecognitionStatus": "Success",
-    "DisplayText": "My voice is my passport, verify me.",
-    "Offset": 6600000,
-    "Duration": 32100000
-}
-```
+To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
 For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text.md).
 

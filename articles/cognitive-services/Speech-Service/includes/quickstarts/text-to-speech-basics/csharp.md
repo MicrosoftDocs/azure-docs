@@ -54,7 +54,7 @@ Follow these steps to create a new console application and install the Speech SD
             switch (speechSynthesisResult.Reason)
             {
                 case ResultReason.SynthesizingAudioCompleted:
-                    Console.WriteLine($"Speech synthesized for text: {text}");
+                    Console.WriteLine($"Speech synthesized for text: [{text}]");
                     break;
                 case ResultReason.Canceled:
                     var cancellation = SpeechSynthesisCancellationDetails.FromResult(speechSynthesisResult);
@@ -82,7 +82,7 @@ Follow these steps to create a new console application and install the Speech SD
             using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
             {
                 // Get text from the console and synthesize to the default speaker.
-                Console.WriteLine("Type some text that you want to speak...");
+                Console.WriteLine("Enter some text that you want to speak...");
                 Console.Write("> ");
                 string text = Console.ReadLine();
     
@@ -99,7 +99,7 @@ Follow these steps to create a new console application and install the Speech SD
 1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
-Run your new console application to start speech synthesis to the default speaker.:
+Run your new console application to start speech synthesis to the default speaker.
 
 ```console
 dotnet run

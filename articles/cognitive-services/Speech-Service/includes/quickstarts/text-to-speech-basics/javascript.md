@@ -35,68 +35,82 @@ For more information on `require`, see the [require documentation](https://nodej
 
 ## Synthesize to file output
 
-Follow these steps to create a new console application for speech recognition.
+Follow these steps to create a new console application for speech synthesis.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.js`.
-1. Copy the following code into `SpeechRecognition.js`:
+1. Open a command prompt where you want the new project, and create a new file named `SpeechSynthesis.js`.
+1. Copy the following code into `SpeechSynthesis.js`:
 
     ```javascript
-    const fs = require('fs');
-    const sdk = require("microsoft-cognitiveservices-speech-sdk");
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    speechConfig.speechRecognitionLanguage = "en-US";
-    
-    function fromFile() {
-        let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
-        let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    
-        speechRecognizer.recognizeOnceAsync(result => {
-            switch (result.reason) {
-                case sdk.ResultReason.RecognizedSpeech:
-                    console.log(`RECOGNIZED: Text=${result.text}`);
-                    break;
-                case sdk.ResultReason.NoMatch:
-                    console.log("NOMATCH: Speech could not be recognized.");
-                    break;
-                case sdk.ResultReason.Canceled:
-                    const cancellation = CancellationDetails.fromResult(result);
-                    console.log(`CANCELED: Reason=${cancellation.reason}`);
-            
-                    if (cancellation.reason == sdk.CancellationReason.Error) {
-                        console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
-                        console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
-                        console.log("CANCELED: Did you update the key and location/region info?");
-                    }
-                    break;
-            }    
-            speechRecognizer.close();
+    (function() {
+
+        "use strict";
+        
+        var sdk = require("microsoft-cognitiveservices-speech-sdk");
+        var readline = require("readline");
+        
+        var key = "YourSubscriptionKey";
+        var region = "YourServiceRegion";
+        var audioFile = "YourAudioFile.wav";
+      
+        const speechConfig = sdk.SpeechConfig.fromSubscription(key, region);
+        const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
+        
+        // The language of the voice that speaks.
+        speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural"; 
+        
+        // Create the speech synthesizer.
+        var synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+      
+        var rl = readline.createInterface({
+          input: process.stdin,
+          output: process.stdout
         });
-    }
-    fromFile();
+      
+        rl.question("Enter some text that you want to speak...\n> ", function (text) {
+          rl.close();
+          // Start the synthesizer and wait for a result.
+          synthesizer.speakTextAsync(text,
+              function (result) {
+            if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
+              console.log("synthesis finished.");
+            } else {
+              console.error("Speech synthesis canceled, " + result.errorDetails +
+                  "\nDid you update the subscription info?");
+            }
+            synthesizer.close();
+            synthesizer = null;
+          },
+              function (err) {
+            console.trace("err - " + err);
+            synthesizer.close();
+            synthesizer = null;
+          });
+          console.log("Now synthesizing to: " + audioFile);
+        });
+    }());
     ```
 
-1. In `SpeechRecognition.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+1. In `SpeechSynthesis.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). For example, `es-ES-ElviraNeural` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md).
 
-Run your new console application to start speech recognition from a file:
+Run your new console application to start speech synthesis to a file:
 
 ```console
-node.exe SpeechRecognition.js
+node.exe SpeechSynthesis.js
 ```
 
-The speech from the audio file should be output as text: 
+Speak into your microphone when prompted. What you speak should be output to an audio file: 
 
 ```console
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-This example uses the `recognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [Speech synthesis](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
-> [!NOTE]
-> Recognizing speech from a microphone is not supported in Node.js. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
 
 ## Clean up resources
 
