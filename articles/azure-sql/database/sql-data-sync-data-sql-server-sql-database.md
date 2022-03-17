@@ -263,7 +263,7 @@ The Dynamics 365 bring your own database feature lets administrators export data
 
 ### How do I create Data Sync in Failover group to support Disaster Recovery?
 
-- To ensure data sync operations in failover region are at par with Primary region, you have to manually re-create the Sync Group with same settings as primary region.       
+- To ensure data sync operations in failover region are at par with Primary region, after failover you have to manually re-create the Sync Group in failover region with same settings as primary region.       
 
 ## Next steps
 
