@@ -34,8 +34,8 @@ If you don't have a reference on Application Insights SDK yet:
 
 * Add the Application Insights SDK to your project:
 
-  * [.NET project](./asp-net.md)
-  * [.NETCore project](./asp-net-core.md)
+  * [ASP.NET project](./asp-net.md)
+  * [ASP.NET Core project](./asp-net-core.md)
   * [Java project](./java-in-process-agent.md)
   * [Node.js project](./nodejs.md)
   * [JavaScript in each webpage](./javascript.md)
@@ -85,7 +85,7 @@ var telemetry = applicationInsights.defaultClient;
 
 TelemetryClient is thread-safe.
 
-For .NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends.
+For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends.
 
 *C#*
 
@@ -414,7 +414,7 @@ catch (ex)
 
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
-* .NET: [Write code to catch exceptions](./asp-net-exceptions.md).
+* ASP.NET: [Write code to catch exceptions](./asp-net-exceptions.md).
 * Java EE: [Exceptions are caught automatically](./java-in-process-agent.md).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
@@ -673,7 +673,7 @@ function Authenticated(signInId) {
 }
 ```
 
-In an .NET web MVC application, for example:
+In an ASP.NET web MVC application, for example:
 
 *Razor*
 
@@ -1023,7 +1023,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-new-resource.md) and change their keys, depending on the environment.
 
-Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an .NET service:
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
 *C#*
 
@@ -1106,7 +1106,6 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## SDK code
 
-* [.NETCore SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
