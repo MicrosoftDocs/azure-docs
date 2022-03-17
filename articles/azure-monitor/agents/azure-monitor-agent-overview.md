@@ -29,8 +29,8 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-	- Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
-	- The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
+    - Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
+    - The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
   - No support yet for Event Hubs and Storage accounts as destinations.
