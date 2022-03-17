@@ -199,7 +199,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
 
-## Create review of Teams Shared Channels and Microsoft 365 groups (preview)
+## Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)
 
 With an increase in external collaboration, you may need to use access reviews to monitor user access to sensitive resources to make sure Azure AD B2B guest users and collaborators should have access to those resources.
 
