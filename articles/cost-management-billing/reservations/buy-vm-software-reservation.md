@@ -21,8 +21,7 @@ You can buy virtual machine software reservation in the Azure portal. To buy a r
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 
 ## Buy a virtual machine software reservation
-
-1. Sign in to the Azure portal and navigate to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+1. Select your desired plan from Azure Marketplace that has reservation pricing
 2. Select **Add** and then select the Virtual machine software reservation that you want to buy.
 Fill in the required fields. Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
@@ -47,7 +46,7 @@ Like Reserved VM Instances, Virtual machine software reservation purchases offer
 
 ## Self-service cancellation and exchanges
 
-You can't exchange a Virtual machine software reservation that you bought yourself. You can however, cancel the reservation within 72 hours of purchase. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies. Since you can't refund, you can open a [Support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask Azure support to do it on your behalf.
+You can't exchange a Virtual machine software reservation that you bought yourself. You can however, cancel the reservation within 72 hours of purchase. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies.
 
 Check your usage before purchasing to make sure you buy the right software reservation.
 
