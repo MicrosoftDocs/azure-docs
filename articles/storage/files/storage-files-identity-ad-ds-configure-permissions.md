@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/16/2022
 ms.author: kendownie
 ---
 
@@ -15,7 +15,6 @@ Before you begin this article, make sure you completed the previous article, [As
 
 After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. The Azure RBAC share-level permissions act as a high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
-If you mount a share and access that share with an account using Elevated Contributor, then Windows will report that you have **Full Access** but you won't unless you assigned permissions at the file-level. 
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -74,7 +73,10 @@ The following permissions are included on the root directory of a file share:
 
 ## Mount a file share from the command prompt
 
-Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
+Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+
+> [!NOTE]
+> You may see the *Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share-level and the file-level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key, first.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
