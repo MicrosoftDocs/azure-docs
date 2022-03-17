@@ -76,6 +76,8 @@ Azure Managed Instance for Apache Cassandra provides many built-in explicit secu
 * Active virus scanning.
 * Secure coding practices.
 
+For more information on security features, see our article [here](security.md).
+
 ## Hybrid support
 
 When a [hybrid](configure-hybrid-cluster.md) cluster is configured, automated reaper operations running in the service will benefit the whole cluster. This includes data centers that are not provisioned by the service. Outside this, it is your responsibility to maintain your on-premise or externally hosted data center.
