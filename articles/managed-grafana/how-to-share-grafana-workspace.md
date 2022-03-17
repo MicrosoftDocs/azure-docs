@@ -1,5 +1,5 @@
 ---
-title: How to share your Azure Managed Grafana Preview workspace
+title: How to share an Azure Managed Grafana Preview workspace
 description: 'Azure Managed Grafana: learn how you can share access permissions and dashboards with your team and customers.' 
 author: maud-lv 
 ms.author: malev 
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to share your Azure Managed Grafana Preview workspace
+# How to share an Azure Managed Grafana Preview workspace
 
-Dashboards are usually built for monitoring and diagnosing an application, or reporting to management and customers. A dedicated support team may also build a Grafana monitoring solution for an external customer and create permissions to let this customer access their Managed Grafana dashboard. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal team and external customers.
+Dashboards are usually built to monitore and diagnose an application, or to report to management and customers. A dedicated support team may also build a Grafana monitoring solution for an external customer and create permissions to let this customer access their Managed Grafana dashboard. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal team and external customers.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Azure Managed Grafana supports the Admin, Viewer and Editor roles:
 
 The Admin role is automatically assigned to the creator of a Grafana workspace. More details on Admin, Editor, and Viewer roles can be found at [Grafana organization roles](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
-Grafana user roles are integrated within the Azure Active Directory roles and permissions, so that you can assign permissions from the Azure Portal or the command line. This section explains how to assign users viewer or editor roles in Azure portal.
+Grafana user roles are integrated within the Azure Active Directory roles and permissions, so that you can assign permissions from the Azure portal or the command line. This section explains how to assign users viewer or editor roles in Azure portal.
 
 ## Sign in to Azure
 
@@ -39,11 +39,15 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Assign an Admin, Viewer or Editor role to a user
 1. Select **Add**, then **Add role assignment**
-1. Select one of the Grafana roles to assign to a user or security group. The available roles are:
+      :::image type="content" source="media/how-to-share-IAM.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
+
+2. Select one of the Grafana roles to assign to a user or security group. The available roles are:
 
    - Grafana Admin
    - Grafana Editor
    - Grafana Viewer
+
+    :::image type="content" source="media/how-to-share-role-assignment.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 > [NOTE!]
 > Dashboard and data source level sharing will be done from within the Grafana UI, with support provided by Grafana Labs. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).

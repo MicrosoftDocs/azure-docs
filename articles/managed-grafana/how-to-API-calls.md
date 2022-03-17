@@ -27,7 +27,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. Assign the role of your choice to the service principal for your Grafana resource. Refer to [How to share a Managed Grafana workspace](how-to-share-grafana-workspace.md) to learn how to grant access to a Grafana instance. Instead of selecting a user, select **Service principal**.
 
 ## Get an access token
-To access Grafana APIs, you first need to get an access token. Here is an example showing how you can call Azure AD to retrieve a token:
+To access Grafana APIs, you first need to get an access token. Here's an example showing how you can call Azure AD to retrieve a token:
 
 ```
 curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -35,9 +35,9 @@ curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
 https://login.microsoftonline.com/<tenant-id>/oauth2/token
 ```
 
-Replace `<tenant-id>` with your own Azure AD tenant ID, replace `<client-id>` with your client id and `<application-secret>` with the application secret of the application you want to share.
+Replace `<tenant-id>` with your own Azure AD tenant ID, replace `<client-id>` with your client ID and `<application-secret>` with the application secret of the application you want to share.
 
-The below is a sample response:
+Here's an example of response:
 
 ```
 {

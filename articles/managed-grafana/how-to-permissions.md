@@ -10,7 +10,7 @@ ms.date: 3/31/2022
 
 # How to configure permissions for Azure Managed Grafana Preview
 
-By default, Managed Grafana grants a Log Analytics Reader access role for all resources within a subscription. It means that Managed Grafana can access and search all monitoring data and access monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
+By default, Managed Grafana grants a Log Analytics Reader access role for all resources within a subscription. This means that Managed Grafana can access and search all monitoring data and access monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
 
 In this article, you'll learn how to manually edit permissions for a specific resource.
 
@@ -30,15 +30,27 @@ To edit permissions for a specific resource, follow these steps:
 
 1. Open a resource that contains the monitoring data you want to visualize. In this example, we're configuring an Application Insights resource.
 1. Select **Access Control (IAM)**.
-1. Under **Grant access to this resource**, select **Add role assignment**.
-1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**.
-1. Select **Next**.
-1. For **Assign access to**, select **Managed Identity**.
-1. Select **Select Members**.
-1. Select the **Subscription** containing your Managed Grafana workspace
-1. Select a **Managed identity** from the options in the dropdown list
-1. Select your Managed Grafana workspace.
-1. Select **Save** to complete the role assignment.
+2. Under **Grant access to this resource**, select **Add role assignment**.
+   
+   :::image type="content" source="media/how-to-permissions-IAM.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+
+3. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
+4. Select **Next**.
+      :::image type="content" source="media/how-to-permissions-role.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+
+5. For **Assign access to**, select **Managed Identity**.
+6. Select **Select members**.
+
+      :::image type="content" source="media/how-to-permissions-members.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+
+7. Select the **Subscription** containing your Managed Grafana workspace
+8. Select a **Managed identity** from the options in the dropdown list
+9.  Select your Managed Grafana workspace from the list.
+10. Select **Select** to confirm
+
+      :::image type="content" source="media/how-to-permissions-identity.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+
+11. Select **Next**, then **Review + assign** to confirm the application of the new permission
 
 ## Next steps
 
