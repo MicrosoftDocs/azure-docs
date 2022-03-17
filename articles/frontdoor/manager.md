@@ -14,7 +14,7 @@ ms.author: duau
 
 The Front Door manager in Azure Front Door Standard and Premium provides an overview of endpoints you've configured for your Azure Front Door profile. With Front Door manager, you can manage your collection of endpoints. You can also configure routings rules along with their domains and origin groups, and security policies you want to apply to protect your web application.
 
-:::image type="content" source="./media/manager/manager.png" alt-text="Screen shot of the Azure Front Door manager page.":::
+:::image type="content" source="./media/manager/manager.png" alt-text="Screen shot of the Azure Front Door manager page." lightbox="./media/manager/manager-expanded.png":::
 
 ## Routes within an endpoint
 
@@ -51,9 +51,9 @@ A security policy is an association of one or more domains with a Web Applicatio
 
 In Azure Front Door (classic), the Front Door manager is called Front Door designer. In Azure Front Door (classic), only one endpoint is supported for each Front Door profile.
 
-:::image type="content" source="./media/manager/designer.png" alt-text="Screen shot of the Azure Front Door (classic) designer page.":::
+:::image type="content" source="./media/manager/designer.png" alt-text="Screen shot of the Azure Front Door (classic) designer page." lightbox="./media/manager/designer-expanded.png":::
 
-## Next Steps
+## Next steps
 
 * Learn how to [configure endpoints with Front Door manager](how-to-configure-endpoints.md).
 * Learn about the Azure Front Door [routing architecture](front-door-routing-architecture.md).
