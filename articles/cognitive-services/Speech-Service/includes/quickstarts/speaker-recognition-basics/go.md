@@ -75,7 +75,7 @@ Follow these steps to create a new GO module.
 		var currentResult *speaker.VoiceProfileEnrollmentResult
 		expectedEnrollmentCount := 1
 		for currentReason == enrollmentReason {
-			fmt.Println(`Please speak the following phrase: "I'll talk for a few seconds so you can recognize my voice in the future."`, enrollOutcome.Error.Error())
+			fmt.Println(`Please speak the following phrase: "I'll talk for a few seconds so you can recognize my voice in the future."`)
 			enrollFuture := client.EnrollProfileAsync(profile, audioConfig)
 			enrollOutcome := <-enrollFuture
 			if enrollOutcome.Failed() {
