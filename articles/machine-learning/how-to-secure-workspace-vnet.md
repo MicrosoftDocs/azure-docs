@@ -86,7 +86,7 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 ### Azure Monitor
 
 > [!WARNING]
-> Azure Monitor supports using Azure Private Link to connect to a VNet. However, you must use the open Private Link mode in Azure Monitor. For more information, see [Private Link access modes: Private only vs. Open](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
+> Azure Monitor supports using Azure Private Link to connect to a VNet. However, you must use the open Private Link mode in Azure Monitor. For more information, see [Private Link access modes: Private only vs. Open](../azure-monitor/logs/private-link-security.md#private-link-access-modes-private-only-vs-open).
 
 ## Required public internet access
 

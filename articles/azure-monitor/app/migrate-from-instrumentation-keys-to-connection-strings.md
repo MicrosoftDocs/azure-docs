@@ -138,4 +138,4 @@ Billing isn't impacted.
 
 ### Microsoft Q&A
 
-Post questions to the [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the [answers forum](/answers/topics/24223/azure-monitor.html).
