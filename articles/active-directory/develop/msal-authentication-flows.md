@@ -125,6 +125,12 @@ In the preceding diagram:
   - Tenanted, in the form `https://login.microsoftonline.com/{tenant}/,` where `{tenant}` is either the GUID representing the tenant ID or a domain name associated with the tenant.
   - For work and school accounts in the form `https://login.microsoftonline.com/organizations/`.
 
+### Device code flow with Microsoft Personal Accounts
+Starting with MSAL.NET 4.5 release, the device code flow is possible with Microsoft Personal Accounts. This means the device code flow will work with:
+
+- Any work and school accounts (https://login.microsoftonline.com/organizations/), and
+- Microsoft personal accounts (/common or /consumers tenants)
+
 ## Implicit grant
 
 The [OAuth 2 implicit grant](v2-oauth2-implicit-grant-flow.md) flow allows the app to get tokens from the Microsoft identity platform without performing a back-end server credential exchange. This flow allows the app to sign in the user, maintain a session, and get tokens for other web APIs, all within the client JavaScript code.
