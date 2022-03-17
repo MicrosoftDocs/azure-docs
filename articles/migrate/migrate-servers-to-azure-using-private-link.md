@@ -20,7 +20,7 @@ This article shows how to migrate on-premises VMware VMs to Azure, using the [Az
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate: Server Migration runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](https://docs.microsoft.com/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-the-azure-migrate-appliance) before you proceed.
+Azure Migrate: Server Migration runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](./discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
 
 ## Replicate VMs
 
@@ -56,7 +56,7 @@ Enable replication as follows:
 
 1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  Only the storage accounts in the selected target region and Azure Migrate project subscription are listed.
 
-1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](https://docs.microsoft.com/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution).  
+1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).  
     >[!Tip] 
     > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and  private IP address of the storage account. 
 
@@ -122,7 +122,7 @@ Review the status of the private endpoint connection state before you continue.
 
 ![Screenshot that shows the Private endpoint approval status.](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-status-vmware.png)
 
-Ensure that the on-premises appliance has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution)
+Ensure that the on-premises appliance has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](./troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps 
 
@@ -198,7 +198,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
     -  For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
-    - Ensure that the server hosting the replication provider has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](https://docs.microsoft.com/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution).  
+    - Ensure that the server hosting the replication provider has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).  
         >[!Tip] 
         > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and private IP addresses of the storage account. 
 
@@ -309,7 +309,7 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md). 
 
-Ensure that the replication provider has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication provider and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution)
+Ensure that the replication provider has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication provider and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](./troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 
 >[!Note]
@@ -383,7 +383,7 @@ Now, select machines for replication and migration.
 
 1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1) and [**grant permissions to the Recovery Services vault managed identity**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate. This is mandatory before you proceed.   
 
-    - Ensure that the server hosting the replication appliance has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](https://docs.microsoft.com/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution).     
+    - Ensure that the server hosting the replication appliance has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).     
     
         >[!Tip] 
         > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and private IP addresses of the storage account. 
@@ -494,7 +494,7 @@ Review the status of the private endpoint connection state before you continue.
 
 After you've created the private endpoint, use the dropdown list in **Replicate** > **Target settings** > **Cache storage account** to select the storage account for replicating over a private link.
 
-Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution)
+Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](./troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps
 - [Migrate VMs](tutorial-migrate-physical-virtual-machines.md#migrate-vms)
