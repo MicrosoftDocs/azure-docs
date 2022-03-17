@@ -317,7 +317,7 @@ You can use a Resource Manager template to create and configure the resources, m
 
 ## Add location tag to the device twin
 
-One of the message enrichments configured on your IoT hub specifies a key of DeviceLocation with its value determined by the following device twin path: `$twin.tags.location`. If your device twin doesn't have a location tag, the twin path,`$twin.tags.location`, will be stamped as a string for the DeviceLocation value in the message enrichments.
+One of the message enrichments configured on your IoT hub specifies a key of DeviceLocation with its value determined by the following device twin path: `$twin.tags.location`. If your device twin doesn't have a location tag, the twin path, `$twin.tags.location`, will be stamped as a string for the DeviceLocation value in the message enrichments.
 
 Follow these steps to add a location tag to your device's twin with the portal.
 
@@ -332,7 +332,7 @@ Follow these steps to add a location tag to your device's twin with the portal.
   
     :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal":::
 
-1. Wait about five minutes before continuing to the next section. It can take that long for updates to the device twin to be reflected in the message enrichment value.
+1. Wait about five minutes before continuing to the next section. It can take up to that long for updates to the device twin to be reflected in message enrichment values.
 
 To learn more about how device twin paths are handled with message enrichments, see [Message enrichments limitations](iot-hub-message-enrichments-overview.md#limitations). To learn more about device twins, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
@@ -383,7 +383,7 @@ The messages in the container called **enriched** have the message enrichments i
 When you look at messages that have been enriched, you should see "my IoT Hub" with the hub name and the location and the customer ID, like this:
 
 ```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"Plant 43","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
+{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","myIotHub":"contosotesthubmsgen3276","DeviceLocation":"Plant 43","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
 Here's an unenriched message. Notice that "my IoT Hub," "devicelocation," and "customerID" don't show up here because these fields are added by the enrichments. This endpoint has no enrichments.
