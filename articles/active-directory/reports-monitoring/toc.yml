@@ -104,6 +104,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
   - name: Basic info in the sign-in logs
     href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
