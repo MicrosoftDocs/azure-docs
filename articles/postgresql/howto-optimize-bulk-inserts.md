@@ -1,10 +1,11 @@
 ---
 title: Optimize bulk inserts - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can optimize bulk insert operations on an Azure Database for PostgreSQL - Single Server.
-author: dianaputnam
-ms.author: dianas
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: dianas
+author: dianaputnam
 ms.date: 5/6/2019
 ---
 

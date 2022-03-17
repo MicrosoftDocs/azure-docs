@@ -72,7 +72,7 @@ Create the primary virtual network gateway using the Azure portal.
     | **Virtual network**| Select the virtual network for your secondary managed instance. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address. |
-    | &nbsp; | &nbsp; |
+
 
 1. Leave the other values as default, and then select **Review + create** to review the settings for your virtual network gateway.
 
@@ -134,7 +134,7 @@ The following table shows the values necessary for the gateway for the secondary
    | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
    | **Public IP address**| Select **Create new**. |
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
-   | &nbsp; | &nbsp; |
+
 
    ![Secondary gateway settings](./media/auto-failover-group-configure-sql-mi/settings-for-secondary-gateway.png)
 
@@ -427,7 +427,7 @@ The following table lists specific permission scopes for Azure SQL Managed Insta
 |**Create failover group**| Azure RBAC write access | Primary managed instance </br> Secondary managed instance|
 | **Update failover group** Azure RBAC write access | Failover group </br> All databases within the managed instance|
 | **Fail over failover group** | Azure RBAC write access | Failover group on new primary managed instance |
-| | | 
+
 
 
 ## Next steps

@@ -120,7 +120,6 @@ For the C# program to successfully run, you need to assign proper values to stat
 | Initial_DatabaseName | "myDatabase" | **SQL servers** > **SQL databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations** > **Search by name** > **Application ID** |
 | RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-registration]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, because it isn't used here. |
-| &nbsp; | &nbsp; | &nbsp; |
 
 ## Verify with SQL Server Management Studio
 
