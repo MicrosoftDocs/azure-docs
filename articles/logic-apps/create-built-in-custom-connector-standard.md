@@ -185,7 +185,7 @@ namespace ServiceProviders.CosmosDb.Extensions
 
 ### 3. Add the converter
 
-Add Converter: Logic app has implemented the generic way to handle any function built-in trigger using the JObject array, we may need (optional) to add a converter to convert the read only list of Azure Cosmos DB document into a **JObject** array. Once the converter is ready as shown in above example, we need to register the converter as part of ExtensionConfigContext.
+Add Converter: Logic app has implemented the generic way to handle any function built-in trigger using the **JObject** array, we may need (optional) to add a converter to convert the read only list of Azure Cosmos DB document into a **JObject** array. Once the converter is ready as shown in above example, we need to register the converter as part of ExtensionConfigContext.
 
 ```csharp
 // Convert the Cosmos Document list to a JObject array.
