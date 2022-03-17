@@ -243,4 +243,4 @@ The following headers are included with each Document Translator API request:
 **Tutorial**
 
 > [!div class="nextstepaction"]
-> [Access Azure Storage from a web app using managed identities](/azure/app-service/scenario-secure-app-access-storage?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json)
+> [Access Azure Storage from a web app using managed identities](../../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json)
