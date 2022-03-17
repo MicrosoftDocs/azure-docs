@@ -207,25 +207,25 @@ To restore the backup data as files instead of a database, choose **Restore as F
  
       Examples:
 
-      - SAP HANA SYSTEM restoration on same server
+      SAP HANA SYSTEM restoration on same server
 
         ```hdbsql
         RECOVER DATABASE FOR SYSTEM UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
         ```
 
-      - SAP HANA tenant restoration on same server
+      SAP HANA tenant restoration on same server
 
         ```hdbsql
         RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
         ```
 
-      - SAP HANA SYSTEM restoration on different server
+      SAP HANA SYSTEM restoration on different server
 
         ```hdbsql
         RECOVER DATABASE FOR SYSTEM UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
         ```
 
-      - SAP HANA tenant restoration on different server
+      SAP HANA tenant restoration on different server
 
         ```hdbsql
         RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
@@ -237,11 +237,11 @@ To restore the backup data as files instead of a database, choose **Restore as F
         ALTER SYSTEM STOP DATABASE {db} IMMEDIATE
         ```
 
-      Example:
+       Example:
 
-      ```hdbsql
-      ALTER SYSTEM STOP DATABASE HXE IMMEDIATE
-      ```
+        ```hdbsql
+        ALTER SYSTEM STOP DATABASE HXE IMMEDIATE
+        ```
 
 ### Restore to a specific point in time
 
