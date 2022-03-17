@@ -51,8 +51,8 @@ PostgreSQL - Hyperscale (Citus).
 
 Depending on which version of PostgreSQL is running in a server group,
 different [versions of PostgreSQL extensions](reference-extensions.md)
-will be installed as well. In particular, Postgres versions 12-14 come with
-Citus 10, and earlier Postgres versions come with Citus 9.5.
+will be installed as well. In particular, PostgreSQL versions 12-14 come with
+Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 ## Next steps
 
