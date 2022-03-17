@@ -296,6 +296,7 @@ To add the NuGet reference from the previous section, update the **extensions.js
 
 1. In Visual Studio Code, on the **Run** menu, select **Start Debugging**. (Press F5)
 
-1. To trigger your workflow, in the Azure portal, open Azure Data Explorer. Browse to your Azure Cosmos DB account, database, and collection that you specified in the trigger. Add an item to the collection.
+1. To trigger your workflow, in the Azure portal, open Azure Data Explorer. Browse to the Azure Cosmos DB account, database, and collection that you specified in the trigger. Add an item to the collection.
 
-   
+   ![Screenshot showing the trigger properties pane.](./media/create-built-in-custom-connector-standard/cosmos-db-account-test-add-item.png)
+
