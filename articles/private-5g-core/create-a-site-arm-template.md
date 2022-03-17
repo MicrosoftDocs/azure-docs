@@ -39,10 +39,10 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 Four Azure resources are defined in the template.
 
-- [**Microsoft.MobileNetwork/mobileNetworks/sites**](https://docs.microsoft.com/azure/templates/microsoft.mobilenetwork/sites): a resource representing your site as a whole.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](https://docs.microsoft.com/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network, including the IP address for the N6 interface and data subnet configuration.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](https://docs.microsoft.com/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the N3 interface.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](https://docs.microsoft.com/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the N2 interface.
+- [**Microsoft.MobileNetwork/mobileNetworks/sites**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/sites): a resource representing your site as a whole.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network, including the IP address for the N6 interface and data subnet configuration.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the N3 interface.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the N2 interface.
 
 ## Deploy the template
 
@@ -83,6 +83,7 @@ Four Azure resources are defined in the template.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
+1. Select **Go to resource group**.
 1. Confirm that the resource group contains the following new resources:
 
     - A **Mobile Network Site** resource representing the site as a whole.
