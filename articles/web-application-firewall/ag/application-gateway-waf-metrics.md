@@ -27,7 +27,7 @@ WAF with Application Gateway provides detailed reporting on each threat it detec
 For additional information on diagnostics log, visit [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md) 
 
 
-## Application Gateway WAF v2 Metrics  
+## Application Gateway WAF V2 Metrics  
 
 New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot protection and geo-filtering. The metrics can be further filtered on the supported dimensions
  
@@ -40,7 +40,7 @@ New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot
 
 For metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 
-## Application Gateway WAF v1 Metrics
+## Application Gateway WAF V1 Metrics
 
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
