@@ -229,7 +229,7 @@ Use the following steps to create an access review of a Teams Shared Channel or 
 1. Continue on to the **Reviews** tab. Select a reviewer to complete the review, then specify the **Duration** and **Review recurrence**. 
 
 > [!NOTE]
-> If you set **Select reviewers** to **Users review their own access**, B2B Direct Connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will be asked to review in the B2B Direct Connect user or Team’s place.
+> If you set **Select reviewers** to **Users review their own access** or **Managers of users**, B2B Direct Connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will be asked to review the B2B Direct Connect user and Teams. In the case of **Managers of users**, a selected fallback reviewer will review any user without a manager in the home tenant, including the B2B Direct Connect users and Teams.
 
 1. Go on to the **Settings** tab and congifure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
 
