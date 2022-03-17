@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 ## Enable managed identity on an app
 
-If you create and publish your web app through Visual Studio, the managed identity was enabled on your app for you. In your app service, select **Identity** in the left pane, and then select **System assigned**. Verify that the **Status** is set to **On**. If not, select **On**. Select **Save** and then **Yes** in the confirmation dialog to enable the system-assigned managed identity. When the managed identity is enabled, the status is set to **On** and the object ID is available.
+If you create and publish your web app through Visual Studio, the managed identity was enabled on your app for you. In your app service, select **Identity** in the left pane, and then select **System assigned**. Verify that the **Status** is set to **On**. If not, select **On** and then **Save**. Select **Yes** in the confirmation dialog to enable the system-assigned managed identity. When the managed identity is enabled, the status is set to **On** and the object ID is available.
 
 :::image type="content" alt-text="Screenshot that shows the System assigned identity option." source="../../media/scenario-secure-app-access-storage/create-system-assigned-identity.png":::
 
