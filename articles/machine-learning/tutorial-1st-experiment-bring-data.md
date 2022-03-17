@@ -176,7 +176,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
     datastore = ws.get_default_datastore()
     Dataset.File.upload_directory(src_dir='data', 
                                   target=DataPath(datastore, "datasets/cifar10")
-    
+                                 )  
     ```
 
     The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.
