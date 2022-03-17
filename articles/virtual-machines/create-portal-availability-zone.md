@@ -4,7 +4,7 @@ description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/17/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: 
@@ -67,7 +67,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
    1. You can select an existing load balancer or select **Create a load balancer**.
    2. To create a new load balancer, for **Load balancer name** type a load balancer name.
-   3. Select the **Type** of load balancer, either Public or Internal.
+   3. Select the **Type** of load balancer, either *Public* or *Internal*.
    4. Select the **Protocol**, either **TCP** or **UDP**.
    5. You can leave the default **Port** and **Backend port**, or change them if needed. The backend port you select will be opened up on the Network Security Group (NSG) of the VM.
    6. When you are done, select **Create**.
