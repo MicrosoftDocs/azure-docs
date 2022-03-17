@@ -31,7 +31,8 @@ To get started, you'll need:
 - An Azure subscription. If you don't have one, get a [free
 account](https://azure.microsoft.com/free).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that
+- An [Azure AD B2C tenant](tutorial-create-tenant.md) that
+
 is linked to your Azure subscription.
 
 - A [trial version](https://eID-ME.ca/eid-me/download) of eID-Me smartphone apps for users.
