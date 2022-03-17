@@ -102,3 +102,9 @@ For more information about multiple NICs, see [Multiple NICs support](https://gi
 
 >[!WARNING]
 >When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one Default route per ehtX interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information, see [EFLOW Routting](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
+
+## Next steps
+
+Read more about [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
+
+Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md)
