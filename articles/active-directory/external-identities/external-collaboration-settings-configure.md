@@ -71,6 +71,10 @@ Here's an example that shows how to use PowerShell to add a user to the Guest In
 Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
 ```
 
+## Sign in logs for B2B users
+
+When a B2B user signs into a resource tenant to collaborate, a sign in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, the tenant name and tenant ID for both the home tenant and the resource tenant, and their email address. 
+
 ## Next steps
 
 See the following articles on Azure AD B2B collaboration:
