@@ -693,15 +693,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 
 ::: zone-end
 
-## Connect to your cluster
+## Connect to your cluster -  PowerShell
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 
-## Clean up resources
+## Clean up resources - PowerShell
 
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
-
-# [PowerShell](#tab/powershell)
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup -Force
@@ -771,13 +769,13 @@ az role assignment create \
     --assignee-principal-type 'ServicePrincipal'
 ```
 
-### Get the service principal object ID for the OpenShift resource provider
+### Get the service principal object ID for the OpenShift resource provider - Azure CLI
 
 ```azurecli-interactive
 ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" --query [0].objectId -o tsv)
 ```
 
-### Deploy the cluster
+### Deploy the cluster - Azure CLI
 
 ```azurecli-interactive
 az deployment group create \
@@ -794,15 +792,13 @@ az deployment group create \
     --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
 ```
 
-## Connect to your cluster
+## Connect to your cluster - Azure CLI
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 
-## Clean up resources
+## Clean up resources - Azure CLI
 
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
-
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
