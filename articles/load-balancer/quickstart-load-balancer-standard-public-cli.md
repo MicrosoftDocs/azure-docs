@@ -63,7 +63,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
     --zone 1 2 3
 ```
 
-To create a zonal public IP address in Zone 1 use the following command:
+To create a zonal public IP address in Zone 1, use the following command:
 
 ```azurecli
   az network public-ip create \
