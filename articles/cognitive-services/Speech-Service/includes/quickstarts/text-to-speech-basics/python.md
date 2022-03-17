@@ -77,7 +77,7 @@ Enter some text that you want to speak. For example, type "I'm excited to try te
 
 ```console
 Enter some text that you want to speak > 
-> I'm excited to try text to speech
+I'm excited to try text to speech
 ```
 
 > [!div class="nextstepaction"]
