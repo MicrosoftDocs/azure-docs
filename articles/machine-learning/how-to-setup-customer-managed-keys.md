@@ -28,7 +28,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
     | Microsoft.MachineLearningServices | Creating the Azure Machine Learning workspace.
     | Microsoft.Storage	Azure | Storage Account is used as the default storage for the workspace.
     | Microsoft.KeyVault |Azure Key Vault is used by the workspace to store secrets.
-    | Microsoft.DocumentDB/databaseAccounts | Azure CosmosDB instance that logs metadata for the workspace.
+    | Microsoft.DocumentDB/databaseAccounts | Azure Cosmos DB instance that logs metadata for the workspace.
     | Microsoft.Search/searchServices | Azure Search provides indexing capabilities for the workspace.
 
     For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
@@ -45,7 +45,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 
 ## Create Azure Key Vault
 
-For the steps to create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+To create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
 
 ### Create a key
 
@@ -63,7 +63,7 @@ For the steps to create the key vault, see [Create a key vault](/azure/key-vault
 1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
 
     * Set __Options__ to __Generate__.
-    * Enter a __Name__ for the key. The name should be something that you identifies what the planned use is. For example, `my-cosmos-key`.
+    * Enter a __Name__ for the key. The name should be something that identifies what the planned use is. For example, `my-cosmos-key`.
     * Set __Key type__ to __RSA__.
     * We recommend selecting at least __3072__ for the __RSA key size__.
     * Leave __Enabled__ set to yes.
@@ -107,7 +107,7 @@ Create an Azure Machine Learning workspace. When creating the workspace, you mus
 > | Azure Resource Manager</br>template [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 > | REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
-Once the workspace has been created, you will notice that Azure resource group is created in your subscription. This is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
+Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
 
 > [!TIP]
 > * The [__Request Units__](/azure/cosmos-db/request-units) for the Azure Cosmos DB instance automatically scale as needed.
