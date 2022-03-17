@@ -14,7 +14,7 @@ ms.date: 3/31/2022
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/how-to-permissions.md).
-- A resource including monitoring data with  Managed Grafana monitoring permissions. Read [how to configure permissions](how-to-permissions) for more information.
+- A resource including monitoring data with  Managed Grafana monitoring permissions. Read [how to configure permissions](how-to-permissions.md) for more information.
 
 ## Sign in to Azure
 
@@ -55,8 +55,8 @@ Authentication and authorization are made through Managed Identity. You can use 
 By default, Managed Grafana has a **Log Analytics Reader** access to all the resources in the subscription. To change this:
 
 1. Go to the Log Analytics resource that contains the monitoring data you want to visualize.
-2. Go to **Access Control (IAM)**.
-3. Search for your Managed Grafana workspace and change the permission.
+1. Go to **Access Control (IAM)**.
+1. Search for your Managed Grafana workspace and change the permission.
 
 ## Next steps
 

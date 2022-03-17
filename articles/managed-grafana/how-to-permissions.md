@@ -34,23 +34,23 @@ To edit permissions for a specific resource, follow these steps:
    
    :::image type="content" source="media/how-to-permissions-IAM.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
 
-3. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
-4. Select **Next**.
-      :::image type="content" source="media/how-to-permissions-role.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
+1. Select **Next**.
+      :::image type="content" source="media/how-to-permissions-role.png" alt-text="Screenshot of the Azure platform and choose Monitor Reader.":::
 
-5. For **Assign access to**, select **Managed Identity**.
-6. Select **Select members**.
+1. For **Assign access to**, select **Managed Identity**.
+1. Select **Select members**.
 
-      :::image type="content" source="media/how-to-permissions-members.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+      :::image type="content" source="media/how-to-permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
 
-7. Select the **Subscription** containing your Managed Grafana workspace
-8. Select a **Managed identity** from the options in the dropdown list
-9.  Select your Managed Grafana workspace from the list.
-10. Select **Select** to confirm
+1. Select the **Subscription** containing your Managed Grafana workspace
+1. Select a **Managed identity** from the options in the dropdown list
+1.  Select your Managed Grafana workspace from the list.
+1. Select **Select** to confirm
 
-      :::image type="content" source="media/how-to-permissions-identity.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+      :::image type="content" source="media/how-to-permissions-identity.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
 
-11. Select **Next**, then **Review + assign** to confirm the application of the new permission
+1. Select **Next**, then **Review + assign** to confirm the application of the new permission
 
 ## Next steps
 
