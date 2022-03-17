@@ -215,7 +215,7 @@ Use the following steps to create an access review of a Teams Shared Channel or 
 
 1. Select **+ New access review**.
 
-1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. 
+1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams are not included in reviews of **All Microsoft 365 groups with guest users** at this time.
  
 1. Select a Team that has shared channels shared with 1 or more B2B Direct Connect users or Teams.  
 
