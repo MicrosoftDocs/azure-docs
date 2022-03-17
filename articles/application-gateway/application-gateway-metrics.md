@@ -143,7 +143,7 @@ For Application Gateway, the following metrics are available:
   
 ### Web Application Firewall (WAF) metrics
 
-_For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)_  
+For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics) 
 
 ## Metrics supported by Application Gateway V1 SKU
 
@@ -190,7 +190,7 @@ For Application Gateway, the following metrics are available:
 
 ### Web Application Firewall (WAF) metrics
 
-_For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#metrics-supported-by-application-gateway-v1-sku)_  
+For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#metrics-supported-by-application-gateway-v1-sku)
 
 ## Metrics visualization
 
