@@ -140,6 +140,8 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
       ```bash
       sudo update-ca-certificates
       ```
+      This command should output that one certificate was added to /etc/ssl/certs.
+
 
     * **IoT Edge for Linux on Windows (EFLOW)**
       ```bash
@@ -148,8 +150,6 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
       For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
   
   
-    This command should output that one certificate was added to /etc/ssl/certs.
-
 1. Open the IoT Edge configuration file.
 
    ```bash

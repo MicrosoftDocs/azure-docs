@@ -7,7 +7,7 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 03/14/2022
 tags: connectors
 ---
 
@@ -25,9 +25,9 @@ This connector includes a Microsoft MQ client that communicates with a remote MQ
 
 ## Available operations
 
-* Multi-tenant Azure Logic Apps: When you create a **Logic App (Consumption)** resource, you can connect to an MQ server only by using the *managed* MQ connector. This connector provides only actions, no triggers.
+* Consumption logic app: You can connect to an MQ server only by using the *managed* MQ connector. This connector provides only actions, no triggers.
 
-* Single-tenant Azure Logic Apps: When you create a single-tenant based logic app workflow, you can connect to an MQ server by using either the managed MQ connector, which includes *only* actions, or the *built-in* MQ operations, which includes triggers *and* actions.
+* Standard logic app: You can connect to an MQ server by using either the managed MQ connector, which includes *only* actions, or the *built-in* MQ operations, which include triggers *and* actions.
 
 For more information about the difference between a managed connector and built-in operations, review [key terms in Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
@@ -62,7 +62,9 @@ These built-in MQ operations also have the following capabilities plus the benef
 
 ## Limitations
 
-The MQ connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+* The MQ connector doesn't support segmented messages.
+
+* The MQ connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
 ## Prerequisites
 

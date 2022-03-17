@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/14/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -224,6 +224,11 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 1. For **Allow Azure services and resources to access this workspace** control, select **ON**.
 
 1. Select **Save**.
+
+> [!IMPORTANT]
+> Currently, we do not support setting up scans for an Azure Synapse workspace from Azure Purview Studio, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
+>  - You can use [Azure Purview Rest API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
+>  - You must use **SQL Auth** as authentication mechanism.
 
 ### Create and run scan
 

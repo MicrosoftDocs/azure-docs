@@ -40,7 +40,9 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 
 ```xml
 <cross-domain>
+    <cross-domain-policy>
         <allow-http-request-headers-from domain='*' headers='*' />
+    </cross-domain-policy>
 </cross-domain>
 ```
 
@@ -54,7 +56,7 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
-- **Policy scopes:** all scopes
+- **Policy scopes:** global
 
 ## <a name="CORS"></a> CORS
 The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients. 
