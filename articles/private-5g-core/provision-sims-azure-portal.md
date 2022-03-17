@@ -145,4 +145,4 @@ In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM
 
 ## Next steps
 
-- [Activate your SIMs to allow them to use your private mobile network](activate-sims.md)
+- [Learn more about policy control](policy-control.md)
