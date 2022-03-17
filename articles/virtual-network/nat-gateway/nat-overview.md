@@ -88,6 +88,6 @@ For information on the SLA, see [SLA for Virtual Network NAT](https://azure.micr
 
 ## Next steps
 
-* Learn [how to get better outbound connectivity using an Azure NAT gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
-* Learn about [NAT gateway resource](./nat-gateway-resource.md).
-* Learn more about [NAT gateway metrics](./nat-metrics.md).
+* Learn [how to get better outbound connectivity using an Azure NAT gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4)
+* Learn about [NAT gateway resource](./nat-gateway-resource.md)
+* Learn more about [NAT gateway metrics](./nat-metrics.md)
