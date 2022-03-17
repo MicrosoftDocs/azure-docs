@@ -603,7 +603,11 @@ The template parameters below have default values. They can be specified, but th
 | `apiServerVisibility` | The visibility of the API server (`Public` or `Private`). | | Public
 | `ingressVisibility` | The ingress (entrance) visibility (`Public` or `Private`). | | Public
 
-The following sections provide instructions using Powershell or Azure CLI.
+The following sections provide instructions using PowerShell or Azure CLI.
+
+## PowerShell steps 
+
+Perform the following steps if you are using PowerShell.
 
 ### Before you begin - PowerShell
 
@@ -704,6 +708,9 @@ Once you're done, run the following command to delete your resource group and al
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup -Force
 ```
+## Azure CLI steps 
+
+Perform the following steps if you are using Azure CLI.
 
 ### Before you begin - Azure CLI
 
