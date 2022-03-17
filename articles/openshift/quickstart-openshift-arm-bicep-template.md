@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: rahulmehta
-ms.date: 02/15/2022
+ms.date: 03/17/2022
 keywords: azure, openshift, aro, red hat, arm, bicep
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
@@ -43,7 +43,6 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 * If you want to run the Azure CLI code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
     * [Azure CLI](/cli/azure/install-azure-cli).
-
 
 
 ## Create an ARM template or Bicep file
@@ -604,7 +603,7 @@ The template parameters below have default values. They can be specified, but th
 | `apiServerVisibility` | The visibility of the API server (`Public` or `Private`). | | Public
 | `ingressVisibility` | The ingress (entrance) visibility (`Public` or `Private`). | | Public
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/powershell)
 
 ### Before you begin - PowerShell
 
@@ -693,7 +692,20 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 ```
 
 ::: zone-end
- 
+
+## Connect to your cluster
+
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+
+## Clean up resources
+
+Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Remove-AzResourceGroup -Name $resourceGroup -Force
+```
 # [Azure CLI](#tab/azure-cli)
 
 ### Before you begin - Azure CLI
@@ -782,7 +794,6 @@ az deployment group create \
     --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
 ```
 
-
 ## Connect to your cluster
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
@@ -790,12 +801,6 @@ To connect to your new cluster, review the steps in [Connect to an Azure Red Hat
 ## Clean up resources
 
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Remove-AzResourceGroup -Name $resourceGroup -Force
-```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -819,3 +824,4 @@ Advance to the next article to learn how to configure the cluster for authentica
 * [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
 
 * [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)i
+
