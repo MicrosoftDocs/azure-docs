@@ -620,7 +620,7 @@ Before running the commands in this quickstart, you might need to run `Connect-A
 $rhosPullSecret= Get-Content .\pull-secret.txt -Raw # the pull secret text that was obtained from the Red Hat OpenShift Cluster Manager website
 ```
 
-### Define the following parameters as environment variables - Powershell
+### Define the following parameters as environment variables - PowerShell
 
 ```powershell
 $resourceGroup="aro-rg"	     # the new resource group for the cluster
@@ -646,7 +646,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Authorization
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### Create a new service principal and assign roles  - Powershell
+### Create a new service principal and assign roles  - PowerShell
 
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
@@ -657,20 +657,20 @@ New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 ```
 
-### Get the Service Principal password  - Powershell
+### Get the Service Principal password  - PowerShell
 
 ```powershell
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
-### Get the service principal for the OpenShift resource provider - Powershell
+### Get the service principal for the OpenShift resource provider - PowerShell
 
 ```powershell
 $rpOpenShift =  Get-AzADServicePrincipal -DisplayName 'Azure Red Hat OpenShift RP' | Select-Object -ExpandProperty Id -Property Id -First 1
 ```
 
-### Check the parameters before deploying the cluster - Powershell
+### Check the parameters before deploying the cluster - PowerShell
 
 ```powershell
 # setup the parameters for the deployment
@@ -688,7 +688,7 @@ $templateParams = @{
 Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 ```
 
-### Deploy the Azure Red Hat OpenShift cluster using the ARM template - Powershell
+### Deploy the Azure Red Hat OpenShift cluster using the ARM template - PowerShell
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
@@ -697,11 +697,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 
 ::: zone-end
 
-## Connect to your cluster -  PowerShell
+### Connect to your cluster -  PowerShell
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 
-## Clean up resources - PowerShell
+### Clean up resources - PowerShell
 
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
 
@@ -760,7 +760,7 @@ SP_CLIENT_SECRET=$(jq -r '.password' app-service-principal.json)
 SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.objectId')
 ```
 
-### Assign the Contributor role to the new service principal - Azure CLI
+### Assign the Contributor role to the new service principal - Azure CLI 
 
 ```azurecli-interactive
 az role assignment create \
@@ -799,11 +799,11 @@ az deployment group create \
     --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
 ```
 
-## Connect to your cluster - Azure CLI
+### Connect to your cluster - Azure CLI
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 
-## Clean up resources - Azure CLI
+### Clean up resources - Azure CLI
 
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
 
@@ -825,4 +825,3 @@ Advance to the next article to learn how to configure the cluster for authentica
 * [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
 
 * [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)i
-
