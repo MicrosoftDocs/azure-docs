@@ -1,8 +1,8 @@
 ---
 title: Supported versions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: PostgreSQL versions available in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
