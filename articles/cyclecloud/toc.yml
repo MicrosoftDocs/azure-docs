@@ -118,6 +118,8 @@
       href: ./how-to/cloud-init.md
     - name: Use Spot Instances
       href: ./how-to/use-spot-instances.md
+    - name: Use Scheduled Events
+      href: ./how-to/scheduled-events.md
     - name: Use Storage Blobs
       href: ./how-to/storage-blobs.md
     - name: Configure SELinux
