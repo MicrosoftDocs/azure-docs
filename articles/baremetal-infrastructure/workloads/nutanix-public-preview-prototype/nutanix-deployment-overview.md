@@ -17,4 +17,4 @@ Read this section carefully and do the required planning and preparations to get
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the PUblic Preview](about-the-public-preview.md)
+> [About the Public Preview](about-the-public-preview.md)

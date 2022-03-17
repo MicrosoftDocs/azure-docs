@@ -10,6 +10,8 @@
   items:
   - name: Deployment Overview
     href: nutanix-deployment-overview.md
+  - name: Setup an Account
+    href: setup-an-account.md
 - name: BareMetal SKUs 
   href: nutanix-baremetal-skus.md
 - name: Architecture
