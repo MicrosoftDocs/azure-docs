@@ -140,15 +140,15 @@ Once you've added a code sample to your application, navigate back to your main 
 
 1. Build your application with the `build` command:
 
-```console
-gradle build
-```
+    ```console
+    gradle build
+    ```
 
 1. Run your application with the `run` command:
-
-```console
-gradle run
-```
+    
+    ```console
+    gradle run
+    ```
 
 ## General document model
 

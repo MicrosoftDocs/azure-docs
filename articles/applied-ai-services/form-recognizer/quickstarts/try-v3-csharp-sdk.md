@@ -149,7 +149,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+    :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 <!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 

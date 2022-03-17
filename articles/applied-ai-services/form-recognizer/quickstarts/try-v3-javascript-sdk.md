@@ -110,9 +110,9 @@ Once you've added a code sample to your application, build and run your applicat
 
 1. Type the following command in your terminal:
 
-```console
-node index.js
-```
+    ```console
+    node index.js
+    ```
 
 ## General document model
 

@@ -77,6 +77,18 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
+## Run your application
+
+Once you've added a code sample to your application, build and run your application:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
+
 ## General document model
 
 Extract text, tables, structure, key-value pairs, and named entities from documents.
@@ -223,16 +235,6 @@ if __name__ == "__main__":
     analyze_general_documents()
 ```
 
-### Run your general document application
-
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
-
-1. Type the following command in your terminal:
-
-```console
-python form_recognizer_quickstart.py
-```
-
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -368,16 +370,6 @@ def analyze_layout():
 if __name__ == "__main__":
     analyze_layout()
 
-```
-
-### Run your layout application
-
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
-
-1. Type the following command in your terminal:
-
-```console
-python form_recognizer_quickstart.py
 ```
 
 ### Layout model output
@@ -703,16 +695,6 @@ def analyze_invoice():
 
 if __name__ == "__main__":
     analyze_invoice()
-```
-
-### Run your application
-
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
-
-1. Type the following command in your terminal:
-
-```console
-python form_recognizer_quickstart.py
 ```
 
 ### Prebuilt model output
