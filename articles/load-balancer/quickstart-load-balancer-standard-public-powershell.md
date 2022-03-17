@@ -17,7 +17,7 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
@@ -73,20 +73,28 @@ This section details how you can create and configure the following components o
 
 * Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) for the frontend IP pool. This IP receives the incoming traffic on the load balancer
 
-* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed.
+* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed
 
-* Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances.
+* Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances
 
-* Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines how traffic is distributed to the VMs.
+* Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines how traffic is distributed to the VMs
 
-* Create a public load balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+* Create a public load balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)
 
 ```azurepowershell-interactive
 ## Place public IP created in previous steps into variable. ##
-$publicIp = Get-AzPublicIpAddress -Name 'myPublicIP' -ResourceGroupName 'CreatePubLBQS-rg'
+$pip = @{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'CreatePubLBQS-rg
+}
+$publicIp = Get-AzPublicIpAddress @pip
 
 ## Create load balancer frontend configuration and place in variable. ##
-$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
+$fip = @{
+    Name = 'myFrontEnd'
+    PublicIpAddress = $publicIp 
+}
+$feip = New-AzLoadBalancerFrontendIpConfig @fip
 
 ## Create backend address pool configuration and place in variable. ##
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
@@ -141,17 +149,17 @@ Use a NAT gateway to provide outbound internet access to resources in the backen
 
 ### Create virtual network, network security group, bastion host, and NAT gateway
 
-* Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
+* Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 
-* Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+* Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
-* Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion).
+* Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
-* Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+* Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 * Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
 
-* Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network.
+* Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway ##
@@ -248,9 +256,9 @@ New-AzNetworkSecurityGroup @nsg
 
 In this section, you'll create the two virtual machines for the backend pool of the load balancer.
 
-* Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
+* Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 
-* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
+* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)
 
 * Create the virtual machines with:
     
