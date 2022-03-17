@@ -3,8 +3,8 @@ title: 'Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexibl
 description: In this quickstart, you learn how to use Java and JDBC with an Azure Database for PostgreSQL Flexible server.
 ms.service: postgresql
 ms.subservice: single-server
-author: mksuni
 ms.author: sumuth
+author: mksuni
 ms.subservice: flexible-server
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart

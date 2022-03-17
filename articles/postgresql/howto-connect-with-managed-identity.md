@@ -6,8 +6,8 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
+ms.date: 05/19/2020
 ---
 
 # Connect with Managed Identity to Azure Database for PostgreSQL

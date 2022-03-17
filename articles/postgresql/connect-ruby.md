@@ -3,8 +3,8 @@ title: 'Quickstart: Connect with Ruby - Azure Database for PostgreSQL - Single S
 description: This quickstart provides a Ruby code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 ms.service: postgresql
 ms.subservice: single-server
-author: mksuni
 ms.author: sumuth
+author: mksuni
 ms.custom: mvc, mode-other
 ms.devlang: ruby
 ms.topic: quickstart

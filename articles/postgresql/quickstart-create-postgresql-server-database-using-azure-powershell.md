@@ -2,6 +2,7 @@
 title: 'Quickstart: Create server - Azure PowerShell - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create an Azure Database for PostgreSQL - Single Server using Azure PowerShell.
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal

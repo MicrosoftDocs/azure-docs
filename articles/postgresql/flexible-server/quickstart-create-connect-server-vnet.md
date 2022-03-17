@@ -3,8 +3,8 @@ title: 'Connect to Azure Database for PostgreSQL flexible server with private ac
 description: This article shows how to create and connect to Azure Database for PostgreSQL flexible server with private access or virtual network using Azure portal.
 ms.service: postgresql
 ms.subservice: single-server
-author: mksuni
 ms.author: sumuth
+author: mksuni
 ms.subservice: flexible-server
 ms.custom: mvc, mode-ui
 ms.topic: quickstart

@@ -3,10 +3,10 @@ title: Generate a connection string with PowerShell - Azure Database for Postgre
 description: This article provides an Azure PowerShell example to generate a connection string for connecting to Azure Database for PostgreSQL.
 ms.service: postgresql
 ms.subservice: single-server
-author: mksuni
-ms.author: sumuth
-ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
+ms.author: sumuth
+author: mksuni
+ms.custom: mvc, devx-track-azurepowershell
 ms.date: 8/6/2020
 ---
 

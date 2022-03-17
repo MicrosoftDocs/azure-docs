@@ -3,8 +3,8 @@ title: Data encryption - Azure CLI - for Azure Database for PostgreSQL - Single 
 description: Learn how to set up and manage data encryption for your Azure Database for PostgreSQL Single server by using the Azure CLI.
 ms.service: postgresql
 ms.subservice: single-server
-author: mksuni
 ms.author: sumuth
+author: mksuni
 ms.topic: how-to
 ms.date: 03/30/2020 
 ms.custom: devx-track-azurecli
