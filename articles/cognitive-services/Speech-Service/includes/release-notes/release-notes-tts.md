@@ -6,6 +6,11 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
+### 2022-March release
+
+#### New styles public preview for fr-FR Denise
+Introducing 2 new styles for public preview on fr-FR Denise: Cheerful and Sad
+
 ### 2022-January release
 
 #### New languages and voices
