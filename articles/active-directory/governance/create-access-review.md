@@ -205,7 +205,7 @@ With an increase in external collaboration, you may need to use access reviews t
 
 When you create an access review on a Team with shared channels, your reviewers can review continued need for access of those external users and Teams in the shared channels, known as B2B direct connect users, in addition to reviewing the currently supported B2B collaboration users and non-B2B internal users.
 
-Use the following steps to create an access review of a Teams Shared Channel or Microsoft 365 group. To create the review you must be a Global Administrator (Admin), User administrator, or Identity Governance Administrator:
+B2B direct connect users and teams will be included in access reviews of the Teams-enabled Microsoft 365 group that the shared channels are a part of. To create the review you must be a Global Administrator, User administrator, or Identity Governance Administrator:
 
 1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
   
