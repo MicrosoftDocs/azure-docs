@@ -2,6 +2,8 @@
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
+ms.author: benmansheim
+author: bmansheim
 ms.date: 01/17/2022
 ms.custom: mode-other
 ---
