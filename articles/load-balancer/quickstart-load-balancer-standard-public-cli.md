@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
-Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure CLI to create a public load balancer and two virtual machines.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
