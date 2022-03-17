@@ -41,7 +41,7 @@ Before you can create an Azure Front Door origin, you must have an Azure Front D
     | Name | Enter a unique name for the new Azure Front Door origin. |   
     | Origin Type | The type of resource you want to add. Azure Front Door Standard and Premium tier supports autodiscovery of your application origin such as Azure App services, Azure Cloud service, and Azure Storage. If you want a different origin type in Azure or a non-Azure backend, you can select **Custom host**. |
     | Host Name  | If you didn't select **Custom host** as origin host type, then select your backend origin host name in the dropdown. |
-    | Origin host header | Enter the host header value being sent to the backend for each request. For more information, see [origin host header](origin.md#hostheader). |
+    | Origin host header | Enter the host header value being sent to the backend for each request. For more information, see [origin host header](origin.md#origin-host-header). |
     | Certificate subject name validation | During the Azure Front Door and origin TLS connection, Azure Front Door will validate if the request host name matches the host name in the certificate provided by the origin. For more information, see [End-to-end TLS](end-to-end-tls.md). |
     | HTTP Port | Enter the value for the port that the origin supports for HTTP protocol. |
     | HTTPS Port | Enter the value for the port that the origin supports for HTTPS protocol. |
