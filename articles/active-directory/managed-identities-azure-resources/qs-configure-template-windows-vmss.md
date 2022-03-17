@@ -11,7 +11,7 @@ ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-other
@@ -67,7 +67,7 @@ In this section, you will enable and disable the system-assigned managed identit
    }
    ```
 
-4. When you're done, the following sections should added to the resource section of your template  and should resemble the following:
+4. When you're done, the following sections should added to the resource section of your template  and should resemble the example shown below:
 
    ```json
     "resources": [

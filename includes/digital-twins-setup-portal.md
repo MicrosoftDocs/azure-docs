@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-In this section, you'll create a new instance of Azure Digital Twins using the [Azure portal](https://ms.portal.azure.com/). Navigate to the portal and log in with your credentials.
+In this section, you'll create a new instance of Azure Digital Twins using the [Azure portal](https://portal.azure.com/). Navigate to the portal and log in with your credentials.
 
 1. Once in the portal, start by selecting **Create a resource** in the Azure services home page menu.
 

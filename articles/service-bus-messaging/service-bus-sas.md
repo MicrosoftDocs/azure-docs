@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 10/18/2021
+ms.date: 01/06/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -19,6 +19,8 @@ SAS guards access to Service Bus based on authorization rules. Those are configu
 > Microsoft recommends using Azure AD with your Azure Service Bus applications when possible. For more information, see the following articles:
 > - [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](authenticate-application.md).
 > - [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md)
+> 
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure AD authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview of SAS
 

@@ -34,7 +34,7 @@ This is how the workbook will look like in read-mode.
 ## Referencing a time parameter
 ### Via Bindings
 1. Add a query control to the workbook and select an Application Insights resource.
-2. Most workbook controls support a _Time Range_ scope picker. Open the _Time Range_ drop-down and select the `{TimeRange}` in the time rang parameters group at the bottom.
+2. Most workbook controls support a _Time Range_ scope picker. Open the _Time Range_ drop-down and select the `{TimeRange}` in the time range parameters group at the bottom.
 3. This binds the time range parameter to the time range of the chart. The time scope of the sample query is now Last 24 hours.
 4. Run query to see the results
 

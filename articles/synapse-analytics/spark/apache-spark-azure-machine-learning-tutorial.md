@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Train a model in Python with automated machine learning'
 description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: tutorial

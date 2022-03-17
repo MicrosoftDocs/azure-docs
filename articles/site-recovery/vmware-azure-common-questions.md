@@ -344,7 +344,22 @@ Yes, you can change the type or size of the VM at any time before failover. In t
 
 ### How far back can I recover?
 
-For VMware to Azure, the oldest recovery point you can use is 72 hours.
+For VMware to Azure, the oldest recovery point you can use is 15 days.
+
+### How does the pruning of recovery points happen?
+
+Crash-consistent recovery points are generated in every five minutes. App-consistent snapshots are generated based on the input frequency entered by you. Beyond two hours, pruning of recovery points may happen based on the retention period that you input. Following are the scenarios:
+
+|**Retention Period input**        | **Pruning mechanism**           |
+|----------------------------------|---------------------------------|
+|0 day|No recovery point saved. You can failover only to the latest point|
+|1 day|One recovery point saved per hour beyond the last two hours|
+|2 - 7 days|One recovery point saved per two hours beyond the last two hours|
+|8 - 15 days|One recovery point saved per two hours beyond last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on duration mentioned above even if you input lesser app-consistent snapshot frequency.|
+
+### Do increases in recovery point retention increase storage costs?
+
+Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional 2 days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ### How do I access Azure VMs after failover?
 
@@ -371,7 +386,7 @@ When you fail back from Azure, data from Azure is copied back to your on-premise
 
 ### Can I set up replication with scripting?
 
-Yes. You can automate Site Recovery workflows by using the Rest API, PowerShell, or the Azure SDK. [Learn more](vmware-azure-disaster-recovery-powershell.md).
+Yes. You can automate Site Recovery workflows by using the REST API, PowerShell, or the Azure SDK. [Learn more](vmware-azure-disaster-recovery-powershell.md).
 
 ## Performance and capacity
 

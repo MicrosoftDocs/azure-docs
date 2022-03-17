@@ -21,7 +21,7 @@ To learn about working with a log-based dashboard, see the following [tutorial](
 
 To change email notifications after Start/Stop VMs v2 (preview) is deployed, you can modify the action group created during deployment.
 
-1. In the Azure portal, navigate to **Monitor**, then **Alerts**. Select **Manage actions**.
+1. In the Azure portal, navigate to **Monitor**, then **Alerts**. Select **Action groups**.
 
 1. On the **Manage actions** page, select the action group called **StartStopV2_VM_Notication**.
 

@@ -1,13 +1,13 @@
 ---
 title: Configure F5 BIG-IP’s Access Policy Manager for form-based SSO
 description: Learn how to configure F5's BIG-IP Access Policy Manager and Azure Active Directory for secure hybrid access to form-based applications.
-author: NishthaBabith-V
+author: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/20/2021
-ms.author: v-nisba
+ms.author: celested
 ms.collection: M365-identity-device-management
 ---
 
@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 
 In this article, you'll learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to form-based applications.
 
-Configuring BIG-IP published applications with Azure AD provides many benefits, including:
+Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-- Improved Zero Trust governance through Azure AD pre-authentication and authorization
+- Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 - Full single sign-on (SSO) between Azure AD and BIG-IP published services
-- Identities and access are managed from a single control plane, the Azure portal
+- Identities and access are managed from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md) and [What is application access and single sign-on with Azure AD?](../active-directory-appssoaccess-whatis.md).
 
@@ -440,5 +440,3 @@ For more information, see the F5 BIG-IP [Session Variables reference](https://te
 * [What is Conditional Access?](../conditional-access/overview.md)
 
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
-
-

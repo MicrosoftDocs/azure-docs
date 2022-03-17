@@ -77,7 +77,7 @@ To see error messages from the telegraf service, run it manually by using the fo
 
 ### mdsd service logs 
 
-Check [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites) for the Azure Monitor agent. 
+Check [prerequisites](../agents/azure-monitor-agent-manage.md#prerequisites) for the Azure Monitor agent. 
 
 Prior to Azure Monitoring Agent v1.12, mdsd service logs were located in:
 - `/var/log/mdsd.err`
@@ -189,7 +189,7 @@ During preview of SQL Insights, you may encounter the following known issues.
 
 ## Best practices
 
-* **Ensure access to Key Vault from the monitoring VM**. If you use Key Vault to store SQL authentication passwords (strongly recommended), you need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/azure/key-vault/general/access-behind-firewall) and [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security). To verify that the monitoring VM can access Key Vault, you can execute the following commands from an SSH session connected to the VM. You should be able to successfully retrieve the access token and the secret. Replace `[YOUR-KEY-VAULT-URL]`, `[YOUR-KEY-VAULT-SECRET]`, and `[YOUR-KEY-VAULT-ACCESS-TOKEN]` with actual values.
+* **Ensure access to Key Vault from the monitoring VM**. If you use Key Vault to store SQL authentication passwords (strongly recommended), you need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](../../key-vault/general/how-to-azure-key-vault-network-security.md). To verify that the monitoring VM can access Key Vault, you can execute the following commands from an SSH session connected to the VM. You should be able to successfully retrieve the access token and the secret. Replace `[YOUR-KEY-VAULT-URL]`, `[YOUR-KEY-VAULT-SECRET]`, and `[YOUR-KEY-VAULT-ACCESS-TOKEN]` with actual values.
 
   ```bash
   # Get an access token for accessing Key Vault secrets

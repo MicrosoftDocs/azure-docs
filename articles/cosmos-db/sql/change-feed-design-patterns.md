@@ -7,9 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
+ms.custom: cosmos-db-video
 ---
 # Change feed design patterns in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+
+📺 <B><a href="https://aka.ms/cosmos-db-video-deploy-event-sourcing-solution-with-azure-functions-dotnet" target="_blank">Video: Deploy an event sourcing solution with Azure Functions + .NET in 7 minutes</a></b>
 
 The Azure Cosmos DB change feed enables efficient processing of large datasets with a high volume of writes. Change feed also offers an alternative to querying an entire dataset to identify what has changed. This document focuses on common change feed design patterns, design tradeoffs, and change feed limitations.
 

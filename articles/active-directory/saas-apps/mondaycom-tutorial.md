@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with monday.com | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with monday.com'
 description: Learn how to configure single sign-on between Azure Active Directory and monday.com.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 01/28/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with monday.com
+# Tutorial: Azure AD SSO integration with monday.com
 
 In this tutorial, you'll learn how to integrate monday.com with Azure Active Directory (Azure AD). When you integrate monday.com with Azure AD, you can:
 
@@ -28,13 +28,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * monday.com single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* monday.com supports **SP and IDP** initiated SSO
+* monday.com supports **SP and IDP** initiated SSO.
 * monday.com supports [**automated** user provisioning and deprovisioning](mondaycom-provisioning-tutorial.md) (recommended).
-* monday.com supports **Just In Time** user provisioning
+* monday.com supports **Just In Time** user provisioning.
 
 ## Add monday.com from the gallery
 
@@ -83,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
     > [!Note]
-    > If the **Identifier** and **Reply URL** values do not get populated automatically, then fill in the values manually. The **Identifier** and the **Reply URL** are the same and value is in the following pattern: `https://<your-domain>.monday.com/saml/saml_callback`
+    > If the **Identifier** and **Reply URL** values do not get populated automatically, then fill in the values manually. The **Identifier** and the **Reply URL** are the same and value is in the following pattern: `https://<YOUR_DOMAIN>.monday.com/saml/saml_callback`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -147,22 +150,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup monday.com manually, open a new web browser window and sign in to monday.com as an administrator and perform the following steps:
+1. If you want to set up monday.com manually, open a new web browser window and sign in to monday.com as an administrator and perform the following steps:
 
-1. Go to the **Profile** on the top right corner of page and click on **Admin**.
+1. Go to the **Profile** on the top-right corner of page and click on **Admin**.
 
-    ![Screenshot shows the Admin profile selected.](./media/mondaycom-tutorial/configuration-1.png)
+    ![Screenshot shows the Admin profile selected.](./media/mondaycom-tutorial/admin.png)
 
 1. Select **Security** and make sure to click on **Open** next to SAML.
 
-    ![Screenshot shows the Security tab with the option to Open next to SAML.](./media/mondaycom-tutorial/configuration-2.png)
+    ![Screenshot shows the Security tab with the option to Open next to SAML.](./media/mondaycom-tutorial/security.png)
 
 1. Fill in the details below from your IDP.
 
-    ![Screenshot shows the SAML provider where you can enter information from your I D P.](./media/mondaycom-tutorial/configuration-3.png)
+    ![Screenshot shows the SAML provider where you can enter information from your I D P.](./media/mondaycom-tutorial/configuration.png)
 
     > [!NOTE]
-    > For more details refer [this](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) article
+    > For more details refer [this](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) article.
 
 ### Create monday.com test user
 

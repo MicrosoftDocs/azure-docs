@@ -48,7 +48,7 @@ Set the name of your resource group and Log Analytics workspace, and then retrie
 
 # [Bash](#tab/bash)
 
-```bash
+```azurecli
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
@@ -57,7 +57,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --que
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 $RESOURCE_GROUP="my-containerapps"
 $LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
@@ -101,4 +101,4 @@ my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:11:43.1
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

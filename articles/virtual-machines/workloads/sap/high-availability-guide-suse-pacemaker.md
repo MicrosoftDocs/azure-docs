@@ -1,6 +1,6 @@
 ---
-title: Setting up Pacemaker on SLES in Azure | Microsoft Docs
-description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
+title: Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure | Microsoft Docs
+description: This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server in Azure.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -18,7 +18,9 @@ ms.author: radeltch
 
 ---
 
-# Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
+# Set up Pacemaker on SUSE Linux Enterprise Server in Azure
+
+This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure.
 
 ## Overview
 
@@ -31,233 +33,246 @@ ms.author: radeltch
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, there are two options to set up stonith in Pacemaker cluster for SLES. You can either use an Azure fence agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device. To configure stonith using SBD device, two different methods available in Azure.
+In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use a STONITH block device (SBD device).
 
-- SBD device using iSCSI target server
+### Use an SBD device
+
+You can configure the SBD device by using either of two options:
+
+- SBD with an iSCSI target server:
   
-  The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. These iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is, if you are already using SBD devices on-premises, doesn't require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable, for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers, which is the most resilient configuration when using SBDs.
+  The SBD device requires at least one additional virtual machine (VM) that acts as an Internet Small Computer System Interface (iSCSI) target server and provides an SBD device. These iSCSI target servers can, however, be shared with other Pacemaker clusters. The advantage of using an SBD device is that if you're already using SBD devices on-premises, they don't require any changes to how you operate the Pacemaker cluster. 
   
-  ![Pacemaker on SLES overview](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+  You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable (for example, during OS patching of the iSCSI target server). If you want to use more than one SBD device per Pacemaker, be sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker can't automatically fence a cluster node if only two SBD devices are configured and one of them is unavailable. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and, therefore, three iSCSI target servers. That's the most resilient configuration when you're using SBDs.
+  
+  ![Diagram of Pacemaker on SLES overview.](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
   
   >[!IMPORTANT]
-  > When planning and deploying Linux Pacemaker clustered nodes and SBD devices, it is essential for the overall reliability of the complete cluster configuration that the routing between the VMs involved and the VM(s) hosting the SBD device(s) is not passing through any other devices like [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Otherwise, issues and maintenance events with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. In order to avoid such obstacles, don't define routing rules of NVAs or [User Defined Routing rules](../../../virtual-network/virtual-networks-udr-overview.md) that route traffic between clustered nodes and SBD devices through NVAs and similar devices when planning and deploying Linux Pacemaker clustered nodes and SBD devices.
+  > When you're planning and deploying Linux Pacemaker clustered nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/). 
+  >
+  >Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../../virtual-network/virtual-networks-udr-overview.md).
 
-- SBD device using Azure shared disk
+- SBD with an Azure shared disk:
   
-  To configure SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using Azure shared disk is that you don’t need to deploy additional virtual machines.
+  To configure an SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don’t need to deploy additional virtual machines.
   
-  ![Azure shared disk SBD device for SLES Pacemaker cluster](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
+  ![Diagram of the Azure shared disk SBD device for SLES Pacemaker cluster.](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
   
-  **Important Consideration for SBD device using Azure shared disk**
+   Here are some important considerations about SBD devices when you're using an Azure shared disk:
 
-   - Azure shared disk with Premium SSD is supported as SBD device.
-   - SBD device using Azure shared disk is supported on SLES HA 15 SP01 and above.
-   - SBD device using Azure premium shared disk is supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
-   - Depending on the type of your deployment - availability set or availability zones, choose the appropriate redundant storage for Azure shared disk as your SBD device.
-     - SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
-     - SBD device using ZRS for Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
-   - ZRS for managed disk is currently not available in all regions with availability zones. Review the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
-   - The Azure shared disk used for SBD device doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster like SAP ASCS/ERS, SAP HANA scale-up.
-   - For [HANA scale-out with HANA system replication (HSR) and pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use Azure shared disk for SBD device in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
-   - We don’t recommend to attach Azure shared disk SBD device across Pacemaker clusters.
-   - If multiple Azure shared disk SBD devices are used, check on the limit for maximum number of data disks that can be attached to VM.
-   - For further details on limitations for Azure shared disk, review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
+   - An Azure shared disk with Premium SSD is supported as an SBD device.
+   - SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
+   - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+   - Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
+     - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
+     - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
+   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../disks-redundancy.md#limitations).
+   - The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
+   - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
+   - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
+   - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
 
-- Azure fence agent
+### Use an Azure fence agent
+You can set up STONITH by using an Azure fence agent. Azure fence agents require a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
 
-  Azure fence agent requires service principal that takes care of restarting failed nodes via Azure APIs. Azure Fence agent doesn't require deploying additional virtual machine(s).
+## SBD with an iSCSI target server
 
-## SBD device using iSCSI target server
+To use an SBD device that uses an iSCSI target server for fencing, follow the instructions in the next sections.
 
-Follow these steps if you want to use SBD device using iSCSI target server for fencing.
+### Set up the iSCSI target server
 
-### Set up iSCSI target servers
+You first need to create the iSCSI target virtual machines. You can share iSCSI target servers with multiple Pacemaker clusters.
 
-You first need to create the iSCSI target virtual machines. iSCSI target servers can be shared with multiple Pacemaker clusters.
+1. Deploy new SLES 12 SP3 or higher virtual machines and connect to them via SSH. The machines don't need to be large. Virtual machine sizes Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
 
-1. Deploy new SLES 12 SP3 or higher virtual machines and connect to them via ssh. The machines don't need to be large. A virtual machine size like Standard_E2s_v3 or Standard_D2s_v3 is sufficient. Make sure to use Premium storage the OS disk.
+1. On **iSCSI target virtual machines**, run the following commands:
 
-Run the following commands on all **iSCSI target virtual machines**.
+   a. Update SLES.  
 
-1. Update SLES
+      <pre><code>sudo zypper update
+      </code></pre>  
 
-   <pre><code>sudo zypper update
+      > [!NOTE]
+      > You might need to reboot the OS after you upgrade or update the OS.  
+
+   b. Remove packages.
+
+      To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that can't be found.
+
+      <pre><code>sudo zypper remove lio-utils python-rtslib python-configshell targetcli
+      </code></pre>
+
+   c. Install iSCSI target packages.
+
+      <pre><code>sudo zypper install targetcli-fb dbus-1-python
+      </code></pre>
+
+   d. Enable the iSCSI target service.
+
+      <pre><code>sudo systemctl enable targetcli
+      sudo systemctl start targetcli
+      </code></pre>
+
+### Create an iSCSI device on the iSCSI target server
+
+To create the iSCSI disks for the clusters to be used by your SAP systems, run the following commands on all iSCSI target virtual machines. In the example, SBD devices for  multiple clusters are created. It shows how you would use one iSCSI target server for multiple clusters. The SBD devices are placed on the OS disk. Make sure that you have enough space.
+
+* **nfs**: Identifies the NFS cluster. 
+* **ascsnw1**: Identifies the ASCS cluster of **NW1**.
+* **dbnw1**: Identifies the database cluster of **NW1**.
+* **nfs-0** and **nfs-1**: The hostnames of the NFS cluster nodes. 
+* **nw1-xscs-0** and **nw1-xscs-1**: The hostnames of the **NW1** ASCS cluster nodes.
+* **nw1-db-0** and **nw1-db-1**: The hostnames of the database cluster nodes. 
+
+In the following instructions, replace the bold-formatted placeholder text with the hostnames of your cluster nodes and the SID of your SAP system.
+
+1. Create the root folder for all SBD devices.
+   <pre><code>sudo mkdir /sbd</code></pre>
+
+1. Create the SBD device for the NFS server.
+   <pre><code>sudo targetcli backstores/fileio create sbdnfs /sbd/sbdnfs 50M write_back=false
+   sudo targetcli iscsi/ create iqn.2006-04.nfs.local:nfs
+   sudo targetcli iscsi/iqn.2006-04.nfs.local:nfs/tpg1/luns/ create /backstores/fileio/sbdnfs
+   sudo targetcli iscsi/iqn.2006-04.nfs.local:nfs/tpg1/acls/ create iqn.2006-04.<b>nfs-0.local:nfs-0</b>
+   sudo targetcli iscsi/iqn.2006-04.nfs.local:nfs/tpg1/acls/ create iqn.2006-04.<b>nfs-1.local:nfs-1</b></code></pre>
+
+1. Create the SBD device for the ASCS server of SAP System NW1.
+   <pre><code>sudo targetcli backstores/fileio create sbdascs<b>nw1</b> /sbd/sbdascs<b>nw1</b> 50M write_back=false
+   sudo targetcli iscsi/ create iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>
+   sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/luns/ create /backstores/fileio/sbdascs<b>nw1</b>
+   sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-0.local:nw1-xscs-0</b>
+   sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-1.local:nw1-xscs-1</b></code></pre>
+
+1. Create the SBD device for the database cluster of SAP System NW1.
+   <pre><code>sudo targetcli backstores/fileio create sbddb<b>nw1</b> /sbd/sbddb<b>nw1</b> 50M write_back=false
+   sudo targetcli iscsi/ create iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>
+   sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/luns/ create /backstores/fileio/sbddb<b>nw1</b>
+   sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-db-0.local:nw1-db-0</b>
+   sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-db-1.local:nw1-db-1</b></code></pre>
+
+1. Save the targetcli changes.
+   <pre><code>sudo targetcli saveconfig</code></pre>
+
+1. Check to ensure that everything was set up correctly.
+   <pre><code>sudo targetcli ls
+
+   o- / .......................................................................................................... [...]
+   o- backstores ............................................................................................... [...]
+   | o- block ................................................................................... [Storage Objects: 0]
+   | o- fileio .................................................................................. [Storage Objects: 3]
+   | | o- <b>sbdascsnw1</b> ................................................ [/sbd/sbdascsnw1 (50.0MiB) write-thru activated]
+   | | | o- alua .................................................................................... [ALUA Groups: 1]
+   | | |   o- default_tg_pt_gp ........................................................ [ALUA state: Active/optimized]
+   | | o- <b>sbddbnw1</b> .................................................... [/sbd/sbddbnw1 (50.0MiB) write-thru activated]
+   | | | o- alua .................................................................................... [ALUA Groups: 1]
+   | | |   o- default_tg_pt_gp ........................................................ [ALUA state: Active/optimized]
+   | | o- <b>sbdnfs</b> ........................................................ [/sbd/sbdnfs (50.0MiB) write-thru activated]
+   | |   o- alua .................................................................................... [ALUA Groups: 1]
+   | |     o- default_tg_pt_gp ........................................................ [ALUA state: Active/optimized]
+   | o- pscsi ................................................................................... [Storage Objects: 0]
+   | o- ramdisk ................................................................................. [Storage Objects: 0]
+   o- iscsi ............................................................................................. [Targets: 3]
+   | o- <b>iqn.2006-04.ascsnw1.local:ascsnw1</b> .................................................................. [TPGs: 1]
+   | | o- tpg1 ................................................................................ [no-gen-acls, no-auth]
+   | |   o- acls ........................................................................................... [ACLs: 2]
+   | |   | o- <b>iqn.2006-04.nw1-xscs-0.local:nw1-xscs-0</b> ............................................... [Mapped LUNs: 1]
+   | |   | | o- mapped_lun0 ............................................................ [lun0 fileio/<b>sbdascsnw1</b> (rw)]
+   | |   | o- <b>iqn.2006-04.nw1-xscs-1.local:nw1-xscs-1</b> ............................................... [Mapped LUNs: 1]
+   | |   |   o- mapped_lun0 ............................................................ [lun0 fileio/<b>sbdascsnw1</b> (rw)]
+   | |   o- luns ........................................................................................... [LUNs: 1]
+   | |   | o- lun0 .......................................... [fileio/sbdascsnw1 (/sbd/sbdascsnw1) (default_tg_pt_gp)]
+   | |   o- portals ..................................................................................... [Portals: 1]
+   | |     o- 0.0.0.0:3260 ...................................................................................... [OK]
+   | o- <b>iqn.2006-04.dbnw1.local:dbnw1</b> ...................................................................... [TPGs: 1]
+   | | o- tpg1 ................................................................................ [no-gen-acls, no-auth]
+   | |   o- acls ........................................................................................... [ACLs: 2]
+   | |   | o- <b>iqn.2006-04.nw1-db-0.local:nw1-db-0</b> ................................................... [Mapped LUNs: 1]
+   | |   | | o- mapped_lun0 .............................................................. [lun0 fileio/<b>sbddbnw1</b> (rw)]
+   | |   | o- <b>iqn.2006-04.nw1-db-1.local:nw1-db-1</b> ................................................... [Mapped LUNs: 1]
+   | |   |   o- mapped_lun0 .............................................................. [lun0 fileio/<b>sbddbnw1</b> (rw)]
+   | |   o- luns ........................................................................................... [LUNs: 1]
+   | |   | o- lun0 .............................................. [fileio/sbddbnw1 (/sbd/sbddbnw1) (default_tg_pt_gp)]
+   | |   o- portals ..................................................................................... [Portals: 1]
+   | |     o- 0.0.0.0:3260 ...................................................................................... [OK]
+   | o- <b>iqn.2006-04.nfs.local:nfs</b> .......................................................................... [TPGs: 1]
+   |   o- tpg1 ................................................................................ [no-gen-acls, no-auth]
+   |     o- acls ........................................................................................... [ACLs: 2]
+   |     | o- <b>iqn.2006-04.nfs-0.local:nfs-0</b> ......................................................... [Mapped LUNs: 1]
+   |     | | o- mapped_lun0 ................................................................ [lun0 fileio/<b>sbdnfs</b> (rw)]
+   |     | o- <b>iqn.2006-04.nfs-1.local:nfs-1</b> ......................................................... [Mapped LUNs: 1]
+   |     |   o- mapped_lun0 ................................................................ [lun0 fileio/<b>sbdnfs</b> (rw)]
+   |     o- luns ........................................................................................... [LUNs: 1]
+   |     | o- lun0 .................................................. [fileio/sbdnfs (/sbd/sbdnfs) (default_tg_pt_gp)]
+   |     o- portals ..................................................................................... [Portals: 1]
+   |       o- 0.0.0.0:3260 ...................................................................................... [OK]
+   o- loopback .......................................................................................... [Targets: 0]
+   o- vhost ............................................................................................. [Targets: 0]
+   o- xen-pvscsi ........................................................................................ [Targets: 0]
    </code></pre>
 
-   > [!NOTE]
-   > You might need to reboot the OS after you upgrade or update the OS.
+### Set up the iSCSI target server SBD device
 
-1. Remove packages
+Connect to the iSCSI device that you created in the last step from the cluster.
+Run the following commands on the nodes of the new cluster that you want to create.
 
-   To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that cannot be found
+> [!NOTE]
+> * **[A]**: Applies to all nodes.
+> * **[1]**: Applies only to node 1.
+> * **[2]**: Applies only to node 2.
 
-   <pre><code>sudo zypper remove lio-utils python-rtslib python-configshell targetcli
-   </code></pre>
-
-1. Install iSCSI target packages
-
-   <pre><code>sudo zypper install targetcli-fb dbus-1-python
-   </code></pre>
-
-1. Enable the iSCSI target service
-
-   <pre><code>sudo systemctl enable targetcli
-   sudo systemctl start targetcli
-   </code></pre>
-
-### Create iSCSI device on iSCSI target server
-
-Run the following commands on all **iSCSI target virtual machines** to create the iSCSI disks for the clusters used by your SAP systems. In the following example, SBD devices for  multiple clusters are created. It shows you how you would use one iSCSI target server for multiple clusters. The SBD devices are placed on the OS disk. Make sure that you have enough space.
-
-**`nfs`** is used to identify the NFS cluster, **ascsnw1** is used to identify the ASCS cluster of **NW1**, **dbnw1** is used to identify the database cluster of **NW1**, **nfs-0** and **nfs-1** are the hostnames of the NFS cluster nodes, **nw1-xscs-0** and **nw1-xscs-1** are the hostnames of the **NW1** ASCS cluster nodes, and **nw1-db-0** and **nw1-db-1** are the hostnames of the database cluster nodes. Replace them with the hostnames of your cluster nodes and the SID of your SAP system.
-
-<pre><code># Create the root folder for all SBD devices
-sudo mkdir /sbd
-
-# Create the SBD device for the NFS server
-sudo targetcli backstores/fileio create sbdnfs /sbd/sbdnfs 50M write_back=false
-sudo targetcli iscsi/ create iqn.2006-04.nfs.local:nfs
-sudo targetcli iscsi/iqn.2006-04.nfs.local:nfs/tpg1/luns/ create /backstores/fileio/sbdnfs
-sudo targetcli iscsi/iqn.2006-04.nfs.local:nfs/tpg1/acls/ create iqn.2006-04.<b>nfs-0.local:nfs-0</b>
-sudo targetcli iscsi/iqn.2006-04.nfs.local:nfs/tpg1/acls/ create iqn.2006-04.<b>nfs-1.local:nfs-1</b>
-
-# Create the SBD device for the ASCS server of SAP System NW1
-sudo targetcli backstores/fileio create sbdascs<b>nw1</b> /sbd/sbdascs<b>nw1</b> 50M write_back=false
-sudo targetcli iscsi/ create iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>
-sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/luns/ create /backstores/fileio/sbdascs<b>nw1</b>
-sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-0.local:nw1-xscs-0</b>
-sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-1.local:nw1-xscs-1</b>
-
-# Create the SBD device for the database cluster of SAP System NW1
-sudo targetcli backstores/fileio create sbddb<b>nw1</b> /sbd/sbddb<b>nw1</b> 50M write_back=false
-sudo targetcli iscsi/ create iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>
-sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/luns/ create /backstores/fileio/sbddb<b>nw1</b>
-sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-db-0.local:nw1-db-0</b>
-sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-db-1.local:nw1-db-1</b>
-
-# save the targetcli changes
-sudo targetcli saveconfig
-</code></pre>
-
-You can check if everything was set up correctly with
-
-<pre><code>sudo targetcli ls
-
-o- / .......................................................................................................... [...]
-  o- backstores ............................................................................................... [...]
-  | o- block ................................................................................... [Storage Objects: 0]
-  | o- fileio .................................................................................. [Storage Objects: 3]
-  | | o- <b>sbdascsnw1</b> ................................................ [/sbd/sbdascsnw1 (50.0MiB) write-thru activated]
-  | | | o- alua .................................................................................... [ALUA Groups: 1]
-  | | |   o- default_tg_pt_gp ........................................................ [ALUA state: Active/optimized]
-  | | o- <b>sbddbnw1</b> .................................................... [/sbd/sbddbnw1 (50.0MiB) write-thru activated]
-  | | | o- alua .................................................................................... [ALUA Groups: 1]
-  | | |   o- default_tg_pt_gp ........................................................ [ALUA state: Active/optimized]
-  | | o- <b>sbdnfs</b> ........................................................ [/sbd/sbdnfs (50.0MiB) write-thru activated]
-  | |   o- alua .................................................................................... [ALUA Groups: 1]
-  | |     o- default_tg_pt_gp ........................................................ [ALUA state: Active/optimized]
-  | o- pscsi ................................................................................... [Storage Objects: 0]
-  | o- ramdisk ................................................................................. [Storage Objects: 0]
-  o- iscsi ............................................................................................. [Targets: 3]
-  | o- <b>iqn.2006-04.ascsnw1.local:ascsnw1</b> .................................................................. [TPGs: 1]
-  | | o- tpg1 ................................................................................ [no-gen-acls, no-auth]
-  | |   o- acls ........................................................................................... [ACLs: 2]
-  | |   | o- <b>iqn.2006-04.nw1-xscs-0.local:nw1-xscs-0</b> ............................................... [Mapped LUNs: 1]
-  | |   | | o- mapped_lun0 ............................................................ [lun0 fileio/<b>sbdascsnw1</b> (rw)]
-  | |   | o- <b>iqn.2006-04.nw1-xscs-1.local:nw1-xscs-1</b> ............................................... [Mapped LUNs: 1]
-  | |   |   o- mapped_lun0 ............................................................ [lun0 fileio/<b>sbdascsnw1</b> (rw)]
-  | |   o- luns ........................................................................................... [LUNs: 1]
-  | |   | o- lun0 .......................................... [fileio/sbdascsnw1 (/sbd/sbdascsnw1) (default_tg_pt_gp)]
-  | |   o- portals ..................................................................................... [Portals: 1]
-  | |     o- 0.0.0.0:3260 ...................................................................................... [OK]
-  | o- <b>iqn.2006-04.dbnw1.local:dbnw1</b> ...................................................................... [TPGs: 1]
-  | | o- tpg1 ................................................................................ [no-gen-acls, no-auth]
-  | |   o- acls ........................................................................................... [ACLs: 2]
-  | |   | o- <b>iqn.2006-04.nw1-db-0.local:nw1-db-0</b> ................................................... [Mapped LUNs: 1]
-  | |   | | o- mapped_lun0 .............................................................. [lun0 fileio/<b>sbddbnw1</b> (rw)]
-  | |   | o- <b>iqn.2006-04.nw1-db-1.local:nw1-db-1</b> ................................................... [Mapped LUNs: 1]
-  | |   |   o- mapped_lun0 .............................................................. [lun0 fileio/<b>sbddbnw1</b> (rw)]
-  | |   o- luns ........................................................................................... [LUNs: 1]
-  | |   | o- lun0 .............................................. [fileio/sbddbnw1 (/sbd/sbddbnw1) (default_tg_pt_gp)]
-  | |   o- portals ..................................................................................... [Portals: 1]
-  | |     o- 0.0.0.0:3260 ...................................................................................... [OK]
-  | o- <b>iqn.2006-04.nfs.local:nfs</b> .......................................................................... [TPGs: 1]
-  |   o- tpg1 ................................................................................ [no-gen-acls, no-auth]
-  |     o- acls ........................................................................................... [ACLs: 2]
-  |     | o- <b>iqn.2006-04.nfs-0.local:nfs-0</b> ......................................................... [Mapped LUNs: 1]
-  |     | | o- mapped_lun0 ................................................................ [lun0 fileio/<b>sbdnfs</b> (rw)]
-  |     | o- <b>iqn.2006-04.nfs-1.local:nfs-1</b> ......................................................... [Mapped LUNs: 1]
-  |     |   o- mapped_lun0 ................................................................ [lun0 fileio/<b>sbdnfs</b> (rw)]
-  |     o- luns ........................................................................................... [LUNs: 1]
-  |     | o- lun0 .................................................. [fileio/sbdnfs (/sbd/sbdnfs) (default_tg_pt_gp)]
-  |     o- portals ..................................................................................... [Portals: 1]
-  |       o- 0.0.0.0:3260 ...................................................................................... [OK]
-  o- loopback .......................................................................................... [Targets: 0]
-  o- vhost ............................................................................................. [Targets: 0]
-  o- xen-pvscsi ........................................................................................ [Targets: 0]
-</code></pre>
-
-### Set up iSCSI target server SBD device
-
-Connect to the iSCSI device that was created in the last step from the cluster.
-Run the following commands on the nodes of the new cluster you want to create.
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
-
-1. **[A]** Connect to the iSCSI devices
-
-   First, enable the iSCSI and SBD services.
+1. **[A]** Connect to the iSCSI devices. First, enable the iSCSI and SBD services.
 
    <pre><code>sudo systemctl enable iscsid
    sudo systemctl enable iscsi
    sudo systemctl enable sbd
    </code></pre>
 
-1. **[1]** Change the initiator name on the first node
+1. **[1]** Change the initiator name on the first node.
 
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Change the content of the file to match the ACLs you used when creating the iSCSI device on the iSCSI target server, for example for the NFS server.
+1. **[1]** Change the contents of the file to match the access control lists (ACLs) you used when you created the iSCSI device on the iSCSI target server (for example, for the NFS server).
 
-   <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b>
-   </code></pre>
+   <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b></code></pre>
 
-1. **[2]** Change the initiator name on the second node
+1. **[2]** Change the initiator name on the second node.
 
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Change the content of the file to match the ACLs you used when creating the iSCSI device on the iSCSI target server
+1. **[2]** Change the contents of the file to match the ACLs you used when you created the iSCSI device on the iSCSI target server.
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
 
-1. **[A]** Restart the iSCSI service
-
-   Now restart the iSCSI service to apply the change
+1. **[A]** Restart the iSCSI service to apply the change.
 
    <pre><code>sudo systemctl restart iscsid
    sudo systemctl restart iscsi
    </code></pre>
 
-   Connect the iSCSI devices. In the example below, 10.0.0.17 is the IP address of the iSCSI target server and 3260 is the default port. <b>iqn.2006-04.nfs.local:nfs</b> is one of the target names that is listed when you run the first command below (iscsiadm -m discovery).
+1. **[A]** Connect the iSCSI devices. In the following example, 10.0.0.17 is the IP address of the iSCSI target server, and 3260 is the default port. <b>iqn.2006-04.nfs.local:nfs</b> is one of the target names that's listed when you run the first command, `iscsiadm -m discovery`.
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic</code></pre>
    
-   # If you want to use multiple SBD devices, also connect to the second iSCSI target server
-   sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.18:3260</b>   
+1. **[A]** If you want to use multiple SBD devices, also connect to the second iSCSI target server.
+
+   <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.18:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.18:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic</code></pre>
    
-   # If you want to use multiple SBD devices, also connect to the third iSCSI target server
-   sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.19:3260</b>   
+1. **[A]** If you want to use multiple SBD devices, also connect to the third iSCSI target server.
+
+   <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.19:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.19:3260</b>
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   Make sure that the iSCSI devices are available and note down the device name (in the following example /dev/sde)
+1. **[A]** Make sure that the iSCSI devices are available and note the device name (**/dev/sde**, in the following example).
 
    <pre><code>lsscsi
    
@@ -270,7 +285,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # <b>[8:0:0:0]    disk    LIO-ORG  sbdnfs           4.0   /dev/sdf</b>
    </code></pre>
 
-   Now, retrieve the IDs of the iSCSI devices.
+1. **[A]** Retrieve the IDs of the iSCSI devices.
 
    <pre><code>ls -l /dev/disk/by-id/scsi-* | grep <b>sdd</b>
    
@@ -291,30 +306,31 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
    </code></pre>
 
-   The command list three device IDs for every SBD device. We recommend using the ID that starts with scsi-3, in the example above this is
+   The command lists three device IDs for every SBD device. We recommend using the ID that starts with scsi-1. In the preceding example, the IDs are:
 
    * **/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
    * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
    * **/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf**
 
-1. **[1]** Create the SBD device
+1. **[1]** Create the SBD device.
 
-   Use the device ID of the iSCSI devices to create the new SBD devices on the first cluster node.
+   a. Use the device ID of the iSCSI devices to create the new SBD devices on the first cluster node.
 
-   <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create
-   # Also create the second and third SBD devices if you want to use more than one.
-   sudo sbd -d <b>/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df</b> -1 60 -4 120 create
+   <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create</code></pre>
+   
+   b. Also create the second and third SBD devices if you want to use more than one.
+   <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df</b> -1 60 -4 120 create
    sudo sbd -d <b>/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf</b> -1 60 -4 120 create
    </code></pre>
 
-1. **[A]** Adapt the SBD config
+1. **[A]** Adapt the SBD configuration.
 
-   Open the SBD config file
+   a. Open the SBD config file.
 
    <pre><code>sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   Change the property of the SBD device, enable the pacemaker integration, and change the start mode of SBD.
+   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD.
 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"</b>
@@ -325,63 +341,62 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    [...]
    </code></pre>
 
-   Create the `softdog` configuration file
+1. **[A]** Create the `softdog` configuration file.
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   Now load the module
+1. **[A]** Load the module.
 
    <pre><code>sudo modprobe -v softdog
    </code></pre>
 
-## SBD device using Azure shared disk
+## SBD with an Azure shared disk
 
-This section is only applicable, if you want to use SBD device using Azure shared disk.
+This section applies only if you want to use an SBD device with an Azure shared disk.
 
-### Create and attach Azure shared disk with PowerShell
+### Create and attach an Azure shared disk with PowerShell
 
-Adjust the values for your resource group, Azure region, virtual machines, LUN, and so on.
+1. Adjust the values for your resource group, Azure region, virtual machines, logical unit numbers (LUNs), and so on.
 
-<pre><code>$ResourceGroup = "<b>MyResourceGroup</b>"
-$Location = "<b>MyAzureRegion</b>"
+   <pre><code>$ResourceGroup = "<b>MyResourceGroup</b>"
+   $Location = "<b>MyAzureRegion</b>"</code></pre>
 
-# Define the size of the disk based on available disk size for Premium SSDs. In this example, P1 disk size of 4G is mentioned.
-$DiskSizeInGB = <b>4</b>
-$DiskName = "<b>SBD-disk1</b>"
+1. Define the size of the disk based on available disk size for Premium SSDs. In this example, P1 disk size of 4G is mentioned.
+   <pre><code>$DiskSizeInGB = <b>4</b>
+   $DiskName = "<b>SBD-disk1</b>"</code></pre>
 
-# With parameter '-MaxSharesCount', we define the maximum number of cluster nodes to attach the shared disk for SBD device
-$ShareNodes = <b>2</b>
+1. With parameter -MaxSharesCount, define the maximum number of cluster nodes to attach the shared disk for the SBD device.
+   <pre><code>$ShareNodes = <b>2</b></code></pre>
 
-# For SBD device using LRS for Azure premium shared disk, use below storage SkuName
-$SkuName = "<b>Premium_LRS</b>"
-# For SBD device using ZRS for Azure premium shared disk, use below storage SkuName
-$SkuName = "<b>Premium_ZRS</b>"
+1. For an SBD device that uses LRS for an Azure premium shared disk, use the following storage SkuName:
+   <pre><code>$SkuName = "<b>Premium_LRS</b>"</code></pre>
+1. For an SBD device that uses ZRS for an Azure premium shared disk, use the following storage SkuName:
+   <pre><code>$SkuName = "<b>Premium_ZRS</b>"</code></pre>
 
-# Provision Azure shared disk
-$diskConfig = New-AzDiskConfig -Location $Location -SkuName $SkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
-$dataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $diskConfig
+1. Set up an Azure shared disk.
+   <pre><code>$diskConfig = New-AzDiskConfig -Location $Location -SkuName $SkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
+   $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $diskConfig</code></pre>
 
-# Attach the disk to the cluster VMs
-$VM1 = "<b>prod-cl1-0</b>"
-$VM2 = "<b>prod-cl1-1</b>"
+1. Attach the disk to the cluster VMs.
+   <pre><code>$VM1 = "<b>prod-cl1-0</b>"
+   $VM2 = "<b>prod-cl1-1</b>"</code></pre>
 
-# Add the Azure shared disk to cluster node 1.
-$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM1
-$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
-Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
+   a. Add the Azure shared disk to cluster node 1.
+   <pre><code>$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM1
+   $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
+   Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose</code></pre>
 
-# Add the Azure shared disk to cluster node 2
-$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM2
-$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
-Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
-</code></pre>
+   b. Add the Azure shared disk to cluster node 2.
+   <pre><code>$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM2
+   $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
+   Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose</code></pre>
 
-You can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md) document if you want to deploy resources using Azure CLI or Azure portal.
+If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md).
 
-### Set up Azure shared disk SBD device
+### Set up an Azure shared disk SBD device
 
-1. **[A]** Make sure the attached disk is available.
+1. **[A]** Make sure that the attached disk is available.
 
    <pre><code># lsblk
    NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -403,32 +418,30 @@ You can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md) document if
    <b>[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc</b>
    </code></pre>
 
-2. **[A]** Retrieve the IDs of the attached disks.
+1. **[A]** Retrieve the IDs of the attached disks.
 
    <pre><code># ls -l /dev/disk/by-id/scsi-* | grep sdc
    lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-14d534654202020204208a67da80744439b513b2a9728af19 -> ../../sdc
    <b>lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -> ../../sdc</b>
    </code></pre>
 
-   The command list device IDs for SBD device. We recommend using the ID that starts with scsi-3, in the example above this is
+   The commands list device IDs for the SBD device. We recommend using the ID that starts with scsi-3. In the preceding example, the ID is **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**.
 
-    - **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**
-
-3. **[1]** Create the SBD device
+1. **[1]** Create the SBD device.
 
    Use the device ID from step 2 to create the new SBD devices on the first cluster node.
 
    <pre><code># sudo sbd -d <b>/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19</b> -1 60 -4 120 create
    </code></pre>
 
-4. **[A]** Adapt the SBD config
+1. **[A]** Adapt the SBD configuration.
 
-   Open the SBD config file
+   a. Open the SBD config file.
 
    <pre><code>sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   Change the property of the SBD device, enable the pacemaker integration, and change the start mode of SBD.
+   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of the SBD device.
 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19"</b>
@@ -439,47 +452,44 @@ You can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md) document if
    [...]
    </code></pre>
 
-   Create the `softdog` configuration file
+1. Create the `softdog` configuration file.
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   Now load the module
+1. Load the module.
 
    <pre><code>sudo modprobe -v softdog
    </code></pre>
 
-## STONITH device using Azure fence agent
+## Use an Azure fence agent
 
-This section is only applicable, if you want to use STONITH device using Azure shared disk.
+This section applies only if you want to use a STONITH device with an Azure fence agent.
 
-### Create Azure Fence agent STONITH device
+### Create an Azure fence agent STONITH device
 
-This section of the documentation is only applicable, if using STONITH, based on Azure Fence agent.
-The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
+This section applies only if you're using a STONITH device that's based on an Azure fence agent. The STONITH device uses a service principal to authorize against Microsoft Azure. To create a service principal, do the following:
 
-1. Go to <https://portal.azure.com>
-1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory ID. This is the **tenant ID**.
-1. Click App registrations
-1. Click New Registration
-1. Enter a Name, select "Accounts in this organization directory only" 
-2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add.  
-   The sign-on URL is not used and can be any valid URL
-1. Select Certificates and Secrets, then click New client secret
-1. Enter a description for a new key, select "Never expires" and click Add
-1. Write down the Value. It is used as the **password** for the Service Principal
-1. Select Overview. Write down the Application ID. It is used as the username of the Service Principal
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
+1. Select **App registrations**.
+1. Select **New registration**.
+1. Enter a name for the registration, and then select **Accounts in this organization directory only**. 
+1. For **Application type**, select **Web**, enter a sign-on URL (for example, <code>*http://</code><code>localhost*</code>), and then select **Add**.  
+   The sign-on URL is not used and can be any valid URL.
+1. Select **Certificates and secrets**, and then select **New client secret**.
+1. Enter a description for a new key, select **Never expires**, and then select **Add**.
+1. Write down the value, which you'll use as the password for the service principal.
+1. Select **Overview**, and then write down the application ID, which you'll use as the username of the service principal.
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal doesn't have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
+By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
 
-Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *c276fc76-9cd4-44c9-99a7-4fd71546436e* and *e91d47c4-76f3-4271-a796-21b4ecfe3624* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
 ```json
 {
-      "Name": "Linux Fence Agent Role",
+      "Name": "Linux fence agent Role",
       "description": "Allows to power-off and start virtual machines",
       "assignableScopes": [
               "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
@@ -496,39 +506,42 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role to the service principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 
-Make sure to assign the role for both cluster nodes.
+Be sure to assign the role for both cluster nodes.
 
-## Cluster installation
+## Install the cluster
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
+> [!NOTE]
+> * **[A]**: Applies to all nodes.
+> * **[1]**: Applies only to node 1.
+> * **[2]**: Applies only to node 2.
 
-1. **[A]** Update SLES
+1. **[A]** Update SLES.
 
    <pre><code>sudo zypper update
    </code></pre>
 
-2. **[A]** Install component, needed for cluster resources
+1. **[A]** Install the component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in socat
    </code></pre>
 
-3. **[A]** Install azure-lb component, needed for cluster resources
+1. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in resource-agents
    </code></pre>
 
    > [!NOTE]
-   > Check the version of package resource-agents and make sure the minimum version requirements are met:  
-   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
-   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   > Check the version of the *resource-agents* package, and make sure that the minimum version requirements are met:  
+   > - **SLES 12 SP4/SP5**: The version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
+   > - **SLES 15/15 SP1**: The version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
 
-4. **[A]** Configure the operating system
+1. **[A]** Configure the operating system.
 
-   In some cases, Pacemaker creates many processes and thereby exhausts the allowed number  of processes. In such a case, a heartbeat between the cluster nodes might fail and lead to failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter.
+   a. Pacemaker occasionally creates many processes, which can exhaust the allowed number. When this happens, a heartbeat between the cluster nodes might fail and lead to a failover of your resources. We recommend increasing the maximum number of allowed processes by setting the following parameter:
 
    <pre><code># Edit the configuration file
    sudo vi /etc/systemd/system.conf
@@ -537,14 +550,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #DefaultTasksMax=512
    DefaultTasksMax=4096
    
-   # and to activate this setting
+   # Activate this setting
    sudo systemctl daemon-reload
    
-   # test if the change was successful
+   # Test to ensure that the change was successful
    sudo systemctl --no-pager show | grep DefaultTasksMax
    </code></pre>
 
-   Reduce the size of the dirty cache. For more information, see [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   b. Reduce the size of the dirty cache. For more information, see [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
    # Change/set the following settings
@@ -552,12 +565,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-5. **[A]** Configure cloud-netconfig-azure for HA Cluster
+1. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
 
    >[!NOTE]
-   > Check the installed version of package **cloud-netconfig-azure** by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or higher, it is no longer necessary to suppress the management of network interfaces by the cloud network plugin. If the version is lower than 1.3, we suggest to update package **cloud-netconfig-azure** to the latest available version.  
+   > Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
 
-   Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   To prevent the cloud network plug-in from removing the virtual IP address (Pacemaker must control the assignment), change the configuration file for the network interface as shown in the following code. For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -567,82 +580,81 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
-6. **[1]** Enable ssh access
+1. **[1]** Enable SSH access.
 
    <pre><code>sudo ssh-keygen
    
-   # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
-   # Enter passphrase (empty for no passphrase): -> Press ENTER
-   # Enter same passphrase again: -> Press ENTER
+   # Enter file in which to save the key (/root/.ssh/id_rsa), and then select Enter
+   # Enter passphrase (empty for no passphrase), and then select Enter
+   # Enter same passphrase again, and then select Enter
    
    # copy the public key
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-7. **[2]** Enable ssh access
+1. **[2]** Enable SSH access.
 
    <pre><code>sudo ssh-keygen
    
-   # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
-   # Enter passphrase (empty for no passphrase): -> Press ENTER
-   # Enter same passphrase again: -> Press ENTER
+   # Enter file in which to save the key (/root/.ssh/id_rsa), and then select Enter
+   # Enter passphrase (empty for no passphrase), and then select Enter
+   # Enter same passphrase again, and then select Enter
    
-   # insert the public key you copied in the last step into the authorized keys file on the second server
+   # Insert the public key you copied in the last step into the authorized keys file on the second server
    sudo vi /root/.ssh/authorized_keys   
    
    # copy the public key
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-8. **[1]** Enable ssh access
+1. **[1]** Enable SSH access.
 
    <pre><code># insert the public key you copied in the last step into the authorized keys file on the first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-9. **[A]** Install Fence agents package, if using STONITH device, based on Azure Fence Agent.  
+1. **[A]** Install the *fence-agents* package if you're using a STONITH device, based on the Azure fence agent.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > The installed version of package **fence-agents** must be at least **4.4.0**  to benefit from the faster failover times with Azure Fence Agent, if a cluster nodes needs to be fenced. We recommend that you update the package, if running a lower version.  
+   > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
-
-10. **[A]** Install Azure Python SDK
-    - On SLES 12 SP4 or SLES 12 SP5
-    <pre><code># You may need to activate the Public cloud extention first
+1. **[A]** Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5.
+    <pre><code># You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
     </code></pre>
 
-    - On SLES 15 and higher
-    <pre><code># You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    Install the Azure Python SDK on SLES 15 or later:
+    <pre><code># You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
     </code></pre> 
 
     >[!IMPORTANT]
-    >Depending on your version and image type, you may need to activate the Public cloud extension for your OS release, before you can install Azure Python SDK.
-    >You can check the extension, by running SUSEConnect ---list-extensions.  
-    >To achieve the faster failover times with Azure Fence Agent:
-    > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute.
-    > - If python-azure-mgmt-compute or python**3**-azure-mgmt-compute version is **17.0.0-6.7.1**, follow the instrustion in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update fence-agents version and install Azure identity python module if it is missing
+    >Depending on your version and image type, you might need to activate the public cloud extension for your OS release before you can install the Azure Python SDK.
+    >You can check the extension by running `SUSEConnect ---list-extensions`.  
+    >To achieve the faster failover times with the Azure fence agent:
+    > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
+    > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-11. **[A]** Setup host name resolution
+1. **[A]** Set up the hostname resolution.
 
-    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
+    You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
     Replace the IP address and the hostname in the following commands.
     
     >[!IMPORTANT]
-    > If using host names in the cluster configuration, it is vital to have reliable host name resolution. The cluster communication will fail, if the names are not available and that can lead to cluster failover delays.
-    > The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.  
+    > If you're using hostnames in the cluster configuration, it's essential to have a reliable hostname resolution. The cluster communication will fail if the names are unavailable, and that can lead to cluster failover delays.
+    >
+    > The benefit of using */etc/hosts* is that your cluster becomes independent of the DNS, which could be a single point of failure too.  
 
     <pre><code>sudo vi /etc/hosts
     </code></pre>
 
-    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment.
+    Insert the following lines in the */etc/hosts*. Change the IP address and hostname to match your environment.
 
     <pre><code># IP address of the first cluster node
     <b>10.0.0.6 prod-cl1-0</b>
@@ -650,53 +662,53 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     <b>10.0.0.7 prod-cl1-1</b>
     </code></pre>
 
-12. **[1]** Install Cluster
+1. **[1]** Install the cluster.
     
-    - If using SBD devices for fencing, which either be iSCSI target server or Azure shared disk.
+    - If you're using SBD devices for fencing (for either the iSCSI target server or Azure shared disk):
 
-    <pre><code>sudo ha-cluster-init -u
-    # ! NTP is not configured to start at system boot.
-    # Do you want to continue anyway (y/n)? <b>y</b>
-    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
-    # Port for ring0 [5405] <b>Press ENTER</b>
-    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
-    # Do you wish to configure an administration IP (y/n)? <b>n</b>
-    </code></pre>
+      <pre><code>sudo ha-cluster-init -u
+      # ! NTP is not configured to start at system boot.
+      # Do you want to continue anyway (y/n)? <b>y</b>
+      # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+      # Address for ring0 [10.0.0.6] <b>Select Enter</b>
+      # Port for ring0 [5405] <b>Select Enter</b>
+      # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+      # Do you wish to configure an administration IP (y/n)? <b>n</b>
+      </code></pre>
     
-    - If *not using* SBD devices for fencing
+    - If you're *not* using SBD devices for fencing:
     
-    <pre><code>sudo ha-cluster-init -u
-    # ! NTP is not configured to start at system boot.
-    # Do you want to continue anyway (y/n)? <b>y</b>
-    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
-    # Port for ring0 [5405] <b>Press ENTER</b>
-    # Do you wish to use SBD (y/n)? <b>n</b>
-    #WARNING: Not configuring SBD - STONITH will be disabled.
-    # Do you wish to configure an administration IP (y/n)? <b>n</b>
-    </code></pre>
+      <pre><code>sudo ha-cluster-init -u
+      # ! NTP is not configured to start at system boot.
+      # Do you want to continue anyway (y/n)? <b>y</b>
+      # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+      # Address for ring0 [10.0.0.6] <b>Select Enter</b>
+      # Port for ring0 [5405] <b>Select Enter</b>
+      # Do you wish to use SBD (y/n)? <b>n</b>
+      #WARNING: Not configuring SBD - STONITH will be disabled.
+      # Do you wish to configure an administration IP (y/n)? <b>n</b>
+      </code></pre>
 
-13. **[2]** Add node to cluster
+1. **[2]** Add the node to the cluster.
     
     <pre><code>sudo ha-cluster-join
     # ! NTP is not configured to start at system boot.
     # Do you want to continue anyway (y/n)? <b>y</b>
-    # IP address or hostname of existing node (e.g.: 192.168.1.1) []<b>10.0.0.6</b>
+    # IP address or hostname of existing node (for example, 192.168.1.1) []<b>10.0.0.6</b>
     # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
     </code></pre>
 
-14. **[A]** Change hacluster password to the same password
+1. **[A]** Change the hacluster password to the same password.
 
     <pre><code>sudo passwd hacluster
     </code></pre>
 
-15. **[A]** Adjust corosync settings.  
+1. **[A]** Adjust the corosync settings.  
 
     <pre><code>sudo vi /etc/corosync/corosync.conf
     </code></pre>
 
-    Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+    a. Add the following bold-formatted content to the file if the values are not there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
     <pre><code>[...]
       <b>token:          30000
@@ -723,21 +735,21 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     }
     quorum {
          # Enable and configure quorum subsystem (default: off)
-         # see also corosync.conf.5 and votequorum.5
+         # See also corosync.conf.5 and votequorum.5
          provider: corosync_votequorum
          <b>expected_votes: 2</b>
          <b>two_node: 1</b>
     }
     </code></pre>
 
-    Then restart the corosync service
+    b. Restart the corosync service.
 
     <pre><code>sudo service corosync restart
     </code></pre>
 
-### Create STONITH device on pacemaker cluster
+### Create a STONITH device on the Pacemaker cluster
 
-1. **[1]** Execute following commands, if you are using SDB device (iSCSI target server or Azure shared disk) as STONITH. Enable the use of a STONITH device and set the fence delay.
+1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as STONITH, run the following commands. Enable the use of a STONITH device, and set the fence delay.
 
    <pre><code>sudo crm configure property stonith-timeout=144
    sudo crm configure property stonith-enabled=true
@@ -751,11 +763,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       op monitor interval="600" timeout="15"
    </code></pre>
 
-2. **[1]** Execute following commands, if you are using Azure fence agent as STONITH. After assigning roles to both cluster nodes, you can configure the STONITH devices in the cluster.
+1. **[1]** If you're using an Azure fence agent as STONITH, run the following commands. After you've assigned roles to both cluster nodes, you can configure the STONITH devices in the cluster.
 
    > [!NOTE]
-   > Option 'pcmk_host_map' is ONLY required in the command, if the host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
-   > Refer to the bold section in the command.
+   > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
+   > Refer to the bold section in the following command.
 
    <pre><code>sudo crm configure property stonith-enabled=true
    crm configure property concurrent-fencing=true
@@ -771,21 +783,21 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
    > [!IMPORTANT]
-   > The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.
+   > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
 
    > [!TIP]
-   >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+   >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-## Pacemaker configuration for Azure scheduled events
+## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected and the resource agent determines that there is another available cluster node, the azure-events agent will place the target cluster node in standby mode, in order to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that, you must configure additional Pacemaker resources. 
 
-1. **[A]** Make sure the package for the **azure-events** agent is already installed and up to date. 
+1. **[A]** Make sure that the package for the azure-events agent is already installed and up to date. 
    
    <pre><code>sudo zypper info resource-agents
    </code></pre>
 
-2. **[1]** Configure the resources in Pacemaker.
+1. **[1]** Configure the resources in Pacemaker.
    
    <pre><code>#Place the cluster in maintenance mode
    sudo crm configure property maintenance-mode=true
@@ -799,7 +811,7 @@ Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled even
    </code></pre>
 
    > [!NOTE]
-   > After you configure the Pacemaker resources for azure-events agent, when you place the cluster in or out of maintenance mode, you may get warning messages like:  
+   > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:  
      WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong> hostname</strong>'  
      WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
      WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong>hostname</strong>'  
@@ -812,4 +824,4 @@ Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled even
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][sles-nfs-guide]
 * [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sles-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha]

@@ -35,7 +35,7 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
 
-* A trained machine learning model. To learn more, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
+* A trained machine learning model. To learn more, see the [Train image classification model](tutorial-train-deploy-notebook.md) tutorial.
 
 <a name="python"></a>
 

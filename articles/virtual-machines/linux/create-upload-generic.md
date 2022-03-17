@@ -46,7 +46,7 @@ This article focuses on general guidance for running your Linux distribution on 
 6. Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 7. Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
 
-8. All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
+8. All VHDs on Azure must have a virtual size aligned to 1 MB (1024 &times; 1024 bytes). When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
 > [!NOTE]
 > Make sure **'udf'** (cloud-init >= 21.2) and **'vfat'** modules are enable. Blocklisting the udf module will cause a provisioning failure and backlisting vfat module will cause both provisioning and boot failures. **_Cloud-init < 21.2 are not affected and does not require this change._**

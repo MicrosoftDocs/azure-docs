@@ -689,6 +689,8 @@ The following limitations apply when you're using Private Link with an Azure Cos
 
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
 
+* Currently, you can't approve a rejected private endpoint connection. Instead, re-create the private endpoint to resume the private connectivity. The Cosmos DB private link service automatically approves the re-created private endpoint.
+
 ### Limitations to private DNS zone integration
 
 Unless you're using a private DNS zone group, DNS records in the private DNS zone are not removed automatically when you delete a private endpoint or you remove a region from the Azure Cosmos account. You must manually remove the DNS records before:

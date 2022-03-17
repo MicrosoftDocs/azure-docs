@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB

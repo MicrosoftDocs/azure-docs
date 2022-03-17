@@ -254,9 +254,6 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
 
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
-
-
 ## Next steps
 
 - Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)

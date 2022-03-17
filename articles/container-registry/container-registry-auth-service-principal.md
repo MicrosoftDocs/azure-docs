@@ -105,6 +105,10 @@ To create a service principal that can authenticate with a container registry in
 
 For example steps, see [Pull images from a container registry to an AKS cluster in a different AD tenant](authenticate-aks-cross-tenant.md).
 
+## Service principal renewal
+
+The service principal is created with one-year validity. You have options to extend the validity further than one year, or can provide expiry date of your choice using the [`az ad sp credential reset`](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command. 
+
 ## Next steps
 
 * See the [authentication overview](container-registry-authentication.md) for other scenarios to authenticate with an Azure container registry.

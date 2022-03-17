@@ -3,15 +3,15 @@ title: Disable how a how a user signs in
 titleSuffix: Azure AD
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/23/2021
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: ergreenl
+ms.reviewer: davidmu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to disable the way a user signs in for an application so that no user can sign in to it in Azure Active Directory.

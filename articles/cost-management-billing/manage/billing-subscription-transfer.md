@@ -23,11 +23,11 @@ If you're an Enterprise Agreement (EA) customer, your enterprise administrator c
 
 Only the billing administrator of an account can transfer ownership of a subscription.
 
-When you send or accept transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
+When you send or accept a transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
 ## Transfer billing ownership of an Azure subscription
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator of the billing account that has the subscription that you want to transfer. If you're not sure if you're and administrator, or if you need to determine who is, see [Determine account billing administrator](add-change-subscription-administrator.md#whoisaa).
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator of the billing account that has the subscription that you want to transfer. If you're not sure if you're an administrator, or if you need to determine who is, see [Determine account billing administrator](add-change-subscription-administrator.md#whoisaa).
 1. Search for **Cost Management + Billing**.  
    ![Screenshot that shows Azure portal search](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions** or **Azure subscriptions**.
@@ -53,7 +53,7 @@ An Azure Active Directory (AD) tenant is created for you when you sign up for Az
 
 When you create a new subscription, it's hosted in your account's Azure AD tenant. If you want to give others access to your subscription or its resources, you need to invite them to join your tenant. Doing so helps you control access to your subscriptions and resources.
 
-When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals that had [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. The new owner must manually add these users to the subscription to provide access to the use who lost it. For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals that had [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. The new owner must manually add these users to the subscription to provide access to the user who lost it. For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Transfer Visual Studio and Partner Network subscriptions
 
@@ -77,7 +77,7 @@ Only one transfer request is active at a time. A transfer request is valid for 1
 To cancel a transfer request:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for then select **Transfer billing ownership**.
+1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for, then select **Transfer billing ownership**.
 1. At the bottom of the page, select **Cancel the transfer request**.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Example showing the Transfer billing ownership window with the Cancel the transfer request option" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -91,7 +91,7 @@ Use the following troubleshooting information if you're having trouble transferr
 > [!Note]
 > This section specifically applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a [Microsoft Customer Agreement](mca-request-billing-ownership.md#check-for-access).
 
-It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Azure Active Directory. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing, and paying bills. The subscription could go into a past-due state. Eventually the subscription could get disabled because of non-payment. Ultimately, the subscription could get deleted and it would affect every service that runs on the subscription.
+It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Azure Active Directory. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing and paying bills. The subscription could go into a past-due state. Eventually, the subscription could get disabled because of non-payment. Ultimately, the subscription could get deleted, affecting every service that runs on the subscription.
 
 When a subscription no longer has a valid billing account owner, Azure sends an email to other Billing account owners, Service Administrators (if any), Co-Administrators (if any), and Subscription Owners informing them of the situation and provides them with a link to accept billing ownership of the subscription. Any one of the users can select the link to accept billing ownership. For more information about billing roles, see [Billing Roles](understand-mca-roles.md) and [Classic Roles and Azure RBAC Roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -111,7 +111,7 @@ The self-service subscription transfer isn't available for your billing account.
 
 ###  Not all subscription types can transfer
 
-Not all types of subscriptions support billing ownership transfer. To view list of subscription types that support transfers, see [Azure subscription transfer hub](subscription-transfer.md).
+Not all types of subscriptions support billing ownership transfer. To view the list of subscription types that support transfers, see [Azure subscription transfer hub](subscription-transfer.md).
 
 ###  Access denied error shown when trying to transfer subscription billing ownership
 

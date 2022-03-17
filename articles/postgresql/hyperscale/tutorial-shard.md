@@ -314,5 +314,5 @@ and placements. We saw a challenge of using uniqueness and foreign key
 constraints, and finally saw how distributed queries work at a high level.
 
 * Read more about Hyperscale (Citus) [table types](concepts-nodes.md)
-* Get more tips on [choosing a distribution column](concepts-choose-distribution-column.md)
+* Get more tips on [choosing a distribution column](howto-choose-distribution-column.md)
 * Learn the benefits of [table colocation](concepts-colocation.md)

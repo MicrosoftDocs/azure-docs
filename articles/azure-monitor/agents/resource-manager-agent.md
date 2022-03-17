@@ -4,18 +4,26 @@ description: Sample Azure Resource Manager templates to deploy and configure vir
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 11/17/2020
+ms.date: 02/07/2022
 
 ---
 
 # Resource Manager template samples for agents in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure the [Log Analytics agent](./log-analytics-agent.md) and [diagnostic extension](./diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure the [Azure Monitor agent](./azure-monitor-agent-overview.md), the legacy [Log Analytics agent](./log-analytics-agent.md) and [diagnostic extension](./diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## Azure Monitor agent
-The samples in this section in the Azure Monitor agent on Windows and Linux agents. This includes installing the agent on virtual machines in Azure and also Azure Arc-enabled servers. 
+The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. To configure data collection for these agents, you must also deploy [Resource Manager templates data collection rules and associations](./resource-manager-data-collection-rules.md). 
+
+
+## Permissions required
+
+| Built-in Role | Scope(s) | Reason |  
+|:---|:---|:---|  
+| <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy agent extension |
+| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To deploy ARM templates |
 
 ### Windows Azure virtual machine
 The following sample installs the Azure Monitor agent on a Windows Azure virtual machine.
@@ -44,7 +52,8 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
               "publisher": "Microsoft.Azure.Monitor",
               "type": "AzureMonitorWindowsAgent",
               "typeHandlerVersion": "1.0",
-              "autoUpgradeMinorVersion": true
+              "autoUpgradeMinorVersion": true,
+              "enableAutomaticUpgrade":true
           }
       }
   ]
@@ -95,7 +104,8 @@ The following sample installs the Azure Monitor agent on a Linux Azure virtual m
               "publisher": "Microsoft.Azure.Monitor",
               "type": "AzureMonitorLinuxAgent",
               "typeHandlerVersion": "1.5",
-              "autoUpgradeMinorVersion": true
+              "autoUpgradeMinorVersion": true,
+			  "enableAutomaticUpgrade":true
           }
       }
   ]
@@ -220,7 +230,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure Arc-enabl
 ```
 
 ## Log Analytics agent
-The samples in this section install the Log Analytics agent on Windows and Linux virtual machines in Azure and connect it to a Log Analytics workspace.
+The samples in this section install the legacy Log Analytics agent on Windows and Linux virtual machines in Azure and connect it to a Log Analytics workspace.
 
 ###  Windows
 The following sample installs the Log Analytics agent on a Windows Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
@@ -802,6 +812,8 @@ The following sample enables and configures the diagnostic extension on a Linux 
 
 ## Next steps
 
+* [Learn more about Azure Monitor agent](./azure-monitor-agent-overview.md)
+* [Learn more about Data Collection rules and associations](./data-collection-rule-azure-monitor-agent.md)
+* [Get sample templates for Data Collection rules and associations](./resource-manager-data-collection-rules.md)
 * [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about Log Analytics agent](./log-analytics-agent.md).
 * [Learn more about diagnostic extension](./diagnostics-extension-overview.md).

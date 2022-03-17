@@ -4,7 +4,7 @@ description: This tutorial shows you how to send messages to and receive message
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 11/18/2020
+ms.date: 02/16/2022
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: seo-python-october2019, devx-track-python, mode-api

@@ -59,7 +59,7 @@ Deleting account is available from the **Settings** page. Select your account na
 ## Delete an authoring resource
 If you have [migrated to an authoring resource](./luis-migration-authoring.md), deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
 
-To delete your resource, go to the [Azure portal](https://ms.portal.azure.com/#home) and select your LUIS authoring resource. Go to the **Overview** tab and click on the **Delete** button on the top of the page. Then confirm your resource was deleted. 
+To delete your resource, go to the [Azure portal](https://portal.azure.com/#home) and select your LUIS authoring resource. Go to the **Overview** tab and click on the **Delete** button on the top of the page. Then confirm your resource was deleted. 
 
 ## Data inactivity as an expired subscription
 For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
@@ -71,5 +71,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn about exporting and deleting an app](luis-how-to-start-new-app.md)
+[Learn about exporting and deleting an app](luis-how-to-start-new-app.md)

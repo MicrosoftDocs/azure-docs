@@ -111,7 +111,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
     POST
 
     ``` HTTP
-    https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+    https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
     ```
 
     Body
@@ -143,7 +143,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
     POST
 
     ```http
-    https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+    https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
     ```
 
     Body
@@ -152,7 +152,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
     {
         "principalId":"<GUID OF USER>",
         "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+        "directoryScopeId":"/<GUID OF APPLICATION REGISTRATION>"
     }
     ```
 
