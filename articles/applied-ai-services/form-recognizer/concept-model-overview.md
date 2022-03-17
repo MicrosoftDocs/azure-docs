@@ -49,7 +49,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 
 [:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 
-The W-2 model analyzes and extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms (copy A, B, C, D, 1, 2) on one page. 
+The W-2 model analyzes and extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including single form and multiple forms (copy A, B, C, D, 1, 2) on one page.
 
 ***Sample W-2 document processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
@@ -81,7 +81,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
-***Sample form processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
+***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
 :::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
@@ -105,7 +105,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 [:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
+The receipt model analyzes and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total.
 
 ***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 

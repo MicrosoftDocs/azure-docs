@@ -274,7 +274,7 @@ Choose the green **Start** button next to formRecognizer_quickstart to build and
 
 ### General document model output
 
-Here is a snippet of the expected output:
+Here's a snippet of the expected output:
 
 ```console
   Detected key-value pairs:
@@ -391,7 +391,7 @@ Choose the green **Start** button next to formRecognizer_quickstart to build and
 
 ### Layout model output
 
-Here is a snippet of the expected output:
+Here's a snippet of the expected output:
 
 ```console
   Document Page 1 has 69 line(s), 425 word(s), and 15 selection mark(s).
@@ -557,7 +557,7 @@ Choose the green **Start** button next to formRecognizer_quickstart to build and
 
 ### Prebuilt model output
 
-Here is a snippet of the expected output:
+Here's a snippet of the expected output:
 
 ```console
   Document 0:
