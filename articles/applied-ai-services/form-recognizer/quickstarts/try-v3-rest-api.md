@@ -26,7 +26,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
  The REST API supports the following models and capabilities:
 
-* 🆕 Read—Analyze and extract printed and handwritten text lines, words, locations, and detected languages.  |
+* 🆕 Read—Analyze and extract printed and handwritten text lines, words, locations, and detected languages.  
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 * 🆕 W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
 * Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
