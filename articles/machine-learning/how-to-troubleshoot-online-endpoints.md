@@ -90,11 +90,15 @@ You can also get logs from the storage initializer container by passing `–-con
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
-## Request Tracing
+## Request tracing
 
 There are three supported tracing headers:
 
-- `x-request-id` is reserved for server tracing. We override this header to ensure it is a valid GUID. **When creating support tickets for failed requests, attach the failed request ids to expedite investigations.**
+- `x-request-id` is reserved for server tracing. We override this header to ensure it's a valid GUID.
+
+   > [!Note]
+   > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
+   
 - `x-ms-request-id` and `x-ms-client-request-id` are available for client tracing scenarios. We sanitize these headers to remove non-alphanumeric symbols. These headers are truncated to 72 characters.
 
 ## Common deployment errors
