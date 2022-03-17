@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Connect to a VM using a native client (Preview)
 
-This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using a native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
+This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using the native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
 
 Your capabilities on the VM when connecting via a native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
 
