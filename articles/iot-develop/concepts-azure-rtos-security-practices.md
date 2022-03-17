@@ -465,20 +465,11 @@ Connected IoT devices might not have the necessary resources to implement all se
 
 The previous sections detailed specific design considerations with descriptions of the necessary hardware, operating system, and application requirements to help mitigate security threats. This section provides a basic checklist of security-related issues to consider when you design and implement IoT applications with Azure RTOS.
 
-This short list of measures is meant as a complement to, not a replacement for, the more detailed discussion in previous sections. You must perform a comprehensive analysis of the physical and cybersecurity threats posed by the environment your device will be deployed into. You also need to carefully consider and rigorously implement measures to mitigate those threats. The goals is to provide the highest possible level of security for your device.
+This short list of measures is meant as a complement to, not a replacement for, the more detailed discussion in previous sections. You must perform a comprehensive analysis of the physical and cybersecurity threats posed by the environment your device will be deployed into. You also need to carefully consider and rigorously implement measures to mitigate those threats. The goal is to provide the highest possible level of security for your device.
 
 The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations to help improve the security hygiene of your devices.
 
 Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides another layer of security that's built into the RTOS by default.
-
-## Azure RTOS IoT application security checklist
-
-The previous sections detailed specific design considerations with descriptions of the necessary hardware, operating system, and application requirements to help mitigate security threats. This section provides a basic checklist of security-related issues to consider when you design and implement IoT applications with Azure RTOS.
-
-The following measures are meant as a complement to, not a replacement for, the more detailed discussion in previous sections. To provide the highest possible level of security for your device, you must perform:
-
- - A comprehensive analysis of the physical and cybersecurity threats posed by the environment your device will be deployed into.
-- Careful consideration and rigorous implementation of the measures needed to mitigate those threats.
 
 ### Security measures to take
 
