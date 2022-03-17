@@ -117,6 +117,15 @@ To configure DNS in Azure DNS private zones:
 
 In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (simply replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
 
+### DNS configuration for FTP access
+
+For FTP access to Internal Load balancer (ILB) App Service Environment v3 specifically, you need to ensure DNS is configured. Configure an Azure DNS private zone or equivalent custom DNS with the following settings:
+
+1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
+1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
+
+In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) as well as at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
+
 ### DNS configuration from your App Service Environment
 
 The apps in your App Service Environment will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis, with the app settings `WEBSITE_DNS_SERVER` and `WEBSITE_DNS_ALT_SERVER`. `WEBSITE_DNS_ALT_SERVER` configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.

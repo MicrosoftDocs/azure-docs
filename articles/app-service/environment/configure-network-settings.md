@@ -73,10 +73,14 @@ The following Azure CLI command will enable allowNewPrivateEndpointConnections:
 ```azurecli
 ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
-az resource update --name $ASE_NAME/configurations/networking --set properties.allowNewPrivateEndpointConnections=true -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration"
+az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-new-private-endpoint-connection true
 
-az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.allowNewPrivateEndpointConnections
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query properties.allowNewPrivateEndpointConnections
 ```
+
+The setting is also available for configuration through Azure portal at the App Service Environment configuration:
+
+:::image type="content" source="./media/configure-network-settings/configure-allow-private-endpoint.png" alt-text="Configure allow private endpoint access through Azure portal.":::
 
 ## FTP access
 
@@ -91,6 +95,8 @@ az resource update --name $ASE_NAME/configurations/networking --set properties.f
 
 az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.ftpEnabled
 ```
+
+In addition to enabling access, you need to ensure that you have [configured DNS if you are using ILB App Service Environment](./networking.md#dns-configuration-for-ftp-access).
 
 ## Remote debugging access
 
