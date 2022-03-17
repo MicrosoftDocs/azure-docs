@@ -114,7 +114,7 @@ With Front Door, you can control how files are cached for a web request that con
 
 ::: zone pivot="front-door-standard-premium"
 
-* You can also use Rule Set to specify **cache key query string** behavior, to include, or exclude specified parameters when cache key gets generated. For example, the default cache key is: /foo/image/asset.html, and the sample request is `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. There's a rule set rule to exclude query string 'userid'. Then the query string cache-key would be `/foo/image/asset.html?language=EN&sessionid=200`.
+* **Specify cache key query string behavior**: In this mode Azure Front Door includes or exclude specified parameters when cache key gets generated. For example, the default cache key is: `/foo/image/asset.html`, and the sample request is `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. There's a rule set rule to exclude query string 'userid'. Then the query string cache-key would be `/foo/image/asset.html?language=EN&sessionid=200`. 
 
 ::: zone-end
 
@@ -180,8 +180,7 @@ Cache behavior and duration can be configured in both the Front Door designer ro
     * When *Use cache default duration* is set to **No**, Front Door will always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
 
 > [!NOTE]
-> * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the backend has a greater TTL than the override value.
-> * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your backends are offline.
+> Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your backends are offline.
 >
 
 ## Next steps
