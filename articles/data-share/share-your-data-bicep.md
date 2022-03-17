@@ -11,7 +11,7 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 
 # Quickstart: Share data using Azure Data Share and Bicep
 
-Learn how to set up a new Azure Data Share from an Azure storage account by using a Bicep file, and start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
+Learn how to set up a new Azure Data Share from an Azure storage account using Bicep, and start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -53,7 +53,7 @@ This Bicep file is created for learning purposes. In practice, you usually have 
 
 It's because the deployment is trying to create the dataset before the Azure role assignment gets finalized. Despite the error message, the deployment could be successful. You would still be able to walk through [Review deployed resources](#review-deployed-resources).
 
-## Deploy the template
+## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
@@ -62,20 +62,20 @@ It's because the deployment is trying to create the dataset before the Azure rol
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters projectName=<project-name> invitationEmail=<invitation-email>
+    az deployment group create --resource-group exampleRG --template-file main.bicep
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -projectName "<project-name>" -invitationEmail "<invitation-email>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<project-name\>** with a project name that is used to generate resource names. Replace **\<invitation-email\>** with an email address for receiving data share invitations.
+    > You'll be prompted to enter **projectName** and **invitationEmail**.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

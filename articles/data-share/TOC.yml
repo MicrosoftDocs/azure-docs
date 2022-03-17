@@ -11,6 +11,9 @@
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
+  - name: Share data - Bicep
+    displayName: ARM, Resource Manager, Template 
+    href: share-your-data-bicep.md
   - name: Share data - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
