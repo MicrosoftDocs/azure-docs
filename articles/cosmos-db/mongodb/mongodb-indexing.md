@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js
+ms.custom: devx-track-js, cosmos-db-video
 ---
 # Manage indexing in Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]

@@ -35,7 +35,7 @@ Following this, a system administrator configures authentication flows. Two auth
 
 ### Synchronize AD with Azure AD
 
-Customers should first implement [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect.md) to integrate on-premises directories with Azure AD.
+Customers should first implement [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) to integrate on-premises directories with Azure AD.
 
 ### Select which authentication flow(s) you will implement
 
@@ -56,7 +56,7 @@ The following prerequisites are required to implement the modern interactive aut
 |Prerequisite  |Description  |
 |---------|---------|
 |Clients must run Windows 10 20H1, Windows Server 2022, or a higher version of Windows. |         |
-|Clients must be joined to Azure AD or Hybrid Azure AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
+|Clients must be joined to Azure AD or Hybrid Azure AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](../../active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
 |Application must connect to the managed instance via an interactive session. | This supports applications such as SQL Server Management Studio (SSMS) and web applications, but won't work for applications that run as a service. |
 |Azure AD tenant. |         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
@@ -71,7 +71,7 @@ The following prerequisites are required to implement the incoming trust-based a
 |Prerequisite  |Description  |
 |---------|---------|
 |Client must run Windows 10, Windows Server 2012, or a higher version of Windows. |         |
-|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](../../active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |

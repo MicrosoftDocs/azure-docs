@@ -199,7 +199,7 @@ There are many ways to explore Application Insights telemetry. For more informat
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 

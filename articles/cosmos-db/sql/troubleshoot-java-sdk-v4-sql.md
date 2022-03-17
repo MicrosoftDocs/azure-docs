@@ -43,7 +43,7 @@ The Diagnostics are returned as a string. The string changes with each version a
 The following code sample shows how to read diagnostic logs using the Java V4 SDK:
 
 > [!IMPORTANT]
-> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](/azure/cosmos-db/sql/sql-api-sdk-java-v4#recommended-version). 
+> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](./sql-api-sdk-java-v4.md#recommended-version). 
 
 # [Sync](#tab/sync)
 

@@ -13,7 +13,7 @@ ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-r
 ---
 Learn how to access Azure services, _such as Azure Storage_, from a web app (not a signed-in user) running on Azure App Service by using managed identities. This tutorial demonstrates connecting to Azure Storage as an example. 
 
-[Any service](/azure/active-directory/managed-identities-azure-resources/managed-identities-status) that supports managed identity (_B_ in the following image) can be securely accessed using this tutorial: 
+[Any service](../../../active-directory/managed-identities-azure-resources/managed-identities-status.md) that supports managed identity (_B_ in the following image) can be securely accessed using this tutorial: 
 
 * Azure Storage
 * Azure SQL Database

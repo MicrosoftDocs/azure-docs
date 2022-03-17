@@ -255,7 +255,7 @@ module.exports = async function (context, info) {
 
 ### Dot notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. The dot notation does not work or [Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings. 
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot (`.`) notation. This notation doesn't work for [Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings. 
 
 For example, suppose your JSON looks like this:
 

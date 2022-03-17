@@ -22,6 +22,8 @@ items:
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
+  - name: Azure Purview deployment checklist
+    href: tutorial-azure-purview-checklist.md
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
@@ -287,16 +289,16 @@ items:
         href: catalog-private-link-troubleshoot.md                     
       - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
-    - name: Azure policy exceptions
+    - name: Azure Purview deployment exceptions
       href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Authoring and publishing data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
     - name: Registering data sources for Data use governance
       href: how-to-enable-data-use-governance.md
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
     - name: View Self-service data access policy
