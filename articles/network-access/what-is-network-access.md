@@ -1,11 +1,12 @@
 ---
 title: What is Zero Trust Network Access?
 description: Zero Trust Network Access provides control and visibility in an Internet first world. The concept is often referred to as Network as a Service (NaaS).
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+author: kenwith
+ms.author: kenwith
+ms.topic: overview
+ms.date: 03/17/2022
+ms.service: network-access
+ms.custom: 
 ---
 
 
@@ -30,7 +31,7 @@ The problem now is that people are not in a physical location and connecting to 
 People are out in the world, remote, and connecting to the Internet through any number of ways such as cell service, home Internet, or public hot spots.
 Zero Trust Network Access provides a mechanism to maintain control and visibility when devices are connecting through unknown Internet connections. 
 
-Existing offerings, see [Azure Networking Services]( https://docs.microsoft.com/en-us/azure/networking/fundamentals/networking-overview ).
+Existing offerings, see [Azure Networking Services]( ../networking/fundamentals/networking-overview.md ).
 
 Looking at the existing services, there is a section on “Virtual network” that discusses setting up the virtual networks communication to the Internet. There is also a section on “VPN Gateway feature for individual devices” that describes how to setup individual computers to access the virtual network. Then there is “Azure Firewall” that could be used to set policies and filter traffic out to the Internet. If my understanding is correct, then stitching these current offerings together would provide similar functionality to ZTNA and what our new service is doing is making things easier for customers to achieve the “Internet first” strategy and maintain control and visibility.
 
@@ -56,5 +57,5 @@ context so the customer can determine why they would click the link.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write an overview](contribute-how-to-write-overview.md)
-- [Links](links-how-to.md)
+- [abc](#)
+
