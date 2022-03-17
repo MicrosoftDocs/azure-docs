@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 02/04/2022
+ms.date: 03/17/2022
 ---
 # Link feature for Azure SQL Managed Instance (preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -93,7 +93,7 @@ Once the link has been created, ensure that you follow the best practices for ma
 
 If and when you are ready to migrate a database to Azure with a minimum downtime, you can do this using an automated wizard in SSMS, or you can choose to do this manually with scripts. Migrate database to Azure link using one of the following instructions:
 
-* [Failover database with link feature in SSMS](managed-instance-link-use-ssms-to-failover-database.md)
+* [Failover database with link feature in SSMS](managed-instance-link-use-ssms-to-failover-database.md), or alternatively
 * [Failover (migrate) database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts](managed-instance-link-use-scripts-to-failover-database.md)
 
 ## Limitations
