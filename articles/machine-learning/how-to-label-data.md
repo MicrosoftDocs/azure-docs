@@ -113,7 +113,7 @@ Select the image that you want to label and then select the tag. The tag is appl
 
 ![Animation shows multilabel flow](./media/how-to-label-data/multilabel.gif)
 
-To correct a mistake, click the "**X**" to clear an individual tag or select the images and then select the tag, which clears the tag from all the selected images. This scenario is shown here. Clicking on "Land" will clear that tag from the two selected images.
+To correct a mistake, select the "**X**" to clear an individual tag or select the images and then select the tag, which clears the tag from all the selected images. This scenario is shown here. Selecting "Land" will clear that tag from the two selected images.
 
 ![A screenshot shows multiple deselections](./media/how-to-label-data/multiple-deselection.png)
 
@@ -125,17 +125,17 @@ If your project is of type "Object Identification (Bounding Boxes)," you'll spec
 
 1. Select a tag for the bounding box that you plan to create.
 1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-data/rectangular-box-tool.png) or select "R."
-3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
+3. Select and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
 
 ![Bounding box creation](./media/how-to-label-data/bounding-box-sequence.png)
 
-To delete a bounding box, click the X-shaped target that appears next to the bounding box after creation.
+To delete a bounding box, select the X-shaped target that appears next to the bounding box after creation.
 
 You can't change the tag of an existing bounding box. If you make a tag-assignment mistake, you have to delete the bounding box and create a new one with the correct tag.
 
 By default, you can edit existing bounding boxes. The **Lock/unlock regions** tool ![Lock/unlock regions tool](./media/how-to-label-data/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new bounding box.
 
-Use the **Regions manipulation** tool ![This is the regions manipulation tool icon - four arrows pointing outward from the center, up, right, down, and left.](./media/how-to-label-data/regions-tool.png) or "M" to adjust an existing bounding box. Drag the edges or corners to adjust the shape. Click in the interior to be able to drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
+Use the **Regions manipulation** tool ![This is the regions manipulation tool icon - four arrows pointing outward from the center, up, right, down, and left.](./media/how-to-label-data/regions-tool.png) or "M" to adjust an existing bounding box. Drag the edges or corners to adjust the shape. Select in the interior to be able to drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
 Use the **Template-based box** tool ![Template-box tool](./media/how-to-label-data/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50-by-50-pixel boxes. If you create a bounding box and then activate template-based boxes, any new bounding boxes will be the size of the last box that you created. Template-based boxes can be resized after placement. Resizing a template-based box only resizes that particular box.
 
@@ -149,17 +149,17 @@ If your project is of type "Instance Segmentation (Polygon)," you'll specify one
 
 1. Select a tag for the polygon that you plan to create.
 1. Select the **Draw polygon region** tool ![Draw polygon region tool](./media/how-to-label-data/polygon-tool.png) or select "P."
-1. Click for each point in the polygon.  When you have completed the shape, double click to finish.
+1. Select for each point in the polygon.  When you have completed the shape, double click to finish.
 
     :::image type="content" source="media/how-to-label-data/polygon.gif" alt-text="Create polygons for Cat and Dog":::
 
-To delete a polygon, click the X-shaped target that appears next to the polygon after creation.
+To delete a polygon, select the X-shaped target that appears next to the polygon after creation.
 
-If you want to change the tag for a polygon, select the **Move region** tool, click on the polygon, and select the correct tag.
+If you want to change the tag for a polygon, select the **Move region** tool, select the polygon, and select the correct tag.
 
 You can edit existing polygons. The **Lock/unlock regions** tool ![Edit polygons with the lock/unlock regions tool](./media/how-to-label-data/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
 
-Use the **Add or remove polygon points** tool ![This is the add or remove polygon points tool icon.](./media/how-to-label-data/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
+Use the **Add or remove polygon points** tool ![This is the add or remove polygon points tool icon.](./media/how-to-label-data/add-remove-points-tool.png) or "U" to adjust an existing polygon. Select the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
 To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-data/delete-regions-tool.png).
 
@@ -203,8 +203,8 @@ To change a label, you can:
 
 * Delete the label and start again.
 * Change the value for all or some of a specific label in your current item:
-    * Click on the label itself, which will select all instances of that label.  
-    * Click again on the instances of this label to unselect any instances you don't want to change.  
+    * Select the label itself, which will select all instances of that label.  
+    * Select again on the instances of this label to unselect any instances you don't want to change.  
     * Finally, select a new label to change all the labels that are still selected.
 
 When you've tagged all the items in an entry, select **Submit** to move to the next entry.

@@ -167,7 +167,6 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 ### Dashboard
 
-
 The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
@@ -213,7 +212,7 @@ For all project types other than **Text Named Entity Recognition**, you can expo
 
 For **Text Named Entity Recognition** projects, you can export:
 * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
-* A CoNLL file.  For this export, you will also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Click on this to open the notification, which includes the link to the file.
+* A CoNLL file.  For this export, you will also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Select this to open the notification, which includes the link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
 
@@ -224,7 +223,6 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 ## Troubleshooting
 
 [!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
-
 
 ## Next steps
 
