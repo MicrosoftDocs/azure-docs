@@ -1044,7 +1044,7 @@ protected void Application_Start()
 appInsights.config.instrumentationKey = myKey;
 ```
 
-In webpages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a webpage generated in an .NET app:
+In webpages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a webpage generated in an ASP.NET app:
 
 *JavaScript in Razor*
 
