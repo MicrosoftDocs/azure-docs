@@ -61,9 +61,12 @@ Follow these steps:
 1. Select the Virtual Machine whose recovery points you want to move to the vault-archive tier.
 
 2. Select **click here** to view recommended recovery points.
- 
+
+   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points for virtual machines that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-expanded.png":::
 
 3. Click **Move recovery points to archive** to move all the recommended recovery points to archive tier.
+
+   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points for virtual machines to the vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-expanded.png":::
 
 >[!Note]
 >To ensure cost savings, you need to move all the recommended recovery points to vault-archive tier. To verify, see steps 1 and 2. If the list is empty in step 3, all the recommended recovery points are moved to the vault-archive tier.
