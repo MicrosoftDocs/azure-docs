@@ -57,11 +57,11 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute.Blobs/5.0.0-beta.4), version 5.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/dotnet), version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute), version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/dotnet), version 3.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
