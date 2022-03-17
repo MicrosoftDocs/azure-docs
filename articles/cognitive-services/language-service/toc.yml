@@ -479,6 +479,8 @@ items:
     href: orchestration-workflow/overview.md
   - name: FAQ
     href: orchestration-workflow/faq.md
+  - name: Quickstart
+    href: orchestration-workflow/quickstart.md
   - name: How-to guides
     items:
       - name: Create project and build schema
