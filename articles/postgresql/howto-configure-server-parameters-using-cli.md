@@ -1,11 +1,12 @@
 ---
 title: Configure parameters - Azure Database for PostgreSQL - Single Server
 description: This article describes how to configure Postgres parameters in Azure Database for PostgreSQL - Single Server using the Azure CLI.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
 ms.date: 06/19/2019 
 ms.custom: devx-track-azurecli
 ---
