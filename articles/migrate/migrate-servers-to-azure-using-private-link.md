@@ -367,7 +367,7 @@ Now, select machines for replication and migration.
 1. In **Process Server**, select the name of the replication appliance. 
 1. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines.**
 
-    ![Diagram that shows how to complete source settings.](./media/how-to-use-azure-migrate-with-private-endpoints/source-settings.png)
+    ![Diagram that shows how to complete source settings.](./media/how-to-use-azure-migrate-with-private-endpoints/source-settings-vmware.png)
 
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 1. Select each VM you want to migrate. Then click **Next:Target settings**. 
