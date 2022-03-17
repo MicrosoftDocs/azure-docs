@@ -284,7 +284,7 @@ You can also specify the conditions under which the blob will be copied. These c
 You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 > [!NOTE]
-> Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+> Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](../common/storage-use-azcopy-v10.md).
 
 For more information, see the [az storage blob copy](/cli/azure/storage/blob/copy) reference.
 
@@ -554,6 +554,6 @@ done
 
 ## Next steps
 
-- [Choose how to authorize access to blob data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli)
-- [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-cli)
+- [Choose how to authorize access to blob data with Azure CLI](./authorize-data-operations-cli.md)
+- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-cli.md)
 - [Manage blob containers using CLI](blob-containers-cli.md)
