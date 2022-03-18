@@ -32,7 +32,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
 
 1. Select the **configure** link below the *BGP community string*.
 
-    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/vnet-overview.png" alt-text="Screenshot of the overview page of a virtual networks.":::
+    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/virtual-network-overview.png" alt-text="Screenshot of the overview page of a virtual network.":::
 
 1. On the *BGP community string* page, enter the BGP value you would like to configure this virtual network and then select **Save**.
 
