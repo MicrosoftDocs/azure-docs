@@ -52,10 +52,10 @@ Data formats available for text data:
     * Choose **Text Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to each piece of text. 
     * Choose **Text Named Entity Recognition (Preview)** for projects when you want to apply labels to individual or multiple words of text in each entry.
 
-> [!IMPORTANT]
-> Text Named Entity Recognition is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+    > [!IMPORTANT]
+    > Text Named Entity Recognition is currently in public preview.
+    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 1. Select **Next** when you're ready to continue.
 
