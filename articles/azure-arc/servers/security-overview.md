@@ -42,6 +42,8 @@ The guest configuration and extension services run as Local System on Windows, a
 
 Starting with agent version 1.16, you can optionally limit the extensions that can be installed on your server and disable Guest Configuration. These controls can be useful when connecting servers to Azure that need to be monitored or secured by Azure, but should not allow arbitrary management capabilities like running scripts with Custom Script Extension or configuring settings on the server with Guest Configuration.
 
+These security controls can only be configured by running a command on the server itself and cannot be modified from Azure. This approach preserves the server admin's intent when enabling remote management scenarios with Azure Arc, but also means that changing the setting is more difficult if you later decide to change them. This feature is intended for particularly sensitive servers (for example, Active Directory Domain Controllers, servers that handle payment data, and servers subject to strict change control measures). In most other cases, it is not necessary to modify these settings.
+
 ### Extension allowlists and blocklists
 
 To limit which [extensions](manage-vm-extensions.md) can be installed on your server, you can configure lists of the extensions you wish to allow and block on the server. The extension manager will evaluate all requests to install, update, or upgrade extensions against the allowlist and blocklist to determine if the extension can be installed on the server. Delete requests are always allowed.
@@ -60,9 +62,9 @@ azcmagent config set extensions.blocklist "Microsoft.Azure.Extensions/CustomScri
 
 Extensions are specified by their publisher and type, separated by a forward slash. See the list of the [most common extensions](manage-vm-extensions.md) in the docs or list the VM extensions already installed on your server in the [portal](manage-vm-extensions-portal.md#list-extensions-installed), [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed), or [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed).
 
-The table below describes the behavior when performing an extension operation against an agent that has allow or blocklists configured.
+The table below describes the behavior when performing an extension operation against an agent that has the allowlist or blocklist configured.
 
-| Operation | In the allowlist | In the blocklist | In allowlist and blocklist | Not in any list, but an allowlist is configured |
+| Operation | In the allowlist | In the blocklist | In both the allowlist and blocklist | Not in any list, but an allowlist is configured |
 |--|--|--|--|
 | Install extension | Allowed | Blocked | Blocked | Blocked |
 | Update (reconfigure) extension | Allowed | Blocked | Blocked | Blocked |
@@ -70,7 +72,7 @@ The table below describes the behavior when performing an extension operation ag
 | Delete extension | Allowed | Allowed | Allowed | Allowed |
 
 > [!IMPORTANT]
-> If an extension is already installed on your server before you configure an allow or blocklist, it will not automatically be removed. It is your responsibility to delete the extension from Azure to fully remove it from the machine. Delete requests are always accepted to accommodate this scenario. Once deleted, the allowlist and blocklist will determine whether or not to allow future install attempts.
+> If an extension is already installed on your server before you configure an allowlist or blocklist, it will not automatically be removed. It is your responsibility to delete the extension from Azure to fully remove it from the machine. Delete requests are always accepted to accommodate this scenario. Once deleted, the allowlist and blocklist will determine whether or not to allow future install attempts.
 
 ### Enable or disable Guest Configuration
 
@@ -84,7 +86,7 @@ When Guest Configuration is disabled, any Guest Configuration policies assigned 
 
 ### Locked down machine best practices
 
-When configuring the Azure Connected Machine agent with a reduced set of capabilities, it is important to consider the mechanisms that someone could use to remove those restrictions and implement appropriate controls. Anybody capable of running commands as an administrator or root user on the server can change the Azure Connected Machine agent configuration. Extensions and guest configuration policies execute in privileged contexts on your server, and as such may be able to change the agent configuration. Microsoft recommends the following best practices to ensure only local server admins can update the agent configuration:
+When configuring the Azure Connected Machine agent with a reduced set of capabilities, it is important to consider the mechanisms that someone could use to remove those restrictions and implement appropriate controls. Anybody capable of running commands as an administrator or root user on the server can change the Azure Connected Machine agent configuration. Extensions and guest configuration policies execute in privileged contexts on your server, and as such may be able to change the agent configuration. If you apply these security controls to lock down the agent, Microsoft recommends the following best practices to ensure only local server admins can update the agent configuration:
 
 * Use allowlists for extensions instead of blocklists whenever possible.
 * Don't include the Custom Script Extension in the extension allowlist to prevent execution of arbitrary scripts that could change the agent configuration.
