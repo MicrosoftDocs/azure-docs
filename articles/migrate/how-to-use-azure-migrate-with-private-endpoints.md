@@ -262,13 +262,15 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
 1. Go to the replication/cache storage account selected for replication. In the left pane, select **Access control (IAM)**.
 
-1. Select **+ Add**, and select **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-   ![Screenshot that shows Add role assignment.](./media/how-to-use-azure-migrate-with-private-endpoints/storage-role-assignment.png)
+    ![Screenshot that shows access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
-1. On the **Add role assignment** page in the **Role** box, select the appropriate role from the permissions list previously mentioned. Enter the name of the vault noted previously, and select **Save**.
+1. On the **Role** tab, select the appropriate role from the permissions list previously mentioned. Also, select the name of the vault noted previously.
 
-    ![Screenshot that shows the Add role assignment page.](./media/how-to-use-azure-migrate-with-private-endpoints/storage-role-assignment-select-role.png)
+    ![Screenshot that shows Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 1. In addition to these permissions, you must also allow access to Microsoft trusted services. If your network access is restricted to selected networks, on the **Networking** tab in the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account**.
 
