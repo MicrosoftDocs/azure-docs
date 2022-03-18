@@ -30,7 +30,7 @@ Review [Caching with Azure Front Door](../front-door-caching.md) to understand h
 1. Select one or more endpoints and enter the domain and or subdomains you want to purge from the edge nodes.
 
     > [!IMPORTANT]
-    > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domains.md).
+    > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domain.md).
 
    :::image type="content" source="../media/how-to-cache-purge/purge-cache-page.png" alt-text="Screenshot of the purge cache page.":::
 
