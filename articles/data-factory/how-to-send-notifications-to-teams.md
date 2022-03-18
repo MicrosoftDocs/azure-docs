@@ -24,7 +24,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-incoming-webhook-connector.png" alt-text="Shows the Incoming Webhook app under the Apps tab in Teams.":::
 
-1.  Click the "Add to a team" button to add the connector to the Team or Team channel name site where you want to send notifications.
+1.  Select the "Add to a team" button to add the connector to the Team or Team channel name site where you want to send notifications.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-connector-to-site.png" alt-text="Highlights the &quot;Add to a team&quot; button for the Incoming Webhook app.":::
 
@@ -32,7 +32,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/type-a-team-or-team-channel-name.png" alt-text="Shows the team selection prompt on the Incoming Webhook app configuration dialog in Teams. Type the &quot;Team or Team channel name&quot;":::
 
-1.  Click the "Set up a connector" button to set up the Incoming Webhook for the Team or Team channel name you selected in the previous step.
+1.  Select the "Set up a connector" button to set up the Incoming Webhook for the Team or Team channel name you selected in the previous step.
  
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-prod-notifications.png" alt-text="Shows the team selection prompt on the Incoming Webhook app configuration dialog in Teams. Highlights the Team and the &quot;Set up a connector&quot; button":::
 
@@ -40,7 +40,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-icon.png" alt-text="Highlights the name property, optional image upload, and &quot;Create&quot; button in the Incoming Webhook options page.":::  
 
-1.  Copy the Webhook URL that is generated on creation and save it for later use in pipeline. After that, click the "Done" button to complete the setup.
+1.  Copy the Webhook URL that is generated on creation and save it for later use in pipeline. After that, select the "Done" button to complete the setup.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-copy-webhook-url.png" alt-text="Shows the new webhook URL on the Incoming Webhook options page after creation.":::
 
@@ -183,7 +183,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
 
 1.  Search for "Web" in the pipeline "Activities" pane, and drag a **Web** activity to the pipeline canvas. 
 
-1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
+1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, select the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
 
 1.  Select the new **Web** activity on the canvas if it isn't already selected, and its "General" tab, to edit its details.
 
@@ -341,7 +341,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
 
 1.  Search for "Web" in the pipeline "Activities" pane, and drag a **Web** activity to the pipeline canvas. 
 
-1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
+1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, select the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
 
 1.  Select the new **Web** activity on the canvas if it isn't already selected, and its "General" tab, to edit its details.
 
@@ -401,7 +401,7 @@ In this sample usage scenario, we'll create a master pipeline with three **Execu
         | runDuration       | ``@activity('LoadDataPipeline').Duration``                                                                        |
         | teamWebhookUrl	| ``https://microsoft.webhook.office.com/webhookb2/1234abcd-1x11-2ff1-ab2c-1234d0699a9e@72f988bf-32b1-41af-91ab-2d7cd011db47/IncomingWebhook/8212f66ad80040ab83cf68b554d9232a/17d524d0-ed5c-44ed-98a0-35c12dd89a6d``                                        |
 
-    -   Create a dependency condition for the second **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity succeeds. To create this dependency, click the green handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the second **Execute Pipeline** activity.
+    -   Create a dependency condition for the second **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity succeeds. To create this dependency, select the green handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the second **Execute Pipeline** activity.
 
      :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-general.png" alt-text="Shows the second &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
@@ -419,12 +419,12 @@ In this sample usage scenario, we'll create a master pipeline with three **Execu
         | name              | ``@activity('LoadDataPipeline').output['pipelineName']``                                                          |
         | triggerTime       | ``@activity('LoadDataPipeline').ExecutionStartTime``                                                              |
         | status            | ``@activity('LoadDataPipeline').Status``                                                                          |
-        | message           | ``@activity('LoadDataPipeline').Error['message']``                                                                 |
+        | message           | ``@activity('LoadDataPipeline').Error['message']``                                                                |
         | executionEndTime  | ``@activity('LoadDataPipeline').ExecutionEndTime``                                                                |
         | runDuration       | ``@activity('LoadDataPipeline').Duration``                                                                        |
         | teamWebhookUrl	| ``https://microsoft.webhook.office.com/webhookb2/1234abcd-1x11-2ff1-ab2c-1234d0699a9e@72f988bf-32b1-41af-91ab-2d7cd011db47/IncomingWebhook/8212f66ad80040ab83cf68b554d9232a/17d524d0-ed5c-44ed-98a0-35c12dd89a6d``                                        |
 
-    -   Create a dependency condition for the third **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity fails. To create this dependency, click the red handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the third **Execute Pipeline** activity.
+    -   Create a dependency condition for the third **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity fails. To create this dependency, select the red handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the third **Execute Pipeline** activity.
 
     -   Validate, debug, and then publish your **MasterPipeline** pipeline. 
 
@@ -438,7 +438,7 @@ In this sample usage scenario, we'll create a master pipeline with three **Execu
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run-onfailure.png" alt-text="Shows on failure pipeline notifications in a Teams channel.":::
 
-1.   Click the "View pipeline run" button to view pipeline run.
+1.   Select the "View pipeline run" button to view pipeline run.
 
 ## Add dynamic messages with system variables and expressions
 
@@ -449,7 +449,7 @@ make your messages dynamic. For example:  
 
 -   ``@activity("DataFlow").error.Message``
 
-The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. For more information, see the
+The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. For more information about this topic, see the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
 
 We also encourage you to review the Microsoft Teams supported [notification payload schema](https://adaptivecards.io/explorer/AdaptiveCard.html) and
