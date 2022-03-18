@@ -104,10 +104,12 @@ Select the same markets for the DEV and PROD offers.
 
 Use the DEV offer to experiment with pricing models. After you verify which pricing model or models work best, you’ll create the plans in the PROD offer with the pricing models and prices you want.
 
-The DEV offer should have plans with zero or low prices in the plans. The PROD offer will have the prices you want to charge to customers.
+To minimize your testing costs, the DEV offer should have plans with zero or low prices in the plans. For example, $0.01 (one cent). This applies to flat rate, metered billing, and per user prices. The PROD offer will have the prices you want to charge to customers.
 
 > [!IMPORTANT]
 > Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no store service fee).
+
+You’ll set the prices you want to charge the customer in the separate production plan that you’ll publish live.
 
 #### Pricing model
 
