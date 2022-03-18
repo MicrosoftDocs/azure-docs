@@ -14,8 +14,6 @@ ms.subservice: files
 
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 In this tutorial, you will:
 
 > [!div class="checklist"]
@@ -34,21 +32,21 @@ In this tutorial, you will:
 
 ## Getting started
 
-To get started, you'll need to create a storage account.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create a storage account
 
 Before you can work with an NFS Azure file share, you have to create an Azure storage account with the Premium performance tier. Premium is the only tier that supports NFS Azure file shares.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 1. On the **Storage Accounts** window that appears, choose **+ Create**.
 1. On the **Basics** tab, select the subscription in which to create the storage account.
 1. Under the **Resource group** field, select **Create new** to create a new resource group to use for this tutorial.
-1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
+1. Enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
 1. Select a region for your storage account, or use the default region. Azure supports NFS file shares in all the same regions that support premium file storage.
-1. Select the *Premium* performance tier to store your data on solid-state drives (SSD). 
-1. Under **Premium account type**, select *File shares*.
+1. Select the *Premium* performance tier to store your data on solid-state drives (SSD). Under **Premium account type**, select *File shares*.
 1. Leave replication set to its default value of *Locally-redundant storage (LRS)*.
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. When you see the **Validation passed** notification appear, select **Create**. You should see a notification that deployment is in progress.
