@@ -45,7 +45,7 @@ The following are the recommended steps to change the allocation method.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
-2. Select **All resources** in. the left menu. Select the **basic public IP Address associated with the basic load balancer** from the resource list.
+2. Select **All resources** in. the left menu. Select the **basic public IP address associated with the basic load balancer** from the resource list.
    
 3. In the **Settings** of the basic public IP address, select **Configurations**.
    
@@ -56,7 +56,7 @@ The following are the recommended steps to change the allocation method.
 >[!NOTE]
 >For virtual machines which have public IPs, you must create standard IP addresses first. The same IP address is not guaranteed. Disassociate the VMs from the basic IPs and associate them with the newly created standard IP addresses. You'll then be able to follow the instructions to add VMs into the backend pool of the Standard Azure Load Balancer.
 
-**Creating new VMs to add to the backend pool of the newly created public standard load balancer**.
+### Create new VMs to add to the backend pool of the new standard load balancer**.
     
 * To create a virtual machine and associate it with the load balancer, see [Create virtual machines](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
@@ -113,11 +113,9 @@ To run the script:
 
 ### Create a NAT gateway for outbound access
 
-Follow the [instructions](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway) to create a NAT gateway so you can:
+The script creates an outbound rule that enables outbound connectivity. Azure Virtual Network NAT is the recommended service for outbound connectivity. For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). 
 
-* Define outbound NAT during creation
-
-* Scale and tune the behavior of existing outbound NAT
+To create a NAT gateway resource and associate it with a subnet of your virtual network see, [Create NAT gateway](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway).
 
 ## Common questions
 
