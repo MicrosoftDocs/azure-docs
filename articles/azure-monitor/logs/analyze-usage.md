@@ -6,22 +6,13 @@ ms.date: 02/18/2022
 ---
  
 # Analyze usage in Log Analytics workspace
-This article provides guidance on analyzing the data being collected in your Log Analytics workspace.
+This article provides guidance on analyzing the data being collected in your Log Analytics workspace. This can assist in controlling your costs by determining the cause of higher than expected usage and also to predict your costs as you monitor additional resources and configure different Azure Monitor features.
 
-## Causes of high usage
-Higher than expected usage in a Log Analytics workspace can be caused by the following:
-
-- More nodes than expected sending data to the workspace. See [Understanding nodes sending data](#understanding-nodes-sending-data).
-- More data than expected being sent to the workspace. See [Understanding ingested data volume](#understanding-ingested-data-volume).
-
-If you observe high data ingestion reported using the `Usage` records (see the [Data volume by solution](#data-volume-by-solution) section), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible that you have significant late-arriving data. For information about how to diagnose this, see the [Late arriving data](#late-arriving-data) section of this article. 
-
-#
 
 ## Create an alert when data collection is high
-In order to avoid unexpected bills, you should be proactively notified whenever you experience excessive usage. This allows you analyze your data to address potential anomalies before the end of your billing period.
+In order to avoid unexpected bills, you should be proactively notified whenever you experience excessive usage. This allows you analyze your data to address potential anomalies before the end of your billing period. When you receive an alert, use the guidance in this article to determine why usage is higher than expected and make changes before you generate significant additional charges.
 
-Create a [log alert rule](../alerts/alerts-unified-log.md) with the details below. This example sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB.
+The following example is a [log alert rule](../alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** to use a different threshold based on the usage in your environment.
 
 | Setting | Value |
 |:---|:---|
@@ -37,39 +28,42 @@ Create a [log alert rule](../alerts/alerts-unified-log.md) with the details belo
 | Alert rule name | Billable data volume greater than 50 GB in 24 hours |
 
 
-When you receive an alert, use the guidance in the following sections to troubleshoot why usage is higher than expected.
+
+## Causes of high usage
+Higher than expected usage in a Log Analytics workspace is typically caused by on of the following conditions:
+
+- More nodes than expected sending data to the workspace. See [Understanding nodes sending data](#understanding-nodes-sending-data).
+- More data than expected being sent to the workspace. See [Understanding ingested data volume](#understanding-ingested-data-volume).
+
+If you observe high data ingestion reported using the `Usage` records (see the [Data volume by solution](#data-volume-by-solution) section), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible that you have significant late-arriving data. For information about how to diagnose this, see the [Late arriving data](#late-arriving-data) section of this article. 
+
+#
 
 # Log Analytics Workspace Insights
-Start understanding your data volumes in the **Usage** tab in [Log Analytics Workspace Insights](log-analytics-workspace-insights-overview.md#usage-tab) which shows the following:
+Start understanding your the data volumes collected by your workspace with in [Log Analytics Workspace Insights](log-analytics-workspace-insights-overview.md#usage-tab) which provides a quick summary of the following:
 
 - Data tables ingesting the most data volume in the main table
 - Top resources contributing data
 - Trend of data ingestion
 
-Select **Additional Queries** for pre-built queries that help you further understand your data patterns. If you have additional questions, or you want perform deeper analysis, then have a look at the queries in the following sections.
-
+See the **Usage** tab for a breakdown of ingestion by solution and table. This can help you quickly identify the tables that contribute to the bulk of your data volume. Select **Additional Queries** for pre-built queries that help you further understand your data patterns. If you have additional questions, or you want perform deeper analysis, then have a look at the queries in the following sections.
 
 
 ## Understanding ingested data volume
-On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This helps you determine trends such as whether the overall data usage or usage by a particular solution is growing, remaining steady, or decreasing. 
+The *Data ingestion per solution* chart on the **Usage and Estimated Costs** page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution. 
 
-### Data volume for specific events
-Use a query like the following to analyze the billable usage for a particular table. The clause `where _IsBillable = true` filters out data types from certain solutions for which there is [no ingestion charge](./log-standard-columns.md#_isbillable).
 
-This example analyzes particular event IDs in the  `Event` table. You can modify it for other tables and criteria.
+## Log queries
+To work with the data interactively and drill down on the usage details, use the following queries in [Log Analytics](log-analytics-overview.md). These queries use the [Usage](/azure/azure-monitor/reference/tables/usage) table that collects usage data for each table in the workspace. 
 
-```kusto
-Event
-| where TimeGenerated > startofday(ago(31d)) and TimeGenerated < startofday(now()) 
-| where EventID == 5145 or EventID == 5156
-| where _IsBillable == true
-| summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
-```
+The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal looks back beyond the default 24 hours. When using the **Usage** data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. The clause `where _IsBillable = true` filters out any data  from certain solutions for which there is [no ingestion charge](./log-standard-columns.md#_isbillable). The **_BilledSize** [property](./log-standard-columns.md#_billedsize), which provides the size in bytes:
 
+> [!WARNING]
+> Some of the columns in the **Usage** table, while still in the schema, have been deprecated and their values are no longer populated. 
+> These are **Computer**, as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**).
 
 ### Data volume by solution
-
-Use the following query to view the billable data volume by solution over the last month (excluding the last partial day) can be built using the [Usage](/azure/azure-monitor/reference/tables/usage) data type as:
+ use following query that uses the  to view the billable data volume by solution over the last month (excluding the last partial day):
 
 ```kusto
 Usage 
@@ -80,11 +74,8 @@ Usage
 | render columnchart
 ```
 
-The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal looks back beyond the default 24 hours. When using the **Usage** data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. 
-
 ### Data volume by type
-
-You can drill in further to see data trends for by data type:
+Use a similar query to perform the same analysis grouped by data type.
 
 ```kusto
 Usage 
@@ -95,7 +86,7 @@ Usage
 | render columnchart
 ```
 
-Or to see a table by solution and type for the last month,
+Or to see a table by solution and type for the last month.
 
 ```kusto
 Usage 
@@ -106,10 +97,25 @@ Usage
 | sort by Solution asc, DataType asc
 ```
 
+### Data volume for specific events
+If you find that a particular data type is collecting excessive data, you may want to analyze the data in that table to determine particular records that are increasing. This example filters particular event IDs in the  `Event` table and then provides a count for each ID. You can modify this queries using the columns from other tables.
+
+```kusto
+Event
+| where TimeGenerated > startofday(ago(31d)) and TimeGenerated < startofday(now()) 
+| where EventID == 5145 or EventID == 5156
+| where _IsBillable == true
+| summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
+```
+
 ### Data volume by computer
+The **Usage** table doesn't include information about data collected from virtual machines, so you need to use the [find operator](/azure/data-explorer/kusto/query/findoperator) to search all tables that include a computer name. The **Usage** type is omitted because this is only for analytics of data trends. 
 
-The **Usage** data type doesn't include information at the computer level. To see the **size** of ingested billable data per computer, use the **_BilledSize** [property](./log-standard-columns.md#_billedsize), which provides the size in bytes:
+> [!IMPORTANT]
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, query on the **Usage** data type.
 
+ To see the **size** of ingested billable data per computer: 
+ 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, Type
 | where _IsBillable == true and Type != "Usage"
@@ -118,9 +124,8 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, 
 | sort by BillableDataBytes desc nulls last
 ```
 
-The **_IsBillable** [property](./log-standard-columns.md#_isbillable) specifies whether the ingested data will incur charges. The **Usage** type is omitted because this is only for analytics of data trends. 
 
-To see the **count** of billable events ingested per computer, use 
+To see the **count** of billable events ingested per computer:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _IsBillable, Computer
@@ -130,12 +135,12 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 | sort by eventCount desc nulls last
 ```
 
-> [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, query on the **Usage** data type.
-
 ### Data volume by Azure resource, resource group, or subscription
 
-For data from nodes hosted in Azure, you can get the **size** of ingested data __per computer__, use the [_ResourceId property](./log-standard-columns.md#_resourceid), which provides the full path to the resource:
+> [!TIP]
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resouce group, or resource name, query on the **Usage** data type.
+
+Use the [_ResourceId property](./log-standard-columns.md#_resourceid) for data from resources hosted in Azure. , you can get the **size** of ingested data __per computer__, , which provides the full path to the resource:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -143,15 +148,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-For data from nodes hosted in Azure, you can get the **size** of ingested data __per Azure subscription__ by using the **_SubscriptionId** property as:
-
-```kusto
-find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, _SubscriptionId
-| where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId | sort by BillableDataBytes nulls last
-```
-
-To get data volume by resource group, you can parse **_ResourceId**:
+Use the [_ResourcenId](./log-standard-columns.md#_resourceid) for data from all resources in a resource group.
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -168,19 +165,20 @@ If needed, you can also parse the **_ResourceId** more fully:
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
 ```
 
-> [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resouce group, or resource name, query on the **Usage** data type.
 
-> [!WARNING]
-> Some of the fields of the **Usage** data type, while still in the schema, have been deprecated and their values are no longer populated. 
-> These are **Computer**, as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**).
+Use the [_SubscriptionId](./log-standard-columns.md#_subscriptionid) for data from all resources in an Azure subscription.
 
+For data from nodes hosted in Azure, you can get the **size** of ingested data __per Azure subscription__ by  property as:
+
+```kusto
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, _SubscriptionId
+| where _IsBillable == true 
+| summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId | sort by BillableDataBytes nulls last
+```
 ## Querying for common data types
 
 To dig deeper into the source of data for a particular data type, here are some useful example queries:
 
-+ **Workspace-based Application Insights** resources
-  - Learn more at [Manage usage and costs for Application Insights](../app/pricing.md#data-volume-for-workspace-based-application-insights-resources)
 + **Security** solution
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Log Management** solution
@@ -197,9 +195,113 @@ To dig deeper into the source of data for a particular data type, here are some 
 + **AzureDiagnostics** data type
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-## Understanding nodes sending data
+## Application insights
+There are two approaches to investigating data volumes for Application Insights. For workspace-based Application Insights resources, use the `_BilledSize` property that is available on each ingested event. For classic Application insights resources, you can use the same method or use aggregated information in the [systemEvents](/azure/azure-monitor/reference/tables/appsystemevents) table.
 
-To understand the number of nodes that are reporting heartbeats from the agent each day in the last month, use this query:
+
+### Aggregated data volume information
+The following queries can only be used for classic Application Insights resources since the `systemEvents` table doesn't have data size information for workspace-based resources.
+
+Show the data volume ingested in the last 24 hours:
+
+```kusto
+systemEvents
+| where timestamp >= ago(24h)
+| where type == "Billing"
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes)
+```
+
+Display a chart of data volume (in bytes) by data type for the last 30 days:
+
+```kusto
+systemEvents
+| where timestamp >= startofday(ago(30d))
+| where type == "Billing"
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
+Show the count of events by type using the query:
+
+```kusto
+systemEvents
+| where timestamp >= startofday(ago(30d))
+| where type == "Billing"
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| summarize count() by BillingTelemetryType, bin(timestamp, 1d)
+| render barchart  
+```
+
+### Use data size per event information
+The following queries can only be used for either classic or workspace-based Application Insights resources.
+
+Display which operations generate the most data volume in the last 30 days:
+
+```kusto
+dependencies
+| where timestamp >= startofday(ago(30d))
+| summarize sum(_BilledSize) by operation_Name
+| render barchart  
+```
+
+
+### Data volume for workspace-based Application Insights resources
+To look at the data volume trends for [workspace-based Application Insights resources](create-workspace-resource.md), use a query that includes all of the Application insights tables. The following queries use the [tables names specific to workspace-based resources](../app/apm-tables#table-schemas.md).
+
+
+Display a chart with the data volume trends for all Application Insights resources in a workspace for the last week:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+Display a chart with the data volume trends for a specific Application Insights resource in a workspace for the last week:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+
+
+
+## Understanding nodes sending data
+If you don't have excessive data from any particular source, you may have an excessive number of agents that are sending data.
+
+> [!IMPORTANT]
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
+
+
+Count of nodes that are reporting heartbeats from the agent each day in the last month:
 
 ```kusto
 Heartbeat 
@@ -207,7 +309,8 @@ Heartbeat
 | summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-The get a count of nodes sending data in the last 24 hours, use this query: 
+
+Count of nodes sending any data in the last 24 hours:
 
 ```kusto
 find where TimeGenerated > ago(24h) project Computer
@@ -216,7 +319,7 @@ find where TimeGenerated > ago(24h) project Computer
 | summarize nodes = dcount(computerName)
 ```
 
-To get a list of nodes sending any data (and the amount of data sent by each), use this query:
+List of nodes sending any data and the amount of data sent by each:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, Computer
@@ -225,13 +328,10 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-> [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
-
-
 ### Nodes billed by the legacy Per Node pricing tier
+The [legacy Per Node pricing tier](#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes that are only sending a set of security data types. To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending billed data types since some data types are free. In this case, use the leftmost field of the fully qualified domain name. 
 
-The [legacy Per Node pricing tier](#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes that are only sending a set of security data types. To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending **billed data types** (some data types are free). To do this, use the [_IsBillable property](./log-standard-columns.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed data per hour:
+Return the count of computers with billed data per hour. The number of units on your bill is in units of node months, which is represented by `billableNodeMonthsPerDay` in the query. If the workspace has the Update Management solution installed, add the **Update** and **UpdateSummary** data types to the list in the where clause in the above query. 
 
 ```kusto
 find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
@@ -243,16 +343,12 @@ find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(n
 | summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
 | sort by day asc
 ```
+> [!NOTE]
+> There's some additional complexity in the actual billing algorithm when solution targeting is used that's not represented in the above query. 
 
-The number of units on your bill is in units of node months, which is represented by `billableNodeMonthsPerDay` in the query. 
-If the workspace has the Update Management solution installed, add the **Update** and **UpdateSummary** data types to the list in the where clause in the above query. Finally, there's some additional complexity in the actual billing algorithm when solution targeting is used that's not represented in the above query. 
+### Security and Automation node counts
 
-> [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
-                  
-### Getting Security and Automation node counts
-
-To see the number of distinct Security nodes, you can use the query:
+Number of distinct Security nodes:
 
 ```kusto
 union
@@ -278,7 +374,7 @@ union
 | count
 ```
 
-To see the number of distinct Automation nodes, use the query:
+Number of distinct Automation nodes:
 
 ```kusto
  ConfigurationData 
@@ -293,10 +389,11 @@ To see the number of distinct Automation nodes, use the query:
 ```
 
 ## Late-arriving data
+Situations can arise where data is ingested with old timestamps. For example, an agent has a connectivity issue or a host may have an incorrect time date/time. This can result in an apparent discrepancy between the ingested data reported by the [Usage](/azure/azure-monitor/reference/tables/usage) data type and a query summing [_BilledSize](./log-standard-columns.md#_billedsize) over the raw data for a particular day specified by **TimeGenerated**, the timestamp when the event was generated.
 
-Situations can arise where data is ingested with old timestamps. For example, if an agent can't communicate to Log Analytics because of a connectivity issue or when a host has an incorrect time date/time. This can manifest itself by an apparent discrepancy between the ingested data reported by the **Usage** data type and a query summing **_BilledSize** over the raw data for a particular day specified by **TimeGenerated**, the timestamp when the event was generated.
+To diagnose late-arriving data issues, use the [_TimeReceived](./log-standard-columns.md#_timereceived) column  in addition to the [TimeGenerated](./log-standard-columns.md#_timegenerated) column. `_TimeReceived` is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud.
 
-To diagnose late-arriving data issues, use the **_TimeReceived** column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the **TimeGenerated** column. **_TimeReceived** is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud. For example, when using the **Usage** records, you have observed high ingested data volumes of **W3CIISLog** data on May 2, 2021, here is a query that identifies the timestamps on this ingested data: 
+The following example is in response to high ingested data volumes of [W3CIISLog](./log-standard-columns.md#w3ciislog) data on May 2, 2021 to identify the timestamps on this ingested data. The `where TimeGenerated > datetime(1970-01-01)` statement is included to provide the clue to the Log Analytics user interface to look over all data. 
 
 ```Kusto
 W3CIISLog
@@ -306,8 +403,5 @@ W3CIISLog
 | summarize BillableDataMB = sum(_BilledSize)/1.E6 by bin(TimeGenerated, 1d)
 | sort by TimeGenerated asc 
 ```
-           
-The `where TimeGenerated > datetime(1970-01-01)` statement is present only to provide the clue to the Log Analytics user interface to look over all data.  
-           
 
-
+## Next steps
