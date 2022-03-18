@@ -426,7 +426,7 @@
       - name: Test SaaS overview
         href: test-saas-overview.md
       - name: Preview and subscribe
-        href: test-publish-saas-offer.md
+        href: test-saas-preview-offer.md
       - name: Test a SaaS plan
         href: test-saas-plan.md
       - name: Create and publish a production plan
