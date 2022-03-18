@@ -69,5 +69,5 @@ landingContent:
             url: bastion-vm-copy-paste.md
           - text: Full screen view
             url: bastion-vm-full-screen.md
-          - text: Upload or download files (Preview)
+          - text: Upload or download files
             url: vm-upload-download-native.md
