@@ -2,18 +2,19 @@
 title: Educator accessing VMs in Azure Lab Services
 description: This article shows how educators can access their student VMs from the educator view. For example, a teaching assistant can be an educator for one class but a student for other classes.  
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/01/2022
+ms.custom: devdivchpfy22
 ---
 
 # Access virtual machines as a student from the educator view
 
 This article shows how educators can access their VMs for classes that they attend as students.
 
-Here is a scenario where this feature will help. A teaching assistant is an educator for one class but a student in other classes. And, the teaching assistant wants to view and access the student VMs from the educator view that shows the labs they own.
+To understand the feature, let us consider a scenario: A teaching assistant is an educator for one class and a student is in another class. The teaching assistant wants to view and access the student VMs from the educator view that shows the labs they own.
 
 ## Access VMs from educator view
 
-1. Sign in to the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). You see the labs that you own. These labs may be labs you created yourself or the labs that admin assigned to you as owner.
+1. Sign in to the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). You see the labs that you own. These labs might be labs you created yourself or the labs that admin assigned to you as owner.
 2. To access VMs for classes that you attend as a student, select the computer icon in the top-right corner. Confirm that you see VMs you can access as a student. In the following example, the user is a teaching assistant for the Python lab, but a student of the Java lab. So, the user sees the VM from the Java lab in the drop-down list. The user can start the VM and connect to it.
 
     ![Access student VMs](./media/instructors-access-virtual-machines/access-student-virtual-machines.png)
