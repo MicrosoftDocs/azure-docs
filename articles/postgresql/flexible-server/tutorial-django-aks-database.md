@@ -3,8 +3,8 @@ title: 'Tutorial: Deploy Django on AKS cluster with PostgreSQL Flexible Server b
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
-author: mksuni
 ms.author: sumuth
+author: mksuni
 ms.topic: tutorial
 ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
