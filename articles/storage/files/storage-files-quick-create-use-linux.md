@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Use the Azure portal to create an NFS Azure file share and mount it on a Linux virtual machine
+title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM using the Azure Portal
 description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine, create an Azure file share using the NFS protocol, and mount the file share so that it's ready to store files.
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2022
+ms.date: 03/18/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
-# Tutorial: Use the Azure portal to create an NFS Azure file share and mount it on a Linux virtual machine
+# Tutorial: Create an NFS Azure file share and mount it on a Linux VM using the Azure Portal
 
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
@@ -57,7 +57,7 @@ The following image shows the settings on the **Basics** tab for a new storage a
 
 :::image type="content" source="media/storage-files-quick-create-use-linux/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-files-quick-create-use-linux/account-create-portal.png":::
 
-## Deploy a Linux VM
+## Deploy an Azure VM running Linux
 
 Next, create an Azure VM running Linux to represent the on-premises server. When you create the VM, a virtual network will be created for you. The NFS protocol can only be used from a machine inside of a virtual network.
 
@@ -90,7 +90,9 @@ You'll see a message that deployment is in progress. Wait a few minutes for depl
 
 ## Create an NFS Azure file share
 
-Now you're ready to create an NFS file share.
+Now you're ready to create an NFS file share and provide network-level security for your NFS traffic.
+
+### Add a file share to your storage account
 
 1. Select **Home** and then **Storage accounts**.
 
@@ -107,6 +109,10 @@ Now you're ready to create an NFS file share.
 1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select **NFS** protocol, leave **No Root Squash** selected, and select **Create**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new NFS file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
+
+### Set up a private endpoint
+
+Next, you'll need to set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network.
 
 1. Select the file share *qsfileshare* or click on the message *You can only access NFS shares from trusted networks. To complete the storage account configuration, review your options below*. You should see a dialog that says *Connect to this NFS share from Linux*.
 
@@ -138,6 +144,10 @@ Now you're ready to create an NFS file share.
 
 1. Azure will attempt to validate the private endpoint. When validation is complete, select **Create**. You'll see a notification that deployment is in progress. After a few minutes, you should see a notification that deployment is complete.
 
+### Disable secure transfer
+
+Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to disable secure transfer.
+
 1. Select **Home** and then **Storage accounts**.
 
 1. Select the storage account you created.
@@ -146,7 +156,7 @@ Now you're ready to create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
 
-1. Select the NFS file share that you created. Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to update your storage account to disable secure transfer. Under **Secure transfer setting**, select **Change setting**.
+1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
 
