@@ -182,11 +182,18 @@ readDF.
     
 ```
 
-**Note about the `callBackHandle` argument**
+#### About the `callBackHandle` optional argument
 
-The call back handle is an optional argument and a new introduction to the `synapsesql` signature. Primary idea is to give instant post-write metrics that developers can fold them into better orchestration across their workflow stages. Metric names are standardized in camel case for their string values with minimal exceptions. Users of the Connector can leverage these using the newly introduced Constants.FeedbackConstants object. This feature is new and experimental until few subsequent iterations. In the sense, based on feedback received the list will either become more concise or will see new metric additions.
+The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. These metrics provide information such as number of records staged, to number of records written to SQL table, time spent in staging and executing the SQL statements to write data to the Synapse Dedicated SQL Pool. String values for each Metric key is defined and accessible from the new Object reference - `Constants.FeedbackConstants`. These metrics are by default written to the Spark Driver logs. One can also fetch these by passing a call-back handle (a `Scala Function`). Following is the signature of this function:
 
-Following are few useful metric-constants:
+```Scala
+//Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable]
+//Post-write if there's a reference of this handle passed to the `synapsesql` signature, it will be invoked by the closing process.
+//These arguments will have valid objects in either Success or Failure case. In case of Failure the second argument will be a Some(Throwable) i.e., some error reference.
+(Map[String, Any], Option[Throwable]) => Unit
+```
+
+Following is a list of some notable metric constants, with values described using Camel-case format:
 
 * WRITE_FAILURE_CAUSE -> "WriteFailureCause"
 * TIME_INMILLIS_TO_COMPLETE_DATA_STAGING -> "DataStagingSparkJobDurationInMilliseconds"
@@ -230,7 +237,23 @@ Following is a sample JSON string with post-write metrics:
 #### Read Scenario
 
 ```scala
+//Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
+//Azure Active Directory based authentication approach is preferred here.
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
 
+//Read from existing internal table
+val dfToReadFromTable:DataFrame = spark.read.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>").
+    synapsesql("<database_name>.<schema_name>.<table_name>").
+    select("<some_column_1>", "<some_column_5>", "<some_column_n>"). //Column-pruning i.e., query select column values
+    filter(col("Title").startsWith("E")). //Push-down filter criteria that gets translated to SQL Push-down Predicates
+    limit(10) //Fetch a sample of 10 records
+
+//Show contents of the dataframe
+dfToReadFromTable.show()
 ```
 
 ### Limitations
