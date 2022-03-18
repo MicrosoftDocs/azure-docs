@@ -55,7 +55,7 @@ Machine learning algorithms may be triggered during your labeling. If these algo
     
     * For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
     
-    * For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
+    * For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page.
 
 * Text
     
@@ -75,7 +75,7 @@ Here we've chosen a two-by-two layout and are about to apply the tag "Mammal" to
 
 ![Multiple image layouts and selection](./media/how-to-label-data/layouts.png)
 
-> [!Important] 
+> [!Important]
 > Only switch layouts when you have a fresh page of unlabeled data. Switching layouts clears the page's in-progress tagging work.
 
 Azure enables the **Submit** button when you've tagged all the images on the page. Select **Submit** to save your work.
@@ -149,7 +149,7 @@ If your project is of type "Instance Segmentation (Polygon)," you'll specify one
 
 1. Select a tag for the polygon that you plan to create.
 1. Select the **Draw polygon region** tool ![Draw polygon region tool](./media/how-to-label-data/polygon-tool.png) or select "P."
-1. Select for each point in the polygon.  When you have completed the shape, double click to finish.
+1. Select for each point in the polygon.  When you've completed the shape, double-click to finish.
 
     :::image type="content" source="media/how-to-label-data/polygon.gif" alt-text="Create polygons for Cat and Dog":::
 

@@ -42,7 +42,7 @@ Data formats available for text data:
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-1. To create a project, select **Add project**. Give the project an appropriate name. The project name cannot be reused, even if the project is deleted in future.
+1. To create a project, select **Add project**. Give the project an appropriate name. The project name can’t be reused, even if the project is deleted in future.
 
 1. Select **Text** to create a text labeling project.
 
@@ -79,7 +79,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response. Tabular is not available for Text Named Entity Recognition projects. 
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response. Tabular isn't available for Text Named Entity Recognition projects.
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
@@ -97,7 +97,7 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. Tabular is not available for Text Named Entity Recognition projects. 
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. Tabular isn't available for Text Named Entity Recognition projects. 
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
@@ -144,7 +144,7 @@ At the beginning of your labeling project, the items are shuffled into a random 
 
 For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally leveraged by the model during the training process.
 
-The exact number of labeled items necessary to start assisted labeling is not a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution.
+The exact number of labeled items necessary to start assisted labeling isn't a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
@@ -172,7 +172,7 @@ The **Dashboard** tab shows the progress of the labeling task.
 :::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
 
-The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
+The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of items in each section.
 
 The middle section shows the queue of tasks yet to be assigned. If ML-assisted labeling is on, you'll also see the number of pre-labeled items.
 
@@ -212,7 +212,7 @@ For all project types other than **Text Named Entity Recognition**, you can expo
 
 For **Text Named Entity Recognition** projects, you can export:
 * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
-* A CoNLL file.  For this export, you will also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Select this to open the notification, which includes the link to the file.
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Select this to open the notification, which includes the link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
 
