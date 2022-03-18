@@ -37,27 +37,6 @@ To produce messages using Protobuf serialization, use a `KafkaEventData<MyProtob
 
 For Avro, provide a type that implements `ISpecificRecord`. If nothing is defined, the value is set to a  `byte[]` type, and no key is set.
 
-# [C# Script](#tab/csharp-script)
-
-**TODO**
-
-# [Java](#tab/Java)
-
-**TODO**
-
-# [JavaScript](#tab/JavaScript)
-
-**TODO**
-
-# [PowerShell](#tab/PowerShell)
-
-**TODO**
-
-# [Python](#tab/python)
-
-**TODO**
-
----
 
 ## Configuration
 
