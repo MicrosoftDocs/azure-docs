@@ -123,7 +123,7 @@ Follow the [instructions](quickstart-load-balancer-standard-public-portal.md#cre
 
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
 
-Yes. See [Constraints](#Constraints).
+Yes. See [Constraints](#constraints).
 
 ### How long does the upgrade take?
 
