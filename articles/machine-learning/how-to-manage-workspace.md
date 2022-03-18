@@ -332,7 +332,7 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ## Search for assets across a workspace (preview)
 
-With the public preview search capability, you can search for machine learning assets such as jobs, models, and components across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
 
 ### Free text search
 
