@@ -102,7 +102,10 @@ The SAP system requires network connectivity from the host of the SAP .NET Conne
 
 The SAP system-required network connectivity includes the following servers and services:
 
-1. SAP Application Server, Dispatcher service (for all Logon types). Your SAP system may include multiple SAP Application Servers. Each of these servers and their services must be accessible from the host of the SAP .NET Connector (NCo) library.
+* SAP Application Server, Dispatcher service (for all Logon types)
+
+  Your SAP system can include multiple SAP Application Servers. The host of the SAP .NET Connector (NCo) library requires access to each server and their services.
+
 1. SAP Message Server, Message service (for Logon type Group). The Message Server and service will redirect to one or more Application Server's Dispatcher service. Each of these servers and their services must be accessible from the host of the SAP .NET Connector (NCo) library.
 1. SAP Gateway Server, Gateway service.
 
