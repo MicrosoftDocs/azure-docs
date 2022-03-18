@@ -241,6 +241,23 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |BaiJobEvent|BaiJobEvent|No| 
 
 
+## Microsoft.Blockchain/blockchainMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+|FabricOrderer|Fabric Orderer|No|
+|FabricPeer|Fabric Peer|No|
+|Proxy|Proxy|No|
+
+
+## Microsoft.Blockchain/cordaMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+
+
 ## microsoft.botservice/botservices
 
 |Category|Category Display Name|Costs To Export|
