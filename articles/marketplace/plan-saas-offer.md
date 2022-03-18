@@ -294,5 +294,6 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Next steps
 
-- [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
+- [Plan a test SaaS offer](plan-saas-dev-test-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
+- [Create a SaaS offer](create-new-saas-offer.md)

@@ -1,6 +1,6 @@
 ---
-title: Create a test SaaS offer
-description: Create a separate development offer for testing your production offer in Azure Marketplace. 
+title: Plan a test SaaS offer in the Microsoft commercial marketplace
+description: Plan a separate development offer for testing your offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 03/28/2022
 ---
 
-# Create a test SaaS offer
+# Plan a test SaaS offer
 
-To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see [Plan a SaaS offer](plan-saas-offer.md#test-offer).
+To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer.
 
 ## Benefits of a DEV offer
 
@@ -109,7 +109,7 @@ The DEV offer should have plans with zero or low prices in the plans. The PROD o
 > [!IMPORTANT]
 > Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no store service fee).
 
-##### Pricing model
+#### Pricing model
 
 Use the same Pricing model in the plans of the DEV and PROD offers. For example, if the plan in the PROD offer is Flat rate, with a monthly billing term, then configure the plan in the DEV offer using the same model.
 
@@ -127,7 +127,7 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 > [!IMPORTANT]
 >  To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.
 
-##### Free trial
+#### Free trial
 
 Don’t enable a free trial for the DEV offer.
 
@@ -141,4 +141,4 @@ Don’t configure the **Resell through CSPs** tab of the DEV offer.
 
 ## Next steps
 
-- [Test and publish a SaaS offer](test-publish-saas-offer.md)
+- [Create a SaaS offer](create-new-saas-offer.md)
