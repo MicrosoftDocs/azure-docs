@@ -23,8 +23,8 @@ Archive tier supports the following workloads:
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines | <ul><li>Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  </li><li>Age >= 3 months in Vault-atandard tier </li><li>Retention left >= 6 months </li><li>No active daily and weekly dependencies. </li></ul> |
-| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | <ul><li>Only full recovery points. Logs and differentials aren't supported. </li><li>Age >= 45 days in Vault-standard tier. </li><li>Retention left >= 6 months </li><li>No dependencies </li></ul> |
+| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-atandard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. |
+| SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
 
 >[!Note]
 >- Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
