@@ -451,7 +451,7 @@ To update the service principal's password, every 6 months if you followed the s
 
 ## Disable Azure AD authentication on your Azure Storage account
 
-If you need to disable Azure AD authentication on your storage account, for example to switch to a different authentication method, follow the steps below.
+If you need to disable Azure AD authentication on your storage account:
 
 - Set the required variables for your tenant, subscription, storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
 
