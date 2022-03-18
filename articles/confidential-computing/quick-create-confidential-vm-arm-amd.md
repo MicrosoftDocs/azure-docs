@@ -86,7 +86,7 @@ When you create your confidential VM using the Azure CLI, you need to define cus
 
 1. Depending on the OS image you're using, copy in the [example Windows parameter file](#example-windows-parameter-file) or the [example Linux parameter file](#example-linux-parameter-file).
 
-1. Edit the JSON code in the parameter file as needed. For example, you might want to update the OS image name (`osImageName`), the administrator username (`adminUsername`). Choose "VMGuestStateOnly" from Securitytype (`securitytype`) for no OS disk confidential encryption, or "DiskWithVMGuestState" for OS disk confidential encryption with platform-managed key.
+1. Edit the JSON code in the parameter file as needed. For example, you might want to update the OS image name (`osImageName`), the administrator username (`adminUsername`). Choose "VMGuestStateOnly" from `securityType` for no OS disk confidential encryption, or "DiskWithVMGuestState" for OS disk confidential encryption with platform-managed key.
 
 #### Example Windows parameter file
 
@@ -178,7 +178,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     az keyvault create --name $KeyVault --resource-group $resourceGroup --location $region --sku Premium --enable-purge-protection 
     ```
 
-    c. Ensure you are **owner** of this key vault.
+    c. Ensure you're **owner** of this key vault.
     
     d. Give **Confidential Guest VM Agent** `get` and `release` permissions to this key vault.
     ```azurecli
@@ -303,7 +303,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
          -p vmName=$vmName
       ```
 
-1. Connect to confidential VM to ensure provision is successful.
+1. Connect to confidential VM to ensure creation is successful.
         
 ### Sample CVM deployment parameter file `azuredeploy.parameters.win2022.json`
 ```json
