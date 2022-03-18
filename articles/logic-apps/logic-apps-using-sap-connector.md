@@ -96,7 +96,7 @@ The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sa
 
 To use the available [SAP trigger](#triggers) and [SAP actions](#actions), you need to first authenticate your connection. You can authenticate your connection with a username and password. The SAP connector also supports [SAP Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true) for authentication. You can use SNC for SAP NetWeaver single sign-on (SSO), or for additional security capabilities from external products. If you use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
-### Network Prerequisites
+### Network prerequisites
 
 The SAP system must have network connectivity from the host of the SAP .NET Connector (NCo) library. The multi-tenant host of SAP .NET Connector (NCo) library is the On-Premises Data Gateway. If you use an On-Premises Data Gateway cluster, all nodes of the cluster must have network connectivity to the SAP system. The ISE host of SAP .NET Connector (NCo) library is within the ISE virtual network.
 
