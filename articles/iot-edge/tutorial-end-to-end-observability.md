@@ -14,15 +14,15 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-In this tutorial, you'll build an observability solution for a common IoT Edge service. You'll learn the concepts and techniques of implementing both observability pillars _Measuring and Monitoring_ and _Troubleshooting_. You'll accomplish the following tasks:
+In this tutorial, you'll add an observability solution to a common system built with IoT Edge. You'll learn the concepts and techniques of implementing both observability dimensions _Measuring and Monitoring_ and _Troubleshooting_. You'll accomplish the following tasks:
 * Define what indicators of the service performance to monitor 
 * Measure service performance indicators with metrics 
-* Monitor service measurements and detect issues with Azure Monitor workbooks  
+* Monitor metrics and detect issues with Azure Monitor workbooks  
 * Perform basic troubleshooting with the curated workbooks
-* Perform deep troubleshooting with distributed tracing and correlated logs analysis
+* Perform deeper troubleshooting with distributed tracing and correlated logs
 
 It's recommended to work with this tutorial in the following order:
-* Read it. Follow the considerations and steps to understand the concept and the approach.
+* Review the instructions to understand the concepts and approach.
 * Optionally, deploy the tutorial sample to Azure to reproduce the steps and play with your own use cases. 
 
 ## Prerequisites
@@ -32,18 +32,6 @@ In order to successfully deploy this solution, you will need the following:
 - [PowerShell](powershell/scripting/install/installing-powershell).
 - [Azure CLI](cli/azure/install-azure-cli).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-
-### Deploy the sample
-
-  Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository
-  ```cmd/sh
-    git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
-  ```  
-  Open a PowerShell console and run the code below:
-  ```cmd/sh
-    ./Scripts/dploy-e2e-tutorial.ps1
-  ```
 
 
 ## Use Case 
@@ -69,16 +57,16 @@ We're building measuring and monitoring solution for the La Niña service focusi
 
 The satisfaction regarding these factors means that the service works according to the client's expectations.
 
-The next step is to define instruments to measure values of these factors. This job ca be done by the following Service Level Indicators (SLI):
+The next step is to define instruments to measure values of these factors. This job can be done by the following Service Level Indicators (SLI):
 
-|**Indicator** | **Factors** |
+|**Service Level Indicator** | **Factors** |
 |----------|------|
 |Ratio of on-line devices to the total number of devices| Coverage|
 |Ratio of devices reporting frequently to the number of reporting devices| Freshness, Throughput|
 |Ratio of devices successfully delivering messages to the total number of devices|Correctness|
 |Ratio of devices delivering messages fast to the total number of devices| Throughput | 
 
-With that done, we can position a slider on each indicator and define exact threshold values that represent what it means for the client to be "satisfied". The result of this exercise is a list of formal Service Level Objectives (SLOs):
+With that done, we can apply a sliding scale on each indicator and define exact threshold values that represent what it means for the client to be "satisfied". The result of this exercise is a list of formal Service Level Objectives (SLOs):
 
 |**Statement**|**Factor**|
 |-------------|----------|
@@ -145,7 +133,7 @@ By clicking on the problematic device, we're drilling down to the Commit level. 
 
 ## Troubleshooting
 
-Measuring and Monitoring allows us to observe and predict the system behavior, compare it to the defined expectations and ultimately detect existing or potential issues. The Troubleshooting, on the other hand, lets identify and locate the cause of the issue.
+Measuring and Monitoring lets us to observe and predict the system behavior, compare it to the defined expectations and ultimately detect existing or potential issues. The Troubleshooting, on the other hand, lets identify and locate the cause of the issue.
 
 ### Basic Troubleshooting
 
@@ -171,7 +159,7 @@ The La Niña service uses [OpenTelemetry](https://opentelemetry.io) to produce a
 
 ![e2e sample la nina detailed](media/tutorial-end-to-end-observability/e2e-sample-la-nina-detailed.png)
 
-IoT Edge modules `Tempperature Sensor` and `Filter` export the logs and tracing data via OTLP protocol to the [OpenTelemetryCollector](https://opentelemetry.io/docs/collector/) module, running on the same edge device. The `OpenTelemetryCollector` module, in its turn, exports logs and traces to Azure Monitor Application Insights service.
+IoT Edge modules `Temperature Sensor` and `Filter` export the logs and tracing data via OTLP (OpenTelemetry Protocol) to the [OpenTelemetryCollector](https://opentelemetry.io/docs/collector/) module, running on the same edge device. The `OpenTelemetryCollector` module, in its turn, exports logs and traces to Azure Monitor Application Insights service.
 
 The Azure .Net backend Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](../azure-monitor/app/opentelemetry-enable.md). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
 
@@ -202,6 +190,18 @@ Our logs are correlated with the traces, so we can query logs specifying the `Tr
 ![e2e sample logs](media/tutorial-end-to-end-observability/ete-sample-logs.png)
 
 The logs show that the module received a message with 70.465 degrees temperature. But the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
+
+### Deploy the sample
+
+  Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository
+  ```cmd/sh
+    git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
+  ```  
+  Open a PowerShell console and run the code below:
+  ```cmd/sh
+    ./Scripts/dploy-e2e-tutorial.ps1
+  ```
+
 
 ## Clean up resources
 
