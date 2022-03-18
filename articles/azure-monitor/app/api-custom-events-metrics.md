@@ -1113,14 +1113,13 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Reference docs
 
-* [ASP.NET reference](/dotnet/api/overview/azure/insights)
+* [.NET reference](/dotnet/api/overview/azure/insights)
 * [Java reference](/java/api/overview/azure/appinsights)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## SDK code
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
