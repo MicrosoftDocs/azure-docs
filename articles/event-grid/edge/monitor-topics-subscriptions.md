@@ -11,7 +11,7 @@ ms.subservice: iot-edge
 Event Grid on Edge exposes a number of metrics for topics and event subscriptions in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). This article describes the available metrics and how to enable them.
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 
