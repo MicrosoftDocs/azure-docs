@@ -100,7 +100,8 @@ To use the available [SAP trigger](#triggers) and [SAP actions](#actions), you n
 
 The SAP system requires network connectivity from the host of the SAP .NET Connector (NCo) library. The multi-tenant host of the SAP .NET Connector (NCo) library is the on-premises data gateway. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system. The ISE host of the SAP .NET Connector (NCo) library is within the ISE virtual network.
 
-The SAP system required network connectivity includes the following servers and services:
+The SAP system-required network connectivity includes the following servers and services:
+
 1. SAP Application Server, Dispatcher service (for all Logon types). Your SAP system may include multiple SAP Application Servers. Each of these servers and their services must be accessible from the host of the SAP .NET Connector (NCo) library.
 1. SAP Message Server, Message service (for Logon type Group). The Message Server and service will redirect to one or more Application Server's Dispatcher service. Each of these servers and their services must be accessible from the host of the SAP .NET Connector (NCo) library.
 1. SAP Gateway Server, Gateway service.
