@@ -84,7 +84,7 @@ This article shows how to create a Rule Set and your first set of rules using th
 
 ## Delete a Rule set
 
-If you no longer want the Rule set in you Azure Front Door profile, you can remove the Rule set by completing the following steps:
+If you no longer want the Rule set in your Azure Front Door profile, you can remove the Rule set by completing the following steps:
 
 1. Go to the **Rule set** page under **Settings**.
 
