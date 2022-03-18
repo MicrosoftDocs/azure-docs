@@ -112,7 +112,7 @@ The following scenarios explain how you add VMs to the backend pools of the newl
  
     2. Select **All resources** in the left menu. Select the **new standard load balancer** from the resource list.
    
-    3. In the**Settings** in the load balancer page, select **Backend pools**.
+    3. In the **Settings** in the load balancer page, select **Backend pools**.
    
     4. Select the backend pool that matches the backend pool of the basic load balancer.
     
