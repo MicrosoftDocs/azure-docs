@@ -27,7 +27,7 @@ Use cross-tenant access settings to manage how you collaborate with other Azure 
 
 - **Organization-specific settings**: You can configure organization-specific settings by adding an organization and modifying the inbound and outbound settings for that organization. Organizational settings take precedence over default settings.
 
-Learn more about using cross-tenant access settings to manage [B2B direct connect](b2b-direct-connect-overview.md#managing-cross-tenant-access).
+Learn more about using cross-tenant access settings to manage [B2B direct connect](b2b-direct-connect-overview.md#managing-cross-tenant-access-for-b2b-direct-connect).
 
 ## Before you begin
 
