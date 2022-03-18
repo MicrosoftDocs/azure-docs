@@ -26,6 +26,10 @@ The Calculate Route service calculates a route between an origin and a destinati
 
 The Calculate Reachable Range service calculates a set of locations that can be reached from the origin point. For more information, see [Get Route Range](/rest/api/maps/route/get-route-range) in the REST API documentation.
 
+### Matrix Routing
+
+The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It does not provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service](/rest/api/maps/route/post-route-matrix) in the REST API documentation.
+
 ### Real-time Traffic
 
 Delivers real-time information about traffic jams, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic](/rest/api/maps/traffic) in the REST API documentation.
