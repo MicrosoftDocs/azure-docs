@@ -35,7 +35,7 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 ### Policy schema changes 
 
 >[!NOTE]
->In Graph Explorer ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
+>In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify a single target group for the schema configuration. Then use the following API endpoint to change the displayAppInformationRequiredState property to **enabled**:
 
