@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 03/03/2022
+ms.date: 03/18/2022
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---
@@ -31,7 +31,7 @@ The API is a part of [Azure Cognitive Services](../../index.yml), a collection o
 
 ## Reference documentation and code samples
 
-As you use text summarization in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use orchestration workflow in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
