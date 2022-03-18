@@ -89,7 +89,7 @@ At this point, it's clear what we're going to measure and what threshold values 
 
 It's a common practice to measure service level indicators, like the ones we've defined, by the means of **_Metrics_**. This type of observability data is considered to be relatively small in values. It's produced by various system components and collected in a central observability backend to be monitored with dashboards, workbooks and alerts.
 
-Let's clarify what components the La Niña service consists of.
+Let's clarify what components the La Niña service consists of:
 
 ![ete sample la nina metrics](media/tutorial-end-to-end-observability/e2e-sample-la-nina-metrics.png)
 
@@ -119,6 +119,10 @@ At this level, we can see the whole picture at a single glance. The data is aggr
 
 From what we can see, the service is not functioning according to the expectations. There is a violation of the "Data Freshness" SLO.
 Only 90% of the devices send the data frequently, and the service clients expect 95%.
+
+_Note_: All SLO and threshold values are configurable on the workbook settings tab:
+
+![ete sample workbook settings](media/tutorial-end-to-end-observability/ete-sample-workbook-settings.png)
 
 **_Scan_**
 
@@ -202,8 +206,9 @@ Having done that, we need to restart the module. In a few minutes the device rep
 
 ![ete sample fixed workbook](media/tutorial-end-to-end-observability/ete-sample-fixed-workbook.png)
 
-We see that message frequency on the problematic device got back to normal. The overall SLO value will become green again, if nothing else happens, in 24h observation interval.
+We see that the message frequency on the problematic device got back to normal. The overall SLO value will become green again, if nothing else happens, in the configured observation interval:
 
+![ete sample green workbook](media/tutorial-end-to-end-observability/ete-sample-green-workbook.png)
 
 ### Deploy the sample
 
