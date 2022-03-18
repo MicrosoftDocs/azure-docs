@@ -1,5 +1,5 @@
 ---
-title: Upgrade from basic public to standard public
+title: Upgrade a basic to standard public load balancer
 titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a public load balancer from basic to standard SKU.
 services: load-balancer

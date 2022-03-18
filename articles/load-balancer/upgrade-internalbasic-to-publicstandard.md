@@ -1,7 +1,7 @@
 ---
-title: Upgrade a load balancer from basic internal to standard public 
+title: Upgrade an internal basic load balancer - Outbound connections required
 titleSuffix: Azure Load Balancer
-description: This article shows you how to upgrade a basic internal load balancer to a standard public load balancer.
+description: This article shows you how to upgrade a basic internal load balancer to a standard public load balancer where outbound connections are required.
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.date: 03/17/2022
 ms.author: allensu
 ---
 
-# Upgrade a load balancer from basic internal to standard public 
+# Upgrade an internal basic load balancer - Outbound connections required
 
-A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script migrates the basic load balancer to a standard load balancer, which enables the outbound connectivity. 
+A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script in the article, migrates the basic load balancer configuration to a standard public load balancer.
 
 There are four stages in the upgrade:
 
