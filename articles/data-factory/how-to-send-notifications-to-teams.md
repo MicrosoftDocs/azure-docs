@@ -85,6 +85,9 @@ Before you can send notifications to Teams from your pipelines you must create a
     > [!NOTE]
     > These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
 
+    > [!TIP]
+    > We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to [prerequisites](#prerequisites)) for the default value of the relevant parameters.
+
 1.  In the "Configurations" pane, select **Variables**, and then select the **+ New** button define following variables for your pipeline.
 
     | Name                  | Type                      |    Default Value          |
