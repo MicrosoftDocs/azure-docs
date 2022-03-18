@@ -69,6 +69,11 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 ## Release notes
 
+### 2.0.0-beta3
+
+- Update ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enable SQL query collection.
+
 ### 2.0.0-beta2
 
 - Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
