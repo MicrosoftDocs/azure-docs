@@ -59,7 +59,7 @@ The following countries/regions are in the process of being added to the list. F
 
 To fulfill corporate policies and compliance requirements, to store user data exclusively within specific geographical area. Azure AD B2C provides a local data residency add-on that enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). 
 
-The local data residency add-on is optional, and so your data can be stored in regions as indicated in [Data residency](data-residency.md#data-residency). The local data residency is a paid ad-on on your Azure AD B2C Premium P1 or P2 licenses, see [Billing model](#billing.md). 
+The local data residency add-on is optional, and so your data can be stored in regions as indicated in [Data residency](data-residency.md#data-residency). The local data residency is a paid ad-on on your Azure AD B2C Premium P1 or P2 licenses, see [Billing model](billing.md). 
 
 At the moment, the following countries have the local data residence option:
 - Japan 
