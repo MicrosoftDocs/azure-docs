@@ -168,7 +168,7 @@ The Azure .Net backend Function sends the tracing data to Application Insights w
 
 The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/java-in-process-agent.md) to produce and export tracing data and correlated logs to the Application Insights instance.
 
-By default IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the logging level is set to `Information`. The amount of produced tracing data is regulated by a [ratio based sampler](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35). The sampler is configured with a desired [probability](https://github.com/open-telemetry/opentelemetry-dotnet/blob/bdcf942825915666dfe87618282d72f061f7567e/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35) of a given activity to be included in a trace. By default, the probability is set to 0. With that in place, the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
+By default IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the [logging level](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#log-level) is set to `Information`. The amount of produced tracing data is regulated by a [ratio based sampler](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35). The sampler is configured with a desired [probability](https://github.com/open-telemetry/opentelemetry-dotnet/blob/bdcf942825915666dfe87618282d72f061f7567e/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35) of a given activity to be included in a trace. By default, the probability is set to 0. With that in place, the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 
 We've analyzed the `Information` level logs of the `Filter` module and realized that we need to dive deeper to locate the cause of the issue. We're going to update properties in the `Temperature Sensor` and `Filter` module twins and increase the logging level to `Debug` and change the traces sampling ratio from 0 to 1:
 
@@ -196,7 +196,7 @@ The logs show that the module received a message with 70.465 degrees temperature
 
 Let's fix the `Filter` module configuration on this device by updating properties in the module twin. We also want to reduce back the logging level and traces sampling ratio: 
 
-![ete-sample-fix-issue.png](media/tutorial-end-to-end-observability/ete-sample-fix-issue.png)
+![ete sample fix issue](media/tutorial-end-to-end-observability/ete-sample-fix-issue.png)
 
 Having done that, we need to restart the module. In a few minutes the device reports new metric values to Azure Monitor. It reflects in the workbook charts:
 
