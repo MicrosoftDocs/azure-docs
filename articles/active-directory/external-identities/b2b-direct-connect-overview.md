@@ -145,7 +145,7 @@ Azure AD includes information about cross-tenant access and B2B direct connect i
 
   - In the resource organization, the logs include conditionalAccessPolicies in the Conditional Access tab.  
 
-   ![Screenshot showing a sign-in log](media/b2b-direct-connect-overview/sign-in-logs.png)
+   [ ![Screenshot showing a sign-in log](media/b2b-direct-connect-overview/sign-in-logs.png) ](media/b2b-direct-connect-overview/sign-in-logs.png#lightbox)
 
 - **Azure AD access reviews**: With Azure Active Directory (Azure AD) access reviews, a tenant admin can ensure that external guest users don’t have access to your apps and resources longer than is necessary by configuring a one-time or recurring access review of the external users. [Learn more about access reviews](../governance/access-reviews-overview.md).
 
