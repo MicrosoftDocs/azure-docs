@@ -76,13 +76,13 @@ az keyvault secret set \
   --value "<abapuserpass>" \
   --description SECRET_ABAP_PASSWORD --vault-name $kvname
 
-#Add java Username
+#Add Java Username
 az keyvault secret set \
   --name <SID>-JAVAOSUSER \
   --value "<javauser>" \
   --description SECRET_JAVAOS_USER --vault-name $kvname
 
-#Add java Username password
+#Add Java Username password
 az keyvault secret set \
   --name <SID>-JAVAOSPASS \
   --value "<javauserpass>" \
