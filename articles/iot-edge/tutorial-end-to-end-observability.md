@@ -200,7 +200,7 @@ Let's fix the `Filter` module configuration on this device by updating propertie
 
 Having done that, we need to restart the module. In a few minutes the device reports new metric values to Azure Monitor. It reflects in the workbook charts:
 
-[]
+![ete sample fixed workbook](media/tutorial-end-to-end-observability/ete-sample-fixed-workbook.png)
 
 We see that message frequency on the problematic device got back to normal. The overall SLO value will become green again, if nothing else happens, in 24h observation interval.
 
