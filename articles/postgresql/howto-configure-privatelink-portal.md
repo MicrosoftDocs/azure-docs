@@ -1,9 +1,10 @@
 ---
 title: Private Link - Azure portal - Azure Database for PostgreSQL - Single server
 description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure portal
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
+ms.author: sumuth
+author: mksuni
 ms.topic: how-to
 ms.date: 01/09/2020
 ---
