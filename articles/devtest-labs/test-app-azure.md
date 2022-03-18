@@ -2,6 +2,8 @@
 title: How to test your app in Azure
 description: Learn how to deploy desktop/web applications to a file share and test them.  
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/03/2021
 ---
 

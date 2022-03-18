@@ -2,6 +2,8 @@
 title: Create a custom image from VHD file by using Azure PowerShell
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file by using PowerShell.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/24/2021
 ms.custom: devx-track-azurepowershell
 ---

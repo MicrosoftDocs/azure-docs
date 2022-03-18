@@ -2,6 +2,8 @@
 title: Manage storage accounts for labs
 description: Learn about DevTest Labs storage accounts, encryption, customer-managed keys, and setting expiration dates for artifact results storage.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/15/2022
 ---
 

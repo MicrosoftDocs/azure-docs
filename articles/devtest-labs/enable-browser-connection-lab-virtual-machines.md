@@ -2,6 +2,8 @@
 title: Enable browser connection to Azure DevTest Labs virtual machines
 description: Integrate Azure Bastion with DevTest Labs to enable accessing lab virtual machines (VMs) through a browser.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/02/2021
 ---
 

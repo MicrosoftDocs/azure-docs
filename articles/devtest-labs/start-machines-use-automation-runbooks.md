@@ -2,6 +2,8 @@
 title: Define VM start order with Azure Automation
 description: Learn how to start virtual machines in a specific order by using Azure Automation runbooks in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/17/2022
 ms.custom: devx-track-azurepowershell
 ---

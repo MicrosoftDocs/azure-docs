@@ -2,6 +2,8 @@
 title: Network isolation
 description: Learn about  network isolation in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 08/25/2020
 ---
 
