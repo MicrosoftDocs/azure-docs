@@ -112,7 +112,7 @@ The SAP system-required network connectivity includes the following servers and 
 
 * SAP Gateway Server, Gateway service
 
-For use with Secure Network Communications (SNC), the SAP system required network connectivity also includes the following server and service:
+  The SAP system-required network connectivity also includes this server and service to use with the Secure Network Communications (SNC).
 1. SAP Gateway Server, Gateway secured service.
 
 Redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service occurs automatically within the SAP .NET Connector (NCo) library. This redirection occurs even if only the Application Server, Dispatcher service information is provided in the connection parameters.
