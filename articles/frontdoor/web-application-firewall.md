@@ -25,7 +25,7 @@ Azure Front Door web application firewall (WAF) protects web applications from c
 
 > [!NOTE]
 > * Only Azure Front Door Premium and Azure Front Door (classic) support managed rules. 
-> * Azure Front Door (classic) supports only DRS 1.1 or belove.
+> * Azure Front Door (classic) supports only DRS 1.1 or below.
 >
 
 ## Custom rules
