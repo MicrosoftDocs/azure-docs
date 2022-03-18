@@ -6,7 +6,7 @@ ms.service: orbital
 ms.topic: overview
 ms.custom: public-preview
 ms.date: 03/15/2022
-ms.author: rovin-ms
+ms.author: rovin
 # Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
 ---
 # End-to-end geospatial storage, analysis, and visualization
