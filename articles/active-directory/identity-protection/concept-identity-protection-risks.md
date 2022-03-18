@@ -39,10 +39,6 @@ Real-time detections may not show up in reporting for five to 10 minutes. Offlin
 
 ### Premium detections
 
-A sign-in risk represents the probability that a given authentication request is not authorized by the identity owner. 
-
-These risks can be calculated in real-time or calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
-
 | Risk detection | Detection type | Description |
 | --- | --- | --- |
 | Atypical travel | Offline | This risk detection type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. Among several other factors, this machine learning algorithm takes into account the time between the two sign-ins and the time it would have taken for the user to travel from the first location to the second, indicating that a different user is using the same credentials. <br><br> The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of the earliest of 14 days or 10 logins, during which it learns a new user's sign-in behavior. |
