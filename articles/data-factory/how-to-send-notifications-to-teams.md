@@ -240,6 +240,9 @@ Before you can send notifications to Teams from your pipelines you must create a
     > [!NOTE]
     > These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
 
+    > [!TIP]
+    > We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to [prerequisites](#prerequisites)) for the default value of the relevant parameters.
+
 1.  In the "Configurations" pane, select **Variables**, and then select the **+ New** button define following variables for your pipeline.
 
     | Name                  | Type                      | Default Value             |
@@ -401,26 +404,39 @@ In this sample usage scenario, we will create a master pipeline with three **Exe
 
      :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; setting pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
+1.  Select third **Execute Pipeline** activity on the canvas, and its "General" pane, to edit its details. 
+    -   Specify **OnFailure Notification** for **Name** of the **Execute Pipeline** activity. 
+    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I customised the parameters this time as follows:
 
-3.  **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
-4.  We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to 
-    [prerequisites](#prerequisites)) for the default value of the relevant parameters.
-    
-    :::image type="content" source="media/how-to-send-notifications-to-teams/webhook-recommended-properties.png" alt-text="Shows the recommended properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
+        | Name              | Value                                                                                                             | 
+        | :---------------- | :---------------------------------------------------------------------------------------------------------------- |
+        | subscription      | ``11111111-0000-aaaa-bbbb-0000000000``                                                                            |
+        | resourceGroup     | ``contosorg``                                                                                                     |
+        | runId             | ``@activity('LoadDataPipeline').output['pipelineRunId']``                                                         | 
+        | name              | ``@activity('LoadDataPipeline').output['pipelineName']``                                                          |
+        | triggerTime       | ``@activity('LoadDataPipeline').ExecutionStartTime``                                                              |
+        | status            | ``@activity('LoadDataPipeline').Status``                                                                          |
+        | message           | ``@activity('LoadDataPipeline').Error['message']``                                                                 |
+        | executionEndTime  | ``@activity('LoadDataPipeline').ExecutionEndTime``                                                                |
+        | runDuration       | ``@activity('LoadDataPipeline').Duration``                                                                        |
+        | teamWebhookUrl	| ``https://microsoft.webhook.office.com/webhookb2/1234abcd-1x11-2ff1-ab2c-1234d0699a9e@72f988bf-32b1-41af-91ab-2d7cd011db47/IncomingWebhook/8212f66ad80040ab83cf68b554d9232a/17d524d0-ed5c-44ed-98a0-35c12dd89a6d``                                        |
 
-    These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
-    
-1.  Add an **Execute Pipeline** activity into the pipeline from which you would like to send notifications on the Teams channel. Select the pipeline generated from the **Send notification to a channel in Microsoft Teams** template as the **Invoked pipeline** in the **Execute Pipeline** activity.
+    -   Create a dependency condition for the third **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity fails. To create this dependency, click the red handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the third **Execute Pipeline** activity.
 
-     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity.png" alt-text="Shows the &quot;Execute pipeline&quot; activity in the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
+    -   Validate, debug, and then publish your **MasterPipeline** pipeline. 
 
-1.  Customize the parameters as required based on activity type.
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-3-general.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
-    :::image type="content" source="media/how-to-send-notifications-to-teams/customize-parameters-by-activity-type.png" alt-text="Shows customization of parameters in the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::   
-  
-1.  Receive notifications in Teams.
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-3-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; setting pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
-    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run.png" alt-text="Shows pipeline notifications in a Teams channel.":::
+1.  Run pipeline to receive notifications in Teams. For example, below are sample notifications, when my pipeline ran successfully and when it failed.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run-onsuccess.png" alt-text="Shows on success pipeline notifications in a Teams channel.":::
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run-onfailure.png" alt-text="Shows on failure pipeline notifications in a Teams channel.":::
+
+1.   Click the "View pipeline run" button to view pipeline run.
+
 ## Add dynamic messages with system variables and expressions
 
 You can use [system variables](control-flow-system-variables.md) and [expressions](control-flow-expression-language-functions.md) to
