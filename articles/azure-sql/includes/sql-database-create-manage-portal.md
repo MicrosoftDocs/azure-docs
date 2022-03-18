@@ -16,13 +16,13 @@ To access the **Azure SQL** page, from the Azure portal menu, select **Azure SQL
 > [!NOTE]
 > **Azure SQL** provides a quick and easy way to access all of your SQL resources in the Azure portal, including single and pooled database in Azure SQL Database as well as the logical SQL server hosting them, SQL Managed Instances, and SQL virtual machines.  [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) is not a service or resource, but rather a family of SQL-related services. 
 
-To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
+To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Create**. 
 
-![Azure SQL portal page](./media/sql-database-create-manage-portal/add-azure-sql-resources.png)
+:::image type="content" source="media/sql-database-create-manage-portal/add-azure-sql-resources.png" alt-text="Screenshot of the Azure SQL portal page":::
 
-After selecting **+ Add**, view additional information about the different options by selecting **Show details** on any tile.
+After selecting **+ Create**, view additional information about the different options by selecting **Show details** on any tile.
 
-![databases tile details](./media/sql-database-create-manage-portal/single-sql-database-deployment-options.png)
+:::image type="content" source="media/sql-database-create-manage-portal/single-sql-database-deployment-options.png" alt-text="Database tile details":::
 
 For details, see:
 
