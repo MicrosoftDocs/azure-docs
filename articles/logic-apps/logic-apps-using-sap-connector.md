@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/18/2022
 tags: connectors
 ---
 
@@ -82,6 +82,8 @@ The SAP connector is compatible with the following types of SAP systems:
 
 * Classic on-premises SAP systems, such as R/3 and ECC.
 
+The version of the SAP system must be presently maintained by SAP. To find more information about SAP system versions and maintenance information review the [SAP Product Availability Matrix (PAM)](http://support.sap.com/pam).
+
 The SAP connector supports the following message and data integration types from SAP NetWeaver-based systems:
 
 * Intermediate Document (IDoc)
@@ -93,6 +95,29 @@ The SAP connector supports the following message and data integration types from
 The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html).
 
 To use the available [SAP trigger](#triggers) and [SAP actions](#actions), you need to first authenticate your connection. You can authenticate your connection with a username and password. The SAP connector also supports [SAP Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true) for authentication. You can use SNC for SAP NetWeaver single sign-on (SSO), or for additional security capabilities from external products. If you use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
+
+### Network Prerequisites
+
+The SAP system must have network connectivity from the host of the SAP .NET Connector (NCo) library. The multi-tenant host of SAP .NET Connector (NCo) library is the On-Premises Data Gateway. If you use an On-Premises Data Gateway cluster, all nodes of the cluster must have network connectivity to the SAP system. The ISE host of SAP .NET Connector (NCo) library is within the ISE virtual network.
+
+The SAP system required network connectivity includes the following servers and services:
+1. SAP Application Server, Dispatcher service (for all Logon types). Note that your SAP system may include multiple SAP Application Servers.
+1. SAP Message Server, Message service (for Logon type Group). Note that the Message Server and service will redirect to one or more Application Server's Dispatcher service. Each of these servers and services must be accessible from the host of the SAP .NET Connector (NCo) library.
+1. SAP Gateway Server, Gateway service.
+
+For use with Secure Network Communications (SNC), the SAP system required network connectivity also includes the following server and service:
+1. SAP Gateway Server, Gateway secured service.
+
+Note that redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service occurs automatically within the SAP .NET Connector (NCo) library even if only the Application Server, Dispatcher service information is provided in the connection parameters.
+
+If you are using a load balancer in front of your SAP system, all the services must be redirected to their respective servers.
+
+For more information about SAP services and ports, review the [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports).
+
+  > [!NOTE]
+  > Failure to enable network connectivity from the host of SAP .NET Connector (NCo) library will result in errors such as
+  > 'partner not reached' from component 'NI (network interface)' with additional error text such as 'WSAECONNREFUSED: Connection refused'.
+  > Ensure that the required ports are open on firewalls and network security groups.
 
 ### Migrate to current connector
 
