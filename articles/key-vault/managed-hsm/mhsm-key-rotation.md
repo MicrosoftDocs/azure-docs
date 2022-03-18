@@ -6,7 +6,7 @@ author: dhruviyer
 tags: 'rotation'
 ms.service: key-vault
 ms.subservice: managed-hsm
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 3/18/2021
 ms.author: dhruviyer
 ---
