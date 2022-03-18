@@ -69,5 +69,5 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 ## Next steps
 
 - [Run a function from an Apache Kafka event stream](./functions-bindings-kafka-trigger.md)
-- 
-- [extension bundle]: ./functions-bindings-register.md#extension-bundles
+ 
+[extension bundle]: ./functions-bindings-register.md#extension-bundles

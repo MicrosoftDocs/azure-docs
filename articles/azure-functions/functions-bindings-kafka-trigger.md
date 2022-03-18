@@ -12,6 +12,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 Trigger a function based on a new Kafka event.
 
+## Example
 ::: zone pivot="programming-language-csharp"
 
 The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
@@ -26,37 +27,7 @@ An [isolated process class library](dotnet-isolated-process-guide.md) compiled C
 
 ---
 
-Kafka messages can be serialized to multiple formats. Currently the following formats are supported: 
-
-# [JSON](#tab/string)
-
-String format is supported for JSON payloads.
-
-# [Avro](#tab/avro)
-
-The Kafka trigger supports two methods for consuming [Avro format](http://avro.apache.org/docs/current/):
-
-- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
-- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
-
-# [Protobuf](#tab/protobuf)
-
-[Protobuf](https://developers.google.com/protocol-buffers/)
-
----
-
-::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
-
-Kafka messages are currently supported as strings that are JSON payloads.
-
-::: zone-end 
-
-## Example
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
-
+Kafka messages can be serialized to multiple formats. Currently, the following formats are supported: 
 
 # [JSON](#tab/string/in-process)
 
@@ -73,6 +44,11 @@ public static void StringTopic(
 ```
 
 # [Avro](#tab/avro/in-process)
+
+The Kafka trigger supports two methods for consuming the [Avro format](http://avro.apache.org/docs/current/):
+
+- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
+- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
 
 In the first example, a specific `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization. The parameter to which the `KafkaTrigger` attribute is added should have a value type of the class defined in previous step: `KafkaEventData<UserRecord>`.
 
@@ -189,7 +165,7 @@ public static void PageViews(
 
 # [Protobuf](#tab/protobuf/in-process)
 
-Protobuf is supported in the trigger based on the `Google.Protobuf` NuGet package. To consume a topic using protobuf serialization, set the `TValue` generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
+[Protobuf](https://developers.google.com/protocol-buffers/) is supported in the trigger based on the `Google.Protobuf` NuGet package. To consume a topic using protobuf serialization, set the `TValue` generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
 
 ```csharp
 public static class ProtobufTriggers
@@ -228,29 +204,20 @@ Isolated process only supported string (JSON) payloads.
 ::: zone pivot="programming-language-javascript"
 
 
----
-
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 
 
 
----
- 
-Complete PowerShell examples are pending.
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 
 
 
----
-
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-
----
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
@@ -312,7 +279,32 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
+::: zone pivot="programming-language-csharp"
+Kafka messages can be serialized to multiple formats. Currently the following formats are supported: 
 
+# [JSON](#tab/string)
+
+String format is supported for JSON payloads.
+
+# [Avro](#tab/avro)
+
+The Kafka trigger supports two methods for consuming [Avro format](http://avro.apache.org/docs/current/):
+
+- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
+- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
+
+# [Protobuf](#tab/protobuf)
+
+[Protobuf](https://developers.google.com/protocol-buffers/)
+
+---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
+
+Kafka messages are currently supported as strings that are JSON payloads.
+
+::: zone-end 
 
 ## Next steps
 
