@@ -18,6 +18,8 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
+  - name: Default service and SIM policy
+    href: default-service-and-sim-policy.md
   - name: Local monitoring tools
     items:
     - name: Distributed tracing
