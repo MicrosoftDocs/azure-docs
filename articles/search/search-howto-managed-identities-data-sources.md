@@ -267,6 +267,23 @@ A debug session targets a container. Be sure to include the name of an existing 
 "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/{container-name};",
 ```
 
+[**Custom skill:**](cognitive-search-custom-skill-interface.md)
+
+A custom skill targets the endpoint of an Azure function or app hosting custom code. The endpoint is specified in the [custom skill definition](cognitive-search-custom-skill-web-api.md). The presence of the "authResourceId" tells the search service to connect using a managed identity, passing the application ID of the target function or app in the property.
+
+```json
+{
+  "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+  "description": "A custom skill that can identify positions of different phrases in the source text",
+  "uri": "https://contoso.count-things.com",
+  "authResourceId": "<Azure-AD-registered-application-ID>",
+  "batchSize": 4,
+  "context": "/document",
+  "inputs": [ ... ],
+  "outputs": [ ...]
+}
+```
+
 ## See also
 
 + [Security overview](search-security-overview.md)
