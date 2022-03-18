@@ -110,7 +110,7 @@ The SAP system-required network connectivity includes the following servers and 
 
   The Message Server and service will redirect to one or more Application Server's Dispatcher service. The host of the SAP .NET Connector (NCo) library requires access to each server and their services.
 
-1. SAP Gateway Server, Gateway service.
+* SAP Gateway Server, Gateway service
 
 For use with Secure Network Communications (SNC), the SAP system required network connectivity also includes the following server and service:
 1. SAP Gateway Server, Gateway secured service.
