@@ -98,13 +98,15 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
+1. [Run your program](#run-your-application)
+
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## Run your application
 
-Once you've added a code sample to your application, build and run your application:
+Once you've added a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
 

@@ -14,6 +14,7 @@ recommendations: false
 
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD029 -->
 
 # Get started: Form Recognizer C# SDK v3.0 | Preview
 
@@ -141,13 +142,15 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt model**](#prebuilt-model)
 
+1. [Run your program](#run-your-application).
+
 > [!IMPORTANT]
 >
 > * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## Run your application
 
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+3. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 

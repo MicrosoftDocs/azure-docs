@@ -67,19 +67,21 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and paste into your application:
 
-* [**General document**](#general-document-model)
+    * [**General document**](#general-document-model)
 
-* [**Layout**](#layout-model)
+    * [**Layout**](#layout-model)
 
-* [**Prebuilt Invoice**](#prebuilt-model)
+    * [**Prebuilt Invoice**](#prebuilt-model)
+
+1. [Run your program](#run-the-application)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## Run your application
+## Run the application
 
-Once you've added a code sample to your application, build and run your application:
+Once you've added a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
 

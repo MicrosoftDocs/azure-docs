@@ -130,11 +130,13 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
+1. [Build and run your program](#build-and-run-the-application)
+
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## Build and run your application
+## Build and run the application
 
 Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
 
@@ -145,7 +147,7 @@ Once you've added a code sample to your application, navigate back to your main 
     ```
 
 1. Run your application with the `run` command:
-    
+
     ```console
     gradle run
     ```
@@ -322,7 +324,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
             // sample document
             String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
-            
+
             String modelId = "prebuilt-layout";
 
             SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
