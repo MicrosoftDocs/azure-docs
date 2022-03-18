@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/18/2022
-ms.author: LouisBerner
+ms.author: v-lberner
 ---
 
 # StorSimple Data Manager overview
