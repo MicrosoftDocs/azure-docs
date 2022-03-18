@@ -343,7 +343,7 @@ You can use the asset quick links to navigate to search results for jobs, models
 
 Also,  you can change the scope of applicable subscriptions and workspaces via the 'Change' link in the search bar drop down.
 
-:::image type="content" source="./media/how-to-manage-workspace/search-bar.png" alt-text="Search-bar":::
+:::image type="content" source="./media/how-to-manage-workspace/search-bar.png" alt-text="Search-bar list":::
 
 ### Structured search
 
@@ -370,7 +370,7 @@ If an asset filter (job, model, component) is present, results are scoped to tho
 
 You can view your search results in the individual **Jobs**, **Models** and **Components** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
 
-:::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results":::
+:::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
 
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
