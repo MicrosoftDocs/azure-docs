@@ -12,9 +12,9 @@ ms.date: 03/10/2022
 
 Distributed Application Runtime ([Dapr][dapr-concepts]) is a portable, efficient, event-driven runtime that consists of open, independent HTTP or gRPC APIs. Dapr exposes these APIs as a sidecar, running as a separate process alongside your application.
 
-When building a microservices or distributed application with Container Apps, you can use Dapr to leverage a set of APIs to accomplish certain patterns or challenges you'd typically encounter while building your application. For example, you can implement Dapr's service-to-service invocation or pub/sub messaging APIs to allow your distributed application to intercommunicate, without modifying your application code.  
+When building a microservices or distributed application with Container Apps, you can use Dapr to leverage a set of APIs to accomplish patterns or challenges you'd typically encounter. For example, you can implement Dapr's service-to-service invocation or pub/sub messaging APIs to allow your distributed application to intercommunicate, without modifying your application code.  
 
-Thanks to Dapr's portability, you don't have to be an expert in implementing Dapr SDKs or libraries with your container app. Dapr abstracts away those common complexities of the underlying technology and performs the heavy lifting for you, while adhering to industry best practices.
+Thanks to Dapr's portability, you don't have to be an expert in implementing Dapr SDKs or libraries with your container app. Dapr abstracts away those complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
 ## Current supported Dapr version
 
@@ -33,7 +33,7 @@ Version upgrades will happen transparently and autonomously. You can find the cu
 
 Dapr is an incrementally adoptable set of APIs, or building blocks, that makes it easy for you to write distributed applications. Dapr's sidecar architecture helps you build simple, portable, resilient, and secured microservices that embrace the diversity of languages and developer frameworks.
 
-With Dapr for Container Apps, you can enable specific container apps to use Dapr's building blocks. This makes the Dapr sidecar available to the container app, allowing you to use the following Dapr building blocks.
+With Dapr for Container Apps, you can enable specific container apps to use Dapr's building blocks.
 
 > [!NOTE]
 > We expose the ability for customers to use Dapr Components but do not currently expose Dapr Configuration CRD.
