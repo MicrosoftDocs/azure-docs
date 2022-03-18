@@ -38,7 +38,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy javascript app to read data from FHIR service
+          - text: Deploy JavaScript app to read data from FHIR service
             url: tutorial-web-app-fhir-server.md
           - text: SMART integration for third-party apps & medical records
             url: use-smart-on-fhir-proxy.md
