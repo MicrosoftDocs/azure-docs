@@ -201,11 +201,19 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 ## Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)
 
-With an increase in external collaboration, you may need to use access reviews to monitor user access to sensitive resources to make sure Azure AD B2B guest users and collaborators should have access to those resources.
+You can create access reviews for B2B direct connect users via shared channels in Microsoft Teams. As you collaborate externally, you can use Azure AD access reviews to make sure external access to shared channels stays current. To learn more about Teams Shared Channels and B2B direct connect users, read the [B2B direct connect](../external-identities/b2b-direct-connect-overview.md) article.
 
-When you create an access review on a Team with shared channels, your reviewers can review continued need for access of those external users and Teams in the shared channels, known as B2B direct connect users, in addition to reviewing the currently supported B2B collaboration users and non-B2B internal users.
+When you create an access review on a Team with shared channels, your reviewers can review continued need for access of those external users and Teams in the shared channels. External users in the shared channels are called B2B direct connect users. You can review access of B2B connect users and other supported B2B collaboration users and non-B2B internal users in the same review.
 
-B2B direct connect users and teams will be included in access reviews of the Teams-enabled Microsoft 365 group that the shared channels are a part of. To create the review you must be a Global Administrator, User administrator, or Identity Governance Administrator:
+>[!NOTE]
+> Currently, B2B direct connect users and teams are only included in single-stage reviews. If multi-stage reviews are enabled, the direct connect users and teams won't be included in the access review.
+
+B2B direct connect users and teams are included in access reviews of the Teams-enabled Microsoft 365 group that the shared channels are a part of. To create the review, you must be a:
+- Global Administrator
+- User administrator 
+- Identity Governance Administrator
+
+Ue the following instructions to create an access review on a team with shared channels:
 
 1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
   
@@ -215,7 +223,7 @@ B2B direct connect users and teams will be included in access reviews of the Tea
 
 1. Select **+ New access review**.
 
-1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams are not included in reviews of **All Microsoft 365 groups with guest users** at this time.
+1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams are not included in reviews of **All Microsoft 365 groups with guest users**.
  
 1. Select a Team that has shared channels shared with 1 or more B2B Direct Connect users or Teams.  
 
@@ -229,9 +237,9 @@ B2B direct connect users and teams will be included in access reviews of the Tea
 1. Continue on to the **Reviews** tab. Select a reviewer to complete the review, then specify the **Duration** and **Review recurrence**. 
 
 > [!NOTE]
-> If you set **Select reviewers** to **Users review their own access** or **Managers of users**, B2B Direct Connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will be asked to review the B2B Direct Connect user and Teams. In the case of **Managers of users**, a selected fallback reviewer will review any user without a manager in the home tenant, including the B2B Direct Connect users and Teams.
+> <ul> If you set **Select reviewers** to **Users review their own access** or **Managers of users**, B2B Direct Connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will get an email that asks the owner to review the B2B Direct Connect user and Teams.</ul><ul>If you select **Managers of users**, a selected fallback reviewer will review any user without a manager in the home tenant. This includes B2B Direct Connect users and Teams without a manager.</ul>
 
-1. Go on to the **Settings** tab and congifure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
+1. Go on to the **Settings** tab and configure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
 
 ## Allow group owners to create and manage access reviews of their groups (preview)
 
