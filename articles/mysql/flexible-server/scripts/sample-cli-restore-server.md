@@ -28,7 +28,7 @@ The new Flexible Server is created with the original server's configuration and 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/backup-restore/restore-server.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/backup-restore/restore-server.sh" id="FullScript":::
 
 ## Clean up resources
 

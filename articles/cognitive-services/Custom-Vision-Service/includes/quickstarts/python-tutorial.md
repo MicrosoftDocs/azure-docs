@@ -40,7 +40,7 @@ To write an image analysis app with Custom Vision for Python, you'll need the Cu
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file and import the following libraries.
 

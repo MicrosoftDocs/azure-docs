@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 03/14/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ms.custom: ignite-fall-2021, devx-track-azurecli 
@@ -69,13 +69,17 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use any of the following articles to connect to a VM that's located in the virtual network to which you deployed Bastion. You can also use the [Connection steps](#steps) in the section below. Some connection types require the [Standard SKU](configuration-settings.md#skus).
+You can use the [Connection steps](#steps) in the section below to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
 
-[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-table.md)]
+[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 
 ### <a name="steps"></a>Connection steps
 
 [!INCLUDE [Connection steps](../../includes/bastion-vm-connect.md)]
+
+### <a name="audio"></a>To enable audio output
+
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
 
 ## <a name="ip"></a>Remove VM public IP address
 
