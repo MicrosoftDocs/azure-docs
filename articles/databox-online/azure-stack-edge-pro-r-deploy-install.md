@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/18/2020
+ms.date: 3/18/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro R in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -80,7 +80,7 @@ Before you start cabling your device, you need the following:
 
 - Your Azure Stack Edge Pro R physical device on the installation site.
 - One power cable.
-- At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
+- At least one 1-GbE RJ-45 Ethernet crossover cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 10/25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 3 or PORT 4 needs to be connected to the Internet (with connectivity to Azure).  
 - Access to one power distribution unit (recommended).
 
