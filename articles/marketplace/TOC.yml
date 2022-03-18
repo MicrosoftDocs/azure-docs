@@ -433,6 +433,8 @@
         href: test-saas-create-publish.md    
     - name: Market your offer
       href: create-new-saas-offer-marketing.md 
+    - name: Go live
+      href: test-publish-saas-offer.md
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offers
