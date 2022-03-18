@@ -30,10 +30,19 @@ The interface for a custom skill is specified through the [Custom Web API skill]
 "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
 "description": "This skill has a 230 second timeout",
 "uri": "https://[your custom skill uri goes here]",
+"authResourceId": "[for managed identity connections, your app's client ID goes here]",
 "timeout": "PT230S",
 ```
 
-The URI is the HTTPS endpoint of your function or app. If your code is hosted in an Azure function, the URI should include an [API key in the header or as a URI parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) to authorize the request. Alternatively, if your function or app is accessed through managed identities and Azure roles, the custom skill can include an authentication token on the request if you set "authResourceId" in the [custom skill definition](cognitive-search-custom-skill-web-api.md). The search service, which sends the request on the indexer's behalf, must be configured to use a managed identity (either system or user-assigned) so that the caller can be authenticated by Azure Active Directory. Your function or app must be registered with Azure Active Directory, and the application ID is what gets passed in "authResourceId" in the custom skill request.
+The URI is the HTTPS endpoint of your function or app. If your code is hosted in an Azure function app, the URI should include an [API key in the header or as a URI parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) to authorize the request. 
+
+Alternatively, if your function or app is accessed through Azure managed identities and Azure roles, the custom skill can include an authentication token on the request if you set "authResourceId" in the [custom skill definition](cognitive-search-custom-skill-web-api.md):
+
++ The search service, which sends the request on the indexer's behalf, must be [configured to use a managed identity](search-howto-managed-identities-data-sources.md) (either system or user-assigned) so that the caller can be authenticated by Azure Active Directory.
+
++ Your function or app must be [configured for Azure Active Directory](../app-service/configure-authentication-provider-aad.md).
+
++ " authResourceId" takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration): `api://<appId>` 
 
 When setting the URI, make sure the URI is secure (HTTPS).
 
