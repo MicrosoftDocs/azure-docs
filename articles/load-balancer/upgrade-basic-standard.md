@@ -56,8 +56,8 @@ The following are the recommended steps to change the allocation method.
 >[!NOTE]
 >For virtual machines which have public IPs, you must create standard IP addresses first. The same IP address is not guaranteed. Disassociate the VMs from the basic IPs and associate them with the newly created standard IP addresses. You'll then be able to follow the instructions to add VMs into the backend pool of the Standard Azure Load Balancer.
 
-### Create new VMs to add to the backend pool of the new standard load balancer**.
-    
+### Create new VMs to add to the backend pool of the new standard load balancer
+
 * To create a virtual machine and associate it with the load balancer, see [Create virtual machines](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ## Download the script
