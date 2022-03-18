@@ -1,5 +1,5 @@
 ---
-title: Plan a test SaaS offer in the Microsoft commercial marketplace
+title: Plan a test and development SaaS offer in the Microsoft commercial marketplace
 description: Plan a separate development offer for testing your offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/28/2022
 ---
 
-# Plan a test SaaS offer
+# Plan a test and development SaaS offer
 
 To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer.
 
@@ -34,7 +34,7 @@ Testing pricing models in the DEV offer reduces risk when developers experiment 
 
 Publishers can create the plans they need in the DEV offer to determine which pricing model works best for their offer. Developers might want to create multiple plans in the DEV offer to test different pricing combinations. For example, you might create plans with different sets of custom metered dimensions. You might create a different plan with a mix of flat rate and custom metered dimensions.
 
-To test multiple pricing options, you need to create a plan for each unique pricing model. To learn more, see [Plans](#plans).
+To test multiple pricing options, you need to create a plan for each unique pricing model. To learn more, see [Plans](plan-saas-offer.md#plans).
 
 ### Not adding plans that do not target actual customers
 

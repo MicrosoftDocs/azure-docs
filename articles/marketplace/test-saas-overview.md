@@ -14,7 +14,7 @@ ms.date: 03/25/2022
 
 This article provides guidance about how to configure a software as a service (SaaS) offer for testing a plan.
 
-We recommend that you create a test SaaS plan in a separate test and development (DEV) offer. To learn how, see [Create a test SaaS offer](create-saas-dev-test-offer.md). Regardless of whether you choose to create your test plan in a separate test and development (DEV) offer, the following guidelines in this article apply.
+We recommend that you create a test SaaS plan in a separate test and development (DEV) offer. To learn how, see [Plan a test and development (DEV) SaaS offer](plan-saas-dev-test-offer.md). Regardless of whether you choose to create your test plan in a separate test and development (DEV) offer, the following guidelines in this article apply.
 
 ## Create a separate private test plan
 
@@ -36,7 +36,7 @@ We recommend that you configure your test plan as a private plan, so it’s visi
 
 ## General guidelines
 
-- For guidelines about creating a test SaaS offer, see [Create a test SaaS offer](create-saas-dev-test-offer.md).
+- For guidelines about creating a test SaaS offer, see [Plan a test and development (DEV) SaaS offer](plan-saas-dev-test-offer.md).
 - To learn more about plans, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
 - For step-by-step instructions about creating plans, see [Create plans for a SaaS offer](create-new-saas-offer-plans.md).
 
