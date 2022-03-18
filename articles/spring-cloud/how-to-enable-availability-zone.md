@@ -15,6 +15,17 @@ In Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are un
 
 When an azure spring cloud service instance is configured as availability zone enabled, the platform would automatically spread the applications deployment instance across all three zones in the selected region. If the applications deployment's instance count is larger than three and is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones.
 
+You can create a availability zone enabled Azure Spring Cloud service using the [Azure CLI](/cli/azure/install-azure-cli), [Azure portal](https://portal.azure.com).
+
+To create Azure Spring Cloud service instance with availability zone enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your Azure Spring Cloud.
+
+```azurecli
+az spring-cloud create -n MyService -g MyResourceGroup -l MyLocation --zone-redundant true
+```
+
+To create Azure Spring Cloud service instance with availability zone enabled using the Azure portal, enable the Zone Redundant option during the "Create Azure Spring Cloud" experiences.
+
+![Image of zone redundant enablement using the portal.](media/spring-cloud-availability-zone/availability-zone-portal.png)
 ## Region availability
 
 Azure Spring Cloud currently can be created with availability zone enabled in the following regions:
