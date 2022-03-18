@@ -1,6 +1,6 @@
 ---
 title: Supported Azure Active Directory features
-description: Learn about Azure AD features, which are still supported in Azure AD B2C.
+description: Learn about Azure Active Directory features, which are still supported in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
