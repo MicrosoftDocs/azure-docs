@@ -16,6 +16,8 @@ ms.custom: "seodec18, devx-track-csharp"
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

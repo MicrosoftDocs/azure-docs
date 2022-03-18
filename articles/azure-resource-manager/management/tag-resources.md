@@ -12,6 +12,8 @@ You apply tags to your Azure resources, resource groups, and subscriptions to lo
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
+Resource tags support all cost-accruing services. You can use Azure Policy to ensure that cost-accruing services are provisioned with a tag by using one of the many different [tag policies](/azure/azure-resource-manager/management/tag-policies).  
+
 > [!WARNING]
 > Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, tag taxonomies, deployment histories, exported templates, and monitoring logs.
 

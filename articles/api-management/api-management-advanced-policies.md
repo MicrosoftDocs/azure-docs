@@ -900,7 +900,7 @@ This example shows how to return a 401 response if the authorization token is in
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
--   **Policy sections:** outbound, backend, on-error
+-   **Policy sections:** inbound, outbound, backend, on-error
 -   **Policy scopes:** all scopes
 
 ## <a name="set-variable"></a> Set variable
