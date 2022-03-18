@@ -12,8 +12,11 @@
   - name: Start analyzing costs
     displayName: Azure CLI, az costmanagement query, az costmanagement export, azure amortized cost, azure cost dashboard, azure forecast cost
     href: costs/quick-acm-cost-analysis.md
+  - name: Create a budget - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: costs/quick-create-budget-bicep.md
   - name: Create a budget - ARM template
-    displayName: ARM template, resource manager template
+    displayName: Resource Manager
     href: costs/quick-create-budget-template.md
   expanded: true
 - name: Tutorials
