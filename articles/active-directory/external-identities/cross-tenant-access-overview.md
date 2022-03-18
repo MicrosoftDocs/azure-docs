@@ -60,7 +60,11 @@ You can configure organization-specific settings by adding an organization and m
 > [!IMPORTANT]
 > Changing the default inbound or outbound settings to block access could block existing business-critical access to apps in your organization or partner organizations. Be sure to use the tools described in this article and consult with your business stakeholders to identify the required access.
 
-- Cross-tenant access settings are used to manage B2B collaboration with other Azure AD organizations. For non-Azure AD identities (for example, social identities or non-IT managed external accounts), use [external collaboration settings](external-collaboration-settings-configure.md). External collaboration settings include options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
+- To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role.
+
+- To configure trust settings or apply access settings to specific users, groups, or applications, you'll need an Azure AD Premium P1 license.
+
+- Cross-tenant access settings are used to manage B2B collaboration and B2B direct connect with other Azure AD organizations. For B2B collaboration with non-Azure AD identities (for example, social identities or non-IT managed external accounts), use [external collaboration settings](external-collaboration-settings-configure.md). External collaboration settings include B2B collaboration options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
 
 - If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 
@@ -69,17 +73,13 @@ You can configure organization-specific settings by adding an organization and m
 
 - The access settings you configure for users and groups must match the access settings for applications. Conflicting settings aren't allowed, and you’ll see warning messages if you try to configure them.
 
-  - **Example 1**: If you block inbound B2B collaboration for all external users and groups, access to all your applications must also be blocked.
+  - **Example 1**: If you block inbound access for all external users and groups, access to all your applications must also be blocked.
 
-  - **Example 2**: If you allow outbound B2B collaboration for all your users (or specific users or groups), you’ll be prevented from blocking all access to external applications; access to at least one application must be allowed.
-
-- If you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as Office 365 Message Encryption or OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
-
-- To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role.
-
-- To configure trust settings or apply access settings to specific users, groups, or applications, you'll need an Azure AD Premium P1 license.
+  - **Example 2**: If you allow outbound access for all your users (or specific users or groups), you’ll be prevented from blocking all access to external applications; access to at least one application must be allowed.
 
 - If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you must configure your trust settings so that your Conditional Access policies will accept MFA claims from the external organization.
+
+- If you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as Office 365 Message Encryption or OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
 
 ## Identify inbound and outbound sign-ins
 
