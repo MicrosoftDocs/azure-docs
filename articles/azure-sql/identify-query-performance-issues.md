@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf, kendralittle
-ms.date: 11/04/2021
+ms.date: 03/18/2022
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database and Azure SQL Managed Instance
