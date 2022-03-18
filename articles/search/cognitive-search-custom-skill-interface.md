@@ -7,7 +7,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/18/2022
 ---
 
 # Add a custom skill to an Azure Cognitive Search enrichment pipeline
@@ -22,13 +22,9 @@ If you are building a custom skill, this article describes the interface you'll 
 
 Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
 
-## Set the endpoint, connection, and timeout interval
+## Set the endpoint and timeout interval
 
 The interface for a custom skill is specified through the [Custom Web API skill](cognitive-search-custom-skill-web-api.md).
-
-The connection string is the HTTPS endpoint of your function or app. 
-
-By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 
 ```json
 "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -37,7 +33,11 @@ By default, the connection to the endpoint will time out if a response is not re
 "timeout": "PT230S",
 ```
 
+The URI is the HTTPS endpoint of your function or app. If your code is hosted in an Azure function, the URI should include an [API key in the header or as a URI parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) to authorize the request. Alternatively, if your function or app is accessed through managed identities and Azure roles, the custom skill can include an authentication token on the request if you set "authResourceId" in the [custom skill definition](cognitive-search-custom-skill-web-api.md). The search service, which sends the request on the indexer's behalf, must be configured to use a managed identity (either system or user-assigned) so that the caller can be authenticated by Azure Active Directory. Your function or app must be registered with Azure Active Directory, and the application ID is what gets passed in "authResourceId" in the custom skill request.
+
 When setting the URI, make sure the URI is secure (HTTPS).
+
+By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 
 ## Format Web API inputs
 

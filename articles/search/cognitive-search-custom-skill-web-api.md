@@ -7,7 +7,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 03/18/2022
 ---
 
 # Custom Web API skill in an Azure Cognitive Search enrichment pipeline
