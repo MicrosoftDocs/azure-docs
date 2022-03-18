@@ -32,6 +32,8 @@
   items :
   - name: Standard/Premium Tier
     href: standard-premium/overview.md
+  - name: Front Door manager
+    href: manager.md
   - name: Caching
     href: front-door-caching.md
   - name: Traffic acceleration
