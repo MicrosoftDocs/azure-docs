@@ -286,8 +286,10 @@ Use this example to create a custom parameter file for a Linux-based confidentia
       $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
       ```
       b. Use confidential VM [ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) `deployCPSCVM_cmk.json`and a parameter file to deploy a confidentialVM with customer-managed key.
+      
       >[!note]
         A [sample parameter file](#sample-cvm-deployment-parameter-file) for a Windows Server 2022 Gen 2 confidential VM listed below.
+        
       ```azurecli
       $deployName = <name of deployment>
       $vmName = <name of CVM>
