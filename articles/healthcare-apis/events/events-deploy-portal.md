@@ -66,10 +66,10 @@ It's important that you have the following prerequisites completed before you be
    > - [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
    >
    >For more information about managed identities, see 
-   > - [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
+   > - [What are managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
    >
    >For more information about Azure role-based access control (Azure RBAC), see 
-   > - [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) 
+   > - [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
 
 ## Next steps
 

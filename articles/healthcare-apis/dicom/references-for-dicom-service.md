@@ -29,7 +29,7 @@ This article describes our open-source projects on GitHub that provide source co
 
 ### Access imaging study resources on Power BI, Power Apps, and Dynamics 365 Customer Insights
 
-* [Connect to a FHIR service from Power Query Desktop](https://docs.microsoft.com/power-query/connectors/fhir/fhir): After provisioning DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use the POWER Query connector for FHIR to import and shape data from the FHIR server including imaging study resource.
+* [Connect to a FHIR service from Power Query Desktop](/power-query/connectors/fhir/fhir): After provisioning DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use the POWER Query connector for FHIR to import and shape data from the FHIR server including imaging study resource.
 
 ### Convert imaging study data to hierarchical parquet files
 
