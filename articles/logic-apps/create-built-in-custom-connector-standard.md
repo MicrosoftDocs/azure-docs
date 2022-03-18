@@ -17,7 +17,7 @@ Azure Logic Apps has both built-in and managed connector operations. *Built-in* 
 
 In [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), a redesigned runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create and use your own built-in connectors in Standard workflows. In a Standard logic app resource, a connection definition file contains the required configuration for the connections created by connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server, and over time, this list continues to grow. However, if you need connectors that aren't available, you can create your own built-in connectors with the same Azure Functions extensibility framework that's used by the built-in connectors included for Standard workflows.
 
-This article shows how you can create an example custom built-in connector using the Azure Functions extensibility framework and the sample Azure Cosmos DB built-in connector. Generally, you can add any Azure Functions trigger or action to your own built-in connector. However, custom built-in trigger capabilities are limited to only [Azure Functions specific triggers](../azure-functions/functions-bindings-example.md).
+This article shows how you can create an example custom built-in connector using the Azure Functions extensibility framework and the sample built-in Azure Cosmos DB connector. Generally, you can add any Azure Functions trigger or action to your own built-in connector. However, custom built-in trigger capabilities are limited to only [Azure Functions specific triggers](../azure-functions/functions-bindings-example.md).
 
 For more information about connectors, review the following documentation:
 
@@ -29,13 +29,20 @@ For more information about connectors, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about how connectors, single-tenant Azure Logic Apps, and Standard logic apps work. 
+* Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. If you're new to these topics, review the following documentation:
 
-* work and [Visual Studio]
+  * [What is Azure Logic Apps?](logic-apps-overview.md)
+  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+  * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
 
-* [NuGet package for Microsoft.Azure.Workflows.WebJobs.Extension](https://www.nuget.org/packages/Microsoft.Azure.Workflows.WebJobs.Extension/).
+* Visual Studio Code with the Azure Logic Apps (Standard) extension and other prerequisites installed. Your installation should already include the [NuGet package for Microsoft.Azure.Workflows.WebJobs.Extension](https://www.nuget.org/packages/Microsoft.Azure.Workflows.WebJobs.Extension/).
 
-  The example in this article creates a .NET Core 3.1 class library project and adds this NuGet package as a NuGet reference to the project. The service provider interface is implemented to provide the operations for the Cosmos DB connector.
+  > [!NOTE]
+  > To create the sample built-in Cosmos DB connector, the example in this article completes the following tasks:
+  >
+  > 1. Create a .NET Core 3.1 class library project using Visual Studio Code.
+  > 1. Add the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference to the project.
+  > 1. Implements the service provider interface to provide the operations for the sample built-in connector.
 
 <a name="built-in-connector-plugin-model"></a>
 
