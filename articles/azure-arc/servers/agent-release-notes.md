@@ -20,7 +20,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### New features
 
-- You can now granularly control which extensions are allowed to be deployed to your server and whether or not Guest Configuration should be enabled. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-controls-to-enable-or-disable-capabilities) for more information.
+- You can now granularly control which extensions are allowed to be deployed to your server and whether or not Guest Configuration should be enabled. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
 
 ### Fixed
 

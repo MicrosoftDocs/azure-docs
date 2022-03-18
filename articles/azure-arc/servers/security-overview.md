@@ -38,7 +38,7 @@ The Azure Connected Machine agent is composed of three services, which run on yo
 
 The guest configuration and extension services run as Local System on Windows, and as root on Linux.
 
-## Local agent controls to enable or disable capabilities
+## Local agent security controls
 
 Starting with agent version 1.16, you can optionally limit the extensions that can be installed on your server and disable Guest Configuration. These controls can be useful when connecting servers to Azure that need to be monitored or secured by Azure, but should not allow arbitrary management capabilities like running scripts with Custom Script Extension or configuring settings on the server with Guest Configuration.
 
