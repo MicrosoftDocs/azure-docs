@@ -32,6 +32,9 @@ The list of geographies you can choose from includes:
 - India
 - Japan
 - Korea
+- Norway
+- Switzerland
+- United Arab Emirates
 - United Kingdom
 - United States
 

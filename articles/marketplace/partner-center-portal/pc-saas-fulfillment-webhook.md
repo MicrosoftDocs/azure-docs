@@ -4,7 +4,7 @@ description: Learn how to implement a webhook on the SaaS service by using the f
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 03/15/2022
+ms.date: 03/16/2022
 author: arifgani
 ms.author: argani
 ---
@@ -69,7 +69,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "publisherId": "contoso",
   "offerId": "offer2 ",
   "planId": "gold",
-  "quantity": "20",
+  "quantity": 20,
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
   "status": "InProgress"
