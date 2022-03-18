@@ -1,5 +1,5 @@
 ---
-title: Supported Azure AD features
+title: Supported Azure Active Directory features
 description: Learn about Azure AD features, which are still supported in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
@@ -13,7 +13,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Supported Azure AD features
+# Supported Azure Active Directory features
 
 An Azure Active Directory B2C (Azure AD B2C) tenant is different than an Azure Active Directory (Azure AD) tenant, which you may already have, but it relies on it. The following Azure AD features can be used in your Azure AD B2C tenant.
 
