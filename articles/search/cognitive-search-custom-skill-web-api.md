@@ -14,7 +14,7 @@ ms.date: 03/18/2022
 
 The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
-The structure of the JSON payloads are described further down in this document.
+The structure of the JSON payload is described further down in this document.
 
 > [!NOTE]
 > The indexer will retry twice for certain standard HTTP status codes returned from the Web API. These HTTP status codes are: 
@@ -33,7 +33,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | `uri` | The URI of the Web API to which the JSON payload will be sent. Only **https** URI scheme is allowed |
-| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. The value is the application ID of the function or app's registration in Azure Active Directory. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. |
+| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. The value is the application ID of the function or app's registration in Azure Active Directory. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. Setting this property requires that your search service is [configured for managed identity](search-howto-managed-identities-data-sources.md).|
 | `httpMethod` | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
 | `httpHeaders` | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
@@ -143,7 +143,8 @@ The "output" corresponds to the response returned from your Web API. The Web API
    * A `data` property, which is an object where the fields are enrichments matching the "names" in the `output` and whose value is considered the enrichment.
    * An `errors` property, an array listing any errors encountered that will be added to the indexer execution history. This property is required, but can have a `null` value.
    * A `warnings` property, an array listing any warnings encountered that will be added to the indexer execution history. This property is required, but can have a `null` value.
-* The objects in the `values` array need not be in the same order as the objects in the `values` array sent as a request to the Web API. However, the `recordId` is used for correlation so any record in the response containing a `recordId` which was not part of the original request to the Web API will be discarded.
+
+The ordering of objects in the `values` in either the request or response isn't important. However, the `recordId` is used for correlation so any record in the response containing a `recordId` which was not part of the original request to the Web API will be discarded.
 
 ```json
 {
@@ -196,9 +197,9 @@ In addition to your Web API being unavailable, or sending out non-successful sta
 
 * If the Web API returns a success status code but the response indicates that it is not `application/json` then the response is considered invalid and no enrichments will be performed.
 
-* If there are **invalid** (with `recordId` not in the original request, or with duplicate values) records in the response `values` array, no enrichment will be performed for **those** records.
+* If there are invalid records (for example, `recordId` is missing or duplicated) in the response `values` array, no enrichment will be performed for the invalid records.
 
-For cases when the Web API is unavailable or returns a HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
+For cases when the Web API is unavailable or returns an HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
 
 ## See also
 
