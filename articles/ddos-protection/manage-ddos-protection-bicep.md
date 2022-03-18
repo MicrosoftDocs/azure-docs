@@ -52,13 +52,13 @@ In this example, the Bicep file creates a new resource group, a DDoS protection 
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -ddosProtectionPlanName "<plan-name>" -virtualNetworkName=<network-name>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -ddosProtectionPlanName "<plan-name>" -virtualNetworkName "<network-name>"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<plan-name\>** with a DDoS protection plan name. Replace **\<network-name]>** with a DDoS virtual network name.
+    > Replace **\<plan-name\>** with a DDoS protection plan name. Replace **\<network-name\>** with a DDoS virtual network name.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
