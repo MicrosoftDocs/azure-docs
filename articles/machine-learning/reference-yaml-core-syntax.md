@@ -193,7 +193,7 @@ jobs:
       training_data: ${{parent.jobs.prep.outputs.clean_data}}
       num_epochs: 1000
     outputs:
-      model_dir: $${{parent.outputs.trained_model}}
+      model_dir: ${{parent.outputs.trained_model}}
     code: src/train
     environment: azureml:AzureML-Minimal@latest
     command: >-
