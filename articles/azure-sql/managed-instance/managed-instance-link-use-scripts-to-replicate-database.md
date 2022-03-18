@@ -115,14 +115,14 @@ Save the value of `PublicKeyEncoded` from the output, because you'll need it for
 
 For the next step, use PowerShell with the installed Az.Sql module, version 3.5.1 or later. Or use Azure Cloud Shell online to run the commands, because it's always updated with the latest module versions.
   
-Run the following PowerShell script. (If you use Cloud Shell, fill out necessary user information, copy it, paste it into Cloud Shell, and then run.) Replace the following placeholders:
+Run the following PowerShell script. (If you use Cloud Shell, fill out necessary user information, copy it, paste it into Cloud Shell, and then run.) Replace:
 
-- Replace `<SubscriptionID>` with your Azure subscription ID. 
-- Replace `<ManagedInstanceName>` with the short name of your managed instance. 
-- Replace `<PublicKeyEncoded>` with the public portion of the SQL Server certificate in binary format, which you generated in the previous step. It will be a long string value that starts with `0x`.
+- `<SubscriptionID>` with your Azure subscription ID. 
+- `<ManagedInstanceName>` with the short name of your managed instance. 
+- `<PublicKeyEncoded>` with the public portion of the SQL Server certificate in binary format, which you generated in the previous step. It will be a long string value that starts with `0x`.
 
 ```powershell
-# Execute in Azure Cloud Shell
+# Run in Azure Cloud Shell
 # ===============================================================================
 # POWERSHELL SCRIPT TO IMPORT SQL SERVER CERTIFICATE TO MANAGED INSTANCE
 # USER CONFIGURABLE VALUES
@@ -204,7 +204,7 @@ CREATE CERTIFICATE [<SQLManagedInstanceFQDN>]
 FROM BINARY = <InstanceCertificate>
 ```
 
-Finally, verify all created certificates by viewing the following dynamic management view (DMV):
+Finally, verify all created certificates by using the following dynamic management view (DMV):
 
 ```sql
 -- Run on SQL Server
@@ -213,7 +213,7 @@ SELECT * FROM sys.certificates
 
 ## Mirroring endpoint on SQL Server
 
-If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section "Altering an existing database mirroring endpoint."
+If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section, "Altering an existing database mirroring endpoint."
 
 To verify that you don't have an existing database mirroring endpoint created, use the following script:
 
@@ -280,11 +280,16 @@ FROM
 
 If the output shows that the existing `DATABASE_MIRRORING` endpoint `connection_auth_desc` isn't `CERTIFICATE`, or `encryption_algorthm_desc` isn't `AES`, the *endpoint needs to be altered to meet the requirements*.
 
-On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability groups, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This will allow the existing AG to use Windows authentication, while using certificate authentication for SQL Managed Instance. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
+On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability groups, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
 
-Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
+Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. For details about possible options for altering endpoints, see the [documentation page for sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
-The script below is provided as an example of how to alter your existing database mirroring endpoint on SQL Server. Depending on your existing specific configuration, you perhaps might need to customize it further for your scenario. Replace `<YourExistingEndpointName>` with your existing endpoint name. Replace `<CERTIFICATE-NAME>` with the name of the generated SQL Server certificate. You can also use `SELECT * FROM sys.certificates` to get the name of the created certificate on the SQL Server.
+The following script is an example of how to alter your existing database mirroring endpoint on SQL Server. Replace:
+
+- `<YourExistingEndpointName>` with your existing endpoint name. 
+- `<CERTIFICATE-NAME>` with the name of the generated SQL Server certificate. 
+
+Depending on your specific configuration, you might need to customize the script further. You can also use `SELECT * FROM sys.certificates` to get the name of the created certificate on SQL Server.
 
 ```sql
 -- Run on SQL Server
@@ -301,7 +306,7 @@ ALTER ENDPOINT <YourExistingEndpointName>
 GO
 ```
 
-After running the ALTER endpoint query and setting the dual authentication mode to Windows and Certificate, use again this query on SQL Server to show the database mirroring endpoint details.
+After running the `ALTER` endpoint query and setting the dual authentication mode to Windows and certificate, use this query again on SQL Server to show the database mirroring endpoint details:
 
 ```sql
 -- Run on SQL Server
@@ -313,28 +318,34 @@ FROM
     sys.database_mirroring_endpoints
 ```
 
-With this you've successfully modified your database mirroring endpoint for SQL Managed Instance link.
+You've successfully modified your database mirroring endpoint for a SQL Managed Instance link.
 
-## Availability Group on SQL Server
+## Availability group on SQL Server
 
-If you don't have existing AG the next step is to create an AG on SQL Server. If you do have existing AG go straight to the next section “Use existing Availability Group (AG) on SQL Server”. A new AG needs to be created with the following parameters for Managed Instance link:
--	Specify SQL Server name
--	Specify database name
--	Failover mode MANUAL
--	Seeding mode AUTOMATIC
+If you don't have an existing availability group, the next step is to create one on SQL Server. Created an availability group with the following parameters for a SQL Managed Instance link:
 
-Use the following script to create a new Availability Group on SQL Server. Replace `<SQLServerName>` with the name of your SQL Server. Find out your SQL Server name with executing the following T-SQL:
+-	SQL Server name
+-	Database name
+-	A failover mode of `MANUAL`
+-	A seeding mode of `AUTOMATIC`
+
+First, find out your SQL Server name by running the following T-SQL statement:
 
 ```sql
 -- Run on SQL Server
 SELECT @@SERVERNAME AS SQLServerName 
 ```
 
-Replace `<AGName>` with the name of your availability group. For multiple databases you'll need to create multiple Availability Groups. Managed Instance link requires one database per AG. In this respect, consider naming each AG so that its name reflects the corresponding database - for example `AG_<db_name>`. Replace `<DatabaseName>` with the name of database you wish to replicate. Replace `<SQLServerIP>` with SQL Server’s IP address. Alternatively, resolvable SQL Server host machine name can be used, but you need to make sure that the name is resolvable from SQL Managed Instance virtual network.
+Then, use the following script to create the availability group on SQL Server. Replace:
+
+- `<SQLServerName>` with the name of your SQL Server instance. 
+- `<AGName>` with the name of your availability group. For multiple databases, you'll need to create multiple availability groups. A SQL Managed Instance link requires one database per availability group. Consider naming each availability group so that its name reflects the corresponding database - for example, `AG_<db_name>`. 
+- `<DatabaseName>` with the name of database that you want to replicate.
+- `<SQLServerIP>` with the SQL Server IP address. You can use a resolvable SQL Server host machine name as an alternative, but you need to make sure that the name is resolvable from the SQL Managed Instance virtual network.
 
 ```sql
 -- Run on SQL Server
--- Create primary AG on SQL Server
+-- Create the primary availability group on SQL Server
 USE MASTER
 CREATE AVAILABILITY GROUP [<AGName>]
 WITH (CLUSTER_TYPE = NONE)
@@ -351,17 +362,19 @@ GO
 ```
 
 > [!NOTE]
-> One database per single Availability Group is the current product limitation for replication to SQL Managed Instance using the link feature.
-> If you get the Error 1475 you'll have to create a full backup without COPY ONLY option, that will start new backup chain.
-> As the best practice it's highly recommended that collation on SQL Server and SQL Managed Instance is the same. This is because depending on collation settings, AG and DAG names could, or could not be case sensitive. If there's a mismatch with this, there could be issues in ability to successfully connect SQL Server to Managed Instance.
+> One database per availability group is the current product limitation for replication to SQL Managed Instance through the link feature.
+>
+> If you get Error 1475, you'll have to create a full backup without the `COPY ONLY` option. That will start new backup chain.
+>
+> As a best practice, we recommend ensuring that collation on SQL Server and SQL Managed Instance is the same. The reason is that depending on collation settings, names of availability groups and distributed availability groups might be case sensitive. If there's a mismatch, you might not be able to successfully connect SQL Server to SQL Managed Instance.
 
-### Verify AG and distributed AG
+### Verify the availability group and distributed availability group
 
-Use the following script to list all available Availability Groups and Distributed Availability Groups on the SQL Server. Availability Group state needs to be connected, and Distributed Availability Group state disconnected at this point. Distributed Availability Group state will move to `connected` only when it has been joined with SQL Managed Instance. This will be explained in one of the next steps.
+Use the following script to list all availability groups and distributed availability groups on the SQL Server instance. At this point, the state of your availability group needs to be `connected`, and the state of your distributed availability groups needs to be `disconnected`. The state of the distributed availability group will move to `connected` only when it has been joined with SQL Managed Instance. 
 
 ```sql
 -- Run on SQL Server
--- This will show that Availability Group and Distributed Availability Group have been created on SQL Server.
+-- This will show that the availability group and distributed availability group have been created on SQL Server.
 SELECT
     name, is_distributed, cluster_type_desc,
     sequence_number, is_contained
@@ -369,40 +382,45 @@ FROM
     sys.availability_groups
 ```
 
-Alternatively, in SSMS object explorer, expand the “Always On High Availability”, then “Availability Groups” folder to show available Availability Groups and Distributed Availability Groups.
+Alternatively, you can use SSMS Object Explorer to find availability groups and distributed availability groups. Expand the **Always On High Availability** folder and then the **Availability Groups** folder.
 
-## Creating SQL Managed Instance link
+## Creating a SQL Managed Instance link
 
-The final step of the setup process is to create the SQL Managed Instance link. To accomplish this, a REST API call will be made. Invoking direct API calls will be replaced with PowerShell and CLI clients, which will be delivered in one of our next releases.
+The final step of the setup process is to create the SQL Managed Instance link. At this time, you accomplish this by making a REST API call. The replacement of direct API calls with PowerShell and CLI clients is planned for a future release.
 
-Invoking direct API call to Azure can be accomplished with various API clients. However, for simplicity of the process, execute the below PowerShell script from Azure Cloud Shell.
+You can invoke direct API calls to Azure by using various API clients. For simplicity of the process, sign in to the Azure portal and run the following PowerShell script from Azure Cloud Shell. Replace: 
 
-Log in to Azure portal and execute the below PowerShell scripts in Azure Cloud Shell. Make the following replacements with the actual values in the script: Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name of your managed instance. Replace `<AGName>` with the name of Availability Group created on SQL Server. Replace `<DAGName>` with the name of Distributed Availability Group create on SQL Server. Replace `<DatabaseName>` with the database replicated in Availability Group on SQL Server. Replace `<SQLServerAddress>` with the address of the SQL Server. This can be a DNS name, or public IP or even private IP address, as long as the address provided can be resolved from the backend node hosting the SQL Managed Instance.
+- `<SubscriptionID>` with your Azure subscription ID. 
+- `<ManagedInstanceName>` with the short name of your managed instance. 
+- `<AGName>` with the name of the availability group created on SQL Server. 
+- `<DAGName>` with the name of the distributed availability group created on SQL Server. 
+- `<DatabaseName>` with the database replicated in the availability group on SQL Server. 
+- `<SQLServerAddress>` with the address of the SQL Server instance. This can be a DNS name, a public IP address, or even a private IP address. The provided address must be resolvable from the back-end node that hosts the managed instance.
   
 ```powershell
-# Execute in Azure Cloud Shell
+# Run in Azure Cloud Shell
 # =============================================================================
 # POWERSHELL SCRIPT FOR CREATING MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
 # (C) 2021-2022 SQL Managed Instance product group 
 # =============================================================================
-# Enter your Azure Subscription ID
+# Enter your Azure subscription ID
 $SubscriptionID = "<SubscriptionID>"
-# Enter your Managed Instance name – example "sqlmi1"
+# Enter your managed instance name – for example, "sqlmi1"
 $ManagedInstanceName = "<ManagedInstanceName>"
-# Enter Availability Group name that was created on the SQL Server
+# Enter the availability group name that was created on SQL Server
 $AGName = "<AGName>"
-# Enter Distributed Availability Group name that was created on SQL Server
+# Enter the distributed availability group name that was created on SQL Server
 $DAGName = "<DAGName>"
-# Enter database name that was placed in Availability Group for replciation
+# Enter the database name that was placed in the availability group for replication
 $DatabaseName = "<DatabaseName>"
-# Enter SQL Server address
+# Enter the SQL Server address
 $ SQLServerAddress = "<SQLServerAddress>"
 
 # =============================================================================
 # INVOKING THE API CALL -- THIS PART IS NOT USER CONFIGURABLE
 # =============================================================================
-# Log in to subscription if needed
+# Log in to the subscription if needed
 if ((Get-AzContext ) -eq $null)
 {
     echo "Logging to Azure subscription"
@@ -410,7 +428,7 @@ if ((Get-AzContext ) -eq $null)
 }
 Select-AzSubscription -SubscriptionName $SubscriptionID
 # -----------------------------------
-# Build URI for the API call
+# Build the URI for the API call
 # -----------------------------------
 echo "Building API URI"
 $miRG = (Get-AzSqlInstance -InstanceName $ManagedInstanceName).ResourceGroupName
@@ -432,7 +450,7 @@ $bodyFull = @"
 "@
 echo $bodyFull 
 # -----------------------------------
-# Get auth token and build the header
+# Get the authentication token and build the header
 # -----------------------------------
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $currentAzureContext = Get-AzContext
@@ -442,18 +460,18 @@ $authToken = $token.AccessToken
 $headers = @{}
 $headers.Add("Authorization", "Bearer "+"$authToken")
 # -----------------------------------
-# Invoke API call
+# Invoke the API call
 # -----------------------------------
 echo "Invoking API call to have Managed Instance join DAG on SQL Server"
 $response = Invoke-WebRequest -Method PUT -Headers $headers -Uri $uriFull -ContentType "application/json" -Body $bodyFull
 echo $response
 ```
 
-The result of this operation will be the time stamp of the successful execution of request for Managed Instance link creation.
+The result of this operation will be a time stamp of the successful execution of the request to create a SQL Managed Instance link.
 
-## Verifying created SQL Managed Instance link
+## Verifying a created SQL Managed Instance link
 
-To verify that connection has been made between SQL Managed Instance and SQL Server, execute the following query on SQL Server. Have in mind that connection will not be instantaneous upon executing the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until connection is shown as CONNECTED for SQL Managed Instance replica.
+To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. Have in mind that connection will not be instantaneous after you execute the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
 
 ```sql
 -- Run on SQL Server
@@ -470,7 +488,7 @@ FROM
     ON rs.replica_id = r.replica_id
 ```
 
-In addition, once the connection is established, Managed Instance Databases view in SSMS will initially show replicated database as “Restoring…”. This is because the initial seeding is in progress moving the full backup of the database, which is followed by the catchup replication. Once the seeding process is done, the database will no longer be in “Restoring…” state. For small databases, seeding might finish quickly so you might not see the initial “Restoring…” state in SSMS.
+After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring** The reason is that the initial seeding is in progress moving the full backup of the database, which is followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
 
 > [!IMPORTANT]
 > The link will not work unless network connectivity exists between SQL Server and Managed Instance. To troubleshoot the network connectivity following steps described in [test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
