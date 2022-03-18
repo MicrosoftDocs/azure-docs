@@ -1,10 +1,11 @@
 ---
 title: Manage read replicas - Azure CLI, REST API - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure CLI and REST API
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: srranga
+author: sr-msft
 ms.date: 12/17/2020 
 ms.custom: devx-track-azurecli
 ---

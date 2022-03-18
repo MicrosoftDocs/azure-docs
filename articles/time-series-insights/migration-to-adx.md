@@ -14,6 +14,8 @@ ms.custom: tvilutis
 
 # Migrating to Azure Data Explorer
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 ## Overview
 
 Time Series Insights (TSI) service provides access to historical data ingested through hubs for operational analytics and reporting. Service features are:
