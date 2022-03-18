@@ -15,7 +15,7 @@ ms.date: 03/18/2022
 
 The dedicated sku is appropriate for container workloads that require workload isolation from a physical server perspective.
 
-A dedicated host for Azure Container Instances provides [double encryption at rest](../virtual-machines/windows/disk-encryption.md#double-encryption-at-rest) of your container data when it is persisted by the service to the cloud. This encryption protects your data to help meet your organization's security and compliance requirements. ACI also gives you the option to [encrypt this data with your own key](container-instances-encrypt-data.md), giving you greater control over the data related to your ACI deployments.
+A dedicated host for Azure Container Instances provides [double encryption at rest](../virtual-machines/windows/disk-encryption.md#double-encryption-at-rest) for your container data when it is persisted by the service to the cloud. This encryption protects your data to help meet your organization's security and compliance requirements. ACI also gives you the option to [encrypt this data with your own key](container-instances-encrypt-data.md), giving you greater control over the data related to your ACI deployments.
 
 ## Prerequisites
 
