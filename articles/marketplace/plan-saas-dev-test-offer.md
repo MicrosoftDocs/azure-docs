@@ -84,6 +84,12 @@ This table describes the differences between the settings for DEV offers and PRO
 | Azure Active Directory application ID | Enter your test app registration application ID (client ID). | Enter your production app registration application ID. |
 ||||
 
+### Plan visibility
+
+We recommend that you configure your test plan as a private plan, so it’s visible only to targeted people. This provides an extra level of protection from exposing your test plan to customers if you accidentally publish the offer live.
+
+If you choose to test your plan in a production offer instead of a DEV offer, this is especially important, so that customers will not be able to purchase the plan. We recommend that you create a separate private test plan and never publish the private test plan live. You’ll use your private test plan to do your testing in preview. When you’ve completed your testing, you will create a production plan for publishing live. Then, you can then stop the test plan.
+
 ### Plan overview page
 
 When you create your plans, we recommend that you use the same _Plan ID_ and _Plan name_ in both the DEV and PROD offers except append the plan ID in the DEV offer with **_test**. For example, if the Plan ID in the PROD offer is “enterprise”, then the plan ID in the DEV offer should be “enterprise_test”. This way, you can easily identify which your DEV offer from your PROD offer. You’ll create plans in the PROD offer with the pricing models and prices that you decide are best for your offer.
@@ -104,7 +110,7 @@ Select the same markets for the DEV and PROD offers.
 
 Use the DEV offer to experiment with pricing models. After you verify which pricing model or models work best, you’ll create the plans in the PROD offer with the pricing models and prices you want.
 
-To minimize your testing costs, the DEV offer should have plans with zero or low prices in the plans. For example, $0.01 (one cent). This applies to flat rate, metered billing, and per user prices. The PROD offer will have the prices you want to charge to customers.
+When you purchase the plan, you will be charged the prices defined in the plan. To minimize your testing costs, the DEV offer should have plans with zero or low prices in the plans. For example, $0.01 (one cent). This applies to flat rate, metered billing, and per user prices. The PROD offer will have the prices you want to charge to customers.
 
 > [!IMPORTANT]
 > Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no store service fee).
@@ -143,4 +149,5 @@ Don’t configure the **Resell through CSPs** tab of the DEV offer.
 
 ## Next steps
 
-- [Create a SaaS offer](create-new-saas-offer.md)
+- To learn more about plans, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
+- For step-by-step instructions about creating an offer, see [Create a SaaS offer](create-new-saas-offer.md)
