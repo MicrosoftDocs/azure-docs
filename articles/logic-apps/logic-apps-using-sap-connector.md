@@ -82,7 +82,7 @@ The SAP connector is compatible with the following types of SAP systems:
 
 * Classic on-premises SAP systems, such as R/3 and ECC.
 
-The version of the SAP system must be presently maintained by SAP. To find more information about SAP system versions and maintenance information review the [SAP Product Availability Matrix (PAM)](http://support.sap.com/pam).
+The version of the SAP system must be presently maintained by SAP. To find more information about SAP system versions and maintenance information, review the [SAP Product Availability Matrix (PAM)](http://support.sap.com/pam).
 
 The SAP connector supports the following message and data integration types from SAP NetWeaver-based systems:
 
@@ -101,16 +101,16 @@ To use the available [SAP trigger](#triggers) and [SAP actions](#actions), you n
 The SAP system must have network connectivity from the host of the SAP .NET Connector (NCo) library. The multi-tenant host of SAP .NET Connector (NCo) library is the On-Premises Data Gateway. If you use an On-Premises Data Gateway cluster, all nodes of the cluster must have network connectivity to the SAP system. The ISE host of SAP .NET Connector (NCo) library is within the ISE virtual network.
 
 The SAP system required network connectivity includes the following servers and services:
-1. SAP Application Server, Dispatcher service (for all Logon types). Note that your SAP system may include multiple SAP Application Servers.
-1. SAP Message Server, Message service (for Logon type Group). Note that the Message Server and service will redirect to one or more Application Server's Dispatcher service. Each of these servers and services must be accessible from the host of the SAP .NET Connector (NCo) library.
+1. SAP Application Server, Dispatcher service (for all Logon types). Your SAP system may include multiple SAP Application Servers. Each of these servers and their services must be accessible from the host of the SAP .NET Connector (NCo) library.
+1. SAP Message Server, Message service (for Logon type Group). The Message Server and service will redirect to one or more Application Server's Dispatcher service. Each of these servers and their services must be accessible from the host of the SAP .NET Connector (NCo) library.
 1. SAP Gateway Server, Gateway service.
 
 For use with Secure Network Communications (SNC), the SAP system required network connectivity also includes the following server and service:
 1. SAP Gateway Server, Gateway secured service.
 
-Note that redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service occurs automatically within the SAP .NET Connector (NCo) library even if only the Application Server, Dispatcher service information is provided in the connection parameters.
+Redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service occurs automatically within the SAP .NET Connector (NCo) library. This redirection occurs even if only the Application Server, Dispatcher service information is provided in the connection parameters.
 
-If you are using a load balancer in front of your SAP system, all the services must be redirected to their respective servers.
+If you're using a load balancer in front of your SAP system, all the services must be redirected to their respective servers.
 
 For more information about SAP services and ports, review the [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports).
 
@@ -155,9 +155,9 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 1. Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway.
 
-  If you intend to use host names or service names for connection from Azure Logic Apps, you must set up each SAP application, message, and gateway server along with their services for name resolution. The network host name resolution is configured in the `%windir%\System32\drivers\etc\hosts` file or in the DNS server that's available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
+  If you intend to use host names or service names for connection from Azure Logic Apps, you must set up each SAP application, message, and gateway server along with their services for name resolution. The network host name resolution is configured in the `%windir%\System32\drivers\etc\hosts` file or in the DNS server that's available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you don't intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
 
-   If you do not have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
+   If you don't have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
 
    ```text
    10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
@@ -210,11 +210,11 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 
    1. Select **Create** to finish creating your ISE connector.
 
-1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected. Also review the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
+1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they're connected. Also review the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
-1. Get the IP addresses for the SAP application, message, and gateway servers that you plan to use for connecting from your logic app workflow. Network name resolution is not available for SAP connections in an ISE.
+1. Get the IP addresses for the SAP application, message, and gateway servers that you plan to use for connecting from your logic app workflow. Network name resolution isn't available for SAP connections in an ISE.
 
-1. Get the port numbers for the SAP application, message, and gateway services that you plan you will use for connection with Logic App. Service name resolution is not available for SAP connector in ISE.
+1. Get the port numbers for the SAP application, message, and gateway services that you plan you'll use for connection with Logic App. Service name resolution isn't available for SAP connector in ISE.
 
 ### SAP client library prerequisites
 
@@ -283,7 +283,7 @@ The ISE version of the SAP connector supports SNC X.509. You can enable SNC for 
 > When you delete an old connector, you can still keep the logic app workflows that use this connector. After you redeploy 
 > the connector, you can then authenticate the new connection in your SAP triggers and actions in these logic app workflows.
 
-First, if you have already deployed the SAP connector without the SNC or SAPGENPSE libraries, delete all the connections and the connector.
+First, if you've already deployed the SAP connector without the SNC or SAPGENPSE libraries, delete all the connections and the connector.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -337,7 +337,7 @@ Next, deploy or redeploy the SAP connector in your ISE:
 
    1. Copy all SNC, SAPGENPSE, and NCo libraries to the root folder of your zip archive. Don't put these binaries in subfolders.
 
-   1. You must use the 64-bit SNC library. There is no 32-bit support.
+   1. You must use the 64-bit SNC library. There's no 32-bit support.
 
    1. Your SNC library and its dependencies must be compatible with your SAP environment. For how to check compatibility, the [ISE prerequisites](#ise-prerequisites).
 
@@ -416,7 +416,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
       Output written to connectionInput.txt 
       ```
 
-      If the output path parameter is not provided, the script's output to the console will have line breaks. Remove the line breaks of the base 64-encoded string for the connection input parameter.
+      If the output path parameter isn't provided, the script's output to the console will have line breaks. Remove the line breaks of the base 64-encoded string for the connection input parameter.
 
    > [!NOTE]
    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. 
@@ -888,7 +888,7 @@ If you're receiving this error message and experience intermittent failures call
 
 #### The segment or group definition E2EDK36001 was not found in the IDoc meta
 
-This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments are not released by SAP. As a result, the segment type metadata required for conversion is missing.
+This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments aren't released by SAP. As a result, the segment type metadata required for conversion is missing.
 
 To have these segments released by SAP, contact the ABAP engineer for your SAP system.
 
@@ -1166,7 +1166,7 @@ Here's an example that shows how to extract individual IDocs from a packet by us
 
     * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
 
-    * **204 No Content**, which means the server has successfully fulfilled the request and there is no additional content to send in the response payload body. 
+    * **204 No Content**, which means the server has successfully fulfilled the request and there's no additional content to send in the response payload body. 
 
     * **200 OK**. This status code always contains a payload, even if the server generates a payload body of zero length. 
 
@@ -1228,7 +1228,7 @@ You can begin your XML schema with an optional XML prolog. The SAP connector wor
 
 #### XML samples for RFC requests
 
-The following example is a basic RFC call. The RFC name is `STFC_CONNECTION`. This request uses the default namespace `xmlns=`, however, you can assign and use namespace aliases such as `xmmlns:exampleAlias=`. The namespace value is the namespace for all RFCs in SAP for Microsoft services. There is a simple input parameter in the request, `<REQUTEXT>`.
+The following example is a basic RFC call. The RFC name is `STFC_CONNECTION`. This request uses the default namespace `xmlns=`, however, you can assign and use namespace aliases such as `xmmlns:exampleAlias=`. The namespace value is the namespace for all RFCs in SAP for Microsoft services. There's a simple input parameter in the request, `<REQUTEXT>`.
 
 ```xml
 <STFC_CONNECTION xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
@@ -1361,7 +1361,7 @@ This example declares the root node and namespaces. The URI in the sample code, 
    <ns0:idocData>
 ```
 
-You can repeat the `idocData` node to send a batch of IDocs in a single call. In the example below, there is one control record, `EDI_DC40`, and multiple data records.
+You can repeat the `idocData` node to send a batch of IDocs in a single call. In the example below, there's one control record, `EDI_DC40`, and multiple data records.
 
 ```xml
 <...>
@@ -1828,7 +1828,7 @@ When you send transactions to SAP from Logic Apps, this exchange happens in two 
 
 This capability to decouple the transaction ID confirmation is useful when you don't want to duplicate transactions in SAP, for example, in scenarios where failures might happen due to causes such as network issues. By confirming the transaction ID separately, the transaction is only completed one time in your SAP system.
 
-Here is an example that shows this pattern:
+Here's an example that shows this pattern:
 
 1. Create a blank logic app and add the Request trigger.
 
