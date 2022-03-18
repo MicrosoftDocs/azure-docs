@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/15/2022
+ms.date: 03/17/2022
 ms.author: cavoeg
 ---
 
@@ -20,8 +20,6 @@ ms.author: cavoeg
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and IoT connector) that seamlessly work with one another.
 
 ## January 2022
-
-### Azure Health Data Services 
 
 ### **Features and enhancements**
 
