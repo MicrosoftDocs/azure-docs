@@ -66,7 +66,7 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
     * This is not a required step to perform a write.
     * However, for read in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role the user must exist in the database.
 
-* Create schema in which tables will be defined, such that writes and reads can successfully executed by the Connector.
+* Create schema in which tables will be defined, such that the Connector can successfully write-to and read-from respective tables.
 
     ```sql
     CREATE SCHEMA [<schema_name>];
@@ -97,7 +97,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
     * `Execute` enables ability to traverse or navigate the folder hierarchies.
     * `Read` enables ability to read.
     * `Write` enables ability to write.
-  * It is important to configure ACLs such that the Connector's writes and reads can be successfully performed.
+  * It is important to configure ACLs such that the Connector can successfully write and read from the storage locations.
 
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
