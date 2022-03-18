@@ -37,9 +37,7 @@ Higher than expected usage in a Log Analytics workspace is typically caused by o
 
 If you observe high data ingestion reported using the `Usage` records (see the [Data volume by solution](#data-volume-by-solution) section), but you don't observe the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible that you have significant late-arriving data. For information about how to diagnose this, see the [Late arriving data](#late-arriving-data) section of this article. 
 
-#
-
-# Log Analytics Workspace Insights
+## Log Analytics Workspace Insights
 Start understanding your the data volumes collected by your workspace with in [Log Analytics Workspace Insights](log-analytics-workspace-insights-overview.md#usage-tab) which provides a quick summary of the following:
 
 - Data tables ingesting the most data volume in the main table
@@ -249,7 +247,7 @@ dependencies
 
 
 ### Data volume for workspace-based Application Insights resources
-To look at the data volume trends for [workspace-based Application Insights resources](create-workspace-resource.md), use a query that includes all of the Application insights tables. The following queries use the [tables names specific to workspace-based resources](../app/apm-tables#table-schemas.md).
+To look at the data volume trends for [workspace-based Application Insights resources](../app/create-workspace-resource.md), use a query that includes all of the Application insights tables. The following queries use the [tables names specific to workspace-based resources](../app/apm-tables.md#table-schemas.md).
 
 
 Display a chart with the data volume trends for all Application Insights resources in a workspace for the last week:
@@ -391,9 +389,9 @@ Number of distinct Automation nodes:
 ## Late-arriving data
 Situations can arise where data is ingested with old timestamps. For example, an agent has a connectivity issue or a host may have an incorrect time date/time. This can result in an apparent discrepancy between the ingested data reported by the [Usage](/azure/azure-monitor/reference/tables/usage) data type and a query summing [_BilledSize](./log-standard-columns.md#_billedsize) over the raw data for a particular day specified by **TimeGenerated**, the timestamp when the event was generated.
 
-To diagnose late-arriving data issues, use the [_TimeReceived](./log-standard-columns.md#_timereceived) column  in addition to the [TimeGenerated](./log-standard-columns.md#_timegenerated) column. `_TimeReceived` is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud.
+To diagnose late-arriving data issues, use the [_TimeReceived](./log-standard-columns.md#_timereceived) column  in addition to the [TimeGenerated](./log-standard-columns.md#timegenerated) column. `_TimeReceived` is the time when the record was received by the Azure Monitor ingestion point in the Azure cloud.
 
-The following example is in response to high ingested data volumes of [W3CIISLog](./log-standard-columns.md#w3ciislog) data on May 2, 2021 to identify the timestamps on this ingested data. The `where TimeGenerated > datetime(1970-01-01)` statement is included to provide the clue to the Log Analytics user interface to look over all data. 
+The following example is in response to high ingested data volumes of [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) data on May 2, 2021 to identify the timestamps on this ingested data. The `where TimeGenerated > datetime(1970-01-01)` statement is included to provide the clue to the Log Analytics user interface to look over all data. 
 
 ```Kusto
 W3CIISLog

@@ -21,7 +21,7 @@ The daily cap for a workspace includes data from any workspace-based Application
 You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It *isn't advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
 
 
-Instead of using the daily volume cap, use [sampling](./sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
+Instead of using the daily volume cap, use [sampling](../app/sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
 ## Determine your daily cap
 To understand the data ingestion trend and the daily volume cap to define, review [Log Analytics Usage and estimated costs](../usage-estimated-costs.md). Consider it with care, because you can't monitor your resources after the limit is reached. 
@@ -66,9 +66,9 @@ Learn more about the [_LogOperation](./monitor-workspace.md) function.
 ### Classic Applications Insights resource
 To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** page, select  **Daily Cap**.
 
-![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
+![Adjust the daily telemetry volume cap](../app/media/pricing/pricing-003.png)
 
-To [change the daily cap via Azure Resource Manager](./powershell.md), the property to change is the `dailyQuota`.  Via Azure Resource Manager you can also set the `dailyQuotaResetTime` and the daily cap's `warningThreshold`.
+To [change the daily cap via Azure Resource Manager](../app/powershell.md), the property to change is the `dailyQuota`.  Via Azure Resource Manager you can also set the `dailyQuotaResetTime` and the daily cap's `warningThreshold`.
 
 ## Alert when daily cap is reached
 
@@ -107,14 +107,14 @@ To disable the daily volume cap e-mails, under the **Configure** section of your
 
 When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
 
-    The maximum cap in Application Insights is 1,000 GB/day unless you request a higher maximum for a high-traffic application.
+The maximum cap in Application Insights is 1,000 GB/day unless you request a higher maximum for a high-traffic application.
 
 
-    Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
+Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
 
-    Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
-    
-    We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
+Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
+
+We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
 
 
 ## View the effect of the daily cap
@@ -134,4 +134,4 @@ Usage
 ```
 Add `Update` and `UpdateSummary` data types to the `where Datatype` line when the Update Management solution is not running on the workspace or solution targeting is enabled ([learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance).)
 
-## Application Insights
+## Next steps

@@ -24,7 +24,7 @@ When data collection stops, the **OperationStatus** is **Warning**. When data co
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (such as on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
-To be notified when data collection stops, use the steps described in the [Alert when daily cap is reached](#alert-when-daily-cap-is-reached) section. To configure an e-mail, webhook, or runbook action for the alert rule, use the steps described in [create an action group](../alerts/action-groups.md). 
+To be notified when data collection stops, use the steps described in the [Alert when daily cap is reached](daily-cap.md#alert-when-daily-cap-is-reached) section. To configure an e-mail, webhook, or runbook action for the alert rule, use the steps described in [create an action group](../alerts/action-groups.md). 
 
 ## Limits summary
 
@@ -33,11 +33,3 @@ There are additional Log Analytics limits, some of which depend on the Log Analy
 
 ## Next steps
 
-- See [Log searches in Azure Monitor Logs](../logs/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-- Use the steps described in [create a new log alert](../alerts/alerts-metric.md) to be notified when a search criteria is met.
-- Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
-- To configure an effective event collection policy, review [Microsoft Defender for Cloud filtering policy](../../security-center/security-center-enable-data-collection.md).
-- Change [performance counter configuration](../agents/data-sources-performance-counters.md).
-- To modify your event collection settings, review [event log configuration](../agents/data-sources-windows-events.md).
-- To modify your syslog collection settings, review [syslog configuration](../agents/data-sources-syslog.md).
-- To modify your syslog collection settings, review [syslog configuration](../agents/data-sources-syslog.md).

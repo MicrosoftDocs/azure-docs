@@ -159,6 +159,8 @@ items:
     items:
     - name: Azure Monitor costs
       href: usage-estimated-costs.md
+    - name: Estimate your costs
+      href: cost-estimate.md
     - name: Logs costs
       href: logs/cost-logs.md
     - name: Application Insights costs
@@ -459,6 +461,8 @@ items:
         href: logs/tutorial-ingestion-time-transformations.md
       - name: Tutorial (API)
         href: logs/tutorial-ingestion-time-transformations-api.md
+      - name: Troubleshoot
+        href: logs/data-collection-troubleshoot.md
   - name: Agents
     items:
     - name: Overview
