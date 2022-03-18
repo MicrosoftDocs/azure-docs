@@ -131,7 +131,7 @@ The media traffic flows via components called media processors. Media processors
 
 ## Media traffic: Codecs
 
-### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
+### Leg between SBC and Cloud Media Processor.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 
