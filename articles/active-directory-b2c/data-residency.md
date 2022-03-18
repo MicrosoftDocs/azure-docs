@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 # Azure Active Directory B2C: Region availability & data residency
 
-Azure AD B2C identity data is stored in a geographical location or country based on the country/region provided when you create the tenant.
+Azure Active Directory B2C (Azure AD B2C) identity data is stored in a geographical location or country based on the country/region provided when you create the tenant.
 
 Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C. [Region availability](#region-availability) refers to where a service is available for use whereas [Data residency](#data-residency) refers to where user data is stored.
 

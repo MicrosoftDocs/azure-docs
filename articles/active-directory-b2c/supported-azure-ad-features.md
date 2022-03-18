@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Supported Azure AD features
 
-An Azure AD B2C tenant is different than an Azure Active Directory tenant, which you may already have, but it relies on it. The following Azure AD features can be used in your Azure AD B2C tenant.
+An Azure Active Directory B2C (Azure AD B2C) tenant is different than an Azure Active Directory (Azure AD) tenant, which you may already have, but it relies on it. The following Azure AD features can be used in your Azure AD B2C tenant.
 
 |Feature  |Azure AD  | Azure AD B2C |
 |---------|---------|---------|
