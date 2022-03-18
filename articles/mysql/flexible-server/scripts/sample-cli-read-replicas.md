@@ -27,7 +27,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/read-replicas/create-manage-read-replicas.sh" range="4-52":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/read-replicas/create-manage-read-replicas.sh" id="FullScript":::
 
 ## Clean up resources
 

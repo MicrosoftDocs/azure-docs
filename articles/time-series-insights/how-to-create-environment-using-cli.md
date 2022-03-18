@@ -15,6 +15,8 @@ ms.custom: seodec18, devx-track-azurecli
 
 # Create an Azure Time Series Insights Gen2 environment using the Azure CLI
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This document will guide you through creating a new Time Series Insights Gen2 Environment.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

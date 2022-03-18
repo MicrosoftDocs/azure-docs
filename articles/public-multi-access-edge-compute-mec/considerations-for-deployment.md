@@ -23,9 +23,9 @@ Azure public multi-access edge compute (MEC) Preview sites are small-footprint e
 
 For Azure public MEC, follow these best practices:
 
-- Deploy in Azure public MEC only those components of the application that are latency sensitive or need low latency compute at the Azure public MEC. Deploy in the parent region those components of the application that perform control plane and management plane functionalities.
+- Deploy in Azure public MEC only those components of the application that are latency sensitive or need low latency compute at the Azure public MEC. Deploy in the parent Azure region those components of the application that perform control plane and management plane functionalities.
 
-- Because Azure public MEC sites are connected to the Telco network, accessing resources deployed in it over the internet isn't allowed. To access VMs deployed in the Azure public MEC, deploy jump box virtual machines (VMs) or Azure Bastion in a virtual network (VNet) in the parent region.
+- Because Azure public MEC sites are connected to the telecommunications network, accessing resources deployed in it over the internet isn't allowed. To access VMs deployed in the Azure public MEC, deploy jump box virtual machines (VMs) or Azure Bastion in a virtual network (VNet) in the parent region.
 
 - For compute resources in the Azure public MEC, deploy Azure Key Vault in the Azure region to provide secrets management and key management services.
 
@@ -33,7 +33,7 @@ For Azure public MEC, follow these best practices:
 
 ## Azure public MEC architecture
 
-Deploy application components that require low latencies in the Azure public MEC, and components that are non-latency sensitive in the Azure region.
+Deploy application components that require low latencies in the Azure public MEC, and components that are non-latency sensitive in the Azure region. For more information, see [Azure public multi-access edge compute deployment](/azure/architecture/example-scenario/hybrid/public-multi-access-edge-compute-deployment).
 
 ### Azure region
 
@@ -70,16 +70,16 @@ Azure public MEC should run components that are latency sensitive and need faste
 
 Applications you deploy in the Azure public MEC can be made available and resilient by using the following methods:
 
-- Deploy resources in active/standby, with primary resources in the Azure public MEC and standby resources in the parent Azure region. If there's a failure in the Azure public MEC, the resources in the parent region become active.
+- [Deploy resources in active/standby](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha), with primary resources in the Azure public MEC and standby resources in the parent Azure region. If there's a failure in the Azure public MEC, the resources in the parent region become active.
 
-- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and Azure Backup features. This solution:
+- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](../site-recovery/site-recovery-overview.md) and Azure Backup features. This solution:
   - Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back if there's an outage.
   - Backs up VMs to prevent data corruption or lost data.
 
    > [!NOTE]
    > The Azure backup and disaster recovery solution for Azure public MEC supports only Azure Virtual Machines.
 
-A trade-off exists between availability and latency. Failing over the application from the Azure public MEC to the Azure region ensures that the application is available, but might increase the latency to the application.
+A trade-off exists between availability and latency. Although failing over the application from the Azure public MEC to the Azure region ensures that the application is available, it might increase the latency to the application.
 
 ## Next steps
 

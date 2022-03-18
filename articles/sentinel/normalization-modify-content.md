@@ -5,7 +5,6 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 ---
 
 # Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
