@@ -313,6 +313,105 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Unusable Cores|Yes|Unusable Cores|Count|Average|Number of unusable cores|Scenario, ClusterName|
 |Unusable Nodes|Yes|Unusable Nodes|Count|Average|Number of unusable nodes|Scenario, ClusterName|
 
+## microsoft.bing/accounts
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BlockedCalls|Yes|Blocked Calls|Count|Total|Number of calls that exceeded the rate or quota limit|ApiName, ServingRegion, StatusCode|
+|ClientErrors|Yes|Client Errors|Count|Total|Number of calls with any client error (HTTP status code 4xx)|ApiName, ServingRegion, StatusCode|
+|DataIn|Yes|Data In|Bytes|Total|Incoming request Content-Length in bytes|ApiName, ServingRegion, StatusCode|
+|DataOut|Yes|Data Out|Bytes|Total|Outgoing response Content-Length in bytes|ApiName, ServingRegion, StatusCode|
+|Latency|Yes|Latency|Milliseconds|Average|Latency in milliseconds|ApiName, ServingRegion, StatusCode|
+|ServerErrors|Yes|Server Errors|Count|Total|Number of calls with any server error (HTTP status code 5xx)|ApiName, ServingRegion, StatusCode|
+|SuccessfulCalls|Yes|Successful Calls|Count|Total|Number of successful calls (HTTP status code 2xx)|ApiName, ServingRegion, StatusCode|
+|TotalCalls|Yes|Total Calls|Count|Total|Total number of calls|ApiName, ServingRegion, StatusCode|
+|TotalErrors|Yes|Total Errors|Count|Total|Number of calls with any error (HTTP status code 4xx or 5xx)|ApiName, ServingRegion, StatusCode|
+
+## Microsoft.Blockchain/blockchainMembers
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BroadcastProcessedCount|Yes|BroadcastProcessedCountDisplayName|Count|Average|The number of transactions processed.|Node, channel, type, status|
+|ChaincodeExecuteTimeouts|Yes|ChaincodeExecuteTimeoutsDisplayName|Count|Average|The number of chaincode executions (Init or Invoke) that have timed out.|Node, chaincode|
+|ChaincodeLaunchFailures|Yes|ChaincodeLaunchFailuresDisplayName|Count|Average|The number of chaincode launches that have failed.|Node, chaincode|
+|ChaincodeLaunchTimeouts|Yes|ChaincodeLaunchTimeoutsDisplayName|Count|Average|The number of chaincode launches that have timed out.|Node, chaincode|
+|ChaincodeShimRequestsCompleted|Yes|ChaincodeShimRequestsCompletedDisplayName|Count|Average|The number of chaincode shim requests completed.|Node, type, channel, chaincode, success|
+|ChaincodeShimRequestsReceived|Yes|ChaincodeShimRequestsReceivedDisplayName|Count|Average|The number of chaincode shim requests received.|Node, type, channel, chaincode|
+|ClusterCommEgressQueueCapacity|Yes|ClusterCommEgressQueueCapacityDisplayName|Count|Average|Capacity of the egress queue.|Node, host, msg_type, channel|
+|ClusterCommEgressQueueLength|Yes|ClusterCommEgressQueueLengthDisplayName|Count|Average|Length of the egress queue.|Node, host, msg_type, channel|
+|ClusterCommEgressQueueWorkers|Yes|ClusterCommEgressQueueWorkersDisplayName|Count|Average|Count of egress queue workers.|Node, channel|
+|ClusterCommEgressStreamCount|Yes|ClusterCommEgressStreamCountDisplayName|Count|Average|Count of streams to other nodes.|Node, channel|
+|ClusterCommEgressTlsConnectionCount|Yes|ClusterCommEgressTlsConnectionCountDisplayName|Count|Average|Count of TLS connections to other nodes.|Node|
+|ClusterCommIngressStreamCount|Yes|ClusterCommIngressStreamCountDisplayName|Count|Average|Count of streams from other nodes.|Node|
+|ClusterCommMsgDroppedCount|Yes|ClusterCommMsgDroppedCountDisplayName|Count|Average|Count of messages dropped.|Node, host, channel|
+|ConnectionAccepted|Yes|Accepted Connections|Count|Total|Accepted Connections|Node|
+|ConnectionActive|Yes|Active Connections|Count|Average|Active Connections|Node|
+|ConnectionHandled|Yes|Handled Connections|Count|Total|Handled Connections|Node|
+|ConsensusEtcdraftActiveNodes|Yes|ConsensusEtcdraftActiveNodesDisplayName|Count|Average|Number of active nodes in this channel.|Node, channel|
+|ConsensusEtcdraftClusterSize|Yes|ConsensusEtcdraftClusterSizeDisplayName|Count|Average|Number of nodes in this channel.|Node, channel|
+|ConsensusEtcdraftCommittedBlockNumber|Yes|ConsensusEtcdraftCommittedBlockNumberDisplayName|Count|Average|The block number of the latest block committed.|Node, channel|
+|ConsensusEtcdraftConfigProposalsReceived|Yes|ConsensusEtcdraftConfigProposalsReceivedDisplayName|Count|Average|The total number of proposals received for config type transactions.|Node, channel|
+|ConsensusEtcdraftIsLeader|Yes|ConsensusEtcdraftIsLeaderDisplayName|Count|Average|The leadership status of the current node: 1 if it is the leader else 0.|Node, channel|
+|ConsensusEtcdraftLeaderChanges|Yes|ConsensusEtcdraftLeaderChangesDisplayName|Count|Average|The number of leader changes since process start.|Node, channel|
+|ConsensusEtcdraftNormalProposalsReceived|Yes|ConsensusEtcdraftNormalProposalsReceivedDisplayName|Count|Average|The total number of proposals received for normal type transactions.|Node, channel|
+|ConsensusEtcdraftProposalFailures|Yes|ConsensusEtcdraftProposalFailuresDisplayName|Count|Average|The number of proposal failures.|Node, channel|
+|ConsensusEtcdraftSnapshotBlockNumber|Yes|ConsensusEtcdraftSnapshotBlockNumberDisplayName|Count|Average|The block number of the latest snapshot.|Node, channel|
+|ConsensusKafkaBatchSize|Yes|ConsensusKafkaBatchSizeDisplayName|Count|Average|The mean batch size in bytes sent to topics.|Node, topic|
+|ConsensusKafkaCompressionRatio|Yes|ConsensusKafkaCompressionRatioDisplayName|Count|Average|The mean compression ratio (as percentage) for topics.|Node, topic|
+|ConsensusKafkaIncomingByteRate|Yes|ConsensusKafkaIncomingByteRateDisplayName|Count|Average|Bytes/second read off brokers.|Node, broker_id|
+|ConsensusKafkaLastOffsetPersisted|Yes|ConsensusKafkaLastOffsetPersistedDisplayName|Count|Average|The offset specified in the block metadata of the most recently committed block.|Node, channel|
+|ConsensusKafkaOutgoingByteRate|Yes|ConsensusKafkaOutgoingByteRateDisplayName|Count|Average|Bytes/second written to brokers.|Node, broker_id|
+|ConsensusKafkaRecordSendRate|Yes|ConsensusKafkaRecordSendRateDisplayName|Count|Average|The number of records per second sent to topics.|Node, topic|
+|ConsensusKafkaRecordsPerRequest|Yes|ConsensusKafkaRecordsPerRequestDisplayName|Count|Average|The mean number of records sent per request to topics.|Node, topic|
+|ConsensusKafkaRequestLatency|Yes|ConsensusKafkaRequestLatencyDisplayName|Count|Average|The mean request latency in ms to brokers.|Node, broker_id|
+|ConsensusKafkaRequestRate|Yes|ConsensusKafkaRequestRateDisplayName|Count|Average|Requests/second sent to brokers.|Node, broker_id|
+|ConsensusKafkaRequestSize|Yes|ConsensusKafkaRequestSizeDisplayName|Count|Average|The mean request size in bytes to brokers.|Node, broker_id|
+|ConsensusKafkaResponseRate|Yes|ConsensusKafkaResponseRateDisplayName|Count|Average|Requests/second sent to brokers.|Node, broker_id|
+|ConsensusKafkaResponseSize|Yes|ConsensusKafkaResponseSizeDisplayName|Count|Average|The mean response size in bytes from brokers.|Node, broker_id|
+|CpuUsagePercentageInDouble|Yes|CPU Usage Percentage|Percent|Maximum|CPU Usage Percentage|Node|
+|DeliverBlocksSent|Yes|DeliverBlocksSentDisplayName|Count|Average|The number of blocks sent by the deliver service.|Node, channel, filtered, data_type|
+|DeliverRequestsCompleted|Yes|DeliverRequestsCompletedDisplayName|Count|Average|The number of deliver requests that have been completed.|Node, channel, filtered, data_type, success|
+|DeliverRequestsReceived|Yes|DeliverRequestsReceivedDisplayName|Count|Average|The number of deliver requests that have been received.|Node, channel, filtered, data_type|
+|DeliverStreamsClosed|Yes|DeliverStreamsClosedDisplayName|Count|Average|The number of GRPC streams that have been closed for the deliver service.|Node|
+|DeliverStreamsOpened|Yes|DeliverStreamsOpenedDisplayName|Count|Average|The number of GRPC streams that have been opened for the deliver service.|Node|
+|EndorserChaincodeInstantiationFailures|Yes|EndorserChaincodeInstantiationFailuresDisplayName|Count|Average|The number of chaincode instantiations or upgrade that have failed.|Node, channel, chaincode|
+|EndorserDuplicateTransactionFailures|Yes|EndorserDuplicateTransactionFailuresDisplayName|Count|Average|The number of failed proposals due to duplicate transaction ID.|Node, channel, chaincode|
+|EndorserEndorsementFailures|Yes|EndorserEndorsementFailuresDisplayName|Count|Average|The number of failed endorsements.|Node, channel, chaincode, chaincodeerror|
+|EndorserProposalAclFailures|Yes|EndorserProposalAclFailuresDisplayName|Count|Average|The number of proposals that failed ACL checks.|Node, channel, chaincode|
+|EndorserProposalSimulationFailures|Yes|EndorserProposalSimulationFailuresDisplayName|Count|Average|The number of failed proposal simulations.|Node, channel, chaincode|
+|EndorserProposalsReceived|Yes|EndorserProposalsReceivedDisplayName|Count|Average|The number of proposals received.|Node|
+|EndorserProposalValidationFailures|Yes|EndorserProposalValidationFailuresDisplayName|Count|Average|The number of proposals that have failed initial validation.|Node|
+|EndorserSuccessfulProposals|Yes|EndorserSuccessfulProposalsDisplayName|Count|Average|The number of successful proposals.|Node|
+|FabricVersion|Yes|FabricVersionDisplayName|Count|Average|The active version of Fabric.|Node, version|
+|GossipCommMessagesReceived|Yes|GossipCommMessagesReceivedDisplayName|Count|Average|Number of messages received.|Node|
+|GossipCommMessagesSent|Yes|GossipCommMessagesSentDisplayName|Count|Average|Number of messages sent.|Node|
+|GossipCommOverflowCount|Yes|GossipCommOverflowCountDisplayName|Count|Average|Number of outgoing queue buffer overflows.|Node|
+|GossipLeaderElectionLeader|Yes|GossipLeaderElectionLeaderDisplayName|Count|Average|Peer is leader (1) or follower (0).|Node, channel|
+|GossipMembershipTotalPeersKnown|Yes|GossipMembershipTotalPeersKnownDisplayName|Count|Average|Total known peers.|Node, channel|
+|GossipPayloadBufferSize|Yes|GossipPayloadBufferSizeDisplayName|Count|Average|Size of the payload buffer.|Node, channel|
+|GossipStateHeight|Yes|GossipStateHeightDisplayName|Count|Average|Current ledger height.|Node, channel|
+|GrpcCommConnClosed|Yes|GrpcCommConnClosedDisplayName|Count|Average|gRPC connections closed. Open minus closed is the active number of connections.|Node|
+|GrpcCommConnOpened|Yes|GrpcCommConnOpenedDisplayName|Count|Average|gRPC connections opened. Open minus closed is the active number of connections.|Node|
+|GrpcServerStreamMessagesReceived|Yes|GrpcServerStreamMessagesReceivedDisplayName|Count|Average|The number of stream messages received.|Node, service, method|
+|GrpcServerStreamMessagesSent|Yes|GrpcServerStreamMessagesSentDisplayName|Count|Average|The number of stream messages sent.|Node, service, method|
+|GrpcServerStreamRequestsCompleted|Yes|GrpcServerStreamRequestsCompletedDisplayName|Count|Average|The number of stream requests completed.|Node, service, method, code|
+|GrpcServerUnaryRequestsReceived|Yes|GrpcServerUnaryRequestsReceivedDisplayName|Count|Average|The number of unary requests received.|Node, service, method|
+|IOReadBytes|Yes|IO Read Bytes|Bytes|Total|IO Read Bytes|Node|
+|IOWriteBytes|Yes|IO Write Bytes|Bytes|Total|IO Write Bytes|Node|
+|LedgerBlockchainHeight|Yes|LedgerBlockchainHeightDisplayName|Count|Average|Height of the chain in blocks.|Node, channel|
+|LedgerTransactionCount|Yes|LedgerTransactionCountDisplayName|Count|Average|Number of transactions processed.|Node, channel, transaction_type, chaincode, validation_code|
+|LoggingEntriesChecked|Yes|LoggingEntriesCheckedDisplayName|Count|Average|Number of log entries checked against the active logging level.|Node, level|
+|LoggingEntriesWritten|Yes|LoggingEntriesWrittenDisplayName|Count|Average|Number of log entries that are written.|Node, level|
+|MemoryLimit|Yes|Memory Limit|Bytes|Average|Memory Limit|Node|
+|MemoryUsage|Yes|Memory Usage|Bytes|Average|Memory Usage|Node|
+|MemoryUsagePercentageInDouble|Yes|Memory Usage Percentage|Percent|Average|Memory Usage Percentage|Node|
+|PendingTransactions|Yes|Pending Transactions|Count|Average|Pending Transactions|Node|
+|ProcessedBlocks|Yes|Processed Blocks|Count|Total|Processed Blocks|Node|
+|ProcessedTransactions|Yes|Processed Transactions|Count|Total|Processed Transactions|Node|
+|QueuedTransactions|Yes|Queued Transactions|Count|Average|Queued Transactions|Node|
+|RequestHandled|Yes|Handled Requests|Count|Total|Handled Requests|Node|
+|StorageUsage|Yes|Storage Usage|Bytes|Average|Storage Usage|Node|
+
 ## microsoft.botservice/botservices
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -676,6 +775,46 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|No Dimensions|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
+## Microsoft.Cloudtest/hostedpools
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Allocated|Yes|Allocated|Count|Average|Resources that are allocated|PoolId, SKU, Images, ProviderName|
+|AllocationDurationMs|Yes|AllocationDurationMs|Milliseconds|Average|Average time to allocate requests (ms)|PoolId, Type, ResourceRequestType, Image|
+|Count|Yes|Count|Count|Count|Number of requests in last dump|RequestType, Status, PoolId, Type, ErrorCode, FailureStage|
+|NotReady|Yes|NotReady|Count|Average|Resources that are not ready to be used|PoolId, SKU, Images, ProviderName|
+|PendingReimage|Yes|PendingReimage|Count|Average|Resources that are pending reimage|PoolId, SKU, Images, ProviderName|
+|PendingReturn|Yes|PendingReturn|Count|Average|Resources that are pending return|PoolId, SKU, Images, ProviderName|
+|Provisioned|Yes|Provisioned|Count|Average|Resources that are provisioned|PoolId, SKU, Images, ProviderName|
+|Ready|Yes|Ready|Count|Average|Resources that are ready to be used|PoolId, SKU, Images, ProviderName|
+|Starting|Yes|Starting|Count|Average|Resources that are starting|PoolId, SKU, Images, ProviderName|
+|Total|Yes|Total|Count|Average|Total Number of Resources|PoolId, SKU, Images, ProviderName|
+
+
+## Microsoft.Cloudtest/pools
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Allocated|Yes|Allocated|Count|Average|Resources that are allocated|PoolId, SKU, Images, ProviderName|
+|AllocationDurationMs|Yes|AllocationDurationMs|Milliseconds|Average|Average time to allocate requests (ms)|PoolId, Type, ResourceRequestType, Image|
+|Count|Yes|Count|Count|Count|Number of requests in last dump|RequestType, Status, PoolId, Type, ErrorCode, FailureStage|
+|NotReady|Yes|NotReady|Count|Average|Resources that are not ready to be used|PoolId, SKU, Images, ProviderName|
+|PendingReimage|Yes|PendingReimage|Count|Average|Resources that are pending reimage|PoolId, SKU, Images, ProviderName|
+|PendingReturn|Yes|PendingReturn|Count|Average|Resources that are pending return|PoolId, SKU, Images, ProviderName|
+|Provisioned|Yes|Provisioned|Count|Average|Resources that are provisioned|PoolId, SKU, Images, ProviderName|
+|Ready|Yes|Ready|Count|Average|Resources that are ready to be used|PoolId, SKU, Images, ProviderName|
+|Starting|Yes|Starting|Count|Average|Resources that are starting|PoolId, SKU, Images, ProviderName|
+|Total|Yes|Total|Count|Average|Total Number of Resources|PoolId, SKU, Images, ProviderName|
+
+
+## Microsoft.ClusterStor/nodes
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|TotalCapacityAvailable|No|TotalCapacityAvailable|Bytes|Average|The total capacity available in lustre file system|filesystem_name, category, system|
+|TotalCapacityUsed|No|TotalCapacityUsed|Bytes|Average|The total capacity used in lustre file system|filesystem_name, category, system|
+|TotalRead|No|TotalRead|BytesPerSecond|Average|The total lustre file system read per second|filesystem_name, category, system|
+|TotalWrite|No|TotalWrite|BytesPerSecond|Average|The total lustre file system write per second|filesystem_name, category, system|
 
 ## Microsoft.CognitiveServices/accounts
 
@@ -764,6 +903,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network Out Total|Yes|Network Out Total|Bytes|Total|The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic)|RoleInstanceId, RoleId|
 |Percentage CPU|Yes|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s)|RoleInstanceId, RoleId|
 
+## microsoft.compute/disks
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Composite Disk Read Bytes/sec|No|Disk Read Bytes/sec(Preview)|Bytes|Average|Bytes/sec read from disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Read Operations/sec|No|Disk Read Operations/sec(Preview)|Bytes|Average|Number of read IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Write Bytes/sec|No|Disk Write Bytes/sec(Preview)|Bytes|Average|Bytes/sec written to disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Write Operations/sec|No|Disk Write Operations/sec(Preview)|Bytes|Average|Number of Write IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
 
 ## Microsoft.Compute/virtualMachines
 
@@ -1866,6 +2013,18 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NormalizedEvent|Yes|Number of Normalized Messages|Count|Sum|The total number of mapped normalized values outputted from the normalization stage of the the Azure IoT Connector for FHIR.|Operation, ResourceName|
 |TotalErrors|Yes|Total Error Count|Count|Sum|The total number of errors logged by the Azure IoT Connector for FHIR|Name, Operation, ErrorType, ErrorSeverity, ResourceName|
 
+## microsoft.hybridnetwork/networkfunctions
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|HyperVVirtualProcessorUtilization|Yes|Average CPU Utilization|Percent|Average|Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU.|InstanceName|
+
+
+## microsoft.hybridnetwork/virtualnetworkfunctions
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|HyperVVirtualProcessorUtilization|Yes|Average CPU Utilization|Percent|Average|Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU.|InstanceName|
 
 ## microsoft.insights/autoscalesettings
 
@@ -1960,6 +2119,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServiceApiLatency|Yes|Overall Service Api Latency|MilliSeconds|Average|Overall latency of service api requests|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |ServiceApiResult|Yes|Total Service Api Results|Count|Count|Number of total service api results|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 
+## microsoft.kubernetes/connectedClusters
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|capacity_cpu_cores|Yes|Total number of cpu cores in a connected cluster|Count|Total|Total number of cpu cores in a connected cluster|No Dimensions|
 
 ## Microsoft.Kusto/Clusters
 
@@ -2542,6 +2706,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Yes|Endpoint Status by Endpoint|Count|Maximum|1 if an endpoint's probe status is "Enabled", 0 otherwise.|EndpointName|
 |QpsByEndpoint|Yes|Queries by Endpoint Returned|Count|Total|Number of times a Traffic Manager endpoint was returned in the given time frame|EndpointName|
 
+## Microsoft.Network/virtualHubs
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BgpPeerStatus|No|Bgp Peer Status|Count|Maximum|1 - Connected, 0 - Not connected|routeserviceinstance, bgppeerip, bgppeertype|
+|CountOfRoutesAdvertisedToPeer|No|Count Of Routes Advertised To Peer|Count|Maximum|Total number of routes advertised to peer|routeserviceinstance, bgppeerip, bgppeertype|
+|CountOfRoutesLearnedFromPeer|No|Count Of Routes Learned From Peer|Count|Maximum|Total number of routes learned from peer|routeserviceinstance, bgppeerip, bgppeertype|
 
 ## microsoft.network/virtualnetworkgateways
 
@@ -2897,6 +3068,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SenderConnections-TotalRequests|No|SenderConnections-TotalRequests|Count|Total|Total SenderConnections requests for Microsoft.Relay.|EntityName|
 |SenderDisconnects|No|SenderDisconnects|Count|Total|Total SenderDisconnects for Microsoft.Relay.|EntityName|
 
+## microsoft.resources/subscriptions
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Latency|No|Latency|Seconds|Average|Latency data for all requests to Azure Resource Manager|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId|
+|Traffic|No|Traffic|Count|Count|Traffic data for all requests to Azure Resource Manager|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId|
 
 ## Microsoft.Search/searchServices
 
@@ -3613,6 +3790,21 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SiteErrors|Yes|SiteErrors|Count|Total|SiteErrors|Instance|
 |SiteHits|Yes|SiteHits|Count|Total|SiteHits|Instance|
 
+## Wandisco.Fusion/migrators
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BytesPerSecond|Yes|Bytes per Second.|BytesPerSecond|Average|Throughput speed of Bytes/second being utilised for a migrator.|No Dimensions|
+|DirectoriesCreatedCount|Yes|Directories Created Count|Count|Total|This provides a running view of how many directories have been created as part of a migration.|No Dimensions|
+|FileMigrationCount|Yes|Files Migration Count|Count|Total|This provides a running total of how many files have been migrated.|No Dimensions|
+|InitialScanDataMigratedInBytes|Yes|Initial Scan Data Migrated in Bytes|Bytes|Total|This provides the view of the total bytes which have been transferred in a new migrator as a result of the initial scan of the On-Premises file system. Any data which is added to the migration after the initial scan migration, is NOT included in this metric.|No Dimensions|
+|LiveDataMigratedInBytes|Yes|Live Data Migrated in Bytes|Count|Total|Provides a running total of LiveData which has been changed due to Client activity, since the migration started.|No Dimensions|
+|MigratorCPULoad|Yes|Migrator CPU Load|Percent|Average|CPU consumption by the migrator process.|No Dimensions|
+|NumberOfExcludedPaths|Yes|Number of Excluded Paths|Count|Total|Provides a running count of the paths which have been excluded from the migration due to Exclusion Rules.|No Dimensions|
+|NumberOfFailedPaths|Yes|Number of Failed Paths|Count|Total|A count of which paths have failed to migrate.|No Dimensions|
+|SystemCPULoad|Yes|System CPU Load|Percent|Average|Total CPU consumption.|No Dimensions|
+|TotalMigratedDataInBytes|Yes|Total Migrated Data in Bytes|Bytes|Total|This provides a view of the successfully migrated Bytes for a given migrator|No Dimensions|
+|TotalTransactions|Yes|Total Transactions|Count|Total|This provides a running total of the Data Transactions for which the user could be billed.|No Dimensions|
 
 ## Next steps
 
