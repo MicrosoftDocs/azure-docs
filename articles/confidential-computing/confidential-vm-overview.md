@@ -1,5 +1,5 @@
 ---
-title: About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
+title: About Azure DCasv5/DCadsv5/ECasv5/ECadsv5-series confidential virtual machines (preview)
 description: Azure confidential computing offers confidential virtual machines (confidential VMs) for tenants with high security and confidentiality requirements.
 author: edendcohen
 ms.service: container-service
@@ -9,7 +9,7 @@ ms.date: 11/15/2021
 ms.author: edcohen
 ---
 
-# About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
+# About Azure DCasv5/DCadsv5/ECasv5/ECadsv5-series confidential virtual machines (preview)
 
 > [!IMPORTANT]
 > Confidential virtual machines (confidential VMs) in Azure confidential computing is currently in PREVIEW.
@@ -40,7 +40,7 @@ If the compute platform is missing critical settings for your VM's isolation the
 
 Full-disk encryption is optional, because this process can lengthen the initial VM creation time. You can choose between:
 
- - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK).
+ - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK) or customer-managed key (CMK).
  - A confidential VM without OS disk encryption before VM deployment.
 
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
@@ -101,7 +101,7 @@ Confidential VMs *don't support*:
 - Azure Backup
 - Azure Site Recovery
 - Azure Dedicated Host 
-- Virtual machine scale set
+- Virtual machine scale set with full OS disk pre-encryption
 - Capturing an image of a VM
 - Azure Compute Gallery
 - Ephemeral OS disks
@@ -110,7 +110,7 @@ Confidential VMs *don't support*:
 - Accelerated Networking
 - User-attestable platform reports
 - Live migration
-- Customer-managed keys for OS disk pre-encryption
+
 
 ## Next steps
 
