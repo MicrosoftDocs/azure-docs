@@ -48,7 +48,7 @@ You can define the amount of resources assigned.
 - With single databases, each database is isolated from others and is portable. Each has its own guaranteed amount of compute, memory, and storage resources. The amount of the resources assigned to the database is dedicated to that database, and isn't shared with other databases in Azure. You can dynamically [scale single database resources](single-database-scale.md) up and down. The single database option provides different compute, memory, and storage resources for different needs. For example, you can get 1 to 128 vCores, or 32 GB to 4 TB. The [Hyperscale service tier](service-tier-hyperscale.md) for single databases enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can assign resources that are shared by all databases in the pool. You can create a new database, or move the existing single databases into a resource pool to maximize the use of resources and save money. This option also gives you the ability to dynamically [scale elastic pool resources](elastic-pool-scale.md) up and down.
 
-You can build your first app on a small, single database at a low cost per month in the [General Purpose](service-tier-general-purpose.md) service tier. You can then change its service tier manually or programmatically at any time to the [Business Critical](service-tier-business-critical.md) service tier, to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You pay for only the resources that you need when you need them.
+You can build your first app on a small, single database at a low cost per month in the [General Purpose](service-tier-general-purpose.md) service tier. You can then change its service tier manually or programmatically at any time to the [Business Critical](service-tier-business-critical.md) or [Hyperscale](service-tier-hyperscale.md) service tier, to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You pay for only the resources that you need when you need them.
 
 *Dynamic scalability* is different from *autoscale*. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. The single database option supports manual dynamic scalability, but not autoscale. For a more automatic experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. Another option is to use scripts that can help automate scalability for a single database. For an example, see [Use PowerShell to monitor and scale a single database](scripts/monitor-and-scale-database-powershell.md).
 
@@ -61,10 +61,10 @@ SQL Database offers the following purchasing models:
 
 ### Service tiers
 
-Azure SQL Database offers three service tiers that are designed for different types of applications:
+Azure SQL Database offers three service tiers:
 - The [General Purpose/Standard](service-tier-general-purpose.md) service tier is designed for common workloads. It offers budget-oriented balanced compute and storage options.
 - The [Business Critical/Premium](service-tier-business-critical.md) service tier is designed for OLTP applications with high transaction rates and low latency I/O requirements. It offers the highest resilience to failures by using several isolated replicas.
-- The [Hyperscale](service-tier-hyperscale.md) service tier is designed for very large OLTP databases. Hyperscale's [unique architecture](service-tier-hyperscale.md#distributed-functions-architecture) offers the ability to autoscale storage and scale compute fluidly.
+- The [Hyperscale](service-tier-hyperscale.md) service tier is designed for most business workloads. Hyperscale provides great flexibility and high performance with independently scalable compute and storage resources. It offers higher resilience to failures by allowing configuration of more than one isolated database replica.
 
 ### Serverless compute
 
@@ -166,7 +166,7 @@ SQL Database provides a range of [built-in security and compliance features](../
 > [!IMPORTANT]
 > Microsoft has certified Azure SQL Database (all deployment options) against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), where you can find the most current list of SQL Database compliance certifications.
 
-### Advanced threat protection
+###<a name="advance-threat-protection"></a> Advanced threat protection
 
 Microsoft Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
@@ -213,7 +213,7 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 
 ### Can I control when patching downtime occurs?
 
-The [maintenance window feature](maintenance-window.md) allows you to configure predictable maintenance window schedules for eligible Azure SQL databases. [Maintenance window advance notifications](../database/advance-notifications.md) are available for databases configured to use a non-default [maintenance window](maintenance-window.md). Maintenance windows and advance notifications for maintenance windows are generally available for Azure SQL Database.
+The [maintenance window feature](maintenance-window.md) allows you to configure predictable maintenance window schedules for eligible databases in Azure SQL Database. [Maintenance window advance notifications](../database/advance-notifications.md) are available for databases configured to use a non-default [maintenance window](maintenance-window.md).
 
 ### How do I plan for maintenance events?
 
