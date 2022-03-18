@@ -27,7 +27,7 @@ You can use [Intelligent Insights](database/intelligent-insights-troubleshoot-pe
 
 - Locks (blocking)
 - I/O
-- Contention related to TempDB usage
+- Contention related to tempdb usage
 - Memory grant waits
 
 ## Compilation problems resulting in a suboptimal query plan
@@ -187,9 +187,9 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
 - **IO problems**
 
   Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV. See using DMVs to [identify IO performance issues](database/monitoring-with-dmvs.md#identify-io-performance-issues).
-- **TempDB problems**
+- **Tempdb problems**
 
-  If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput. See using DMVs to [identity TempDB issues](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues).
+  If the workload uses temporary tables or there are tempdb spills in the plans, the queries might have a problem with tempdb throughput. See using DMVs to [identity tempdb issues](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Memory-related problems**
 
   If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues). For more information and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](database/troubleshoot-memory-errors-issues.md).
