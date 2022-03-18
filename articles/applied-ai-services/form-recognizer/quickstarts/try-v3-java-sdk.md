@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer Java SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer Java SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Java client library SDKs v3.0 (preview)
 author: laujan
@@ -13,10 +13,10 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
-# Get started: Form Recognizer Java SDK v3.0 | Preview
+# Get started: Form Recognizer Java SDK (beta) | Preview
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 

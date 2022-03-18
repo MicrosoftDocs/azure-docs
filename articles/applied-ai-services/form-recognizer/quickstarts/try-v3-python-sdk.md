@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer Python SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer Python SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Python client library SDKs v3.0 (preview)
 author: laujan
@@ -12,10 +12,10 @@ ms.author: lajanuar
 recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
-# Get started: Form Recognizer Python SDK v3.0 | Preview
+# Get started: Form Recognizer Python SDK (beta) | Preview
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b3/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
 
