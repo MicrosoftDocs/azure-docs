@@ -42,7 +42,7 @@ Currently, Azure Backup supports the following metrics:
 - **Restore Health Events**: The value of this metric represents the count of health events pertaining to restore job health, which were fired for the vault within a specific time. When a restore job completes, the Azure Backup service creates a restore health event. Based on the job status (such as succeeded or failed), the dimensions associated with the event vary.
 
 >[!Note]
->For Azure Blobs workload, we support Restore Health Events only, as backups are continuous and there's no notion of backup jobs here.
+>We support Restore Health Events only for Azure Blobs workload, as backups are continuous, and there's no notion of backup jobs here.
 
 By default, the counts are surfaced at the vault level. To view the counts for a particular backup item and job status, you can filter the metrics on any of the supported dimensions.
 
@@ -152,7 +152,7 @@ Based on the alert rules configuration, the fired alert appears under the **Data
 [Learn more about datasource and global alerts here](backup-center-monitor-operate.md#alerts)
 
 >[!Note]
->Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* when you create the alert rule. If any of these dimensions aren't selected, the alert appears under global alerts.
+>Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
 
 ### Accessing metrics programmatically
 

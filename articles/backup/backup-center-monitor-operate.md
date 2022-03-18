@@ -107,7 +107,7 @@ The following classes of alerts are displayed:
 * **Global Alerts**: Alerts that aren't tied to a specific datasource (such as, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section. For metric alerts, if the fired alert doesn't have a datasource ID associated with it, the fired alert appears under **Global Alerts**.
 
 >[!Note]
->Currently, in the case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* when you create the alert rule. If any of these dimensions aren't selected, the alert appears under global alerts.
+>Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
 
 ## Vaults
 
