@@ -79,8 +79,9 @@ There are scenarios where customers may want to require a fresh authentication
 
 The public preview supports the following scenarios:
 
-- Require user reauthentication during Intune device enrollment, regardless of their current MFA status.
+- Require user reauthentication during [Intune device enrollment](/mem/intune/fundamentals/deployment-guide-enrollment), regardless of their current MFA status.
 - Require user reauthentication for risky users with the [require password change](concept-conditional-access-grant.md#require-password-change) grant control.
+- Require user reauthentication for risky sign-ins with the [require multi-factor authentication](concept-conditional-access-grant.md#require-multi-factor-authentication) grant control.
 
 When administrators select **Every time**, they can choose to:
 
