@@ -82,7 +82,7 @@ The SAP connector is compatible with the following types of SAP systems:
 
 * Classic on-premises SAP systems, such as R/3 and ECC.
 
-The version of the SAP system must be presently maintained by SAP. To find more information about SAP system versions and maintenance information, review the [SAP Product Availability Matrix (PAM)](http://support.sap.com/pam).
+Currently, SAP must the version for the SAP system. For more information about SAP system versions and maintenance information, review the [SAP Product Availability Matrix (PAM)](http://support.sap.com/pam).
 
 The SAP connector supports the following message and data integration types from SAP NetWeaver-based systems:
 
