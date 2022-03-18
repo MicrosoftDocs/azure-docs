@@ -47,6 +47,10 @@
     items: 
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Networking
+    items:
+    - name: DDoS Protection
+      href: ../../ddos-protection/manage-ddos-protection.bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Web
     items:
     - name: API Management
