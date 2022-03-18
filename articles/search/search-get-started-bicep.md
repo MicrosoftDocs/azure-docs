@@ -26,7 +26,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.search/azure-search-create/main.bicep":::
 
-The Azure resource defined in this template:
+The Azure resource defined in this Bicep file:
 
 - [Microsoft.Search/searchServices](/azure/templates/Microsoft.Search/searchServices): create an Azure Cognitive Search service
 
@@ -52,7 +52,8 @@ The Azure resource defined in this template:
     ---
 
     > [!NOTE]
-    > Replace **\<admin-username\>** with a unique username. You'll also be prompted to enter adminPasswordOrKey.
+    > You'll be prompted to enter a service name. The service name must only contain lowercase letters, digits, or dashes. You can't use a dash as the first two characters or the last character. The name has a minimum length of 2 characters and a maximum length of 60 characters.
+
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
