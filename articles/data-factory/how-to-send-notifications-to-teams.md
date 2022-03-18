@@ -386,7 +386,7 @@ In this sample usage scenario, we'll create a master pipeline with three **Execu
 
 1.  Select second **Execute Pipeline** activity on the canvas, and it's "General" pane, to edit its details. 
     -   Specify **OnSuccess Notification** for **Name** of the **Execute Pipeline** activity. 
-    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline, which we created earlier, for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I have customized the parameters as follows:
+    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline, which we created earlier, for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I've customized the parameters as follows:
 
         | Name              | Value                                                                                                             | 
         | :---------------- | :---------------------------------------------------------------------------------------------------------------- |
@@ -409,7 +409,7 @@ In this sample usage scenario, we'll create a master pipeline with three **Execu
 
 1.  Select third **Execute Pipeline** activity on the canvas, and it's "General" pane, to edit its details. 
     -   Specify **OnFailure Notification** for **Name** of the **Execute Pipeline** activity. 
-    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I have customized the parameters this time as follows:
+    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I've customized the parameters this time as follows:
 
         | Name              | Value                                                                                                             | 
         | :---------------- | :---------------------------------------------------------------------------------------------------------------- |
