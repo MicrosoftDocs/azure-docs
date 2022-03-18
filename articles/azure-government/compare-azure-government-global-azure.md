@@ -27,7 +27,7 @@ Azure Government services operate the same way as the corresponding services in 
 
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
 
-- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
+- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az-cloud-show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
 
   ```azurecli
   az cloud show --name AzureUSGovernment

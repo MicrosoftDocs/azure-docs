@@ -15,7 +15,7 @@ To associate a storage account with your confidential ledger, you must first reg
 
 ## Create a service principal
 
-To create a service principal, run the Azure CLI [az ad sp create](/cli/azure/ad/sp#az_ad_sp_create) command or the Azure PowerShell [Connect-AzureAD](/powershell/module/azuread/connect-azuread) and [New-AzureADServicePrincipal](/powershell/module/azuread/new-azureadserviceprincipal) cmdlets.
+To create a service principal, run the Azure CLI [az ad sp create](/cli/azure/ad/sp#az-ad-sp-create) command or the Azure PowerShell [Connect-AzureAD](/powershell/module/azuread/connect-azuread) and [New-AzureADServicePrincipal](/powershell/module/azuread/new-azureadserviceprincipal) cmdlets.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
