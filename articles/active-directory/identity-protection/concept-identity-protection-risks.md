@@ -28,25 +28,16 @@ Identity Protection provides organizations access to powerful resources to see a
 
 ## Risk types and detection
 
-Risk can be detected at the **User** and **Sign-in** level and two types of detection or calculation **Real-time** and **Offline**.
+Risk can be detected at the **User** and **Sign-in** level and two types of detection or calculation **Real-time** and **Offline**. Some risks are considered premium available to Azure AD Premium P2 customers only, while others are available to Free and Azure AD Premium P1 customers.
+
+A sign-in risk represents the probability that a given authentication request is not authorized by the identity owner. Risky activity can be detected for a user that is not linked to a specific malicious sign-in but to the user itself. 
 
 Real-time detections may not show up in reporting for five to 10 minutes. Offline detections may not show up in reporting for 48 hours.
 
 > [!NOTE] 
 > Our system may detect that the risk event that contributed to the risk user risk score was a false positives or the user risk was remediated with policy enforcement such as completing an MFA prompt or secure password change. Therefore our system will dismiss the risk state and a risk detail of “AI confirmed sign-in safe” will surface and it will no longer contribute to the user’s risk. 
 
-### User-linked detections
-
-Risky activity can be detected for a user that is not linked to a specific malicious sign-in but to the user itself. 
-
-These risks are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
-
-| Risk detection | Description |
-| --- | --- |
-| Leaked credentials | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions). |
-| Azure AD threat intelligence | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-
-### Sign-in risk
+### Premium detections
 
 A sign-in risk represents the probability that a given authentication request is not authorized by the identity owner. 
 
@@ -54,9 +45,8 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 
 | Risk detection | Detection type | Description |
 | --- | --- | --- |
-| Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, and so on) for potentially malicious intent. |
 | Atypical travel | Offline | This risk detection type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. Among several other factors, this machine learning algorithm takes into account the time between the two sign-ins and the time it would have taken for the user to travel from the first location to the second, indicating that a different user is using the same credentials. <br><br> The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of the earliest of 14 days or 10 logins, during which it learns a new user's sign-in behavior. |
-| Anomalous Token | Offline | This detection indicates that there are abnormal characteristics in the token such as an unusual token lifetime or a token that is played from an unfamiliar location. This detection covers Session Tokens and Refresh Tokens. ***NOTE:** Anomalous token is tuned to incur more noise than other detections at the same risk level. This tradeoff is chosen to increase the likelihood of detecting replayed tokens that may otherwise go unnoticed. Because this is a high noise detection, there is a higher than normal chance that some of the sessions flagged by this detection are false positives. We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user. If the location, application, IP address, User Agent, or other characteristics are unexpected for the user, the tenant admin should consider this as an indicator of potential token replay*. |
+| Anomalous Token | Offline | This detection indicates that there are abnormal characteristics in the token such as an unusual token lifetime or a token that is played from an unfamiliar location. This detection covers Session Tokens and Refresh Tokens. <br><br> ***NOTE:** Anomalous token is tuned to incur more noise than other detections at the same risk level. This tradeoff is chosen to increase the likelihood of detecting replayed tokens that may otherwise go unnoticed. Because this is a high noise detection, there is a higher than normal chance that some of the sessions flagged by this detection are false positives. We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user. If the location, application, IP address, User Agent, or other characteristics are unexpected for the user, the tenant admin should consider this as an indicator of potential token replay*. |
 | Token Issuer Anomaly | Offline |This risk detection indicates the SAML token issuer for the associated SAML token is potentially compromised. The claims included in the token are unusual or match known attacker patterns. |
 | Malware linked IP address | Offline | This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection is determined by correlating IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. <br><br> **[This detection has been deprecated](../fundamentals/whats-new-archive.md#planned-deprecation---malware-linked-ip-address-detection-in-identity-protection)**. Identity Protection will no longer generate new "Malware linked IP address" detections. Customers who currently have "Malware linked IP address" detections in their tenant will still be able to view, remediate, or dismiss them until the 90-day detection retention time is reached.|
 | Suspicious browser | Offline | Suspicious browser detection indicates anomalous behavior based on suspicious sign-in activity across multiple tenants from different countries in the same browser. |
@@ -72,12 +62,15 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 | Azure AD threat intelligence | Offline | This risk detection type indicates sign-in activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 | Mass Access to Sensitive Files | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-anomaly-alerts#unusual-file-access-by-user). This detection profiles your environment and triggers alerts when users access multiple files from Microsoft SharePoint or Microsoft OneDrive. An alert is triggered only if the number of accessed files is uncommon for the user and the files might contain sensitive information|
 
+### Nonpremium detections
 
-### Other risk detections
-
-| Risk detection | Detection type | Description |
+| Risk detection |  Detection type | Description |
 | --- | --- | --- |
 | Additional risk detected | Real-time or Offline | This detection indicates that one of the above premium detections was detected. Since the premium detections are visible only to Azure AD Premium P2 customers, they are titled "additional risk detected" for customers without Azure AD Premium P2 licenses. |
+| Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, and so on) for potentially malicious intent. |
+| Leaked credentials | Offline | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions). |
+| Azure AD threat intelligence | Offline | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
+| Admin confirmed user compromised | Manual | Administrators can take immediate action based on their own signals or risk investigations and choose to mark a s|
 
 ## Common questions
 
