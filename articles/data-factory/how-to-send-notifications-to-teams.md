@@ -450,7 +450,7 @@ make your messages dynamic. For example:  
 -   ``@activity("DataFlow").error.Message``
 
 The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. For more information about this topic, see the
-[Copy activity output properties](copy-activity-monitoring.md) article for more details.
+[Copy activity output properties](copy-activity-monitoring.md) article.
 
 We also encourage you to review the Microsoft Teams supported [notification payload schema](https://adaptivecards.io/explorer/AdaptiveCard.html) and
 further customize the above template to your needs.
