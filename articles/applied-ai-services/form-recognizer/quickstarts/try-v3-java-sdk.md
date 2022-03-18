@@ -13,7 +13,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
-# Get started: Form Recognizer Java SDK (beta) | Preview
+# Get started: Form Recognizer Java SDK (beta)
 
 >[!NOTE]
 > Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.

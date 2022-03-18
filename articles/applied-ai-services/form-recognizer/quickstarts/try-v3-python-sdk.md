@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
-# Get started: Form Recognizer Python SDK (beta) | Preview
+# Get started: Form Recognizer Python SDK (beta)
 
 >[!NOTE]
 > Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.

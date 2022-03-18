@@ -13,7 +13,7 @@ recommendations: false
 ms.custom: ignite-fall-2021, mode-api
 ---
 <!-- markdownlint-disable MD025 -->
-# Get Started: Form Recognizer JavaScript SDK (beta) | Preview
+# Get Started: Form Recognizer JavaScript SDK (beta)
 
 >[!NOTE]
 > Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.

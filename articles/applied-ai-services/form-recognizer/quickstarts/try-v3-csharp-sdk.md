@@ -16,7 +16,7 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD029 -->
 
-# Get started: Form Recognizer C# SDK (beta) | Preview
+# Get started: Form Recognizer C# SDK (beta)
 
 >[!NOTE]
 > Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
