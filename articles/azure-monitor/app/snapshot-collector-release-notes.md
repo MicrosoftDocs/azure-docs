@@ -2,8 +2,6 @@
 title: Release Notes for Microsoft.ApplicationInsights.SnapshotCollector NuGet package - Application Insights
 description: Release notes for the Microsoft.ApplicationInsights.SnapshotCollector NuGet package used by the Application Insights Snapshot Debugger.
 ms.topic: conceptual
-author: pharring
-ms.author: pharring
 ms.date: 11/10/2020
 ---
 
@@ -14,6 +12,8 @@ This article contains the releases notes for the Microsoft.ApplicationInsights.S
 [Learn](./snapshot-debugger.md) more about the Application Insights Snapshot Debugger for .NET applications.
 
 For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-SnapshotCollector
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Release notes
 

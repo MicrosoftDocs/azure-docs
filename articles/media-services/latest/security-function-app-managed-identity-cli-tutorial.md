@@ -43,13 +43,13 @@ Before you get started, decide on the names of the resources you'll create.  The
 
 You'll see these names referenced in the commands below.  The names of resources you'll need are:
 
-- your-resource-group-name
-- your-storage-account-name
-- your-media-services-account-name
-- your-region
-- your-function-name: use "OnAir"
-- your-live-event-name: use "live1"
-- your-ip-address: use "0.0.0./32"
+- myRG
+- myStorageAccount
+- myAmsAccount
+- location
+- myFunction: use "OnAir"
+- myLiveEvent: use "live1"
+- ipaddresses use: "0.0.0./32"
 
 > [!NOTE]
 > The hyphens above are only used to separate guidance words. Because of the inconsistency of naming resources in Azure services, don't use hyphens when you name your resources.<br/><br/>
@@ -65,12 +65,6 @@ If you're not sure of the actual region name to use, use this command to get a l
 ## Sequence
 
 Each of the steps below is done in a particular order because one or more values from the JSON responses are used in the next step in the sequence.
-
-## Create a resource group
-
-The resources you'll create must belong to a resource group. Create the resource group first. You'll use `your-resource-group-name` for the Media Services account creation step, and subsequent steps.
-
-[!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
 ## Create a Storage account
 

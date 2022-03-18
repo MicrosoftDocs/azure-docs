@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 02/25/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -225,13 +225,13 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   * **Logic App (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
+  * The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+
     > [!NOTE]
-    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
-    > credentials or connection string that you use when you create a connection. If you disable this identity, 
-    > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
-    >
-    > The user-assigned managed identity is currently unavailable on the **Logic App (Standard)** resource type.
+    > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
+    > This identity differs from the authentication credentials or connection string that you use when you 
+    > create a connection. If you disable this identity, connections won't work at run time. To view 
+    > this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 * You can locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 

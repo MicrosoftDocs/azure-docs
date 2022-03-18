@@ -9,9 +9,8 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2021
+ms.date: 03/09/2022
 ms.author: marsma
-ms.reviewer: jmprieur, saeeda
 ms.custom: has-adal-ref
 ---
 
@@ -85,3 +84,11 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 - [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
 
 - [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Share your experiences, engage, and learn from experts.
+
+## Share your product ideas
+
+Have an idea for improving the for the Microsoft identity platform? Browse and vote for ideas submitted by others or submit your own:
+
+https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
+
+

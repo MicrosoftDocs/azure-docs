@@ -54,7 +54,7 @@ To migrate to Gen2, we recommend the following approach.
 
    Take this opportunity to clean up data sets that you no longer use. Unless you plan to migrate all of your data at one time, Take this time to identify logical groups of data that you can migrate in phases.
 
-   Perform an [Ageing Analysis](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Utilities/Ageing%20Analysis) (or similar) on your Gen1 account to identify which files or folders stay in inventory for a long time or are perhaps becoming obsolete.
+   Perform an [Ageing Analysis](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Utilities/Ageing%20Analysis) (or similar) on your Gen1 account to identify which files or folders stay in inventory for a long time or are perhaps becoming obsolete.
 
 2. Determine the impact that a migration will have on your business.
 
@@ -153,7 +153,7 @@ This is the simplest pattern.
 
 4. Decommission Gen1.
 
-Check out our sample code for the lift and shift pattern in our [Lift and Shift migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
+Check out our sample code for the lift and shift pattern in our [Lift and Shift migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Lift%20and%20Shift).
 
 > [!div class="mx-imgBorder"]
 > ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -179,7 +179,7 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 
 4. Decommission Gen1.
 
-Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Incremental).
 
 > [!div class="mx-imgBorder"]
 > ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
@@ -202,7 +202,7 @@ Check out our sample code for the incremental copy pattern in our [Incremental c
 
 4. Stop all writes to Gen1 and then decommission Gen1.
 
-Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Dual%20pipeline).
 
 > [!div class="mx-imgBorder"]
 > ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
@@ -223,7 +223,7 @@ Check out our sample code for the dual pipeline pattern in our [Dual Pipeline mi
 
 4. Decommission Gen1.
 
-Check out our sample code for the bidirectional sync pattern in our [Bidirectional Sync migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
+Check out our sample code for the bidirectional sync pattern in our [Bidirectional Sync migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Bi-directional).
 
 > [!div class="mx-imgBorder"]
 > ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

@@ -25,7 +25,7 @@
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Migrating to App Service Environment v3
+  - name: Migration feature
     href: migrate.md
 - name: How-To guides
   items:
@@ -36,9 +36,9 @@
   - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
   - name: Migrate to App Service Environment v3
-    href: how-to-migrate.md
-  - name: Migration alternatives
     href: migration-alternatives.md
+  - name: Use the migration feature
+    href: how-to-migrate.md
 - name: Reference
   items:
   - name: Management addresses

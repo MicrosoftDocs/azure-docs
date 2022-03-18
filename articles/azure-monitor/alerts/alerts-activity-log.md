@@ -3,7 +3,7 @@ title: Create, view, and manage activity log alerts in Azure Monitor
 description: Create activity log alerts by using the Azure portal, an Azure Resource Manager template, and Azure PowerShell.
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 11/08/2021
+ms.date: 2/23/2022
 
 ---
 
@@ -207,7 +207,7 @@ For example:
 
 ```
 
-For more information about the activity log fields, see [Azure activity log event schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.

@@ -5,7 +5,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/22/2021
+ms.date: 02/15/2022
 ms.author: cavoeg
 ---
 
@@ -117,7 +117,7 @@ For example:
 
 `POST https://myAzureAPIforFHIR.azurehealthcareapis.com/Patient/$validate`
 
-This request will create the new resource you are specifying in the request payload and validate the uploaded resource. Then, it will return an `OperationOutcome` as a result of the validation on the new resource.
+This request will create the new resource you're specifying in the request payload and validate the uploaded resource. Then, it will return an `OperationOutcome` as a result of the validation on the new resource.
 
 ## Validate on resource CREATE or resource UPDATE
 

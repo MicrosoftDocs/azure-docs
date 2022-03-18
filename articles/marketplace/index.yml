@@ -8,6 +8,7 @@ metadata:
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
+  ms.custom: landing-page
   author: mingshen-ms 
   ms.author: mingshen
   ms.date: 1/20/2022
@@ -45,9 +46,9 @@ landingContent:
       - text: Customer leads from your marketplace offer
         url: partner-center-portal/commercial-marketplace-get-customer-leads.md
       - text: Co-sell option in the commercial marketplace
-        url: co-sell-configure.md
+        url: /partner-center/co-sell-configure?context=/azure/marketplace/context/context
       - text: Co-sell partner engagement
-        url: co-sell-overview.md
+        url: /partner-center/co-sell-overview?context=/azure/marketplace/context/context
       - text: Make solutions available in Microsoft AppSource and within Office
         url: /office/dev/store/submit-to-appsource-via-partner-center
       - text: Participate in the Azure Marketplace and AppSource community forum

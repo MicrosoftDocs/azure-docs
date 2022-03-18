@@ -40,10 +40,8 @@ landingContent:
         links:
           - text: What is SQL Managed Instance?
             url: sql-managed-instance-paas-overview.md
-          - text: Purchasing options
-            url: ../database/purchasing-models.md
-          - text: Service tiers
-            url: ../database/service-tiers-general-purpose-business-critical.md
+          - text: vCore purchasing model
+            url: service-tiers-managed-instance-vcore.md
           - text: Transactional replication 
             url: replication-transactional-overview.md 
           - text: Migrate from SQL Server

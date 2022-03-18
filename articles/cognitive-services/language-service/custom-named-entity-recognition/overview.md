@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
-# What is Custom Named Entity Recognition (NER) (preview)?
+# What is custom named entity recognition (NER) (preview)?
 
 Custom NER is one of the features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for text custom NER tasks.
 

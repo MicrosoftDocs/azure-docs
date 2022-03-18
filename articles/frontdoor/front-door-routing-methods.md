@@ -14,7 +14,7 @@ ms.author: duau
 
 # Front Door routing methods
 
-Azure Front Door supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different service endpoints. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend instance. 
+Azure Front Door supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different backends. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend.
 
 There are four traffic routing methods available in Front Door:
 
@@ -24,6 +24,9 @@ There are four traffic routing methods available in Front Door:
 * **[Session Affinity](#affinity):** You can configure session affinity for your frontend hosts or domains to ensure requests from the same end user gets sent to the same backend.
 
 All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](front-door-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
+
+> [!NOTE]
+> When you use the [Front Door rules engine](front-door-rules-engine.md), you can configure a rule to [override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) for a request. The backend pool set by the rules engine overrides the routing process described in this article.
 
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 

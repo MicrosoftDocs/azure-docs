@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/11/2022
+ms.date: 01/26/2022 
 ---
 
 # Enable and download server slow query logs of an Azure Database for MariaDB server using Azure CLI
@@ -24,7 +24,7 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/server-logs/server-logs.sh" range="4-51":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/server-logs/server-logs.sh" id="FullScript":::
 
 ## Clean up resources
 

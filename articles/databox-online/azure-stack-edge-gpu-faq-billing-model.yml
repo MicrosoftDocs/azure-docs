@@ -7,7 +7,7 @@ metadata:
     
   ms.service: databox
   ms.subservice: edge
-  ms.topic: article
+  ms.topic: faq
   ms.date: 01/21/2022
   ms.author: alkohli
 
@@ -26,7 +26,7 @@ sections:
     - question: |
         Are there other fees associated with my Azure Stack Edge device?
       answer: |
-        Yes. In addition to the monthly subscription fee, there is a onetime fee for shipping. Other onetime fees are charged for things like a damaged or lost device. For a list of fees, see **Frequently asked questions** on the [Azure Stack Edge Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-stack/edge/) page.
+        Yes. In addition to the monthly subscription fee, there is a onetime fee for shipping. Other onetime fees are charged for things like a damaged or lost device. For a list of fees, see **Frequently asked questions** on the [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) page.
 
         No traditional on-premises software license is required for an Azure Stack Edge device, although guest virtual machines (VMs) may require their own licenses under Bring Your Own License (BYOL).
 
@@ -42,7 +42,7 @@ sections:
     - question: |
         Why doesn't the price on my invoice match the price on the Pricing page for Azure Stack Edge?
       answer: |
-         Your invoice shows the price you're charged after any discounts are applied. The [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page shows list prices. If you received any discounts, the prices won't match.
+         Your invoice shows the price you're charged after any discounts are applied. The [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) page shows list prices. If you received any discounts, the prices won't match.
 
     - question: |
         I'm replacing my Azure Stack Edge device, and I can't delete the resource. Will billing continue for the resource?

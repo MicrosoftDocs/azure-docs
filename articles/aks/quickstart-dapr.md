@@ -223,5 +223,5 @@ After successfully deploying this sample application:
 
 <!-- EXTERNAL -->
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes
-[azure-portal-cache]: https://ms.portal.azure.com/#create/Microsoft.Cache
+[azure-portal-cache]: https://portal.azure.com/#create/Microsoft.Cache
 [dapr-component-secrets]: https://docs.dapr.io/operations/components/component-secrets/

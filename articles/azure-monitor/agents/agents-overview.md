@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2021
+ms.date: 03/16/2021
 ---
 
 # Overview of Azure Monitor agents
@@ -14,11 +14,11 @@ ms.date: 07/22/2021
 Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
 
 > [!NOTE]
-> Azure Monitor recently launched a new agent, the Azure Monitor agent, that provides all capabilities necessary to collect guest operating system monitoring data. While there are multiple legacy agents that exist due to the consolidation of Azure Monitor and Log Analytics, each with their unique capabilities with some overlap, we recommend that you use the new agent that aims to consolidate features from all existing agents, and provide additional benefits. [Learn More](./azure-monitor-agent-overview.md)
+> Azure Monitor recently launched a new agent, the [Azure Monitor agent](./azure-monitor-agent-overview.md), that provides all capabilities necessary to collect guest operating system monitoring data. **Use this new agent if you don't require [these current limitations](./azure-monitor-agent-overview.md#current-limitations)**, as it consolidates the features of all the legacy agents listed below and provides additional benefits. If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
 
 ## Summary of agents
 
-The following tables provide a quick comparison of the Azure Monitor agents for Windows and Linux. Further detail on each is provided in the section below.
+The following tables provide a quick comparison of the telemetry agents for Windows and Linux. Further detail on each is provided in the section below.
 
 ### Windows agents
 
@@ -44,12 +44,12 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 ## Azure Monitor agent
 
-The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
 Use the Azure Monitor agent if you need to:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
-- Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
+- Manage data collection configuration centrally, using [data collection rules](../essentials/data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
 - Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
 - Use Windows event filtering or multi-homing for logs on Windows and Linux.
 
@@ -61,17 +61,11 @@ Use the Azure Monitor agent if you need to:
 - Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
 
-Limitations of the Azure Monitor Agent include:
-
-- Not yet supported by all features in production. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features).
-- No support yet for networking scenarios involving private links. 
-- No support yet collecting custom logs (files) or IIS log files. 
-- No support yet for Event Hubs and Storage accounts as destinations.
-- No support for Hybrid Runbook workers.
+When compared with the legacy agents, the Azure Monitor Agent has [these limitations currently](./azure-monitor-agent-overview.md#current-limitations).
 
 ## Log Analytics agent
 
-The [Log Analytics agent](./log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
+The legacy [Log Analytics agent](./log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
 
 > [!NOTE]
 > The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
@@ -131,7 +125,7 @@ Consider the following when using the Dependency agent:
 
 ## Virtual machine extensions
 
-The [Azure Monitor agent](./azure-monitor-agent-install.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
+The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
 
 On hybrid machines, use [Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics and Azure Monitor Dependency VM extensions.
 
@@ -228,7 +222,7 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 7.7     | 3.10.0-1062 |
 | CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 20.04   | 5.4\* |
+| Ubuntu Server      | 20.04   | 5.8<br>5.4\* |
 |                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
 |                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |

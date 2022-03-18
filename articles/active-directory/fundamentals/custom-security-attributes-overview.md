@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2022
+ms.date: 02/04/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -177,12 +177,10 @@ If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-ex
 
 Here are some of the known issues with custom security attributes:
 
-- You can only add the predefined values after you add the custom security attribute by using the **Edit attribute** page.
 - Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
 - If you have an Azure AD Premium P2 license, you can't add eligible role assignments at attribute set scope.
 - If you have an Azure AD Premium P2 license, the **Assigned roles** page for a user does not list permanent role assignments at attribute set scope. The role assignments exist, but aren't listed.
-- If you use the Microsoft Graph API, delegated and application permissions are available to both read and write (*CustomSecAttributeAssignment.ReadWrite.All* and *CustomSecAttributeDefinition.ReadWrite.All*). However, read-only permissions currently are not available.
 
 Depending on whether you have an Azure AD Premium P1 or P2 license, here are the role assignment tasks that are currently supported for custom security attribute roles:
 

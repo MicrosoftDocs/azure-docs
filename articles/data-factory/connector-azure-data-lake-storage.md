@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/24/2021
+ms.date: 02/17/2022
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -60,7 +60,7 @@ Use the following steps to create an Azure Data Lake Storage Gen2 linked service
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Data Lake and select the Azure Data Lake Storage Gen2 connector.
+2. Search for Azure Data Lake Storage Gen2 and select the Azure Data Lake Storage Gen2 connector.
 
     :::image type="content" source="media/connector-azure-data-lake-storage/azure-data-lake-storage-connector.png" alt-text="Select Azure Data Lake Storage Gen2 connector.":::    
 

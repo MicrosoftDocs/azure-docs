@@ -4,11 +4,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
-ms.author: eric-urban
+ms.author: eur
 ms.custom: ignite-fall-2021
 ---
-
-## Download and install
 
 #### [Windows installation](#tab/windowsinstall)
 
@@ -39,7 +37,7 @@ The following Linux distributions are supported for x64 architectures that use t
 * CentOS 7/8
 * Debian 9/10 
 * Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 16.04 (until September 2022), Ubuntu 18.04/20.04
+* Ubuntu 18.04/20.04
 
 > [!NOTE]
 > The Speech SDK (not the Speech CLI) supports additional architectures. For more information, see [About the Speech SDK](../speech-sdk.md).
@@ -52,7 +50,7 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
 
 3. On RHEL/CentOS Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
-4. On Ubunutu 20.04 Linux, [install GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
+4. On Ubuntu 20.04 Linux, [install GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Enter `spx` to see help for the Speech CLI.
 

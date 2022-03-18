@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 02/16/2022
 
 ms.author: justinha
 author: justinha
@@ -24,9 +24,6 @@ Android devices can use certificate-based authentication (CBA) to authenticate t
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
-This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.
-
-This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
 ## Microsoft mobile applications support
 

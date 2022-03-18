@@ -12,11 +12,10 @@ metadata:
   ms.service: api-management
   ms.workload: mobile
   ms.tgt_pltfrm: na
-  ms.topic: article
+  ms.topic: faq
   ms.date: 11/19/2017
   ms.author: danlep 
   ms.custom: devx-track-azurepowershell, fasttrack-edit
-    
 title: Azure API Management FAQs
 summary: |
   Get the answers to common questions, patterns, and best practices for Azure API Management.
@@ -103,7 +102,7 @@ sections:
         answer: |
           Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
           
-          ### Powershell method
+          ### PowerShell method
           Use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
           
           ```powershell

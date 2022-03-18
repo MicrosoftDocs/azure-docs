@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm & component reference"
-description: Learn about the Azure Machine Learning designer components you can use to create your own machine learning projects.
+description: Learn about the Azure Machine Learning designer components that you can use to create your own machine learning projects.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -29,9 +29,9 @@ For help with choosing algorithms, see
 
 | Functionality | Description | component |
 | --- |--- | --- |
-| Data Input and Output | Move data from cloud sources into your pipeline. Write your results or intermediate data to Azure Storage, SQL Database, or Hive, while running a pipeline, or use cloud storage to exchange data between pipelines.  | [Enter Data Manually](enter-data-manually.md) <br/> [Export Data](export-data.md) <br/> [Import Data](import-data.md) |
+| Data Input and Output | Move data from cloud sources into your pipeline. Write your results or intermediate data to Azure Storage, or SQL Database, while running a pipeline, or use cloud storage to exchange data between pipelines.  | [Enter Data Manually](enter-data-manually.md) <br/> [Export Data](export-data.md) <br/> [Import Data](import-data.md) |
 | Data Transformation | Operations on data that are unique to machine learning, such as normalizing or binning data, dimensionality reduction, and converting data among various file formats.| [Add Columns](add-columns.md) <br/> [Add Rows](add-rows.md) <br/> [Apply Math Operation](apply-math-operation.md) <br/> [Apply SQL Transformation](apply-sql-transformation.md) <br/> [Clean Missing Data](clean-missing-data.md) <br/> [Clip Values](clip-values.md) <br/> [Convert to CSV](convert-to-csv.md) <br/> [Convert to Dataset](convert-to-dataset.md) <br/> [Convert to Indicator Values](convert-to-indicator-values.md) <br/> [Edit Metadata](edit-metadata.md) <br/> [Group Data into Bins](group-data-into-bins.md) <br/> [Join Data](join-data.md) <br/> [Normalize Data](normalize-data.md) <br/> [Partition and Sample](partition-and-sample.md)  <br/> [Remove Duplicate Rows](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Select Columns Transform](select-columns-transform.md) <br/> [Select Columns in Dataset](select-columns-in-dataset.md) <br/> [Split Data](split-data.md) |
-| Feature Selection | Select a subset of relevant, useful features to use in building an analytical model. | [Filter Based Feature Selection](filter-based-feature-selection.md) <br/> [Permutation Feature Importance](permutation-feature-importance.md) |
+| Feature Selection | Select a subset of relevant, useful features to use to build an analytical model. | [Filter Based Feature Selection](filter-based-feature-selection.md) <br/> [Permutation Feature Importance](permutation-feature-importance.md) |
 | Statistical Functions | Provide a wide variety of statistical methods related to data science. | [Summarize Data](summarize-data.md)|
 
 ## Machine learning algorithms
@@ -40,7 +40,7 @@ For help with choosing algorithms, see
 | --- |--- | --- |
 | Regression | Predict a value. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) <br/> [Decision Forest Regression](decision-forest-regression.md) <br/> [Fast Forest Quantile Regression](fast-forest-quantile-regression.md)  <br/> [Linear Regression](linear-regression.md)  <br/> [Neural Network Regression](neural-network-regression.md)  <br/> [Poisson Regression](poisson-regression.md)  <br/>|
 | Clustering | Group data together.| [K-Means Clustering](k-means-clustering.md)
-| Classification | Predict a class.  Choose from binary (two-class) or multiclass algorithms.| [Multiclass Boosted Decision Tree](multiclass-boosted-decision-tree.md) <br/> [Multiclass Decision Forest](multiclass-decision-forest.md) <br/> [Multiclass Logistic Regression](multiclass-logistic-regression.md)  <br/> [Multiclass Neural Network](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) <br/> [One vs. One Multiclass](one-vs-one-multiclass.md) <br/>[Two-Class Averaged Perceptron](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)  <br/> [Two-Class Decision Forest](two-class-decision-forest.md) <br/>  [Two-Class Logistic Regression](two-class-logistic-regression.md) <br/> [Two-Class Neural Network](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) | 
+| Classification | Predict a class. Choose from binary (two-class) or multiclass algorithms.| [Multiclass Boosted Decision Tree](multiclass-boosted-decision-tree.md) <br/> [Multiclass Decision Forest](multiclass-decision-forest.md) <br/> [Multiclass Logistic Regression](multiclass-logistic-regression.md)  <br/> [Multiclass Neural Network](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) <br/> [One vs. One Multiclass](one-vs-one-multiclass.md) <br/>[Two-Class Averaged Perceptron](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)  <br/> [Two-Class Decision Forest](two-class-decision-forest.md) <br/>  [Two-Class Logistic Regression](two-class-logistic-regression.md) <br/> [Two-Class Neural Network](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) | 
 
 ## Components for building and evaluating models
 
@@ -55,14 +55,13 @@ For help with choosing algorithms, see
 | Recommendation | Build recommendation models. | [Evaluate Recommender](evaluate-recommender.md) <br/> [Score SVD Recommender](score-svd-recommender.md) <br/> [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md)<br/> [Train SVD Recommender](train-SVD-recommender.md) <br/> [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md)|
 | Anomaly Detection | Build anomaly detection models. | [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) |
 
-
 ## Web service
 
-Learn about the [web service components](web-service-input-output.md) which are necessary for real-time inference in Azure Machine Learning designer.
+Learn about the [web service components](web-service-input-output.md), which are necessary for real-time inference in Azure Machine Learning designer.
 
 ## Error messages
 
-Learn about the [error messages and exception codes](designer-error-codes.md) you might encounter using components in Azure Machine Learning designer.
+Learn about the [error messages and exception codes](designer-error-codes.md) that you might encounter using components in Azure Machine Learning designer.
 
 ## Next steps
 

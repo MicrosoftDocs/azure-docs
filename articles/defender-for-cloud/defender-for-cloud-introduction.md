@@ -2,8 +2,10 @@
 title: Microsoft Defender for Cloud - an introduction
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.custom: mvc
-ms.date: 12/12/2021
+ms.date: 02/28/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -136,6 +138,7 @@ The **Defender plans** page of Microsoft Defender for Cloud offers the following
 - [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
+- [Microsoft Defender for Azure Cosmos DB (Preview)](concept-defender-for-cosmos.md)
 
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 

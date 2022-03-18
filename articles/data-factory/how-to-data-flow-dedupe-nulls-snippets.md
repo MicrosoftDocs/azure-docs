@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 01/31/2022
 ---
 
 # Dedupe rows and find nulls by using data flow snippets

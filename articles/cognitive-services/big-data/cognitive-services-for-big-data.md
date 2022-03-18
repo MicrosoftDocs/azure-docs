@@ -5,7 +5,7 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/28/2021
 ms.author: marhamil
 ---

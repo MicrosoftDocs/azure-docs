@@ -1,0 +1,28 @@
+- name: Payment HSM Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Payment HSM overview
+    href: overview.md
+- name: Get started
+  items:
+  - name: Getting started with Azure Payment HSM
+    href: getting-started.md
+- name: Concepts
+  items:
+  - name: Deployment scenarios
+    href: deployment-scenarios.md
+  - name: Certification and compliance
+    href: certification-compliance.md
+- name: Reference
+  items:
+  - name: Thales payShield 10K
+    href: https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k
+  - name: Thales payShield Manager
+    href: https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager
+  - name: Thales payShield Trusted Management Device
+    href: https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-trusted-management-device
+- name: Resources
+  items:
+  - name: Frequently asked questions
+    href: faq.yml

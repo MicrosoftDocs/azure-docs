@@ -82,6 +82,8 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
 
+To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Azure AD app to a set of users in an Azure AD tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+
 > [!NOTE]
 > While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
 

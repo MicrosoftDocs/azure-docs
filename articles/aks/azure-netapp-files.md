@@ -512,6 +512,10 @@ Astra Trident supports many features with Azure NetApp Files, such as:
 * [On-demand volume snapshots](https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html)
 * [Importing volumes](https://docs.netapp.com/us-en/trident/trident-use/vol-import.html)
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 * For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
@@ -535,3 +539,4 @@ Astra Trident supports many features with Azure NetApp Files, such as:
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[use-tags]: use-tags.md

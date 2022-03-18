@@ -276,7 +276,7 @@ In your GitHub repository, go to **Actions**.
 
 If you use automated CI/CD and want to change some properties during deployment, but the properties aren't parameterized by default, you can override the default parameter template.
 
-To override the default parameter template, create a custom parameter template named*template-parameters-definition.json* in the root folder of your Git collaboration branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
+To override the default parameter template, create a custom parameter template named *template-parameters-definition.json* in the root folder of your Git collaboration branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
 
 ### Custom parameter syntax
 
@@ -301,30 +301,32 @@ Here's an example of what a parameter template definition looks like:
 
 ```json
 {
-"Microsoft.Synapse/workspaces/notebooks": {
-        "properties":{
-            "bigDataPool":{
+    "Microsoft.Synapse/workspaces/notebooks": {
+        "properties": {
+            "bigDataPool": {
                 "referenceName": "="
             }
         }
     },
     "Microsoft.Synapse/workspaces/sqlscripts": {
-	 "properties": {
-         "content":{
-             "currentConnection":{
-                    "*":"-"
-                 }
-            } 
+        "properties": {
+            "content": {
+                "currentConnection": {
+                    "*": "-"
+                }
+            }
         }
-	},
+    },
     "Microsoft.Synapse/workspaces/pipelines": {
         "properties": {
-            "activities": [{
-                 "typeProperties": {
-                    "waitTimeInSeconds": "-::int",
-                    "headers": "=::object"
+            "activities": [
+                {
+                    "typeProperties": {
+                        "waitTimeInSeconds": "-::int",
+                        "headers": "=::object"
+                    }
                 }
-            }]
+            ]
         }
     },
     "Microsoft.Synapse/workspaces/integrationRuntimes": {
@@ -350,7 +352,7 @@ Here's an example of what a parameter template definition looks like:
         "*": {
             "properties": {
                 "typeProperties": {
-                     "*": "="
+                    "*": "="
                 }
             }
         },

@@ -181,6 +181,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 > `version` property or in another property as a **boolean**. For more information about the way
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Parameters
 

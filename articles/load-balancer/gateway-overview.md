@@ -74,14 +74,13 @@ Gateway Load Balancer consists of the following components:
 
 ## Pricing
 
-There's no charge for Gateway Load Balancer during preview. 
-
-For pricing that will be effective during the general availability release, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+For pricing see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Limitations
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
 * Cross-tenant chaining is not supported through the Azure portal.
+* Gateway Load Balancer does not currently support IPv6
 
 ## Next steps
 

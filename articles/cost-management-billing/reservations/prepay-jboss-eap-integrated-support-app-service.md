@@ -21,7 +21,7 @@ When you purchase a JBoss EAP Integrated Support reservation, the discount is au
 
 ## Buy a JBoss EAP Integrated Support reservation
 
-You can buy a reservation for JBoss EAP Integrated Support in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md)
+You can buy a reservation for JBoss EAP Integrated Support in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md).
 
 - You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
 - For EA subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin for the subscription.

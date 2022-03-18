@@ -1,11 +1,11 @@
 ---
 title: Microsoft Sentinel SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
 description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
-author: batamig
-ms.author: bagol
+author: MSFTandrelom
+ms.author: andrelom
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 02/22/2022
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
@@ -76,13 +76,13 @@ az keyvault secret set \
   --value "<abapuserpass>" \
   --description SECRET_ABAP_PASSWORD --vault-name $kvname
 
-#Add java Username
+#Add Java Username
 az keyvault secret set \
   --name <SID>-JAVAOSUSER \
   --value "<javauser>" \
   --description SECRET_JAVAOS_USER --vault-name $kvname
 
-#Add java Username password
+#Add Java Username password
 az keyvault secret set \
   --name <SID>-JAVAOSPASS \
   --value "<javauserpass>" \
@@ -328,7 +328,7 @@ This section enables you to configure the following parameters:
 |**auditlogforcexal**     |  Determines whether the system forces the use of audit logs for non-SAL systems, such as SAP BASIS version 7.4.       |
 |**auditlogforcelegacyfiles**     |  Determines whether the system forces the use of audit logs with legacy system capabilities, such as from SAP BASIS version 7.4 with lower patch levels.|
 |**timechunk**     |   Determines that the system waits a specific number of minutes as an interval between data extractions. Use this parameter if you have a large amount of data expected. <br><br>For example, during the initial data load during your first 24 hours, you might want to have the data extraction running only every 30 minutes to give each data extraction enough time. In such cases, set this value to **30**.  |
-|     |         |
+
 
 ### Configuring an ABAP SAP Control instance
 
@@ -351,6 +351,34 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
+
+
+### Configuring User Master data collection
+
+To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.ini** file with a `True`/`False` statement for each table. 
+
+For example:
+
+```python
+[ABAP Table Selector] 
+USR01_FULL = True
+USR02_FULL = True
+USR02_INCREMENTAL = True
+UST04_FULL = True
+AGR_USERS_FULL = True
+AGR_USERS_INCREMENTAL = True
+USR21_FULL = True
+AGR_1251_FULL = True
+ADR6_FULL = True
+AGR_TCODES_FULL = True 
+DEVACCESS_FULL = True
+AGR_DEFINE_FULL = True
+AGR_DEFINE_INCREMENTAL = True
+AGR_PROF_FULL = True
+PAHI_FULL = True
+```
+
+For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
 
 ## Next steps
 

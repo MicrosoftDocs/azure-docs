@@ -107,7 +107,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 
 Follow the instructions below to set up an Azure Database for MySQL for use with your app. If your application doesn't require a database, you can skip this section.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Return to this document after creating the database.
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Return to this document after creating the database.
     > [!NOTE]
     >
     > * At the **Basics** step, write down the ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
@@ -125,7 +125,7 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
    String url ="jdbc:mysql://<Database name>.mysql.database.azure.com:3306/{your_database}?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "<Server admin login>", {your_password});
    ```
 
-4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
+4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
     > [!NOTE]
     >
     > * Write down the **Database name** you created.

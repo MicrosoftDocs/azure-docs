@@ -1,8 +1,9 @@
 ---
 title: JBoss EAP to Azure virtual machines virtual machine scale sets migration guide
 description: This guide provides information on how to migrate your enterprise Java applications from another application server to JBoss EAP and from traditional on-premises server to Azure RHEL VM and virtual machine scale sets.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat
@@ -143,7 +144,7 @@ keytool -list -v -keystore <path to keystore>
 
 - Inventory all Java Naming and Directory Interface (JNDI) resources. Some, such as Java Message Service (JMS) brokers, may require migration or reconfiguration.
 
-### InsideyYour application 
+### Inside your application 
 
 Inspect the WEB-INF/jboss-web.xml and/or WEB-INF/web.xml files.
 
@@ -237,7 +238,7 @@ You can expose the application using the following methods which is suitable for
 * [Create a Jump VM in the Same Virtual Network (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. This Jump VM can be used to expose the application.
 * [Create a Jump VM with VNet Peering](../../windows/quick-create-portal.md#create-virtual-machine) in a different Virtual Network and access the server and expose the application using [Virtual Network Peering](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
 * Expose the application using an [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)
-* Expose the application using an [External Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) (ELB).
+* Expose the application using an [External Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer) (ELB).
 
 ## Post-migration
 
@@ -252,7 +253,7 @@ After you've reached the migration goals you defined in the pre-migration step, 
 
 ## Resource links and support
 
-For any support related questions, issues or customization requirements, please contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+For any support related questions, issues or customization requirements, please contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * Learn more about [JBoss EAP](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/getting_started_with_jboss_eap_for_openshift_online/introduction)
 * Learn more about [Red Hat Subscription Manager (Cloud Access)](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index)

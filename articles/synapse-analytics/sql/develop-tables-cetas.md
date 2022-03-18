@@ -1,7 +1,6 @@
 ---
 title: CREATE EXTERNAL TABLE AS SELECT (CETAS) in Synapse SQL
 description: Using CREATE EXTERNAL TABLE AS SELECT (CETAS) with Synapse SQL
-services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview

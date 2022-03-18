@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: cephalin
   ms.service: app-service
-  ms.date: 12/28/2021
+  ms.date: 01/14/2022
 
 landingContent:
   - title: About App Service
@@ -41,6 +41,8 @@ landingContent:
             url: quickstart-php.md
           - text: Deploy a Java app
             url: quickstart-java.md
+          - text: Create a WordPress site
+            url: quickstart-wordpress.md
           - text: Deploy a Python web app
             url: quickstart-python.md
           - text: Deploy a Ruby on Rails web app

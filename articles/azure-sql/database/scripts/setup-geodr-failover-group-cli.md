@@ -10,10 +10,10 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 01/17/2022
+ms.date: 01/26/2022 
 ---
 
-# Use CLI to configure a failover group for a group of databases in Azure SQL Database
+# Configure a failover group for a group of databases in Azure SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -27,7 +27,7 @@ ms.date: 01/17/2022
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.sh" id="FullScript":::
 
 ## Clean up resources
 

@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Bulk load data with a dedicated SQL pool'
 description: Use Synapse Studio to bulk load data into a dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.subservice: sql

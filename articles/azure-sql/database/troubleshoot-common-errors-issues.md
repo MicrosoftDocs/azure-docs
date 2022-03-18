@@ -384,7 +384,7 @@ For more information on other out of memory errors and sample queries, see [Trou
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. For database scaling, see [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).|
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).|
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).|
-| 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. For more information on tempdb usage in SQL Database, see [Tempdb database in SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
+| 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. For more information on tempdb limits in SQL Database, see [Tempdb database in SQL Database](resource-limits-logical-server.md#tempdb-sizes).|
 | 40552 |16 |The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).<br/><br/>If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option. For information on transaction log sizes for the vCore purchasing model, see: <br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).|
 | 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query. For database scaling, see [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md). For more information on out of memory errors and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](troubleshoot-memory-errors-issues.md).|
 
@@ -425,6 +425,44 @@ To resolve this issue, follow these steps:
 2. In the **Connect to database** field, enter the user's default database name as the default login database, and then select **Connect**.
 
    ![Connection properties](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
+
+## Read-only errors
+
+If you attempt to write to a database that is read-only, you'll receive an error. In some scenarios, the cause of the database's read-only status may not be immediately clear.
+
+### Error 3906: Failed to update database "DatabaseName" because the database is read-only.
+
+When attempting to modify a read-only database, the following error will be raised.
+
+```
+Msg 3906, Level 16, State 2, Line 1
+Failed to update database "%d" because the database is read-only.
+```
+
+#### You may be connected to a read-only replica
+
+For both Azure SQL Database and Azure SQL Managed Instance, you may be connected to a database on a read-only replica. In this case, the following query using the [DATABASEPROPERTYEX() function](/sql/t-sql/functions/databasepropertyex-transact-sql) will return `READ_ONLY`:
+
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
+GO
+```
+
+If you're connecting using SQL Server Management Studio, verify if you have specified `ApplicationIntent=ReadOnly` in the **Additional Connection Parameters** [tab on your connection options](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover#ConnectToSecondary).
+
+If the connection is from an application or a client using a connection string, validate if the connection string has specified `ApplicationIntent=ReadOnly`. Learn more in [Connect to a read-only replica](read-scale-out.md#connect-to-a-read-only-replica).
+
+#### The database may be set to read-only
+
+If you're using Azure SQL Database, the database itself may have been set to read-only. You can verify the database's status with the following query:
+
+```sql
+SELECT name, is_read_only
+FROM sys.databases
+WHERE database_id = DB_ID();
+```
+
+You can modify the read-only status for a database in Azure SQL Database using [ALTER DATABASE Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true). You can’t currently set a database in a managed instance to read-only.
 
 ## Confirm whether an error is caused by a connectivity issue
 
@@ -471,10 +509,9 @@ For more information about how to enable logging, see [Enable diagnostics loggin
 
 ## Next steps
 
+Learn more about related topics in the following articles:
+
 - [Azure SQL Database connectivity architecture](./connectivity-architecture.md)
 - [Azure SQL Database and Azure Synapse Analytics network access controls](./network-access-controls-overview.md)
-
-## See also
-
 - [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)
 - [Troubleshoot transient connection errors in SQL Database and SQL Managed Instance](troubleshoot-common-connectivity-issues.md)

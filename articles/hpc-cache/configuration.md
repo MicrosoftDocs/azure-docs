@@ -76,7 +76,7 @@ Consider using a test cache to check and refine your DNS setup before you use it
 
 ### Refresh storage target DNS
 
-If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [View and manage storage targets](manage-storage-targets.md#update-ip-address-specific-configurations-only).
+If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [View and manage storage targets](manage-storage-targets.md#update-ip-address).
 
 ## View snapshots for blob storage targets
 

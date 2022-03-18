@@ -3,17 +3,18 @@ title: Simple entity type - LUIS
 titleSuffix: Azure Cognitive Services
 description: A simple entity describes a single concept from the machine-learning context. Add a phrase list when using a simple entity to improve results.
 services: cognitive-services
-
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 01/07/2022
 
 ---
 # Simple entity
 
-A simple entity is a generic entity that describes a single concept and is learned from the machine-learning context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used.
+A simple entity is a generic entity that describes a single concept and is learned from the machine-learning context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](concepts/patterns-features.md) when using a simple entity to boost the signal of the names used.
 
 **The entity is a good fit when:**
 
