@@ -1,10 +1,11 @@
 ---
 title: Restart server - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can restart an Azure Database for PostgreSQL - Single Server using the Azure CLI
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal
 ms.date: 5/6/2019 
 ms.custom: devx-track-azurecli
 ---
