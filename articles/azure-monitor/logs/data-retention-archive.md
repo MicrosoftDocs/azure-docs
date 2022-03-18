@@ -156,6 +156,19 @@ You'll be charged for each day you retain data. The cost of retaining data for p
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
+## Classic Application Insights resources
+Data workspace-based Application Insights resources is stored in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. Classic Application Insights resources though, have separate retention settings.
+
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
+
+To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
+
+![Screenshot that shows where to change the data retention period.](./media/pricing/pricing-005.png)
+
+A several-day grace period begins when the retention is lowered before the oldest data is removed.
+
+The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
+
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)
 - [Create a search job to retrieve archive data matching particular criteria.](search-jobs.md)

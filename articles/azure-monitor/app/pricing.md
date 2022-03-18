@@ -20,34 +20,7 @@ This article describes how to proactively monitor and control Application Insigh
 
 If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](/answers/topics/azure-monitor.html).
 
-## Pricing model
 
-The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. Data volume is measured in GB (10^9 bytes). There's no data volume charge for using the [Live Metrics Stream](./live-stream.md). On your Azure bill or in [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill), your data ingestion and data retention for a classic Application Insights resource will be reported with a meter category of **Log Analytics**.  
-
-[Multi-step web tests](./availability-multistep.md) incur extra charges. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
-
-The Application Insights option to [Enable alerting on custom metric dimensions](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of more pre-aggregation metrics. [Learn more](./pre-aggregated-metrics-log-metrics.md) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
-
-### Workspace-based Application Insights
-
-For Application Insights resources which send their data to a Log Analytics workspace, called [workspace-based Application Insights resources](create-workspace-resource.md), the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables you to leverage all options of the Log Analytics [pricing model](../logs/manage-cost-storage.md#pricing-model), including **Commitment Tiers** in addition to Pay-As-You-Go. Commitment Tiers offer pricing up to 30% lower than Pay-As-You-Go. Log Analytics also has more options for data retention, including [retention by data type](../logs/manage-cost-storage.md#retention-by-data-type). Application Insights data types in the workspace receive 90 days of retention without charges. Usage of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. Learn how to track data ingestion and retention costs in Log Analytics using the [Usage and estimated costs](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) and [Log Analytics queries](#data-volume-for-workspace-based-application-insights-resources). 
-
-## Estimating the costs to manage your application
-
-If you're not yet using Application Insights, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Application Insights. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and expand the Application Insights section. Your estimated costs depend on the amount of log data ingested.  There are two approaches to estimate data volumes:
-
-1. estimate your likely data ingestion based on what other similar applications generate, or 
-2. use of default monitoring and adaptive sampling, which is available in the ASP.NET SDK.
-
-### Learn from what similar applications collect
-
-In the Azure Monitoring Pricing calculator for Application Insights, click to enable the **Estimate data volume based on application activity**. Here you can provide inputs about your application (requests per month and page views per month, in case you'll collect client-side telemetry), and then the calculator will tell you the median and 90th percentile amount of data collected by similar applications. These applications span the range of Application Insights configuration (e.g some have default [sampling](./sampling.md), some have no sampling etc.), so you still have the control to reduce the volume of data you ingest far below the median level using sampling. 
-
-### Data collection when using sampling
-
-With the ASP.NET SDK's [adaptive sampling](sampling.md#adaptive-sampling), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Considering a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application since the sampling is done local to each node.
-
-For SDKs that don't support adaptive sampling, you can employ [ingestion sampling](./sampling.md#ingestion-sampling), which samples when the data is received by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](sampling.md#fixed-rate-sampling) to reduce the traffic sent from your web server and web browsers
 
 ## Viewing Application Insights usage on your Azure bill
 
@@ -89,156 +62,17 @@ To learn more about your data volumes, selecting **Metrics** for your Applicatio
 
 ![Use Metrics to look at data volume](./media/pricing/10-billing.png)
 
-### Queries to understand data volume details
-
-There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. `systemEvents` won't have data size information for [workspace-based-application-insights](#data-volume-for-workspace-based-application-insights-resources).
-
-#### Using aggregated data volume information
-
-For instance, you can use the `systemEvents` table to see the data volume ingested in the last 24 hours with the query:
-
-```kusto
-systemEvents
-| where timestamp >= ago(24h)
-| where type == "Billing"
-| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
-| summarize sum(BillingTelemetrySizeInBytes)
-```
-
-Or to see a chart of data volume (in bytes) by data type for the last 30 days, you can use:
-
-```kusto
-systemEvents
-| where timestamp >= startofday(ago(30d))
-| where type == "Billing"
-| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
-| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
-```
-
-This query can be used in an [Azure Log Alert](../alerts/alerts-unified-log.md) to set up alerting on data volumes.  
-
-To learn more about your telemetry data changes, we can get the count of events by type using the query:
-
-```kusto
-systemEvents
-| where timestamp >= startofday(ago(30d))
-| where type == "Billing"
-| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| summarize count() by BillingTelemetryType, bin(timestamp, 1d)
-| render barchart  
-```
-
-#### Using data size per event information
-
-To learn more details about the source of your data volumes, you can use the `_BilledSize` property that is present on each ingested event.
-
-For example, to look at which operations generate the most data volume in the last 30 days, we can sum `_BilledSize` for all dependency events:
-
-```kusto
-dependencies
-| where timestamp >= startofday(ago(30d))
-| summarize sum(_BilledSize) by operation_Name
-| render barchart  
-```
-
-#### Data volume for workspace-based Application Insights resources
-
-To look at the data volume trends for all of the [workspace-based Application Insights resources](create-workspace-resource.md) in a workspace for the last week, go to the Log Analytics workspace and run the query:
-
-```kusto
-union (AppAvailabilityResults),
-      (AppBrowserTimings),
-      (AppDependencies),
-      (AppExceptions),
-      (AppEvents),
-      (AppMetrics),
-      (AppPageViews),
-      (AppPerformanceCounters),
-      (AppRequests),
-      (AppSystemEvents),
-      (AppTraces)
-| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
-| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
-| render areachart
-```
-
-To query the data volume trends by type for a specific workspace-based Application Insights resource, in the Log Analytics workspace use:
-
-```kusto
-union (AppAvailabilityResults),
-      (AppBrowserTimings),
-      (AppDependencies),
-      (AppExceptions),
-      (AppEvents),
-      (AppMetrics),
-      (AppPageViews),
-      (AppPerformanceCounters),
-      (AppRequests),
-      (AppSystemEvents),
-      (AppTraces)
-| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
-| where _ResourceId contains "<myAppInsightsResourceName>"
-| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
-| render areachart
-```
 
 ## Managing your data volume
 
-The volume of data you send can be managed using the following techniques:
 
-* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](./sampling.md).
-
-* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting. Disabling Ajax calls will disable [JavaScript correlation](./javascript.md#enable-correlation).
-
-* **Disable unneeded modules**: [Edit ApplicationInsights.config](./configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
-
-* **Pre-aggregate metrics**: If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
  
-* **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
 
-    The maximum cap in Application Insights is 1,000 GB/day unless you request a higher maximum for a high-traffic application.
-	
-    > [!TIP]
-    > If you have a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs instead of the cap in Application Insights.
-
-    Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
-
-    Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
-    
-    We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
     
 * **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
 
-## Manage your maximum daily data volume
 
-You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It *isn't advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
 
-> [!WARNING]
-> If you have a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs. The daily cap in Application Insights may not limit ingestion in all cases to the selected level. (If your Application Insights resource is ingesting a lot of data, the Application Insights daily cap might need to be raised.)
-
-Instead of using the daily volume cap, use [sampling](./sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
-
-### Identify what daily data limit to define
-
-Review Application Insights Usage and estimated costs to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won't be able to monitor your resources after the limit is reached.
-
-### Set the Daily Cap
-
-To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** page, select  **Daily Cap**.
-
-![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
-
-To [change the daily cap via Azure Resource Manager](./powershell.md), the property to change is the `dailyQuota`.  Via Azure Resource Manager you can also set the `dailyQuotaResetTime` and the daily cap's `warningThreshold`.
-
-### Create alerts for the Daily Cap
-
-The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../alerts/alerts-activity-log.md#azure-portal). The signal names for these events are:
-
-* Application Insights component daily cap warning threshold reached
-
-* Application Insights component daily cap reached
 
 ## Sampling
 [sampling](./sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
@@ -268,17 +102,7 @@ requests | where timestamp > ago(1d)
 
 In each retained record, `itemCount` indicates the number of original records that it represents. It's equal to 1 + the number of previous discarded records.
 
-## Change the data retention period
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention. 
-
-To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
-
-![Screenshot that shows where to change the data retention period.](./media/pricing/pricing-005.png)
-
-A several-day grace period begins when the retention is lowered before the oldest data is removed.
-
-The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
 ## Data transfer charges using Application Insights
 
@@ -288,9 +112,6 @@ Sending data to Application Insights might incur data bandwidth charges. As desc
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-## Disable daily cap e-mails
-
-To disable the daily volume cap e-mails, under the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**. There are settings to send e-mail when the cap is reached, as well as when an adjustable warning level has been reached. If you wish to disable all daily cap volume-related emails, uncheck both boxes.
 
 ## Legacy Enterprise (Per Node) pricing tier
 
