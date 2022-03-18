@@ -374,7 +374,6 @@ You can view your search results in the individual **Jobs**, **Models** and **Co
 
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
----
 
 ## Delete a workspace
 
