@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using Azure PowerShell
 author: asudbring
 ms.author: allensu
-ms.date: 03/16/2022
+ms.date: 03/17/2022
 ms.topic: quickstart
 ms.service: load-balancer
 ms.custom: devx-track-azurepowershell, mode-api
@@ -412,7 +412,7 @@ Get-AzPublicIPAddress @ip | select IpAddress
 
 Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-   :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
+   :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of the load balancer test web page.":::
 
 ## Clean up resources
 

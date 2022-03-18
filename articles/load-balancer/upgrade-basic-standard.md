@@ -1,5 +1,6 @@
 ---
-title: Upgrade from basic public to standard public - Azure Load Balancer
+title: Upgrade from basic public to standard public
+titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a public load balancer from basic to standard SKU.
 services: load-balancer
 author: asudbring
@@ -114,7 +115,7 @@ To run the script:
 
 Follow the [instructions](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway) to create a NAT gateway so you can:
 
-* Define outbound NAT from scratch
+* Define outbound NAT during creation
 
 * Scale and tune the behavior of existing outbound NAT
 
