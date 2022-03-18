@@ -22,6 +22,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :----------------------------------- | ---------------: |
 |Added 429 retry and logging in BundleHandler |We sometimes encounter 429 errors when processing a bundle. If the FHIR service receives a 429 at the BundleHandler layer, we abort processing of the bundle and skip the remaining resources. We've added an additional retry (in addition to the retry present in the data store layer) that will execute one time per resource that encounters a 429. For more about this feature enhancement, see [PR #2400](https://github.com/microsoft/fhir-server/pull/2400).|
+|Billing for $convert-data and $de-id |Azure API for FHIR's data conversion and de-identified export features are now Generally Available. Billing for $convert-data and $de-id operations in Azure API for FHIR has been enabled. Billing meters were turned on March 1, 2022. |
 
 ### **Bug fixes**
 
@@ -46,7 +47,6 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Fixed 500 error when `SearchParameter` Code is null |Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it will result in an  `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343) |
 |Returned `BadRequestException` with valid message when input JSON body is invalid |For invalid JSON body requests, the FHIR server was returning a 500 error. Now we will return a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) |
 |`_sort` can cause `ChainedSearch` to return incorrect results |Previously, the sort options from the chained search's `SearchOption` object was not cleared, causing the sorting options to be passed through to the chained sub-search, which are not valid. This could result in no results when there should be results. This bug is now fixed  [#2347](https://github.com/microsoft/fhir-server/pull/2347). It addressed GitHub bug [#2344](https://github.com/microsoft/fhir-server/issues/2344). |
-
 
 
 ## November 2021
