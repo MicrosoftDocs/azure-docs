@@ -59,9 +59,9 @@ pip install azure-ai-formrecognizer==3.2.0b3
 
 ```
 
-### Create a new Python application
+## Create your Python application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
 
@@ -76,6 +76,18 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
+
+## Run your application
+
+Once you've added a code sample to your application, build and run your application:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
 
 ## General document model
 
@@ -225,9 +237,19 @@ if __name__ == "__main__":
 
 ### General document model output
 
-Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
+Here's a snippet of the expected output:
 
-___
+```console
+  ----Key-value pairs found in document----
+  Key '☒' found within 'Page #1: [0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]' bounding regions
+  Key 'QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934' found within 'Page #1: [0.996, 1.7804], [7.8449, 1.7804], [7.8449, 2.0559], [0.996, 2.0559]' bounding regions
+  Value ':selected:' found within 'Page #1: [0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]' bounding regions
+
+  Key 'For the Quarterly Period Ended March 31, 2020' found within 'Page #1: [0.9982, 2.1626], [3.4543, 2.1626], [3.4543, 2.2665], [0.9982, 2.2665]' bounding regions
+  Value 'OR' found within 'Page #1: [4.1471, 2.2972], [4.3587, 2.2972], [4.3587, 2.4049], [4.1471, 2.4049]' bounding regions
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
 
 ## Layout model
 
@@ -352,7 +374,25 @@ if __name__ == "__main__":
 
 ### Layout model output
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md)
+Here's a snippet of the expected output:
+
+```console
+  ----Analyzing layout from page #1----
+  Page has width: 8.5 and height: 11.0, measured with unit: inch
+  ...Line # 0 has word count 2 and text 'UNITED STATES' within bounding box '[3.4915, 0.6828], [5.0116, 0.6828], [5.0116, 0.8265], [3.4915, 0.8265]'
+  ......Word 'UNITED' has a confidence of 1.0
+  ......Word 'STATES' has a confidence of 1.0
+  ...Line # 1 has word count 4 and text 'SECURITIES AND EXCHANGE COMMISSION' within bounding box '[2.1937, 0.9061], [6.297, 0.9061], [6.297, 1.0498], [2.1937, 1.0498]'
+  ......Word 'SECURITIES' has a confidence of 1.0
+  ......Word 'AND' has a confidence of 1.0
+  ......Word 'EXCHANGE' has a confidence of 1.0
+  ......Word 'COMMISSION' has a confidence of 1.0
+  ...Line # 2 has word count 3 and text 'Washington, D.C. 20549' within bounding box '[3.4629, 1.1179], [5.031, 1.1179], [5.031, 1.2483], [3.4629, 1.2483]'
+  ......Word 'Washington,' has a confidence of 1.0
+  ......Word 'D.C.' has a confidence of 1.0
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md)
 
 ___
 
@@ -659,17 +699,24 @@ if __name__ == "__main__":
 
 ### Prebuilt model output
 
-Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
-
-## Run your application
-
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
-
-1. Type the following command in your terminal:
+Here's a snippet of the expected output:
 
 ```console
-python form_recognizer_quickstart.py
+  --------Recognizing invoice #1--------
+  Vendor Name: CONTOSO LTD. has confidence: 0.919
+  Vendor Address: 123 456th St New York, NY, 10001 has confidence: 0.907
+  Vendor Address Recipient: Contoso Headquarters has confidence: 0.919
+  Customer Name: MICROSOFT CORPORATION has confidence: 0.84
+  Customer Id: CID-12345 has confidence: 0.956
+  Customer Address: 123 Other St, Redmond WA, 98052 has confidence: 0.909
+  Customer Address Recipient: Microsoft Corp has confidence: 0.917
+  Invoice Id: INV-100 has confidence: 0.972
+  Invoice Date: 2019-11-15 has confidence: 0.971
+  Invoice Total: CurrencyValue(amount=110.0, symbol=$) has confidence: 0.97
+  Due Date: 2019-12-15 has confidence: 0.973
 ```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
 
 That's it, congratulations!
 
