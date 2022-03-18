@@ -201,7 +201,7 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
 
    :::image type="content" source="media/exchange-online-integration/m365-admin-center-exchange-sec-3-5.png" alt-text="Microsoft 365 Admin Center":::
 
-6. Choose Mailboxes.
+6. New Exchange Admin Center (EAC) portal will open.
 
    :::image type="content" source="media/exchange-online-integration/exchange-admin-center-sec-3-6.png" alt-text="Microsoft 365 Admin Center mailbox":::
 
