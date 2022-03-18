@@ -1,6 +1,6 @@
 ---
-title: Import and Export data between serverless Apache Spark pools and SQL pools
-description: This article introduces the Synapse Dedicated SQL Pool Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
+title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
+description: Presents Azure Synapse Dedicated SQL Pool Connector for Apache Spark for moving data between Apache Spark Runtime (Serverless Spark Pool) and the Synapse Dedicated SQL Pool.
 author: kalyankadiyala-Microsoft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -13,7 +13,7 @@ ms.reviewer:
 
 ## Introduction
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark offers an efficient way to transfer large volume data sets between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), in Azure Synapse Analytics. The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Connector can be used with other notebook language preferences.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics efficiently transfers large volume data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Scala Connector code can be placed in any Synapse Notebook Cell regardless of the notebook language preferences.
 
 At a high-level, the connector provides following capabilities:
 
@@ -26,7 +26,7 @@ At a high-level, the connector provides following capabilities:
   * Introduces an optional call-back handle (a Scala function argument) that clients can use to receive post-write metrics.
     * For example - time taken to stage data, time taken to write data to target tables, number of records staged, number of records committed to target table, and failure cause (in case of a failure).
 * Read from Azure Synapse Dedicated SQL Pool:
-  * Export large data sets from Tables (Internal and External) and Views.
+  * Export large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and Views.
   * Comprehensive push-down predicate support, where filters on DataFrame get mapped to corresponding SQL push-down predicates.
 
 ## Orchestration Approach
@@ -101,10 +101,11 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
+**Note** If the workspace User is set as an `Active Directory Admin` on the target database, this step can be skipped.
+
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
     * Setup required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql#set-up-the-required-permissions).
-    * **Note** If the workspace User is set as an `Active Directory Admin` on the target database, this step can be skipped.
     * Following is a quick access snippet of the same:
 
       ```sql
@@ -128,13 +129,40 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
     EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
     ```
 
+## Connector API Documentation
+
+Click [here](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/utils/index.html) to access the latest Connector Scala API Documentation.
+
 ## Code Templates
 
 This section provide reference code templates that describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
 
 ### Write Scenario
 
-```scala
+#### `synapsesql` Write Method Signature
+
+The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
+
+* Spark Pool Version 2.4.8
+
+```Scala
+synapsesql(tableName:String, 
+           tableType:String = Constants.INTERNAL, 
+           location:Option[String] = None)
+```
+
+* Spark Pool Version 3.1.2
+
+```Scala
+synapsesql(tableName:String, 
+           tableType:String = Constants.INTERNAL, 
+           location:Option[String] = None,
+           callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit])
+```
+
+#### Write Code Template
+
+```Scala
 //Add required imports
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.SaveMode
@@ -206,12 +234,12 @@ Following is a sample JSON string with post-write metrics:
 
    ```doc
    {
-    SparkApplicationId -> application_1647522710276_0002,
+    SparkApplicationId -> <spark_yarn_application_id>,
     SQLStatementExecutionDurationInMilliseconds -> 10113,
     WriteRequestReceivedAtEPOCH -> 1647523790633,
     WriteRequestProcessedAtEPOCH -> 1647523808379,
     StagingDataFileSystemCheckDurationInMilliseconds -> 60,
-    command -> "COPY INTO [helloworld_ingress].[internaltablewithhundredrows] ...",
+    command -> "COPY INTO [schema_name].[table_name] ...",
     NumberOfRecordsStagedForSQLCommit -> 100,
     DataStagingSparkJobEndedAtEPOCH -> 1647523797245,
     SchemaInferenceAssertionCompletedAtEPOCH -> 1647523790920,
@@ -220,9 +248,9 @@ Following is a sample JSON string with post-write metrics:
     SaveModeApplied -> TRUNCATE_COPY,
     DurationInMillisecondsToValidateFileFormat -> 75,
     status -> Completed,
-    SparkApplicationName -> ForDWConnectorPublicDocs_docspoolspark31_1647522838,
-    ThreePartFullyQualifiedTargetTableName -> workspacededicatedsqlpool.helloworld_ingress.internaltablewithhundredrows,
-    request_id -> QID13073,
+    SparkApplicationName -> <spark_application_name>,
+    ThreePartFullyQualifiedTargetTableName -> <database_name>.<schema_name>.<table_name>,
+    request_id -> <query_id_as_retrieved_from_synapse_dedicated_sql_db_query_reference>,
     StagingFolderConfigurationCheckDurationInMilliseconds -> 2,
     JDBCConfigurationsSetupAtEPOCH -> 193,
     StagingFolderConfigurationCheckCompletedAtEPOCH -> 1647523791012,
@@ -234,9 +262,19 @@ Following is a sample JSON string with post-write metrics:
    }
    ```
 
-#### Read Scenario
+### Read Scenario
 
-```scala
+#### `synapsesql` Read Method Signature
+
+Following is the signature to leverage `synapsesql` (applies to both Spark 2.4.8 and Spark 3.1.2 Connector versions):
+
+```Scala
+synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
+```
+
+#### Read Code Template
+
+```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
 //Azure Active Directory based authentication approach is preferred here.
 import org.apache.spark.sql.DataFrame
@@ -256,7 +294,37 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-### Limitations
+### Additional Code Samples
+
+#### Using Connector with PySpark
+
+```Python
+%%spark
+
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
+
+//Code for either writing or reading from Azure Synapse Dedicated SQL Pool (similar to afore-mentioned code templates)
+
+```
+
+### Things to Note
+
+The Connector's harnesses the write semantics exposed by the dependent Azure Resources to offer efficient write or read interaction with Synapse Dedicated SQL Pool. Following are few important aspects to note:
+
+* The `Performance Level` setting on Synapse Dedicated SQL Pool will limit maximum rows that can be committed in a single transaction (i.e., SQL statement).
+  * Hence, it is recommended to choose appropriate Data Warehouse Units (DWU) when configuring the Synapse Dedicated SQL Pool Performance Level.
+  * The Performance Level can be adjusted by scaling the Pool.
+  * Highly recommend to review the transaction size limits specified [here](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions#transaction-size) when making a DWU choice for your `Synapse Dedicated SQL Pool - Performance Level` setting.
+* Initial parallelism to move data from the source to the staging folders can be adjusted by using re-partition interface over the dataframe.
+* Write Performance is a highly subjective gauge that fairly depends on the following factors:
+  * Source Data Format.
+  * Source Data Layout (i.e., Partitions)
+  * Executor capacity (i..e, cores that impact Spark task concurrency within the executors)
+  * DWU availability when processing the data ingress or egress.  
+* The runtime pattern associated with the Connector's behavior is mostly I/O.
+  * This excludes any upfront data processing logic before a DataFrame's write is invoked for a write into Synapse Dedicated SQL Pool.
 
 ## Additional Reading
 
