@@ -1720,3 +1720,12 @@ groups:
     title: YAML
   - id: pipelines-classic
     title: Classic
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift
+  title: ARM and Bicep-OpenShift
+  prompt: Choose an option
+  pivots:
+  - id: aro-arm
+    title: Azure Resouce Manager
+  - id: aro-bicep
+    title: Bicep   
