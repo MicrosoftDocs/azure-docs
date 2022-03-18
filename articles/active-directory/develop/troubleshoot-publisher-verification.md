@@ -233,6 +233,9 @@ One of these error messages are displayed: "A verified publisher can’t be adde
 
 First, verify you've met the [publisher verification requirements](publisher-verification-overview.md#requirements).
 
+> [!NOTE]
+> If you've met the publisher verification requirements and are still having issue, try using an existing or newly created user with similar permissions.
+
 When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft doesn't disclose the specific criteria used to determine whether a request is risky or not. If you received this error and believe the "risky" assessment is incorrect, try waiting and resubmitting the verification request. Some customers have reported success after multiple attempts.
 
 ## Next steps
