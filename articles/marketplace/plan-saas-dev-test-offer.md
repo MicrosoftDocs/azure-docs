@@ -12,7 +12,7 @@ ms.date: 03/28/2022
 
 # Plan a test and development SaaS offer
 
-To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer.
+To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer. This article describes the benefits of doing your development and testing in a DEV offer and the configuration differences between DEV and production offers.
 
 ## Benefits of a DEV offer
 
@@ -44,9 +44,9 @@ Clutter in the PROD offer frustrates product and marketing teams, as they expect
 
 Testing a DEV offer helps to avoid the 30 custom metered dimensions limit per offer. Developers can try different meter combinations in the DEV offer without affecting the custom metered dimension limit in the PROD offer.
 
-## Configuration difference between DEV and production offers
+## Configuration differences between DEV and production offers
 
-You’ll configure most settings the same in the DEV and PROD offers. For example, the official marketing language and assets, such as screenshots and logos should be the same. In the cases where the configuration is the same, you can copy-and-paste fields from the plans in the DEV offer to the plans in the PROD offer.
+You’ll configure most settings the same in the test and development (DEV) and production (PROD) offers. For example, the official marketing language and assets, such as screenshots and logos should be the same. In the cases where the configuration is the same, you can copy-and-paste fields from the plans in the DEV offer to the plans in the PROD offer.
 
 The following sections describe the configuration differences between the DEV and PROD offers.
 
