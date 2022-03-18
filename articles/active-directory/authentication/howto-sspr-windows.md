@@ -128,7 +128,7 @@ During the password reset, SSPR creates a temporary local user account to connec
 
 In this case, you can use one of the following workarounds:
 
-- Configure a machine-wide proxy setting that is not dependent on the type of user logged into the machine. One way to do this would be to configure the Group Policy **Make proxy settings per-machine (rather than per-user)** and apply to the workstations.
+- Configure a machine-wide proxy setting that doesn't depend on the type of user logged into the machine. For example, you can enable the Group Policy **Make proxy settings per-machine (rather than per-user)** for the workstations.
 - You can also use Per-User proxy configuration for SSPR if you modify the registry template for the Default Account. The commands are as follows:
     
     ```cmd
