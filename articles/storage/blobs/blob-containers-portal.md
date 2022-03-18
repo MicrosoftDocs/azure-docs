@@ -24,15 +24,34 @@ To access Azure Storage, you'll need an Azure subscription. If you don't already
 
 All access to Azure Storage takes place through a storage account. For this how-to, create a storage account using the [Azure portal](https://portal.azure.com/), Azure PowerShell, or Azure CLI. For help creating a storage account, see [Create a storage account](../common/storage-account-create.md).
 
-## Create a container
+## Create and delete a container
 
 To create a container in the Azure portal, follow these steps:
 
 1. Navigate to a storage account in the [Azure portal](https://portal.azure.com). If the portal menu isn't visible, click the menu button to toggle its visibility.
-:::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser" lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
+
+    :::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser" lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
+
 1. In the left menu for the storage account, scroll to the **Data storage** section, then select **Containers**.
 1. Select the **+ Container** button.
 1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 1. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 1. Select **Create** to create the container.
-:::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/blob-containers-portal/create-container-lrg.png":::
+
+    :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/blob-containers-portal/create-container-lrg.png":::
+
+When you delete a container in the Azure portal, all blobs in the container will also be deleted.
+
+> [!WARNING]
+> Following the steps below may permanently delete containers and any blobs within them. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-container-overview.md).
+
+To delete a container in the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the list of containers in your storage account.
+1. Select the container to delete.
+1. Select the **More** button (**...**), and select **Delete**.
+
+    :::image type="content" source="media/blob-containers-portal/delete-container-sml.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/blob-containers-portal/delete-container-lrg.png":::
+
+1. In the **Delete container(s)** dialog, confirm that you want to delete the container.
+
