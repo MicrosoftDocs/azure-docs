@@ -433,9 +433,7 @@ Modern compilers and linkers provide many options for more security at build tim
 
 **Azure RTOS**: As an RTOS, some compiler-based security features might interfere with the real-time guarantees of Azure RTOS. Consider your RTOS needs when you select compiler options and test them thoroughly.
 
-**Application**: If you use GCC, consider the following list of options. For more information, see the GCC documentation.
-
-If you use other development tools, consult your documentation for appropriate options. In general, the following guidelines should help you build a more secure configuration:
+**Application**: If you use other development tools, consult your documentation for appropriate options. In general, the following guidelines should help you build a more secure configuration:
 
 - Enable maximum error and warning levels for all builds. Production code should compile and link cleanly with no errors or warnings.
 - Enable all runtime checking that's available. Examples include stack checking, buffer overflow detection, Address Space Layout Randomization (ASLR), and integer overflow detection.
