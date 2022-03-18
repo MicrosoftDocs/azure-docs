@@ -11,13 +11,13 @@ ms.author: allensu
 
 # Upgrade an internal basic load balancer - Outbound connections required
 
-A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script in the article, migrates the basic load balancer configuration to a standard public load balancer.
+A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script in this article, migrates the basic load balancer configuration to a standard public load balancer.
 
 There are four stages in the upgrade:
 
 1. Migrate the configuration to a standard public load balancer
 
-2. Add virtual machines to the backend pool of the standard public load balancer
+2. Add virtual machines to the backend pools of the standard public load balancer
 
 3. Create Network Security Group (NSG) rules for subnets and virtual machines that require internet connection restrictions
 
@@ -35,7 +35,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 ### Constraints
 
-* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal load balancer - Outbound connections not required](upgrade-basicInternal-standard.md).
+* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal basic load balancer - Outbound connections not required](upgrade-basicinternal-standard.md).
 
 * The standard load balancer has a new public address. It’s impossible to move the IP addresses associated with existing basic internal load balancer to a standard public load balancer because of different SKUs.
 
@@ -131,11 +131,9 @@ The following scenarios explain how you add VMs to the backend pools of the newl
 
 ### Create a NAT gateway for outbound access
 
-Follow the [instructions](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway) to create a NAT gateway so you can:
+The script creates an outbound rule that enables outbound connectivity. Azure Virtual Network NAT is the recommended service for outbound connectivity. For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). 
 
-* Define outbound NAT during creation
-
-* Scale and tune the behavior of existing outbound NAT
+To create a NAT gateway resource and associate it with a subnet of your virtual network see, [Create NAT gateway](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway).
 
 ### Create NSG rules for subnets and virtual machines that require internet connection restrictions
 
