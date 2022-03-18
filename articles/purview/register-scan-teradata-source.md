@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 03/14/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -39,11 +39,17 @@ When scanning Teradata source, Azure Purview supports:
 
 When setting up scan, you can choose to scan an entire Teradata server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
 
+### Required permissions for scan
+
+Azure Purview supports basic authentication (username and password) for scanning Teradata. The Teradata user must have read access to system tables in order to access advanced metadata.
+
+To retrieve data types of view columns, Azure Purview issues a prepare statement for `select * from <view>` for each of the view queries and parse the metadata that contains the data type details for better performance. It requires the SELECT data permission on views. If the permission is missing, view column data types will be skipped.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -61,10 +67,6 @@ When setting up scan, you can choose to scan an entire Teradata server, or scope
 ## Register
 
 This section describes how to register Teradata in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
-
-### Authentication for registration
-
-The only supported authentication for a Teradata source is **Basic authentication**. Make sure to have Read access to the Teradata source being scanned.
 
 ### Steps to register
 
@@ -126,6 +128,13 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
+    1. **Stored procedure details**: Controls the amount of details imported from stored procedures:
+
+        - Signature: The name and parameters of stored procedures.
+        - Code, signature: The name, parameters and code of stored procedures.
+        - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
+        - None: Stored procedure details are not included.
+        
     1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
 
         > [!Note]

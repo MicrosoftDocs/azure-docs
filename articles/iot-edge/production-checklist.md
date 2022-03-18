@@ -1,9 +1,9 @@
 ---
 title: Prepare to deploy your solution in production - Azure IoT Edge
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge

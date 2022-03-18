@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 03/05/2022
 ---
 
 # Expression functions in mapping data flow
@@ -43,7 +43,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [cbrt](data-flow-expressions-usage.md#cbrt) | Calculates the cube root of a number.  |
 | [ceil](data-flow-expressions-usage.md#ceil) | Returns the smallest integer not smaller than the number.  |
 | [coalesce](data-flow-expressions-usage.md#coalesce) | Returns the first not null value from a set of inputs. All inputs should be of the same type.  |
-| [columnNames](data-flow-expressions-usage.md#columnNames) | Gets the names of all output columns for a stream. You can pass an optional stream name as the second argument.  |
+| [columnNames](data-flow-expressions-usage.md#columnNames) | Gets the names of all output columns for a stream. You can pass an optional stream name as the first argument and optional second argument to only return schema drift columns.  |
 | [columns](data-flow-expressions-usage.md#columns) | Gets the values of all output columns for a stream. You can pass an optional stream name as the second argument.   |
 | [compare](data-flow-expressions-usage.md#compare) | Compares two values of the same type. Returns a negative integer if value1 < value2, 0 if value1 == value2, positive value if value1 > value2.  |
 | [concat](data-flow-expressions-usage.md#concat) | Concatenates a variable number of strings together. Same as the + operator with strings.  |

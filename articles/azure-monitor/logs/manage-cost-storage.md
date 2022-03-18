@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 03/05/2022
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
 ---
@@ -659,13 +659,13 @@ Here is the pricing tier recommendation query:
 
 ```kusto
 // Set these parameters before running query.
-// For Pay-As-You-Go (per-GB) pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
+// For Pay-As-You-Go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
 // You can see your per-node costs in your Azure usage and charge data. For more information, see https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage.  
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
 let workspaceHasSecurityCenter = false;  // Specify if the workspace has Defender for Cloud (formerly known as Azure Security Center)
-let PerNodePrice = 15.; // Enter your monthly price per monitored nodes
-let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
-let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
+let PerNodePrice = 15.; // Montly price per monitored node
+let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
+let PerGBPrice = 2.30; // Enter the Pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)
 let CommitmentTier100Price = 196.; // Enter your price for the 100 GB/day commitment tier
 let CommitmentTier200Price = 368.; // Enter your price for the 200 GB/day commitment tier
 let CommitmentTier300Price = 540.; // Enter your price for the 300 GB/day commitment tier

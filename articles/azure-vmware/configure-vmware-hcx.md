@@ -148,7 +148,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 ## Create a service mesh
 
 >[!IMPORTANT]
->Make sure port UDP 500 is open between your on-premises VMware HCX Connector 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses.  (4500 UDP was previously required in legacy versions of HCX.  See https://ports.vmware.com for latest information)
+>Make sure port UDP 4500 is open between your on-premises VMware HCX Connector 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses.  (500 UDP was previously required in legacy versions of HCX.  See https://ports.vmware.com for latest information)
 
 
 1. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh**.

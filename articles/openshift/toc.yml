@@ -1,4 +1,4 @@
-- name: Azure Red Hat OpenShift
+- name: Azure Red Hat OpenShift 
   href: index.yml
 - name: Overview
   expanded: true
@@ -117,10 +117,11 @@
   items:
     - name: Networking
       href: concepts-networking.md
+      items:
+      - name: Overview of egress lockdown
+        href: concepts-egress-lockdown.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
-    - name: Overview of egress lockdown
-      href: concepts-egress-lockdown.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
@@ -133,7 +134,7 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
-    - name: Azure Red Hat Openshift service definition
+    - name: Azure Red Hat OpenShift service definition
       href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
