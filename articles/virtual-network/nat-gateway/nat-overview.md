@@ -76,7 +76,7 @@ Virtual Network NAT is scaled out from creation. There isn't a ramp up or scale-
 
 * A NAT gateway can’t be deployed in a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 
-* The private side of a NAT gateway, virtual machine instances or other compute resources, sends TCP reset packets or attempts to communicate on a TCP connection that doesn't exist. An example is connections that have reached idle timeout. The next packet received will return a TCP reset to the private IP address to signal and force connection closure. The public side of a NAT gateway doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.
+* Virtual machine instances or other compute resources, send TCP reset packets or attempt to communicate on a TCP connection that doesn't exist. An example is connections that have reached idle timeout. The next packet received will return a TCP reset to the private IP address to signal and force connection closure. The public side of a NAT gateway doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.
 
 * A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
