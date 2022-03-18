@@ -65,7 +65,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 > If request matches an operation with an OPTIONS method defined in the API, pre-flight request processing logic associated with CORS policies will not be executed. Therefore, such operations can be used to implement custom pre-flight processing logic.
 
 > [!IMPORTANT]
-> If you configure the CORS policy at the product scope, and your API uses subscription key authentication, the policy will only work when a subscription key is provided as a query parameter in API requests. 
+> If you configure the CORS policy at the product scope, and your API uses subscription key authentication, the policy will only work when requests include a subscription key as a query parameter. 
 
 CORS allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (i.e. XMLHttpRequests calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
 
