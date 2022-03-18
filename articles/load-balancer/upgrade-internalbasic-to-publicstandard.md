@@ -35,7 +35,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 ### Constraints
 
-* The script supports an internal load balancer upgrade where outbound connectivity is required. For more information and requirements, see [Upgrade a load balancer from basic internal to standard internal](upgrade-basicInternal-standard.md).
+* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal load balancer - Outbound connections not required](upgrade-basicInternal-standard.md).
 
 * The standard load balancer has a new public address. It’s impossible to move the IP addresses associated with existing basic internal load balancer to a standard public load balancer because of different SKUs.
 
