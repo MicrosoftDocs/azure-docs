@@ -18,7 +18,7 @@ a data factory or Synapse pipeline can invoke.  Many enterprises are also increa
 
 ## Prerequisites
 
-Before you can send notifications to Teams from your pipelines you must create an [Incoming Webhook](/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using) for your Teams channel. If you need to create a new Teams channel for this purpose, refer to the [Teams documentation](https://support.microsoft.com/office/create-a-channel-in-teams-fda0b75e-5b90-4fb8-8857-7e102b014525).  
+Before you can send notifications to Teams from your pipelines, you must create an [Incoming Webhook](/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using) for your Teams channel. If you need to create a new Teams channel for this purpose, refer to the [Teams documentation](https://support.microsoft.com/office/create-a-channel-in-teams-fda0b75e-5b90-4fb8-8857-7e102b014525).  
 
 1.  Open Microsoft Teams and go to the Apps tab.  Search for "Incoming Webhook" and select the Incoming Webhook connector.
     
@@ -40,7 +40,7 @@ Before you can send notifications to Teams from your pipelines you must create a
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-icon.png" alt-text="Highlights the name property, optional image upload, and &quot;Create&quot; button in the Incoming Webhook options page.":::  
 
-1.  Copy the Webhook URL that is generated on creation and save it for later use in pipeline. After that, click the "Done" button to complete the set up.
+1.  Copy the Webhook URL that is generated on creation and save it for later use in pipeline. After that, click the "Done" button to complete the setup.
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-copy-webhook-url.png" alt-text="Shows the new webhook URL on the Incoming Webhook options page after creation.":::
 
@@ -63,7 +63,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline.png" alt-text="Shows the &quot;Properties&quot; panel.":::
 
-    :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel.png" alt-text="Shows the &quot;Properties&quot; pannel hidden.":::
+    :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel.png" alt-text="Shows the &quot;Properties&quot; panel hidden.":::
 
 1.  In the "Configurations" pane, select **Parameters**, and then select the **+ New** button define following parameters for your pipeline.
 
@@ -98,7 +98,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
 
-1.  Select the **Set Variable** activity on the canvas if it is not already selected, and its "General" tab, to edit its details.
+1.  Select the **Set Variable** activity on the canvas if it isn't already selected, and its "General" tab, to edit its details.
 
 1.  In the "General" tab, specify **Set JSON schema** for **Name** of the **Set Variable** activity.
 
@@ -185,7 +185,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
 
-1.  Select the new **Web** activity on the canvas if it is not already selected, and its "General" tab, to edit its details.
+1.  Select the new **Web** activity on the canvas if it isn't already selected, and its "General" tab, to edit its details.
 
 1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
 
@@ -201,7 +201,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
 
-1. All set and now you are ready to validate, debug, and then publish your **NotifiyTeamsChannelPipeline** pipeline. 
+1. All set and now you're ready to validate, debug, and then publish your **NotifiyTeamsChannelPipeline** pipeline. 
     -   To validate the pipeline, select **Validate** from the tool bar. 
     -   To debug the pipeline, select **Debug** on the toolbar. You can see the status of the pipeline run in the "Output" tab at the bottom of the window.
     -   Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities you created to Data Factory. Wait until you see the **Successfully** published message.
@@ -221,7 +221,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/name-pipeline-synapse.png" alt-text="Shows the &quot;Properties&quot; panel.":::
 
-    :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel-synapse.png" alt-text="Shows the &quot;Properties&quot; pannel hidden.":::
+    :::image type="content" source="media/how-to-send-notifications-to-teams/hide-properties-panel-synapse.png" alt-text="Shows the &quot;Properties&quot; panel hidden.":::
 
 1.  In the "Configurations" pane, select **Parameters**, and then select the **+ New** button define following parameters for your pipeline.
 
@@ -256,7 +256,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Search for "Set variable" in the pipeline "Activities" pane, and drag a **Set Variable** activity to the pipeline canvas.
 
-1.  Select the "Set variable" activity on the canvas if it is not already selected, and its **General** tab, to edit its details.
+1.  Select the "Set variable" activity on the canvas if it isn't already selected, and its **General** tab, to edit its details.
 
 1.  In the "General" tab, specify **Set JSON schema** for **Name** of the "Set variable" activity.
 
@@ -343,7 +343,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
 1.  Create a dependency condition for the **Web** activity so that it only runs if the **Set Variable** activity succeeds. To create this dependency, click the green handle on the right side of the **Set Variable** activity, drag it, and connect it to the **Web** activity.
 
-1.  Select the new **Web** activity on the canvas if it is not already selected, and its "General" tab, to edit its details.
+1.  Select the new **Web** activity on the canvas if it isn't already selected, and its "General" tab, to edit its details.
 
 1.  In the "General" pane, specify **Invoke Teams Webhook Url** for **Name** of the **Web** activity.
 
@@ -359,7 +359,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/web-activity-settings-pane-synapse.png" alt-text="Shows the &quot;Web&quot; activity settings pane.":::
 
-1. All set and now you are ready to validate, debug, and then publish your **NotifiyTeamsChannelPipeline** pipeline. 
+1. All set and now you're ready to validate, debug, and then publish your **NotifiyTeamsChannelPipeline** pipeline. 
     -   To validate the pipeline, select **Validate** from the tool bar. 
     -   To debug the pipeline, select **Debug** on the toolbar. You can see the status of the pipeline run in the "Output" tab at the bottom of the window.
     -   Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities you created to Data Factory. Wait until you see the **Successfully** published message.
@@ -367,8 +367,8 @@ Before you can send notifications to Teams from your pipelines you must create a
     :::image type="content" source="media/how-to-send-notifications-to-teams/validate-debug-publish-synapse.png" alt-text="Shows the &quot;Validate, Debug, Publish&quot; buttons to validate, debug, and then publish your pipeline.":::
 
 ---
-## Sample Usage
-In this sample usage scenario, we will create a master pipeline with three **Execute Pipeline** activities. The first **Execute Pipeline** activity will invoke our ETL pipeline and the remaining two **Execute Pipeline** activities will invoke the "NotifiyTeamsChannelPipeline" pipeline to send relevant success or failure notifications to the Teams channel depending on the execution state of our ETL pipeline.
+## Sample usage
+In this sample usage scenario, we'll create a master pipeline with three **Execute Pipeline** activities. The first **Execute Pipeline** activity will invoke our ETL pipeline and the remaining two **Execute Pipeline** activities will invoke the "NotifiyTeamsChannelPipeline" pipeline to send relevant success or failure notifications to the Teams channel depending on the execution state of our ETL pipeline.
 
 1.  Select **Author** tab from the left pane in **Data Factory** or **Integrate** tab from the left pane in **Synapse Studio**. Next, select the + (plus) button, and then select **Pipeline** to create a new pipeline.
 
@@ -376,17 +376,17 @@ In this sample usage scenario, we will create a master pipeline with three **Exe
 
 1.  Search for pipeline in the pipeline "Activities" pane, and drag three **Execute Pipeline** activities to the pipeline canvas.
 
-1.  Select first **Execute Pipeline** activity on the canvas if it is not already selected, and its "General" pane, to edit its details. 
-    - For **Name** property of the **Execute Pipeline** activity, we recommend to use the name of your invoked ETL pipeline for which you want to send notifications. For example, we used **LoadDataPipeline** for the **Name** of our **Execute Pipeline** activity because it is the name of our invoked pipeline. 
+1.  Select first **Execute Pipeline** activity on the canvas if it isn't already selected, and its "General" pane, to edit its details. 
+    - For **Name** property of the **Execute Pipeline** activity, we recommend using the name of your invoked ETL pipeline for which you want to send notifications. For example, we used **LoadDataPipeline** for the **Name** of our **Execute Pipeline** activity because it's the name of our invoked pipeline. 
     - In the "Settings" pane, select an existing pipeline or create a new one using the **+ New** button for the **Invoked pipeline** property. For example, in our case, we selected **LoadDataPipeline** pipeline for the "Invoked pipeline" property. Select other options and configure any parameters for the pipeline as required to complete your configuration.
 
      :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-1-general.png" alt-text="Shows the &quot;Execute pipeline&quot; activity general pane for &quot;LoadDataPipeline&quot; pipeline.":::
      
      :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-1-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity setting pane for &quot;LoadDataPipeline&quot; pipeline.":::
 
-1.  Select second **Execute Pipeline** activity on the canvas, and its "General" pane, to edit its details. 
+1.  Select second **Execute Pipeline** activity on the canvas, and it's "General" pane, to edit its details. 
     -   Specify **OnSuccess Notification** for **Name** of the **Execute Pipeline** activity. 
-    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline, which we created earlier, for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I customised the parameters as follows:
+    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline, which we created earlier, for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I have customized the parameters as follows:
 
         | Name              | Value                                                                                                             | 
         | :---------------- | :---------------------------------------------------------------------------------------------------------------- |
@@ -403,13 +403,13 @@ In this sample usage scenario, we will create a master pipeline with three **Exe
 
     -   Create a dependency condition for the second **Execute Pipeline** activity so that it only runs if the first **Execute Pipeline** activity succeeds. To create this dependency, click the green handle on the right side of the first **Execute Pipeline** activity, drag it, and connect it to the second **Execute Pipeline** activity.
 
-     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-general.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-general.png" alt-text="Shows the second &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
-     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; setting pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-2-settings.png" alt-text="Shows the second &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; setting pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
-1.  Select third **Execute Pipeline** activity on the canvas, and its "General" pane, to edit its details. 
+1.  Select third **Execute Pipeline** activity on the canvas, and it's "General" pane, to edit its details. 
     -   Specify **OnFailure Notification** for **Name** of the **Execute Pipeline** activity. 
-    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I customised the parameters this time as follows:
+    -   In the "Settings" pane, select **NotifiyTeamsChannelPipeline** pipeline for the **Invoked pipeline** property. Customize the parameters as required based on activity type. For example, I have customized the parameters this time as follows:
 
         | Name              | Value                                                                                                             | 
         | :---------------- | :---------------------------------------------------------------------------------------------------------------- |
@@ -428,9 +428,9 @@ In this sample usage scenario, we will create a master pipeline with three **Exe
 
     -   Validate, debug, and then publish your **MasterPipeline** pipeline. 
 
-     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-3-general.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-3-general.png" alt-text="Shows the third &quot;Execute pipeline&quot; activity &quot;OnFailure Notification&quot; general pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
-     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-3-settings.png" alt-text="Shows the &quot;Execute pipeline&quot; activity &quot;OnSuccess Notification&quot; setting pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
+     :::image type="content" source="media/how-to-send-notifications-to-teams/execute-pipeline-activity-3-settings.png" alt-text="Shows the third &quot;Execute pipeline&quot; activity &quot;OnFailure Notification&quot; settings pane for &quot;NotifiyTeamsChannelPipeline&quot; pipeline.":::
 
 1.  Run pipeline to receive notifications in Teams. For example, below are sample notifications, when my pipeline ran successfully and when it failed.
 
@@ -449,7 +449,7 @@ make your messages dynamic. For example:  
 
 -   ``@activity("DataFlow").error.Message``
 
-The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. Refer to the
+The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. For more information, see the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
 
 We also encourage you to review the Microsoft Teams supported [notification payload schema](https://adaptivecards.io/explorer/AdaptiveCard.html) and
