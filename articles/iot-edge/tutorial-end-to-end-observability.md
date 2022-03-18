@@ -91,7 +91,7 @@ It's a common practice to measure service level indicators, like the ones we've 
 
 Let's clarify what components the La Niña service consists of.
 
-![ete sample la nina metrics](media/tutorial-end-to-end-observability/ete-sample-la-nina-metrics.png)
+![ete sample la nina metrics](media/tutorial-end-to-end-observability/e2e-sample-la-nina-metrics.png)
 
 There is an IoT Edge device with `Temperature Sensor` custom module (C#) that generates some temperature value and sends it upstream with a telemetry message. This message is routed to another custom module `Filter` (C#). This module checks the received temperature against a threshold window (0-100 degrees). If the temperature is within the window, the FilterModule sends the telemetry message to the cloud.
 
