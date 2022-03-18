@@ -132,14 +132,14 @@ Next, install the Azure Container Apps extension for the Azure CLI.
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.4-py2.py3-none-any.whl
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.2-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.4-py2.py3-none-any.whl 
 ```
 
 ---
@@ -216,11 +216,11 @@ Next, retrieve the Log Analytics Client ID and client secret.
 
 Make sure to run each query separately to give enough time for the request to complete.
 
-```bash
+```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
 ```
 
-```bash
+```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
 ```
 
@@ -236,7 +236,7 @@ $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -Resource
 $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).PrimarySharedKey
 --->
 
-```powershell
+```azurecli
 $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
 ```
 
@@ -308,7 +308,7 @@ Get the storage account key with the following command:
 
 # [Bash](#tab/bash)
 
-```bash
+```azurecli
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
 ```
 

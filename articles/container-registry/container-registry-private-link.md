@@ -376,7 +376,7 @@ xxxx.westeurope.cloudapp.azure.com. 10	IN A 20.45.122.144
 
 Also verify that you can perform registry operations from the virtual machine in the network. Make an SSH connection to your virtual machine, and run [az acr login][az-acr-login] to login to your registry. Depending on your VM configuration, you might need to prefix the following commands with `sudo`.
 
-```bash
+```azurecli
 az acr login --name $REGISTRY_NAME
 ```
 

@@ -72,8 +72,6 @@ To learn more about your data volumes, selecting **Metrics** for your Applicatio
 * **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
 
 
-
-
 ## Sampling
 [sampling](./sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
 

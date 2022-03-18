@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: kendralittle, mathoma
-ms.date: 07/14/2021
+ms.date: 03/09/2022
 ---
 # Azure SQL Database and Azure Synapse IP firewall rules
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -95,7 +95,7 @@ When a computer tries to connect to your server from the internet, the firewall 
 
 ### Connections from inside Azure
 
-To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. To enable Azure connections, there must be a firewall rule with starting and ending IP addresses set to 0.0.0.0.
+To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. To enable Azure connections, there must be a firewall rule with starting and ending IP addresses set to 0.0.0.0. This recommended rule is only applicable to Azure SQL Database.
 
 When an application from Azure tries to connect to the server, the firewall checks that Azure connections are allowed by verifying this firewall rule exists. This can be turned on directly from the Azure portal blade by switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. Switching the setting to ON creates an inbound firewall rule for IP 0.0.0.0 - 0.0.0.0 named **AllowAllWindowsAzureIps**. The rule can be viewed in your master database [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) view. Use PowerShell or the Azure CLI to create a firewall rule with start and end IP addresses set to 0.0.0.0 if you’re not using the portal. 
 

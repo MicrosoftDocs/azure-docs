@@ -1,9 +1,9 @@
 ---
 title: Manage device certificates - Azure IoT Edge | Microsoft Docs
 description: Create test certificates, install, and manage them on an Azure IoT Edge device to prepare for production deployment. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge

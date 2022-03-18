@@ -31,7 +31,7 @@ For more information about best practices for Key Vault, see [Best practices to 
 
 ## Configuration and storing 
 
-Store the dynamic parts of credentials, which are generated during rotation, as values. Examples include client application secrets, passwords, and access keys. Any related static attributes and identifiers, like usernames, application IDs, and service URLs, should be stored as secret tags and copied to the new version of a secret during rotation.
+Store credential information required to access database or service in secret value. In the case of compound credentials like username/password, it can be stored as a connection string or JSON object. Other information required for management should be stored in tags, i.e., rotation configuration.
 
 For more information about secrets, see [About Azure Key Vault secrets](about-secrets.md).
 

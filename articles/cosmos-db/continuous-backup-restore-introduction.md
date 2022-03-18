@@ -6,13 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.author: govindk
-ms.reviewer: sngun
-ms.custom: references_regions
-
+ms.reviewer: wiassaf
+ms.custom: references_regions, cosmos-db-video
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+
+📺 <B><a href="https://aka.ms/cosmos-db-video-continuous-backup-restore-intro" target="_blank">Video: Learn more about continuous backup and point-in-time restore</a></b>
 
 Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
 
@@ -54,7 +55,7 @@ You can add these configurations to the restored account after the restore is co
 
 ## Restorable timestamp for live accounts
 
-To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to its latest version.
 
 ## Restore scenarios
 
@@ -104,7 +105,7 @@ For example, if you have 1-TB of data in two regions then:
 See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk.md#how-do-customer-managed-keys-affect-continuous-backups) to learn:
 
 - How to configure your Azure Cosmos DB account when using customer-managed keys in conjunction with continuous backups.
-- How do customer-managed keys affect restores.
+- How do customer-managed keys affect restores?
 
 ## Current limitations
 
@@ -135,6 +136,8 @@ Currently the point in time restore functionality has the following limitations:
 * The restore process restores all the properties of a container including its TTL configuration. As a result, it is possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
 * Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account or migrate an account from periodic to continuous mode.
+
+* Continuous mode restore may not restore throughput setting valid as of restore point. 
 
 ## Next steps
 
