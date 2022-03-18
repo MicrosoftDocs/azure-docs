@@ -29,6 +29,6 @@ default, and there is no need for modifications to your code or applications in 
 
 ## Next steps
 
-- [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15)
+- [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
 - [Azure Data Encryption-at-Rest](/azure/security/fundamentals/encryption-atrest)
 - [What is Azure Key Vault?](/azure/key-vault/general/overview)
