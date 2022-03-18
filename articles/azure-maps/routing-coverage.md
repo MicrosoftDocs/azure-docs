@@ -61,7 +61,7 @@ The following tables provide coverage information for Azure Maps routing.
 
 ### Americas
 
-| Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
+| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Anguilla                               |                ✓                  |                   |             |
 | Antigua & Barbuda                      |                ✓                  |                   |             |
@@ -121,7 +121,7 @@ The following tables provide coverage information for Azure Maps routing.
 
 ### Asia Pacific
 
-| Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
+| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | American Samoa                         |                ✓                  |                   |             |
 | Australia                              |                ✓                  |         ✓         |     ✓      |
@@ -175,7 +175,7 @@ The following tables provide coverage information for Azure Maps routing.
 
 ### Europe
 
-| Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
+| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Albania                                |                ✓                  |                   |     ✓       |
 | Andorra                                |                ✓                  |         ✓         |     ✓      |
@@ -241,7 +241,7 @@ The following tables provide coverage information for Azure Maps routing.
 
 ### Middle East & Africa
 
-| Country/Region                         | Calculate Route & Reachable Range | Real-time Traffic | Truck Route |
+| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Afghanistan                            |                ✓                  |                   |             |
 | Algeria                                |                ✓                  |                   |             |
