@@ -111,7 +111,7 @@ ARM
 
 By default, the Dapr component will make itself available to all container apps in your environment. To maintain application speed and efficiency, we recommend adding application scopes to the Dapr component. Enable Dapr on your container apps by scoping to the `app-id` of the application you'd like the Dapr component to access. 
 
-#### Dapr configurations
+#### Dapr configuration
 
 Dapr configurations are settings and policies that live at the container app level. Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings and components. You'll trigger an automatic restart of all container app revisions will take place to align with changes if:
 - Multi-revision mode is enabled for your container apps.
