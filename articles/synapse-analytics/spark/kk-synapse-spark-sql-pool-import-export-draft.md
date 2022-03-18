@@ -13,20 +13,23 @@ ms.reviewer:
 
 ## Introduction
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark enables efficient large volume data transfers between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. The connector is implemented in `Scala`. If the notebook's language preference is other than `Scala`, one can use the connector using the `%%spark` magic command.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark offers an efficient way to transfer large volume data sets between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), in Azure Synapse Analytics. The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Connector can be used with other notebook language preferences.
 
-The Connector offers following capabilities:
+At a high-level, the connector provides following capabilities:
 
-* Write-to and Read-from Synapse Dedicated SQL Pool tables - Internal and External table types.
-* Supports all four Spark DataFrame write mode options - Append, ErrorIfExists, Ignore and Overwrite.
-* Support for Parquet and Delimited Text (example, CSV) file formats for writing to an external table type.
-* Improved write (throughput) performance moving data from the source to target Synapse Dedicated SQL Pool tables.
-* Access post write performance metrics by passing a call-back handle (optional argument of type Scala function) that can accept a key->value map.
-* Read improvements that enable querying data from views in Azure Synapse Dedicated SQL Pool.
+* Write to Azure Synapse Dedicated SQL Pool:
+  * Ingest large volume data to Internal and External table types.
+  * Support for different Spark DataFrame write mode options - `Append`, `ErrorIfExists`, `Ignore` and `Overwrite`.
+  * Write to External Table type supports Parquet and Delimited Text file format (example - CSV).
+  * Write path implementation leverages [COPY statement](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md) instead of CETAS/CTAS approach.
+  * Enhancements to optimize end-to-end write throughput performance.
+  * Introduces an optional call-back handle (a Scala function argument) that clients can use to receive post-write metrics.
+    * For example - time taken to stage data, time taken to write data to target tables, number of records staged, number of records committed to target table, and failure cause (in case of a failure).
+* Read from Azure Synapse Dedicated SQL Pool:
+  * Export large data sets from Tables (Internal and External) and Views.
+  * Comprehensive push-down predicate support, where filters on DataFrame get mapped to corresponding SQL push-down predicates.
 
 ## Orchestration Approach
-
-This section illustrates the orchestration workflow by the Connector to move data between Azure Synapse Spark Runtime and the Azure Synapse Dedicated SQL Pool.
 
 ### Write
 
@@ -36,13 +39,100 @@ This section illustrates the orchestration workflow by the Connector to move dat
 
 ![Read-Orchestration](./media/synapse-spark-sql-pool-import-export/SynapseDedicatedSQLPoolSparkConnector-ReadOrchestration.png)
 
-## Using the Connector
+## Pre-requisites
 
-### Code Templates
+This section presents necessary pre-requisites that must be setup for a successful application of the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
 
-This section introduces to the code template with the Connector function signature and contextual examples to represent the connector's usage to either write-to or read-from Synapse Dedicated SQL Pool.
+### Azure Resources
 
-#### Write Scenario
+Review and setup following dependent Azure Resources:
+
+* [Azure Data Lake Storage](../../storage/blobs/data-lake-storage-introduction.md) - used as the primary storage account for the Azure Synapse Workspace.
+* [Azure Synapse Workspace](../../synapse-analytics/get-started-create-workspace.md) - create notebooks, build and deploy DataFrame based ingress-egress workflows.
+* [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - used to host and manage various data assets.
+* [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
+
+#### Database Setup
+
+Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
+
+* Create a database user that maps to the Azure Active Directory User Identity (also used to login to Azure Synapse Workspace).
+  
+    ```sql
+    CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
+    ```
+  
+  * Note:
+    * This is not a required step to perform a write.
+    * However, for read in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role the user must exist in the database.
+
+* Create schema in which tables will be defined, such that writes and reads can successfully executed by the Connector.
+
+    ```sql
+    CREATE SCHEMA [<schema_name>];
+    ```
+
+### Authentication
+
+To avoid the complexity of passing discrete credentials and configure authentication to access each resource type, the recommended approach is to setup and leverage Azure Active Directory based authentication. All the resource types support AAD-based authentication. It requires to define a User Identity in the Azure Active Directory associated with the subscription, where the resources will be deployed and configured.
+
+### Authorization
+
+This section focuses on required authorization grants that must be set for the User on respective Azure Resource Types - Azure Storage and Azure Synapse Dedicated SQL Pool.
+
+#### [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
+
+There are two ways to grant access permissions to Azure Data Lake Storage Gen2 - Storage Account:
+
+* Role based Access Control role - [Storage Blob Data Contributor role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  * Assigning the `Storage Blob Data Contributor Role` grants the User permissions to read, write and delete from the Azure Storage Blob Containers.
+  * RBAC offers a coarse control approach at the container level.
+* [Access Control Lists (ACL)](../../storage/blobs/data-lake-storage-access-control.md)
+  * ACL approach allows for fine-grained controls over specific paths and/or files under a given folder.
+  * ACL checks are not enforced if the User is already granted permissions using RBAC approach.
+  * There are two broad types of ACL permissions:
+    * Access Permissions (applied at a specific level or object).
+    * Default Permissions (automatically applied for all child objects at the time of their creation).
+  * Type of permissions include:
+    * `Execute` enables ability to traverse or navigate the folder hierarchies.
+    * `Read` enables ability to read.
+    * `Write` enables ability to write.
+  * It is important to configure ACLs such that the Connector's writes and reads can be successfully performed.
+
+#### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+
+* Write Scenario
+  * Connector uses the COPY command to write data from staging to the internal table's managed location.
+    * Setup required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql#set-up-the-required-permissions).
+    * **Note** If the workspace User is set as an `Active Directory Admin` on the target database, this step can be skipped.
+    * Following is a quick access snippet of the same:
+
+      ```sql
+      --Make sure your user has the permissions to CREATE tables in the [dbo] schema
+      GRANT CREATE TABLE TO [<your_domain_user>@<your_domain_name>.com];
+      GRANT ALTER ON SCHEMA::<target_database_schema_name> TO [<your_domain_user>@<your_domain_name>.com];
+
+      --Make sure your user has ADMINISTER DATABASE BULK OPERATIONS permissions
+      GRANT ADMINISTER DATABASE BULK OPERATIONS TO [<your_domain_user>@<your_domain_name>.com];
+
+      --Make sure your user has INSERT permissions on the target table
+      GRANT INSERT ON <your_table> TO [<your_domain_user>@<your_domain_name>.com]
+      ```
+
+* Read Scenario
+  * Data set that matches the User's read requirements i.e., table, columns and predicates is first fetched to an external staging location using external tables.
+  * In order to successfully create temporary external tables over data in the staging folders, grant the `db_exporter` the system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+  * Following is a reference sample:
+
+    ```sql
+    EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
+    ```
+
+## Code Templates
+
+This section provide reference code templates that describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
+
+### Write Scenario
 
 ```scala
 //Add required imports
@@ -107,110 +197,46 @@ Following are few useful metric-constants:
 
 Following is a sample JSON string with post-write metrics:
 
-```json
-{
-SparkApplicationId -> application_1647522710276_0002,
-SQLStatementExecutionDurationInMilliseconds -> 10113,
-WriteRequestReceivedAtEPOCH -> 1647523790633,
-WriteRequestProcessedAtEPOCH -> 1647523808379,
-StagingDataFileSystemCheckDurationInMilliseconds -> 60,
-command -> "COPY INTO [helloworld_ingress].[internaltablewithhundredrows] ...",
-NumberOfRecordsStagedForSQLCommit -> 100,
-DataStagingSparkJobEndedAtEPOCH -> 1647523797245,
-SchemaInferenceAssertionCompletedAtEPOCH -> 1647523790920,
-DataStagingSparkJobDurationInMilliseconds -> 5252,
-rows_processed -> 100,
-SaveModeApplied -> TRUNCATE_COPY,
-DurationInMillisecondsToValidateFileFormat -> 75,
-status -> Completed,
-SparkApplicationName -> ForDWConnectorPublicDocs_docspoolspark31_1647522838,
-ThreePartFullyQualifiedTargetTableName -> workspacededicatedsqlpool.helloworld_ingress.internaltablewithhundredrows,
-request_id -> QID13073,
-StagingFolderConfigurationCheckDurationInMilliseconds -> 2,
-JDBCConfigurationsSetupAtEPOCH -> 193,
-StagingFolderConfigurationCheckCompletedAtEPOCH -> 1647523791012,
-FileFormatValidationsCompletedAtEPOCHTime -> 1647523790995,
-SchemaInferenceCheckDurationInMilliseconds -> 91,
-SaveModeRequested -> Overwrite,
-DataStagingSparkJobStartedAtEPOCH -> 1647523791993,
-DurationInMillisecondsTakenToGenerateWriteSQLStatements -> 4}
-```
-
+   ```doc
+   {
+    SparkApplicationId -> application_1647522710276_0002,
+    SQLStatementExecutionDurationInMilliseconds -> 10113,
+    WriteRequestReceivedAtEPOCH -> 1647523790633,
+    WriteRequestProcessedAtEPOCH -> 1647523808379,
+    StagingDataFileSystemCheckDurationInMilliseconds -> 60,
+    command -> "COPY INTO [helloworld_ingress].[internaltablewithhundredrows] ...",
+    NumberOfRecordsStagedForSQLCommit -> 100,
+    DataStagingSparkJobEndedAtEPOCH -> 1647523797245,
+    SchemaInferenceAssertionCompletedAtEPOCH -> 1647523790920,
+    DataStagingSparkJobDurationInMilliseconds -> 5252,
+    rows_processed -> 100,
+    SaveModeApplied -> TRUNCATE_COPY,
+    DurationInMillisecondsToValidateFileFormat -> 75,
+    status -> Completed,
+    SparkApplicationName -> ForDWConnectorPublicDocs_docspoolspark31_1647522838,
+    ThreePartFullyQualifiedTargetTableName -> workspacededicatedsqlpool.helloworld_ingress.internaltablewithhundredrows,
+    request_id -> QID13073,
+    StagingFolderConfigurationCheckDurationInMilliseconds -> 2,
+    JDBCConfigurationsSetupAtEPOCH -> 193,
+    StagingFolderConfigurationCheckCompletedAtEPOCH -> 1647523791012,
+    FileFormatValidationsCompletedAtEPOCHTime -> 1647523790995,
+    SchemaInferenceCheckDurationInMilliseconds -> 91,
+    SaveModeRequested -> Overwrite,
+    DataStagingSparkJobStartedAtEPOCH -> 1647523791993,
+    DurationInMillisecondsTakenToGenerateWriteSQLStatements -> 4
+   }
+   ```
 
 #### Read Scenario
 
 ```scala
+
 ```
 
-### Setup pre-requisite Azure Resources
-
-Before progressing further, review and setup following dependent Azure Resources:
-
-* [Azure Data Lake Storage](/storage/blobs/data-lake-storage-introduction) - used as the primary storage account for the Azure Synapse Workspace.
-* [Azure Synapse Workspace](../../synapse-analytics/get-started-create-workspace.md) - create notebooks, build and deploy DataFrame based ingress-egress workflows.
-* [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - used to host and manage various data assets.
-* [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Azure Synapse Analytics runtime for Spark applications. For example, code submitted from workspace notebook is executed  code from the notebook).
-
-### Authentication
-
-At each stage of its process, the Connector authenticates with each of the dependent Azure Resource types (mentioned in the above illustrations). Let us now review how authentication requirements manifest for each supported scenario (Write or Read) and at each phase of respective scenarios:
-
-* During a Write scenario:
-  * Read (via user initiated DataFrame) from the Storage Account where data is sourced and will be written to target tables in Synapse Dedicated SQL Pool.
-  * Stage data to temporary staging folders (user provided path or path set using workspace defaults).
-  * Connect to Synapse Dedicated SQL Pool database.
-  * Moving data into Synapse Dedicated SQL Pool table locations (for internal i.e., managed tables).
-    * For external tables, data is written directly to the location set on the user provided Data Source configuration option.
-* During a Read scenario:
-
-Following is a description of how the authentication is handled at each stage of the request process by the Connector:
-
-* During a write scenario:
-  * Fetch data from source (i.e., via user initiated DataFrame)
-    * If the storage account associated with the source is same as that set as primary storage for the Synapse Workspace, configuration values from Serverless Spark Pool will be applied.
-    * If the storage account associated with the source is different, then initialize the source DataFrame by setting relevant  If the source is ADLS gen2, by default the credential information from the Serverless Spark Pool runtime is applied. In case the storage account is different  
-Read from the Data Source (ADLS gen2) - leverage fs.* keys from the Serverless Spark Pool runtime configurations. This means, the User Identity logged in to Synapse workspace has access to the source storage. If your source is other than ADLS gen2, the client code must have relevant authentication detail configured over the DataFrame that reads from the source.
-  * Write to staging data folders (ADLS gen2) -
-
-Each dependent resource type as shown in the above illustrations, supports login with user identities defined in Azure Active Directory (i.e., AAD based authentication). As a first step, setup a User Identity in the Azure Active Directory (AAD) associated with the Azure Subscription where the resources will be created. For example, Azure Storage, Azure Synapse Workspace and Azure Dedicated SQL Pool (formerly SQL DW). Note, the connector is leveraged within an active login session with Azure Synapse Workspace. The Connector will leverage session tokens to fetch relevant access tokens to connect and interact with respective resources.
-
-Alternative to AAD-based authentication is to use a combination of SQL basic authentication (i.e., username and password local to the Synapse Dedicated SQL Pool) with Storage Account Access Key. In this approach, the Connector would authenticate with Synapse Dedicated SQL Pool using basic auth, while
-
-### Authorization
-
-In this section we will review Authentication and Authorization requirements for each Azure Resource indicated in the above illustrations.
-
-Authentication at a high-level:
-
-* As a first step, define a User Identity in the Azure Active Directory (AAD) associated with the Azure subscription, where other resources will also be defined.
-* Each resource mentioned in the afore-mentioned illustrations support Azure Active Directory to authenticate.
-* Besides, users can connect with Azure Synapse Dedicated SQL Pool using SQL basic auth. This approach requires additional configurations to work with the connector.
-* With AAD based approach, the connector will leverage established authentication tokens when interacting with Azure Storage and Azure Synapse Dedicated SQL Pool.
-
-To successfully process a write or a read request, certain authorizations are required on each resource type. Following is a list of such required authorization grants by each resource type:
-
-* Azure Storage
-  * Assign [Azure Storage Blob Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) RBAC (Role-based Access Control) role to the user. The storage account in the context here is the one from where data will be source, or staged or will be persisted (in case of external tables).
-* Azure Synapse Dedicated SQL Pool
-  *  
-
 ### Limitations
-
-### Write to Synapse Dedicated SQL Pool Tables
-
-#### Internal Table Sample
-
-#### External Table Sample
-
-### Read from Synapse Dedicated SQL Pool Tables
-
-## Authentication
-
-Following are some of the key aspects of the connector:
-
-* The Connector leverages [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md) to stage data for writes and reads.
-* Read path extracts data from [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to staging folders using T-SQL command [CETAS](/sql/t-sql/statements-).
 
 ## Additional Reading
 
 * [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
+* [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
+* [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
