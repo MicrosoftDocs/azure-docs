@@ -11,21 +11,27 @@ ms.date: 03/15/2022
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
 
-In Azure Logic Apps, connectors provide triggers and actions that you use in your workflows to quickly access data, events, and actions logic app workflows across other apps, services, systems, protocols, and platforms. Triggers and actions are operations that expand the capabilities in your cloud apps and on-premises apps to work with new and existing data. Connectors are powered by the connector infrastructure that runs in Azure.
+In Azure Logic Apps, connectors have triggers, actions, or both. You can use these operations in your workflows to easily access data, events, and actions across other apps, services, systems, protocols, and platforms. When you add these operations, you expand the capabilities for your cloud apps and on-premises apps to work with new and existing data. Connectors are powered by the connector infrastructure that runs in Azure.
 
-Azure Logic Apps has both built-in connector and managed connector operations. Built-in connectors run natively on the Azure Logic Apps runtime, which means they're hosted in the same process as the runtime and provide higher throughput, low latency, and local connectivity. Managed connectors are deployed, hosted, and managed by Microsoft. When you use a connector operation for the first time in a workflow, some connectors don't require that you create a connection first, but many other connectors require this step. The connection is actually a separate Azure resource that provides access to the target app, service, system, protocol, or platform.
+Azure Logic Apps has both built-in and managed connector operations. *Built-in* operations run natively on the Azure Logic Apps runtime, which means they're hosted in the same process as the runtime and provide higher throughput, low latency, and local connectivity. *Managed connector* operations are deployed, hosted, and managed by Microsoft. When you use a connector operation for the first time in a workflow, some connectors don't require that you create a connection first, but many other connectors require this step. Each connection that you create is actually a separate Azure resource that provides access to the target app, service, system, protocol, or platform.
 
-In single-tenant Azure Logic Apps, Standard logic app workflows are powered by a redesigned runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides a key capability for you to create and use your own built-in connectors. With a Standard logic app, a connection definition file contains the required configuration information for the connections created by these built-in connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server, and this list continues to grow. However, if you need connectors that aren't available, you can create your own built-in connectors with the same Azure Functions extensibility framework used by the included built-in connectors.
+In [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), a redesigned runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create and use your own built-in connectors in Standard workflows. In a Standard logic app resource, a connection definition file contains the required configuration for the connections created by connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server, and over time, this list continues to grow. However, if you need connectors that aren't available, you can create your own built-in connectors with the same Azure Functions extensibility framework that's used by the built-in connectors included for Standard workflows.
 
-This article shows how you can use the Azure Functions extensibility framework to create an example built-in connector for Azure Cosmos DB. Generally, you can add any Azure Functions trigger or action to your own built-in connector. Currently, trigger capabilities are limited to only [Azure Functions specific triggers](../azure-functions/functions-bindings-example.md).
+This article shows how you can create an example custom built-in connector using the Azure Functions extensibility framework and the sample Azure Cosmos DB built-in connector. Generally, you can add any Azure Functions trigger or action to your own built-in connector. However, custom built-in trigger capabilities are limited to only [Azure Functions specific triggers](../azure-functions/functions-bindings-example.md).
 
 For more information about connectors, review the following documentation:
 
 * [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Built-in connector operations in Azure Logic Apps](../connectors/built-in.md)
+* [Managed connector operations in Azure Logic Apps](../connectors/managed.md)
 
 ## Prerequisites
 
-* [Visual Studio]
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Basic knowledge about how connectors, single-tenant Azure Logic Apps, and Standard logic apps work. 
+
+* work and [Visual Studio]
 
 * [NuGet package for Microsoft.Azure.Workflows.WebJobs.Extension](https://www.nuget.org/packages/Microsoft.Azure.Workflows.WebJobs.Extension/).
 
