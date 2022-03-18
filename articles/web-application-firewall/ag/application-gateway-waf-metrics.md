@@ -12,7 +12,7 @@ ms.author: olotolor
 
 # Azure Web Application Firewall Monitoring and Logging
 
-Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs
+Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
 
 ## Azure Monitor
 
@@ -29,7 +29,7 @@ For additional information on diagnostics log, visit [Application Gateway WAF re
 
 ## Application Gateway WAF V2 Metrics  
 
-New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot protection and geo-filtering. The metrics can be further filtered on the supported dimensions
+New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot protection and geo-filtering. The metrics can be further filtered on the supported dimensions.
  
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
