@@ -28,7 +28,7 @@ Managed HSM key rotation is offered at no extra cost. For more information on Ma
 Rotating a key or setting a key rotation policy requires specific key management permissions. You can assign the "Managed HSM Crypto User" role to get sufficient permissions to manage rotation policy and on-demand rotation.
 
 For more information on how to configure Local RBAC permissions on Managed HSM, see:
-[Managed HSM role management](../role-management.md)
+[Managed HSM role management](role-management.md)
 
 > [!NOTE]
 > Setting a rotation policy requires the "Key Write" permission. Rotating a key on-demand requires "Rotation" permissions. Both are included with the "Managed HSM Crypto User" built-in role
@@ -40,7 +40,7 @@ The key rotation policy allows users to configure rotation intervals and set the
 > [!NOTE]
 > Managed HSM does not support Event Grid Notifications
 
-> [!WARN]
+> [!WARNING]
 > Managed HSM has a limit of 100 versions per key. Key versions created as part of automatic or manual rotation count toward this limit.
 
 Key rotation policy settings:
@@ -119,6 +119,6 @@ az keyvault key rotate --hsm-name <hsm-name> --name <key-name>
 
 ## Resources
 
-- [Managed HSM role management](../role-management.md)
+- [Managed HSM role management](role-management.md)
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
 - [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
