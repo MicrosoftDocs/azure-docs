@@ -17,11 +17,11 @@ There are four stages in the upgrade:
 
 1. Migrate the configuration to a standard public load balancer
 
-2. Add virtual machines to the backend pool of a the standard public load balancer
+2. Add virtual machines to the backend pool of the standard public load balancer
 
 3. Create Network Security Group (NSG) rules for subnets and virtual machines that require internet connection restrictions
 
-This article covers a configuration migration. Adding the VMs to the backend pool may vary depending on your specific environment. See [Add VMs to the backend pools](#add-vms-to-the-backend-pool-of-the-standard-load-balancer) later in this article for recommomendations.
+This article covers a configuration migration. Adding the VMs to the backend pool may vary depending on your specific environment. See [Add VMs to the backend pools](#add-vms-to-the-backend-pool-of-the-standard-load-balancer) later in this article for recommendations.
 
 ## Upgrade overview
 
@@ -31,21 +31,21 @@ An Azure PowerShell script is available that does the following procedures:
 
 * Copies the configurations of the basic internal load balancer to the newly created standard public load balancer.
 
-* Creates an outbound rule which enables outbound connectivity
+* Creates an outbound rule that enables outbound connectivity
 
 ### Constraints
 
-* The script supports an internal load balancer upgrade where outbound connectivity is required. If an outbound connection isn't required for the VMs, see [Upgrade a load balancer from basic internal to standard internal](upgrade-basicInternal-standard.md) for more information and recommendations.
+* The script supports an internal load balancer upgrade where outbound connectivity is required. For more information and requirements, see [Upgrade a load balancer from basic internal to standard internal](upgrade-basicInternal-standard.md).
 
 * The standard load balancer has a new public address. It’s impossible to move the IP addresses associated with existing basic internal load balancer to a standard public load balancer because of different SKUs.
 
-* If the standard load balancer is created in a different region, you won’t be able to associate the VMs in the old region to the newly created standard load balancer. To avoid this constraint, ensure you create new VMs in the new region.
+* If the standard load balancer is created in a different region, you won’t be able to associate the VMs in the old region. To avoid this constraint, ensure you create new VMs in the new region.
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
 
 ## Download the script
 
-Download the migration script from the the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
+Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 
 ## Use the script
 
@@ -84,9 +84,9 @@ To run the script:
    
     * **oldLBName: [String]: Required** – This parameter is the name of your existing the basic load balancer you want to upgrade
 
-    * **newrgName: [String]: Required** – This parameter is the resource group where the standard load balancer is created. The resource group can be new or existing. If you choose an existing resource group, the name of the load balancer must be unique within the resource group. 
+    * **newRgName: [String]: Required** – This parameter is the resource group where the standard load balancer is created. The resource group can be new or existing. If you choose an existing resource group, the name of the load balancer must be unique within the resource group. 
    
-    * **newlocation: [String]: Required** – This parameter is the location where the standard load balancer is created. We recommend you choose the same location as the basic load load balancer to ensure association of existing resources
+    * **newLocation: [String]: Required** – This parameter is the location where the standard load balancer is created. We recommend you choose the same location as the basic load balancer to ensure association of existing resources
    
     * **newLBName: [String]: Required** – This parameter is the name for the standard load balancer to be created
 
@@ -95,7 +95,7 @@ To run the script:
     **Example**
 
    ```azurepowershell
-   AzureLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzureLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newRgName "test_userInput3_rg" -newLocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### Add VMs to the backend pool of the standard load balancer
@@ -108,13 +108,13 @@ The following scenarios explain how you add VMs to the backend pools of the newl
 
 * **Move existing VMs from the backend pools of the old basic internal load balancer to the backend pools of the new standard public load balancer**
 
-    1. Sign-in to the [Azure portal](https://portal.azure.com).
+    1. Sign in to the [Azure portal](https://portal.azure.com).
  
     2. Select **All resources** in the left menu. Select the **new standard load balancer** from the resource list.
    
     3. In the**Settings** in the load balancer page, select **Backend pools**.
    
-    4. Select the backend pool which matches the backend pool of the basic load balancer.
+    4. Select the backend pool that matches the backend pool of the basic load balancer.
     
     5. Select **Virtual Machine**
     
