@@ -7,7 +7,6 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 03/18/2022
 ms.author: duau
-zone_pivot_groups: front-door-tiers
 ---
 
 # Web Application Firewall (WAF) on Azure Front Door
