@@ -273,7 +273,7 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
 6. You can **revalidate** the connectivity to servers anytime before starting the discovery.
-1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers.You can change this option at any time.
+1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
 
