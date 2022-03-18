@@ -57,21 +57,21 @@ The following countries/regions are in the process of being added to the list. F
 
 ### Local data residency 
 
-To fulfil corporate policies and compliance requirements, to store user data exclusively within specific geographical area. Azure AD B2C provides a local data residency add-on that enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). 
+To fulfill corporate policies and compliance requirements, to store user data exclusively within specific geographical area. Azure AD B2C provides a local data residency add-on that enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). 
 
 The local data residency add-on is optional, and so your data can be stored in regions as indicated in [Data residency](data-residency.md#data-residency). The local data residency is a paid ad-on on your Azure AD B2C Premium P1 or P2 licenses, see [Billing model](#billing.md). 
 
 At the moment, the following countries have the local data residence option:
-- Japan
+- Japan 
 - Australia 
 
 ## Remote profile solution
 
 With Azure AD B2C [custom policies](custom-policy-overview.md), you can integrate with [RESTful API services](api-connectors-overview.md), which allow you to store and read user profiles from a remote database (such as a marketing database, CRM system, or any line-of-business application).  
 - During the sign-up and profile editing flows, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. The user's credentials are stored in Azure AD B2C directory. 
-- Upon sign-in, after credentials validation with a local or social account, Azure AD B2C invokes the REST API, which sends the user's unique identifier as a user primary key (email address or user objectId). The REST API reads the data from the remote database and returns the user profile.  
+- Upon sign in, after credentials validation with a local or social account, Azure AD B2C invokes the REST API, which sends the user's unique identifier as a user primary key (email address or user objectId). The REST API reads the data from the remote database and returns the user profile.  
 
-After sign-up, profile editing, or sign-in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
+After sign-up, profile editing, or sign in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
 
 ## Next steps
 

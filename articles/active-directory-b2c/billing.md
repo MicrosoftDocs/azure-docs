@@ -22,14 +22,14 @@ In this article, learn about MAU and Local data residency billing, linking Azure
 
 ## MAU overview
 
-A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates multiple times within a given month is counted as one MAU. Customers are not charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
+A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates multiple times within a given month is counted as one MAU. Customers aren't charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
 
-- Active, interactive sign-in by the user. For example, [sign-up or sign-in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
-- Passive, non-interactive sign-in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).
+- Active, interactive sign in by the user. For example, [sign-up or sign in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
+- Passive, non-interactive sign in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).
 
-If [Local Data Residency](data-residency.md#local-data-residency) is available in your country, and you enable it, you'll be charged per MAU. Learn more [About local data residency ad-on](#about-local-data-residency-ad-on)  
+If [Local Data Residency](data-residency.md#local-data-residency) is available in your country, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About local data residency ad-on](#about-local-data-residency-ad-on)  
 
-If you choose to provide higher levels of assurance using Multi-factor Authentication (MFA) for Voice and SMS, you will continue to be charged a worldwide flat fee for each MFA attempt that month, whether the sign-in is successful or unsuccessful. 
+If you choose to provide higher levels of assurance using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
  
 
 > [!IMPORTANT]
@@ -63,16 +63,16 @@ Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing ti
 
 Azure AD B2C's [local data residency](data-residency.md#local-data-residency) enables you to store your data within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). This feature isn't available in all countries. 
 
-Customers in **Australia**, who created Azure AD B2C tenants in Australia since **August 2021** through **March 2022**, need to [opt-into the local data residency](#) or there's not guarantee that their data will remain within Australia. If they opt-in, billing for the local data residency add-on begins in **July 2022**.
+If you're in **Australia**, and you created your Azure AD B2C tenant in Australia since **August 2021** through **March 2022**, you need to [opt-into the local data residency](#) or there's no guarantee that your data will remain within Australia. If you opt-in, billing for the local data residency add-on begins in **July 2022**.
 
-Customers in **Australia** and **Japan** who're [creating new Azure AD B2C tenants](tutorial-create-tenant.md) beginning **March 2022** can enable local data residency and billing begins in **July 2022**. 
+If you're in **Australia** and **Japan** and are [creating new Azure AD B2C tenant](tutorial-create-tenant.md) beginning **April 2022**, you can enable local data residency and billing begins in **July 2022**. 
 
 > [!NOTE]
 If you enable local data residency, the 50,000 free MAUs per month doesn't apply. You'll incur a charge on the local data residency ad-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
 
 ## Link an Azure AD B2C tenant to a subscription
 
-Usage charges forAzure AD B2C are billed to an Azure subscription. You need to explicitly link an Azure AD B2C tenant to an Azure subscription by creating an Azure AD B2C *resource* within the target Azure subscription. Several Azure AD B2C resources can be created in a single Azure subscription, along with other Azure resources like virtual machines, and storage accounts. You can see all of the resources within a subscription by going to the Azure Active Directory (Azure AD) tenant that the subscription is associated with.
+Usage charges for Azure AD B2C are billed to an Azure subscription. You need to explicitly link an Azure AD B2C tenant to an Azure subscription by creating an Azure AD B2C *resource* within the target Azure subscription. Several Azure AD B2C resources can be created in a single Azure subscription, along with other Azure resources like virtual machines, and storage accounts. You can see all of the resources within a subscription by going to the Azure Active Directory (Azure AD) tenant that the subscription is associated with.
 
 A subscription linked to an Azure AD B2C tenant can be used for the billing of Azure AD B2C usage or other Azure resources, including additional Azure AD B2C resources. It can't be used to add other Azure license-based services or Office 365 licenses within the Azure AD B2C tenant.
 
@@ -92,7 +92,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Select **Create a resource**, and then, in the **Search services and Marketplace** field, search for and select **Azure Active Directory B2C**.
 1. Select **Create**.
 1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
-1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you're a global administrator and that are not already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
+1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you're a global administrator and that aren't already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
 1. Select an active Azure **Subscription** of which you're an administrator.
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
@@ -199,7 +199,7 @@ To mitigate this issue, relax your regional restrictions.
 
 Azure Cloud Solution Providers (CSP) subscriptions are supported in Azure AD B2C. The functionality is available using APIs or the Azure portal for Azure AD B2C and for all Azure resources. CSP subscription administrators can link, move, and delete relationships with Azure AD B2C as done with other Azure resources.
 
-The management of Azure AD B2C using role-based access control is not affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-based roles, not subscription-based roles.
+The management of Azure AD B2C using role-based access control isn't affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-based roles, not subscription-based roles.
 
 ## Change the Azure AD B2C tenant billing subscription
 
@@ -217,7 +217,7 @@ If the source and destination subscriptions are associated with different Azure 
 
 1. In the Azure AD B2C directory itself, [invite a guest user](user-overview.md#guest-user) from the destination Azure AD tenant (the one that the destination Azure subscription is linked to) and ensure this user has the **Global administrator** role in Azure AD B2C.
 1. Navigate to the *Azure resource* representing Azure AD B2C in your source Azure subscription as explained in the [Manage your Azure AD B2C tenant resources](#manage-your-azure-ad-b2c-tenant-resources) section above. Don't switch to the actual Azure AD B2C tenant.
-1. Select the **Delete** button on the **Overview** page. This does *not* delete the related Azure AD B2C tenant's users or applications. It merely removes the billing link from the source subscription.
+1. Select the **Delete** button on the **Overview** page. This *does't* delete the related Azure AD B2C tenant's users or applications. It merely removes the billing link from the source subscription.
 1. Sign in to the Azure portal with the user account that was added as an administrator in Azure AD B2C in step 1. Then navigate to the destination Azure subscription, which is linked to the destination Azure Active Directory tenant. 
 1. Re-establish the billing link in the destination subscription by following the [Create the link](#create-the-link) procedure above.
 1. Your Azure AD B2C resource has now moved to the destination Azure subscription (linked to the target Azure Active Directory) and will be billed through this subscription from now on.
