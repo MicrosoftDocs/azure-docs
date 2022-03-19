@@ -51,7 +51,7 @@ Create the data source and provide either a system-assigned managed identity or 
 
 The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support using a system-assigned managed identity.
 
-When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide a unique ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
+When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
 
 Here is an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
@@ -76,7 +76,7 @@ api-key: [admin key]
 
 The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
 
-* First, the format of the "credentials" property is a unique ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name. This is the same format as the system-assigned managed identity.
+* First, the format of the "credentials" property is a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name. This is the same format as the system-assigned managed identity.
 
 * Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
 
