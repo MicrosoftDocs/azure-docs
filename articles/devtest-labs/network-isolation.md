@@ -96,7 +96,7 @@ You can automate these steps with PowerShell or Azure CLI to configure network i
 
    ![Screenshot that shows selecting the lab's key vault.](./media/network-isolation/key-vault.png)
 
-1. On the key vault page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow trusted Microsoft services to bypass this firewall** is selected.
+1. On the key vault page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow trusted Microsoft services to bypass this firewall** is set to **Yes**.
 
 1. Select **Add existing virtual networks**.
 
@@ -112,13 +112,13 @@ You can automate these steps with PowerShell or Azure CLI to configure network i
 
 Here are some things to remember when using a lab in a network isolated mode:
 
-### Access the lab's storage account from outside the lab
+### Enable access to the storage account from outside the lab
 
 The lab owner must explicitly enable access to a network isolated lab's storage account from an allowed endpoint. Actions like uploading a VHD to the storage account for creating custom images require this access. You can enable access by creating a lab VM, and securely accessing the lab's storage account from that VM.
 
 For more information, see [Connect to a storage account using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal).
 
-### Export lab usage data
+### Provide storage account to export lab usage data
 
 To [export usage data](personal-data-delete-export.md) for a network isolated lab, the lab owner must explicitly provide a storage account and generate a blob within the account to store the data. Exporting usage data fails in network isolated mode if the user doesn't explicitly provide the storage account to use.
 
