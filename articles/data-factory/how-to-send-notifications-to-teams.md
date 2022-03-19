@@ -2,7 +2,7 @@
 title: How to send notifications to a Microsoft Teams channel
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline
-ms.author: abnarain & basitfarooq
+ms.author: basitfarooq
 author: nabhishek
 ms.service: data-factory
 ms.custom: synapse
