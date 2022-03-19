@@ -4,7 +4,7 @@ description: Use Azure Migrate private link support to discover, assess, and mig
 author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
-ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps
+ms.custom: subject-rbac-steps
 ms.topic: how-to
 ms.date: 05/10/2020
 ---
