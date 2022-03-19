@@ -320,7 +320,10 @@ The Connector leverages the capabilities of dependent resources (Azure Storage a
 * Initial parallelism for a write scenario is heavily dependent on the number of partitions the job would identify. Partition count can be adjusted using the Spark configuration setting `spark.sql.files.maxPartitionBytes` to better re-group the source data during file scans. Besides, one can try DataFrame's repartition method.
 * Besides factoring in the data characteristics also derive optimal Executor node count and choice (for example, small vs medium sizes that drive CPU & Memory resource allocations).
 * When tuning for write or read performance, recommend to factor in the dominating pattern - I/O intensive or CPU intensive, and adjust your choices for Spark Pool capacities. Leverage auto-scale.
-* Review the data orchestration illustrations to see where your job's performance can suffer (for example, a read lag can be optimized by adding appropriate predicates to optimize volume of data that is transported in a read scenario; like-wise, review source file formats and volumetric data to tune the Spark job performance).
+* Review the data orchestration illustrations to see where your job's performance can suffer. For example:
+  * In a read scenario, determine if adding additional filters or choosing select columns (i.e., column-pruning) can help avoid unwarranted data movement.
+  * In a write scenario, review the source DataFrame plan and identify if concurrency can be tuned in reading the data for staging. This initial parallelism will help downstream data movement as well. Leverage feedback handle to draw some patterns.
+* Besides, Spark and Synapse Dedicated SQL Pool, also watch for write and read latencies associated with the ADLS Gen2 resources used to stage data or to hold data-at-rest.
 
 ## Additional Reading
 
