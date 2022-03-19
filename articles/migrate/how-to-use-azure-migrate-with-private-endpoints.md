@@ -4,6 +4,7 @@ description: Use Azure Migrate private link support to discover, assess, and mig
 author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
+ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps
 ms.topic: how-to
 ms.date: 05/10/2020
 ---
@@ -264,7 +265,7 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Screenshot that shows access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select the appropriate role from the permissions list previously mentioned. Also, select the name of the vault noted previously.
 
