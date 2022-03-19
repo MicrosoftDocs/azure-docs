@@ -122,7 +122,7 @@ If you're using a load balancer in front of your SAP system, all the services mu
 
 For more information about SAP services and ports, review the [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports).
 
-  > [!NOTE]
+> [!NOTE]
   > Failure to enable network connectivity from the host of SAP .NET Connector (NCo) library will result in errors such as
   > 'partner not reached' from component 'NI (network interface)' with additional error text such as 'WSAECONNREFUSED: Connection refused'.
   > Ensure that the required ports are open on firewalls and network security groups.
