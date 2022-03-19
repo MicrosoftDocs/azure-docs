@@ -33,39 +33,27 @@ The following are additional aspects to consider:
 > [!TIP]
 > Try the [Azure Video Analyzer for Media](/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
 
-
-## Real time versus offline captioning
-
-You could also use the [Batch transcription API](batch-transcription.md) to transcribe captions for a pre-recorded video. 
+Whether you are showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. This guide shows examples using the speech SDK.
 
 ## Caption and speech synchronization 
 
-The Speech service returns the offset and duration of the recognized speech. You can use this information to help synchronize the captions with the audio track, whether it's streamed in real time or a prerecorded playback. 
+You'll want to synchronize captions with the audio track, whether it's done in real time or with a prerecording. 
 
-Captions should be synchronized 
-to the speed of the person talking.
+The Speech service returns the offset and duration of the recognized speech. 
 
-- `OffsetInTicks`: Offset of the recognized speech in ticks. A single tick represents one hundred nanoseconds or one ten-millionth of a second.
-- `Duration`: Duration of the recognized speech as a time span. The duration does not include trailing or leading silence.
+- **Offset**: Used to measure the relative position of the speech that is currently being recognized, from the time that you started speech recognition. Speech recognition does not necessarily start at the beginning of the audio track. Offset is measured in ticks, where a single tick represents one hundred nanoseconds or one ten-millionth of a second.
+- **Duration**: Duration of the utterance that is being recognized. The duration time span does not include trailing or leading silence. 
 
-```csharp
-var startDateTime = new DateTime (e.Result.OffsetInTicks);
-var endDateTime = startDateTime.Add (e.Result.Duration);
-```
-
-If you want detailed recognition results with word-level offset and duration, set the `SpeechConfig` property as shown here:
-```csharp
-speechConfig.RequestWordLevelTimestamps();
-```
-
-for the `SpeechRecognizer` has a As soon as continuous recognition is started, the duration offset begins incrementing in ticks from `0` (zero). 
+As soon as you start continuous recognition, the offset starts incrementing in ticks from `0` (zero). 
 
 ```csharp
 // Starts continuous recognition. Use StopContinuousRecognitionAsync() to stop recognition.
 await speech_recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
 ```
 
-While recognizing, you can get the offset and current duration of the speech. Details per word are not available while recognition is in progress.
+With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
+
+This code snippet shows how to get the offset and duration from a `Recognizing` event. 
 
 ```csharp
 speech_recognizer.Recognizing += (object sender, SpeechRecognitionEventArgs e) =>
@@ -79,7 +67,13 @@ speech_recognizer.Recognizing += (object sender, SpeechRecognitionEventArgs e) =
     };
 ```
 
-Once an utterance has been recognized, you can get the offset and final duration of the recognized speech. With the recognized event, you can also get the offset and duration per word. 
+Once an utterance has been recognized, you can get the offset and duration of the recognized speech. With the `Recognized` event, you can also get the offset and duration per word. To request the offset and duration per word, first you must set the corresponding `SpeechConfig` property as shown here:
+
+```csharp
+speechConfig.RequestWordLevelTimestamps();
+```
+
+This code snippet shows how to get the offset and duration from a `Recognized` event. 
 
 ```csharp
 speech_recognizer.Recognized += (object sender, SpeechRecognitionEventArgs e) =>
@@ -112,6 +106,39 @@ speech_recognizer.Recognized += (object sender, SpeechRecognitionEventArgs e) =>
     };
 ```
 
+The following table shows potential offset and duration in ticks when a speaker says "Welcome to Applied Mathematics course 201." For each utterance, the offset doesn't change throughout the `Recognized` and `Recognized` events. The duration of speech recognized so far is calculated as an offset from the beginning of the utterance.
+
+|Event  |Text  |Offset (in ticks)  |Duration (in ticks) |
+|---------|---------|---------|---------|
+|RECOGNIZING     |welcome         |17000000         |5000000         |
+|RECOGNIZING     |welcome to         |17000000         |6400000         |
+|RECOGNIZING     |welcome to applied math          |17000000         |13600000         |
+|RECOGNIZING     |welcome to applied mathematics         |17000000         |17200000         |
+|RECOGNIZING     |welcome to applied mathematics course         |17000000         |23700000         |
+|RECOGNIZING     |welcome to applied mathematics course 2         |17000000         |26700000         |
+|RECOGNIZING     |welcome to applied mathematics course 201         |17000000         |33400000         |
+|RECOGNIZED     |Welcome to applied Mathematics course 201.         |17000000         |34500000         |
+
+The total duration of the first utterance was 3.45 seconds. It was recognized at 1.7 to 5.15 seconds offset from the start of speech recognition (00:00:01.700 --> 00:00:05.150).
+
+If the speaker continues to say "Let's get started," a new offset is calculated. Again, the offset is always calculated from the start of recognition to the start of an utterance. The following table shows potential offset and duration for an utterance that was recognized two seconds after the previous utterance ended.
+
+|Event  |Text  |Offset (in ticks)  |Duration (in ticks) |
+|---------|---------|---------|---------|
+|RECOGNIZING     |OK         |71500000         |3100000         |
+|RECOGNIZING     |OK now         |71500000         |10300000         |
+|RECOGNIZING     |OK, now let's         |71500000         |14700000         |
+|RECOGNIZING     |OK, now let's get started.         |71500000         |18500000         |
+|RECOGNIZED     |OK, now let's get started.         |71500000         |20600000         |
+
+The total duration of the second utterance was 2.06 seconds. It was recognized at 7.15 to 9.21 seconds offset from the start of speech recognition (00:00:07.150 --> 00:00:09.210) . 
+
+Here is an example of how to use the result from a `Recognized` event to get the offset and duration.
+
+```csharp
+var startDateTime = new DateTime (e.Result.OffsetInTicks);
+var endDateTime = startDateTime.Add (e.Result.Duration);
+```
 
 ## Stable partial intermediate results
 
