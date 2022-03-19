@@ -31,7 +31,7 @@ Use the following information to learn about how licensing works in Remote Deskt
 
 [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)
 
-If you are already using Windows Server based Remote Desktop Services you will likely have Licensing Server setup in your environment. You can continue using the same as long Azure Virtual Desktop hosts has line of sight to the Server. 
+If you are already using Windows Server based Remote Desktop Services you will likely have Licensing Server setup in your environment. You can continue using the same provided Azure Virtual Desktop hosts has line of sight to the Server. 
 
 ## Configure Windows Server based Virtual Machines
 
@@ -47,7 +47,6 @@ Once you've done the prerequisites, you're ready to configure Windows Server bas
 1. Open the Start menu and type "gpedit.msc" to open the Group Policy Editor.
 1. Navigate the tree to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Licensing**
 1. Select policy **Use the specified Remote Desktop license servers** and set the policy to point to the Remote Desktop Licensing Servers FQDN/IP Address.
-1. Navigate the tree to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Licensing**
 2. Select policy **Specify the licensing mode for the Remote Desktop Session Host server** and set the policy to Per Device or Per User, as appropriate for your licensing eligibility. 
 
 > [!NOTE]
