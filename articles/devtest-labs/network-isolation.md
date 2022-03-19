@@ -62,7 +62,9 @@ After you create the lab, to isolate the lab storage account and key vault to th
 
    ![Screenshot that shows selecting the lab storage account.](./media/network-isolation/contoso-test.png)
 
-1. On the storage account page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow Azure services on the trusted services list to access this storage account.** is selected. DevTest Labs is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services), so selecting this option lets the lab operate normally in a network isolated mode.
+1. On the storage account page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow Azure services on the trusted services list to access this storage account.** is selected.
+
+   DevTest Labs is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services), so selecting this option lets the lab operate normally in a network isolated mode.
 
 1. Select **Add existing virtual network**.
 
@@ -94,7 +96,7 @@ For more information, see [Connect to a storage account using an Azure Private E
 
 ### Exporting lab usage data
 
-To [export usage data](personal-data-delete-export.md) for a network isolated lab, the lab owner must explicitly provide a storage account and generate a blob within the account to store the data. Exporting usage data fails in network isolated mode if the user doesn't explicitly provide the storage account to use. The lab's storage account isn't accessible by default.
+To [export usage data](personal-data-delete-export.md) for a network isolated lab, the lab owner must explicitly provide a storage account and generate a blob within the account to store the data. Exporting usage data fails in network isolated mode if the user doesn't explicitly provide the storage account to use.
 
 For more information, see [Export or delete personal data from Azure DevTest Labs](personal-data-delete-export.md).
 
