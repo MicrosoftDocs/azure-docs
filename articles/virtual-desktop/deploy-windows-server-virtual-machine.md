@@ -25,13 +25,13 @@ Azure Virtual Desktop Host pool supports running Windows Server 2012 R2 and abov
 
 Running Windows Server based host virtual machines on Azure Virtual Desktop requires Remote Desktop Services (RDS) Licensing Server.
 
-For more information refer [Operating systems and licenses](prerequisites.md)
+For more information, refer [Operating systems and licenses](prerequisites.md)
 
 Use the following information to learn about how licensing works in Remote Desktop Services and to deploy and manage your licenses.
 
 [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)
 
-If you are already using Windows Server based Remote Desktop Services you will likely have Licensing Server setup in your environment. You can continue using the same provided Azure Virtual Desktop hosts has line of sight to the Server. 
+If you're already using Windows Server based Remote Desktop Services, you'll likely have Licensing Server setup in your environment. You can continue using the same provided Azure Virtual Desktop hosts has line of sight to the Server. 
 
 ## Configure Windows Server based Virtual Machines
 
