@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 03/18/2022
-ms.author: kalyankadiyala-Microsoft
-ms.reviewer: ktuckd, aniket-ms
+ms.author: kakadiya
+ms.reviewer: ktuckerdavis, aniket.adnaik
 --- 
 # Azure Synapse Dedicated SQL Pool Connector for Apache Spark
 
