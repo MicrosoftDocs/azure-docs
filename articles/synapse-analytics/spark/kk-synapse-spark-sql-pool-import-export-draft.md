@@ -28,6 +28,7 @@ At a high-level, the connector provides following capabilities:
 * Read from Azure Synapse Dedicated SQL Pool:
   * Export large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and Views.
   * Comprehensive push-down predicate support, where filters on DataFrame get mapped to corresponding SQL push-down predicates.
+  * Support for column pruning.
 
 ## Orchestration Approach
 
