@@ -33,22 +33,7 @@ All operations on the cluster level require the `Microsoft.OperationalInsights/c
 
 
 ## Cluster pricing model
-
-Log Analytics Dedicated Clusters use a Commitment Tier (formerly called capacity reservations) pricing model of at least 500 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that Commitment Tier. Commitment Tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
-
-The cluster Commitment Tier level is configured programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day.
-
-There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
-
-1. **Cluster (default)**--Billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. 
-
-2. **Workspaces**--The Commitment Tier costs for your Cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.) Details of pricing model are explained [here](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
-
-If your linked workspace is using legacy Per Node pricing tier, it will be billed based on data ingested against the cluster's Commitment Tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
-
-When you link workspaces to a cluster, the pricing tier is changed to cluster, and ingestion is billed based on cluster's Commitment Tier. Workspaces can be unlinked from a cluster at any time, and pricing tier change to per-GB.
-
-Complete details are billing for Log Analytics dedicated clusters are available [here](./manage-cost-storage.md#log-analytics-dedicated-clusters).
+Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters.
 
 ## Create a dedicated cluster
 
