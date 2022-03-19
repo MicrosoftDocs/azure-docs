@@ -164,7 +164,13 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 1. Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway.
 
-  If you intend to use host names or service names for connection from Azure Logic Apps, you must set up each SAP application, message, and gateway server along with their services for name resolution. The network host name resolution is configured in the `%windir%\System32\drivers\etc\hosts` file or in the DNS server that's available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you don't intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
+   If you intend to use the host names or service names for connections from Azure Logic Apps, you have to set up name resolution for each SAP application, message, and gateway server along with their services:
+  
+   * Set up the network host name resolution in the **%windir%\System32\drivers\etc\hosts** file or in the DNS server that's available to your on-premises data gateway host machine.
+  
+   * Set up the service name resolution in the **%windir%\System32\drivers\etc\services** file.
+  
+   If you don't intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
 
    If you don't have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
 
