@@ -125,7 +125,7 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 > [!NOTE]
   > Make sure you enabled network connectivity from the host of SAP .NET Connector (NCo) library and that 
   > the required ports are open on firewalls and network security groups. Otherwise, you get errors such as 
-  > 'partner not reached' from component 'NI (network interface)' with additional error text such as 'WSAECONNREFUSED: Connection refused'.
+  > **partner not reached** from component **NI (network interface)** and additional error text such as **WSAECONNREFUSED: Connection refused**.
   > Ensure that the required ports are open on firewalls and network security groups.
 
 ### Migrate to current connector
