@@ -74,6 +74,7 @@ Points to consider when you are using Azure-provided name resolution:
 * WINS and NetBIOS are not supported. You cannot see your VMs in Windows Explorer.
 * Host names must be DNS-compatible. Names must use only 0-9, a-z, and '-', and cannot start or end with a '-'.
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
+* Use a different name for each virtual machine in a virtual network to avoid DNS resolution issues.
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Azure Resource Manager.
 * The Azure DNS IP address is 168.63.129.16. This is a static IP address and will not change.
 
