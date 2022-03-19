@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/18/2022
 ms.author: duau
 ---
 
@@ -35,7 +35,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-storage-account.png" alt-text="Screenshot of enabling private link to a storage account.":::
 
-4. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the storage blob you want Azure Front Door Premium to connect with privately.
+1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the storage blob you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
@@ -51,7 +51,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *blob* or *web*. |
     | Request message | Customize message or choose the default. |
 
-1. Then select **Add** to save your configuration.
+1. Then select **Add** to save your configuration. Then select **Update** to save the origin group settings.
 
 ## Approve private endpoint connection from the storage account
 
