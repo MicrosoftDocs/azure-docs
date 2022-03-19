@@ -388,7 +388,7 @@ sections:
           The Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You need to have internet connectivity to send the [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. While [disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use several of these APIs completely disconnected from the internet. The model capabilities provided in connected and disconnected containers are the same the v2.1 online version.
 
       - question: |
-          what data do connected containers send to the cloud?
+          What data do connected containers send to the cloud?
         answer: |
 
           The Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/container-faq.md#how-does-billing-work) for an example of the information sent to Microsoft for billing.
