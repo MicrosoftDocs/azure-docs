@@ -312,20 +312,15 @@ import org.apache.spark.sql.SqlAnalyticsConnector._
 
 ### Things to Note
 
-The Connector's harnesses the write semantics exposed by the dependent Azure Resources to offer efficient write or read interaction with Synapse Dedicated SQL Pool. Following are few important aspects to note:
+The Connector leverages the capabilities of dependent resources (Azure Storage and Synapse Dedicated SQL Pool) to achieve efficient data transfers. Following are few important aspects must be taken into consideration when tuning for optimized (note, doesn't necessarily mean speed; this also relates to predictable outcomes) performance:
 
-* The `Performance Level` setting on Synapse Dedicated SQL Pool will limit maximum rows that can be committed in a single transaction (i.e., SQL statement).
-  * Hence, it is recommended to choose appropriate Data Warehouse Units (DWU) when configuring the Synapse Dedicated SQL Pool Performance Level.
-  * The Performance Level can be adjusted by scaling the Pool.
-  * Highly recommend to review the transaction size limits specified [here](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size) when making a DWU choice for your `Synapse Dedicated SQL Pool - Performance Level` setting.
-* Initial parallelism to move data from the source to the staging folders can be adjusted by using re-partition interface over the dataframe.
-* Write Performance is a highly subjective gauge that fairly depends on the following factors:
-  * Source Data Format.
-  * Source Data Layout (i.e., Partitions)
-  * Executor capacity (i..e, cores that impact Spark task concurrency within the executors)
-  * DWU availability when processing the data ingress or egress.  
-* The runtime pattern associated with the Connector's behavior is mostly I/O.
-  * This excludes any upfront data processing logic before a DataFrame's write is invoked for a write into Synapse Dedicated SQL Pool.
+* The `Performance Level` setting in Synapse Dedicated SQL Pool will drive write throughput, in terms of maximum achievable concurrency, data distribution and threshold cap for max rows per transaction.
+  * Review the [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size) limitation when selecting the `Performance Level` of the Synapse Dedicated SQL Pool.
+  * `Performance Level` can be adjusted using the [Scale](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) feature.
+* Initial parallelism for a write scenario is heavily dependent on the number of partitions the job would identify. Partition count can be adjusted using the Spark configuration setting `spark.sql.files.maxPartitionBytes` to better re-group the source data during file scans. Besides, one can try DataFrame's repartition method.
+* Besides factoring in the data characteristics also derive optimal Executor node count and choice (for example, small vs medium sizes that drive CPU & Memory resource allocations).
+* When tuning for write or read performance, recommend to factor in the dominating pattern - I/O intensive or CPU intensive, and adjust your choices for Spark Pool capacities. Leverage auto-scale.
+* Review the data orchestration illustrations to see where your job's performance can suffer (for example, a read lag can be optimized by adding appropriate predicates to optimize volume of data that is transported in a read scenario; like-wise, review source file formats and volumetric data to tune the Spark job performance).
 
 ## Additional Reading
 
