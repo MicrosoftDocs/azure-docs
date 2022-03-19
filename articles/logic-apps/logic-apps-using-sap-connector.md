@@ -171,7 +171,7 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
   
    If you don't intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
 
-      If you don't have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
+   If you don't have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
 
    ```text
    10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
