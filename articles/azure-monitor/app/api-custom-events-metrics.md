@@ -667,7 +667,7 @@ telemetry.flush();
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 > [!NOTE]
-> The Java and Javascript SDKs automatically flush on application shutdown.
+> The Java and JavaScript SDKs automatically flush on application shutdown.
 
 ## Authenticated users
 
