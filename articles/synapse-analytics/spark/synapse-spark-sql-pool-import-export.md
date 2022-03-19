@@ -106,7 +106,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
-    * Setup required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql#set-up-the-required-permissions).
+    * Setup required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
     * Following is a quick access snippet of the same:
 
       ```sql
