@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 03/21/2022
 ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
@@ -24,67 +24,63 @@ You're not required to learn OAuth and OIDC at the protocol level to use the ide
 
 ## Roles in OAuth
 
-Four parties are typically involved in OAuth 2.0 and OpenID Connect authentication and authorization exchanges (*authentication flows* or *auth flows*).
+Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. Such exchanges are often called *authentication flows*, or just *auth flows*.
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * **Authorization server** - The Microsoft identity platform itself is the *authorization server*. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the bearer tokens (security tokens) your apps and web APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
 
-* **Resource owner** - The *resource owner* in an auth flow is typically the application user (*end-user* in OAuth terminology). The end-user *owns* the protected *resource* (data) your app accesses on their behalf. The resource owner can grant or deny your app access to the resources they own. For example, your app might call an external system's API to get a user's email address which a resource the user owns on that external system and to which they can grant or deny your app access.
+* **Client** - Any application requesting access to a protected resource in an OAuth exchange is the *client*. A client in OAuth isn't always a web browser or desktop application operated by a human. For example, if a user interacts with a traditional web app (running on a server) to access a protected resource, the web application running on the server is the client, not the user's web browser. You'll often see the client referred to as "client application", "application," or even just "app."
 
-* **Client** - Any party requesting access to a protected resource in an OAuth exchange is the *client*. A client in OAuth isn't always a web browser or desktop application operated by a human. For example, if a user interacts with a traditional web app (running on a server) to access a protected resource, the web application running on the server is the client, *not* the user's web browser.
+* **Resource owner** - The *resource owner* in an auth flow is typically the application user, or *end-user* in OAuth terminology. The end-user *owns* the protected *resource* (data) your app accesses on their behalf. The resource owner can grant or deny your app (the _client_) access to the resources they own. For example, your app might call an external system's API to get a user's email address. Their email address is a resource the end-user owns on that external system, and to which they can grant or deny your app access.
 
-* **Resource server** - The resource owner's protected resources reside on the resource server and is where the data is hosted or accessed. The resource server relies on the authorization server to perform authentication, and it authorizes or denies requests to access a resource owner's protected resources on the server by using bearer access tokens provided (*minted*) by the authorization server.
+* **Resource server** - Most often a web API fronting a data store, the *resource server* hosts or provides access to a resource owner's protected data in the data store. The resource server relies on the authorization server to perform authentication. For authorization, the resouce server uses the information in *access tokens* to grant or deny access to protected resources. Access tokens are one of the three types of bearer tokens issued, or *minted*, by the Microsoft identity platform.
 
 ## Tokens
 
-The **bearer token** is the other notable component in the diagram. The parties in an OAuth pass around to assure identification (authentication) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT) and are often called *security tokens* or *tokens*.
+The **bearer token** is the other notable component in the diagram. The parties participating in an authentication flow use tokens to assure identification (authentication) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
 
-The identity platform uses bearer tokens for three types of OAUth 2.0 and OpenID connect security tokens:
+The identity platform uses bearer tokens for three types of OAUth 2.0 and OpenID connect *security tokens*:
 
-* [Access tokens](access-tokens.md) - The resource server receives access tokens from a client. Access tokens contain the permissions the client has been granted by the authorization server.
+* [Access tokens](access-tokens.md) - Access tokens are issued by the authorization server to the client application. The client passes access tokens to the resource server. Access tokens contain the permissions the client has been granted by the authorization server. 
 
-* [ID tokens](id-tokens.md) - The client receives ID tokens from the authorization server. Client apps use ID tokens when signing in users and for getting basic information about those users.
+* [ID tokens](id-tokens.md) - ID tokens are issued by the authorization server to the client application. Clients use ID tokens when signing in users and for getting basic information about those users.
 
-* **Refresh tokens** - The client uses refresh tokens to request new access and ID tokens from the authorization server. Your code should treat refresh tokens and their string content as opaque because they're intended for use only by authorization server. You might see the refresh token called an _RT_.
+* **Refresh tokens** - The client uses a refresh token, or *RT*, to request new access and ID tokens from the authorization server. Your code should treat refresh tokens and their string content as opaque because they're intended for use only by authorization server.
 
 ## App registration
 
-To trust and use security tokens issued by the Microsoft identity platform, your app needs a unique ID and a few other settings platform needs to uniquely identify the app in the tokens it issues.
+Your client app needs a way to trust the security tokens issued to it by the Microsoft identity platform. The first step in establishing that trust is by [registering your app](quickstart-register-app.md) with the identity platform.
 
-When you use the [Azure portal](https://aka.ms/appregistrations) to register your app in **Azure Active Directory** > **App registrations**
+When you register your app, the Microsoft identity platform automatically assigns it some values, while others you can configure based on the application's type.
 
-* An **Application ID** that uniquely identifies your app.
-* A **Redirect URI** (optional) that can be used to direct responses back to your app
-* Scenario-specific values.
+* **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. It uniquely identifies your app within the identity platform and it's included in the security tokens the platform issues to your app.
+* **Redirect URI** - A URI used by the identity platform for directing responses back to your app.
+* Other values specific to the client app's type or scenario. You might have a standard web app, single-page app (SPA), desktop, or mobile app, or you might have a web API calling another web API.
 
-For more details, learn how to [register an app](quickstart-register-app.md).
+Your app's registration also holds information about the authentication and authorization endpoints you'll use in your code to get ID and access tokens.
 
 ## Endpoints
 
-Even standards-compliant implementations differ between the authorization servers that offer them, including the endpoints they use for responding to security token requests.
+OAuth 2.0 and OpenID Connect standards-compliant authorization servers like the Microsoft identity platform provide a standard set of *endpoints* used by the entities in an authentication flow.
 
-An application that requests ID or access tokens for another application registered with the Microsoft identity platform sends its token requests to these endpoints:
+Two of the most commonly used endpoints are the [`authorization` endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [`token` endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token), which often--but not always--take this form:
 
 ```
-https://login.microsoftonline.com/<signInAudience>/oauth2/v2.0/authorize
-https://login.microsoftonline.com/<signInAudience>/oauth2/v2.0/token
+https://login.microsoftonline.com/<issuer>/oauth2/v2.0/authorize
+https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 ```
 
-The `<signInAudience>` value specifies which identities are allowed to authenticate by using the tokens issued by the endpoints.
-
-| Value | Description |
-| --- | --- |
-| `common` | Allows users with both personal Microsoft accounts and work/school accounts from Azure AD to sign into the application. |
-| `organizations` | Allows only users with work/school accounts from Azure AD to sign into the application. |
-| `consumers` | Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure AD tenant to sign into the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. |
-
+The format of the endpoint URLs you use in your application may differ from these. Find the endpoints for your application in the **Azure portal** > **Azure Active Directory** > **App registrations** > **\<Your Application\>** > **Endpoints**.
+ 
 ## Next steps
 
-To determine the right OAuth 2.0 authentication flow for your application, see the [overview of application types](v2-app-types.md).
+Next, learn about the OAuth 2.0 authentication flows used by each application type and Microsoft's authentication libraries available you can use for them:
 
-If you're experienced in the protocols and have a specific need to do so, you can send and receive raw HTTP messages to the Microsoft identity platform to execute OAuth 2.0 and OIDC authentication flows:
+- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+- [Microsoft identity platform authentication libraries](reference-v2-libraries.md)
+
+If instead you have protocol-level experience in OAuth and OIDC and your app needs to issue raw HTTP calls to perform auth flows, these articles are a good next step:
 
 * [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)
 * [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
