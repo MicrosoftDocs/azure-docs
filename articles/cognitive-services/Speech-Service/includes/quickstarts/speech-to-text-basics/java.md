@@ -36,12 +36,13 @@ Follow these steps to create a new console application for speech recognition.
     ```java
     import com.microsoft.cognitiveservices.speech.*;
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.Future;
     
     public class SpeechRecognition {
-        private static string YourSubscriptionKey = "YourSubscriptionKey";
-        private static string YourServiceRegion = "YourServiceRegion";
+        private static String YourSubscriptionKey = "YourSubscriptionKey";
+        private static String YourServiceRegion = "YourServiceRegion";
     
         public static void main(String[] args) throws InterruptedException, ExecutionException {
             SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
@@ -59,26 +60,24 @@ Follow these steps to create a new console application for speech recognition.
             Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
             SpeechRecognitionResult speechRecognitionResult = task.get();
             
-            switch (speechRecognitionResult.getReason()) {
-                case ResultReason.RecognizedSpeech:
-                    System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
-                    exitCode = 0;
-                    break;
-                case ResultReason.NoMatch:
-                    System.out.println("NOMATCH: Speech could not be recognized.");
-                    break;
-                case ResultReason.Canceled: {
-                    CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
-                    System.out.println("CANCELED: Reason=" + cancellation.getReason());
-        
-                    if (cancellation.getReason() == CancellationReason.Error) {
-                        System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
-                        System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                        System.out.println("CANCELED: Did you update the subscription info?");
-                    }
-                }
-                break;
+            if (speechRecognitionResult.getReason() == ResultReason.RecognizedSpeech) {
+                System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
             }
+            else if (speechRecognitionResult.getReason() == ResultReason.NoMatch) {
+                System.out.println("NOMATCH: Speech could not be recognized.");
+            }
+            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
+                CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
+                System.out.println("CANCELED: Reason=" + cancellation.getReason());
+
+                if (cancellation.getReason() == CancellationReason.Error) {
+                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
+                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
+                    System.out.println("CANCELED: Did you update the subscription info?");
+                }
+            }
+
+            System.exit(0);
         }
     }
     ```

@@ -34,14 +34,15 @@ Follow these steps to create a new console application for speech recognition.
 1. Open a command prompt where you want the new project, and create a new file named `SpeechSynthesis.java`.
 
     ```java
-    import java.util.Scanner;
-    import java.util.concurrent.ExecutionException;
     import com.microsoft.cognitiveservices.speech.*;
     import com.microsoft.cognitiveservices.speech.audio.*;
+
+    import java.util.Scanner;
+    import java.util.concurrent.ExecutionException;
     
     public class SpeechSynthesis {
-        private static string YourSubscriptionKey = "YourSubscriptionKey";
-        private static string YourServiceRegion = "YourServiceRegion";
+        private static String YourSubscriptionKey = "YourSubscriptionKey";
+        private static String YourServiceRegion = "YourServiceRegion";
     
         public static void main(String[] args) throws InterruptedException, ExecutionException {
             SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
@@ -52,32 +53,30 @@ Follow these steps to create a new console application for speech recognition.
     
             // Get text from the console and synthesize to the default speaker.
             System.out.println("Enter some text that you want to speak...");
-            System.out.println("> ");
+            System.out.print("> ");
             String text = new Scanner(System.in).nextLine();
             if (text.isEmpty())
             {
-                break;
+                return;
             }
     
-            SpeechSynthesisResult result = speechSynthesizer.SpeakTextAsync(text).get();
+            SpeechSynthesisResult speechRecognitionResult = speechSynthesizer.SpeakTextAsync(text).get();
     
-            switch (speechRecognitionResult.getReason()) {
-                case ResultReason.SynthesizingAudioCompleted:
-                    System.out.println("Speech synthesized to speaker for text [" + text + "]");
-                    exitCode = 0;
-                    break;
-                case ResultReason.Canceled: {
-                    CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
-                    System.out.println("CANCELED: Reason=" + cancellation.getReason());
+            if (speechRecognitionResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
+                System.out.println("Speech synthesized to speaker for text [" + text + "]");
+            }
+            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
+                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechRecognitionResult);
+                System.out.println("CANCELED: Reason=" + cancellation.getReason());
     
-                    if (cancellation.getReason() == CancellationReason.Error) {
-                        System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
-                        System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                        System.out.println("CANCELED: Did you update the subscription info?");
-                    }
+                if (cancellation.getReason() == CancellationReason.Error) {
+                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
+                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
+                    System.out.println("CANCELED: Did you update the subscription info?");
                 }
-                break;
             }
+    
+            System.exit(0);
         }
     }
     ```
