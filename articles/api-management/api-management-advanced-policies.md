@@ -3,7 +3,7 @@ title: Azure API Management advanced policies | Microsoft Docs
 description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
 author: dlepow
 ms.topic: article
-ms.date: 07/19/2021
+ms.date: 03/18/2022
 ms.service: api-management
 ms.author: danlep
 ---
@@ -16,6 +16,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
+-   [Include fragment](#IncludeFragment) - Inserts a policy fragment in the policy definition file.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
 -   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
@@ -253,6 +254,38 @@ This operation level policy does not forward requests to the backend service.
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** backend
+-   **Policy scopes:** all scopes
+
+## <a name="IncludeFragment"></a> Include fragment
+
+The `include-fragment` policy inserts a previously created policy fragment in a policy definition file. Policy fragments are centrally managed reusable XML policy snippets that can be included in any policy definition.
+
+### Policy statement
+
+```xml
+<include-fragment fragment-id="fragment" />
+```
+
+### Examples
+
+## Elements
+
+| Element           | Description   | Required |
+| ----------------- | ------------- | -------- |
+| include-fragment | Root element. | Yes      |
+
+### Attributes
+
+| Attribute | Description                                                                                        | Required | Default |
+| --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
+| fragment-id       | A string. Expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
 -   **Policy scopes:** all scopes
 
 ## <a name="LimitConcurrency"></a> Limit concurrency
