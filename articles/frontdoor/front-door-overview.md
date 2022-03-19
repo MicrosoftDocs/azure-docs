@@ -78,7 +78,9 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Secure applications with built-in layer 3-4 DDoS protection, seamlessly attached Web Application Firewall, and Azure DNS to protect your domains
 
-* Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence. · Privately connect to your backend behind Front Door with Private Link and embrace a zero-trust access model.
+* Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
+
+* Privately connect to your backend behind Front Door with Private Link and embrace a zero-trust access model.
 
 * Provide a centralized security experience for your application via Azure Policy and Azure Advisor that ensures consistent security features across apps.
 
