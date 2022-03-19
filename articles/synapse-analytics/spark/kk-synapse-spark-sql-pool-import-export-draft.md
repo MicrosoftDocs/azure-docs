@@ -316,7 +316,7 @@ The Connector's harnesses the write semantics exposed by the dependent Azure Res
 * The `Performance Level` setting on Synapse Dedicated SQL Pool will limit maximum rows that can be committed in a single transaction (i.e., SQL statement).
   * Hence, it is recommended to choose appropriate Data Warehouse Units (DWU) when configuring the Synapse Dedicated SQL Pool Performance Level.
   * The Performance Level can be adjusted by scaling the Pool.
-  * Highly recommend to review the transaction size limits specified [here](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions#transaction-size) when making a DWU choice for your `Synapse Dedicated SQL Pool - Performance Level` setting.
+  * Highly recommend to review the transaction size limits specified [here](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size) when making a DWU choice for your `Synapse Dedicated SQL Pool - Performance Level` setting.
 * Initial parallelism to move data from the source to the staging folders can be adjusted by using re-partition interface over the dataframe.
 * Write Performance is a highly subjective gauge that fairly depends on the following factors:
   * Source Data Format.
