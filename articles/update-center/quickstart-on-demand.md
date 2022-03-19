@@ -1,7 +1,7 @@
 ---
 title: Quickstart - deploy updates in using update management center in the Azure portal
 description: This quickstart helps you to deploy updates and view results for supported machines.using the Azure portal
-ms.services: update-management-center-(preview)
+ms.service: update-management-center-(preview)
 ms.date: 03/19/2021
 author: SGSneha
 ms.author: v-ssudhir
@@ -15,11 +15,8 @@ This quickstart shows you how to assess and install updates on selected Azure vi
 ## Prerequisites
 
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - Your account must be a member of the Azure [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
-
 - One or more [Azure virtual machines](/azure/virtual-machines), or physical or virtual machines managed by [Arc-enabled servers](/azure/azure-arc/servers/overview).
-
 - Ensure that you meet all [prerequisites for update management center](https://github.com/Azure/update-center-docs/Docs/overview.md#prerequisites)
 
 ## Assess updates
