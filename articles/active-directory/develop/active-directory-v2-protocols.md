@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0.
 
-You're not required to learn OAuth and OIDC at the protocol level to use the identity platform, especially if you use a standards-compliant auth library like the [Microsoft Authentication Library (MSAL)](msal-overview.md). However, knowledge of the identity platform's implementation of these protocols can make building, debugging, and troubleshooting your applications easier.
+You don't need to learn OAuth and OIDC at the protocol level to use the Microsoft identity platform. However, debugging the apps you build with the [Microsoft Authentication Library (MSAL)](msal-overview.md) is easier with some knowledge of the protocols and their implementation on the identity platform.
 
 ## Roles in OAuth
 
@@ -34,7 +34,7 @@ Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentic
 
 * **Resource owner** - The *resource owner* in an auth flow is typically the application user, or *end-user* in OAuth terminology. The end-user *owns* the protected *resource* (data) your app accesses on their behalf. The resource owner can grant or deny your app (the _client_) access to the resources they own. For example, your app might call an external system's API to get a user's email address. Their email address is a resource the end-user owns on that external system, and to which they can grant or deny your app access.
 
-* **Resource server** - Most often a web API fronting a data store, the *resource server* hosts or provides access to a resource owner's protected data in the data store. The resource server relies on the authorization server to perform authentication. For authorization, the resouce server uses the information in *access tokens* to grant or deny access to protected resources. Access tokens are one of the three types of bearer tokens issued, or *minted*, by the Microsoft identity platform.
+* **Resource server** - Most often a web API fronting a data store, the *resource server* hosts or provides access to a resource owner's protected data in the data store. The resource server relies on the authorization server to perform authentication. For authorization, the resource server uses the information in *access tokens* to grant or deny access to protected resources. Access tokens are one of the three types of bearer tokens issued, or *minted*, by the Microsoft identity platform.
 
 ## Tokens
 
@@ -80,7 +80,7 @@ Next, learn about the OAuth 2.0 authentication flows used by each application ty
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 - [Microsoft identity platform authentication libraries](reference-v2-libraries.md)
 
-If instead you have protocol-level experience in OAuth and OIDC and your app needs to issue raw HTTP calls to perform auth flows, these articles are a good next step:
+If you have protocol-level experience issuing raw HTTP calls to perform auth flows and an application that requires it:
 
 * [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)
 * [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
