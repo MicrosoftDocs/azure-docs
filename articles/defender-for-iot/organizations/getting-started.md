@@ -65,7 +65,7 @@ For more information, see [About Microsoft Defender for IoT network setup](how-t
 
 Microsoft Defender for IoT supports both physical and virtual deployments. For the physical deployments, you can purchase various certified appliances. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
 
-We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000,for example 1000, 2000, 3000. The numbers of monitored devices are called *committed devices*.
+We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000, for example 1000, 2000, 3000. The numbers of monitored devices are called *committed devices*.
 
 If you are using a Defender for IoT sensor version lower than 22.1.x, you must also clarify your appliances for the on-premises management console.
 ## Register with Microsoft Defender for IoT
