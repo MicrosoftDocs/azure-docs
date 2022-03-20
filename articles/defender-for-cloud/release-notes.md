@@ -27,6 +27,7 @@ Updates in March include:
 - [Configure email notifications settings from an alert](#configure-email-notifications-settings-from-an-alert)
 - [Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecated-preview-alert-armmcas_activityfromanonymousipaddresses)
 - [Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moved-the-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices)
+- Deprecated the recommendation to use service principals to protect your subscriptions
 
 ### Deprecated the recommendations to install the network traffic data collection agent
 
@@ -81,6 +82,21 @@ See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanage
 The recommendation `Vulnerabilities in container security configurations should be remediated` has been moved from the secure score section to best practices section.
 
 The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We are working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
+
+### Deprecated the recommendation to use service principals to protect your subscriptions
+
+As organizations move away from using management certificates to manage their subscriptions, and [our recent announcement that we're retiring the Cloud Services (classic) deployment model](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we'll be deprecating the following Defender for Cloud recommendation and its related policy:
+
+|Recommendation |Description |Severity |
+|---|---|---|
+|[Service principals should be used to protect your subscriptions instead of Management Certificates](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2acd365d-e8b5-4094-bce4-244b7c51d67c) |Management certificates allow anyone who authenticates with them to manage the subscription(s) they are associated with. To manage subscriptions more securely, using service principals with Resource Manager is recommended to limit the blast radius in the case of a certificate compromise. It also automates resource management. <br />(Related policy: [Service principals should be used to protect your subscriptions instead of management certificates](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6646a0bd-e110-40ca-bb97-84fcee63c414)) |Medium |
+|||
+
+Learn more:
+
+- [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
+- [Overview of Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
+- [Workflow of Windows Azure classic VM Architecture - including RDFE workflow basics](../cloud-services/cloud-services-workflow-process.md)
 
 ## February 2022
 
