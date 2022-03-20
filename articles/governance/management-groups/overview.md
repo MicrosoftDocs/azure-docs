@@ -7,7 +7,7 @@ ms.topic: overview
 # What are Azure management groups?
 
 If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
-policies, and compliance for those subscriptions. _Mmanagement groups_ provide a governance scope
+policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
 above subscriptions. You organize subscriptions into management groups the governance conditions you apply
 cascade by inheritence to all associated subscriptions.
 
