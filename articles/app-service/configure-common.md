@@ -44,7 +44,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Application Settings](./media/configure-common/open-ui.png)
 
-    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show value** button.
+    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show values** button.
 
 1. To add a new app setting, click **New application setting**. To edit a setting, click the **Edit** button on the right side.
 
