@@ -46,7 +46,7 @@ To view Activity log insights:
     
         :::image type="content" source="media/activity-log/activity-logs-insights-status.png" alt-text="Azure Activity Logs by Status":::
     
-    * At the subscription and resource group level, **Activity Logs by Resource** and **Activity Logs by Resource Provider** show the count of Activity log records for each of resource and resource provider.
+    * At the subscription and resource group level, **Activity Logs by Resource** and **Activity Logs by Resource Provider** show the count of Activity log records for each resource and resource provider.
     
         :::image type="content" source="media/activity-log/activity-logs-insights-resource.png" alt-text="Azure Activity Logs by Resource":::
     
