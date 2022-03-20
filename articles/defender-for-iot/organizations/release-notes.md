@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/13/2022
+ms.date: 03/20/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -199,7 +199,7 @@ If you're on a legacy version, you may need to run a series of updates in order 
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Update sensor versions from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#update-sensor-versions).
 
 > [!NOTE]
 > Upgrading to version 22.1.x is a large update, and you should expect the update process to require more time than previous updates.
