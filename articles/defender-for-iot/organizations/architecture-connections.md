@@ -23,7 +23,7 @@ For more information, see [Choose a sensor connection method](connect-sensors.md
 
 
 > [!IMPORTANT]
-> To ensure that your network is ready, we recommend that you first run the the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
+> To ensure that your network is ready, we recommend that you first run the migration in a lab or testing environment so that you can safely validate your Azure service configurations.
 >
 
 ## Proxy connections with an Azure proxy

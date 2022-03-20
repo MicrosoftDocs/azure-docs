@@ -22,7 +22,7 @@ Here's what you need to get started with Defender for IoT.
 - Hardware appliances for NTA sensors.
 - The Azure Subscription Contributor role. It's required only during onboarding for defining committed devices and connection to Microsoft Sentinel.
 
-If you are using an Defender for IoT sensor version lower than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
+If you are using a Defender for IoT sensor version lower than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
 ### Supported service regions
 
@@ -67,7 +67,7 @@ Microsoft Defender for IoT supports both physical and virtual deployments. For t
 
 We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000,for example 1000, 2000, 3000. The numbers of monitored devices are called *committed devices*.
 
-If you are using an Defender for IoT sensor version lower than 22.1.x, you must also clarify your appliances for the on-premises management console.
+If you are using a Defender for IoT sensor version lower than 22.1.x, you must also clarify your appliances for the on-premises management console.
 ## Register with Microsoft Defender for IoT
 
 Registration includes:
@@ -92,7 +92,7 @@ For information on how to offboard a subscription, see [Offboard a subscription]
 
 ## Install and set up the on-premises management console
 
-This section is required only when you are using an Defender for IoT sensor version lower than 22.1.x.
+This section is required only when you are using a Defender for IoT sensor version lower than 22.1.x.
 
 After you acquire your on-premises management console appliance:
 
@@ -148,7 +148,7 @@ Download the ISO package from the Azure portal, install the software, and set up
 
 ## Connect sensors to Defender for IoT
 
-This section is required only when you are using an Defender for IoT sensor version 22.1.x or higher.
+This section is required only when you are using a Defender for IoT sensor version 22.1.x or higher.
 
 Connect your sensors to Defender for IoT to ensure that sensors send alert and device inventory information to Defender for IoT on the Azure portal.
 

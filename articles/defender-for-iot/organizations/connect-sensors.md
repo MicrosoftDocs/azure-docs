@@ -144,7 +144,7 @@ For more information, see:
 
 ### Step 5: Define an Azure virtual machine scale set
 
-Define an Azure virtual machine scale set to create and manage a group of load-balanced VMs, where you can automatically increase or decrease the number of VMs as needed.
+Define an Azure virtual machine scale set to create and manage a group of load-balanced virtual machine, where you can automatically increase or decrease the number of virtual machines as needed.
 
 Use the following procedure to create a scale set to use with your sensor connection. For more information, see [What are Virtual Machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 
@@ -178,7 +178,7 @@ Use the following procedure to create a scale set to use with your sensor connec
     - Select **Enable application health monitoring**
     - Select the **TCP** protocol and port **3128**
 
-1. Under advanced settings, define the the **Spreading algorithm** as **Max Spreading**.
+1. Under advanced settings, define the **Spreading algorithm** as **Max Spreading**.
 
 1. For the custom data script, do the following:
 
@@ -241,7 +241,7 @@ To create an Azure load balancer for your sensor connection:
 
 1.	Define a dynamic frontend IP address in the `proxysrv` subnet you created [earlier](#step-2-define-virtual-networks-and-subnets), setting the availability to zone-redundant.
 
-1.	For a backend, chose the VM scale set you created in the [earlier](#step-5-define-an-azure-virtual-machine-scale-set).
+1.	For a backend, choose the VM scale set you created in the [earlier](#step-5-define-an-azure-virtual-machine-scale-set).
 
 1. On the port defined in the sensor, create a TCP load balancing rule connecting the frontend IP address with the backend pool. The default port is 3128.
 
