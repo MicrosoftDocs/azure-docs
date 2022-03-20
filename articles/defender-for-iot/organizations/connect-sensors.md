@@ -11,42 +11,6 @@ This article describes how to connect your sensors to the Defender for IoT porta
 
 For more information about each connection method, see [Sensor connection methods](architecture-connections.md).
 
-## Migration for existing customers
-
-If you're an existing customer with a production deployment and sensors connected using the legacy IoT Hub method, start with the following steps to ensure a full and safe migration to an updated connection method.
-
-1. **Review your existing production deployment** and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
-
-1. **Determine which connection method is right** for each production site. For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
-
-1. **Configure any additional resources required** as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
-
-    For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
-
-1. **If you have legacy sensor versions installed**, we recommend that you update your sensors at least to a version 22.1.x or higher. In this case, make sure that you reactivate each sensor and update your firewall rules.
-
-    Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
-
-    For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
-
-1. **Start migrating with a test lab or reference project** where you can validate your connection and fix any issues found.
-
-1. **Create a plan of action for your migration**, including planning any maintenance windows needed.
-
-1. **After the migration in your production environment**, you can delete any previous IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
-
-    - If you've upgraded your versions, make sure that all updated sensors indicate software version 22.1.x or higher.
-
-    - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
-
-    - If you're running a hybrid environment with multiple sensor versions, make sure any sensors with software version 22.1.x can connect to Azure. Use firewall rules that allow outbound HTTPS traffic on port 443 to the following hostnames:
-
-        - **IoT Hub**: `*.azure-devices.net`
-        - **Threat Intelligence**: `*.blob.core.windows.net`
-        - **EventHub**: `*.servicebus.windows.net`
-
-
-While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 
 ## Choose a sensor connection method
 
@@ -427,6 +391,43 @@ Before you start:
 1. To enable private connectivity between your VPCs and Defender for IoT, connect your VPC to an Azure VNET over a VPN connection. For example if you are connecting from an AWS VPC, see our TechCommunity blog: [How to create a VPN between Azure and AWS using only managed solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-to-create-a-vpn-between-azure-and-aws-using-only-managed/ba-p/2281900).
 
 1. After your VPC and VNET are configured, connect to Defender for IoT as you would when connecting via an Azure proxy. For more information, see [Connect via an Azure proxy](#connect-via-an-azure-proxy).
+
+## Migration for existing customers
+
+If you're an existing customer with a production deployment and sensors connected using the legacy IoT Hub method, start with the following steps to ensure a full and safe migration to an updated connection method.
+
+1. **Review your existing production deployment** and how sensors are currently connection to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
+
+1. **Determine which connection method is right** for each production site. For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method).
+
+1. **Configure any additional resources required** as described in the procedure in this article for your chosen connectivity method. For example, additional resources might include a proxy, VPN, or ExpressRoute.
+
+    For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
+
+1. **If you have legacy sensor versions installed**, we recommend that you update your sensors at least to a version 22.1.x or higher. In this case, make sure that you reactivate each sensor and update your firewall rules.
+
+    Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
+
+    For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+
+1. **Start migrating with a test lab or reference project** where you can validate your connection and fix any issues found.
+
+1. **Create a plan of action for your migration**, including planning any maintenance windows needed.
+
+1. **After the migration in your production environment**, you can delete any previous IoT Hubs that you had used before the migration. Make sure that any IoT Hubs you delete are not used by any other services:
+
+    - If you've upgraded your versions, make sure that all updated sensors indicate software version 22.1.x or higher.
+
+    - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
+
+    - If you're running a hybrid environment with multiple sensor versions, make sure any sensors with software version 22.1.x can connect to Azure. Use firewall rules that allow outbound HTTPS traffic on port 443 to the following hostnames:
+
+        - **IoT Hub**: `*.azure-devices.net`
+        - **Threat Intelligence**: `*.blob.core.windows.net`
+        - **EventHub**: `*.servicebus.windows.net`
+
+
+While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 
 ## Next steps
 
