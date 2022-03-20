@@ -85,7 +85,7 @@ The current user experience only provides the score when all compliance checks h
 
 ### Deprecated the recommendation to use service principals to protect your subscriptions
 
-As organizations move away from using management certificates to manage their subscriptions, and [our recent announcement that we're retiring the Cloud Services (classic) deployment model](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we'll be deprecating the following Defender for Cloud recommendation and its related policy:
+As organizations move away from using management certificates to manage their subscriptions, and [our recent announcement that we're retiring the Cloud Services (classic) deployment model](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we deprecated the following Defender for Cloud recommendation and its related policy:
 
 |Recommendation |Description |Severity |
 |---|---|---|
