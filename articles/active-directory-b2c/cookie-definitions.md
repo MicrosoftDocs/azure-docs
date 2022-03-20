@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2022
+ms.date: 03/20/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -56,4 +56,4 @@ Azure AD B2C generates a synchronizer token, and adds it in two places; in a coo
 
 For example, in the sign-up or sign-in page, when a user selects the "Forgot password", or "Sign-up now" links, the browser sends a GET request to Azure AD B2C in order to load the contents of the next page. The request to load content Azure AD B2C additionally chooses to send and validate the Synchronizer Token as an extra layer of protection to ensure that the request to load the page was the result of an in-progress authentication.
 
-The Synchronizer Token is a credential that doesn't identifies a user, but rather is tied to an active unique authentication session. 
+The Synchronizer Token is a credential that doesn't identify a user, but rather is tied to an active unique authentication session. 
