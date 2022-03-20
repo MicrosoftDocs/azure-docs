@@ -31,19 +31,19 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Select the origin group you want to enable Private Link for the internal load balancer.
 
-1. Select **+ Add an origin** to add an internal load balancer origin. Note that the hostname must be a valid domain name, IPv4 or IPv6. There are two way to select and Azure resource. The first option is by **In my directory** to select your own resources. The second option is **By ID or alias** to connect to someone else's resource with a resource ID or alias that is shared with you.
+1. Select **+ Add an origin** to add an internal load balancer origin. Note that the hostname must be a valid domain name, IPv4 or IPv6. There are two ways to select an Azure resource. The first option is by **In my directory** to select your own resources. The second option is **By ID or alias** to connect to someone else's resource with a resource ID or alias that is shared with you.
 
     1. Adding an origin using an IP address:
 
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-internal-load-balancer-ip.png" alt-text="Screenshot of enabling private link to an internal load balancer using an IP address.":::
+       :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-internal-load-balancer-ip.png" alt-text="Screenshot of enabling private link to an internal load balancer using an IP address.":::
 
     1. Adding an origin using a domain name:
 
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-internal-load-balancer-domain-name.png" alt-text="Screenshot of enabling private link to an internal load balancer using a domain name.":::
+       :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-internal-load-balancer-domain-name.png" alt-text="Screenshot of enabling private link to an internal load balancer using a domain name.":::
 
     1. Select a private link **By ID or alias**:
     
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-link-by-alias.png" alt-text="Screenshot of enabling private link to an internal load balancer using an ID or alias":::
+       :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-link-by-alias.png" alt-text="Screenshot of enabling private link to an internal load balancer using an ID or alias":::
 
 1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately.
 
