@@ -59,7 +59,9 @@ Defender for IoT can detect the following protocols using active monitoring, suc
 
 
 
-## Support for proprietary protocols with Horizon
+## Don't see your protocol here? 
+
+### Build support for proprietary protocols with the Horizon SDK
 
 Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any protocol used in IoT and ICS environments that's not isn't already supported by default.
 
