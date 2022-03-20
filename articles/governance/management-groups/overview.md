@@ -20,7 +20,7 @@ For example, you can apply policies to a management group that limits the region
 virtual machine (VM) creation. This policy would be applied to all nested management groups,
 subscriptions, and resources, and allow VM creation only in authorized regions.
 
-## Management groups and subscriptions hierarcy
+## Hierarchy of management groups and subscriptions
 
 You can build a flexible structure of management groups and subscriptions to organize your resources
 into a hierarchy for unified policy and access management. The following diagram shows an example of
