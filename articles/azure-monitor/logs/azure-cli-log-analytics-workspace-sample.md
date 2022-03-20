@@ -60,8 +60,7 @@ You can delete [Custom Log](custom-logs-overview.md), [Search Results](search-jo
 To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
 
 ```azurecli
-az monitor log-analytics workspace table delete –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name MySearchTable_SRCH
+az monitor log-analytics workspace table delete –subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name MySearchTable_SRCH
 ```
 
 ## Export data from selected tables
