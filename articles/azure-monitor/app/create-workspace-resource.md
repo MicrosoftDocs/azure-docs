@@ -13,7 +13,7 @@ Workspace-based resources support full integration between Application Insights 
 This also allows for common Azure role-based access control (Azure RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
 
 > [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
+> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more](../logs/cost-logs.md) about billing for workspace-based Application Insights resources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 

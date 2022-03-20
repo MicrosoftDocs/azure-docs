@@ -247,7 +247,7 @@ dependencies
 
 
 ### Data volume for workspace-based Application Insights resources
-To look at the data volume trends for [workspace-based Application Insights resources](../app/create-workspace-resource.md), use a query that includes all of the Application insights tables. The following queries use the [tables names specific to workspace-based resources](../app/apm-tables.md#table-schemas.md).
+To look at the data volume trends for [workspace-based Application Insights resources](../app/create-workspace-resource.md), use a query that includes all of the Application insights tables. The following queries use the [tables names specific to workspace-based resources](../app/apm-tables.md#table-schemas.
 
 
 Display a chart with the data volume trends for all Application Insights resources in a workspace for the last week:
@@ -327,7 +327,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 ```
 
 ### Nodes billed by the legacy Per Node pricing tier
-The [legacy Per Node pricing tier](#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes that are only sending a set of security data types. To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending billed data types since some data types are free. In this case, use the leftmost field of the fully qualified domain name. 
+The [legacy Per Node pricing tier](cost-logs.md#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes that are only sending a set of security data types. To get a list of computers that will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes that are sending billed data types since some data types are free. In this case, use the leftmost field of the fully qualified domain name. 
 
 Return the count of computers with billed data per hour. The number of units on your bill is in units of node months, which is represented by `billableNodeMonthsPerDay` in the query. If the workspace has the Update Management solution installed, add the **Update** and **UpdateSummary** data types to the list in the where clause in the above query. 
 

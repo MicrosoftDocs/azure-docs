@@ -45,7 +45,7 @@ Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also 
 
 >[!NOTE]
 >Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
-> :::image type="content" source="../logs/media/view-bill/view-cost-option.png" lightbox="media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log Analytics workspace.":::
+> :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log Analytics workspace.":::
 
 
 ### Application Insights meters
