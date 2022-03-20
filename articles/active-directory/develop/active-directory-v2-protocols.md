@@ -56,22 +56,24 @@ When you register your app, the Microsoft identity platform automatically assign
 
 * **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. It uniquely identifies your app within the identity platform and it's included in the security tokens the platform issues to your app.
 * **Redirect URI** - A URI used by the identity platform for directing responses back to your app.
-* Other values specific to the client app's type or scenario. You might have a standard web app, single-page app (SPA), desktop, or mobile app, or you might have a web API calling another web API.
+* Other values specific to the client app's type or scenario. For example, a standard web app, single-page app (SPA), or a web API calling another web API.
 
-Your app's registration also holds information about the authentication and authorization endpoints you'll use in your code to get ID and access tokens.
+Your app's registration also holds information about the authentication and authorization *endpoints* you'll use in your code to get ID and access tokens.
 
 ## Endpoints
 
-OAuth 2.0 and OpenID Connect standards-compliant authorization servers like the Microsoft identity platform provide a standard set of *endpoints* used by the entities in an authentication flow.
+Authorization servers like the Microsoft identity platform provide a set of endpoints used by the entities in an authentication flow.
 
-Two of the most commonly used endpoints are the [`authorization` endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [`token` endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token), which often--but not always--take this form:
+Two of the most commonly used endpoints are the [`authorization` endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [`token` endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). These endpoints often--but not always--take this form:
 
 ```
 https://login.microsoftonline.com/<issuer>/oauth2/v2.0/authorize
 https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 ```
 
-The format of the endpoint URLs you use in your application may differ from these. Find the endpoints for your application in the **Azure portal** > **Azure Active Directory** > **App registrations** > **\<Your Application\>** > **Endpoints**.
+Find the endpoints for your application in the [Azure portal](https://portal.azure.com) by navigating to:
+
+**Azure Active Directory** > **App registrations** > **{YOUR-APPLICATION}** > **Endpoints**.
  
 ## Next steps
 
