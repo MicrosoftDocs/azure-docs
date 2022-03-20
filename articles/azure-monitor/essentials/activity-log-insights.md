@@ -22,7 +22,7 @@ Activity logs you send to a [Log Analytics workspace](/articles/azure-monitor/lo
 
 Activity log insights is a curated [Log Analytics workbook](/articles/azure-monitor/visualize/workbooks-overview.md) with dashboards that visualize the data in the AzureActivity table. For example, which administrators deleted, updated or created resources, and whether the activities failed or succeeded.
 
-![A screenshot showing Azure Activity logs insights dashboards](media/activity-log/activity-logs-insights-main.png)
+:::image type="content" source="media/activity-log/activity-logs-insights-main.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
 
 ## View Activity log insights
 
@@ -31,24 +31,24 @@ To view Activity log insights:
 1. In the Azure portal, select **Monitor** > **Workbooks**.
 1. Select **Activity Logs Insights** in the **Insights** section. 
 
-    ![A screenshot showing how to locate and open the Activity logs insights workbook](media/activity-log/open-activity-log-insights-workbook.png)
+    :::image type="content" source="media/activity-log/open-activity-log-insights-workbook.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook":::
 
 1. At the top of the **Activity Logs Insights** page, select:
-    1. One or more subscriptions from the **Subscriptions** drowpdown.
+    1. One or more subscriptions from the **Subscriptions** dropdown.
     1. Resources and resource groups from the **CurrentResource** dropdown.
     1. A time range for which to view data from the **TimeRange** dropdown.
 
-    * Use the Azure activities by Category Value to view a count of Activity log records for each category.
+    * **Azure Activity Log Entries** shows the count of Activity log records in each [activity log category](/articles/azure-monitor/essentials/activity-log-schema#categories).
      
-        ![Azure Activity Logs by Category Value](media/activity-log/activity-logs-insights-categoryvalue.png)
+        :::image type="content" source="media/activity-log/activity-logs-insights-categoryvalue.png" alt-text="Azure Activity Logs by Category Value":::
     
-    * Use the Azure activities by Category status to view a count of Activity log records by each status.
+    * **Activity Logs by Status** shows the count of Activity log records in each status.
     
-        ![Azure Activity Logs by Status](media/activity-log/activity-logs-insights-status.png)
+        :::image type="content" source="media/activity-log/activity-logs-insights-status.png" alt-text="Azure Activity Logs by Status":::
     
-    * If you are on a scale level - a subscription or a resource group, use the Azure activities by Resource and by resource provider to view a count of Activity log records for each selected resource and provider.
+    * At the subscription and resource group level, **Activity Logs by Resource** and **Activity Logs by Resource Provider** show the count of Activity log records for each of resource and resource provider.
     
-        ![Azure Activity Logs by Resource](media/activity-log/activity-logs-insights-resource.png)
+        :::image type="content" source="media/activity-log/activity-logs-insights-resource.png" alt-text="Azure Activity Logs by Resource":::
     
 ## Next steps
 Learn more about:
