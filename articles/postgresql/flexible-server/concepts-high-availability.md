@@ -1,8 +1,8 @@
 ---
 title: Overview of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

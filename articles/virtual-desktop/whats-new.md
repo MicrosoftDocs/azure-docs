@@ -40,7 +40,7 @@ Here's what's changed in the Azure Virtual Desktop Agent:
     - Fixes an issue with arithmetic overflow casting exceptions.
     - Updated the agent to now start the Azure Instance Metadata Service (IMDS) when the agent starts.
     - Fixes an issue that caused Sandero name pipe service start ups to be slow when the VM has no registration information.
-    - Gneral bug fixes and agent improvements.
+    - General bug fixes and agent improvements.
 - Version 1.0.4009.1500: This update was released in January 2022 and includes the following changes:
     - Added logging to better capture agent update telemetry.
     - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
@@ -118,7 +118,7 @@ We've increased number of Azure Virtual Desktop application groups you can have 
 
 ### Updates to required URLs
 
-We've updated the required URL list for Azure Virtual Desktop to accomodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
+We've updated the required URL list for Azure Virtual Desktop to accommodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
 
 ## December 2021
 

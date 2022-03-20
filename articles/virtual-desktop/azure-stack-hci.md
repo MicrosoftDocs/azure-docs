@@ -79,7 +79,7 @@ To create a profile container using a file share:
 
 ### Download supported OS images from Azure Marketplace
 
-You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI support on your deployment. To learn which OSes Azure Virtual Desktop supports, see [Supported VM OS images](overview.md#supported-virtual-machine-os-images).
+You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI support on your deployment. To learn which OSes Azure Virtual Desktop supports, see [Supported VM OS images](prerequisites.md#operating-systems-and-licenses).
 
 You have two options to download an image:
 
