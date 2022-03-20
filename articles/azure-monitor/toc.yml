@@ -157,17 +157,13 @@ items:
     href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
-    - name: Azure Monitor costs
+    - name: View and estimate usage and charges
       href: usage-estimated-costs.md
-    - name: Estimate your costs
-      href: cost-estimate.md
-    - name: Logs costs
+    - name: Logs pricing details
       href: logs/cost-logs.md
-    - name: Application Insights costs
-      href: app/pricing.md
-    - name: Daily cap
+    - name: Set a daily cap
       href: logs/daily-cap.md
-    - name: Analyze usage
+    - name: Analyze usage and cost
       href: logs/analyze-usage.md    
   - name: Data security
     items:
