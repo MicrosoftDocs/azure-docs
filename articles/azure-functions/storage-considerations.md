@@ -13,7 +13,7 @@ Azure Functions requires an Azure Storage account when you create a function app
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys.  <br/>Also used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Azure Files](../storage/files/storage-files-introduction.md)  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/>Azure Files is set up by default, but you can [create an app without Azure Files](#create-an-app-without-azure-files) under certain conditions. |
-| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).   |
+| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md) and for failure and retry handling by [specific Azure Functions](./functions-bindings-storage-blob-trigger.md) triggers.   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]

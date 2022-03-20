@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/10/2022
+ms.date: 03/16/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -25,7 +25,11 @@ Updates in March include:
 - [Defender for Containers can now scan for vulnerabilities in Windows images (preview)](#defender-for-containers-can-now-scan-for-vulnerabilities-in-windows-images-preview)
 - [New alert for Microsoft Defender for Storage (preview)](#new-alert-for-microsoft-defender-for-storage-preview)
 - [Configure email notifications settings from an alert](#configure-email-notifications-settings-from-an-alert)
- 
+- [Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecated-preview-alert-armmcas_activityfromanonymousipaddresses)
+- [Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moved-the-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices)
+- [Deprecated the recommendation to use service principals to protect your subscriptions](#deprecated-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)
+- [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)
+
 ### Deprecated the recommendations to install the network traffic data collection agent
 
 Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. Consequently, the following two recommendations and their related policies were deprecated.  
@@ -34,7 +38,6 @@ Changes in our roadmap and priorities have removed the need for the network traf
 |---|---|---|
 |[Network traffic data collection agent should be installed on Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3e93d3-0276-4d06-b20a-9a9f3012742c) |Defender for Cloud uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations and specific network threats. |Medium |
 |[Network traffic data collection agent should be installed on Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24d8af06-d441-40b4-a49c-311421aa9f58) |Defender for Cloud uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations, and specific network threats. |Medium |
-|||
 
 ### Defender for Containers can now scan for vulnerabilities in Windows images (preview)
 
@@ -61,6 +64,44 @@ A new section has been added to the alert User Interface (UI) which allows you t
 :::image type="content" source="media/release-notes/configure-email.png" alt-text="Screenshot of the new UI showing how to configure email notification.":::
 
 Learn how to [Configure email notifications for security alerts](configure-email-notifications.md).
+
+### Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
+
+The following preview alert has been deprecated:
+
+|Alert name| Description|
+|----------------------|---------------------------|
+|**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Defender for Cloud Apps license.|
+
+A new alert has been created that provides this information and adds to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) doesn't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
+
+See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanager).
+
+### Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices
+
+The recommendation `Vulnerabilities in container security configurations should be remediated` has been moved from the secure score section to best practices section.
+
+The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We are working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
+
+### Deprecated the recommendation to use service principals to protect your subscriptions
+
+As organizations move away from using management certificates to manage their subscriptions, and [our recent announcement that we're retiring the Cloud Services (classic) deployment model](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we'll be deprecating the following Defender for Cloud recommendation and its related policy:
+
+|Recommendation |Description |Severity |
+|---|---|---|
+|[Service principals should be used to protect your subscriptions instead of Management Certificates](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2acd365d-e8b5-4094-bce4-244b7c51d67c) |Management certificates allow anyone who authenticates with them to manage the subscription(s) they are associated with. To manage subscriptions more securely, using service principals with Resource Manager is recommended to limit the blast radius in the case of a certificate compromise. It also automates resource management. <br />(Related policy: [Service principals should be used to protect your subscriptions instead of management certificates](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6646a0bd-e110-40ca-bb97-84fcee63c414)) |Medium |
+
+Learn more:
+
+- [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
+- [Overview of Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
+- [Workflow of Windows Azure classic VM Architecture - including RDFE workflow basics](../cloud-services/cloud-services-workflow-process.md)
+
+### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
+
+The legacy implementation of ISO 27001 will has been removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 is removed from the dashboard.
+
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
 ## February 2022
 

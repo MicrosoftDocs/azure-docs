@@ -81,7 +81,7 @@ Once you have the basic infrastructure set up, you need to modify some settings 
 
 You can also connect an application that's hosted by Azure App Service. In order to access it from Azure App Service via virtual network, you first need to make a connection between the application and the SQL Managed Instance virtual network. See [Integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md). For data access to your managed instance from outside a virtual network see [Configure public endpoint in Azure SQL Managed Instance](./public-endpoint-configure.md). 
 
-For troubleshooting Azure App Service access via virtual network, see [Troubleshooting virtual networks and applications](../../app-service/overview-vnet-integration.md#troubleshooting). If a connection cannot be established, try [syncing the networking configuration](azure-app-sync-network-configuration.md).
+For troubleshooting Azure App Service access via virtual network, see [Troubleshooting virtual networks and applications](../../app-service/overview-vnet-integration.md#troubleshooting).
 
 A special case of connecting Azure App Service to SQL Managed Instance is when you integrate Azure App Service to a network peered to a SQL Managed Instance virtual network. That case requires the following configuration to be set up:
 
