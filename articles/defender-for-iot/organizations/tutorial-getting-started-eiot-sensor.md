@@ -46,17 +46,17 @@ Before you deploy your Enterprise IoT sensor, you will need to configure your se
 
 **To set up a server, or VM**:
 
-1. Ensure the minimum resources are set to:
+1. Ensure that your resources are set to one of the following specifications:
 
-    * 4C CPU
-
-    * 8-GB ram
-
-    * 250 GB HDD
-
-    * Two Network Adapters
-
-    * OS: Ubuntu 18.04
+    | Tier | Requirements |
+    |--|--|
+    | **Minimum** | To support at least 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 8 GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 10 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32 GB RAM of DDR4 or better<br>- 500 GB HDD |
+   
+    Make sure that your server or VM also has:
+   
+    * Two network adapters
+    * Ubuntu 18.04 operating system.
 
 1. Connect a NIC to a switch.
 
