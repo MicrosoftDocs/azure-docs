@@ -81,6 +81,13 @@ If the device's PLC operating mode is ever switched to an unsecured mode, such a
 
 For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
 
+## Sign out of a CLI session
+
+Starting in this version, CLI users are automatically signed out of their session after <x> inactive minutes. To sign out manually, use the new `logout` CLI command.
+
+For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
+
 
 ## February 2022
 
