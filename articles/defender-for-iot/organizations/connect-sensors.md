@@ -18,8 +18,8 @@ Use this section to help determine which connection method is right for your org
 
 |If ...  |... Then  |
 |---------|---------|
-|- You require private connectivity between your sensor and Azure  <br>- Your site is connected to Azure via ExpressRoute  <br>- Your site is connected to Azure over a VPN  | **[Connect via an Azure proxy](#connect-via-an-azure-proxy)**        |
-|- Your sensor needs a proxy to reach from the OT network to the cloud <br>- You want multiple sensors to connect to Azure through a single point    | **[Connect via proxy chaining](#connect-via-proxy-chaining)**        |
+|- You require private connectivity between your sensor and Azure,  <br>- Your site is connected to Azure via ExpressRoute, or  <br>- Your site is connected to Azure over a VPN  | **[Connect via an Azure proxy](#connect-via-an-azure-proxy)**        |
+|- Your sensor needs a proxy to reach from the OT network to the cloud, or <br>- You want multiple sensors to connect to Azure through a single point    | **[Connect via proxy chaining](#connect-via-proxy-chaining)**        |
 |- You want to connect your sensor to Azure directly    | **[Connect directly](#connect-directly)**        |
 |- You have sensors hosted in multiple public clouds | **[Connect via multi-cloud vendors](#connect-via-multi-cloud-vendors)** |
 
