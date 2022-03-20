@@ -229,6 +229,6 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ## Next steps
 
-If you need more help, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
+If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
 For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).

@@ -14969,6 +14969,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-edge/how-to-devops-starter.md",
+      "redirect_url": "/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
@@ -25209,6 +25214,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-sql/managed-instance/azure-app-sync-network-configuration.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/sql-database/scripts/sql-database-copy-database-to-new-server-cli.md",
       "redirect_url": "/azure/azure-sql/database/scripts/copy-database-to-new-server-cli",
       "redirect_document_id": false
@@ -27476,6 +27486,11 @@
     {
       "source_path_from_root": "/articles/storsimple/storsimple-ova-pp-release-notes.md",
       "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/private-5g-core/activate-sims.md",
+      "redirect_url": "/azure/private-5g-core/provision-sims-azure-portal",
       "redirect_document_id": false
     },
     {
