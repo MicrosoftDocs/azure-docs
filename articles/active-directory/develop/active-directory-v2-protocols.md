@@ -24,13 +24,13 @@ You don't need to learn OAuth and OIDC at the protocol level to use the Microsof
 
 ## Roles in OAuth
 
-Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. Such exchanges are often called *authentication flows*, or just *auth flows*.
+Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. Such exchanges are often called *authentication flows* or *auth flows*.
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* **Authorization server** - The Microsoft identity platform itself is the *authorization server*. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the bearer tokens (security tokens) your apps and web APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
+* **Authorization server** - The Microsoft identity platform itself is the authorization server. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the security tokens your apps and web APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
 
-* **Client** - Any application requesting access to a protected resource in an OAuth exchange is the *client*. A client in OAuth isn't always a web browser or desktop application operated by a human. For example, if a user interacts with a traditional web app (running on a server) to access a protected resource, the web application running on the server is the client, not the user's web browser. You'll often see the client referred to as "client application", "application," or even just "app."
+* **Client** - Any application requesting access to a protected resource in an OAuth exchange is the *client*. A client in OAuth isn't always user agent like a web browser or desktop app operated by a human. A script that accesses a web API to generate a daily report is a client, as is a API that calls another web API. You'll often see the client referred to as "client application", "application," or "app."
 
 * **Resource owner** - The *resource owner* in an auth flow is typically the application user, or *end-user* in OAuth terminology. The end-user *owns* the protected *resource* (data) your app accesses on their behalf. The resource owner can grant or deny your app (the _client_) access to the resources they own. For example, your app might call an external system's API to get a user's email address. Their email address is a resource the end-user owns on that external system, and to which they can grant or deny your app access.
 
