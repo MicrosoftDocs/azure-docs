@@ -575,7 +575,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 
 
-### ABAP SysLog
+### ABAP Syslog
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -689,9 +689,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
 
 
-- **Name in Microsoft Sentinel**: `Syslog`
-
-- **Microsoft Sentinel function for querying this log**: 
+- **Microsoft Sentinel function for querying this log**: SAPSyslog
 
 - **Related SAP documentation**: [General](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/48fd6586304c4f859bf92d64d0cd8b08.html) |  [Audit Trail](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.03/en-US/0a57444d217649bf94a19c0b68b470cc.html)
 
@@ -717,8 +715,6 @@ To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Manage
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-
-- **Name in Microsoft Sentinel**: `JavaFilesLogsCL`
 
 - **Microsoft Sentinel function for querying this log**: SAPJAVAFilesLogs
 
