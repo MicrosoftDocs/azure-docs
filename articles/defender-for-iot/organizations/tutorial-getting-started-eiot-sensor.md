@@ -50,8 +50,8 @@ Before you deploy your Enterprise IoT sensor, you will need to configure your se
 
     | Tier | Requirements |
     |--|--|
-    | **Minimum** | To support at least 1 Gbps: <br><br>- 4C CPU<br>- 8-GB RAM<br>- 250 GB HDD |
-    | **Recommended** | To support up to 15 Gbps: <br><br>-	32C CPU<br>-  24-GB RAM (DDR3) <br>- 1.7T HDD |
+    | **Minimum** | To support at least 1 Gbps: <br><br>- 4 CPU ≥ 2.4 GHz<br>- 8 GB RAM ≥ DDR4<br>- 250 GB HDD |
+    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPU ≥ 2.4 GHz<br>-  32 GB RAM ≥ DDR4 (DDR3)<br>- 500 GB HDD |
    
     Make sure that your server or VM also has:
    
