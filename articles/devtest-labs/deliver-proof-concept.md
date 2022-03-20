@@ -2,7 +2,7 @@
 title: Deliver a proof of concept
 description: Learn how to deliver a proof of concept so Azure DevTest Labs can be successfully incorporated into an enterprise environment.
 ms.topic: how-to
-ms.date: 06/2/2020
+ms.date: 03/12/2022
 ---
 
 # Deliver a proof of concept 

@@ -12,7 +12,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
 ## Prerequisite
 
-- At least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- At least [Contributor](../role-based-access-control/built-in-roles.md#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a lab
 

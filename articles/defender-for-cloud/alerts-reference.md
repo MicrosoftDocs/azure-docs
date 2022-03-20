@@ -2,6 +2,8 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
+ms.author: benmansheim
+author: bmansheim
 ms.date: 03/10/2022
 ---
 # Security alerts - a reference guide
