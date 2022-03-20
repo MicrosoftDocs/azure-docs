@@ -111,7 +111,7 @@ The following table describes the commands available to configure your network o
 
 ## Network capture filter configuration
 
-The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list.
+The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list. This command does not support malware analysis alerts.
 
 ```azurecli-interactive
 network capture-filter
@@ -175,7 +175,7 @@ You're asked the following question:
 
 Your options are: `all`, `dissector`, `collector`, `statistics-collector`, `rpc-parser`, or `smb-parser`.
 
-In most use-cases, select `all`.
+In most common use cases, we recommend that you select `all`. Selecting `all` does not incude malware analysis applicatoins, which are not supported by this command.
 
 ### Custom base capture filter
 
