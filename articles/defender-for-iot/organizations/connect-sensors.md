@@ -26,7 +26,13 @@ Use this section to help determine which connection method is right for your org
 
 ## Connect via an Azure proxy
 
-This section describes how to connect your sensor to Defender for IoT in Azure using an Azure proxy. For more information, see [Proxy connections with an Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy).
+This section describes how to connect your sensor to Defender for IoT in Azure using an Azure proxy. Use this procedure in the following situations:
+
+- You require private connectivity between your sensor and Azure
+- Your site is connected to Azure via ExpressRoute
+- Your site is connected to Azure over a VPN
+
+For more information, see [Proxy connections with an Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy).
 
 ### Prerequisites
 
@@ -269,7 +275,12 @@ To configure a NAT gateway for your sensor connection:
 
 ## Connect via proxy chaining
 
-This section describes how to connect your sensor to Defender for IoT in Azure using proxy chaining. For more information, see [Proxy connections with proxy chaining](architecture-connections.md#proxy-connections-with-proxy-chaining).
+This section describes how to connect your sensor to Defender for IoT in Azure using proxy chaining. Use this procedure in the following situations:
+
+- Your sensor needs a proxy to reach from the OT network to the cloud
+- You want multiple sensors to connect to Azure through a single point
+
+For more information, see [Proxy connections with proxy chaining](architecture-connections.md#proxy-connections-with-proxy-chaining).
 
 ### Prerequisites
 
@@ -336,21 +347,15 @@ This procedure describes how to install and configure a connection between your 
 
 ## Connect directly
 
-This section describes how to configure a direct sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-connections.md#direct-connections).
+This section describes what you need to configure a direct sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-connections.md#direct-connections).
 
-### Prerequisites
+1. Ensure that your sensor can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
-Before you start, make sure that you have a sensor that can access the cloud using HTTP on port 443 to the following Microsoft domains:
+    - **IoT Hub**: `*.azure-devices.net`
+    - **Threat Intelligence**: `*.blob.core.windows.net`
+    - **Eventhub**: `*.servicebus.windows.net`
 
-- **IoT Hub**: `*.azure-devices.net`
-- **Threat Intelligence**: `*.blob.core.windows.net`
-- **Eventhub**: `*.servicebus.windows.net`
-
-Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**.
-
-### Configuration
-
-MISSING STEPS HERE, WE ONLY HAVE THE DIAGRAM
+1. Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**.
 
 ## Connect via multi-cloud vendors
 
