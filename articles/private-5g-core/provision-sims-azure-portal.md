@@ -22,7 +22,9 @@ ms.custom: template-how-to
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
   - Importing a JSON file containing values for one or more SIM resources. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
 - For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
-- If you've configured static IP address allocation for your packet core instance, decide whether you want to assign a static IP address to any of the SIMs you're provisioning. These IP addresses must come from the pool you assigned for static IP address allocation, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). If you're assigning a static IP address to a SIM, you'll also need the following information.
+- If you've configured static IP address allocation for your packet core instance, decide whether you want to assign a static IP address to any of the SIMs you're provisioning. These IP addresses must come from the pool you assigned for static IP address allocation, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). 
+
+    If you're assigning a static IP address to a SIM, you'll also need the following information.
 
     - The SIM policy to assign to the SIM. You won't be able to set a static IP address for a SIM without also assigning a SIM policy.
     - The name of the data network the SIM will use.
@@ -41,7 +43,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | **Opc** | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network. | **Device type** | `deviceType` |
 
-## If applicable, create the JSON file
+## Create the JSON file
 
 Only carry out this step if you decided in [Prerequisites](#prerequisites) to use a JSON file to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
 
@@ -109,7 +111,7 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 
 In this step, you'll provision SIMs using a JSON file.
 
-1. In **Add SIMs** on the right, select **Browse** and then select the JSON file you created in [If applicable, create the JSON file](#if-applicable-create-the-json-file).
+1. In **Add SIMs** on the right, select **Browse** and then select the JSON file you created in [Create the JSON file](#create-the-json-file).
 1. Select **Add**. If the **Add** button is greyed out, check your JSON file to confirm that it's correctly formatted.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
 
