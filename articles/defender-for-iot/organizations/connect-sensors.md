@@ -304,7 +304,7 @@ This procedure describes how to install and configure a connection between your 
 
     1. Locate the Squid configuration file. For example, at `/etc/squid/squid.conf` or `/etc/squid/conf.d/`, and open the file in a text editor.
 
-    1. In the Squid configuration file, search for the following text: ``# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`.
+    1. In the Squid configuration file, search for the following text: `# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`.
 
     1. Add `acl <sensor-name> src <sensor-ip>`, and `http_access allow <sensor-name>` into the file. For example:
 
