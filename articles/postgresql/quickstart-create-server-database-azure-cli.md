@@ -1,14 +1,16 @@
 ---
 title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - single server'
 description: In this quickstart guide, you'll create an Azure Database for PostgreSQL server by using the Azure CLI.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: quickstart
-ms.date: 01/26/2022 
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli, mode-api
+ms.date: 01/26/2022 
 ---
+
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI
 
 This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes.

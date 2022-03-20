@@ -194,13 +194,6 @@ This setting is configured in the **Active Directory Connections** under **NetAp
   
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
-
-    * <a name="encrypted-smb-connection"></a>**Encrypted SMB connection to domain controller** 
-
-        Select this checkbox to enable SMB encryption for communication between the Azure NetApp Files service and the domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections, because encryption is supported only by SMB3. SMB, Kerberos, and LDAP enabled volume creation will fail if the DC doesn't support the SMB3 protocol. 
-
-        ![Snapshot that shows the option for encrypted SMB connection to domain controller.](../media/azure-netapp-files/encrypted-smb-domain-controller.png) 
-
     * **LDAP Signing**   
         Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
 

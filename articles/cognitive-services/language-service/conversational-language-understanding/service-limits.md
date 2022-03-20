@@ -20,9 +20,7 @@ Learn about the data, region, and throughput limits for the Conversational Langu
 ## Region limits
 
 - Conversational Language Understanding is only available in 2 regions: **West US 2** and **West Europe**. 
-    - Orchestration workflow projects will enable **Conversation projects**, **QnA Maker** and **LUIS** connections in West Europe.
-    - Orchestration workflow projects will enable **Conversation projects** and **QnA Maker** connections only in West US 2. There is no authoring West US 2 region for LUIS. 
-- The only available SKU to access CLU is the **Language** resource with the **S** sku.
+- The only available SKU to access Conversational Language Understanding is the **Language** resource with the **S** sku.
 
 ## Data limits
 
@@ -30,7 +28,7 @@ The following limits are observed for the Conversational Language Understanding 
 
 |Item|Limit|
 | --- | --- |
-|Utterances|15,000 per project*|
+|Utterances|15,000 per project|
 |Intents|500 per project|
 |Entities|100 per project|
 |Utterance length|500 characters|
@@ -38,9 +36,6 @@ The following limits are observed for the Conversational Language Understanding 
 |Models|10 per project|
 |Projects|500 per resource|
 |Synonyms|20,000 per list component|
-
-\**Only includes utterances added by the user. Data pulled in for orchestration workflow projects do not count towards the total.*
-
 
 ## Throughput limits
 
