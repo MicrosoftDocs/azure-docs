@@ -1,22 +1,17 @@
 ---
-title: 'Azure Front Door Standard/Premium (Preview) Reports'
+title: 'Reports - Azure Front Door'
 description: This article explains how reporting works in Azure Front Door.
 services: frontdoor
-author: jessie-jyy
+author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 07/07/2021
-ms.author: yuajia
+ms.date: 03/20/2022
+ms.author: duau
 ---
 
-# Azure Front Door Standard/Premium (Preview) Reports
+# Azure Front Door reports
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-around view of how you Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
+Azure Front Door analytics reports provide a built-in and all-around view of how you Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
 
 | Reports | Details |
 |---------|---------|
@@ -35,7 +30,7 @@ Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-a
 | Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
 
 > [!NOTE]
-> Security reports is only available with Azure Front Door Premium SKU.
+> Security reports is only available with Azure Front Door Premium tier.
 
 Most of the reports are based on access logs and are offered free of charge to customers on Azure Front Door. Customer doesn’t have to enable access logs or do any configuration to view these reports. Reports are accessible through portal and API. CSV download is also supported. 
 
@@ -364,4 +359,4 @@ The seven tables are for time, rule ID, countries/regions, IP address, URL, host
 
 ## Next steps
 
-Learn about [Azure Front Door Standard/Premium real time monitoring metrics](how-to-monitor-metrics.md).
+Learn about [Azure Front Door real time monitoring metrics](how-to-monitor-metrics.md).
