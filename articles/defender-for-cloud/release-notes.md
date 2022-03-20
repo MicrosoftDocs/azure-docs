@@ -30,8 +30,7 @@ Updates in March include:
 - [Deprecated the recommendation to use service principals to protect your subscriptions](#deprecated-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)
 - [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)
 - [Deprecated Microsoft Defender for IoT device recommendations](#deprecated-microsoft-defender-for-iot-device-recommendations)
-- [Deprecated Microsoft Defender for IoT device alerts
-](#deprecated-microsoft-defender-for-iot-device-alerts)
+- [Deprecated Microsoft Defender for IoT device alerts](#deprecated-microsoft-defender-for-iot-device-alerts)
 ### Deprecated the recommendations to install the network traffic data collection agent
 
 Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. Consequently, the following two recommendations and their related policies were deprecated.  
@@ -107,7 +106,7 @@ The legacy implementation of ISO 27001 will has been removed from Defender for C
 
 ### Deprecated Microsoft Defender for IoT device recommendations
 
-Microsoft Defender for IoT device recommendations is no longer visible in Microsoft Defender for Cloud. These recommendations are still available on Microsoft Defender for IoT's Recommendations page, and in Microsoft Sentinel.
+Microsoft Defender for IoT device recommendations is no longer visible in Microsoft Defender for Cloud. These recommendations are still available on Microsoft Defender for IoT's Recommendations page.
 
 The following recommendations are deprecated:
 
