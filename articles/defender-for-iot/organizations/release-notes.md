@@ -44,6 +44,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 - [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
+- [Sign out of a CLI session](#sign-out-of-a-cli-session)
 
 ### More device properties in the Device inventory
 
@@ -83,7 +84,7 @@ For more information, see [Manage your IoT devices with the device inventory for
 
 ## Sign out of a CLI session
 
-Starting in this version, CLI users are automatically signed out of their session after <x> inactive minutes. To sign out manually, use the new `logout` CLI command.
+Starting in this version, CLI users are automatically signed out of their session after 300 inactive seconds. To sign out manually, use the new `logout` CLI command.
 
 For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
