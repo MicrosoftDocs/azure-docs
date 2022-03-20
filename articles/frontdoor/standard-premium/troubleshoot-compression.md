@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/20/2022
-ms.author: qixwang
+ms.author: duau
 ---
 
 # Troubleshooting Azure Front Door file compression
