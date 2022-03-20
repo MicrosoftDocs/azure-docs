@@ -38,7 +38,7 @@ Before you start configuring DCRs for data transformation:
 | **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the **Azure Monitor Agent (AMA)** | <li>Optional<li>If desired, included in the DCR that defines the AMA configuration | Standard DCR |
 | **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the legacy **Log Analytics Agent (MMA)** | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
 | **Built-in data types** <br>from most other sources | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
-|  |  |
+
 
 
 

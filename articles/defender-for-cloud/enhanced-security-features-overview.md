@@ -2,7 +2,9 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 03/06/2022
+ms.author: benmansheim
+author: bmansheim
+ms.date: 02/24/2022
 ---
 
 # Microsoft Defender for Cloud's enhanced security features
@@ -12,8 +14,6 @@ ms.date: 03/06/2022
 The enhanced security features are free for the first 30 days. At the end of 30 days, if you decide to continue using the service, we'll automatically start charging for usage.
 
 You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-
-:::image type="content" source="media/enhanced-security-features-overview/defender-plans-top.png" alt-text="Enabling Microsoft Defender for Cloud's enhanced security features.":::
 
 ## What are the benefits of enabling enhanced security features?
 

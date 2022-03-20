@@ -43,8 +43,6 @@ landingContent:
             url: release-notes.md
           - text: Important upcoming changes
             url: upcoming-changes.md
-          - text: Multi-cloud security - Defend AWS EKS clusters
-            url: defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters
           - text: Connect AWS accounts with environment settings
             url: quickstart-onboard-aws.md
           - text: Threat and vulnerability management vulnerability assessment
