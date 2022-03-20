@@ -1711,6 +1711,15 @@ groups:
     title: PowerShell
   - id: graph-hrd
     title: Graph
+# Owner: juliakm
+- id: pipelines-version
+  title: Pipelines version
+  prompt: Choose a Pipelines version
+  pivots:
+  - id: pipelines-yaml
+    title: YAML
+  - id: pipelines-classic
+    title: Classic
  # Owner: rahulmehta
 - id: azure-red-hat-openshift
   title: ARM and Bicep-OpenShift

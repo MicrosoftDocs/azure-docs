@@ -132,7 +132,7 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
-For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
+For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md).
 
 ## What is an Inventory Device
 

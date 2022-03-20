@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer C# SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer C# SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: 'Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 (preview)'
 author: laujan
@@ -14,11 +14,12 @@ recommendations: false
 
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD029 -->
 
-# Get started: Form Recognizer C# SDK v3.0 | Preview
+# Get started: Form Recognizer C# SDK (beta)
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -140,6 +141,8 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     * [**Layout model**](#layout-model)
 
     * [**Prebuilt model**](#prebuilt-model)
+
+1. [Run your program](#run-your-application).
 
 > [!IMPORTANT]
 >

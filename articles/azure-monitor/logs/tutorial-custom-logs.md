@@ -28,7 +28,7 @@ To complete this tutorial, you need the following:
 
 
 ## Overview of tutorial
-In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the table will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
+In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the data will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
 
 
 ## Configure application
