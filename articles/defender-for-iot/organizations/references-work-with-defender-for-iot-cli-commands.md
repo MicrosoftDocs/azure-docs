@@ -175,7 +175,7 @@ You're asked the following question:
 
 Your options are: `all`, `dissector`, `collector`, `statistics-collector`, `rpc-parser`, or `smb-parser`.
 
-In most common use cases, we recommend that you select `all`. Selecting `all` does not incude malware analysis applicatoins, which are not supported by this command.
+In most common use cases, we recommend that you select `all`. Selecting `all` does not include malware analysis applications, which are not supported by this command.
 
 ### Custom base capture filter
 
