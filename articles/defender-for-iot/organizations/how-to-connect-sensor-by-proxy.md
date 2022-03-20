@@ -11,7 +11,7 @@ This article describes how to connect Microsoft Defender for IoT sensors to Defe
 
 Starting with sensor software versions 22.1.x, updated connection methods are supported that don't require customers to have their own IoT Hub. For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
-Use the procedures in this article only if you are using a legacy sensor version lower than 22.1.x.
+We recommend that you use the procedures in this article only if you are using a legacy sensor version lower than 22.1.x.
 
 ## Overview
 
