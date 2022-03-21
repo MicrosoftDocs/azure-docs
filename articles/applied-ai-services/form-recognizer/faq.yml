@@ -385,7 +385,9 @@ sections:
           What's the difference between disconnected and connected container?
         answer: |
 
-          The Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You need to have internet connectivity to send the [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. While [disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use several of these APIs completely disconnected from the internet. The model capabilities provided in connected and disconnected containers are the same the v2.1 online version.
+          - The Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You need to have internet connectivity to send the [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. 
+          
+          - [Disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use APIs completely disconnected from the internet. Currently disconnected container usage is available for **Form Recognizer custom and invoice models.The model capabilities provided in connected and disconnected containers are the same the v2.1 online version.
 
       - question: |
           What data do connected containers send to the cloud?
