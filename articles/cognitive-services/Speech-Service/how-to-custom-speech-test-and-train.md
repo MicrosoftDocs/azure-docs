@@ -202,7 +202,7 @@ The following table specifies the limits and other properties for the Markdown f
 If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
 
 > [!NOTE]
-> You can't combine this type of pronunciation file with structured-text training data. For structured-text data, use the phonetic pronunciation capability that's included in the structured-text Markdown format.
+> You can either use a pronunciation data file on its own, or you can add pronunciation within a structured text data file. The Speech service doesn't support training a model where you select both of those datasets as input. 
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three. This table includes some examples:
 
