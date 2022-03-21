@@ -426,7 +426,7 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The usage of the Queue output binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [In-process class library](#tab/in-process)
+# [In-process](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  

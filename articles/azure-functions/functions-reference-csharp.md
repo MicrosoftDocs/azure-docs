@@ -383,7 +383,9 @@ The way that both binding extension packages and other NuGet packages are added 
 
 By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles). 
 
-To use other NuGet packages in a 2.x and later C# function, create a *function.proj* file in the root of the function app's file system (wwwroot). Here is an example *function.proj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
+If for some reason you can't use extension bundles in your project, you can also use the Azure Functions Core Tools to install extensions based on bindings defined in the function.json files in your app. When using Core Tools to register extensions, make sure to use the `--csx` option. To learn more, see [Install extensions](functions-run-local.md#install-extensions).
+
+By default, Core Tools reads the function.json files and adds the required packages to an *extensions.csproj* C# class library project file in the root of the function app's file system (wwwroot). Because Core Tools uses dotnet.exe, you can use it to add any NuGet package reference to this extensions file. During installation, Core Tools builds the extensions.csproj to install the required libraries. Here is an example *extensions.csproj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -398,7 +400,7 @@ To use other NuGet packages in a 2.x and later C# function, create a *function.p
 
 # [v1.x](#tab/functionsv1)
 
-Version 1.x of the Functions runtime uses a *project.json* file instead. Here is an example *project.json* file:
+Version 1.x of the Functions runtime uses a *project.json* file to define dependencies. Here is an example *project.json* file:
 
 ```json
 {
@@ -418,24 +420,7 @@ Extension bundles aren't supported by version 1.x.
 
 To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the function app root folder. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
 
-## Updating files in the portal
-
-The Functions editor built into the Azure portal lets you update your function code and and configuration (function.json) files directly in the portal. 
-
-1. Select your function app, then under **Functions** select **Functions**.
-1. Choose your function and select **Code + test** under **Developer**.
-1. Choose your file to edit and select **Save** when you're done.
-
-File in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the Advanced Tools (Kudu).
-
-1. Select your function app, then under **Development tools** select **Advanced tools** > **Go**.
-1. If promoted, sign-in to the SCM site with your Azure credentials.
-1. From the **Debug console** menu, choose **CMD**.
-1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
-1. Name the file, such as `function.proj` and press Enter.
-1. Select the edit button next to the new file, add or update code in the file, and select **Save**. 
-
-
+If you are working on your project only in the portal, you'll need to manually create the extensions.csproj file or a Nuget.Config file directly in the site. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
 
 ## Environment variables
 
