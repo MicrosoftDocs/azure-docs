@@ -88,7 +88,7 @@ If you are
 
 ## Moving from Premium Container to Premium V3 SKU
 
-The Premium Container SKU will be retired on **30th June 2022**.  You should move your applications to the **Premium V3 SKU** ahead of this date. To do this, you can now use the clone functionality in the Azure App Service CLI extension to [move your application from your Premium Container App Service Plan to a new Premium V3 App Service plan](https://aka.ms/pcsku). 
+The Premium Container SKU will be retired on **30th June 2022**.  You should move your applications to the **Premium V3 SKU** ahead of this date. Use the clone functionality in the Azure App Service CLI experience to [move your application from your Premium Container App Service Plan to a new Premium V3 App Service plan](https://aka.ms/pcsku). 
 
 ## Automate with scripts
 
