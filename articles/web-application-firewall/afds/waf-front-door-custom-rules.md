@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 09/05/2019
+ms.date: 03/21/2022
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ Azure Web Application Firewall (WAF) with Front Door allows you to control acces
 
 You can control access with a custom WAf rule that defines a priority number, a rule type, an array of match conditions, and an action. 
 
-- **Priority:** is a unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. Priority numbers must be unique among all custom rules.
+- **Priority:** is a unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. The rule processing with higher values stops if the action for a lower priority value rule evaluated is *Allow* or *Block*. Priority numbers must be unique among all custom rules.
 
 - **Action:** defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
 
