@@ -35,7 +35,7 @@ Azure Load Testing supports two types of identities:
 
 To add a system-assigned identity for your Azure Load Testing resource, you need to enable a property on the resource. You can set this property by using the Azure portal or by using an Azure Resource Manager (ARM) template.
 
-# [Azure portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 To set up a managed identity in the portal, you first create an Azure Load Testing resource and then enable the feature.
 
@@ -84,11 +84,13 @@ When the resource is created, it gets the following additional properties:
 
 The `tenantId` property identifies which Azure AD tenant the identity belongs to. The `principalId` is a unique identifier for the resource's new identity. Within Azure AD, the service principal has the same name as the Azure Load Testing resource.
 
+---
+
 ## Set a user-assigned identity
 
 Adding a user-assigned identity to an Azure Load testing resource requires that you create the identity and then add its resource identifier to your resource.
 
-# [Azure portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 To add a user-assigned managed identity in the portal, you first create a user-assigned identity resource and then add it to the Azure Load Testing resource.
 
@@ -106,7 +108,7 @@ To add a user-assigned managed identity in the portal, you first create a user-a
 
 # [ARM template](#tab/arm)
 
-You can use an ARM template to automate the deployment of your Azure resources. You can create any resource of type Microsoft.LoadTestService/loadtests with an identity by including the following block in the resource definition, replacing <RESOURCEID> with the resource ID of the desired identity:
+You can use an ARM template to automate the deployment of your Azure resources. You can create any resource of type Microsoft.LoadTestService/loadtests with an identity by including the following block in the resource definition, replacing `<RESOURCEID>` with the resource ID of the desired identity:
 
 ```json
 "identity": {
@@ -149,6 +151,8 @@ When the resource is created, it gets the following additional properties:
 ```
 
 The `principalId` is a unique identifier for the identity that's used for Azure AD administration. The `clientId` is a unique identifier for the resource's new identity that's used for specifying which identity to use during runtime calls.
+
+---
 
 ## Grant access to your Azure key vault
 
