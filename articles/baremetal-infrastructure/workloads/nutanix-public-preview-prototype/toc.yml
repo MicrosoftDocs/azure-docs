@@ -11,6 +11,8 @@
   - name: Supported instances
     href: supported-instances.md
 - name: Deployment
+  items:
+- name: Overview
   href: nutanix-deployment-overview.md
   items:
   - name: Deploying Nutanix Clusters in Azure
