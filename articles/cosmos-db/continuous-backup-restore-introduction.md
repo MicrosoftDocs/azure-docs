@@ -6,9 +6,8 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.author: govindk
-ms.reviewer: sngun
-ms.custom: references_regions
-
+ms.reviewer: wiassaf
+ms.custom: references_regions, cosmos-db-video
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
@@ -137,6 +136,8 @@ Currently the point in time restore functionality has the following limitations:
 * The restore process restores all the properties of a container including its TTL configuration. As a result, it is possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
 * Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account or migrate an account from periodic to continuous mode.
+
+* Continuous mode restore may not restore throughput setting valid as of restore point. 
 
 ## Next steps
 
