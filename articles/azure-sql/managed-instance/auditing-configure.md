@@ -163,6 +163,19 @@ For additional information:
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
 
+
+
+## Auditing of Microsoft Support operations
+
+Auditing of Microsoft Support operations for SQL Managed Instance allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
+
+To enable auditing of Microsoft Support operations navigate to create audit under audit in your SQL MI Instance, and switch Enable Auditing of Microsoft support operations to ON
+
+![image](https://user-images.githubusercontent.com/31034666/159246575-82d29458-2d21-44bf-bf5b-235ef502b2fd.png)
+
+
+
+
 ## Set up auditing for your server to Event Hubs or Azure Monitor logs
 
 Audit logs from a managed instance can be  sent to Azure Event Hubs or Azure Monitor logs. This section describes how to configure this:
