@@ -197,6 +197,8 @@ Create an application gateway using the following steps to enable SSL terminatio
 
 It can take up to 30 minutes for Azure to create the application gateway.
 
+---
+
 ### Update HTTP settings to use the domain name towards the backend
 
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with `.private.azuremicroservices.io` to send traffic to Azure Spring Cloud with.
@@ -210,7 +212,7 @@ az network application-gateway http-settings update \
     --name appGatewayBackendHttpSettings
 ```
 
----
+
 
 ### Check the deployment of the application gateway
 
