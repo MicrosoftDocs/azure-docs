@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 
-This article covers the recommendation to convert from per-user MFA to conditional access MFA . 
+This article covers the recommendation to convert from per-user MFA to conditional access MFA. 
 
 
 ## Description
@@ -50,7 +50,7 @@ This recommendation improves your user's productivity and minimizes the sign-in 
 
 ## Action plan
 
-1. To get started, confirm that there is an existing conditional access policy with an MFA requirement. Ensure that you are covering all resources and users you would like to secure with MFA. To view your conditional access policies, click [here](https://portal.azure.com/?Microsoft_AAD_IAM_enableAadvisorFeaturePreview=true&amp%3BMicrosoft_AAD_IAM_enableAadvisorFeature=true#blade/Microsoft_AAD_IAM/PoliciesTemplateBlade).
+1. To get started, confirm that there's an existing conditional access policy with an MFA requirement. Ensure that you're covering all resources and users you would like to secure with MFA. Review your [conditional access policies](https://portal.azure.com/?Microsoft_AAD_IAM_enableAadvisorFeaturePreview=true&amp%3BMicrosoft_AAD_IAM_enableAadvisorFeature=true#blade/Microsoft_AAD_IAM/PoliciesTemplateBlade).
 
 2.	To require MFA using a conditional access policy, follow the steps in [Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
