@@ -112,19 +112,17 @@ During the creation of the load balancer, you'll configure:
     | SKU           | Select **Basic**. |
     | Type          | Select **Internal**.                                        |
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
-
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 6. Enter **myFrontend** in **Name**.
 
-7. Select **myBackendSubnet** in **Subnet**.
+7. Select **myVNet** in **Virtual network**.
 
-8. Select **Dynamic** for **Assignment**.
+8. Select **myBackendSubnet** in **Subnet**.
 
-9. Select **Zone-redundant** in **Availability zone**.
+9. Select **Dynamic** for **Assignment**.
 
 10. Select **Add**.
 
@@ -132,9 +130,9 @@ During the creation of the load balancer, you'll configure:
 
 12. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-13. Enter **myBackendPool** for **Name** in **Add backend pool**.
+13. Enter **myBackendPool** in **Name**.
 
-14. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+14. Select **Virtul machines** in **Associated to**.
 
 15. Select **IPv4** or **IPv6** for **IP version**.
 
@@ -158,7 +156,6 @@ During the creation of the load balancer, you'll configure:
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
-    | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
 
 20. Select **Add**.
@@ -171,44 +168,6 @@ During the creation of the load balancer, you'll configure:
     > In this example you'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
-## Create NAT gateway
-
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-2. In **NAT gateways**, select **+ Create**.
-
-3. In **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **CreateIntLBQS-rg**. |
-    | **Instance details** |    |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **West US 3**. |
-    | Availability zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **15**. |
-
-4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
-
-5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
-
-6. Enter **myNATgatewayIP** in **Name** in **Add a public IP address**.
-
-7. Select **OK**.
-
-8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
-
-9. In **Virtual network**, select **myVNet**.
-
-10. Select **myBackendSubnet** under **Subnet name**.
-
-11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
-
-12. Select **Create**.
 
 ## Create virtual machines
 
@@ -270,7 +229,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
     | Setting | VM 2 |
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Name | **myVM2** |
     | Availability set | Select the existing **myAvailabiltySet** |
     | Network security group | Select the existing **myNSG** |
 
@@ -381,8 +340,6 @@ In this section, you'll test the load balancer by connecting to the **myTestVM**
 
 9. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser. In this example, it's **10.1.0.4**.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the customized page, as expected." border="true":::
-   
 To see the load balancer distribute traffic across both VMs, you can force-refresh your web browser from the client machine.
 
 ## Clean up resources
