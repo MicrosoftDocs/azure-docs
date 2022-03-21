@@ -147,7 +147,7 @@ Consider when to start displaying captions. Speech recognition results are subje
 
 For captioning of prerecorded speech or wherever latency is not a concern, you could wait for the complete transcription of each utterance before displaying any words. Given the final offset and duration of each word in an utterance, you know when to show subsequent words at pace with the soundtrack.
 
-Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There is also some middle ground, which is referred to as "partial intermediate results". 
+Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There is also some middle ground, which is referred to as "stable partial intermediate results". 
 
 You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 
