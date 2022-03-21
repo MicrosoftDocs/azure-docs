@@ -33,22 +33,24 @@ For information on troubleshooting deadlocks, see [Analyze and prevent deadlocks
  
 Blocking is an unavoidable and by-design characteristic of any relational database management system (RDBMS) with lock-based concurrency. Blocking in a database in Azure SQL Database occurs when one session holds a lock on a specific resource and a second SPID attempts to acquire a conflicting lock type on the same resource. Typically, the time frame for which the first SPID locks the resource is small. When the owning session releases the lock, the second connection is then free to acquire its own lock on the resource and continue processing. This is normal behavior and may happen many times throughout the course of a day with no noticeable effect on system performance.
 
-Each database in Azure SQL Database has the [read committed snapshot](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1) (RCSI) database setting enabled by default.  Blocking between sessions reading data and sessions writing data is minimized under RCSI, which uses row versioning to increase concurrency. However, blocking and deadlocks may still occur in databases in Azure SQL Database because:
+Each new database in Azure SQL Database has the [read committed snapshot](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1) (RCSI) database setting enabled by default.  Blocking between sessions reading data and sessions writing data is minimized under RCSI, which uses row versioning to increase concurrency. However, blocking and deadlocks may still occur in databases in Azure SQL Database because:
 
 - Queries that modify data may block one another.
 - Queries may run under isolation levels that increase blocking. Isolation levels may be specified in application connection strings, [query hints](/sql/t-sql/queries/hints-transact-sql-query), or [SET statements](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) in Transact-SQL.
-- [RCSI may be disabled](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1), causing the database to use shared (S) locks to protect SELECT statements run under the read committed isolation level. This increases blocking and deadlocks.
+- [RCSI may be disabled](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1), causing the database to use shared (S) locks to protect SELECT statements run under the read committed isolation level. This may increase blocking and deadlocks.
 
-You can identify if RCSI is enabled with Transact-SQL. Connect to your database in Azure SQL Database and run the following query:
+[Snapshot isolation level](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#b-enable-snapshot-isolation-on-a-database) is also enabled by default for new databases in Azure SQL Database. Snapshot isolation is an additional row-based isolation level that provides transaction-level consistency for data and which uses row versions to select rows to update. To use snapshot isolation, queries or connections must explicitly set their transaction isolation level to `SNAPSHOT`. This may only be done when snapshot isolation is enabled for the database.
+
+You can identify if RCSI and/or snapshot isolation are enabled with Transact-SQL. Connect to your database in Azure SQL Database and run the following query:
 
 ```sql
-SELECT name, is_read_committed_snapshot_on
+SELECT name, is_read_committed_snapshot_on, snapshot_isolation_state_desc
 FROM sys.databases
 WHERE name = DB_NAME();
 GO
 ```
 
-If RCSI is enabled, the `is_read_committed_snapshot_on` column will return the value **1**. 
+If RCSI is enabled, the `is_read_committed_snapshot_on` column will return the value **1**. If snapshot isolation is enabled, the `snapshot_isolation_state_desc` column will return the value **ON**.
 
 The duration and transaction context of a query determine how long its locks are held and, thereby, their effect on other queries. SELECT statements run under RCSI [do not acquire shared (S) locks on the data being read](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-reading-data), and therefore do not block transactions that are modifying data. For INSERT, UPDATE, and DELETE statements, the locks are held during the query, both for data consistency and to allow the query to be rolled back if necessary.
 
@@ -361,6 +363,8 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
     **Resolution**: The solution to this type of blocking problem is to look for ways to optimize the query. Actually, this class of blocking problem may just be a performance problem, and require you to pursue it as such. For information on troubleshooting a specific slow-running query, see [How to troubleshoot slow-running queries on SQL Server](/troubleshoot/sql/performance/troubleshoot-slow-running-queries). For more information, see [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance). 
 
     Reports from the [Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store) in SSMS are also a highly recommended and valuable tool for identifying the most costly queries, suboptimal execution plans. Also review the [Intelligent Performance](intelligent-insights-overview.md) section of the Azure portal for the Azure SQL database, including [Query Performance Insight](query-performance-insight-use.md).
+
+    If the runtime of the blocking query is not a concern and the query performs only SELECT operations, consider [running the statement under snapshot isolation](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) if it is enabled in your database, especially if RCSI has been disabled. As when RCSI is enabled, queries reading data do not require shared (S) locks under snapshot isolation level. Additionally, snapshot isolation provides transaction level consistency for all statements in an explicit multi-statement transaction. Snapshot isolation may [already be enabled in your database](#understand-blocking). Snapshot isolation may also be used with queries performing modifications, but you must handle [update conflicts](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-in-summary).
 
     If you have a long-running query that is blocking other users and cannot be optimized, consider moving it from an OLTP environment to a dedicated reporting system, a [synchronous read-only replica of the database](read-scale-out.md).
 

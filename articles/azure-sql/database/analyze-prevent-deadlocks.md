@@ -20,46 +20,49 @@ This article focuses on identifying and analyzing deadlocks due to lock contenti
 
 ## How deadlocks occur in Azure SQL Database
 
-Each database in Azure SQL Database has the [read committed snapshot](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1) (RCSI) database setting enabled by default.  [Blocking](understand-resolve-blocking.md) between sessions reading data and sessions writing data is minimized under RCSI, which uses row versioning to increase concurrency. However, blocking and deadlocks may still occur in databases in Azure SQL Database because:
+Each new database in Azure SQL Database has the [read committed snapshot](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1) (RCSI) database setting enabled by default.  [Blocking](understand-resolve-blocking.md) between sessions reading data and sessions writing data is minimized under RCSI, which uses row versioning to increase concurrency. However, blocking and deadlocks may still occur in databases in Azure SQL Database because:
 
 - Queries that modify data may block one another.
-- Queries may run under isolation levels that increase blocking. Isolation levels may be specified in application connection strings, [query hints](/sql/t-sql/queries/hints-transact-sql-query), or [SET statements](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) in Transact-SQL.
-- [RCSI may be disabled](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1), causing the database to use shared (S) locks to protect SELECT statements run under the read committed isolation level. This increases blocking and deadlocks.
+- Queries may run under isolation levels that increase blocking. Isolation levels may be specified via client library methods, [query hints](/sql/t-sql/queries/hints-transact-sql-query), or [SET statements](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) in Transact-SQL.
+- [RCSI may be disabled](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1), causing the database to use shared (S) locks to protect SELECT statements run under the read committed isolation level. This may increase blocking and deadlocks.
 
 ### An example deadlock
 
-A deadlock occurs when two or more tasks permanently block each other by each task having a lock on a resource that the other tasks are trying to lock. 
+A deadlock occurs when two or more tasks permanently block each other by each task having a lock on a resource that the other tasks are trying to lock. A deadlock is also called a cyclic dependency: transaction A has a dependency on transaction B, and transaction B closes the circle by having a dependency on transaction A.
 
 For example:
 
 1. **Session A** begins an explicit transaction and runs an update statement that acquires an update (U) lock on one row on table `SalesLT.Product` that is [converted to an exclusive (X) lock](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-modifying-data).
-1. **Session B** runs an update statement that modifies the `SalesLt.ProductDescription` table. The update statement joins to the `SalesLT.Product` table to find the correct rows to update.
-    - **Session B** takes out an update (U) lock on 72 rows on the `SalesLt.ProductDescription` table.
+1. **Session B** runs an update statement that modifies the `SalesLT.ProductDescription` table. The update statement joins to the `SalesLT.Product` table to find the correct rows to update.
+    - **Session B** acquires an update (U) lock on 72 rows on the `SalesLT.ProductDescription` table.
     - **Session B** needs a shared lock on rows on the table `SalesLT.Product`, including the row that is locked by **Session A**. **Session B** is blocked on `SalesLT.Product`.
-1. **Session A** continues its transaction, and now runs an update against the `SalesLt.ProductDescription` table. **Session A** is blocked by Session B on `SalesLt.ProductDescription`.
+1. **Session A** continues its transaction, and now runs an update against the `SalesLT.ProductDescription` table. **Session A** is blocked by Session B on `SalesLT.ProductDescription`.
 
 :::image type="content" source="media/analyze-prevent-deadlocks/deadlock-overview.png" alt-text="A diagram showing two sessions in a deadlock. Each session owns a resource that the other process needs in order to continue.":::
 
-All transactions in a deadlock will wait indefinitely unless a session is terminated or the deadlock is resolved by an external process. 
+All transactions in a deadlock will wait indefinitely unless one of participating transactions is canceled or rolled back, for example because its session was terminated.
 
 The database engine deadlock monitor periodically checks for tasks that are in a deadlock. If the deadlock monitor detects a cyclic dependency, it chooses one of the tasks as a victim and terminates its transaction with error 1205. Breaking the deadlock in this way allows the other task or tasks in the deadlock to complete their transactions.
+
+>[!NOTE]
+> Learn more about the criteria for choosing a deadlock victim in the [Deadlock process list](#deadlock-process-list) section of this article.
 
 :::image type="content" source="media/analyze-prevent-deadlocks/deadlock-overview-with-deadlock-victim.png" alt-text="Overview of a deadlock between two sessions. One session has been chosen as the deadlock victim.":::
 
 The application with the transaction chosen as the deadlock victim should retry the transaction, which usually completes after the other transaction or transactions involved in the deadlock have finished. 
 
-Learn more about how to design [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+It is a best practice to introduce a short, randomized delay before retry to avoid encountering the same deadlock again. Learn more about how to design [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 
 ### Default isolation level in Azure SQL Database
 
-Databases in Azure SQL Database enable read committed snapshot (RCSI) by default. RCSI changes the behavior of the [read committed isolation level](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#database-engine-isolation-levels) to use [row-versioning](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Row_versioning) to provide statement-level consistency without the use of shared (S) locks for SELECT statements.
+New databases in Azure SQL Database enable read committed snapshot (RCSI) by default. RCSI changes the behavior of the [read committed isolation level](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#database-engine-isolation-levels) to use [row-versioning](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Row_versioning) to provide statement-level consistency without the use of shared (S) locks for SELECT statements.
 
 With RCSI enabled:
 
 - Statements reading data do not block statements modifying data.
 - Statements modifying data do not block statements reading data. 
 
-Optionally, you may also choose to [enable Snapshot isolation level](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#b-enable-snapshot-isolation-on-a-database) for a database in Azure SQL Database. Snapshot isolation is an additional row-based isolation level that provides transaction-level consistency for data and which uses row versions to select rows to update. To use snapshot isolation, queries or connections must explicitly set their transaction isolation level to `SNAPSHOT`. This may only be done after snapshot isolation is enabled for the database.
+[Snapshot isolation level](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#b-enable-snapshot-isolation-on-a-database) is also enabled by default for new databases in Azure SQL Database. Snapshot isolation is an additional row-based isolation level that provides transaction-level consistency for data and which uses row versions to select rows to update. To use snapshot isolation, queries or connections must explicitly set their transaction isolation level to `SNAPSHOT`. This may only be done when snapshot isolation is enabled for the database.
 
 You can identify if RCSI and/or snapshot isolation are enabled with Transact-SQL. Connect to your database in Azure SQL Database and run the following query:
 
@@ -84,15 +87,17 @@ It's useful to set up alerts, however, as deadlocks may reoccur. Deadlock alerts
 
 The lowest risk approach to preventing deadlocks from reoccurring is generally to [tune nonclustered indexes](#prevent-a-deadlock-from-reoccurring) to optimize queries involved in the deadlock.
 
-- Risk is low for this approach because index tuning doesn't require changes to the query code itself, reducing the risk of a user error when rewriting Transact-SQL that causes incorrect data to be returned to the user.
-- Effective index tuning helps queries find the data to read and modify more efficiently. By reducing the amount of data that a query needs to access, the surface area for blocking is reduced and deadlocks can often be prevented.
+- Risk is low for this approach because tuning nonclustered indexes doesn't require changes to the query code itself, reducing the risk of a user error when rewriting Transact-SQL that causes incorrect data to be returned to the user.
+- Effective nonclustered index tuning helps queries find the data to read and modify more efficiently. By reducing the amount of data that a query needs to access, the likelihood of blocking is reduced and deadlocks can often be prevented.
+ 
+In some cases, creating or tuning a clustered index can reduce blocking and deadlocks. Because the clustered index is included in all nonclustered index definitions, creating or modifying a clustered index can be an IO intensive and time consuming operation on larger tables with existing nonclustered indexes. Learn more about [Clustered index design guidelines](/sql/relational-databases/sql-server-index-design-guide#Clustered).
 
 When index tuning isn't successful at preventing deadlocks, other methods are available:
 
 - If the deadlock occurs only when a particular plan is chosen for one of the queries involved in the deadlock, [forcing a query plan](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) with Query Store may prevent deadlocks from reoccurring.
 - Rewriting Transact-SQL for one or more transactions involved in the deadlock can also help prevent deadlocks. Breaking apart explicit transactions into smaller transactions requires careful coding and testing to ensure data validity when concurrent modifications occur.
 
-Learn more in the [prevent a deadlock from reoccurring](#prevent-a-deadlock-from-reoccurring) section of this article.
+Learn more about each of these approaches in the [prevent a deadlock from reoccurring](#prevent-a-deadlock-from-reoccurring) section of this article.
 
 ## Monitor and alert on deadlocks
 
@@ -117,22 +122,22 @@ Select **Deadlocks** as the signal name for the alert. Configure the **Action gr
 
 To cause a deadlock, you will need to connect two sessions to the `AdventureWorksLT` database. We'll refer to these sessions as **Session A** and **Session B**. 
 
-In **Session A**, run the following Transact-SQL. This code begins an [explicit transaction](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#starting-transactions) and runs a single statement that updates the `SalesLt.Product` table. To do this, the transaction acquires an [update (U) lock](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-modifying-data) on one row on table `SalesLT.Product` which is converted to an exclusive (X) lock. We leave the transaction open.
+In **Session A**, run the following Transact-SQL. This code begins an [explicit transaction](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#starting-transactions) and runs a single statement that updates the `SalesLT.Product` table. To do this, the transaction acquires an [update (U) lock](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-modifying-data) on one row on table `SalesLT.Product` which is converted to an exclusive (X) lock. We leave the transaction open.
 
 ```sql
 BEGIN TRAN
 
-    UPDATE SalesLt.Product SET SellEndDate = SellEndDate + 1
+    UPDATE SalesLT.Product SET SellEndDate = SellEndDate + 1
         WHERE Color = 'Red';
 
 ```
 
-Now, in **Session B**, run the following Transact-SQL. This code doesn't explicitly begin a transaction. Instead, it operates in [autocommit transaction mode](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#starting-transactions). This statement updates the `SalesLt.ProductDescription` table. The update will take out an update (U) lock on 72 rows on the `SalesLt.ProductDescription` table. The query joins to other tables, including the `SalesLt.Product` table.
+Now, in **Session B**, run the following Transact-SQL. This code doesn't explicitly begin a transaction. Instead, it operates in [autocommit transaction mode](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#starting-transactions). This statement updates the `SalesLT.ProductDescription` table. The update will take out an update (U) lock on 72 rows on the `SalesLT.ProductDescription` table. The query joins to other tables, including the `SalesLT.Product` table.
 
 ```sql
-UPDATE SalesLt.ProductDescription SET Description = Description
-    FROM SalesLt.ProductDescription as pd
-    JOIN SalesLt.ProductModelProductDescription as pmpd on
+UPDATE SalesLT.ProductDescription SET Description = Description
+    FROM SalesLT.ProductDescription as pd
+    JOIN SalesLT.ProductModelProductDescription as pmpd on
         pd.ProductDescriptionID = pmpd.ProductDescriptionID
     JOIN SalesLT.ProductModel as pm on
         pmpd.ProductModelID = pm.ProductModelID
@@ -146,9 +151,9 @@ To complete this update, **Session B** needs a shared (S) lock on rows on the ta
 Return to **Session A**. Run the following Transact-SQL statement. This runs a second UPDATE statement as part of the open transaction.
 
 ```sql
-	UPDATE SalesLt.ProductDescription SET Description = Description
-		FROM SalesLt.ProductDescription as pd
-		JOIN SalesLt.ProductModelProductDescription as pmpd on
+	UPDATE SalesLT.ProductDescription SET Description = Description
+		FROM SalesLT.ProductDescription as pd
+		JOIN SalesLT.ProductModelProductDescription as pmpd on
 			pd.ProductDescriptionID = pmpd.ProductDescriptionID
 		JOIN SalesLT.ProductModel as pm on
 			pmpd.ProductModelID = pm.ProductModelID
@@ -157,11 +162,11 @@ Return to **Session A**. Run the following Transact-SQL statement. This runs a s
 		WHERE p.Color = 'Red';
 ```
 
-The second update statement in **Session A** will be blocked by **Session B** on the `SalesLt.ProductDescription`.
+The second update statement in **Session A** will be blocked by **Session B** on the `SalesLT.ProductDescription`.
 
 **Session A** and **Session B** are now mutually blocking one another. Neither transaction can proceed, as they each need a resource that is locked by the other.
 
-After a few seconds, you should see a deadlock occur, with **Session A** chosen as the deadlock victim. An error message will appear in **Session A** with text similar to the following:
+After a few seconds, the deadlock monitor will identify that the transactions in **Session A** and **Session B** are mutually blocking one another, and that neither can make progress. You should see a deadlock occur, with **Session A** chosen as the deadlock victim. An error message will appear in **Session A** with text similar to the following:
 
 > Msg 1205, Level 13, State 51, Line 7
 > Transaction (Process ID 91) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
@@ -226,9 +231,9 @@ The XML for this example deadlock graph is:
 unknown    </frame>
       </executionStack>
       <inputbuf>
-	UPDATE SalesLt.ProductDescription SET Description = Description
-		FROM SalesLt.ProductDescription as pd
-		JOIN SalesLt.ProductModelProductDescription as pmpd on
+	UPDATE SalesLT.ProductDescription SET Description = Description
+		FROM SalesLT.ProductDescription as pd
+		JOIN SalesLT.ProductModelProductDescription as pmpd on
 			pd.ProductDescriptionID = pmpd.ProductDescriptionID
 		JOIN SalesLT.ProductModel as pm on
 			pmpd.ProductModelID = pm.ProductModelID
@@ -242,9 +247,9 @@ unknown    </frame>
 unknown    </frame>
       </executionStack>
       <inputbuf>
-	UPDATE SalesLt.ProductDescription SET Description = Description
-		FROM SalesLt.ProductDescription as pd
-		JOIN SalesLt.ProductModelProductDescription as pmpd on
+	UPDATE SalesLT.ProductDescription SET Description = Description
+		FROM SalesLT.ProductDescription as pd
+		JOIN SalesLT.ProductModelProductDescription as pmpd on
 			pd.ProductDescriptionID = pmpd.ProductDescriptionID
 		JOIN SalesLT.ProductModel as pm on
 			pmpd.ProductModelID = pm.ProductModelID
@@ -330,7 +335,7 @@ The graphic representation of the deadlock graph shows only a subset of informat
 
 - Server process ID, also known as the session ID or SPID.
 - [Deadlock priority](/sql/t-sql/statements/set-deadlock-priority-transact-sql) of the session. If two sessions have different deadlock priorities, the session with the lower priority is chosen as the deadlock victim. In this example, both sessions have the same deadlock priority.
-- The amount of transaction log used by the session in bytes. If both sessions have the same deadlock priority, the instance of SQL Server chooses the session that is less expensive to roll back as the deadlock victim. The cost is determined by comparing the number of log bytes written to that point in each transaction. 
+- The amount of transaction log used by the session in bytes. If both sessions have the same deadlock priority, the deadlock monitor chooses the session that is less expensive to roll back as the deadlock victim. The cost is determined by comparing the number of log bytes written to that point in each transaction. 
  
     In our example deadlock, session_id 89 had used a lower amount of transaction log, and was selected as the deadlock victim.
 
@@ -370,7 +375,7 @@ Resources are represented by rectangles in the visual representation of the dead
 :::image type="content" source="media/analyze-prevent-deadlocks/deadlock-graph-resource-list.png" alt-text="Screenshot of a deadlock graph, displayed visually in SSMS. Rectangles show the resources that are involved in the deadlock."  lightbox="media/analyze-prevent-deadlocks/deadlock-graph-resource-list.png":::
 
 > [!NOTE]
-> You may notice that database names are represented as uniquedientifers in deadlock graphs for databases in Azure SQL Database. This is the `physical_database_name` for the database listed in the [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) dynamic management view.
+> You may notice that database names are represented as uniquedientifers in deadlock graphs for databases in Azure SQL Database. This is the `physical_database_name` for the database listed in the [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) and [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management views.
 
 In this example deadlock:
 
@@ -396,13 +401,13 @@ DECLARE @query_plan_hash binary(8) = 0x02b0f58d7730f798
 SELECT 
 	qrsi.end_time as interval_end_time,
 	qs.query_id,
+	qp.plan_id,
 	qt.query_sql_text, 
-	CAST(qp.query_plan as XML) as query_plan,
+	TRY_CAST(qp.query_plan as XML) as query_plan,
 	qrs.count_executions
 FROM sys.query_store_query as qs
 JOIN sys.query_store_query_text as qt on qs.query_text_id=qt.query_text_id
 JOIN sys.query_store_plan as qp on qs.query_id=qp.query_id
-CROSS APPLY (SELECT TRY_CONVERT(XML, qp.query_plan) AS query_plan_xml) AS qpx
 JOIN sys.query_store_runtime_stats qrs on qp.plan_id = qrs.plan_id
 JOIN sys.query_store_runtime_stats_interval qrsi on qrs.runtime_stats_interval_id=qrsi.runtime_stats_interval_id
 WHERE query_plan_hash =  @query_plan_hash
@@ -422,16 +427,18 @@ When examining query execution plans involved in deadlocks, look out for pattern
 
 - **Indexed views referencing more than one table**. When you modify a table that is referenced in an indexed view, the database engine must also maintain the indexed view. This requires taking out more locks and can lead to increased blocking and deadlocks. Indexed views may also cause update operations to internally execute under the read committed isolation level.
 
-- **Lock hints**. Look for [table hints](/sql/t-sql/queries/hints-transact-sql-table) which specify isolation levels requiring more locks. These hints include `HOLDLOCK` (serializable), `READCOMMITTEDLOCK` (which disables RCSI), and `REPEATABLEREAD`.
+- **Modifications to columns referenced in foreign key constraints**. When you modify columns in a table that are referenced in a FOREIGN KEY constraint, the database engine must look for related rows in the referencing table. Row versions cannot be used for these reads. In cases where cascading updates or deletes are enabled, the isolation level may be escalated to serializable for the duration of the statement to protect against phantom inserts.
 
-    If these lock hints are in place, research why the hints were implemented. These hints may prevent race conditions and ensure data validity. It may be possible to leave these hints in place and prevent future deadlocks using an alternate method in the [Prevent a deadlock from reoccurring](#prevent-a-deadlock-from-reoccurring) section of this article if required.
+- **Lock hints**. Look for [table hints](/sql/t-sql/queries/hints-transact-sql-table) which specify isolation levels requiring more locks. These hints include `HOLDLOCK` (which is equivalent to serializable), `SERIALIZABLE`, `READCOMMITTEDLOCK` (which disables RCSI), and `REPEATABLEREAD`. Additionally, hints such as `PAGLOCK`, `TABLOCK`, `UPDLOCK`, and `XLOCK` can increase the risks of blocking and deadlocks.
+
+    If these hints are in place, research why the hints were implemented. These hints may prevent race conditions and ensure data validity. It may be possible to leave these hints in place and prevent future deadlocks using an alternate method in the [Prevent a deadlock from reoccurring](#prevent-a-deadlock-from-reoccurring) section of this article if necessary.
 
     > [!NOTE]
     > Learn more about behavior when modifying data using row versioning in the [Transaction locking and row versioning guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-modifying-data).
 
 When examining the full code for a transaction, either in an execution plan or in application query code, look for additional problematic patterns:
 
-- **User interaction in transactions**. User interaction inside an explicit multi-statement transaction significantly increases the duration of transactions. This makes it much likely for these transactions to overlap and for blocking and deadlocks to occur.
+- **User interaction in transactions**. User interaction inside an explicit multi-statement transaction significantly increases the duration of transactions. This makes it more likely for these transactions to overlap and for blocking and deadlocks to occur.
 
     Similarly, holding an open transaction and querying an unrelated database or system mid-transaction significantly increases the chances of blocking and deadlocks.
 
@@ -441,6 +448,21 @@ When examining the full code for a transaction, either in an execution plan or i
 
 There are multiple techniques available to prevent deadlocks from reoccurring, including index tuning, forcing plans with Query Store, and modifying Transact-SQL queries.
 
+- **Review the table's clustered index**. Most tables benefit from clustered indexes, but often, tables are implemented as [heaps](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes) by accident.
+
+    One way to check for a clustered index is by using the [sp_helpindex](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-helpindex-transact-sql) system stored procedure. For example, we can view a summary of the indexes on the `SalesLT.Product` table by executing the following statement:
+
+        ```sql
+        exec sp_helpindex 'SalesLT.Product';
+        GO
+        ```
+
+    Review the index_description column. A table can have only one clustered index. If a clustered index has been implemented for the table, the index_description will contain the word 'clustered'.
+
+    If no clustered index is present, the table is a heap. In this case, review if the table was intentionally created as a heap to solve a specific performance problem. Consider implementing a clustered index based on the [clustered index design guidelines](https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide#Clustered).
+
+    In some cases, creating or tuning a clustered index may reduce or eliminate blocking in deadlocks. In other cases, you may need to employ an additional technique such as the others in this list.
+
 - **Create or modify nonclustered indexes.** Tuning nonclustered indexes can help your modification queries find the data to update more quickly, which reduces the number of update locks required.
 
     In our example deadlock, the query execution plan [found in Query Store](#find-query-execution-plans-in-query-store) contains a clustered index scan against the `PK_Product_ProductID` index. The deadlock graph indicates that a shared (S) lock wait on this index is a component in the deadlock. 
@@ -449,28 +471,38 @@ There are multiple techniques available to prevent deadlocks from reoccurring, i
 
     This index scan is being performed because our update query needs to modify an indexed view named `vProductAndDescription`. As mentioned in the [Look for patterns that increase blocking](#look-for-patterns-that-increase-blocking) section of this article, indexed views referencing multiple tables may increase blocking and the likelihood of deadlocks.
 
-    If we create the following nonclustered index in the `AdventureWorksLT` database that "covers" the columns from `SalesLt.Product` referenced by the indexed view, this helps the query find rows much more efficiently:
+    If we create the following nonclustered index in the `AdventureWorksLT` database that "covers" the columns from `SalesLT.Product` referenced by the indexed view, this helps the query find rows much more efficiently:
 
     ```sql
-    CREATE INDEX ix_Product_ProductID_Name_ProductModelID on SalesLt.Product  (ProductID, Name, ProductModelID);
+    CREATE INDEX ix_Product_ProductID_Name_ProductModelID on SalesLT.Product (ProductID, Name, ProductModelID);
     GO
     ```
 
     After creating this index, the deadlock no longer reoccurs.
 
-- **Assess the value of indexed views**. Another option to prevent our example deadlock from reoccurring is to drop the `SalesLt.vProductAndDescription` indexed view. If that indexed view is not being used, this will reduce the overhead of maintaining the indexed view over time.
+    When deadlocks involve modifications to columns referenced in foreign key constraints, ensure that indexes on the referencing table of the FOREIGN KEY support efficiently finding related rows.
 
-- **Freeze a plan with Query Store**. In some cases, you may find that one of the queries in the deadlock has multiple execution plans, and the deadlock only occurs when a specific plan is used. You can prevent the deadlock from reoccurring by [forcing a plan](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) in Query Store.
+    While indexes can dramatically improve query performance in some cases, indexes also have overhead and management costs. Review [general index design guidelines](https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide#General_Design) to help assess the benefit of indexes before creating indexes, especially wide indexes and indexes on large tables.
+
+- **Assess the value of indexed views**. Another option to prevent our example deadlock from reoccurring is to drop the `SalesLT.vProductAndDescription` indexed view. If that indexed view is not being used, this will reduce the overhead of maintaining the indexed view over time.
+
+- **Use Snapshot isolation**. In some cases, [setting the transaction isolation level](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) to snapshot for one or more of the transactions involved in a deadlock may prevent blocking and deadlocks from reoccurring.
+
+    This technique is most likely to be successful when used on SELECT statements when [read committed snapshot is disabled in a database](#how-deadlocks-occur-in-azure-sql-database). When read committed snapshot is disabled, SELECT queries using the read committed isolation level require shared (S) locks. Using snapshot isolation on these transactions removes the need for shared locks, which can prevent blocking and deadlocks.
+
+    In databases where read committed snapshot isolation has been enabled, SELECT queries do not require shared (S) locks, so deadlocks are more likely to occur between transactions that are modifying data. In cases where deadlocks occur between multiple transactions modifying data, snapshot isolation may result in an [update conflict](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-in-summary) instead of a deadlock. This similarly requires one of the transactions to retry its operation.
+
+- **Force a plan with Query Store**. You may find that one of the queries in the deadlock has multiple execution plans, and the deadlock only occurs when a specific plan is used. You can prevent the deadlock from reoccurring by [forcing a plan](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) in Query Store.
 
 - **Modify the Transact-SQL**. You may need to modify Transact-SQL to prevent the deadlock from reoccurring. Modifying Transact-SQL should be done carefully and changes should be rigorously tested to ensure that data is correct when modifications run concurrently. When rewriting Transact-SQL, consider:
     - Ordering statements in transactions so that they access objects in the same order.
-    - Breaking apart transactions into smaller steps when possible.
+    - Breaking apart transactions into smaller transactions when possible.
     - Using query hints, if necessary, to optimize performance. You can apply hints without changing application code [using Query Store](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true).
 
 Find more ways to [minimize deadlocks in the Transaction locking and row versioning guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#deadlock_minimizing).
 
 > [!NOTE]
-> In some cases, you may wish to [adjust the deadlock priority](/sql/t-sql/statements/set-deadlock-priority-transact-sql) of one or more sessions involved in a deadlock if it is important for one of the sessions to complete successfully without retrying. While this does not prevent the deadlock from reoccurring, it may reduce the impact of future deadlocks.
+> In some cases, you may wish to [adjust the deadlock priority](/sql/t-sql/statements/set-deadlock-priority-transact-sql) of one or more sessions involved in a deadlock if it is important for one of the sessions to complete successfully without retrying, or when one of the queries involved in the deadlock is not critical and should be always chosen as the victim. While this does not prevent the deadlock from reoccurring, it may reduce the impact of future deadlocks.
 
 ## Next steps
 
