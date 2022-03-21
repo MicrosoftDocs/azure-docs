@@ -204,7 +204,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
 
-9. In **Virtual network** select **myVNet**.
+9. In **Virtual network**, select **myVNet**.
 
 10. Select **myBackendSubnet** under **Subnet name**.
 
@@ -381,7 +381,7 @@ In this section, you'll test the load balancer by connecting to the **myTestVM**
 
 8. Open **Internet Explorer** on **myTestVM**.
 
-9. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser. In this example it's **10.1.0.4**.
+9. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser. In this example, it's **10.1.0.4**.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the customized page, as expected." border="true":::
    
