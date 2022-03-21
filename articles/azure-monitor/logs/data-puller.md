@@ -8,7 +8,7 @@ ms.date: 03/21/2022
 ms.author: bwren
 ---
 # File based custom log ingestion via DCR (Preview)
-With solutions on deprecation path and the introduction of [Data collection rules](essentials/data-collection-rule-overview), Tables are becoming a key component in Azure Monitor Logs resource management strategy and user experience all together.
+With solutions on deprecation path and the introduction of [Data collection rules](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview), Tables are becoming a key component in Azure Monitor Logs resource management strategy and user experience all together.
 
 The Data Collection Rules experience allows the benefits of using KQL transformations, faster ingestion and new log types support.
 
