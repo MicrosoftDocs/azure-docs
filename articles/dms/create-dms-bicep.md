@@ -55,7 +55,7 @@ More Azure Database Migration Services templates can be found in the [quickstart
     ---
 
     > [!NOTE]
-    > You'll be prompted to enter a name for the migration service, virtual network, and subnet.
+    > You'll be prompted to enter **serviceName**, **vnetName**, and **subnetName**.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
