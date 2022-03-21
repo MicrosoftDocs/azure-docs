@@ -425,6 +425,8 @@
       items:            
       - name: Test SaaS overview
         href: test-saas-overview.md
+      - name: Submit for Publishing
+        href: test-saas-submit-to-publishing.md 
       - name: Preview and subscribe
         href: test-saas-preview-offer.md
       - name: Test a SaaS plan
