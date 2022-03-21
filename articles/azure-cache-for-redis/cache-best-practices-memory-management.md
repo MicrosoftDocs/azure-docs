@@ -28,7 +28,7 @@ Add monitoring on memory usage to ensure that you don't run out of memory and ha
 
 ## Configure your maxmemory-reserved setting
 
-Configure your [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) to improve system responsiveness:
+Configure your [maxmemory-reserved setting](cache-configure.md#memory-policies) to improve system responsiveness:
 
 * A sufficient reservation setting is especially important for write-heavy workloads or if you're storing values of 100 KB or more in your cache. Start with 10% of the size of your cache and increase this percentage if you have write-heavy loads.
 
@@ -42,5 +42,5 @@ Configure your [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-
 
 * [Best practices for development](cache-best-practices-development.md)
 * [Azure Cache for Redis development FAQs](cache-development-faq.yml)
-* [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)
+* [maxmemory-reserved setting](cache-configure.md#memory-policies)
 * [Best practices for scaling](cache-best-practices-scale.md)
