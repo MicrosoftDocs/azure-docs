@@ -34,8 +34,12 @@ Azure Stack Edge solution can also be deployed in the following distinct Azure c
 Region information is used for Azure Stack Edge service in the following ways:
 
 - You specify an Azure region when creating an Azure Stack Edge Hardware Center order for the Azure Stack Edge device. This region is used to provide a list of regions or countries to which the device can be shipped.
+
 - You specify an Azure region when creating a management resource for the Azure Stack Edge device. This region is used to store the metadata associated with the resource. The metadata can be stored in a location different than the physical device. 
-- Finally, there is a region associated with the storage accounts where the customer data is stored by the Azure Stack Edge service. You can configure SMB or NFS shares on the service to store customer data and then associate an Azure Storage account with each configured share. Depending on the Azure Storage account configured for the share, your data is automatically and transparently replicated. For example, Azure Geo-Redundant Storage account (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see Azure Storage Redundancy Options.
+
+- Finally, there is a region associated with the storage accounts where the customer data is stored by the Azure Stack Edge service. You can configure SMB or NFS shares on the service to store customer data and then associate an Azure Storage account with each configured share.
+
+    Depending on the Azure Storage account configured for the share, your data is automatically and transparently replicated. For example, Azure Geo-Redundant Storage account (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage redundancy options](../storage/common/storage-redundancy.md).
 
 
 ### Single region vs. regional pairs
@@ -47,7 +51,7 @@ Azure Stack Edge service is a non-regional, always-available service and has no 
 
     For all the Azure Regional Pairs, by default, Microsoft is responsible for the disaster recovery (DR) setup, execution, and testing. In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration. 
 
-- **Single region** - The only exception is Singapore where customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region – Hong Kong. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. 
+- **Single region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. 
 
     In Singapore (South East Asia) region, if the customer has chosen single data residency option that won’t allow replication in the paired region, the customer will be responsible for the DR setup, execution, and testing. 
 
@@ -95,7 +99,7 @@ For detailed instructions, see [Reset and reactivate your Azure Stack Edge devic
 
 ## Planning disaster recovery
 
-Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled (responsible services DR), the customer must address DR for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated. 
+Microsoft and its customers operate under the [Shared responsibility model](../availability-zones/business-continuity-management-program.md#shared-responsibility-model). This means that for customer-enabled (responsible services DR), the customer must address disaster recovery for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated. 
 
 When using Azure Stack Edge service, the customer can create a resource proactively, ahead of time, in a different region. In the event of a disaster, this resource can then be deployed. <!--Engg to confirm if this is a feasible scenario or resource creation can be blocked-->
 
