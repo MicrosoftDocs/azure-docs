@@ -42,7 +42,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `instance_type` | string | **Required.** The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md). | | |
 | `instance_count` | integer | **Required.** The number of instances to use for the deployment. Specify the value based on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. <br><br> `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. | | |
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
-| `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you do not need to specify this property. <br><br> With this `default` scale type, you can either 1) manually scale the instance count up and down after deployment creation by updating the `instance_count` property or 2) create an [autoscaling policy](how-to-autoscale-endpoints.md). | | |
+| `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you do not need to specify this property. <br><br> With this `default` scale type, you can either manually scale the instance count up and down after deployment creation by updating the `instance_count` property, or create an [autoscaling policy](how-to-autoscale-endpoints.md). | | |
 | `scale_settings.type` | string | The scale type. | `default` | `default` |
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -64,7 +64,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `initial_delay` | integer | The number of seconds after the container has started before the probe is initiated. Minimum value is `1`. | `10` |
 | `timeout` | integer | The number of seconds after which the probe times out. Minimum value is `1`. | `2` |
 | `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1`. | `1` |
-| `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in case of liveness probe means restarting the container. In case of readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
+| `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in the case of a liveness probe means the container will be restarted. In the case of a readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
 
 ## Remarks
 
