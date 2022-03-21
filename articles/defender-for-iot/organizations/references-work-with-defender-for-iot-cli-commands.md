@@ -286,7 +286,17 @@ When you're using the tool:
 - Verify that the certificate files are readable on the appliance. 
 
 - Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
-    
+
+## Sign out of a support shell
+
+Starting in version 22.1.3, you're automatically signed out of an SSH session after an inactive period of 300 seconds.
+
+To sign out of your session manually, enter the following command:
+
+```azurecli-interactive
+logout
+```
+
 ## Next steps
 
 For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
