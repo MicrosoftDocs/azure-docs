@@ -64,13 +64,21 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 
 ## Reporting move cost for a partition
 
-The previous section describes how service replicas or instances report MoveCost themselves. We provided Service Fabric API for reporting MoveCost values on behalf of other partitions. Sometimes service replica or instance can't determine the best MoveCost value by itself, and must relay on other services logic. Reporting MoveCost on behalf of other partitions, alongside with [reporting load on behalf of other partitions](service-fabric-cluster-resource-manager-metrics.md#reporting-load-for-a-partition), allows you to completely manage partitions from outside. These APIs eliminate needs for [the Sidecar pattern](https://docs.microsoft.com/azure/architecture/patterns/sidecar), from the perspective of Cluster Resource Manager.
+The previous section describes how service replicas or instances report MoveCost themselves. We provided Service Fabric API for reporting MoveCost values on behalf of other partitions. Sometimes service replica or instance can't determine the best MoveCost value by itself, and must rely on other services logic. Reporting MoveCost on behalf of other partitions, alongside with [reporting load on behalf of other partitions](service-fabric-cluster-resource-manager-metrics.md#reporting-load-for-a-partition), allows you to completely manage partitions from outside. These APIs eliminate needs for [the Sidecar pattern](https://docs.microsoft.com/azure/architecture/patterns/sidecar), from the perspective of the Cluster Resource Manager.
 
 You can report MoveCost updates for a different partitions with same API call. You need to specify PartitionMoveCostDescription object for each partition that you want to update with new values of MoveCost. The API allows multiple ways to update MoveCost:
 
   - A stateful service partition can update its primary replica MoveCost.
   - Both stateless and stateful services can update the MoveCost of all its secondary replicas or instances.
   - Both stateless and stateful services can update the MoveCost of a specific replica or instance on a node.
+
+Each MoveCost update for partition should contain at least one valid value that will be changed. For example, you could skip primary replica update with assigning _null_ to primary replica entry, other entries will be used during MoveCost update and we will skip MoveCost update for primary replica. Since updating of MoveCost for multiple partitions with single API call is possible, API provides a list of return codes for corresponding partition. If we successfully accept and process a request for MoveCost update, return code will be Success. Otherwise, API provides error code: 
+
+  - PartitionNotFound - Specified partition ID doesn't exist.
+  - ReconfigurationPending - Partition is currently reconfiguring.
+  - InvalidForStatelessServices - An attempt was made to change the MoveCost of a primary replica for a partition belonging to a stateless service.
+  - ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
+  - InvalidOperation - Updating MoveCost for a partition that belongs to the System application.
 
 C#:
 
