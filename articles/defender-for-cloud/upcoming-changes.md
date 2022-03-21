@@ -24,8 +24,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
 | [AWS and GCP recommendations to GA](#aws-and-gcp-recommendations-to-ga) | March 2022 |
 | [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
-| [Deprecating Microsoft Defender for IoT device recommendations](#deprecating-microsoft-defender-for-iot-device-recommendations)| March 2022 |
-| [Deprecating Microsoft Defender for IoT device alerts](#deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
@@ -83,31 +81,6 @@ Custom recommendations are those created by a user, and have no impact on the se
 When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
 
 Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
-
-### Deprecating Microsoft Defender for IoT device recommendations
-
-**Estimated date for change:** March 2022 
-
-Microsoft Defender for IoT device recommendations will no longer be visible in Microsoft Defender for Cloud. These recommendations will still be available on Microsoft Defender for IoT's Recommendations page, and in Microsoft Sentinel.
-
-The following recommendations will be deprecated:
-
-| Assessment key | Recommendations |
-|--|--|
-| 1a36f14a-8bd8-45f5-abe5-eef88d76ab5b: IoT Devices | Open Ports On Device |
-| ba975338-f956-41e7-a9f2-7614832d382d: IoT Devices | Permissive firewall rule in the input chain was found |
-| beb62be3-5e78-49bd-ac5f-099250ef3c7c: IoT Devices | Permissive firewall policy in one of the chains was found |
-| d5a8d84a-9ad0-42e2-80e0-d38e3d46028a: IoT Devices | Permissive firewall rule in the output chain was found |
-| 5f65e47f-7a00-4bf3-acae-90ee441ee876: IoT Devices | Operating system baseline validation failure |
-|a9a59ebb-5d6f-42f5-92a1-036fd0fd1879: IoT Devices | Agent sending underutilized messages |
-| 2acc27c6-5fdb-405e-9080-cb66b850c8f5: IoT Devices | TLS cipher suite upgrade needed |
-|d74d2738-2485-4103-9919-69c7e63776ec: IoT Devices | Auditd process stopped sending events |
-
-### Deprecating Microsoft Defender for IoT device alerts
-
-**Estimated date for change:** March 2022 
-
-All Microsoft Defender for IoT device alerts will no longer be visible in Microsoft Defender for Cloud. These alerts will still be available on Microsoft Defender for IoT's Alert page, and in Microsoft Sentinel.
 
 ### Multiple changes to identity recommendations
 

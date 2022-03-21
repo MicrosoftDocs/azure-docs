@@ -19,7 +19,7 @@ The types of protected databases are:
 - Azure SQL Databases 
 - SQL servers on machines 
 - Open-source relational databases (OSS RDB) 
-- Microsoft Defender for Azure Cosmos DB
+- Azure Cosmos DB
 
 Database provides protection to engines, and data types, with different attack surface, and security risks. Security detections are made for the specific attack surface of each DB type.  
 
