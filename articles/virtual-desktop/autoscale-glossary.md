@@ -102,4 +102,5 @@ An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag n
 ## Next steps
 
 - For more information about the autoscale feature, see the [autoscale feature document](autoscale-scaling-plan.md).
+- For examples of how the autoscale feature works, see [Autoscale example scenarios](autoscale-scenarios.md).
 - For more information about the scaling script, see the [scaling script document](set-up-scaling-script.md).
