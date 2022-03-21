@@ -70,7 +70,7 @@ A Claim Condition is a JSON object that identifies a claim name, a condition for
 } 
 ```
 
-In the first iteration, the only allowed condition is "equals" but future iterations may allow for other operators [similar to Azure Policy](/azure/governance/policy/concepts/definition-structure) (see the section on Conditions). Note that if a specified claim is not present, its condition is consider to have not been met.
+In the first iteration, the only allowed condition is "equals" but future iterations may allow for other operators [similar to Azure Policy](/azure/governance/policy/concepts/definition-structure) (see the section on Conditions). If a specified claim is not present, its condition is considered to have not been met.
 
 Claim names allow "dot notation" to enable JSON object navigation, for example:
 
@@ -87,7 +87,7 @@ Array specifications are not presently supported. Per the grammar, objects are n
 
 AnOf and AllOf condition objects allow for the modeling of OR and AND. For AnyOf, if any of the conditions provided are true, the condition is met. For AllOf, all of the conditions must be true. 
 
-Examples are shown below, first allOf to require all conditions to be met:
+Examples are shown below. In the first, allOf requires all conditions to be met:
 
 ```json
 {
@@ -107,7 +107,7 @@ Examples are shown below, first allOf to require all conditions to be met:
 
 Meaning ( claim_1 == value_1 ) && ( claim_2 == value_2 ).
 
-Now anyOf to require that any condition match:
+In this example, anyOf requires that any condition match:
 
 ```json
 {
@@ -127,7 +127,7 @@ Now anyOf to require that any condition match:
 
 Meaning ( claim_1 == value_2 ) || ( claim_2 == value_2 )
 
-anyOf and allOf may be nested:
+The anyOf and allOf condition objects may be nested:
 
 ```json
   "allOf":
@@ -248,7 +248,7 @@ The encoding is as follows:
 
 An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned by the target execution environment (and protected by it) that is used for key export, it must appear in one of, in preference order:
 
-- The TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set .
+- The TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set.
 - The Enclave Held Data claim (maa-ehd ) claim. The maa-ehd claim is expected to contain a string that is the Base64 URL encoding of an array of octets that contain a JSON document; within this document, AKV requires that there be a keys element containing a JSON Web Key Set.
 
 Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
