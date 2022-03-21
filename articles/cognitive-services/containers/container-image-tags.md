@@ -274,7 +274,7 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 Release note for `3.1.0-amd64-<locale>`:
 
 **Features**
-* Support [Full Display Process](../Speech-Service/speech-container-howto.md#display-model-download-on-the-custom-speech-to-text-container) and this feature is enabled by default on all listed locales.
+* Support [Full Display Process](../Speech-Service/speech-container-howto.md#display-model-download-on-the-custom-speech-to-text-container) and this feature is enabled by default on all listed locales. The size of images increases 2-5 Gb because of full display models. And for `en-US`, the container takes extra 150 Mb memory usage.
 * Security Upgrade.
 
 Note that due to the phrase lists feature, the size of this container image has increased. 
