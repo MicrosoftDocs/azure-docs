@@ -50,7 +50,7 @@ As you run scripts from this user guide, it's important not to mistake SQL Serve
 
 ## Trust between SQL Server and SQL Managed Instance
 
-The first step in creating a SQL Managed Instance link is to establish trust between the two entities and secure the endpoints that are used for communication and encryption of data across the network. The SQL Server technology for distributed availability groups doesn't have its own database mirroring endpoint. Instead, it uses the existing database mirroring endpoint for the availability group. This is why the security and trust between the two entities needs to be configured for a availability group's database mirroring endpoint.
+The first step in creating a SQL Managed Instance link is to establish trust between the two entities and secure the endpoints that are used for communication and encryption of data across the network. The SQL Server technology for distributed availability groups doesn't have its own database mirroring endpoint. Instead, it uses the existing database mirroring endpoint for the availability group. This is why the security and trust between the two entities need to be configured for a availability group's database mirroring endpoint.
 
 Certificate-based trust is the only supported way to secure database mirroring endpoints on SQL Server and SQL Managed Instance. If you have existing availability groups that use Windows authentication, you need to add certificate-based trust to the existing mirroring endpoint as a secondary authentication option. You can do this by using the `ALTER ENDPOINT` statement.
 
@@ -60,7 +60,7 @@ Certificate-based trust is the only supported way to secure database mirroring e
 Here's an overview of the process to secure database mirroring endpoints for both SQL Server and SQL Managed Instance:
 
 1. Generate a certificate on SQL Server and obtain its public key.
-1. Obtain an public key of the SQL Managed Instance certificate.
+1. Obtain a public key of the SQL Managed Instance certificate.
 1. Exchange the public keys between SQL Server and SQL Managed Instance.
 
 The following sections describe these steps in detail.
@@ -140,7 +140,7 @@ $PublicKeyEncoded = "<PublicKeyEncoded>"
 # ===============================================================================
 # INVOKING THE API CALL -- REST OF THE SCRIPT IS NOT USER CONFIGURABLE
 # ===============================================================================
-# Log in and select the subscription if needed.
+# Log in and select a subscription if needed.
 #
 if ((Get-AzContext ) -eq $null)
 {
@@ -259,7 +259,7 @@ A new mirroring endpoint was created with certificate authentication and AES enc
 > [!NOTE]
 > Skip this step if you've just created a new mirroring endpoint. Use this step only if you're using existing availability groups with an existing database mirroring endpoint.
 
-If you're using existing availability groups for the SQL Managed Instance link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the SQL Managed Instance link:
+If you're using existing availability groups for the SQL Managed Instance link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the link:
 
 - Type must be `DATABASE_MIRRORING`.
 - Connection authentication must be `CERTIFICATE`.
@@ -280,7 +280,7 @@ FROM
 
 If the output shows that the existing `DATABASE_MIRRORING` endpoint `connection_auth_desc` isn't `CERTIFICATE`, or `encryption_algorthm_desc` isn't `AES`, the *endpoint needs to be altered to meet the requirements*.
 
-On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability group, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
+On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability group, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This change will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
 
 Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. For details about possible options for altering endpoints, see the [documentation page for sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
@@ -364,7 +364,7 @@ GO
 > [!NOTE]
 > One database per availability group is the current product limitation for replication to SQL Managed Instance through the link feature.
 >
-> If you get Error 1475, you'll have to create a full backup without the `COPY ONLY` option. That will start new backup chain.
+> If you get Error 1475, you'll have to create a full backup without the `COPY ONLY` option. That will start a new backup chain.
 >
 > As a best practice, we recommend ensuring that collation on SQL Server and SQL Managed Instance is the same. The reason is that depending on collation settings, names of availability groups and distributed availability groups might be case sensitive. If there's a mismatch, you might not be able to successfully connect SQL Server to SQL Managed Instance.
 
@@ -435,7 +435,7 @@ $miRG = (Get-AzSqlInstance -InstanceName $ManagedInstanceName).ResourceGroupName
 $uriFull = "https://management.azure.com/subscriptions/" + $SubscriptionID + "/resourceGroups/" + $miRG+ "/providers/Microsoft.Sql/managedInstances/" + $ManagedInstanceName + "/distributedAvailabilityGroups/" + $DAGName + "?api-version=2021-05-01-preview"
 echo $uriFull
 # -----------------------------------
-# Build API request body
+# Build the API request body
 # -----------------------------------
 echo "Buildign API request body"
 $bodyFull = @"
@@ -471,7 +471,7 @@ The result of this operation will be a time stamp of the successful execution of
 
 ## Verifying a created SQL Managed Instance link
 
-To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. Have in mind that connection will not be instantaneous after you execute the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
+To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. Have in mind that connection will not be instantaneous after you make the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
 
 ```sql
 -- Run on SQL Server
@@ -488,7 +488,7 @@ FROM
     ON rs.replica_id = r.replica_id
 ```
 
-After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring**. The reason is that the initial seeding is in progress moving the full backup of the database, which is followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
+After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring**. The initial seeding is in progress with moving the full backup of the database, followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
 
 > [!IMPORTANT]
 > The link will not work unless network connectivity exists between SQL Server and Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
