@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: jordane
 author: jpe316
-ms.date: 09/28/2020
+ms.date: 03/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -27,7 +27,7 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 Run this code on either of these environments:
  - Azure Machine Learning compute instance - no downloads or installation necessary
 
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [Tutorial: Train and deploy an image classification model with an example Jupyter Notebook](tutorial-train-deploy-notebook.md) to create a dedicated notebook server.
     - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
 
  - Your own Jupyter Notebook server
