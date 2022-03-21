@@ -110,7 +110,7 @@ In the application's **Program** class, create variable for your key and custom 
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
-private static readonly string subscriptionKey = "<your key>";
+private static readonly string key = "<your key>";
 ```
 
 ### Translate a document or batch files
@@ -129,7 +129,7 @@ public void StartTranslation() {
   Uri sourceUri = new Uri("<sourceUrl>");
   Uri targetUri = new Uri("<targetUrl>");
 
-  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
+  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
   DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "es")
 
@@ -208,7 +208,7 @@ Create variables for your resource key, custom endpoint, sourceUrl, and targetUr
 more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```python
- subscriptionKey = "<your-subscription-key>"
+ key = "<your-key>"
  endpoint = "<your-custom-endpoint>"
  sourceUrl = "<your-container-sourceUrl>"
  targetUrl = "<your-container-targetUrl>"
@@ -217,7 +217,7 @@ more information, *see*  [Custom domain name and key](get-started-with-document-
 ### Translate a document or batch files
 
 ```python
-client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey))
+client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
     poller = client.begin_translation(sourceUrl, targetUrl, "fr")
     result = poller.result()

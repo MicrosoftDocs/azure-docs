@@ -318,7 +318,7 @@ gradle run
 > You may need to update the following fields, depending upon the operation:
 >>>
 >> * `endpoint`
->> * `subscriptionKey`
+>> * `key`
 >> * `sourceURL`
 >> * `targetURL`
 >> * `glossaryURL`
@@ -356,7 +356,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
         private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
-        private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+        private static readonly string key = "<YOUR-KEY>";
 
         static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
 
@@ -370,7 +370,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
                 request.Content = content;
 
                 HttpResponseMessage  response = await client.SendAsync(request);
@@ -400,7 +400,7 @@ const axios = require('axios').default;
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let route = '/batches';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 
 let data = JSON.stringify({"inputs": [
   {
@@ -424,7 +424,7 @@ let config = {
   baseURL: endpoint,
   url: route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': key,
     'Content-Type': 'application/json'
   },
   data: data
@@ -448,7 +448,7 @@ axios(config)
 import requests
 
 endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 path = '/batches'
 constructed_url = endpoint + path
 
@@ -475,7 +475,7 @@ payload= {
     ]
 }
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey,
+  'Ocp-Apim-Subscription-Key': key,
   'Content-Type': 'application/json'
 }
 
@@ -494,7 +494,7 @@ import java.util.*;
 import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
-    String subscriptionKey = "'<YOUR-SUBSCRIPTION-KEY>'";
+    String key = "'<YOUR-KEY>'";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String path = endpoint + "/batches";
 
@@ -505,7 +505,7 @@ public class DocumentTranslation {
         RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
                 .url(path).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -538,14 +538,14 @@ import (
 
 func main() {
 endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+key := "<YOUR-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
 
 var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
-req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Key", key)
 req.Header.Add("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -588,7 +588,7 @@ class Program
 
     static readonly string route = "/documents/formats";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -598,7 +598,7 @@ class Program
             {
                 request.Method = HttpMethod.Get;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -619,14 +619,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/documents/formats';
 
 let config = {
   method: 'get',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -650,14 +650,14 @@ import com.squareup.okhttp.*;
 
 public class GetFileFormats {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/documents/formats";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -682,11 +682,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/documents/formats'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("GET", parameters , payload, headers)
 res = conn.getresponse()
@@ -711,7 +711,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/documents/formats"
   method := "GET"
 
@@ -723,7 +723,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -766,7 +766,7 @@ class Program
 
     static readonly string route = "/batches/{id}";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -776,7 +776,7 @@ class Program
             {
                 request.Method = HttpMethod.Get;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -797,14 +797,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/batches/{id}';
 
 let config = {
   method: 'get',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -829,14 +829,14 @@ import com.squareup.okhttp.*;
 
 public class GetJobStatus {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -861,11 +861,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/batches/{id}'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("GET", parameters , payload, headers)
 res = conn.getresponse()
@@ -890,7 +890,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "GET"
 
@@ -902,7 +902,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -946,7 +946,7 @@ class Program
 
     static readonly string route = "/{id}/document/{documentId}";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -956,7 +956,7 @@ class Program
             {
                 request.Method = HttpMethod.Get;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -977,14 +977,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/{id}/document/{documentId}';
 
 let config = {
   method: 'get',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -1009,14 +1009,14 @@ import com.squareup.okhttp.*;
 
 public class GetDocumentStatus {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/{id}/document/{documentId}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -1041,11 +1041,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/{id}/document/{documentId}'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("GET", parameters , payload, headers)
 res = conn.getresponse()
@@ -1070,7 +1070,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/{id}/document/{documentId}"
   method := "GET"
 
@@ -1082,7 +1082,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -1126,7 +1126,7 @@ class Program
 
     static readonly string route = "/batches/{id}";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -1136,7 +1136,7 @@ class Program
             {
                 request.Method = HttpMethod.Delete;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -1157,14 +1157,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/batches/{id}';
 
 let config = {
   method: 'delete',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -1189,14 +1189,14 @@ import com.squareup.okhttp.*;
 
 public class DeleteJob {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("DELETE", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("DELETE", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -1221,11 +1221,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/batches/{id}'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("DELETE", parameters , payload, headers)
 res = conn.getresponse()
@@ -1250,7 +1250,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "DELETE"
 
@@ -1262,7 +1262,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {

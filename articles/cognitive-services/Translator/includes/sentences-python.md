@@ -27,15 +27,15 @@ The first comment tells your Python interpreter to use UTF-8 encoding. Then requ
 
 ## Set the key, endpoint, and path
 
-This sample will try to read your Translator key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscription_key` and `endpoint` as a strings and comment out the conditional statements.
+This sample will try to read your Translator key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `key` and `endpoint` as a strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```python
-key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+key_var_name = 'TRANSLATOR_TEXT_KEY'
 if not key_var_name in os.environ:
     raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
+key = os.environ[key_var_name]
 
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
 if not endpoint_var_name in os.environ:
@@ -65,7 +65,7 @@ Copy this code snippet into your project:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

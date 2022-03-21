@@ -28,16 +28,16 @@ These modules are required to construct the HTTP request, and create a unique id
 
 ## Set the key and endpoint
 
-This sample will try to read your Translator key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
+This sample will try to read your Translator key and endpoint from these environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `key` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```javascript
-var key_var = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY';
+var key_var = 'TRANSLATOR_TEXT_KEY';
 if (!process.env[key_var]) {
     throw new Error('Please set/export the following environment variable: ' + key_var);
 }
-var subscriptionKey = process.env[key_var];
+var key = process.env[key_var];
 var endpoint_var = 'TRANSLATOR_TEXT_ENDPOINT';
 if (!process.env[endpoint_var]) {
     throw new Error('Please set/export the following environment variable: ' + endpoint_var);
@@ -63,7 +63,7 @@ let options = {
       'to': 'es'
     },
     headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Ocp-Apim-Subscription-Key': key,
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
