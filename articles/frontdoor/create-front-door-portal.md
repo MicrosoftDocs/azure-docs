@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium profile - Azure portal'
-description: This quickstart shows how to use Azure Front Door Standard/Premium Service for your highly available and high-performance global web application by using the Azure portal.
+title: 'Quickstart: Create an Azure Front Door profile - Azure portal'
+description: This quickstart shows how to use Azure Front Door service for your highly available and high-performance global web application by using the Azure portal.
 services: frontdoor
 author: duongau
 manager: KumudD
@@ -8,23 +8,16 @@ ms.service: frontdoor
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2021
+ms.date: 03/20/2022
 ms.author: duau
 ms.custom: mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
-# Quickstart: Create an Azure Front Door Standard/Premium profile - Azure portal
+# Quickstart: Create an Azure Front Door profile - Azure portal
 
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](front-door-overview.md).
 
-In this quickstart, you learn how to create an Azure Front Door Standard/Premium profile using the Azure portal. You can create the Azure Front Door Standard/Premium profile through *Quick Create* with basic configurations or through *Custom create* with more advanced configurations. With *Custom create* you deploy two Web Apps. Next, you create the Azure Front Door Standard/Premium profile using the two Web Apps as your origin. You'll then verify connectivity to your Web Apps using the Azure Front Door Standard/Premium frontend hostname.
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this quickstart, you learn how to create an Azure Front Door profile using the Azure portal. You can create the Azure Front Door profile through *Quick Create* with basic configurations or through *Custom create* with more advanced configurations. With *Custom create* you deploy two Web Apps. Next, you create the Azure Front Door profile using the two Web Apps as your origin. You'll then verify connectivity to your Web Apps using the Azure Front Door  frontend hostname.
 
 ## Prerequisites
 
@@ -34,7 +27,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. From the home page or the Azure menu, select **+ Create a resource**. Search for *Front Door Standard/Premium (Preview)*. Then select **Create**.
+1. From the home page or the Azure menu, select **+ Create a resource**. Search for *Front Door*. Then select **Create**.
 
 1. On the **Compare offerings** page, select **Quick create**. Then select **Continue to create a Front Door**.
 
@@ -58,7 +51,7 @@ An Azure account with an active subscription. [Create an account for free](https
     | **WAF policy** | Select **Create new** or select an existing WAF policy from the dropdown if you want to enable this feature. |
 
     > [!NOTE]
-    > When creating an Azure Front Door Standard/Premium profile, you must select an origin from the same subscription the Front Door is created in.
+    > When creating an Azure Front Door profile, you must select an origin from the same subscription the Front Door is created in.
 
 1. Select **Review + Create** to get your Front Door profile up and running.
 
@@ -73,7 +66,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ### Create a web app with two instances as the origin
 
-If you already have an origin or an origin group configured, skip to Create a Front Door Standard/Premium (Preview) for your application.
+If you already have an origin or an origin group configured, skip to create a Front Door for your application.
 
 In this example, we create a web application with two instances that run in different Azure regions. Both the web application instances run in *Active/Active* mode, so either one can take traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
@@ -110,13 +103,13 @@ After your deployment is complete, create a second web app. Use the same setting
 | **Region**           | A different region, in this example, *South Central US* |
 | **App Service plan** > **Windows Plan**         | Select **New** and enter *myAppServicePlanSouthCentralUS*, and then select **OK**. |
 
-### Create a Front Door Standard/Premium (Preview) for your application
+### Create a Front Door for your application
 
-Configure Azure Front Door Standard/Premium (Preview) to direct user traffic based on lowest latency between the two web apps servers. Also secure your Front Door with Web Application Firewall. 
+Configure Azure Front Door to direct user traffic based on lowest latency between the two web apps servers. Also secure your Front Door with Web Application Firewall. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
-1. From the home page or the Azure menu, select **+ Create a resource**. Search for *Front Door Standard/Premium (Preview)*. Then select **Create**.
+1. From the home page or the Azure menu, select **+ Create a resource**. Search for *Front Door*. Then select **Create**.
 
 1. On the **Compare offerings** page, select **Custom create**. Then select **Continue to create a Front Door**.
 
@@ -139,7 +132,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
 
     :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Screenshot of add a secret in custom create.":::
 
-1. In the **Endpoint** tab, select **Add an Endpoint** and give your endpoint a globally unique name. You can create multiple endpoints in your Azure Front Door Standard/Premium profile after you finish the create experience. This example uses *contoso-frontend*. Leave Origin response timeout (in seconds) and Status as default. Select **Add** to add the endpoint.
+1. In the **Endpoint** tab, select **Add an Endpoint** and give your endpoint a globally unique name. You can create multiple endpoints in your Azure Front Door profile after you finish the create experience. This example uses *contoso-frontend*. Leave Origin response timeout (in seconds) and Status as default. Select **Add** to add the endpoint.
     
     :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
 
@@ -158,7 +151,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     | **Other fields** | Leave all other fields as default. |
 
     > [!NOTE]
-    > When creating an Azure Front Door Standard/Premium profile, you must select an origin from the same subscription the Azure Front Door Standard/Premium is created in.
+    > When creating an Azure Front Door profile, you must select an origin from the same subscription Azure Front Door is created in.
    
    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Screenshot of add more origins.":::
 
@@ -201,7 +194,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
 
 ## Verify Azure Front Door
 
-When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once  completed, you can access the frontend host you created. In a browser, go to `contoso-frontend.z01.azurefd.net`. Your request will automatically get routed to the nearest server from the specified servers in the origin group.
+When you create the Azure Front Door profile, it takes a few minutes for the configuration to be deployed globally. Once  completed, you can access the frontend host you created. In a browser, go to `contoso-frontend.z01.azurefd.net`. Your request will automatically get routed to the nearest server from the specified servers in the origin group.
 
 If you created these apps in this quickstart, you'll see an information page.
 
