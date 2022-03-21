@@ -4,7 +4,8 @@ description: Learn about how Azure Monitor Logs protects your privacy and secure
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/11/2020
+ms.reviewer: MeirMen
+ms.date: 21/03/2022
 
 ---
 
