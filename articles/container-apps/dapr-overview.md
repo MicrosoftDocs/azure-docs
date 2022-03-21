@@ -34,10 +34,10 @@ Dapr is an incrementally adoptable set of APIs, or building blocks, that makes i
 | -------------- | --------------------------- | ----------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | Yes | Dapr addresses challenges around mTLS authentication and encryption, resiliency, service discovery, and more with their service invocation building block. |
 | [**State management**][dapr-statemgmt] | Yes | Dapr integrates with existing databases to provide apps with state management capabilities for: <ul><li>CRUD operations</li><li>Transactions</li><li>Configuration of multiple, named, state store components per application.</li></ul> |
-| [**Pub/sub broker**][dapr-pubsub] | Yes | Dapr's Pub/sub pattern allows publisher and subscriber microservices to communicate with each other while remaining decoupled, thanks to an intermediary message broker. </br> Currently, Container Apps supports Dapr's *programmatic subscription model*, not Dapr's configuration object. |
+| [**Pub/sub broker**][dapr-pubsub] | Yes | Dapr's Pub/sub pattern allows publisher and subscriber microservices to communicate with each other while remaining decoupled, thanks to an intermediary message broker. <br> Currently, Container Apps supports Dapr's *programmatic subscription model*, not Dapr's configuration object. |
 | [**Bindings**][dapr-bindings] | Yes | With Dapr's input and output bindings, you can trigger your application with incoming or outgoing events, without taking dependencies from SDKs or libraries. |
 | [**Actors**][dapr-actors] | Yes | Write your Dapr actors according to the Actor model while Dapr applies the scalability and reliability that the underlying platform provides. |
-| **Observability** | Partially | In Container Apps, we are opinionated about the configuration for tracing. When creating a Container Apps environment, you can pass in a Dapr instrumentation key, which will send tracing information to Application Insights. </br> We don't currently expose the ability for you to customize your tracing backend. |
+| **Observability** | Yes | In Container Apps, we are opinionated about the configuration for tracing. When creating a Container Apps environment, you can pass in a Dapr instrumentation key, which will send tracing information to Application Insights. <br> We don't currently expose the ability for you to customize your tracing backend. |
 
 ### Dapr core concepts
 
