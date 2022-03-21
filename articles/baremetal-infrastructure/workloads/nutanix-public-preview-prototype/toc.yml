@@ -12,12 +12,10 @@
     href: supported-instances.md
 - name: Deployment
   items:
-- name: Overview
-  href: nutanix-deployment-overview.md
-  items:
+  - name: Overview
+    href: nutanix-deployment-overview.md
   - name: Deploying Nutanix Clusters in Azure
     href: deploying-nutanix-clusters-in-azure.md
-    items:
     - name: Setup an Account
       href: setup-an-account.md
     - name: Setup networking infrastructure in Azure
