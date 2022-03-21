@@ -41,7 +41,7 @@ spec:
 ```
 
 Kubernetes API Reference:
-* [Container Probes]https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#httpgetaction-v1-core)
+* [Container Probes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#httpgetaction-v1-core)
 
 > [!NOTE]
 > * `readinessProbe` and `livenessProbe` are supported when configured with `httpGet`.

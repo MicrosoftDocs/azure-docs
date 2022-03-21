@@ -24,6 +24,18 @@ This article outlines how to register on-premises SQL server instances, and how 
 
 The supported SQL Server versions are 2005 and above. SQL Server Express LocalDB is not supported.
 
+When scanning on-premises SQL server, Azure Purview supports:
+
+- Extracting technical metadata including:
+
+    - Instance
+    - Databases
+    - Schemas
+    - Tables including the columns
+    - Views including the columns
+
+When setting up scan, you can choose to specify the database name to scan one database, and you can further scope the scan by selecting tables and views as needed. The whole SQL Server instance will be scanned if database name is not provided.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

@@ -133,8 +133,8 @@ Use the example that corresponds to the type of target VM to which you want to c
    ```
 
    **SSH:**
-
-   The SSH CLI extension is currently in Preview. The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
+ 
+   The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
 
    ```azurecli
    az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
@@ -164,7 +164,7 @@ Use the example that corresponds to the type of target VM to which you want to c
 
    **SSH:**
 
-   The SSH CLI extension is currently in Preview. The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
+   The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
 
      ```azurecli
      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"

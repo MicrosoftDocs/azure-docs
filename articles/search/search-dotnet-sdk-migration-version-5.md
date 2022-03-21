@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/16/2021
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Upgrade to Azure Search .NET SDK version 5
 
