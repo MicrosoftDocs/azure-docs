@@ -130,9 +130,9 @@ To set proper roles on your storage account:
 
 ### Enable CORS for your storage account
 
-Make sure to allow (**GET, PUT, DELETE**) methods when enabling CORS. Also, make sure to add asterisk _*_ to the rest of the fields and add the recommended value of 500 for Max age.
+Make sure to allow (**GET, PUT, DELETE**) methods when enabling Cross-Origin Resource Sharing (CORS). Also, make sure to add asterisk _*_ to the rest of the fields and add the recommended value of 500 for Max age.
 
-:::image type="content" source="../../media/CORS.png" alt-text="A screenshot showing how to use CORS for storage account." lightbox="../../media/CORS.png":::
+:::image type="content" source="../../custom-named-entity-recognition/media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../../media/cors.png":::
 
 ## Prepare training data
 
