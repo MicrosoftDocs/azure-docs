@@ -21,7 +21,7 @@ ms.author: barclayn
 
 There are situations in which you'd want to move your existing user-assigned managed identities from one region to another. For example, You may need to move a solution that uses user-assigned managed identities to another region. You may also want to move an existing identity to another region as part of disaster recovery planning, and testing.
 
-Managed identities of Azure resources can't be moved from one region to another. You can however, recreate a user-assigned managed identity.
+Moving User-assigned managed identities across Azure regions is not supported.  You can however, recreate a user-assigned managed identity in the target region.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ Managed identities of Azure resources can't be moved from one region to another.
 ## Prepare and move
 
 - Copy the relevant user-assigned managed identity information such as assigned permissions. You need this information so you can create replacement resources in the target region. You can list [Azure role assignments](../../role-based-access-control/role-assignments-list-powershell.md) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option
-- Create a new user-assigned managed identity at the target
+- Create a [new user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
 - Grant the managed identity the same permissions as the original identity that it's replacing. You can review [Assign Azure roles to a managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.md)  
-- Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity
+- Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity.
 
 ## Verify
 
