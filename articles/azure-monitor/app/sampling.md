@@ -9,7 +9,7 @@ ms.custom: fasttrack-edit
 
 # Sampling in Application Insights
 
-sSampling is a feature in [Azure Application Insights](./app-insights-overview.md). It is the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data. Sampling also helps you avoid Application Insights throttling your telemetry. The sampling filter selects items that are related, so that you can navigate between items when you are doing diagnostic investigations.
+Sampling is a feature in [Azure Application Insights](./app-insights-overview.md). It is the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data. Sampling also helps you avoid Application Insights throttling your telemetry. The sampling filter selects items that are related, so that you can navigate between items when you are doing diagnostic investigations.
 
 When metric counts are presented in the portal, they are renormalized to take into account sampling. Doing so minimizes any effect on the statistics.
 
