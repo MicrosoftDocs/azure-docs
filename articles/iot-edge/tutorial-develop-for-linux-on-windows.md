@@ -398,7 +398,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10/C20 seconds the first time you do so.
 
-   ![Screenshot of how to attach an edge module process](./media/tutorial-develop-for-linux-on-windows/attach-process.png#lightbox)
+   [ ![Screenshot of how to attach an edge module process.](./media/tutorial-develop-for-linux-on-windows/attach-process.png) ](./media/tutorial-develop-for-linux-on-windows/attach-process.png#lightbox)
 
 1. Set a breakpoint to inspect the module.
 
