@@ -22,7 +22,7 @@ This article discusses concepts related to managing access to data sources in yo
 
 Access policies in Azure Purview enable you to manage access to different data systems across your entire data estate. For example:
 
-A user needs read access to an Azure Storage account that has been registered in Azure Purview. You can grant this access directly in Azure Purview by creating a data access policy though the **Policy management** app in the Purview Studio.
+A user needs read access to an Azure Storage account that has been registered in Azure Purview. You can grant this access directly in Azure Purview by creating a data access policy through the **Policy management** app in Azure Purview Studio.
 
 Data access policies can be enforced through Purview on data systems that have been registered for policy.
 
@@ -60,14 +60,14 @@ Azure SQL DB data-asset-path format:
 
 #### Subject
 
-The end-user identity from Azure Active Directory (AAD) for whom this policy statement is applicable. This identity can be a service principal, an individual user, a group, or a managed service identity (MSI).
+The end-user identity from Azure Active Directory for whom this policy statement is applicable. This identity can be a service principal, an individual user, a group, or a managed service identity (MSI).
 
 ### Example
 
 Deny Read on Data Asset:
 */subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/FinData to group Finance-analyst*
 
-In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is AAD group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be denied.
+In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be denied.
 
 ### Hierarchical enforcement of policies
 
@@ -88,7 +88,7 @@ Then let’s assume that user ‘user1’, who is part of two groups:
 *Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Azure Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
 
 > [!Note]
-> Currently, the only supported effect is **Allow**
+> Currently, the only supported effect is **Allow**.
 
 ## Policy publishing
 
