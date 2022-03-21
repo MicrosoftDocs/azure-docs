@@ -85,7 +85,7 @@ public class AltTranslation {
 }
 ```
 
-Add these lines to the `AltTranslation` class. First, the subscription key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
+Add these lines to the `AltTranslation` class. First, the key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");

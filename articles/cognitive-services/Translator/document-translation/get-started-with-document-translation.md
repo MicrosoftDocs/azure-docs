@@ -22,7 +22,7 @@ ms.custom: mode-other
 
 > [!NOTE]
 >
-> * Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> * Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
@@ -56,7 +56,7 @@ To get started, you'll need:
 
   1. After your resource has successfully deployed, select **Go to resource**.
 
-## Custom domain name and subscription key
+## Custom domain name and key
 
 > [!IMPORTANT]
 >
@@ -77,16 +77,16 @@ The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is th
 
 :::image type="content" source="../media/instance-details.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
 
-### Get your subscription key
+### Get your key
 
 Requests to the Translator service require a read-only key for authenticating access.
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
-1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
+1. Copy and paste your key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
-:::image type="content" source="../media/translator-keys.png" alt-text="Image of the get your subscription key field in Azure portal.":::
+:::image type="content" source="../media/translator-keys.png" alt-text="Image of the get your key field in Azure portal.":::
 
 ## Create Azure blob storage containers
 
@@ -122,7 +122,7 @@ The following headers are included with each Document Translator API request:
 
 |HTTP header|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 
 ### POST request body properties
@@ -225,7 +225,7 @@ The following headers are included with each Document Translator API request:
 
 * Create a new project.
 * Replace Program.cs with the C# code shown below.
-* Set your endpoint, subscription key, and container URL values in Program.cs.
+* Set your endpoint, key, and container URL values in Program.cs.
 * To process JSON data, add [Newtonsoft.Json package using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory.
 
@@ -234,14 +234,14 @@ The following headers are included with each Document Translator API request:
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
 * Copy/paste the code below into your project.
-* Set your endpoint, subscription key, and container URL values.
+* Set your endpoint, key, and container URL values.
 * Run the program.
 
 ### [Python](#tab/python)
 
 * Create a new project.
 * Copy and paste the code from one of the samples into your project.
-* Set your endpoint, subscription key, and container URL values.
+* Set your endpoint, key, and container URL values.
 * Run the program. For example: `python translate.py`.
 
 ### [Java](#tab/java)
@@ -290,7 +290,7 @@ gradle init --type basic
   }
   ```
 
-* Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your subscription key and endpoint.
+* Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your key and endpoint.
 
 * **Build and run the sample from the root directory**:
 
@@ -303,7 +303,7 @@ gradle run
 
 * Create a new Go project.
 * Add the code provided below.
-* Set your endpoint, subscription key, and container URL values.
+* Set your endpoint, key, and container URL values.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
 * Build the file. For example: 'go build example-code.go'.
@@ -1305,7 +1305,7 @@ Document Translation can't be used to translate secured documents such as those 
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request isn't authorized. Check to make sure your subscription key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
+| 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
 | 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 

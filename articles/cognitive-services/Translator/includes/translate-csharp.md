@@ -104,7 +104,7 @@ public class SentenceLength
 
 ## Get subscription information from environment variables
 
-Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+Add the following lines to the `Program` class. These lines read your key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -286,7 +286,7 @@ This message is built from the raw JSON, which will look like this:
 
 ## Clean up resources
 
-Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+Make sure to remove any confidential information from your sample app's source code, like keys.
 
 ## Next steps
 

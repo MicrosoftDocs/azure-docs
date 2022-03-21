@@ -41,7 +41,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 
 * Create a new project: `dotnet new console -o your_project_name`
 * Replace Program.cs with the C# code shown below.
-* Set the subscription key and endpoint values in Program.cs.
+* Set the key and endpoint values in Program.cs.
 * [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory: ``dotnet run``
 
@@ -77,7 +77,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
     compile("com.google.code.gson:gson:2.8.5")
   }
   ```
-* Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
+* Create a Java file and copy in the code from the provided sample. Don't forget to add your key.
 * Run the sample: `gradle run`.
 
 
@@ -86,7 +86,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
-* Set your subscription key.
+* Set your key.
 * Run the program. For example: `node Translate.js`.
 
 
@@ -95,7 +95,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
-* Set your subscription key.
+* Set your key.
 * Run the program. For example: `python translate.py`.
 
 
@@ -357,7 +357,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -643,7 +643,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -921,7 +921,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -1207,7 +1207,7 @@ axios({
 ```Python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -1496,7 +1496,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -1772,7 +1772,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -2059,7 +2059,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -2335,7 +2335,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -2641,7 +2641,7 @@ axios({
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
+# Add your key and endpoint
 subscription_key = "YOUR_SUBSCRIPTION_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
@@ -2726,7 +2726,7 @@ After a successful call, you should see the following response. For more informa
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
+| 401 | Unauthorized | The request is not authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
 | 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 

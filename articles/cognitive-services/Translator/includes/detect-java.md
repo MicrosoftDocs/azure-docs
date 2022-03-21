@@ -85,7 +85,7 @@ public class Detect {
 }
 ```
 
-Add these lines to the `Detect` class. You'll notice the subscription key and endpoint are being read from environment variables:
+Add these lines to the `Detect` class. You'll notice the key and endpoint are being read from environment variables:
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");

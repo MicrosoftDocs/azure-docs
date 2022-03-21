@@ -31,14 +31,14 @@ import (
 
 ## Create the main function
 
-This sample will try to read your Translator subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
+This sample will try to read your Translator key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```go
 func main() {
     /*
-    * Read your subscription key from an env variable.
+    * Read your key from an env variable.
     * Please note: You can replace this code block with
     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
     * want to use env variables. If so, be sure to delete the "os" import.
@@ -55,7 +55,7 @@ func main() {
     /*
      * This calls our breakSentence function, which we'll
      * create in the next section. It takes a single argument,
-     * the subscription key.
+     * the key.
      */
     detect(subscriptionKey, uri)
 }
@@ -63,7 +63,7 @@ func main() {
 
 ## Create a function to detect the text language
 
-Let's create a function to detect the text language. This function will take a single argument, your Translator subscription key.
+Let's create a function to detect the text language. This function will take a single argument, your Translator key.
 
 ```go
 func detect(subscriptionKey string, uri string) {

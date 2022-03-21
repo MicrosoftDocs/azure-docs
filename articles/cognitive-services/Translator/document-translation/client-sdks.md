@@ -106,11 +106,11 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
+In the application's **Program** class, create variable for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
-private static readonly string subscriptionKey = "<your subscription key>";
+private static readonly string subscriptionKey = "<your key>";
 ```
 
 ### Translate a document or batch files
@@ -204,8 +204,8 @@ Create a new Python application in your preferred editor or IDE. Then import the
     from azure.ai.translation.document import DocumentTranslationClient
 ```
 
-Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
+Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
+more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```python
  subscriptionKey = "<your-subscription-key>"

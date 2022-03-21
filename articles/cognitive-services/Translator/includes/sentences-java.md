@@ -85,7 +85,7 @@ public class BreakSentence {
 }
 ```
 
-Add these lines to the `BreakSentence` class. First, the subscription key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
+Add these lines to the `BreakSentence` class. First, the key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");

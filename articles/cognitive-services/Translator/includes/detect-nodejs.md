@@ -26,9 +26,9 @@ const uuidv4 = require('uuid/v4');
 
 These modules are required to construct the HTTP request, and create a unique identifier for the `'X-ClientTraceId'` header.
 
-## Set the subscription key and endpoint
+## Set the key and endpoint
 
-This sample will try to read your Translator subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
+This sample will try to read your Translator key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
@@ -68,8 +68,8 @@ let options = {
     json: true,
 };
 ```
-The easiest way to authenticate a request is to pass in your subscription key as an
-`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request.
+The easiest way to authenticate a request is to pass in your key as an
+`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your key for an access token, and pass the access token along as an `Authorization` header to validate your request.
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request headers.
 
@@ -130,7 +130,7 @@ After you run the sample, you should see the following printed to terminal:
 
 ## Clean up resources
 
-If you've hardcoded your subscription key into your program, make sure to remove the subscription key when you're finished with this quickstart.
+If you've hardcoded your key into your program, make sure to remove the key when you're finished with this quickstart.
 
 ## Next steps
 
