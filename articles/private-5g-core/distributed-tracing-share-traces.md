@@ -22,7 +22,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 ## Create a storage account and blob container in Azure
 
- When uploading and sharing a trace for the first time, you'll need create a storage account and a container resource to store your traces. You can skip this step if this has already been done.
+ When uploading and sharing a trace for the first time, you'll need to create a storage account and a container resource to store your traces. You can skip this step if this has already been done.
 
 1. [Create a storage account](../storage/common/storage-account-create.md) with the following additional configuration: 
     1. In the **Advanced** tab, select **Enable storage account access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
@@ -35,7 +35,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 In this step, you'll export the trace from the distributed tracing web GUI and save it locally.
 
 1. Sign in to the distributed tracing web GUI at https://*\<LocalMonitoringIP\>*/sas, where *\<LocalMonitoringIP\>* is the IP address you set up for accessing local monitoring tools.
-1. In the **Search** tab, specify the SUPI and time for the event you are interested in and select **Search**.
+1. In the **Search** tab, specify the SUPI and time for the event you're interested in and select **Search**.
     
     :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-search.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I search field and date and time range options.":::
 
@@ -64,7 +64,7 @@ You can now upload the trace to the container you created in [Create a storage a
 
 ## Create URL for sharing the trace
 
-You'll now generate a URL for your trace that you can share with your support representative for assistance with troubleshooting.
+You'll now generate a shared access signature (SAS) URL for your trace. Once you create the URL, you can share it with your support representative for assistance with troubleshooting.
 
 1. Navigate to your Container resource.
     
@@ -73,7 +73,7 @@ You'll now generate a URL for your trace that you can share with your support re
 1. Select the trace you'd like to share.
 1. Select the **Generate SAS** tab.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-tab.png" alt-text="Screenshot of the Azure portal showing the container overview and the trace blob information window. The Generate S A S tab is highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-tab.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-shared-access-signature-tab.png" alt-text="Screenshot of the Azure portal showing the container overview and the trace blob information window. The Generate S A S tab is highlighted." lightbox="media\distributed-tracing-share-traces\generate-shared-access-signature-tab.png":::
 
 1. Fill out the fields with the following configuration:
     1. Under **Signing method**, select **Account key**. This means anyone with access to the URL you generate will be able to paste it into a browser and download the trace.
@@ -83,7 +83,7 @@ You'll now generate a URL for your trace that you can share with your support re
 
 1. Select **Generate SAS token and URL**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\generate-sas-token-and-url.png" alt-text="Screenshot of the Azure portal showing the Generate S A S tab in the trace blob information window. The Generate S A S token and U R L button is highlighted." lightbox="media\distributed-tracing-share-traces\generate-sas-token-and-url.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-shared-access-signature-token-and-url.png" alt-text="Screenshot of the Azure portal showing the Generate S A S tab in the trace blob information window. The Generate S A S token and U R L button is highlighted." lightbox="media\distributed-tracing-share-traces\generate-shared-access-signature-token-and-url.png":::
 
 1. Copy the contents of the **Blob SAS URL** field and share the URL with your support representative.
 
