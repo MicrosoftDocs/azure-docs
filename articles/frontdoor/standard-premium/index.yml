@@ -122,7 +122,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Caching
-            url: concept-caching.md
+            url: ../front-door-caching.md
       - linkListType: how-to-guide
         links:
           - text: Cache purge

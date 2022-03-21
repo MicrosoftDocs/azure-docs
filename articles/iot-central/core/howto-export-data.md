@@ -580,7 +580,7 @@ Each exported message contains a normalized form of the full message the device 
 - `messageSource`: The source for the message - `telemetry`.
 - `deviceId`:  The ID of the device that sent the telemetry message.
 - `schema`: The name and version of the payload schema.
-- `templateId`: The ID of the device template associated with the device.
+- `templateId`: The ID of the device template assigned to the device.
 - `enqueuedTime`: The time at which this message was received by IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 - `module`: The IoT Edge module that sent this message. This field only appears if the message came from an IoT Edge module.
@@ -733,7 +733,7 @@ Each message or record represents changes to device and cloud properties. Inform
 - `deviceId`:  The ID of the device that sent the telemetry message.
 - `schema`: The name and version of the payload schema.
 - `enqueuedTime`: The time at which this change was detected by IoT Central.
-- `templateId`: The ID of the device template associated with the device.
+- `templateId`: The ID of the device template assigned to the device.
 - `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modeled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.
 
@@ -773,7 +773,7 @@ Each message or record represents a connectivity event from a single device. Inf
 - `messageType`: Either `connected` or `disconnected`.
 - `deviceId`:  The ID of the device that was changed.
 - `schema`: The name and version of the payload schema.
-- `templateId`: The ID of the device template associated with the device.
+- `templateId`: The ID of the device template assigned to the device.
 - `enqueuedTime`: The time at which this change occurred in IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 
@@ -808,7 +808,7 @@ Each message or record represents one change to a single device. Information in 
 - `messageType`: The type of change that occurred. One of: `registered`, `deleted`, `provisioned`, `enabled`, `disabled`, `displayNameChanged`, and `deviceTemplateChanged`.
 - `deviceId`:  The ID of the device that was changed.
 - `schema`: The name and version of the payload schema.
-- `templateId`: The ID of the device template associated with the device.
+- `templateId`: The ID of the device template assigned to the device.
 - `enqueuedTime`: The time at which this change occurred in IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 
@@ -841,7 +841,7 @@ Each message or record represents one change to a single published device templa
 - `messageSource`: The source for the message - `deviceTemplateLifecycle`.
 - `messageType`: Either `created`, `updated`, or `deleted`.
 - `schema`: The name and version of the payload schema.
-- `templateId`: The ID of the device template associated with the device.
+- `templateId`: The ID of the device template assigned to the device.
 - `enqueuedTime`: The time at which this change occurred in IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 

@@ -208,6 +208,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Operating system support for VMs
+            url: ecosystem-os-vms.md
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
