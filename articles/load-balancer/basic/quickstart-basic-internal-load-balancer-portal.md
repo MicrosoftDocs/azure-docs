@@ -165,8 +165,8 @@ During the creation of the load balancer, you'll configure:
 22. Select **Create**.
 
     > [!NOTE]
-    > In this example you'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
-    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
+    > In this example you'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../../virtual-network/nat-gateway/nat-overview.md)
+    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../../load-balancer/load-balancer-outbound-connections.md)
 
 
 ## Create virtual machines
@@ -233,7 +233,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability set | Select the existing **myAvailabiltySet** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Create test virtual machine
 
@@ -358,4 +358,4 @@ In this quickstart, you:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
