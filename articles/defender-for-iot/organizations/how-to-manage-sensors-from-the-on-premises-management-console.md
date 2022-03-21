@@ -75,7 +75,7 @@ If you're upgrading an on-premises management console and managed sensors, first
 
 1. Under **Sensor Engine Configuration**, select any sensor you want to update, and then select **Automatic Version Updates** > **Save Changes**. For example:
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
 
 1. On the right, select **Version** update, and then browse to and select the update file you'd downloaded from the Azure portal.
 
@@ -128,7 +128,6 @@ Sensors are protected by Defender for IoT engines. You can enable or disable the
 | Malware engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
 | Anomaly engine | The malware engine detects an anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic or cyclic behavior of data transmission, which is common in industrial networks. |
 | Operational engine | This engine detects operational incidents or malfunctioning entities. | `Device is Suspected to be Disconnected (Unresponsive)` alert. This alert triggered when a device isn't responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
-|
 
 **To enable or disable engines for connected sensors:**
 
