@@ -288,5 +288,5 @@ When you access online endpoints with REST requests, the returned status codes a
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
+- [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md)
 
