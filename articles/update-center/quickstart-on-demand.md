@@ -15,9 +15,9 @@ This quickstart details you how to assess and install updates on demand on a sel
 ## Prerequisites
 
 - Have an Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your account must be a member of the Azure [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
+- Your role must be either an [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) for Azure VM and resource administrator for Arc enabled servers.
 - One or more [Azure virtual machines](/azure/virtual-machines), or [Arc-enabled servers](/azure/azure-arc/servers/overview), Windows and Linux machines
-- Ensure that you meet all [prerequisites for update management center](https://github.com/Azure/update-center-docs/Docs/overview.md#prerequisites)
+
 
 ## Assess updates
 
@@ -57,7 +57,7 @@ To configure update settings on the machines, perform the below steps:
 1. In **Machines** page, select one or more machines from the list and click **Manage updates**, **Update settings**.
 1. Select **Update Settings** to confirm that you want to change the update settings to - patch orchestration, hotpatch or periodic assessment for the selected machines.
 1. In **Properties**, select the option to modify the current settings for the machines and select **Next**.
-1. In **Machines** tab, select the machine(s) from the list. You can also add or remove machines and select **Next**.
+1. In **Machines**, select the machine(s) from the list. You can also add or remove machines and select **Next**.
 1. In **Review and change**, confirm the updates and select **Review and change**.
     A confirmation appears once the update settings are successfully applied.
   
