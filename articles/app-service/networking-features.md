@@ -22,7 +22,7 @@ The features you use will depend on whether you're in the multi-tenant service o
 > [!NOTE]
 > Networking features are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
-## Multitenant App Service networking features 
+## Multi-tenant App Service networking features 
 
 Azure App Service is a distributed system. The roles that handle incoming HTTP or HTTPS requests are called *front ends*. The roles that host the customer workload are called *workers*. All the roles in an App Service deployment exist in a multi-tenant network. Because there are many different customers in the same App Service scale unit, you can't connect the App Service network directly to your network. 
 
@@ -113,7 +113,7 @@ The IP-based access restrictions feature helps when you want to restrict the IP 
 To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
 
 > [!NOTE]
-> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
+> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multi-tenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
 
 #### Access restriction rules based on service endpoints 
 
@@ -200,6 +200,7 @@ This feature solves the problem of accessing resources in other virtual networks
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service virtual network integration][vnetintegrationp2s]. 
 
+<a id="regional-vnet-integration" />
 ### Regional virtual network integration
 
 Gateway-required virtual network integration is useful, but it doesn't solve the problem of accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there's a need for apps to be able to make calls to services secured by service endpoint. Another virtual network integration capability can meet these needs. 
@@ -244,14 +245,14 @@ Some things aren't currently possible from the multi-tenant service but are poss
 The ASE provides the best story around isolated and dedicated app hosting, but it does involve some management challenges. Some things to consider before you use an operational ASE:
  
  * An ASE runs inside your virtual network, but it does have dependencies outside the virtual network. Those dependencies must be allowed. For more information, see [Networking considerations for an App Service Environment][networkinfo].
- * An ASE doesn't scale immediately like the multitenant service. You need to anticipate scaling needs rather than reactively scaling. 
+ * An ASE doesn't scale immediately like the multi-tenant service. You need to anticipate scaling needs rather than reactively scaling. 
  * An ASE does have a higher up-front cost. To get the most out of your ASE, you should plan to put many workloads into one ASE rather than using it for small efforts.
  * The apps in an ASE can't selectively restrict access to some apps in the ASE and not others.
  * An ASE is in a subnet, and any networking rules apply to all the traffic to and from that ASE. If you want to assign inbound traffic rules for just one app, use access restrictions. 
 
 ## Combining features 
 
-The features noted for the multitenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here, but they're just examples. By understanding what the various features do, you can meet nearly all your system architecture needs.
+The features noted for the multi-tenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here, but they're just examples. By understanding what the various features do, you can meet nearly all your system architecture needs.
 
 ### Place an app into a virtual network
 
@@ -300,7 +301,7 @@ Configuring private endpoints will expose your apps on a private address, but yo
 
 ## App Service ports
 
-If you scan App Service, you'll find several ports that are exposed for inbound connections. There's no way to block or control access to these ports in the multitenant service. Here's the list of exposed ports:
+If you scan App Service, you'll find several ports that are exposed for inbound connections. There's no way to block or control access to these ports in the multi-tenant service. Here's the list of exposed ports:
 
 | Use | Port or ports |
 |----------|-------------|
