@@ -15,7 +15,7 @@ ms.author: dhruviyer
 ## Overview
 
 Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual
-key and/or rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices.
+key and/or rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For additional guidance and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
 
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Azure Managed HSM. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation.
 
