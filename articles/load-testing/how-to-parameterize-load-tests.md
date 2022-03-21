@@ -116,6 +116,8 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 
     * Select the **Key vault reference identity** that you would like to use to access your secrets. If you have selected User-assigned identity, select the identity from list of identities that are added to the resource. The selected identity was granted access in the previous step.
 
+    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how tos elect key vault refernce identity":::
+
     * Alternatively, you can specify a secret in the YAML configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
 ### <a name="cicd_secrets"></a> Use the CI/CD secret store
