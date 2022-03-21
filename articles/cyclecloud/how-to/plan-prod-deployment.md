@@ -11,16 +11,16 @@ ms.author: adjohnso
 ## Azure CycleCloud Deployment
 
 * Decide which version of CycleCloud will be deployed:
-  * [Azure CycleCloud 8.1 - Current Release](../release-notes.md)
+  * [Azure CycleCloud 8.2 - Current Release](../release-notes.md)
   * [Azure CycleCloud 7.9 - Previous Release](../release-notes-previous.md)
 * [Prepare your Azure Subscription](./configuration.md) by defining which Subscription, vNet, Subnet and Resource Group for the CycleCloud server deployment
-* Define which Resource Group will host clusters or if CycleCloud should create them (default setting)
-* Create a storage account for locker access
-* Determine if SSH keys, AD or LDAP will be used for authentication
+* Define which [Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) will host clusters or if CycleCloud should create them (default setting)
+* Create a storage account for [locker access](./storage-blobs.md)
+* Determine if SSH keys, AD or LDAP will be [used for authentication](./user-access.md)
 * Determine if CycleCloud will use a Service Principal or a Managed Identity (recommended with a single subscription) [Choosing between a Service Principal and a Managed Identity](./service-principals.md#choosing-between-a-service-principal-and-a-managed-identity)
 * Confirm which SKU will be used for CycleCloud: [CycleCloud System Requirements](./install-manual.md#system-requirements)
 * Will the environment be deployed in a locked down network? If so, take into account the following requirements: [Operating in a locked down network](./running-in-locked-down-network.md)
-* Deploy the CycleCloud server
+* [Deploy the CycleCloud server](../qs-install-marketplace.md)
 
 ## Azure CycleCloud Configuration
 
@@ -31,12 +31,12 @@ ms.author: adjohnso
 
 * Define user access to the clusters [Cluster User Management](./user-access.md)
 * Determine which scheduler will be used
-* Determine which SKU will be required for the scheduler/master node
-* Determine what SKUs will be required for the Compute/Execute nodes. This will be entirely dependent on the application being run
+* Determine which SKU will be required for the scheduler/head node
+* Determine what SKUs will be required for the compute/execute nodes. This will be entirely dependent on the application being run
 * Will clusters be deployed using a template or manually?
   * Cluster templates will need to be defined and uploaded to the locker: [Cluster Template Reference](../cluster-references/cluster-reference.md)
   * Manual creation: [Create a New Cluster](./create-cluster.md)
-* Will any scripts need to be run on the master or execute nodes once deployed:
+* Will any scripts need to be run on the scheduler or execute nodes once deployed:
   * [Cluster-Init](../cluster-references/cluster-init-reference.md)
   * [Cloud-Init](./cloud-init.md)
 
@@ -51,12 +51,12 @@ ms.author: adjohnso
     * [Create a Customer Linux Image](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images)
   * Using a marketplace image
   * From an NFS share, blob storage, Azure NetApp Files
-* Is there a specific SKU which will need to be used for the Applications to run on? Will MPI be a requirement as that would necessitate a different family of machines like the H series?
+* Is there a specific VM SKU which will need to be used for the applications to run on? Will MPI be a requirement as that would necessitate a different family of machines like the H series?
   * [Azure VM sizes - HPC](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc)
   * [HB/HC Cluster Best Practices](./hb-hc-best-practices.md)
 * What will be the optimum number of cores per job for each application?
-* Can spot virtual machines be used? [Using Spot VMs in CycleCloud](./use-spot-instances.md)
-* Ensure subscription quotas are in place to fulfill the core requirements for the applications
+* Can spot VMs be used? [Using Spot VMs in CycleCloud](./use-spot-instances.md)
+* Ensure [subscription quotas](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) are in place to fulfill the core requirements for the applications
 
 ## Data
 
@@ -73,7 +73,7 @@ ms.author: adjohnso
 ## Job Submission
 
 * How will users submit jobs?
-* Will they have a script to run on the master node or will there be a frontend to help with data upload and job submission?
+* Will they have a script to run on the scheduler VM or will there be a frontend to help with data upload and job submission?
 
 ## Backup and Disaster Recovery
 
@@ -81,4 +81,4 @@ ms.author: adjohnso
 * What requirements for Disaster Recovery are there? What would happen to the business if an Azure region wasn’t available as expected?
 * Are there any application SLAs defined by the internal business?
 * Could another region be used as a standby?
-* Are jobs long running? Would check-pointing be beneficial?
+* Are jobs long running? Would checkpointing be beneficial?
