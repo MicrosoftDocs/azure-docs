@@ -40,7 +40,7 @@ This article shows two ways to set up the workflow:
 
   ![Screenshot of the Fork button (highlighted) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Enable local and third party Actions for this repository** is selected.
+* Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Allow all actions** is selected.
 
 ## Configure GitHub workflow
 
@@ -107,9 +107,9 @@ az role assignment create \
 
 ### Save credentials to GitHub repo
 
-1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets**. 
+1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets** > **Actions**. 
 
-1. Select **Add a new secret** to add the following secrets:
+1. Select **New repository secret** to add the following secrets:
 
 |Secret  |Value  |
 |---------|---------|
@@ -121,8 +121,8 @@ az role assignment create \
 
 ### Create workflow file
 
-1. In the GitHub UI, select **Actions** > **New workflow**.
-1. Select **Set up a workflow yourself**.
+1. In the GitHub UI, select **Actions**.
+1. Select **set up a workflow yourself**.
 1. In **Edit new file**, paste the following YAML contents to overwrite the sample code. Accept the default filename `main.yml`, or provide a filename you choose.
 1. Select **Start commit**, optionally provide short and extended descriptions of your commit, and select **Commit new file**.
 
