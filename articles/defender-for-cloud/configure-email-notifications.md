@@ -31,7 +31,7 @@ To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Email notifications are free, but security alerts are provided by enhanced security plans which are billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
+|Pricing:|Email notifications are free; for security alerts, enable the enhanced security plans ([plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)) |
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
