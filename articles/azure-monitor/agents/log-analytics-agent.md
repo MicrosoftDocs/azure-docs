@@ -102,6 +102,9 @@ The following table lists the proxy and firewall configuration information requi
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
+> [!IMPORTANT]
+> If your firewall is doing CNAME inspections, you need to configure it to allow all domains in the CNAME.
+
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management features in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning).
 
 ### Proxy configuration
