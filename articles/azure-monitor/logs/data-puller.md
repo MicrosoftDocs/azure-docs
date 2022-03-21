@@ -9,7 +9,7 @@ ms.author: bwren
 ---
 
 # Azure Monitor Data Puller (Preview)
-With solutions on deprecation path and the introduction of [Data collection rules](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview), Tables are becoming a key component in Azure Monitor Logs resource management strategy and user experience all together.
+With solutions on deprecation path and the introduction of [Data collection rules](essentials/data-collection-rule-overview), Tables are becoming a key component in Azure Monitor Logs resource management strategy and user experience all together.
 
 The Data Collection Rules experience allows the benefits of using KQL transformations, faster ingestion and new log types support.
 
@@ -18,8 +18,8 @@ This article describes the Data Puller and instructions of how you can create an
 ## Getting started
 To use the Data Puller you need to have a Log Analytics workspace that includes logs.
 >[!tip] 
-> * [Create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
-> * [Send Logs to Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
+> * [Create a Log Analytics Workspace](logs/quick-create-workspace.md)
+> * [Send Logs to Log Analytics Workspace](essentials/resource-logs#send-to-log-analytics-workspace)
 
 ## Create a file based custom log
 From the Azure portal, go to the Log Analytics Workspace and choose Custom logs from the table of content and choose **Add custom Log**
