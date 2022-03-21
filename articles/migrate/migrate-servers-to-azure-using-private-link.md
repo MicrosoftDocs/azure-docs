@@ -415,7 +415,7 @@ Now, select machines for replication and migration.
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 
-    :::image type="content" source="../media/how-to-use-azure-migrate-with-private-endpoints/disks.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/disks.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
 
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
