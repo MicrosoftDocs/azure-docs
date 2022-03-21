@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 02/01/2022
+ms.date: 03/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
@@ -281,16 +281,19 @@ The following steps describe how this topology works:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
     - ```instances.azureml.ms```
+    - ```aznbcontent.net```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
+    - ```aznbcontent.net```
     
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
     - ```instances.azureml.us```
+    - ```aznbcontent.net```
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
@@ -413,17 +416,20 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.ms```     
+    - ```instances.azureml.ms```
+    - ```aznbcontent.net```   
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
+    - ```aznbcontent.net``` 
 
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
     - ```instances.azureml.us```
+    - ```aznbcontent.net``` 
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.

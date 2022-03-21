@@ -28,12 +28,12 @@ This article provides you with a list and description of the system reports avai
 
 ## Download a system report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 1. In the **Report Name** column, find the report you want, and then select the down arrow to the right of the report name to download the report.
 
     Or, from the ellipses **(...)** menu, select **Download**.
 
-    The following message displays: **Successfully started to generate on demand report.**
+    The following message displays: **Successfully Started To Generate On Demand Report.**
 
 
 ## Summary of available system reports

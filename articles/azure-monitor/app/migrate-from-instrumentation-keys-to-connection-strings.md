@@ -97,7 +97,7 @@ Connection strings provide a single configuration setting and eliminate the need
 
 ## Supported SDK Versions
 
-- .NET and .NET Core v2.12.0+
+- .NET and .NET Core [LTS](https://dotnet.microsoft.com/download/visual-studio-sdks)
 - Java v2.5.1 and Java 3.0+
 - JavaScript v2.3.0+
 - NodeJS v1.5.0+
@@ -138,4 +138,4 @@ Billing isn't impacted.
 
 ### Microsoft Q&A
 
-Post questions to the [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the [answers forum](/answers/topics/24223/azure-monitor.html).
