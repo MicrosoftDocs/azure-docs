@@ -4,7 +4,7 @@ description: "Mark a subnet as a virtual network service endpoint. Then add the 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, subject-rbac-steps
 ms.devlang: 
 ms.topic: how-to
 author: rohitnayakmsft
