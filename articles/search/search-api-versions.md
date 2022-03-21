@@ -17,7 +17,7 @@ Azure Cognitive Search rolls out feature updates regularly. Sometimes, but not a
 
 As a rule, the REST APIs and libraries are versioned only when necessary, since it can involve some effort to upgrade your code to use a new API version. A new version is needed only if some aspect of the API has changed in a way that breaks backward compatibility. Such changes can happen because of fixes to existing features, or because of new features that change existing API surface area.
 
-For more information about version lifecycle, see [Azure SDK lifecycle and support policy](https://azure.github.io/azure-sdk/policies_support.html).
+See [Azure SDK lifecycle and support policy](https://azure.github.io/azure-sdk/policies_support.html) for more information about the deprecation path.
 
 <a name="unsupported-versions"></a>
 
