@@ -8,7 +8,7 @@ ms.custom: devdivchpfy22
 
 # Access a VM (student view) in Azure Lab from Teams
 
-When a lab is created within Teams, users can view and access all the VMs provisioned by the team owner. When the lab is published and VMs are created, users will be automatically registered to the lab. A VM will be assigned when they first log into Azure Lab Services. Users can view and access the VMs assigned to them by selecting the tab containing **Azure Lab Services** app.
+When a lab is created within Teams, users can view and access all the VMs provisioned by the team owner. When the lab is published and VMs are created, users are automatically registered to the lab. A VM will be assigned when they first sign into Azure Lab Services. Users can view and access the VMs assigned to them by selecting the tab containing **Azure Lab Services** app.
 
 :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 

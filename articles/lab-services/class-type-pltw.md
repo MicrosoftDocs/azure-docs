@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-[Project Lead The Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK&ndash;12 curriculum across the United States in computer science, engineering, and biomedical science. In each PLTW class, students use various software applications as part of their hands-on learning experience. Many of the software applications require either a fast CPU or, in some cases, a GPU. This article shows you setting up labs for the following PLTW classes. The classes are typically offered to students in grades 9&ndash;12:
+[Project Lead The Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK&ndash;12 curriculum across the United States in computer science, engineering, and biomedical science. In each PLTW class, students use various software applications as part of their hands-on learning experience. Many of the software applications require either a fast CPU or, in some cases, a GPU. This article shows you how to set up labs for the following PLTW classes. The classes are typically offered to students in grades 9&ndash;12:
 
 - **Introduction to Engineering Design**
 
@@ -78,7 +78,7 @@ For more information, see [Set up a license server as a shared resource](./how-t
 
 Once you have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md).
 
-After setting up a lab plan, create a separate lab for each PLTW class session that your school offers. We also recommend you to create separate images for each type of PLTW class. For more information about how to structure your labs and images, see the blog post [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+After you set up a lab plan, create a separate lab for each PLTW class session that your school offers. We also recommend that you create separate images for each type of PLTW class. For more information about how to structure your labs and images, see the blog post [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
 ### Lab plan settings
 
