@@ -16,6 +16,9 @@ ms.custom: mvc, mode-ui
 
 Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and two virtual machines.
 
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -132,7 +135,7 @@ During the creation of the load balancer, you'll configure:
 
 13. Enter **myBackendPool** in **Name**.
 
-14. Select **Virtul machines** in **Associated to**.
+14. Select **Virtual machines** in **Associated to**.
 
 15. Select **IPv4** or **IPv6** for **IP version**.
 
@@ -163,11 +166,6 @@ During the creation of the load balancer, you'll configure:
 21. Select the blue **Review + create** button at the bottom of the page.
 
 22. Select **Create**.
-
-    > [!NOTE]
-    > In this example you'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../../virtual-network/nat-gateway/nat-overview.md)
-    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../../load-balancer/load-balancer-outbound-connections.md)
-
 
 ## Create virtual machines
 
