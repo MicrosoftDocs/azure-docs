@@ -1,29 +1,32 @@
 ---
-title: Reference - Azure Web PubSub supported JSON WebSocket subprotocol `json.webpubsub.azure.v1`
-description: The reference describes Azure Web PubSub supported WebSocket subprotocol `json.webpubsub.azure.v1`
-author: vicancy
-ms.author: lianwei
+title: Reference - Azure Web PubSub supported JSON WebSocket subprotocol `json.reliable.webpubsub.azure.v1`
+description: The reference describes Azure Web PubSub supported WebSocket subprotocol `json.reliable.webpubsub.azure.v1`
+author: zackliu
+ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
 ms.date: 11/06/2021
 ---
 
-#  Azure Web PubSub supported JSON WebSocket subprotocol
+#  Azure Web PubSub supported Reliable JSON WebSocket subprotocol
      
-This document describes the subprotocol `json.webpubsub.azure.v1`.
+This document describes the subprotocol `json.reliable.webpubsub.azure.v1`.
 
 When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be **JSON** payloads.
 
+> [!NOTE]
+> Reliable protocols are still in preview. Some changes are expected in future.
+
 ## Overview
 
-Subprotocol `json.webpubsub.azure.v1` empowers the clients to do publish/subscribe directly instead of a round trip to the upstream server. We call the WebSocket connection with `json.webpubsub.azure.v1` subprotocol a PubSub WebSocket client.
+Subprotocol `json.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `json.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.
 
-For example, in JS, a PubSub WebSocket client can be created using:
+For example, in JS, a Reliable PubSub WebSocket client can be created using:
 ```js
-// PubSub WebSocket client
-var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
+var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
 ```
-For a simple WebSocket client, the *server* is a MUST HAVE role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-groups) and publish messages to a group using [publish requests](#publish-messages) directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs using [event requests](#send-custom-events).
+
+When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
@@ -31,9 +34,24 @@ For a simple WebSocket client, the *server* is a MUST HAVE role to handle the ev
 
 [!INCLUDE [json-requests](includes/reference-json-requests.md)]
 
+### Sequence Ack
+
+Format:
+
+```json
+{
+    "type": "sequenceAck",
+    "sequenceId": "<sequenceId>",
+}
+```
+
+Reliable PubSub WebSocket client must send sequence ack message once it received a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
+ 
+* `sequenceId` is a incremental uint64 number from the message received.
+
 ## Responses
 
-Messages received by the client can be several types: `ack`, `message`, and `system`: 
+Messages received by the client can be several types: `ack`, `message`, and `system`. Messages with type `message` have `sequenceId` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### Ack response
 
@@ -62,6 +80,7 @@ Clients can receive messages published from one group the client joined, or from
 
     ```json
     {
+        "sequenceId": 1,
         "type": "message",
         "from": "group",
         "group": "<group_name>",
@@ -75,6 +94,7 @@ Clients can receive messages published from one group the client joined, or from
 
     ```json
     {
+        "sequenceId": 1,
         "type": "message",
         "from": "server",
         "dataType": "json|text|binary",
@@ -87,6 +107,7 @@ Clients can receive messages published from one group the client joined, or from
 * What a PubSub WebSocket client receives is as follows:
     ```json
     {
+        "sequenceId": 1,
         "type": "message",
         "from": "server",
         "dataType" : "text",
@@ -99,6 +120,7 @@ Clients can receive messages published from one group the client joined, or from
 * What a PubSub WebSocket client receives is as follows:
     ```json
     {
+        "sequenceId": 1,
         "type": "message",
         "from": "server",
         "dataType" : "json",
@@ -115,6 +137,7 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 * What a PubSub WebSocket client receives is as follows:
     ```json
     {
+        "sequenceId": 1,
         "type": "message",
         "from": "server",
         "dataType" : "binary",
@@ -136,8 +159,17 @@ When the connection connects to service.
     "event": "connected",
     "userId": "user1",
     "connectionId": "abcdefghijklmnop",
+    "reconnectionToken": "<token>"
 }
 ```
+
+`connectionId` and `reconnectionToken` are used for reconnection. Make connect request with uri for reconnection:
+
+```
+wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awps_reconnection_token=<reconnectionToken>
+```
+
+Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
 
 #### Disconnected
 
