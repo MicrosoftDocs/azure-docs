@@ -25,7 +25,7 @@ During lab creation, you can enable network isolation for the default lab virtua
 
 To enable network isolation for the **Default** virtual network and subnet that DevTest Labs creates for the lab:
 
-1. During lab creation, go to the **Networking** tab.
+1. During [lab creation](devtest-lab-create-lab.md), on the **Create DevTest Lab** screen, select the **Networking** tab.
 1. Next to **Isolate lab resources**, select **Yes**.
 1. Finish creating the lab.
 
@@ -37,7 +37,7 @@ After you create the lab, no further action is needed. The lab handles isolating
 
 To use a different, existing virtual network for the lab, and enable network isolation for that network:
 
-1. During lab creation, on the **Networking** tab, select an existing network from the dropdown list. You can only select networks in the same region and subscription as the lab.
+1. During [lab creation](devtest-lab-create-lab.md), on the **Networking** tab of the **Create DevTest Lab** screen, select a network from the dropdown list. The list only shows networks in the same region and subscription as the lab.
 
    ![Screenshot that shows selecting a virtual network.](./media/network-isolation/create-lab.png)
 
