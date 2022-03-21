@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 3/18/2022
+ms.date: 3/21/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro R in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -125,7 +125,7 @@ Take the following steps to cable your device for power and network.
 6. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 is the dedicated management interface.
 7. Connect one or more of PORT 2, PORT 3, or PORT 4 to the datacenter network/Internet.
 
-    - If connecting PORT 2, use the RJ-45 network cable.
+    - If connecting PORT 2, use the RJ-45 Ethernet crossover cable.
     - For the 10/25-GbE network interfaces, use the SFP+ copper cables.
 
 ## Next steps
