@@ -96,7 +96,7 @@ Translate a single sentence from English to Simplified Chinese.
 **Request**
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version=3.0?&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <subscription key>" -H "Ocp-Apim-Subscription-Region: chinanorth" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'你好, 你叫什么名字？'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version=3.0?&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <key>" -H "Ocp-Apim-Subscription-Region: chinanorth" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'你好, 你叫什么名字？'}]"
 ```
 
 **Response body**
