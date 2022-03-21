@@ -154,7 +154,7 @@ Time to connect is the time between when a user clicks a resource to start their
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Begins: [WVDConnection](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ends: [WVDCheckpoints](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); state = first app launch for RemoteApp (RdpShellAppExecuted)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ends: [WVDCheckpoints](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
 
 As an example, the time for a desktop experience to launch would be measured up to the launch of Windows Explorer (explorer.exe).
 
