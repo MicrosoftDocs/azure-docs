@@ -44,4 +44,4 @@ Your offer's publish status will change as it moves through the publication proc
 
 ## Next steps
 
-- [Preview and subscribe to your offer](test-saas-preview-subscribe.md)
+- [Preview and subscribe to your offer](test-saas-preview-offer.md)
