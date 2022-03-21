@@ -75,7 +75,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Provisioning](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your MURAL Identity Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to MURAL Identity. If the connection fails, ensure your MURAL Identity account has Admin permissions and try again.
 
