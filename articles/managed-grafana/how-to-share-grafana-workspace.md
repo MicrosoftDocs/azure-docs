@@ -10,7 +10,7 @@ ms.date: 3/31/2022
 
 # How to share an Azure Managed Grafana Preview workspace
 
-Dashboards are usually built to monitore and diagnose an application, or to report to management and customers. A dedicated support team may also build a Grafana monitoring solution for an external customer and create permissions to let this customer access their Managed Grafana dashboard. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal team and external customers.
+Dashboards are usually built to monitor and diagnose an application, or to report to management and customers. A dedicated support team may also build a Grafana monitoring solution for an external customer and create permissions to let this customer access their Managed Grafana dashboard. This article explains what permissions are supported and how to grant permissions to share dashboards with your internal team and external customers.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Assign an Admin, Viewer or Editor role to a user
 1. Select **Add**, then **Add role assignment**
-      :::image type="content" source="media/how-to-share-IAM.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
+      :::image type="content" source="media/managed-grafana-how-to-share-IAM.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 1. Select one of the Grafana roles to assign to a user or security group. The available roles are:
 
@@ -47,7 +47,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
    - Grafana Editor
    - Grafana Viewer
 
-    :::image type="content" source="media/how-to-share-role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
+    :::image type="content" source="media/managed-grafana-how-to-share-role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
 > [NOTE!]
 > Dashboard and data source level sharing will be done from within the Grafana UI, with support provided by Grafana Labs. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).

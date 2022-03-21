@@ -32,23 +32,23 @@ To edit permissions for a specific resource, follow these steps:
 1. Select **Access Control (IAM)**.
 2. Under **Grant access to this resource**, select **Add role assignment**.
    
-   :::image type="content" source="media/how-to-permissions-IAM.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+   :::image type="content" source="media/managed-grafana-how-to-permissions-IAM.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
 
 1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
 1. Select **Next**.
-      :::image type="content" source="media/how-to-permissions-role.png" alt-text="Screenshot of the Azure platform and choose Monitor Reader.":::
+      :::image type="content" source="media/managed-grafana-how-to-permissions-role.png" alt-text="Screenshot of the Azure platform and choose Monitor Reader.":::
 
 1. For **Assign access to**, select **Managed Identity**.
 1. Select **Select members**.
 
-      :::image type="content" source="media/how-to-permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
+      :::image type="content" source="media/managed-grafana-how-to-permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
 
 1. Select the **Subscription** containing your Managed Grafana workspace
 1. Select a **Managed identity** from the options in the dropdown list
 1.  Select your Managed Grafana workspace from the list.
 1. Select **Select** to confirm
 
-      :::image type="content" source="media/how-to-permissions-identity.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
+      :::image type="content" source="media/managed-grafana-how-to-permissions-identity.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
 
 1. Select **Next**, then **Review + assign** to confirm the application of the new permission
 
