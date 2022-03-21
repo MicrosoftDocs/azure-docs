@@ -1,7 +1,7 @@
 ---
 title: Increase regional vCPU quotas
 description: Learn how to request an increase in the vCPU quota limit for a region in the Azure portal.
-ms.date: 11/15/2021
+ms.date: 1/26/2022
 ms.topic: how-to
 ms.custom: references-regions
 ---
@@ -61,7 +61,7 @@ To request a standard vCPU quota increase per VM family from **Help + support**,
 
    :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Screenshot showing a support request to increase a VM-family vCPU quota in the Azure portal.":::
 
-From there, follow the steps as described above to complete your regional quota increase request.
+From there, follow the steps described in [Create a support request](how-to-create-azure-support-request.md#create-a-support-request).
 
 ## Next steps
 

@@ -1,8 +1,9 @@
 ---
 title: Azure Marketplace offer for Red Hat JBoss EAP on Azure Red Hat Enterprise Linux Virtual Machine (VM) and virtual machine scale sets
 description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterprise Linux (RHEL) VM and virtual machine scale sets using Azure Marketplace offer.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat
@@ -148,8 +149,8 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 5. Use an External Load Balancer (ELB) to access your RHEL VM/virtual machine scale sets
 
-1. [Create a Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
-2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
+1. [Create a Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
+2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
 3. Add the RHEL VM to the backend pool of the Load Balancer - click on *Backend pools* under settings section and then select the backend pool you created in the step above. Select the VM corresponding to the option *Associated to* and then add the RHEL VM.
 4. To obtain the Public IP of the Load Balancer - go to the Load Balancer overview page and copy the Public IP of the Load Balancer.
 5. To view the JBoss EAP on Azure web page - open a web browser then go to *http://<PUBLIC_IP_LoadBalancer>:8080/* and you should see the default EAP welcome page.
@@ -208,7 +209,7 @@ Refer to [Using the Azure Custom Script Extension Version 2 with Linux VMs](../.
 
 ## Resource links and support
 
-For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * Learn more about [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/)
 * [JBoss EAP on Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)

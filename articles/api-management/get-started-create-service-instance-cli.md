@@ -4,9 +4,10 @@ description: Create a new Azure API Management service instance by using the Azu
 author: dlepow
 ms.service: api-management
 ms.topic: quickstart
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ms.date: 09/10/2020
-ms.author: danlep
+ms.author: danlep 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create a new Azure API Management service instance by using the Azure CLI

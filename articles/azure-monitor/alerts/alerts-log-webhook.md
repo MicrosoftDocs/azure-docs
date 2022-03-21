@@ -5,7 +5,7 @@ author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 ---
 
 # Webhook actions for log alert rules
@@ -18,7 +18,7 @@ ms.date: 09/22/2020
 ## Sample payloads
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
 
-### Log alert for all resources logs (from API version `2020-08-01`)
+### Log alert for all resources logs (from API version `2021-08-01`)
 
 The following sample payload is for a standard webhook when it's used for log alerts based on resources logs:
 

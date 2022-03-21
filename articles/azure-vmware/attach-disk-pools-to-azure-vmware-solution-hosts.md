@@ -4,7 +4,8 @@ description: Learn how to attach a disk pool surfaced through an iSCSI target as
 ms.topic: how-to
 ms.date: 11/02/2021
 #Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Attach disk pools to Azure VMware Solution hosts (Preview)
@@ -114,7 +115,7 @@ az extension add --name vmware
 
 Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
 
-```bash
+```azurecli
 #Initialize input parameters
 resourceGroupName='<yourRGName>'
 name='<desiredDataStoreName>'

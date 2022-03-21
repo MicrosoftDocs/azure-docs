@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 03/14/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,9 +18,9 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](how-to-lineage-teradata.md)|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage)|
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
 The supported Teradata database versions are 12.x to 17.x.
 
@@ -37,11 +37,19 @@ When scanning Teradata source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables, views and stored procedures.
 
+When setting up scan, you can choose to scan an entire Teradata server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
+
+### Required permissions for scan
+
+Azure Purview supports basic authentication (username and password) for scanning Teradata. The Teradata user must have read access to system tables in order to access advanced metadata.
+
+To retrieve data types of view columns, Azure Purview issues a prepare statement for `select * from <view>` for each of the view queries and parse the metadata that contains the data type details for better performance. It requires the SELECT data permission on views. If the permission is missing, view column data types will be skipped.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -59,10 +67,6 @@ When scanning Teradata source, Azure Purview supports:
 ## Register
 
 This section describes how to register Teradata in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
-
-### Authentication for registration
-
-The only supported authentication for a Teradata source is **Basic authentication**. Make sure to have Read access to the Teradata source being scanned.
 
 ### Steps to register
 
@@ -112,9 +116,9 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
         To understand more on credentials, refer to the link [here](./manage-credentials.md)
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of databases to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user databases are imported if that list is empty. All system databases (for example, SysAdmin) and objects are ignored by default.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
+        Acceptable database name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
         * End with B or
         * Contain C or
@@ -124,6 +128,13 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
+    1. **Stored procedure details**: Controls the amount of details imported from stored procedures:
+
+        - Signature: The name and parameters of stored procedures.
+        - Code, signature: The name, parameters and code of stored procedures.
+        - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
+        - None: Stored procedure details are not included.
+        
     1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
 
         > [!Note]
@@ -138,6 +149,14 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 1. Review your scan and select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your Teradata source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Teradata lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-teradata-source/lineage.png" alt-text="Teradata lineage view" border="true":::
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
@@ -38,7 +38,7 @@ Follow these additional tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
 If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](label-tool.md) (or your own UI) to generate these files.
 

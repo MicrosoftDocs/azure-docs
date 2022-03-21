@@ -237,6 +237,17 @@ If you can't retrieve your subscriptions after you successfully sign in, try the
 - Try removing and re-adding the account.
 - If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
+## Problem interacting with your OS credential store during an AzCopy transfer
+
+If you see this message on Windows, most likely the Windows Credential Manager is full. To make room in the Windows Credential Manager
+
+1. Close Storage Explorer
+1. On the **Start** menu, search for **Credential Manager** and open it.
+1. Go to **Windows Credentials**.
+1. Under **Generic Credentials**, look for entries associated with programs you no longer use and delete them. You can also look for entries like `azcopy/aadtoken/<some number>` and delete those.
+
+If the message continues to appear after completing the above steps, or if you encounter this message on platforms other than Windows, then please [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+
 ## Can't remove an attached storage account or resource
 
 If you can't remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:

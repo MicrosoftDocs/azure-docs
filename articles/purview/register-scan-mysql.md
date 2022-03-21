@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/11/2022
+ms.date: 03/05/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -14,14 +14,13 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register MySQL, and how to authenticate and interact with MySQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> MySQL as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
 
 The supported MySQL server versions are 5.7 to 8.x.
 
@@ -36,21 +35,27 @@ When scanning MySQL source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables and views.
 
+When setting up scan, you can choose to scan an entire MySQL server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
 
+If your data store is publicly accessible, you can use the managed Azure integration runtime for scan without additional settings. Otherwise, if your data store limits access from on-premises network, private network or specific IPs, you need to configure a self-hosted integration runtime to connect to it:
+
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* The MySQL user must have the SELECT, SHOW VIEW and EXECUTE permissions for each target MySQL schema that contains metadata.
+### Required permissions for scan
+
+The MySQL user must have the SELECT, SHOW VIEW and EXECUTE permissions for each target MySQL schema that contains metadata.
 
 ## Register
 
@@ -110,14 +115,14 @@ To create and run a new scan, do the following:
 
     1. **Name**: The name of the scan
 
-    1. **Connect via integration runtime**: Select the configured self-hosted integration runtime
+    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
 
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
         * Select **Basic Authentication** while creating a credential.
         * Provide the user name used to connect to the database server in the User name input field.
         * Store the user password used to connect to the database server in the secret key.
 
-    1. **Database**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Database**: List subset of databases to import expressed as a semicolon separated list. For example, `database1; database2`. All user databases are imported if the list is empty. All system databases (for example, SysAdmin) are ignored by default.
 
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
@@ -127,7 +132,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters are not acceptable.
 
-    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of MySQL source to be scanned.
+    1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of MySQL source to be scanned.
 
         > [!Note]
         > As a rule of thumb, please provide 1GB memory for every 1000 tables
@@ -141,6 +146,12 @@ To create and run a new scan, do the following:
 1. Review your scan and select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your MySQL source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported MySQL lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 

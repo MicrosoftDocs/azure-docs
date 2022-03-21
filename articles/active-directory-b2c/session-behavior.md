@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 03/13/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -79,11 +79,12 @@ You can configure the Azure AD B2C session behavior, including:
   - **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, you can use this setting if you want the user to sign in to Contoso Pharmacy regardless of whether the user is already signed into Contoso Groceries.
   - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For example, if the user has already signed in and completed a multi-factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications, as long as the session tied to the user flow doesn't expire.
   - **Suppressed** - This setting forces the user to run through the entire user flow upon every execution of the policy.
-- **Keep me signed in (KMSI)** - Extends the session lifetime through the use of a persistent cookie. If this feature is enabled and the user selects it, the session remains active even after the user closes and reopens the browser. The session is revoked only when the user signs out. The KMSI feature only applies to sign-in with local accounts. The KMSI feature takes precedence over the session lifetime.
 
 ::: zone pivot="b2c-user-flow"
 
-To configure the session behavior:
+### Configure the user flow
+
+To configure the session behavior in your user flow, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -99,20 +100,54 @@ To configure the session behavior:
 
 ::: zone pivot="b2c-custom-policy"
 
-To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. Your **UserJourneyBehavors** element should look like this example:
+### Configure the custom policy
 
-```xml
-<UserJourneyBehaviors>
-   <SingleSignOn Scope="Application" />
-   <SessionExpiryType>Absolute</SessionExpiryType>
-   <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
-</UserJourneyBehaviors>
-```
+To configure the session behavior in your custom policy, follow these steps:
+
+1. Open the relying party (RP) file, for example *SignUpOrSignin.xml*
+1. If it doesn't already exist, add the following `<UserJourneyBehaviors>` element to the `<RelyingParty>` element. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id"/>`.
+
+    ```xml
+    <UserJourneyBehaviors>
+      <SingleSignOn Scope="Application" />
+      <SessionExpiryType>Absolute</SessionExpiryType>
+      <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
+    </UserJourneyBehaviors>
+    ```
+    
+    After you add the user journey behavior elements, the `RelyingParty` element should look like the following example:
+    
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
+        <SingleSignOn Scope="Application" />
+        <SessionExpiryType>Absolute</SessionExpiryType>
+        <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
+      </UserJourneyBehaviors>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          ...
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+    
+
+1. Change the value of the `Scope` attribute to one of the possible value: `Suppressed`, `Tenant`, `Application`, or `Policy`. For more information, check out the [RelyingParty](relyingparty.md) reference article.
+1. Set the `SessionExpiryType` element to `Rolling` or `Absolute`. For more information, check out the [RelyingParty](relyingparty.md) reference article.
+1. Set the `SessionExpiryInSeconds` element to a numeric value  between 900 seconds (15 minutes) and 86,400 seconds(24 hours). For more information, check out the [RelyingParty](relyingparty.md) reference article.
+
 ::: zone-end
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. 
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. For more information, check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/session#enable-keep-me-signed-in-kmsi).
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
 
@@ -206,7 +241,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
     </UserJourneyBehaviors>
     ```
 
-We recommend that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
+You set both KeepAliveInDays and SessionExpiryInSeconds so that during a sign-in, if a user enables KMSI, the KeepAliveInDays is used to set the cookies, otherwise the value specified in the SessionExpiryInSeconds parameter is used.  We recommend that you set the value of SessionExpiryInSeconds to be a short period (1200 seconds), while the value of KeepAliveInDays can be set to a relatively long period (30 days), as shown in the following example:
 
 ```xml
 <RelyingParty>
@@ -366,7 +401,7 @@ To require an ID Token in logout requests:
 
 ::: zone pivot="b2c-custom-policy"
 
-To require an ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. Your **UserJourneyBehaviors** element should look like this example:
+To require an ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. For more information, check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/session#enforce-id-token-hint-on-logout). Your **UserJourneyBehaviors** element should look like this example:
 
 ```xml
 <UserJourneyBehaviors>

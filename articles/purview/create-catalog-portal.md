@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 This quickstart describes the steps to create an Azure Purview account in the Azure portal and get started on the process of classifying, securing, and discovering your data in Azure Purview!
 
-Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
@@ -69,10 +69,10 @@ In this quickstart, you learned how to create an Azure Purview account and how t
 
 Next, you can create a user-assigned managed identity (UAMI) that will enable your new Azure Purview account to authenticate directly with resources using Azure Active Directory (Azure AD) authentication.
 
-To create a UAMI follow our [guide to create a user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity).
+To create a UAMI, follow our [guide to create a user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview:
 
-* [Using the Azure Purview Studio](use-purview-studio.md)
+* [Using the Azure Purview Studio](use-azure-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
 * [Add users to your Azure Purview account](catalog-permissions.md)

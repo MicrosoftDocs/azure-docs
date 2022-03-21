@@ -1326,7 +1326,7 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 
 ## Publish your application to the AAD application gallery
 
-If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../develop/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
+If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
 
 ### Gallery onboarding checklist
 Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 

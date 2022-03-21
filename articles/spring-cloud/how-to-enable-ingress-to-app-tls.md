@@ -9,7 +9,9 @@ ms.topic: how-to
 ms.date: 01/19/2022
 ms.custom: devx-track-java
 ---
-# Overview
+# Enable ingress-to-app TLS for an application
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes what the secure communication of Azure Spring Cloud like and the following picture shows the overall secure communication support in Azure Spring Cloud.
 

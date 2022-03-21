@@ -37,7 +37,7 @@ From NoSQL migration to application development, you can choose from a variety o
 |[Tallan](https://www.tallan.com/)    |  App development      |    USA     |
 | [TCS](https://www.tcs.com/) | App development | USA, UK, France, Malaysia, Denmark, Norway, Sweden|
 |[VTeamLabs](https://www.vteamlabs.com/)    | Personalization, Retail (inventory), IoT, Gaming, Operational Analytics (Spark), Serverless architecture, NoSQL Migration, App development       |  USA      |  
-| [White Duck GmbH](https://whiteducksoftware.com/) |New app development, App Backend, Storage for document-based data| Germany |
+| [White Duck GmbH](https://whiteduck.de/en/) |New app development, App Backend, Storage for document-based data| Germany |
 | [Xpand IT](https://www.xpand-it.com/) | New app development | Portugal, UK|
 | [Hanu](https://hanu.com/) | IoT, App development | USA|
 | [Incycle Software](https://www.incyclesoftware.com/) | NoSQL migration, Serverless architecture, App development| USA|

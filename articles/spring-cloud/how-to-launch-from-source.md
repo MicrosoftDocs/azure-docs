@@ -11,11 +11,13 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-api
 
 # How to Deploy Spring Boot applications from Azure CLI
 
-**This article applies to:** ✔️ Java
+**This article applies to:** ✔️ Java ❌ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 Azure Spring Cloud enables Spring Boot applications on Azure.
 
-You can launch applications directly from java source code or from a pre-built JAR. This article explains the deployment procedures.
+You can launch applications directly from Java source code or from a pre-built JAR. This article explains the deployment procedures.
 
 This quickstart explains how to:
 

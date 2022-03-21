@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/11/2022
+ms.date: 01/26/2022 
 ---
 
 # Monitor and scale an Azure Database for MariaDB server using Azure CLI
@@ -24,7 +24,7 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh" range="4-49":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh" id="FullScript":::
 
 ## Clean up resources
 

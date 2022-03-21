@@ -1,8 +1,8 @@
 ---
 title: Scale server group - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Adjust server group memory, disk, and CPU resources to deal with increased load
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -80,8 +80,7 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
 
 ## Next steps
 
-- Learn more about server group [performance
-  options](concepts-configuration-options.md).
+- Learn more about server group [performance options](resources-compute.md).
 - [Rebalance distributed table shards](howto-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
 - See the sizes of distributed tables, and other [useful diagnostic

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Burp Suite Enterprise Edition | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Burp Suite Enterprise Edition'
 description: Learn how to configure single sign-on between Azure Active Directory and Burp Suite Enterprise Edition.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 01/27/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Burp Suite Enterprise Edition
+# Tutorial: Azure AD SSO integration with Burp Suite Enterprise Edition
 
 In this tutorial, you'll learn how to integrate Burp Suite Enterprise Edition with Azure Active Directory (Azure AD). When you integrate Burp Suite Enterprise Edition with Azure AD, you can:
 
@@ -29,17 +29,18 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Burp Suite Enterprise Edition single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
+* Burp Suite Enterprise Edition supports **IDP** initiated SSO.
 
-* Burp Suite Enterprise Edition supports **IDP** initiated SSO
+* Burp Suite Enterprise Edition supports **Just In Time** user provisioning.
 
-* Burp Suite Enterprise Edition supports **Just In Time** user provisioning
-
-
-## Adding Burp Suite Enterprise Edition from the gallery
+## Add Burp Suite Enterprise Edition from the gallery
 
 To configure the integration of Burp Suite Enterprise Edition into Azure AD, you need to add Burp Suite Enterprise Edition from the gallery to your list of managed SaaS apps.
 
@@ -49,7 +50,6 @@ To configure the integration of Burp Suite Enterprise Edition into Azure AD, you
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Burp Suite Enterprise Edition** in the search box.
 1. Select **Burp Suite Enterprise Edition** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Burp Suite Enterprise Edition
 
@@ -70,11 +70,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Burp Suite Enterprise Edition** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<BURPSUITEDOMAIN:PORT>/saml`
@@ -90,7 +90,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](common/edit-attribute.png)
 
 1. In addition to above,  Burp Suite Enterprise Edition application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
-
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |    
@@ -143,7 +142,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Click on Test this application in Azure portal and you should be automatically signed in to the Burp Suite Enterprise Edition for which you set up the SSO
 
 * You can use Microsoft My Apps. When you click the Burp Suite Enterprise Edition tile in the My Apps, you should be automatically signed in to the Burp Suite Enterprise Edition for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
 
 ## Next steps
 

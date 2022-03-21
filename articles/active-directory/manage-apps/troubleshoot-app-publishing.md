@@ -23,7 +23,7 @@ This article provides information for resolving a blocked sign-in to the Microso
 
 The user sees this message when trying to sign in to the Microsoft Application Network portal.
 
-:::image type="content" source="/media/howto-app-gallery-listing/blocked.png" alt-text="Screenshot that shows a blocked sign-in to the portal.":::
+:::image type="content" source="./media/howto-app-gallery-listing/blocked.png" alt-text="Screenshot that shows a blocked sign-in to the portal.":::
 
 ## Cause
 

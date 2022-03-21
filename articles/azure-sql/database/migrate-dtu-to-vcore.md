@@ -29,7 +29,7 @@ To choose the service objective, or compute size, for the migrated database in t
 > [!TIP]
 > This rule is approximate because it does not consider the hardware generation used for the DTU database or elastic pool. 
 
-In the DTU model, the system may select any available [hardware generation](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model) for your database or elastic pool. Further, in the DTU model you have only indirect control over the number of vCores (logical CPUs) by choosing higher or lower DTU or eDTU values. 
+In the DTU model, the system may select any available [hardware generation](service-tiers-dtu.md#hardware-generations) for your database or elastic pool. Further, in the DTU model you have only indirect control over the number of vCores (logical CPUs) by choosing higher or lower DTU or eDTU values. 
 
 In the vCore model, customers must make an explicit choice of both the hardware generation and the number of vCores (logical CPUs). While DTU model does not offer these choices, the hardware generation and the number of logical CPUs used for every database and elastic pool are exposed via dynamic management views. This makes it possible to determine the matching vCore service objective more precisely. 
 
@@ -178,7 +178,7 @@ The following table provides guidance for specific migration scenarios:
 |General purpose|Premium|Upgrade|Must migrate secondary first|
 |Business critical|General purpose|Downgrade|Must migrate primary first|
 |General purpose|Business critical|Upgrade|Must migrate secondary first|
-||||
+
 
 ## Migrate failover groups
 

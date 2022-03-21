@@ -48,7 +48,7 @@ The `urn:modelDefinition:fupmoiu28b:ymju9efv9` value in the `FROM` clause is a *
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
-The response to this request looks like the following example:
+The response includes telemetry from multiple devices that share the same device template. The response to this request looks like the following example:
 
 ```json
 {

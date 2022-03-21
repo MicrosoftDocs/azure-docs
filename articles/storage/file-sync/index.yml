@@ -11,8 +11,8 @@ metadata:
   ms.subservice: files
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: roygara #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rogarana #Required; microsoft alias of author; optional team alias.
+  author: khdownie #Required; your GitHub user alias, with correct capitalization.
+  ms.author: kendownie #Required; microsoft alias of author; optional team alias.
   ms.date: 04/19/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

@@ -8,7 +8,7 @@ ms.author: baanders
 
 ## Reference documentation
 
-The **Query language reference** can be found under **Reference** in the left table of contents for the Azure Digital Twins documentation. You can also go directly to the reference sections using the links below:
+The Query language reference can be found under **Reference** in the left table of contents for the Azure Digital Twins documentation. You can also go directly to the reference sections using the links below:
 * Clauses
     * [SELECT](../articles/digital-twins/reference-query-clause-select.md)
     * [FROM](../articles/digital-twins/reference-query-clause-from.md)

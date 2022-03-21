@@ -14,7 +14,9 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 > [!NOTE]
 > All major versions of Durable Functions are supported on all versions of the Azure Functions runtime. However, the schema of the host.json configuration is slightly different depending on the version of the Azure Functions runtime and the Durable Functions extension version you use. The following examples are for use with Azure Functions 2.0 and 3.0. In both examples, if you're using Azure Functions 1.0, the available settings are the same, but the "durableTask" section of the host.json should go in the root of the host.json configuration instead of as a field under "extensions".
 
-### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
+# [Durable Functions 2.x](#tab/2x-durable-functions)
+
+<a name="durable-functions-2-0-host-json"></a>
 
 ```json
 {
@@ -61,10 +63,9 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
   }
  }
 }
-
 ```
 
-### Durable Functions 1.x
+# [Durable Functions 1.x](#tab/1x-durable-functions)
 
 ```json
 {
@@ -92,6 +93,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
   }
 }
 ```
+---
 
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 

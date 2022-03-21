@@ -5,15 +5,18 @@ description: Create and run machine learning pipelines using the Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: laobri
-author: lobrien
+ms.author: larryfr
+author: blackmist
 ms.date: 01/07/2022
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI (Preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and Components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
 
@@ -121,10 +124,10 @@ You define input data directories for your pipeline in the pipeline YAML file us
 
 :::image type="content" source="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png" alt-text="Image showing how the inputs and outputs paths map to the jobs inputs and outputs paths" lightbox="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png":::
 
-1. The `inputs.pipeline_sample_input_data` path creates a key identifier and uploads the input data from the `local_path` directory. This identifier`${{inputs.pipeline_sample_input_data}}` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key. 
-1. The `jobs.componentA_job.outputs.componentA_output` path as an identifier (`${{jobs.componentA_job.outputs.componentA_output`}}) that's used as the value for the next step's `jobs.componentB_job.inputs.componentB_input` key. 
-1. As with Component A, the output of Component B is used as the input to Component C.
-1. The pipeline's `outputs.final_pipeline_output` key is the source of the identifier used as the value for the `jobs.componentC_job.outputs.componentC_output` key. In other words, Component C's output is the pipeline's final output.
+1. The `inputs.pipeline_sample_input_data` path (line 6) creates a key identifier and uploads the input data from the `local_path` directory (line 8). This identifier `${{inputs.pipeline_sample_input_data}}` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key (line 19). In other words, the pipeline's `pipeline_sample_input_data` input is passed to the `componentA_input` input of Component A.
+1. The `jobs.componentA_job.outputs.componentA_output` path (line 21) is used with the identifier `${{jobs.componentA_job.outputs.componentA_output}}` as the value for the next step's `jobs.componentB_job.inputs.componentB_input` key (line 27). 
+1. As with Component A, the output of Component B (line 29) is used as the input to Component C (line 35).
+1. The pipeline's `outputs.final_pipeline_output` key (line 11) is the source of the identifier used as the value for the `jobs.componentC_job.outputs.componentC_output` key (line 37). In other words, Component C's output is the pipeline's final output.
 
 Studio's visualization of this pipeline looks like this: 
 

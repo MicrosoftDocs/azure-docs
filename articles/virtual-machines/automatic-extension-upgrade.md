@@ -1,13 +1,11 @@
 ---
 title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
-author: mayanknayar
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: manayar
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -72,6 +70,7 @@ Automatic Extension Upgrade supports the following extensions (and more are adde
 - [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Linux and Windows
 - [Guest Configuration Extension](./extensions/guest-configuration.md) – Linux and Windows
 - Key Vault – [Linux](./extensions/key-vault-linux.md) and [Windows](./extensions/key-vault-windows.md)
+- [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md)
 
 
 ## Enabling Automatic Extension Upgrade

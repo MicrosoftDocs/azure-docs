@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 1/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -20,7 +20,7 @@ This article provides examples for using the date claims transformations of the 
 
 ## AssertDateTimeIsGreaterThan
 
-Asserts that one date is later than a second date. Determines whether the `rightOperand` is greater than the `leftOperand`. If yes, throws an exception.
+Asserts that one date is later than a second date. Determines whether the `rightOperand` is greater than the `leftOperand`. If yes, throws an exception. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date#assertdatetimeisgreaterthan) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -32,7 +32,7 @@ Asserts that one date is later than a second date. Determines whether the `right
 
 The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
-![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
+![Diagrams shows how to use the AssertStringClaimsAreEqual claims transformation.](./media/date-transformations/assert-execution.png)
 
 ### Example of AssertDateTimeIsGreaterThan
 
@@ -102,7 +102,7 @@ The self-asserted technical profile calls the validation `Example-AssertDates` t
 
 ## ConvertDateTimeToDateClaim
 
-Converts a `DateTime` claim type to a `Date` claim type. The claims transformation removes the time format from the date.
+Converts a `DateTime` claim type to a `Date` claim type. The claims transformation removes the time format from the date. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date#convertdatetimetodateclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -131,7 +131,7 @@ The following example demonstrates the conversion of the claim `systemDateTime` 
 
 ## ConvertDateToDateTimeClaim
 
-Converts a `Date` claim type to a `DateTime` claim type. The claims transformation converts the time format and adds 12:00:00 AM to the date.
+Converts a `Date` claim type to a `DateTime` claim type. The claims transformation converts the time format and adds 12:00:00 AM to the date. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date#convertdatetodatetimeclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -160,7 +160,7 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
 
 ## DateTimeComparison
 
-Compares two dates and determines whether the first date is later, earlier, or equal to another. The result is a new Boolean claim with a value of `true` or `false`.
+Compares two dates and determines whether the first date is later, earlier, or equal to another. The result is a new Boolean claim with a value of `true` or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date#datetimecomparison) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -197,16 +197,16 @@ Use this claims transformation to determine if first date plus the `timeSpanInSe
   - **operator**: later than
   - **timeSpanInSeconds**: 7776000 (90 days)
 - Output claims:
-    - **result**: true
+  - **result**: true
 
 ## IsTermsOfUseConsentRequired
 
-Determine whether a `dateTime` claim type is earlier or greater than a specific date. The result is a new Boolean claim with a value of `true` or `false`.
+Determine whether a `dateTime` claim type is earlier or greater than a specific date. The result is a new Boolean claim with a value of `true` or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date#istermsofuseconsentrequired) of this claims transformation.
 
 | Item | TransformationClaimType | Data type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | termsOfUseConsentDateTime | dateTime | The `dateTime` claim type to check whether it is earlier or later than the `termsOfUseTextUpdateDateTime` input parameter. Undefined value returns `true` result. |
-| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The `dateTime` claim type to check whether it is earlier or later than the `termsOfUseConsentDateTime` input claim. The time part of the date is optional. |
+| InputClaim | termsOfUseConsentDateTime | dateTime | The `dateTime` claim type to check whether it's earlier or later than the `termsOfUseTextUpdateDateTime` input parameter. Undefined value returns `true` result. |
+| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The `dateTime` claim type to check whether it's earlier or later than the `termsOfUseConsentDateTime` input claim. The time part of the date is optional. |
 | OutputClaim | result | boolean | The claim type that's produced after this claims transformation has been invoked. |
 
 Use this claims transformation to determine whether a `dateTime` claim type is earlier or greater than a specific date. For example, check whether a user has consented to the latest version of your terms of use (TOU) or terms of service. To check the last time a user consented, store the last time the user accepted the TOU in an [extension attribute](user-profile-attributes.md#extension-attributes). When your TOU wording changes, update the `termsOfUseTextUpdateDateTime` input parameter with the time of the change. Then, call this claims transformation to compare the dates. If the claims transformation returns `true`, the `termsOfUseConsentDateTime` value is earlier than the `termsOfUseTextUpdateDateTime` value, and you can ask the user to accept the updated TOU.
@@ -228,15 +228,15 @@ Use this claims transformation to determine whether a `dateTime` claim type is e
 ### IsTermsOfUseConsentRequired example
 
 - Input claims:
-    - **termsOfUseConsentDateTime**: 2020-03-09T09:15:00 
-- Input parameters: 
-    - **termsOfUseTextUpdateDateTime**: 2021-11-15 
-- Output claims: 
-    - **result**: true 
+  - **termsOfUseConsentDateTime**: 2020-03-09T09:15:00
+- Input parameters:
+  - **termsOfUseTextUpdateDateTime**: 2021-11-15
+- Output claims:
+  - **result**: true
 
 ## GetCurrentDateTime
 
-Get the current UTC date and time and add the value to a claim type.
+Get the current UTC date and time and add the value to a claim type. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date#getcurrentdatetime) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -259,4 +259,4 @@ The following example shows how to get the current data and time:
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/date) on the Azure AD B2C community GitHub repo

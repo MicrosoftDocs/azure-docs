@@ -69,17 +69,17 @@ Perf
 
 Save the query by selecting the **Save** button from the top of the page.
 
-![Save query](media/tutorial-logs-dashboards/save-query.png)
+:::image type="content" source="media/tutorial-logs-dashboards/save-query.png" alt-text="A screenshot that shows how to save a query and pin it to a dashboard.":::
 
 In the **Save Query** control panel, provide a name such as *Azure VMs - Processor Utilization* and a category such as *Dashboards* and then click **Save**.  This way you can create a library of common queries that you can use and modify.  Finally, pin this to the shared dashboard created earlier by selecting the **Pin to dashboard** button from the top right corner of the page and then selecting the dashboard name.
 
 Now that we have a query pinned to the dashboard, you will notice it has a generic title and comment below it.
 
-![Azure dashboard sample](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png" alt-text="Azure dashboard sample.":::
 
  We should rename it to something meaningful that can be easily understood by those viewing it.  Click the edit button to customize the title and subtitle for the tile, and then click **Update**.  A banner will appear asking you to publish changes or discard.  Click **Save a copy**.  
 
-![Completed configuration of sample dashboard](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
+:::image type="content" source="media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png" alt-text="Completed configuration of sample dashboard.":::
 
 ## Next steps
 In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Follow this link to see pre-built Log Analytics script samples.

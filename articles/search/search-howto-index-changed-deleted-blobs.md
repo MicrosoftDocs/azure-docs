@@ -30,7 +30,7 @@ There are two ways to implement a soft delete strategy:
 + Use consistent document keys and file structure. Changing document keys or directory names and paths (applies to ADLS Gen2) breaks the internal tracking information used by indexers to know which content was indexed, and when it was last indexed.
 
 > [!NOTE]
-> ADLS Gen2 allows directories to be renamed. When a directory is renamed, the timestamps for the blobs in that directory do not get updated. As a result, the indexer will not reindex those blobs. If you need the blobs in a directory to be reindexed after a directory rename because they now have new URLs, you will need to update the `LastModified` timestamp for all the blobs in the directory so that the indexer knows to reindex them during a future run. The virtual directories in Azure Blob Storage cannot be changed, so they do not have this issue.
+> ADLS Gen2 allows directories to be renamed. When a directory is renamed, the timestamps for the blobs in that directory do not get updated. As a result, the indexer will not re-index those blobs. If you need the blobs in a directory to be reindexed after a directory rename because they now have new URLs, you will need to update the `LastModified` timestamp for all the blobs in the directory so that the indexer knows to re-index them during a future run. The virtual directories in Azure Blob Storage cannot be changed, so they do not have this issue.
 
 ## Native blob soft delete (preview)
 
@@ -69,15 +69,15 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
 1. [Run the indexer](/rest/api/searchservice/run-indexer) or set the indexer to run [on a schedule](search-howto-schedule-indexers.md). When the indexer runs and processes a blob having a soft delete state, the corresponding search document will be removed from the index.
 
-### Reindexing undeleted blobs (using native soft delete policies)
+### Re-index un-deleted blobs using native soft delete policies
 
-If you restore a soft deleted blob in Blob storage, the indexer will not always reindex it. This is because the indexer uses the blob's `LastModified` timestamp to determine whether indexing is needed. When a soft deleted blob is undeleted, its `LastModified` timestamp does not get updated, so if the indexer has already processed blobs with more recent `LastModified` timestamps, it won't reindex the undeleted blob. 
+If you restore a soft deleted blob in Blob storage, the indexer will not always re-index it. This is because the indexer uses the blob's `LastModified` timestamp to determine whether indexing is needed. When a soft deleted blob is undeleted, its `LastModified` timestamp does not get updated, so if the indexer has already processed blobs with more recent `LastModified` timestamps, it won't re-index the undeleted blob. 
 
 To make sure that an undeleted blob is reindexed, you will need to update the blob's `LastModified` timestamp. One way to do this is by resaving the metadata of that blob. You don't need to change the metadata, but resaving the metadata will update the blob's `LastModified` timestamp so that the indexer knows to pick it up.
 
 <a name="soft-delete-using-custom-metadata"></a>
 
-## Custom metadata: Soft delete strategy
+## Soft delete strategy using custom metadata
 
 This method uses custom metadata to indicate whether a search document should be removed from the index. It requires two separate actions: deleting the search document from the index, followed by file deletion in Azure Storage.
 
@@ -104,7 +104,7 @@ There are steps to follow in both Azure Storage and Cognitive Search, but there 
 
 1. Run the indexer. Once the indexer has processed the file and deleted the document from the search index, you can then delete the physical file in Azure Storage.
 
-## Custom metadata: Re-index undeleted blobs and files
+## Re-index un-deleted blobs and files 
 
 You can reverse a soft-delete if the original source file still physically exists in Azure Storage. 
 

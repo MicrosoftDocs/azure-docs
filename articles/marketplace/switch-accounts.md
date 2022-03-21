@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 09/27/2021
+ms.date: 01/20/2022
 ---
 
 # Switch accounts in Partner Center
@@ -21,11 +21,17 @@ You can be part of more than one account. This article describes how to see if y
 
 ## View and switch accounts
 
-You can check to see if you are part of multiple accounts by the presence of the _account picker_. In the top-right, select the your account icon as seen highlighted in the following screenshot.
+You can check to see if you are part of multiple accounts by the presence of the _account picker_. In the upper-right, select the account icon as seen highlighted in the following screenshot.
 
 [ ![Illustrates the account picker in Partner Center.](./media/manage-accounts/account-picker-workspaces.png) ](./media/manage-accounts/account-picker-workspaces.png#lightbox)
 
-If you don't see the *account picker*, you are part of one account only. You can find the details of this account on the **Account settings** > **Organization profile** > **Legal** > **Developer** tab in Partner Center.
+If you don't see the *account picker*, you are part of one account only. You can find the details of this account on the **Account settings** > **Organization profile** > **Legal info** page.
+
+**To view the Legal info page in Partner Center**
+
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
+1. In the left-menu, under **Organization profile**, select **Legal info**. Then select the **Developer** tab.
+
 
 You can then select any of account on the list to switch to that account. After you switch, everything in Partner Center appears in the context of that account.
 

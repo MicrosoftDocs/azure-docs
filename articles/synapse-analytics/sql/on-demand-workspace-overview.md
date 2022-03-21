@@ -6,7 +6,7 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 01/19/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ---
@@ -82,6 +82,9 @@ Serverless SQL pool has no local storage, only metadata objects are stored in da
 - Materialized views
 - DDL statements other than ones related to views and security
 - DML statements
+
+> [!NOTE]
+> Serverless SQL pool queries have a timeout. For more information on query timeout that may affect your workload, see [serverless SQL pool system constraints](resources-self-help-sql-on-demand.md#constraints). Currently you can't change the timeout.
 
 ### Extensions
 

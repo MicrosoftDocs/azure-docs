@@ -7,10 +7,9 @@ metadata:
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.subservice: common
-  ms.topic: conceptual
-  ms.date: 10/22/2021
+  ms.topic: faq
+  ms.date: 02/17/2022
   ms.author: banders
-    
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
 sections:
@@ -136,6 +135,30 @@ sections:
       - question: How do I migrate from the EA Reporting APIs to the Microsoft Customer Agreement APIs?
         answer: |
           See [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](costs/migrate-cost-management-api.md).
+
+  - name: Usage details questions
+    questions:
+      - question: Why do I get Usage Details API timeouts?
+        answer: |
+          The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated JSON Usage Details API might timeout before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
+      - question: What is the difference between legacy and modern usage details?
+        answer: |
+          A legacy versus modern usage details record is identified by the *kind* field in the [Usage Details API](/rest/api/consumption/usage-details). The field is used to distinguish between data that’s returned for different customer types. The call patterns to obtain legacy and modern usage details are essentially the same. The granularity of the data is the same. The main difference is the fields available in the usage details records themselves. If you’re an EA customer, you’ll always get legacy usage details records. If you’re a Microsoft Customer Agreement customer, you will always get modern usage details records.
+      - question: How do I see my recurring charges?
+        answer: |
+          Recurring charges are available in the Usage Details API when viewing Actual Cost.
+      - question: Where can I see tax information in Usage Details?
+        answer: |
+          Usage details data is all pre tax. Tax related charges are only available on your invoice.
+      - question: Why is PAYGPrice zero in my usage details file?
+        answer: |
+          If you’re an EA customer, we don’t currently support showing pay-as-you-go prices directly in the usage details data. To see the pricing, use the [Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) API.
+      - question: Does Usage Details have Reservation charges?
+        answer: |
+          Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
+      - question: Am I charged for using the Usage Details APIs?
+        answer: |
+          No the Usage Details APIs are free. Make sure to abide by the rate-limiting policies, however. For more information, see [Data latency and rate limits](costs/manage-automation.md#data-latency-and-rate-limits).
 
   - name: Azure Reservations questions
     questions:

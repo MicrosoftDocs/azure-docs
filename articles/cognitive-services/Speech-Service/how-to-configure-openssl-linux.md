@@ -7,7 +7,7 @@ author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two

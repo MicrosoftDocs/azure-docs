@@ -18,44 +18,46 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 - An Azure subscription and resource group where you have an Arc VMware VM contributor role.
 
-- A resource pool on which you have Arc Private Cloud Resource User Role.
+- A resource pool/cluster/host on which you have Arc Private Cloud Resource User Role.
 
 - A virtual machine template resource on which you have Arc Private Cloud Resource User Role.
 
-- (Optional) A virtual network resource on which you have Arc Private Cloud Resource User Role.
+- A virtual network resource on which you have Arc Private Cloud Resource User Role.
 
 ## How to create a VM in the Azure portal
 
-1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM). You'll see a unified browse experience for Azure and Arc virtual machines.
+1. From your browser, go to the [Azure portal](https://portal.azure.com). Navigate to virtual machines browse view. You'll see a unified browse experience for Azure and Arc virtual machines.
 
    :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines.":::
 
-1. Select **Add** and then select **Azure Arc machine** from the drop-down.
+2. Click **Add** and then select **Azure Arc machine** from the drop-down.
 
-   :::image type="content" source="media/create-azure-arc-virtual-machine-2.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine.":::
+   :::image type="content" source="media/create-azure-arc-virtual-machine-1.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine.":::
 
-1. Select the **Subscription** and **Resource group** where you want to deploy the VM.
+3. Select the **Subscription** and **Resource group** where you want to deploy the VM.
 
-1. Provide the **Virtual machine name** and then select a **Custom location** that your administrator has shared with you.
+4. Provide the **Virtual machine name** and then select a **Custom location** that your administrator has shared with you.
 
    If multiple kinds of VMs are supported, select **VMware** from the **Virtual machine kind** drop-down.
 
-1. Select the **Resource pool/cluster/host** into which the VM should be deployed.
+5. Select the **Resource pool/cluster/host** into which the VM should be deployed.
 
-1. Select the **Template** based on which the VM you'll create.
+6. Select the **datastore** that you want to use for storage.
+
+7. Select the **Template** based on which the VM you'll create.
 
    >[!TIP]
    >You can override the template defaults for **CPU Cores** and **Memory**.
 
    If you selected a Windows template, provide a **Username**, **Password** for the **Administrator account**.
 
-1. (Optional) Change the disks configured in the template. For example, you can add more disks or update existing disks. These disks are created on the default datastore per the VMware vCenter storage policies.
+8. (Optional) Change the disks configured in the template. For example, you can add more disks or update existing disks. All the disks and VM will be on the datastore selected in step 6.
 
-1. (Optional) Change the network interfaces configured in the template. For example, you can add network interface (NIC) cards or update existing NICs. You can also change the network to which this NIC will be attached, provided you have appropriate permissions to the network resource.
+9. (Optional) Change the network interfaces configured in the template. For example, you can add network interface (NIC) cards or update existing NICs. You can also change the network to which this NIC will be attached, provided you have appropriate permissions to the network resource.
 
-1. (Optional) Add tags to the VM resource if necessary.
+10. (Optional) Add tags to the VM resource if necessary.
 
-1. Select **Create** after reviewing all the properties.  It should take a few minutes to provision the VM.
+11. Select **Create** after reviewing all the properties.  It should take a few minutes to provision the VM.
 
 ## Next steps
 

@@ -22,14 +22,14 @@ The web client lets you access your Azure Virtual Desktop resources from a web b
 >[!IMPORTANT]
 >As of September 30, 2021, the Azure Virtual Desktop web client no longer supports Internet Explorer. We recommend that you use Microsoft Edge to connect to the web client instead. For more information, see our [blog post](https://aka.ms/WVDSupportIE11).
 
-While any HTML5-capable browser should work, we officially support the following operating systems and browsers.
+While any HTML5-capable browser should work, we officially support the following operating systems and browsers:
 
 | Browser           | Supported OS                     | Notes               |
 |-------------------|----------------------------------|---------------------|
-| Microsoft Edge    | Windows                          |                     |
-| Apple Safari      | macOS                            |                     |
+| Microsoft Edge    | Windows, macOS, Linux, Chrome OS | Version 79 or later |
+| Apple Safari      | macOS                            | Version 11 or later |
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 or later |
-| Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
+| Google Chrome     | Windows, macOS, Linux, Chrome OS | Version 57 or later |
 
 ## Access remote resources feed
 

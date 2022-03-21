@@ -74,7 +74,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
    ![Image that shows logos for DropBox, Salesforce, and others.](./media/user-provisioning/gallery-app-logos.png)
 
-   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../develop/v2-howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
+   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../manage-apps/v2-howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
 
 * **Applications that support SCIM 2.0**: For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 

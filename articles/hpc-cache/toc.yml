@@ -80,6 +80,8 @@ items:
       href: hpc-cache-blob-firewall-fix.md
     - name: Recover from a regional outage
       href: hpc-region-recovery.md
+    - name: Move a cache
+      href: move-resource.md
 
   - name: Storage options
     items:
@@ -88,13 +90,17 @@ items:
     - name: Use Azure NetApp Files with Azure HPC Cache
       href: hpc-cache-netapp.md
 
-  - name: Set up Azure CLI for Azure HPC Cache
-    href: az-cli-prerequisites.md
   - name: Use customer-managed encryption keys
     href: customer-keys.md
 
   - name: Load balance client traffic
     href: client-load-balancing.md
+
+  - name: Prime the cache
+    href: prime-cache.md
+
+  - name: Set up Azure CLI for Azure HPC Cache
+    href: az-cli-prerequisites.md
 
   - name: Product overview
     href: https://azure.microsoft.com/services/hpc-cache/
@@ -102,6 +108,3 @@ items:
     href: https://azure.microsoft.com/pricing/details/hpc-cache/
   - name: Product FAQs
     href: https://azure.microsoft.com/services/hpc-cache/#faq
-
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?service=hpc-cache

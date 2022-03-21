@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Overview of the guest configuration extension
 
-The Guest Configuration extension is a component Azure Policy that performs audit and configuration operations inside virtual machines.
+The Guest Configuration extension is a component of Azure Policy that performs audit and configuration operations inside virtual machines.
 Policies such as security baseline definitions for 
 [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd)
 and [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc)

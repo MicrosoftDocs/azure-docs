@@ -1,12 +1,12 @@
 ---
 title: Real-time data visualization of your IoT hub data in a web app
 description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/18/2021
-ms.author: lizross
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 ---
 
