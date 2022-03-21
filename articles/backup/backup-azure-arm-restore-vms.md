@@ -106,7 +106,7 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 - [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
-1. In **Restore configuration** > **Create new** > **Restore Type**, select **Create new virtual machine**. 
+1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](#storage-accounts).
 
