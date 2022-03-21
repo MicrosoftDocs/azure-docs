@@ -11,7 +11,7 @@ ms.author: duau
 
 # Azure Front Door reports
 
-Azure Front Door analytics reports provide a built-in and all-around view of how you Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
+Azure Front Door analytics reports provide a built-in and all-around view of how your Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
 
 | Reports | Details |
 |---------|---------|
@@ -211,7 +211,7 @@ Top URLs allow you to view the amount of traffic incurred over a particular endp
 
 ## Top Referrers
 
-Top Referrers allow customers to view the top 50 referrer that originated the most requests to the contents on a particular endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, http(s)://contoso.com/index.html) directly into the address line of a browser, the referrer for the requested is "Empty". Top referrers report includes the follow values. You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
+Top Referrers allow customers to view the top 50 referrer that originated the most requests to the contents on a particular endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, http(s)://contoso.com/index.html) directly into the address line of a browser, the referrer for the requested is "Empty". Top referrers report includes the following values. You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
 
 * Referrer, the value of Referrer in raw logs 
 * Request counts 
