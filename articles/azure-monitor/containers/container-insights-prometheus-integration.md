@@ -359,7 +359,7 @@ The output will show results similar to the following:
 
 ![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md).
+Further information on how to analyze usage is available in [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md).
 
 ## Next steps
 

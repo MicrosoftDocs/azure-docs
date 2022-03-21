@@ -128,7 +128,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ## December, 2021
 
@@ -365,7 +364,6 @@ This article lists significant changes to Azure Monitor documentation.
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ### Virtual Machines
 
@@ -693,7 +691,6 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [Log Analytics tutorial](logs/log-analytics-tutorial.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md)
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
 - [Monitor health of Log Analytics workspace in Azure Monitor](logs/monitor-workspace.md)

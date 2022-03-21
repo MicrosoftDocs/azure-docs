@@ -175,7 +175,7 @@ To learn about managing rights and permissions to the workbook, see [Access cont
 Here are some suggestions to optimize your Log Analytics settings to manage data ingestion:
 
 - Use a designated Log Analytics workspace for your Azure Virtual Desktop resources to ensure that Log Analytics only collects performance counters and events for the virtual machines in your Azure Virtual Desktop deployment.
-- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Manage usage and costs for Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md).
+- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
 
 ### Remove excess data
 
