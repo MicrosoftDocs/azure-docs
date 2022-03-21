@@ -183,7 +183,7 @@ Our default configuration is the only set of data we recommend for Azure Monitor
 
 ### Measure and manage your performance counter data
 
-Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Understanding ingested log data volume](../azure-monitor/logs/manage-cost-storage.md#understanding-ingested-data-volume).
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage).
 
 The performance counters the session hosts use will probably be your largest source of ingested data for Azure Monitor for Azure Virtual Desktop. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
 

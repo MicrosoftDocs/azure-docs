@@ -322,7 +322,7 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 - **Identity** - The identity used to authenticate to your Key Vault. This can be System-assigned or User-assigned.
 - **billingType** - Billing attribution for the cluster resource and its data. Includes on the following values:
   - **Cluster (default)**--The costs for your cluster are attributed to the cluster resource.
-  - **Workspaces**--The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the cluster pricing model.
+  - **Workspaces**--The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./cost-logs.md#dedicated-clusters) to learn more about the cluster pricing model.
 
 
 >[!IMPORTANT]

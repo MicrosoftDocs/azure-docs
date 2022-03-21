@@ -131,7 +131,7 @@ To define a daily volume cap, select **Usage and estimated costs** in the left n
 
 The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
 
-The daily cap doesn't limit collection of all data types. Security data is excluded from the cap. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+The daily cap doesn't limit collection of all data types. Security data is excluded from the cap. For more information about managing the daily cap in Log Analytics, see [Set daily cap on Log Analytics workspace](../azure-monitor/logs/daily-cap.md).
 
 ## Next steps
 
@@ -140,4 +140,4 @@ The daily cap doesn't limit collection of all data types. Security data is exclu
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-- For more tips on reducing Log Analytics data volume, see [Tips for reducing data volume](../azure-monitor/logs/manage-cost-storage.md#tips-for-reducing-data-volume).
+- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/logs/best-practices-cost.md).
