@@ -37,7 +37,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 >     - For more advanced customizations, use Logic Apps.
 
 
-1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend scaling resources by using subscriptions or resource groups.
+1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group for the alert rule.
 1. In the Resource menu, select **Logs**.
 1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. From the top command bar, Select **+ New Alert rule**.
