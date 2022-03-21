@@ -24,7 +24,7 @@ It's important that you have the following prerequisites completed before you be
 * [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
 
 > [!IMPORTANT]
-> You will also need to make sure that the Microsoft.EventGrid resource provider namespace has been successfully registered with your Azure subscription to successfully deploy the Events feature. For more information, see [Azure resource providers and types - register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+> You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 > [!NOTE]
 > For the purposes of this quickstart, we'll be using a basic set up and an event hub as the endpoint for Events messages.
@@ -54,7 +54,7 @@ It's important that you have the following prerequisites completed before you be
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
    >[!NOTE]
-   > The first time you set up Events, you will be required to create a **System Topic Name**. Once the system topic for the Workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the Workspace.
+   > The first time you set up the Events feature, you will be required to create a **System Topic Name**. Once the system topic for the Workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the Workspace.
 
 5. Event messages won't be sent until the Event Grid System Topic deployment has successfully completed. Upon successful creation of the Event Grid System Topic, the status of the Workspace will change from "Updating" to "Succeeded".
 
