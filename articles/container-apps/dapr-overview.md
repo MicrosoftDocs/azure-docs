@@ -5,10 +5,10 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 03/21/2022
 ---
 
-# Dapr integration with Azure Container Apps
+# Dapr integration with Azure Container Apps (preview)
 
 Distributed Application Runtime ([Dapr][dapr-concepts]) is a portable, efficient, event-driven runtime that consists of open, independent HTTP or gRPC APIs. Dapr exposes these APIs as a sidecar, running as a separate process alongside your application.
 
@@ -30,53 +30,14 @@ Dapr is an incrementally adoptable set of APIs, or building blocks, that makes i
 
 ### Dapr building blocks available to Container Apps
 
-#### Service-to-service invocation
-
-Dapr addresses challenges around encryption, resiliency, service discovery, and more with their service invocation building block.
-
-:::image type="content" source="./media/dapr-overview/service-invocation.png" alt-text="Service-to-service invocation diagram" :::
-
-| Capability | Description |
-| ---------- | ----------- |
-| mTLS authentication | Calls between Dapr sidecars are secured with an "on-by-default" mTLS on hosted platforms, including automatic certificate rollover, via the Dapr Sentry service. |
-| Resiliency | Dapr service invocation performs automatic retries with back-off time periods with network and authentication errors. |
-| Service discovery | Dapr uses pluggable name resolution components to enable service discovery and service invocation.
- |
-
-#### State management
-
-Dapr integrates with existing databases to provide apps with state management capabilities for:
-
-- CRUD operations
-- Transactions 
-- Configuration of multiple, named, state store components per application. 
-
-:::image type="content" source="./media/dapr-overview/state-management.png" alt-text="State management diagram" :::
-
-#### Pub/sub broker
-
-Dapr's Pub/sub pattern allows publisher and subscriber microservices to communicate with each other while remaining decoupled. A message broker mediates between an input channel to an output channel for all subscribers interested. 
-
-Currently, Container Apps supports Dapr's programmatic subscription model, not Dapr's configuration object.
-
-:::image type="content" source="./media/dapr-overview/pubsub.png" alt-text="Pub/sub broker diagram" :::
-
-#### Observability
-
-Dapr's sidecar architecture enables built-in observability features. In Container Apps, we are opinionated about the configuration for tracing. When creating a Container Apps environment, you can pass in a Dapr instrumentation key, which will send tracing information to Application Insights. 
-
-We don't currently expose the ability for you to customize your tracing backend.
-
-:::image type="content" source="./media/dapr-overview/observability.png" alt-text="Observability diagram" :::
-
-#### Bindings
-
-With Dapr's input and output bindings, you can trigger your application with incoming or outgoing events, without taking dependencies from SDKs or libraries.
-
-#### Actors
-
-Write your Dapr actors according to the Actor model while Dapr applies the scalability and reliability that the underlying platform provides.
-
+| Building block | Supported in Container Apps | Description |
+| -------------- | --------------------------- | ----------- |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Yes | Dapr addresses challenges around mTLS authentication and encryption, resiliency, service discovery, and more with their service invocation building block. |
+| [**State management**][dapr-statemgmt] | Yes | Dapr integrates with existing databases to provide apps with state management capabilities for: <ul><li>CRUD operations</li><li>Transactions</li><li>Configuration of multiple, named, state store components per application.</li></ul> |
+| [**Pub/sub broker**][dapr-pubsub] | Yes | Dapr's Pub/sub pattern allows publisher and subscriber microservices to communicate with each other while remaining decoupled, thanks to an intermediary message broker. </br> Currently, Container Apps supports Dapr's *programmatic subscription model*, not Dapr's configuration object. |
+| [**Bindings**][dapr-bindings] | Yes | With Dapr's input and output bindings, you can trigger your application with incoming or outgoing events, without taking dependencies from SDKs or libraries. |
+| [**Actors**][dapr-actors] | Yes | Write your Dapr actors according to the Actor model while Dapr applies the scalability and reliability that the underlying platform provides. |
+| **Observability** | Partially | In Container Apps, we are opinionated about the configuration for tracing. When creating a Container Apps environment, you can pass in a Dapr instrumentation key, which will send tracing information to Application Insights. </br> We don't currently expose the ability for you to customize your tracing backend. |
 
 ### Dapr core concepts
 
@@ -140,7 +101,7 @@ Since Dapr components and settings aren't revisionable, all running instances of
 
 ## Limitations
 
-While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism](manage-secrets.md). 
+While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism][aca-secrets]. 
 
 ## Next Steps
 
@@ -149,6 +110,12 @@ Now that you've learned about Dapr and some of the challenges it solves, try [De
 <!-- Links Internal -->
 [dapr-quickstart]: ./microservices-dapr.md
 [dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
+[aca-secrets]: ./manage-secrets.md
 
 <!-- Links External -->
 [dapr-concepts]: https://docs.dapr.io/concepts/overview/
+[dapr-pubsub]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview
+[dapr-statemgmt]: https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/
+[dapr-serviceinvo]: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
+[dapr-bindings]: https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/
+[dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
