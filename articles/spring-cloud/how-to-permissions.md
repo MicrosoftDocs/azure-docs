@@ -139,7 +139,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
    * **Read : Read operation status**
 
-   [![Screenshot that shows the selections for Developler permissions.](media/spring-cloud-permissions/developer-permissions-box.png)](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
+   [![Azure portal screenshot that shows the selections for Developer permissions.](media/spring-cloud-permissions/developer-permissions-box.png)](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
 9. Select **Add**.
 
@@ -163,7 +163,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 8. Paste in the following JSON to define the Developer role:
 
-   * Standard/Basic tier
+   * Basic/Standard tier
 
       ```json
       {
@@ -369,7 +369,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : List available skus**
 
-   [![Screenshot that shows the selections for DevOps permissions.](media/spring-cloud-permissions/dev-ops-permissions.png)](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
+   [![Azure portal screenshot that shows the selections for DevOps permissions.](media/spring-cloud-permissions/dev-ops-permissions.png)](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
 3. Select **Add**.
 
@@ -390,7 +390,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 5. Paste in the following JSON to define the DevOps Engineer role:
 
-   * Standard/Basic tier
+   * Basic/Standard tier
 
       ```json
       {
@@ -545,7 +545,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : Read operation status**
 
-   [![Screenshot that shows the selections for Ops - Site Reliability Engineering permissions.](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
+   [![Azure portal screenshot that shows the selections for Ops - Site Reliability Engineering permissions.](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
 3. Select **Add**.
 
@@ -566,7 +566,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 5. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
 
-   * Enterprise/Standard/Basic tier
+   * Enterprise/Basic/Standard tier
 
       ```json
       {
@@ -705,7 +705,7 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
 
    * **Read : List available skus**
 
-   [![Screenshot that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png)](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)
+   [![Azure portal screenshot that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png)](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)
 
 4. Select **Add**.
 
@@ -727,7 +727,7 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
 
 5. Paste in the following JSON to define the Azure Pipelines / Jenkins / GitHub Actions role:
 
-   * Standard/Basic tier
+   * Basic/Standard tier
 
       ```json
       {
