@@ -125,7 +125,7 @@ In this example, anyOf requires that any condition match:
 }
 ```
 
-Meaning (claim_1 == value_2) || (claim_2 == value_2 )
+Meaning (claim_1 == value_2) || (claim_2 == value_2)
 
 The anyOf and allOf condition objects may be nested:
 
