@@ -450,16 +450,16 @@ There are multiple techniques available to prevent deadlocks from reoccurring, i
 
 - **Review the table's clustered index**. Most tables benefit from clustered indexes, but often, tables are implemented as [heaps](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes) by accident.
 
-    One way to check for a clustered index is by using the [sp_helpindex](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-helpindex-transact-sql) system stored procedure. For example, we can view a summary of the indexes on the `SalesLT.Product` table by executing the following statement:
+    One way to check for a clustered index is by using the [sp_helpindex](/sql/relational-databases/system-stored-procedures/sp-helpindex-transact-sql) system stored procedure. For example, we can view a summary of the indexes on the `SalesLT.Product` table by executing the following statement:
 
-        ```sql
-        exec sp_helpindex 'SalesLT.Product';
-        GO
-        ```
+    ```sql
+    exec sp_helpindex 'SalesLT.Product';
+    GO
+    ```
 
     Review the index_description column. A table can have only one clustered index. If a clustered index has been implemented for the table, the index_description will contain the word 'clustered'.
 
-    If no clustered index is present, the table is a heap. In this case, review if the table was intentionally created as a heap to solve a specific performance problem. Consider implementing a clustered index based on the [clustered index design guidelines](https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide#Clustered).
+    If no clustered index is present, the table is a heap. In this case, review if the table was intentionally created as a heap to solve a specific performance problem. Consider implementing a clustered index based on the [clustered index design guidelines](/sql/relational-databases/sql-server-index-design-guide#Clustered).
 
     In some cases, creating or tuning a clustered index may reduce or eliminate blocking in deadlocks. In other cases, you may need to employ an additional technique such as the others in this list.
 
@@ -482,7 +482,7 @@ There are multiple techniques available to prevent deadlocks from reoccurring, i
 
     When deadlocks involve modifications to columns referenced in foreign key constraints, ensure that indexes on the referencing table of the FOREIGN KEY support efficiently finding related rows.
 
-    While indexes can dramatically improve query performance in some cases, indexes also have overhead and management costs. Review [general index design guidelines](https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide#General_Design) to help assess the benefit of indexes before creating indexes, especially wide indexes and indexes on large tables.
+    While indexes can dramatically improve query performance in some cases, indexes also have overhead and management costs. Review [general index design guidelines](/sql/relational-databases/sql-server-index-design-guide#General_Design) to help assess the benefit of indexes before creating indexes, especially wide indexes and indexes on large tables.
 
 - **Assess the value of indexed views**. Another option to prevent our example deadlock from reoccurring is to drop the `SalesLT.vProductAndDescription` indexed view. If that indexed view is not being used, this will reduce the overhead of maintaining the indexed view over time.
 
