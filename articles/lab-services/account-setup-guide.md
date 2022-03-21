@@ -95,7 +95,7 @@ For more information, see:
 
 Azure Marketplace provides hundreds of images that you can enable so that Lab Creators can use them for creating their labs. Some images might include everything that a lab already needs. In other cases, you might use an image as a starting point, and then the Lab Creator can customize it by installing more applications or tools.
 
-If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to first create a lab account. Creating a lab account will also give you access so that you can review the list of available images and their contents.
+If you don't know which images you need, you can come back later to enable them. The best way to see which images are available is to create a lab account. Lab account creation will also give you access to review the list of available images and their contents.
 
 For more information, see [Specify the Azure Marketplace images that are available to Lab Creators](./specify-marketplace-images.md).
   
