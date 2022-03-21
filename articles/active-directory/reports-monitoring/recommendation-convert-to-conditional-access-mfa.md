@@ -46,13 +46,13 @@ This recommendation shows up, if:
 
 ## Value 
 
-This recommendation improves your user's productivity and minimizes the sign-in time with fewer MFA prompts. Ensure that your most sensitive resources can have the tighest controls, while your least sensitive resources can be more freely accessible.
+This recommendation improves your user's productivity and minimizes the sign-in time with fewer MFA prompts. Ensure that your most sensitive resources can have the tightest controls, while your least sensitive resources can be more freely accessible.
 
 ## Action plan
 
 1. To get started, confirm that there is an existing conditional access policy with an MFA requirement. Ensure that you are covering all resources and users you would like to secure with MFA. To view your conditional access policies, click [here](https://portal.azure.com/?Microsoft_AAD_IAM_enableAadvisorFeaturePreview=true&amp%3BMicrosoft_AAD_IAM_enableAadvisorFeature=true#blade/Microsoft_AAD_IAM/PoliciesTemplateBlade).
 
-2.	To require MFA usinf a conditional access policy, follow the steps in [Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
+2.	To require MFA using a conditional access policy, follow the steps in [Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
 3. Ensure that the per-user MFA configuration is turned off. 
 
