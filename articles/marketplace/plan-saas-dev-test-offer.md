@@ -151,3 +151,4 @@ Don’t configure the **Resell through CSPs** tab of the DEV offer.
 
 - To learn more about plans, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#plans).
 - For step-by-step instructions about creating an offer, see [Create a SaaS offer](create-new-saas-offer.md)
+- To test a SaaS plan, see [Test a SaaS plan overview](test-saas-overview.md)

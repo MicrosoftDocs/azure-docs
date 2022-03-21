@@ -429,6 +429,8 @@
         href: test-saas-preview-offer.md
       - name: Test a SaaS plan
         href: test-saas-plan.md
+      - name: Unsubscribe from and deactivate a test plan
+        href: test-saas-unsubscribe.md  
     - name: Market your offer
       href: create-new-saas-offer-marketing.md 
     - name: Go live

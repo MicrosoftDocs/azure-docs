@@ -12,7 +12,7 @@ ms.date: 03/25/2022
 
 # Test a SaaS plan
 
-This article explains how you can test a software as a service (SaaS) offer in preview.
+This article explains how to test a software as a service (SaaS) offer in preview.
 
 > [!NOTE]
 > In this example we will use the SaaS Accelerator for the landing page.
@@ -29,12 +29,12 @@ Publishers can use Commercial Marketplace to verify the purchase of a test plan.
 
 1. In the left menu, select **Orders**.
 
-1. In the upper-right, select the filter icon and filter the offers by **Offer Name**. The **_**Orders by offers** widget shows the number of subscriptions that have been purchased. You should notice that the number of new orders have increased.
+1. In the upper-right, select the filter icon and filter by **Offer Name**. The **Orders by offers** widget shows the number of subscriptions that have been purchased. You should notice that the number of new orders have increased.
+
+    [ ![Screenshot shows the Orders by offers widget.](./media/review-publish-offer/subscriptions-purchased.png) ](./media/review-publish-offer/subscriptions-purchased.png#lightbox)
 
     > [!NOTE]
     > It can take up to 48 hours before offer orders appear in the report.
-
-    [ ![Screenshot shows the Orders by offers widget.](./media/review-publish-offer/subscriptions-purchased.png) ](./media/review-publish-offer/subscriptions-purchased.png#lightbox)
 
 1. In the left-nav, select **Downloads**.
 1. From the **Report type** list, select **Orders**.
@@ -48,7 +48,7 @@ Publishers can use Commercial Marketplace to verify the purchase of a test plan.
 
 ## Send Metered Usage Event
 
-If your test plan is configured to omit metered usage events, it is important to test the metered plan usage by sending metered events to [Marketplace Metered API](marketplace-metering-service-apis.md). This is an example of how to send metered usage events using Postman.
+If your test plan is configured to send usage events, it is important to test the metered plan usage by sending metered events to [Marketplace Metered API](marketplace-metering-service-apis.md). This is an example of how to send metered usage events using Postman.
 
 > [!IMPORTANT]
 > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee. After the usage exceeds the amount covered by the base fee, you should start sending metered usage events.
@@ -115,7 +115,7 @@ For more details about sending metered usage events, see [Marketplace metered bi
     [ ![Screenshot of the Usage dashboard.](./media/review-publish-offer/saas-metered-usage.png) ](./media/review-publish-offer/saas-metered-usage.png#lightbox)
 
 1. From the **Offer alias** list, select your offer name.
-1. From the **Meter ID** list, select the dimension (meter) Id you entered in the plan. The metered usage is shown in the Metered usage widget.
+1. From the **Meter ID** list, select a dimension (meter) Id you entered in the plan. The metered usage is shown in the Metered usage widget.
 
     > [!NOTE]
     > You should only see the metered usage above the base fee.
@@ -147,5 +147,5 @@ Here are some general guidelines to be aware of when you’re testing your offer
 ## Next steps
 
 When you complete your tests, you can do the following:
-- [Unsubscribe and deactivate your test plan](test-saas-unsubscribe.md).
+- [Unsubscribe from and deactivate your test plan](test-saas-unsubscribe.md).
 - [Create a plan](create-new-saas-offer-plans.md) in your production offer with the prices you want to charge customers and [publish the production offer live](test-publish-saas-offer.md).

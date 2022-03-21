@@ -12,7 +12,7 @@ ms.date: 02/01/2022
 
 # How to preview and subscribe to a SaaS offer in the commercial marketplace
 
-This article explains how to use Partner Center to submit your SaaS offer for publishing, preview your offer, and subscribe to it. You must have already created an offer that you want to publish.
+This article explains how to use Partner Center to submit your SaaS offer for publishing, preview your offer, and subscribe to a plan. You must have already created an offer that you want to publish. For information about the overall process to test a SaaS, see [Test a SaaS plan overview](test-saas-overview.md).
 
 > [!NOTE]
 > We recommend that you create a separate test and development (DEV) offer as a low-risk way to test before you publish your production (PROD) offer. Follow these steps to create and test the DEV offer before you publish your (PROD) offer.
@@ -59,7 +59,7 @@ Use the following steps to preview your offer.
 
 ## Subscribe to a test plan
 
-1. On the offer subscribe page, from the **Plan** list, select the test plan you created earlier.
+1. In Azure portal, on the offer subscribe page of your test offer, from the **Plan** list, select the test plan you created earlier.
 1. Select the **Subscribe** button.
 1. Under **Project details**, from the **Subscription** list, select the SaaS test environment subscription.
 1. Select an existing **Resource Group** or select **Create new** to create a new one.
