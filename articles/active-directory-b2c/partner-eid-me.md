@@ -33,7 +33,7 @@ account](https://azure.microsoft.com/free).
 
 - An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- A [trial version](https://bluink.ca/eid-me/download) of eID-Me smartphone apps for users.
+- A [trial or production version](https://bluink.ca/eid-me/download) of eID-Me smartphone apps for users.
 
 ::: zone pivot="b2c-custom-policy"
 - Complete the steps in the article [get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
@@ -83,7 +83,7 @@ The following architecture diagram shows the implementation.
 
 ## Onboard with eID-Me
 
-[Contact eID-Me](https://bluink.ca/contact) and configure a test environment to set up Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
+[Contact eID-Me](https://bluink.ca/contact) and configure a test or production environment to set up Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
 
 ## Integrate eID-Me with Azure AD B2C
 
