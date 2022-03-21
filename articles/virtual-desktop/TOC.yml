@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Virtual Desktop?
     href: overview.md
+  - name: Prerequisites
+    href: prerequisites.md
   - name: What's new?
     href: whats-new.md
   - name: What's new for Azure Monitor
@@ -141,6 +143,8 @@
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
+      - name: Deploy Windows Server based machine
+        href: deploy-windows-server-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool

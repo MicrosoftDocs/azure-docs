@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 02/28/2022
+ms.date: 03/17/2022
 ms.topic: conceptual
 ---
 
@@ -12,6 +12,8 @@ After initial deployment of the Azure Connected Machine agent, you may need to r
 ## About the azcmagent tool
 
 The azcmagent tool is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. azcmagent.exe provides command-line parameters to customize the agent and view its status:
+
+* **check** - To troubleshoot network connectivity issues
 
 * **connect** - To connect the machine to Azure Arc
 
@@ -37,6 +39,14 @@ You can perform a **Connect** and **Disconnect** manually while logged on intera
 
 >[!NOTE]
 >You must have *Administrator* permissions on Windows or *root* access permissions on Linux machines to run **azcmagent**.
+
+### Check
+
+This parameter allows you to run the network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
+
+When running a network connectivity check, you must provide the name of the Azure region (for example, eastus) that you want to test. It's also recommended to use the `--verbose` parameter to see the results of both successful and unsuccessful tests.
+
+`azcmagent check --location <regionName> --verbose`
 
 ### Connect
 
