@@ -1,12 +1,12 @@
 ---
 title: Create an Azure AMD-based confidential VM with ARM template (preview) 
-description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) using an ARM template. Deploy the confidential VM from ARM template.
+description: Learn how to quickly create and deploy an AMD-based Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 3/18/2022
+ms.date: 3/21/2022
 ms.author: RunCai
 ms.custom: mode-arm, devx-track-azurecli 
 ms.devlang: azurecli
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can use an Azure Resource Manager template (ARM template) to create a [confidential VM](confidential-vm-overview.md) quickly. The confidential VM you create runs on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
+You can use an Azure Resource Manager template (ARM template) to create an Azure [confidential VM](confidential-vm-overview.md) quickly. Confidential VMs run on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
 
 This tutorial covers deployment of a confidential VM with a custom configuration. 
 
@@ -47,7 +47,7 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 1. Set the variables for your confidential VM. Provide the deployment name (`$deployName`), the resource group (`$resourceGroup`), the VM name (`$vmName`), and the Azure region (`$region`). Replace the sample values with your own information.
 
     > [!NOTE]
-    > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+    > Confidential VMs are not available in all locations. For currently supported locations, see [which VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
     ```powershell-interactive
     $deployName="<deployment-name>"
@@ -62,7 +62,7 @@ To create and deploy a confidential VM using an ARM template through the Azure C
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure using ARM template with custom parameter file
+1. Deploy your VM to Azure using an ARM template with a custom parameter file
 
       
     ```azurecli
@@ -78,15 +78,19 @@ To create and deploy a confidential VM using an ARM template through the Azure C
 
 ### Define custom parameter file
 
-When you create your confidential VM using the Azure CLI, you need to define custom parameter file. To create a custom JSON parameter file:
+When you create a confidential VM through the Azure Command-Line Interface (Azure CLI), you need to define a custom parameter file. To create a custom JSON parameter file:
 
-1. Sign into your Azure account in the Azure CLI.
+1. Sign in to your Azure account through the Azure CLI.
 
 1. Create a JSON parameter file. For example, `azuredeploy.parameters.json`.
 
-1. Depending on the OS image you're using, copy in the [example Windows parameter file](#example-windows-parameter-file) or the [example Linux parameter file](#example-linux-parameter-file).
+1. Depending on the OS image you're using, copy either the [example Windows parameter file](#example-windows-parameter-file) or the [example Linux parameter file](#example-linux-parameter-file) into your parameter file.
 
-1. Edit the JSON code in the parameter file as needed. For example, you might want to update the OS image name (`osImageName`), the administrator username (`adminUsername`). Choose "VMGuestStateOnly" from `securityType` for no OS disk confidential encryption, or "DiskWithVMGuestState" for OS disk confidential encryption with platform-managed key.
+1. Edit the JSON code in the parameter file as needed. For example,  update the OS image name (`osImageName`) or the administrator username (`adminUsername`). 
+
+1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key.
+
+1. Save your parameter file.
 
 #### Example Windows parameter file
 
@@ -111,7 +115,7 @@ Use this example to create a custom parameter file for a Windows-based confident
       "value": "testuser"
     },
     "adminPasswordOrKey": {
-      "value": "Password123@@"
+      "value": "<your password>"
     }
   }
 }
@@ -143,7 +147,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
       "value": "sshPublicKey"
     },
     "adminPasswordOrKey": {
-      "value": {your ssh public key}
+      "value": <your SSH public key>
     }
   }
 }
@@ -151,86 +155,84 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 ## Deploy confidential VM template with OS disk confidential encryption via customer-managed key
 
-1. Sign in to your Azure account in the Azure CLI.
+1. Sign in to your Azure account through the Azure CLI.
+
     ```azurecli-interactive
    az login
     ```
 
 1. Set your Azure subscription. Replace `<subscription-id>` with your subscription identifier. Make sure to use a subscription that meets the [prerequisites](#prerequisites).
+
     ```azurecli
     az account set --subscription <subscription-id>
     ```
 
-1. Set up **Azure key vault**
+1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
 
-    1. Create Azure Key Vault Resource Group
+    1. Create a resource group for your key vault. Your key vault instance and your confidential VM must be in the same Azure region.
     
-    ```azurecli
-    $resourceGroup = <key vault resource group>
-    $region = <**The region of your AKV instance has to be the same as that of your CVM**>
-    az group create --name $resourceGroup --location $region
-    ```
+        ```azurecli
+        $resourceGroup = <key vault resource group>
+        $region = <Azure region>
+        az group create --name $resourceGroup --location $region
+        ```
     
-    b. Create Azure Key Vault instance with **Premium** SKU in region.
+    1. Create a key vault instance with a premium SKU in your preferred region.
     
-    ```azurecli
-    $KeyVault = <name of key vault>
-    az keyvault create --name $KeyVault --resource-group $resourceGroup --location $region --sku Premium --enable-purge-protection 
-    ```
+        ```azurecli
+        $KeyVault = <name of key vault>
+        az keyvault create --name $KeyVault --resource-group $resourceGroup --location $region --sku Premium --enable-purge-protection 
+        ```
 
-    c. Ensure you're **owner** of this key vault.
+    1. Make sure that you have an **owner** role in this key vault.
     
-    d. Give **Confidential Guest VM Agent** `get` and `release` permissions to this key vault.
-    ```azurecli
-    $cvmAgent = az ad sp list --display-name "Confidential Guest VM Agent" | Out-String | ConvertFrom-Json
-    az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
-    ```
-
-1. (Optional) Instead of setting Azure Key Vault, you also can create **Azure Key Vault Managed HSM**.
-
-    1. Follow the steps [Create Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM. 
+    1. Give `Confidential Guest VM Agent` permissions to `get` and `release` the key vault.
     
-    1. Enable purge protection required to enable key release.
+        ```azurecli
+        $cvmAgent = az ad sp list --display-name "Confidential Guest VM Agent" | Out-String | ConvertFrom-Json
+        az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
+        ```
+
+1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
+
+    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM. 
     
-    ```azurecli
-    az keyvault update-hsm --subscription $subscriptionId -g $resourceGroup --hsm-name $hsm --enable-purge-protection true
-    ```
-
-
-    c. Give **Confidential Guest VM Agent** `get` and `release` permissions to the key vault.
+    1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.
     
-    ```azurecli
-    $cvmAgent = az ad sp list --display-name "Confidential Guest VM Agent" | Out-String | ConvertFrom-Json
-    az keyvault set-policy --name $hsm --object-id $cvmAgent.objectId --key-permission get release    
-    ```
+        ```azurecli
+        az keyvault update-hsm --subscription $subscriptionId -g $resourceGroup --hsm-name $hsm --enable-purge-protection true
+        ```
 
-1. Create a new key.
-    1. Prepare/download [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to local disk.
+
+    1. Give `Confidential Guest VM Agent` permissions to `get` and `release` the key vault.
     
-    1. Create a new key from **Azure key Vault**.
-    ```azurecli
-    $KeyName = <name of key>
-    $KeySize = 3072
-    az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"    
-    ```
+        ```azurecli
+        $cvmAgent = az ad sp list --display-name "Confidential Guest VM Agent" | Out-String | ConvertFrom-Json
+        az keyvault set-policy --name $hsm --object-id $cvmAgent.objectId --key-permission get release    
+        ```
 
-    b. (optional) Or create a new key from **Azure Key Vault Manage HSM**.
-    ```azurecli
-    $KeyName = <name of key>
-    $KeySize = 3072
-    az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --policy "@.\skr-policy.json"   
-    ```
+1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-    c. Deploy a Disk Encryption Set (DES) for key created from **Azure Key Vault**. 
+    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
     
-      * Get key information
+    1. Create a new key.
+
+        ```azurecli
+        $KeyName = <name of key>
+        $KeySize = 3072
+        az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"    
+        ```
+
+    1. Get information about the key that you created.
+        
         ```azurecli
         $encryptionKeyVaultId = ((az keyvault show -n $KeyVault -g
         $resourceGroup) | ConvertFrom-Json).id
         $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid        
         ```
        
-      * Use [DES ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployDES.json) `deployDES.json`to deploy a Disk encryption set.
+    1. Deploy a Disk Encryption Set (DES) using a [DES ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployDES.json) (`deployDES.json`).
+
         ```azurecli
         $desName = <name of DES>
         $deployName = <name of deployment>
@@ -244,7 +246,9 @@ Use this example to create a custom parameter file for a Linux-based confidentia
             -p encryptionKeyVaultId=$encryptionKeyVaultId `
             -p region=$region        
         ```
-      * Assign key access to Disk Encryption Set file
+
+    1. Assign key access to the DES file.
+
         ```azurecli
         $desIdentity= (az disk-encryption-set show -n $desName -g 
         $resourceGroup --query [identity.principalId] -o tsv)
@@ -254,60 +258,75 @@ Use this example to create a custom parameter file for a Linux-based confidentia
             --key-permissions wrapkey unwrapkey get        
         ```
 
-    c. (Optional) Deploy a disk encryption set (DES) for key created from **Azure Key Vault Managed HSM**. 
+ 1. (Optional) Create a new key from an Azure Managed HSM.
+
+    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
     
-      * Get key information
-      ```azurecli
-      $encryptionKeyURL = ((az keyvault key show --hsm-name $hsm --name 
-      $KeyName) | ConvertFrom-Json).key.kid      
-      ```
+    1. Create the new key.
+
+        ```azurecli
+        $KeyName = <name of key>
+        $KeySize = 3072
+        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --policy "@.\skr-policy.json"   
+        ```
+
+    1. Get information about the key that you created.
+    
+          ```azurecli
+          $encryptionKeyURL = ((az keyvault key show --hsm-name $hsm --name 
+          $KeyName) | ConvertFrom-Json).key.kid      
+          ```
  
-      * Deploy a Disk Encryption Set
-      ```azurecli
-      $desName = <name of DES>
-      az disk-encryption-set create -n $desName `
-       -g $resourceGroup `
-       --key-url $encryptionKeyURL
-      ```
+    1. Deploy a DES.
 
-      * Assign key access to Disk Encryption Set
-      ```azurecli
-      desIdentity=$(az disk-encryption-set show -n $desName -g $resourceGroup --query [identity.principalId] -o tsv)
-      az keyvault set-policy -n $hsm `
-          -g $resourceGroup `
-          --object-id $desIdentity `
-          --key-permissions wrapkey unwrapkey get
-      ```
+          ```azurecli
+          $desName = <name of DES>
+          az disk-encryption-set create -n $desName `
+           -g $resourceGroup `
+           --key-url $encryptionKeyURL
+          ```
 
- 1. Deploy confidential VM with customer-managed key.
+    1. Assign key access to the DES.
+
+          ```azurecli
+          desIdentity=$(az disk-encryption-set show -n $desName -g $resourceGroup --query [identity.principalId] -o tsv)
+          az keyvault set-policy -n $hsm `
+              -g $resourceGroup `
+              --object-id $desIdentity `
+              --key-permissions wrapkey unwrapkey get
+          ```
+
+1. Deploy your confidential VM with the customer-managed key.
+ 
+    1. Get the resource ID for the DES.
+ 
+        ```azurecli
+        $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
+        ```
       
-      1. Get Disk Encryption Set resource ID.
-      ```azurecli
-      $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
-      ```
-      b. Use confidential VM [ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) `deployCPSCVM_cmk.json`and a parameter file to deploy a confidentialVM with customer-managed key.
-      
-      >[!note]
-        A [sample parameter file](#sample-cvm-deployment-parameter-file) for a Windows Server 2022 Gen 2 confidential VM listed below.
+    1. Deploy your confidential VM using the [confidential VM ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) (`deployCPSCVM_cmk.json`) and a [deployment parameter file](#example-deployment-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
         
-      ```azurecli
-      $deployName = <name of deployment>
-      $vmName = <name of CVM>
-      $cvmArmTemplate = <name of CVM ARM template file>
-      $cvmParameterFile = <name of CVM parameter file>
+        ```azurecli
+        $deployName = <name of deployment>
+        $vmName = <name of confidential VM>
+        $cvmArmTemplate = <name of confidential VM ARM template file>
+        $cvmParameterFile = <name of confidential VM parameter file>
 
-      az deployment group create `
-         -g $resourceGroup `
-         -n $deployName `
-         -f $cvmArmTemplate `
-         -p $cvmParameterFile `
-         -p diskEncryptionSetId=$desID `
-         -p vmName=$vmName
-      ```
+        az deployment group create `
+            -g $resourceGroup `
+            -n $deployName `
+            -f $cvmArmTemplate `
+            -p $cvmParameterFile `
+            -p diskEncryptionSetId=$desID `
+            -p vmName=$vmName
+        ```
 
-1. Connect to confidential VM to ensure creation is successful.
+1. Connect to your confidential VM to make sure the creation was successful.
         
-### Sample CVM deployment parameter file `azuredeploy.parameters.win2022.json`
+### Example deployment parameter file
+
+This is an example parameter file for a Windows Server 2022 Gen 2 confidential VM: 
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -330,13 +349,12 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         "value": "testuser"
       },
       "adminPasswordOrKey": {
-        "value": "Password123@@"
+        "value": "<Your-Password>"
       }
     }
 }
 ```   
 
-   
 ## Next steps
 
 > [!div class="nextstepaction"]
