@@ -17,7 +17,7 @@ ms.custom: mvc, mode-ui
 Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and two virtual machines.
 
 >[!NOTE]
->Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
+>Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](../skus.md)**.
 
 ## Prerequisites
 
