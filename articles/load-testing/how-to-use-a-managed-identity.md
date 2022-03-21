@@ -150,6 +150,8 @@ When the resource is created, it gets the following additional properties:
 
 The `principalId` is a unique identifier for the identity that's used for Azure AD administration. The `clientId` is a unique identifier for the resource's new identity that's used for specifying which identity to use during runtime calls.
 
+---
+
 ## Grant access to your Azure key vault
 
 A managed identity allows the Azure Load testing resource to access other Azure resources. In this section, you grant the Azure Load Testing service access to read secret values from your key vault.
