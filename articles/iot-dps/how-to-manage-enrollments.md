@@ -19,7 +19,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 * [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 * [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-> [IMPORTANT!]
+> [!IMPORTANT]
 > If you have trouble accessing enrollments from the Azure portal, it may be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
 
 ## Create an enrollment group
