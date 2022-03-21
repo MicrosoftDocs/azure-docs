@@ -99,6 +99,7 @@ Create an Azure Machine Learning workspace. When creating the workspace, you mus
     The key vault ID value will be similar to `/subscriptions/{GUID}/resourceGroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/mykv`. The URL for the key will be similar to `https://mykv.vault.azure.net/keys/mykey/{GUID}`.
 
 For examples of creating the workspace with a customer-managed key, see the following articles:
+
 | Creation method | Article |
 | ----- | ----- |
 | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
