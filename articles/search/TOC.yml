@@ -514,7 +514,7 @@
     - name: Search API
       href: /javascript/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /javascript/api/overview/azure/search/management
+      href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
     - name: Search API
