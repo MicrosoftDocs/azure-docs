@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/16/2022
+ms.date: 03/09/2022
 ms.topic: article
 description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
@@ -103,7 +103,6 @@ Error: list: failed to list: secrets is forbidden: User "myuser" cannot list res
 
 The user connecting the cluster to Azure Arc should have `cluster-admin` role assigned to them on the cluster.
 
-
 ### Unable to connect OpenShift cluster to Azure Arc
 
 If `az connectedk8s connect` is timing out and failing when connecting an OpenShift cluster to Azure Arc, check the following:
@@ -141,7 +140,7 @@ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
-Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the kubernetes cluster to onboard to arc.
+Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the Kubernetes cluster to onboard to arc.
 ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
 ```
 
@@ -168,13 +167,6 @@ To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration create <parameters> --debug
-```
-
-To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
-
-```azurecli
-az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8s-configuration flux create <parameters> --debug
 ```
 
 ### Flux v1 - Create configurations
@@ -224,6 +216,21 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
+
+### Flux v2 - General
+
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+
+```azurecli
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration flux create <parameters> --debug
+```
+
+### Flux v2 - Webhook/dry run errors
+
+If you see Flux fail to reconcile with an error like `dry-run failed, error: admission webhook "<webhook>" does not support dry run`, you can resolve the issue by finding the `ValidatingWebhookConfiguration` or the `MutatingWebhookConfiguration` and setting the `sideEffects` to `None` or `NoneOnDryRun`:
+
+For more information, see [How do I resolve `webhook does not support dry run` errors?](https://fluxcd.io/docs/faq/#how-do-i-resolve-webhook-does-not-support-dry-run-errors)
 
 ### Flux v2 - Error installing the `microsoft.flux` extension
 
@@ -301,9 +308,9 @@ Some other aspects to consider:
 
 With these actions accomplished you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
 
-### Flux v2 - Installing the `microsoft.flux` extension in a cluster with AAD Pod Identity enabled
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Azure AD Pod Identity enabled
 
-If you attempt to install the Flux extension in a cluster that has AAD Pod Identity enabled, an error may occur in the extension-agent pod.
+If you attempt to install the Flux extension in a cluster that has Azure Active Directory (Azure AD) Pod Identity enabled, an error may occur in the extension-agent pod.
 
 ```console
 {"Message":"2021/12/02 10:24:56 Error: in getting auth header : error {adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID <REDACTED>\n}","LogType":"ConfigAgentTrace","LogLevel":"Information","Environment":"prod","Role":"ClusterConfigAgent","Location":"westeurope","ArmId":"/subscriptions/<REDACTED>/resourceGroups/<REDACTED>/providers/Microsoft.Kubernetes/managedclusters/<REDACTED>","CorrelationId":"","AgentName":"FluxConfigAgent","AgentVersion":"0.4.2","AgentTimestamp":"2021/12/02 10:24:56"}
@@ -317,7 +324,7 @@ The extension status also returns as "Failed".
 
 The issue is that the extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure; however, this token request is being intercepted by pod identity ([details here](../../aks/use-azure-ad-pod-identity.md)). 
 
-The workaround is to create an `AzurePodIdentityException` that will tell AAD Pod Identity to ignore the token requests from flux-extension pods.
+The workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1
@@ -701,4 +708,4 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v
 Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OSM docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
 
 ### 14. Upgrade Envoy
-When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.
+When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.

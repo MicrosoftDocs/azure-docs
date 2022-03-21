@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 2/2/2022
+ms.date: 03/02/2022
 ---
 
 # Hyperscale service tier
@@ -88,18 +88,19 @@ vCore resource limits are listed in the following articles, please be sure to up
 
 The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storage size, as described in the following table: 
 
-||  **General Purpose** |  **Hyperscale** | **Business Critical** |
+|| **General Purpose** | **Hyperscale** | **Business Critical** |
 |:---:|:---:|:---:|:---:|
-| **Best for** |Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
-| **Resource type** |SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
-| **Compute size** | 1 to 80 vCores | 1 to 80  vCores<sup>1</sup>| 1 to 80 vCores |
-| **Storage type** | Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSDstorage (per instance) |
+| **Best for** | Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.| OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
+| **Compute size** | 1 to 80 vCores | 1 to 80  vCores<sup>1</sup> | 1 to 80 vCores |
+| **Storage type** | Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance)|
 | **Storage size**<sup>1</sup> | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-| **IOPS** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiplelevels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
-|**Availability**| 1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partiallocal cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
-|**Backups** | A choice of geo-redundant, zone-redundant, or locally-redundant backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant, or locally-redundant backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant, or locally-redundant backup storage, 1-35 day retention (default 7 days) |
+| **IOPS** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS |
+| **Availability** | 1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, zone-redundant HA (preview), partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+| **Backups** | A choice of geo-redundant, zone-redundant, or locally-redundant backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant, or locally-redundant backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant, or locally-redundant backup storage, 1-35 day retention (default 7 days) |
 
 <sup>1</sup> Elastic pools are not supported in the Hyperscale service tier.
+
+
 
 ## Distributed functions architecture
 
@@ -166,7 +167,7 @@ GO
 
 ## Database high availability in Hyperscale
 
-As in all other service tiers, Hyperscale guarantees data durability for committed transactions regardless of compute replica availability. The extent of downtime due to the primary replica becoming unavailable depends on the type of failover (planned vs. unplanned), and on the presence of at least one high-availability replica. In a planned failover (i.e. a maintenance event), the system either creates the new primary replica before initiating a failover, or uses an existing high-availability replica as the failover target. In an unplanned failover (i.e. a hardware failure on the primary replica), the system uses a high-availability replica as a failover target if one exists, or creates a new primary replica from the pool of available compute capacity. In the latter case, downtime duration is longer due to extra steps required to create the new primary replica.
+As in all other service tiers, Hyperscale guarantees data durability for committed transactions regardless of compute replica availability. The extent of downtime due to the primary replica becoming unavailable depends on the type of failover (planned vs. unplanned), [whether zone redundancy is configured](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview), and on the presence of at least one high-availability replica. In a planned failover (i.e. a maintenance event), the system either creates the new primary replica before initiating a failover, or uses an existing high-availability replica as the failover target. In an unplanned failover (i.e. a hardware failure on the primary replica), the system uses a high-availability replica as a failover target if one exists, or creates a new primary replica from the pool of available compute capacity. In the latter case, downtime duration is longer due to extra steps required to create the new primary replica.
 
 For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
@@ -208,6 +209,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 | Database integrity check | DBCC CHECKDB isn't currently supported for Hyperscale databases. DBCC CHECKTABLE ('TableName') WITH TABLOCK  and DBCC CHECKFILEGROUP WITH TABLOCK may be used as a workaround. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
 | Elastic Jobs | Using a Hyperscale database as the Job database is not supported. However, elastic jobs can target Hyperscale databases in the same way as any other Azure SQL database. |
 |Data Sync| Using a Hyperscale database as a Hub or Sync Metadata database is not supported. However, a Hyperscale database can be a member database in a Data Sync topology. |
+|Import Export | Import-Export service is currently not supported for Hyperscale databases. |
 
 ## Next steps
 

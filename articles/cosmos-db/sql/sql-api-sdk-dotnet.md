@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 11/11/2021
+ms.date: 03/04/2022
 ms.author: jroth
 ms.custom: devx-track-dotnet
 
@@ -68,7 +68,7 @@ Below is a list of any know issues affecting the [recommended minimum version](#
 
 | Issue | Impact | Mitigation | Tracking link |
 | --- | --- | --- | --- |
-| When using Direct mode with an account with multiple write locations, the SDK might not detect when a region is added to the account. The background process that [refreshes the account information](troubleshoot-sdk-availability.md#adding-a-region-to-an-account) fails to start. |If a new region is added to the account which is part of the PreferredLocations on a higher order than the current region, the SDK won't detect the new available region. |Restart the application. |https://github.com/Azure/azure-cosmos-dotnet-v2/issues/852 |
+| When using Direct mode with an account with multiple write locations, the SDK might not detect when a region is added to the account. The background process that [refreshes the account information](troubleshoot-sdk-availability.md#adding-a-region-to-an-account) fails to start. |If a new region is added to the account which is part of the PreferredLocations on a higher order than the current region, the SDK won't detect the new available region. |Upgrade to 2.17.0. |https://github.com/Azure/azure-cosmos-dotnet-v2/issues/852 |
 
 ## FAQ
 

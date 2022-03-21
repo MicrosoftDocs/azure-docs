@@ -28,7 +28,7 @@ Don't use a domain hint to bypass [home-realm discovery](../../active-directory/
 
 ### Requiring specific credentials
 
-If you are using SAML, do not specify that a password is required [using the RequestedAuthnContext element](single-sign-on-saml-protocol.md#requestauthncontext).
+If you are using SAML, do not specify that a password is required [using the RequestedAuthnContext element](single-sign-on-saml-protocol.md#requestedauthncontext).
 
 The RequestedAuthnContext element is optional, so to resolve this you can remove it from your SAML authentication requests. This is a general best practice, as using this element can also prevent other authentication options like multi-factor authentication from working correctly.
 

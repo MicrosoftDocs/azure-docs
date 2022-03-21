@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 03/16/2022
 ---
 
 # Service limits in Azure Cognitive Search
@@ -120,6 +120,14 @@ Maximum number of synonym maps varies by tier. Each rule can have up to 20 expan
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
+
+## Index alias limits
+
+Maximum number of [index aliases](search-how-to-alias.md) varies by tier. In all tiers, the maximum number of aliases is the same as the maximum number of indexes.
+
+| Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| Maximum aliases |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 
 ## Data limits (AI enrichment)
 

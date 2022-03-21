@@ -5,12 +5,12 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 02/28/2022
+ms.date: 03/14/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Deploy Bastion using manual settings: Azure portal
+# Tutorial: Deploy Bastion using the Azure portal
 
 This tutorial helps you deploy Azure Bastion from the Azure portal using manual settings. When you use manual settings, you can specify configuration values such as instance counts and the SKU at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
 
@@ -150,11 +150,21 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 1. At the bottom of the page, select **Create**.
 1. You'll see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 10 minutes for the Bastion resource to be created and deployed.
 
-## Connect to a VM
+## <a name="connect"></a>Connect to a VM
+
+You can use the [Connection steps](#steps) in the section below to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+
+[!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
+
+### <a name="steps"></a>Connection steps
 
 [!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
 
-## Remove VM public IP address
+### <a name="audio"></a>To enable audio output
+
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
+
+## <a name="ip"></a>Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 

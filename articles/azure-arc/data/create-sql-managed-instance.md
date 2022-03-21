@@ -27,7 +27,7 @@ To create a SQL Managed Instance, use `az sql mi-arc create`. See the following 
 
 > [!NOTE]
 >  Starting with the February release, a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
-If no storage class is specified for backups, the default storage class in kubernetes is used and if this is not RWX capable, the Arc SQL Managed Instance installation may not succeed.
+If no storage class is specified for backups, the default storage class in Kubernetes is used and if this is not RWX capable, the Arc SQL Managed Instance installation may not succeed.
 
 
 

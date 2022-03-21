@@ -1,0 +1,1 @@
+When the function exits successfully, any changes made to the input document are automatically persisted.

@@ -23,7 +23,7 @@ Your enterprise may have more than one paying entity. If this is the case you ca
 
 Before you subscribe, you should have a sense of how many devices you would like your subscriptions to cover.
 
-Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/azure-defender/) information on committed device prices.
+Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/#defenderforiot) information on committed device prices.
 
 ## Requirements
 

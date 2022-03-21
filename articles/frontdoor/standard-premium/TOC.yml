@@ -30,7 +30,7 @@
   - name: Front Door Manager
     href: concept-endpoint-manager.md
   - name: Caching
-    href: concept-caching.md
+    href: ../front-door-caching.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Traffic acceleration
     href: ../front-door-traffic-acceleration.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Routing
@@ -38,9 +38,11 @@
     - name: Routing architecture
       href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
     - name: Route matching
-      href: concept-route.md
+      href: ../front-door-route-matching.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
     - name: Origin selection
       href: ../front-door-routing-methods.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+    - name: Routing limits
+      href: ../front-door-routing-limits.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Origin
     href: concept-origin.md
   - name: Health probes
@@ -50,13 +52,15 @@
   - name: Rule Engine
     items:
     - name: Rules Engine architecture
-      href: concept-rule-set.md
+      href: ../front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules match conditions
       href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
-      href: concept-rule-set-actions.md
-  - name: URL redirect and URL rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
+      href: ../front-door-rules-engine-actions.md
+  - name: URL redirect 
+    href: ../front-door-url-redirect.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
+  - name: URL rewrite
+    href: ../front-door-url-rewrite.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Security
     items:
     - name: Security baseline
@@ -127,7 +131,7 @@
         href: how-to-enable-private-link-internal-load-balancer.md
       - name: Connect to a storage account
         href: how-to-enable-private-link-storage-account.md
-      - name: Connect to a web app
+      - name: Connect to an App Service
         href: how-to-enable-private-link-web-app.md
   - name: Monitor and reports
     items:
