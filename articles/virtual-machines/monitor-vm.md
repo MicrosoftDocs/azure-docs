@@ -24,7 +24,7 @@ Azure virtual machines collect the same kinds of monitoring data as other Azure 
 ## Overview page
 To begin exploring Azure Monitor, go to the **Overview** page for your virtual machine, and then select the **Monitoring** tab. You can see the number of active alerts on the tab.
 
-The **Alerts** pane shows you the alerts triggered in the last 24 hours, along with important statistics about those alerts. If there are no alerts configured for your VM, there is a link to  help you quickly create new alerts for your VM.
+The **Alerts** pane shows you the alerts fired in the last 24 hours, along with important statistics about those alerts. If there are no alerts configured for your VM, there is a link to  help you quickly create new alerts for your VM.
 
 :::image type="content" source="media/monitor-vm/overview-alerts.png" alt-text="Screenshot of the Azure virtual machine 'Alerts' pane.":::
 
