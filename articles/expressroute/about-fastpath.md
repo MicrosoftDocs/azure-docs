@@ -46,7 +46,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 | -- | -- | -- |
 | ExpressRoute Direct Port | 100Gbps | 200,000 |
 | ExpressRoout Direct Port | 10Gbps | 100,000 |
-| ExpressRoute Provider circuit | 10Gbps and lower | 25000 |
+| ExpressRoute provider circuit | 10Gbps and lower | 25,000 |
 
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
