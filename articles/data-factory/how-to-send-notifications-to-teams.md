@@ -2,13 +2,14 @@
 title: How to send notifications to a Microsoft Teams channel
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline
-ms.author: abnarain
+ms.author: basitfarooq
 author: nabhishek
 ms.service: data-factory
 ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
 ms.date: 09/29/2021
+update: 19/03/2022
 ---
 
 # Send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline
@@ -36,7 +37,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
  
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-prod-notifications.png" alt-text="Shows the team selection prompt on the Incoming Webhook app configuration dialog in Teams. Highlights the Team and the &quot;Set up a connector&quot; button":::
 
-1.  Name the Webhook as appropriate and optionally upload an icon to identify your messages.
+1.  Name the Webhook as appropriate and optionally upload an icon to identify your messages. After that, select the "Create" button to create the Incoming Webhook. 
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-add-icon.png" alt-text="Highlights the name property, optional image upload, and &quot;Create&quot; button in the Incoming Webhook options page.":::  
 
