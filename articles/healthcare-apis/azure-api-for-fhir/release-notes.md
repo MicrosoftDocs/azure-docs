@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/15/2022
+ms.date: 03/17/2022
 ms.custom: references_regions
 ms.author: cavoeg
 ---
@@ -47,7 +47,6 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Fixed 500 error when `SearchParameter` Code is null |Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it will result in an  `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343) |
 |Returned `BadRequestException` with valid message when input JSON body is invalid |For invalid JSON body requests, the FHIR server was returning a 500 error. Now we will return a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) |
 |`_sort` can cause `ChainedSearch` to return incorrect results |Previously, the sort options from the chained search's `SearchOption` object was not cleared, causing the sorting options to be passed through to the chained sub-search, which are not valid. This could result in no results when there should be results. This bug is now fixed  [#2347](https://github.com/microsoft/fhir-server/pull/2347). It addressed GitHub bug [#2344](https://github.com/microsoft/fhir-server/issues/2344). |
-
 
 
 ## November 2021
@@ -140,4 +139,4 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 For information about the features and bug fixes in Azure Healthcare APIs (FHIR service, DICOM service, and IoT connector), see
 
 >[!div class="nextstepaction"]
->[Release notes: Azure Healthcare APIs](../release-notes.md)
+>[Release notes: Azure Health Data Services](../release-notes.md)
