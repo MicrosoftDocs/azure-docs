@@ -31,73 +31,73 @@ The diagram below shows overall archtecture of the components involved when usin
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on virtual machines, scale sets and Arc-enabled servers by clicking on the respective tabs.
 
 # [Windows virtual machine](#tab/WVM)
-1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md##prerequisites).
+1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).
 2. Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine:  
-	i. Open Azure Portal > select your virtual machine > Open 'Settings: Extensions + applications' blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Provisioning succeeded'  
-	ii. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
+	1. Open Azure Portal > select your virtual machine > Open 'Settings: Extensions + applications' blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Provisioning succeeded'  
+	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 	```azurecli
 	az vm extension image list-versions --location <machine-region> --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor
 	```  
-	iii. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, uninstall and install the extension again.   
-	iv. Check if you see any errors in extension logs located at 'C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent' on your machine  
-	iv. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension fails to install or provision'  
+	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, uninstall and install the extension again.   
+	4. Check if you see any errors in extension logs located at 'C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent' on your machine  
+	4. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension fails to install or provision'  
 3. Verify that the agent is running:  
-	i. Open Task Manager and check if 'MonAgentCore.exe' process is running  
-	ii. Check if you see any errors in core agent logs located at 'C:\WindowsAzure\Resources\<virtual-machine-name>.AMADataStore\Configuration' on your machine  
-	iii. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension installed but not running'  
+	1. Open Task Manager and check if 'MonAgentCore.exe' process is running  
+	2. Check if you see any errors in core agent logs located at 'C:\WindowsAzure\Resources\<virtual-machine-name>.AMADataStore\Configuration' on your machine  
+	3. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension installed but not running'  
 4. Verify that the DCR exists and is associated with the virtual machine:  
-	i. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	ii. Open Azure Portal > select your data collection rule > Open 'Resources' blade from left menu > You should see the virtual machine listed here  
+	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
+	2. Open Azure Portal > select your data collection rule > Open 'Resources' blade from left menu > You should see the virtual machine listed here  
 5. Verify that agent was able to download the associated DCR(s) from AMCS service:  
-	i. Check if you see the latest DCR downloaded at this location 'C:\WindowsAzure\Resources\<virtual-machine-name>.AMADataStore\mcs\configchunks'  
+	1. Check if you see the latest DCR downloaded at this location 'C:\WindowsAzure\Resources\<virtual-machine-name>.AMADataStore\mcs\configchunks'  
 	
 ### Issues collecting Performance counters
 
 ### Issues collecting Windows event logs
 	
 # [Linux virtual machine](#tab/LVM)
-1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md##prerequisites).  
+1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).  
 2. Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine:  
-	i. Open Azure Portal > select your virtual machine > Open 'Settings: Extensions + applications' blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
-	ii. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
+	1. Open Azure Portal > select your virtual machine > Open 'Settings: Extensions + applications' blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
+	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 	```azurecli
 	az vm extension image list-versions --location <machine-region> --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor
 	```  
-	iii. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, uninstall and install the extension again.   
-	iv. Check if you see any errors in extension logs located at '/var/log/azure/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent/' on your machine  
-	iv. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension fails to install or provision'  
+	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, uninstall and install the extension again.   
+	4. Check if you see any errors in extension logs located at '/var/log/azure/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent/' on your machine  
+	4. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension fails to install or provision'  
 3. Verify that the agent is running:  
-	i. Check if you see any errors in core agent logs located at '???' on your machine  
-	iii. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension installed but not running'  
+	1. Check if you see any errors in core agent logs located at '???' on your machine  
+	3. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension installed but not running'  
 4. Verify that the DCR exists and is associated with the virtual machine:  
-	i. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	ii. Open Azure Portal > select your data collection rule > Open 'Resources' blade from left menu > You should see the virtual machine listed here  
+	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
+	2. Open Azure Portal > select your data collection rule > Open 'Resources' blade from left menu > You should see the virtual machine listed here  
 5. Verify that agent was able to download the associated DCR(s) from AMCS service:  
-	i. Check if you see the latest DCR downloaded at this location '/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/'  
+	1. Check if you see the latest DCR downloaded at this location '/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/'  
 
 ### Issues collecting Performance counters
 
 ### Issues collecting Syslog
 
 # [Windows Arc-enabled server](#tab/WARC)
-1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md##prerequisites).  
+1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).  
 2. Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine:  
-	i. Open Azure Portal > select your Arc-enabled server > Open 'Settings: Extensions' blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Succeeded'  
-	ii. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
+	1. Open Azure Portal > select your Arc-enabled server > Open 'Settings: Extensions' blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Succeeded'  
+	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 	```azurecli
 	az vm extension image list-versions --location <machine-region> --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor
 	```  
-	iii. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, uninstall and install the extension again.   
-	iv. Check if you see any errors in extension logs located at 'C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent' on your machine  
-	iv. If none of the above works, [file a ticket](#file-a-ticket) stating 'AMA extension fails to install or provision'  
+	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, uninstall and install the extension again.   
+	4. Check if you see any errors in extension logs located at 'C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent' on your machine  
+	4. If none of the above works, [file a ticket](#file-a-ticket) stating 'AMA extension fails to install or provision'  
 3. Verify that the agent is running:  
-	i. Check if you see any errors in core agent logs located at 'C:\Resources\Directory\AMADataStore\Configuration'  
-	ii. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension installed but not running'  
+	1. Check if you see any errors in core agent logs located at 'C:\Resources\Directory\AMADataStore\Configuration'  
+	2. If none of the above helps, [file a ticket](#file-a-ticket) stating 'AMA extension installed but not running'  
 4. Verify that the DCR exists and is associated with the Arc-enabled server:  
-	i. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	ii. Open Azure Portal > select your data collection rule > Open 'Resources' blade from left menu > You should see the Arc-enabled server listed here  
+	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
+	2. Open Azure Portal > select your data collection rule > Open 'Resources' blade from left menu > You should see the Arc-enabled server listed here  
 5. Verify that agent was able to download the associated DCR(s) from AMCS service:  
-	i. Check if you see the latest DCR downloaded at this location 'C:\Resources\Directory\AMADataStore\mcs\configchunks'  
+	1. Check if you see the latest DCR downloaded at this location 'C:\Resources\Directory\AMADataStore\mcs\configchunks'  
 
 ### Issues collecting Performance counters
 
