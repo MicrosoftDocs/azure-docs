@@ -41,11 +41,11 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ## March 2022
 
+- [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot)
 - [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
-- [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot)
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT
 
