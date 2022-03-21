@@ -2,11 +2,11 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 02/15/2022
+ms.date: 03/21/2022
 ms.author: mbaldwin
 ---
 
-The following is a simplified EBNF grammar for secure key release policy, which itself is modelled on [Azure Policy](/azure/governance/policy/)
+The following is a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](/azure/governance/policy/).
 
 ```json
 (* string and number from JSON *)
@@ -83,9 +83,9 @@ Claim names allow "dot notation" to enable JSON object navigation, for example:
 
 Array specifications are not presently supported. Per the grammar, objects are not allowed as values for matching.
 
-## AnyOf, AllOf Conditions
+## AnyOf, AllOf conditions
 
-AnOf and AllOf condition objects allow for the modelling of OR and AND. For AnyOf, if any of the conditions provided are true, the condition is met. For AllOf, all of the conditions must be true. 
+AnOf and AllOf condition objects allow for the modeling of OR and AND. For AnyOf, if any of the conditions provided are true, the condition is met. For AllOf, all of the conditions must be true. 
 
 Examples are shown below, first allOf to require all conditions to be met:
 
@@ -188,7 +188,7 @@ Or:
 }
 ```
 
-## Key Release Authority
+## Key release authority
 
 Conditions are collected into Authority statements and combined:
 
@@ -231,7 +231,7 @@ Release policy is an anyOf condition containing an array of key authorities:
 }
 ```
 
-## Encoding Key Release Policy
+## Encoding key release policy
 
 Since key release policy is a JSON document, it is encoded when carried in requests and response to AKV to avoid the need to describe the complete language in Swagger definitions. 
 

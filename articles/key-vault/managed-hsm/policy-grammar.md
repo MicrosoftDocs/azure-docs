@@ -1,5 +1,5 @@
 ---
-title: Managed HSM Secure key release policy grammar
+title: Azure Managed HSM Secure key release policy grammar
 description: Managed HSM Secure key release policy grammar
 keywords: 
 services: key-vault
@@ -9,9 +9,9 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/21/2022
 ---
  
-# Managed HSM secure key release policy grammar
+# Azure Managed HSM secure key release policy grammar
 
 [!INCLUDE [Policy grammar](../../../includes/key-management-policy-grammar.md)]

@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/21/2022
 ---
  
 # Azure Key Vault secure key release policy grammar
