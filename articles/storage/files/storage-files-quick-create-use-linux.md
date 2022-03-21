@@ -4,7 +4,7 @@ description: This tutorial covers how to use the Azure portal to deploy a Linux 
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/18/2022
+ms.date: 03/21/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
@@ -98,11 +98,7 @@ Now you're ready to create an NFS file share and provide network-level security 
 
 1. Select **Data storage > File shares** from the storage account pane.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
-
 1. Select **+ File Share**.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/create-file-share.png" alt-text="Screenshot showing how to select + file share to create a new file share.":::
 
 1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select **NFS** protocol, leave **No Root Squash** selected, and select **Create**.
 
@@ -112,11 +108,11 @@ Now you're ready to create an NFS file share and provide network-level security 
 
 Next, you'll need to set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network.
 
-1. Select the file share *qsfileshare* or click on the message *You can only access NFS shares from trusted networks. To complete the storage account configuration, review your options below*. You should see a dialog that says *Connect to this NFS share from Linux*.
+1. Select the file share *qsfileshare*. You should see a dialog that says *Connect to this NFS share from Linux*. Under **Network configuration**, select **Review options**
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/connect-from-linux.png" alt-text="Screenshot showing how to configure network and secure transfer settings to connect the NFS share from Linux." lightbox="media/storage-files-quick-create-use-linux/connect-from-linux.png" border="true":::
 
-1. Under **Network configuration**, select **Review options**, and then select **Setup a private endpoint**.
+1. Next, select **Setup a private endpoint**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/configure-network-security.png" alt-text="Screenshot showing network-level security configurations." lightbox="media/storage-files-quick-create-use-linux/configure-network-security.png" border="true":::
 
@@ -151,8 +147,6 @@ Because the NFS protocol doesn't support encryption and relies instead on networ
 1. Select the storage account you created.
 
 1. Select **File shares** from the storage account pane.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
 
 1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
 
