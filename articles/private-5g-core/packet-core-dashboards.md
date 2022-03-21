@@ -20,13 +20,13 @@ The packet core dashboards are powered by *Grafana*, an open-source, metric anal
 
 To sign in to the packet core dashboards:
 
-1. In your browser, enter https://*LocalMonitoringIP*/grafana, where *LocalMonitoringIP* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+1. In your browser, enter https://*\<LocalMonitoringIP\>*/grafana, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
     :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
 
 1. Sign in using your credentials. 
 
-    If you're accessing the packet core dashboards for the first time after installing or reinstalling Packet Core, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+    If you're accessing the packet core dashboards for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
 
       - **Email or username**: *admin*
       - **Password**: *admin*

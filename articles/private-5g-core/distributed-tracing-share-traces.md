@@ -18,6 +18,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Ensure you can sign in to the distributed tracing web GUI as described in [Distributed tracing](distributed-tracing.md).
+- Speak to your support representative to agree on a suitable expiration date/time for your SAS URL and the IP addresses that will be allowed to access it.
 
 ## Create a storage account and blob container in Azure
 
@@ -33,7 +34,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 In this step, you'll export the trace from the distributed tracing web GUI and save it locally.
 
-1. Sign in to the distributed tracing web GUI at https://*LocalMonitoringIP*/sas, where *LocalMonitoringIP* is the IP address you set up for accessing local monitoring tools.
+1. Sign in to the distributed tracing web GUI at https://*\<LocalMonitoringIP\>*/sas, where *\<LocalMonitoringIP\>* is the IP address you set up for accessing local monitoring tools.
 1. In the **Search** tab, specify the SUPI and time for the event you are interested in and select **Search**.
     
     :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-search.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I search field and date and time range options.":::
@@ -77,8 +78,8 @@ You'll now generate a URL for your trace that you can share with your support re
 1. Fill out the fields with the following configuration:
     1. Under **Signing method**, select **Account key**. This means anyone with access to the URL you generate will be able to paste it into a browser and download the trace.
     1. Under **Permissions**, select **Read**.
-    1. Optionally, set a start and expiration time for your token and URL under **Start and expiry date/time**.
-    1. Optionally, restrict access to particular IP addresses under **Allowed IP addresses**.
+    1. Under **Start and expiry date/time**, set the start and expiration time for your token and URL that you agreed on with your support representative.
+    1. Under **Allowed IP addresses**, add the IP addresses that you agreed on with your support representative.
 
 1. Select **Generate SAS token and URL**.
 

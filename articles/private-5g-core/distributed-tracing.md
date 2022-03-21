@@ -18,13 +18,13 @@ Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you 
 
 To sign in to the distributed tracing web GUI:
 
-1. In your browser, enter https://*LocalMonitoringIP*/sas, where *LocalMonitoringIP* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+1. In your browser, enter https://*\<LocalMonitoringIP\>*/sas, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
-    :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password." lightbox="media\distributed-tracing\distributed-tracing-sign-in.png":::
+    :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password.":::
 
 1. Sign in using your credentials. 
 
-    If you're accessing the distributed tracing web GUI for the first time after installing or reinstalling Packet Core, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+    If you're accessing the distributed tracing web GUI for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
 
       - **Name**: *admin*
       - **Password**: *packetCoreAdmin*
