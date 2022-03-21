@@ -146,8 +146,6 @@ message DownstreamMessage {
 }
 ```
 
-`AckMessage` has `sequence_id` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
-
 ### Ack response
 
 If the request contains `ackId`, the service returns an ack response for this request. The client implementation should handle this ack mechanism, including:
@@ -170,6 +168,8 @@ The sender's `dataType` will cause one of the following messages to be sent:
 * If `dataType` is `binary`, use `message_response_message.data.binary_data`. 
 * If `dataType` is `protobuf`, use `message_response_message.data.protobuf_data`. 
 * If `dataType` is `json`, use `message_response_message.data.text_data`, and the content is a serialized JSON string.
+
+`DownstreamMessage.DataMessage` has `sequence_id` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### System response
 
