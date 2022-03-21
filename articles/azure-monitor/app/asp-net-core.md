@@ -35,7 +35,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 ## Prerequisites
 
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).
-- A valid Application Insights instrumentation key. This key is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get an instrumentation key, see [Create an Application Insights resource](./create-new-resource.md).
+- A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
 
 > [!IMPORTANT]
 > [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** using connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
@@ -88,14 +88,14 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
         }
     ```
 
-3. Set up the instrumentation key.
+3. Set up the connection string.
 
-    Although you can provide the instrumentation key as an argument to `AddApplicationInsightsTelemetry`, we recommend that you specify the instrumentation key in configuration. The following code sample shows how to specify an instrumentation key in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
+    Although you can provide the connection string as an argument to `AddApplicationInsightsTelemetry`, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
 
     ```json
         {
           "ApplicationInsights": {
-            "InstrumentationKey": "putinstrumentationkeyhere"
+            "ConnectionString" : "Copy from Application Insights Resource Overview"
           },
           "Logging": {
             "LogLevel": {
@@ -105,7 +105,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
         }
     ```
 
-    Alternatively, specify the instrumentation key in either of the following environment variables:
+    Alternatively, specify the connection string in either of the following environment variables:
 
     * `APPINSIGHTS_INSTRUMENTATIONKEY`
 
@@ -113,21 +113,19 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
     For example:
 
-    * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+    * `SET ApplicationInsights:InstrumentationKey = <Copy from Application Insights Resource Overview>`
 
-    * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
+    * `SET APPINSIGHTS_INSTRUMENTATIONKEY = <Copy from Application Insights Resource Overview>`
 
     * Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` is used in [Azure Web Apps](./azure-web-apps.md?tabs=net), but it can also be used in all places where this SDK is supported. (If you're doing codeless web app monitoring, this format is required if you aren't using connection strings.)
 
-    In lieu of setting instrumentation keys, you can now also use [Connection Strings](./sdk-connection-string.md?tabs=net).
-
     > [!NOTE]
-    > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
+    > An connection string specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
 
 ### User secrets and other configuration providers
 
-If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
-Starting from Microsoft.ApplicationInsights.AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), calling `services.AddApplicationInsightsTelemetry()` automatically reads the instrumentation key from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There is no need to explicitly provide the `IConfiguration`.
+If you want to store the connection string in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
+Starting from Microsoft.ApplicationInsights.AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), calling `services.AddApplicationInsightsTelemetry()` automatically reads the connection string from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There is no need to explicitly provide the `IConfiguration`.
 
 ## Run your application
 
@@ -188,7 +186,7 @@ The `.cshtml` file names referenced earlier are from a default MVC application t
 If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md). To do this, add the JavaScript snippet to an equivalent file that controls the `<head>` of all pages within your app. Or you can add the snippet to multiple pages, but this solution is difficult to maintain and we generally don't recommend it.
 
 > [!NOTE]
-> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the instrumentation key, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
+> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
 
 ## Configure the Application Insights SDK
 
@@ -236,12 +234,12 @@ For the most current list, see the [configurable settings in `ApplicationInsight
 
 ### Configuration recommendation for Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0 and later
 
-In Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later, we recommend configuring every setting available in `ApplicationInsightsServiceOptions`, including **InstrumentationKey** using the application's `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the following example. The following section from appsettings.json configures the instrumentation key and disables adaptive sampling and performance counter collection.
+In Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later, we recommend configuring every setting available in `ApplicationInsightsServiceOptions`, including **ConnectionString** using the application's `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the following example. The following section from appsettings.json configures the connection string and disables adaptive sampling and performance counter collection.
 
 ```json
 {
     "ApplicationInsights": {
-    "InstrumentationKey": "putinstrumentationkeyhere",
+    "ConnectionString": "Copy from Application Insights Resource Overview",
     "EnableAdaptiveSampling": false,
     "EnablePerformanceCounterCollectionModule": false
     }
