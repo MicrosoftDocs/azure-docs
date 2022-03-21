@@ -188,11 +188,11 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Virtual machines**, search for VMs as needed, and select each VM you want to migrate. Then click **Next:Target settings**. 
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-vmware.png" alt-text="Screenshot of selected VMs.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/select-vm.png" alt-text="Screenshot of selected VMs.":::
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.  
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/target-settings.png" alt-text="Screenshot of target settings.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-hyper-v.png" alt-text="Screenshot of target settings.":::
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
@@ -234,7 +234,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/disks.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 
@@ -367,17 +367,14 @@ Now, select machines for replication and migration.
 1. In **Process Server**, select the name of the replication appliance. 
 1. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines.**
 
-    ![Diagram that shows how to complete source settings.](./media/how-to-use-azure-migrate-with-private-endpoints/source-settings-vmware.png)
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/source-settings-vmware.png" alt-text="Diagram that shows how to complete source settings.":::
 
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 1. Select each VM you want to migrate. Then click **Next:Target settings**. 
 
-    ![Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-vmware.png) 
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/select-vm.png" alt-text="Screenshot of selected VMs to be replicated.":::
 
 1. In **Target settings**, select the subscription,the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
-
-    ![Screenshot of target settings.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings.png)
-
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
 
@@ -418,7 +415,7 @@ Now, select machines for replication and migration.
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 
-    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png)  
+    :::image type="content" source="../media/how-to-use-azure-migrate-with-private-endpoints/disks.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
 
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
