@@ -440,6 +440,84 @@ For example, the following configuration shows how you can add a unique identifi
 - Keys are case insensitive
 - Values are case-sensitive
 
+## Trailing Slashes
+
+A trailing slash is the `/` at the end of a URL. The following redirect rules will apply for each of the available configurations:
+
+### undefined
+
+This is the default mode for Static Web Apps: 
+
+| Requests to... | returns... | with the status... |
+|--|--|--|
+| _/folder_ | The _/folder/index.html_ file | `200` |
+| _/folder/_ | The _/folder/index.html_ file | `200` |
+| _/folder/index.html_ | The _/folder/index.html_ file | `200` |
+| _/file_ | The _/file.html_ file | `200` |
+| _/file/_ | The _/file.html_ file | `301` |
+| _/file.html_ | The _/file.html_ file | `200` |
+| _/both_ | The _/both.html_ file | `200` |
+| _/both.html_ | The _/both.html_ file | `200` |
+| _/both/_ | The _/both/index.html_ file | `200` |
+| _/both/index.html_ | The _/both/index.html_ file | `200` |
+
+### auto
+
+```json
+"trailingSlashes": "auto"
+```
+
+| Requests to... | returns... | with the status... |
+|--|--|--|
+| _/folder_ | The _/folder/index.html_ file | `301` |
+| _/folder/_ | The _/folder/index.html_ file | `200` |
+| _/folder/index.html_ | The _/folder/index.html_ file | `301` |
+| _/file_ | The _/file.html_ file | `200` |
+| _/file/_ | The _/file.html_ file | `301` |
+| _/file.html_ | The _/file.html_ file | `301` |
+| _/both_ | The _/both.html_ file | `200` |
+| _/both.html_ | The _/both.html_ file | `301` |
+| _/both/_ | The _/both/index.html_ file | `200` |
+| _/both/index.html_ | The _/both/index.html_ file | `301` |
+
+### always 
+
+```json
+"trailingSlashes": "always"
+```
+
+| Requests to... | returns... | with the status... |
+|--|--|--|
+| _/folder_ | The _/folder/index.html_ file | `301` |
+| _/folder/_ | The _/folder/index.html_ file | `200` |
+| _/folder/index.html_ | The _/folder/index.html_ file | `301` |
+| _/file_ | The _/file.html_ file | `301` |
+| _/file/_ | The _/file.html_ file | `200` |
+| _/file.html_ | The _/file.html_ file | `301` |
+| _/both_ | The _/both/index.html_ file | `301` |
+| _/both.html_ | The _/both/index.html_ file | `301` |
+| _/both/_ | The _/both/index.html_ file | `200` |
+| _/both/index.html_ | The _/both/index.html_ file | `301` |
+
+### none
+
+```json
+"trailingSlashes": "none"
+```
+
+| Requests to... | returns... | with the status... |
+|--|--|--|
+| _/folder_ | The _/folder/index.html_ file | `200` |
+| _/folder/_ | The _/folder/index.html_ file | `301` |
+| _/folder/index.html_ | The _/folder/index.html_ file | `301` |
+| _/file_ | The _/file.html_ file | `200` |
+| _/file/_ | The _/file.html_ file | `301` |
+| _/file.html_ | The _/file.html_ file | `301` |
+| _/both_ | The _/both.html_ file | `200` |
+| _/both.html_ | The _/both.html_ file | `301` |
+| _/both/_ | The _/both.html_ file | `301` |
+| _/both/index.html_ | The _/both.html_ file | `301` |
+
 ## Example configuration file
 
 ```json
