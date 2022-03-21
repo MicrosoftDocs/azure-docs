@@ -18,7 +18,7 @@ This article highlights the limits that currently exist in the Azure Purview ser
 |**Resource**|  **Default Limit**  |**Maximum Limit**|
 |---|---|---|
 |Azure Purview accounts per region, per tenant (all subscriptions combined)|3|Contact Support|
-|Data Map throughput^ <br><small>There is no default limit on the data map metadata storage</small>| 10 capacity units <br><small>250 operations per second</small> | 100 capacity units <br><small>2,500 operations per second</small> |
+|Data Map throughput^ <br><small>There's no default limit on the data map metadata storage</small>| 10 capacity units <br><small>250 operations per second</small> | 100 capacity units <br><small>2,500 operations per second</small> |
 |vCores available for scanning, per account*|160|160|
 |Concurrent scans per Purview account. The limit is based on the type of data sources scanned*|5 | 10 |
 |Maximum time that a scan can run for|7 days|7 days|
@@ -29,13 +29,13 @@ This article highlights the limits that currently exist in the Azure Purview ser
 |Maximum length of classification attribute  name and value|32 KB|32 KB|
 |Maximum number of glossary terms, per account|100K|100K|
 
-\* Self-hosted integration runtime scenarios are not included in the limits defined in the above table.
+\* Self-hosted integration runtime scenarios aren't included in the limits defined in the above table.
 
 ^ Increasing the data map throughput limit also increases the minimum number of capacity units with no usage. See [Data Map throughput](concept-elastic-data-map.md) for more info.
  
 ## Request quota increase
 
-Use the following steps to create a new support request from the Azure portal to increase quota for Azure Purview. You can create a quota request for additional Azure Purview accounts in a subscription, accounts in a tenant and the data map throughput of a specific account. 
+Use the following steps to create a new support request from the Azure portal to increase quota for Azure Purview. You can create a quota request for Azure Purview accounts in a subscription, accounts in a tenant and the data map throughput of a specific account. 
 
 1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 

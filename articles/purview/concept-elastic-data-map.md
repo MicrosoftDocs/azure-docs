@@ -105,10 +105,9 @@ Based on the Data Map operations/second and metadata storage consumption in this
 The default limit for maximum operations per second is 10 capacity units. If you are working with a very large Azure Purview environment and require a higher throughput, you can request a larger capacity of elasticity window by [creating a quota request](how-to-manage-quotas.md#request-quota-increase). Select "Data map capacity unit" as the quota type and provide as much relevant information as you can about your environment and the additional capacity you would like to request.
 
 > [!IMPORTANT]
-> There is no default limit for metadata storage. As you add more metadata to your data map, it will elastically increase. 
+> There's no default limit for metadata storage. As you add more metadata to your data map, it will elastically increase. 
 
 Increasing the operations throughput limit will also increase the minimum number of capacity units. If you increase the throughput limit to 20, the minimum capacity units you will be charged is 2 CUs. The below table illustrates the possible throughput options. The number you enter in the quota request is the minimum number of capacity units on the account.
-
 
 
 | Minimum capacity units | Operations throughput limit |
