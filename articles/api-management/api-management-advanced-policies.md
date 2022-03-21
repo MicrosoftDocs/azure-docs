@@ -258,7 +258,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="IncludeFragment"></a> Include fragment
 
-The `include-fragment` policy inserts a previously created policy fragment in a policy definition file. Policy fragments are centrally managed reusable XML policy snippets that can be included in any policy definition.
+The `include-fragment` policy inserts a previously created [policy fragment](policy-fragments.md) in a policy definition file. Policy fragments are centrally managed reusable XML policy snippets that can be included in any policy definition.
 
 ### Policy statement
 
