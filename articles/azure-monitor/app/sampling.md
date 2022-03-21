@@ -309,8 +309,8 @@ By default no sampling is enabled in the Java auto-instrumentation and SDK. Curr
 
 #### Configuring Java auto-instrumentation
 
-* To configure sampling overrides that override the defaulr sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
-* To configure fixed-rate samping that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).
+* To configure sampling overrides that override the default sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
+* To configure fixed-rate sampling that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).
 
 #### Configuring Java 2.x SDK
 
@@ -500,13 +500,13 @@ If the Application Insights SDK did **not** need to throttle the telemetry, the 
 
 When the SDK **does** throttle the telemetry through sampling the `itemCount` is less representative of the amount of telemetry records stored. For example, if the decision was made to keep 1% of all the records and the sample rate was 99% for the 100 telemetry records in the above example. That would mean only a single record out of all the items would be stored. To illustrate this, if the SDK picks one of the request telemetry records it will have to drop all of the other 99 records (24 requests, 25 dependencies, 25 traces, 25 exceptions). Although only 1 record is stored the SDK sets the `itemCount` field for the request as 100. This is because the single ingested record represents 100 total telemetry records that executed within the web application.
 
-![Sample rate at 99 percent and the itemCount is 100 visualized](./media/sampling/SamplingWithLegend-99Sampled.png) 
+![Sample rate at 99 percent and the itemCount is 100 visualized](./media/sampling/sampling-with-legend-99-sampled.png) 
 ![Sample rate at 99 percent and the itemCount is 100 in percentages](./media/sampling/sample-rate-99.png) **Sample Rate 99% 1 Request (itemCount=100) 0 Dependencies 0 Traces 0 Exceptions**
 
 
-One caveat for this example is that App Insights SDK samples based on operation id, meaning that an `operation_Id` is selected and **all** of the telemetry for that single operation are ingested and saved (not random individual records). This can also result in fluctuations based on application operation telemetry counts. If one operation has a higher amount of records and that operation is sampled it would show up as a spike in adjusted sample rates. For example if one operation produces 4000 telemetry records and the other operations only produce 1 to 3 telemetry records. The sampling based on `operation_Id` is done to enable an end-to-end view for failing operations. All telemetry for an operation can be reviewed, including exception details, to precisely diagnose application code errors.
+One caveat for this example is that App Insights SDK samples based on operation ID, meaning that an `operation_Id` is selected and **all** of the telemetry for that single operation are ingested and saved (not random individual records). This can also result in fluctuations based on application operation telemetry counts. If one operation has a higher amount of records and that operation is sampled it would show up as a spike in adjusted sample rates. For example if one operation produces 4000 telemetry records and the other operations only produce 1 to 3 telemetry records. The sampling based on `operation_Id` is done to enable an end-to-end view for failing operations. All telemetry for an operation can be reviewed, including exception details, to precisely diagnose application code errors.
 
-As sampling rates increase log based queries accuracy decrease and are usually inflated. This only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range ( ~ 60%). The impact varies based on telemetry types, telemetry counts per operation as well as other factors.
+As sampling rates increase log based queries accuracy decrease and are usually inflated. This only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range (~ 60%). The impact varies based on telemetry types, telemetry counts per operation as well as other factors.
 
 To address the problems introduced by sampling pre-aggregated metrics are used in the SDKs. Additional details about these metrics, log-based and pre-aggregated, can be referenced in [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-pre-aggregated-metrics-table). Relevant properties of the logged data are identified and statistics extracted before sampling occurs. To avoid resource and cost issues, metrics are aggregated. The resulting aggregate data is represented by only a few metric telemetry items per minute, instead of potentially thousands of event telemetry items. These metrics calculate the 25 requests from the example and send a metric to the MDM account reporting “this web app processed 25 requests”, but the sent request telemetry record will have an `itemCount` of 100. These pre-aggregated metrics report the correct numbers and can be relied upon when sampling affects the log-based queries results. They can be viewed on the Metrics blade of the Application Insights portal.
 
