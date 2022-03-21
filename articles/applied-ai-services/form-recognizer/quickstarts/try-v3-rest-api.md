@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer REST API | Preview"
+title: "Quickstart: Form Recognizer REST API v3.0 | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0 (preview)
 author: laujan
@@ -11,7 +11,7 @@ ms.date: 03/16/2022
 ms.author: lajanuar
 ---
 
-# Get started: Form Recognizer REST API v3.0 | Preview
+# Get started: Form Recognizer REST API 2022-01-30-preview
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities. 
