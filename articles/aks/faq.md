@@ -209,7 +209,7 @@ The feature to enable storing customer data in a single region is currently only
 
 ## Are AKS images required to run as root?
 
-Except for the following two images, AKS images aren't required to run as root:
+The following images have functional requirements to "Run as Root" and exceptions must be filed for any policies:
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
