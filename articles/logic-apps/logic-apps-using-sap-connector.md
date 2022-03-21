@@ -27,7 +27,7 @@ This article explains how you can access your SAP resources from Azure Logic App
 
   * If you're running your logic app workflow in a Premium-level [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), review the [ISE prerequisites](#ise-prerequisites).
 
-* An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
+* An [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP mMssage server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
 
   > [!IMPORTANT]
   > Make sure that you set up your SAP server and user account to allow using RFC. For more information, which includes the supported 
@@ -509,11 +509,11 @@ Next, create an action to send your IDoc message to SAP when your [Request trigg
 
       * For **Application Server**, these properties, which usually appear optional, are required:
 
-        ![Screenshot that shows how to create SAP application server connection.](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+        ![Screenshot that shows how to create SAP Application server connection.](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
       * For **Group**, these properties, which usually appear optional, are required:
 
-        ![Screenshot that shows how to create SAP message server connection.](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+        ![Screenshot that shows how to create SAP Message server connection.](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
         In SAP, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
 
@@ -532,7 +532,7 @@ Next, create an action to send your IDoc message to SAP when your [Request trigg
 
 1. Now find and select an action from your SAP server.
 
-   1. In the **SAP Action** box, select the folder icon. From the file list, find and select the SAP message you want to use. To navigate the list, use the arrows.
+   1. In the **SAP Action** box, select the folder icon. From the file list, find and select the SAP Message you want to use. To navigate the list, use the arrows.
 
       This example selects an IDoc with the **Orders** type.
 
@@ -780,11 +780,11 @@ This example uses a logic app workflow that triggers when the app receives a mes
 
       * For **Application Server**, these properties, which usually appear optional, are required:
 
-        ![Screenshot that shows creating a connection to SAP application server.](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+        ![Screenshot that shows creating a connection to SAP Application server.](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
       * For **Group**, these properties, which usually appear optional, are required:
 
-        ![Screenshot that shows creating a connection to SAP message server](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+        ![Screenshot that shows creating a connection to SAP Message server](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
@@ -855,7 +855,7 @@ If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message
   sapgw00  3300/tcp
   ```
 
-You might get a similar error when SAP application server or message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP application server or message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
+You might get a similar error when SAP Application server or Message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP Application server or Message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
 
 ```text
 10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
@@ -1499,11 +1499,11 @@ The following example is an alternative method to set the transaction identifier
 
       * For **Application Server**, these properties, which usually appear optional, are required:
 
-        ![Screenshot that shows creating a connection for SAP application server](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+        ![Screenshot that shows creating a connection for SAP Application server](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
       * For **Group**, these properties, which usually appear optional, are required:
 
-        ![Screenshot that shows creating a connection for SAP message server](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+        ![Screenshot that shows creating a connection for SAP Message server](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
    1. When you're finished, select **Create**.
 
