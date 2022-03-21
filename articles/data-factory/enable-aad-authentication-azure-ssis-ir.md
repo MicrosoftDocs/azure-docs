@@ -30,9 +30,6 @@ For more info about the managed identity for your ADF, see [Managed identity for
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!NOTE]
-> For Azure-SSIS IR in Azure Synapse, user-assigned managed identity is not supported.
-
 ## Enable Azure AD authentication on Azure SQL Database
 
 Azure SQL Database supports creating a database with an Azure AD user. First, you need to create an Azure AD group with the specified system/user-assigned managed identity for your ADF as a member. Next, you need to set an Azure AD user as the Active Directory admin for your Azure SQL Database server and then connect to it on SQL Server Management Studio (SSMS) using that user. Finally, you need to create a contained user representing the Azure AD group, so the specified system/user-assigned managed identity for your ADF can be used by Azure-SSIS IR to create SSISDB on your behalf.

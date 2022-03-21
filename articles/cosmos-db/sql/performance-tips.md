@@ -6,7 +6,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 02/18/2022
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -63,6 +63,10 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 
 > [!NOTE] 
 > High CPU usage can cause increased latency and request timeout exceptions.
+
+## <a id="metadata-operations"></a> Metadata operations
+
+Do not verify a Database and/or Collection exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](/azure/cosmos-db/sql/troubleshoot-request-rate-too-large#rate-limiting-on-metadata-requests) that do not scale like data operations.
 
 ## <a id="logging-and-tracing"></a> Logging and tracing
 

@@ -6,6 +6,11 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
+### 2022-March release
+
+#### New styles public preview for fr-FR Denise
+Introducing 2 new styles for public preview on fr-FR Denise: Cheerful and Sad
+
 ### 2022-January release
 
 #### New languages and voices
@@ -82,9 +87,16 @@ Added new voices for en-GB, fr-FR and de-DE in preview:
 
 For the full list of available voices, see [Language support](../../language-support.md#prebuilt-neural-voices-in-preview).
 
-#### Word pronunciation
+#### Pronunciation accuracy
 
-Improved English word pronunciation for all `he-IL` voices. 
+- Improved English word pronunciation for all `he-IL` voices. 
+- Improved word-level pronunciation accuracy for `cs-CZ` and `da-DK`.
+- Improved Arabic diacritics and Hebrew Nikud handling.
+- Improved entity reading for `ja-JP` 
+
+#### Speech Studio
+- Custom Neural Voice: enabled additional model testing using the batch API (long audio API)
+- Audio Content Creation: enabled more output formats 
 
 ### 2021-October release
 

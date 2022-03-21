@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 02/22/2022
 ---
 
 # Move operation support for resources
@@ -53,6 +53,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
@@ -622,6 +623,13 @@ Jump to a resource provider namespace:
 > | virtualmachines | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
 > | virtualmachines / extensions | Yes | Yes | No |
 > | virtualmachinescalesets | Yes | Yes | No |
+
+## Microsoft.Confluent
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | organizations | No | No | No |
 
 ## Microsoft.Consumption
 

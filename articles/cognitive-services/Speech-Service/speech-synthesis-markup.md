@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/07/2022
 ms.author: eur
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
@@ -169,10 +169,12 @@ The following table has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
+|`style="envious"`|Express a tone of admiration when you desire something that someone else has.|
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
+|`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
 |`style="newscast"`|Expresses a formal and professional tone for narrating news.|
 |`style="newscast-casual"`|Expresses a versatile and casual tone for general news delivery.|
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
@@ -439,7 +441,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; [International Phonetic Alphabet (IPA)](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`sapi` &ndash; [Speech service phonetic alphabet ](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`ups` &ndash; [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element.| Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element.| Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes |
 
 **Examples**

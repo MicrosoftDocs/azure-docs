@@ -82,4 +82,4 @@ By default, data exports from IoT Central include mapped data. To exclude mapped
 
 ## Next steps
 
-Now that you've learned how to map data for your device, a suggested next step is to learn [How to use analytics to analyze device data](howto-create-analytics.md).
+Now that you've learned how to map data for your device, a suggested next step is to learn [How to use data explorer to analyze device data](howto-create-analytics.md).

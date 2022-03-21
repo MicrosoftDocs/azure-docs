@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a Log Analytics workspace in Azure Monitor using PowerShell
-This article provides two code samples that show how to create and configure a Log Analytics workspace in Azure Monitor.  
+This article provides two code samples that show how to create and configure a Log Analytics workspace in Azure Monitor. 
 
 
 > [!NOTE]
@@ -40,7 +40,7 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku
 
 ## Create workspace and configure data sources
 
-The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md).
+The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md). A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups.
 
 This script performs the following functions:
 

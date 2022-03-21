@@ -383,7 +383,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[South River Technologies](https://southrivertech.com)|
 |[Stabilify](http://www.stabilify.net/)|
 |[Stafford Associates](https://www.staffordnet.com/)|
-|[Static Networks, LLC](https://staticnetworks.com)|
+|Static Networks, LLC|
 |[Steel Root](https://steelroot.us)|
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|

@@ -1,7 +1,6 @@
 ---
 title: Discover third-party solutions from Azure Synapse partners through Synapse Studio
 description: Learn how to discover new third-party solutions that are tightly integrated with Azure Synapse partners
-services: synapse-analytics
 manager: santoshb
 ms.service: synapse-analytics
 ms.topic: conceptual

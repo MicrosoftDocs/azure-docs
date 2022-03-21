@@ -2,11 +2,10 @@
 title: How to configure Azure AD certificate-based authentication without federation (Preview) - Azure Active Directory
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/18/2022
 
 ms.author: justinha
 author: justinha
@@ -68,6 +67,36 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 ### Add
 
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
+
+**AuthorityType**
+- Use 0 to indicate that this is a Root Certificate Authority
+- Use 1 to indicate that this is an Intermediate or Issuing Certificate Authority
+
+**crlDistributionPoint**
+
+You can validate the crlDistributionPoint value you provide in the above PowerShell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
+
+The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL.
+
+| CA Certificate Info |= |Downloaded CRL Info|
+|----|:-:|----|
+|Subject |=|Issuer |
+|Subject Key Identifier |=|Authority Key Identifier (KeyID) |
+
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/certificate-crl-compare.png" alt-text="Compare CA Certificate with CRL Information.":::
+
+>[!TIP]
+>The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
+>
+>- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
+>
+>If Issuing CA is Windows Server
+>
+>- On the [Properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
+ of the CA in the Certificate Authority Microsoft Management Console (MMC)
+>- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
+
+For additional details see: [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
 
 ### Remove
 
@@ -251,7 +280,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
-### Enable Azure AD CBA using Microsoft Graph API
+## Enable Azure AD CBA using Microsoft Graph API
 
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
@@ -260,7 +289,7 @@ To enable the certificate-based authentication and configure username bindings u
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and sign in to your tenant.
-1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features.md#consent-to-permissions).
+1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features#consent-to-permissions).
 1. GET all authentication methods:
 
    ```http
@@ -270,7 +299,7 @@ To enable the certificate-based authentication and configure username bindings u
 1. GET the configuration for the x509Certificate authentication method:
 
    ```http
-   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
+   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/X509Certificate
    ```
 
 1. By default, the x509Certificate authentication method is disabled. To allow users to sign in with a certificate, you must enable the authentication method and configure the authentication and username binding policies through an update operation. To update policy, run a PATCH request.

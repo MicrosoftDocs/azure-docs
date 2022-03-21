@@ -3,6 +3,8 @@ title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
 ms.date: 12/08/2021
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 # Introduction to Microsoft Defender for container registries (deprecated)
 
@@ -80,7 +82,7 @@ Defender for Cloud pulls the image from the registry and runs it in an isolated 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
 ### Can I get the scan results via REST API?
-Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
+Yes. The results are under [Sub-Assessments REST API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
 For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](#availability).

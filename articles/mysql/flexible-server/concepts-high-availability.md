@@ -102,7 +102,9 @@ Here are some considerations to keep in mind when you use high availability:
 * Read replicas aren't supported for HA servers.
 * Data-in Replication isn't supported for HA servers.
 * GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
- 
+>[!Note] 
+>If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
+
 ## Frequently asked questions (FAQ)
 
 - **How am I billed for high available (HA) servers?**

@@ -3,8 +3,8 @@ title: Azure CLI script sample - create a logic app
 description: Sample script to create a logic app through the Logic Apps extension in the Azure CLI.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: conceptual
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
 ---

@@ -4,7 +4,7 @@ description: How to use IoT Hub device management to initiate a remote device re
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: python, azurecli
+ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: kgremban

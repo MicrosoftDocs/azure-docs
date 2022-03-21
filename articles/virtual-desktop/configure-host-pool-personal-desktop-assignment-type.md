@@ -93,6 +93,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 ```
 
 >[!IMPORTANT]
+> - Azure Virtual Desktop will not delete any VHD or profile data for unassigned personal desktops.
 > - You must include the _-Force_ parameter when running the PowerShell cmdlet to unassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
 > - There must be no existing user sessions on the session host when you unassign the user from the personal desktop. If there's an existing user session on the session host while you're unassigning it, you won't be able to unassign the personal desktop successfully.
 > - If the session host has no user assignment, nothing will happen when you run this cmdlet.
@@ -123,6 +124,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 ```
 
 >[!IMPORTANT]
+> - Azure Virtual Desktop will not delete any VHD or profile data for reassigned personal desktops.
 > - You must include the _-Force_ parameter when running the PowerShell cmdlet to reassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
 > - There must be no existing user sessions on the session host when you reassign a personal desktop. If there's an existing user session on the session host while you're reassigning it, you won't be able to reassign the personal desktop successfully.
 > - If the user principal name (UPN) you enter for the _-AssignedUser_ parameter is the same as the UPN currently assigned to the personal desktop, the cmdlet won't do anything.

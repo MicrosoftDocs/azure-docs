@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.assetid: 
 ms.service: azure-app-configuration
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: alkemper 

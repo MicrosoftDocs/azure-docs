@@ -4,7 +4,7 @@ description: This quickstart walks you through the steps to get started with Azu
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-arm
 ---
 
 # Quickstart: Get started with Azure Video Analyzer

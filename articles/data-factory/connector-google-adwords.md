@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 02/24/2022
 ---
 
 # Copy data from Google AdWords using Azure Data Factory or Synapse Analytics
@@ -63,12 +63,18 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
+> [!Important]
+> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API. Please refer this [document](connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api) for detailed migration steps and recommendations. Please make sure the migration to be done before **April 27, 2022**.  
+
 The following properties are supported for Google AdWords linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
+| connectionProperties | A group of properties that defines how to connect to Google AdWords. | Yes |
+| ***Under `connectionProperties`:*** | | |
 | clientCustomerID | The Client customer ID of the AdWords account that you want to fetch report data for.  | Yes |
+| loginCustomerID | The customer ID of the Google AdWords manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the AdWords API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
 | refreshToken | The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
@@ -87,32 +93,34 @@ The following properties are supported for Google AdWords linked service:
     "properties": {
         "type": "GoogleAdWords",
         "typeProperties": {
-            "clientCustomerID" : "<clientCustomerID>",
-            "developerToken": {
-                "type": "SecureString",
-                "value": "<developerToken>"
-            },
-            "authenticationType" : "ServiceAuthentication",
-            "refreshToken": {
-                "type": "SecureString",
-                "value": "<refreshToken>"
-            },
-            "clientId": {
-                "type": "SecureString",
-                "value": "<clientId>"
-            },
-            "clientSecret": {
-                "type": "SecureString",
-                "value": "<clientSecret>"
-            },
-            "email" : "<email>",
-            "keyFilePath" : "<keyFilePath>",
-            "trustedCertPath" : "<trustedCertPath>",
-            "useSystemTrustStore" : true,
+            "connectionProperties": {
+                "clientCustomerID": "<clientCustomerID>",
+                "loginCustomerID": "<loginCustomerID>",
+                "developerToken": {
+                    "type": "SecureString",
+                    "value": "<developerToken>"
+                },
+                "authenticationType": "ServiceAuthentication",
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refreshToken>"
+                },
+                "clientId": {
+                    "type": "SecureString",
+                    "value": "<clientId>"
+                },
+                "clientSecret": {
+                    "type": "SecureString",
+                    "value": "<clientSecret>"
+                },
+                "email": "<email>",
+                "keyFilePath": "<keyFilePath>",
+                "trustedCertPath": "<trustedCertPath>",
+                "useSystemTrustStore": true,
+            }
         }
     }
 }
-
 ```
 
 ## Dataset properties

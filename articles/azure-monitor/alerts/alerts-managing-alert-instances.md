@@ -2,7 +2,7 @@
 title: Manage alert instances in Azure Monitor
 description: Managing alert instances across Azure
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 2/23/2022
 
 ---
 

@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Azure Spring Cloud supports microservices on Azure.  Increasing business can require multiple data centers with management of multiple instances of Azure Spring Cloud.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+Azure Spring Cloud supports Spring applications on Azure. Increasing business can require multiple data centers with management of multiple instances of Azure Spring Cloud.
 
 Azure already provides different load-balance solutions. There are three options to integrate Azure Spring Cloud with Azure load-balance solutions:
 

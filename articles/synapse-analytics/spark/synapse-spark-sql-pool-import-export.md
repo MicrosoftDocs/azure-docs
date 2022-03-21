@@ -1,7 +1,6 @@
 ---
 title: Import and Export data between serverless Apache Spark pools and SQL pools
 description: This article introduces the Synapse Dedicated SQL Pool Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
-services: synapse-analytics
 author: kevxmsft
 ms.service: synapse-analytics
 ms.topic: overview

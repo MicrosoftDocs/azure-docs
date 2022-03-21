@@ -42,7 +42,7 @@ When setting up scan, you can choose to scan an entire Google BigQuery project, 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
@@ -52,10 +52,10 @@ When setting up scan, you can choose to scan an entire Google BigQuery project, 
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Download and install BigQuery's JDBC driver on the machine where your self-hosted integration runtime is running. You can find the driver [here](https://cloud.google.com/bigquery/providers/simba-drivers).
+* Download and unzip BigQuery's JDBC driver on the machine where your self-hosted integration runtime is running. You can find the driver [here](https://cloud.google.com/bigquery/providers/simba-drivers).
 
     > [!Note]
-    > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
+    > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
 ## Register
 
@@ -106,7 +106,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
 
         * Select **Basic Authentication** as the Authentication method
         * Provide the email ID of the service account in the User name field. For example, `xyz\@developer.gserviceaccount.com`
-        * Follow below steps to generate the private key, copy the JSON then store it as the value of a Key Vault secret.
+        * Follow below steps to generate the private key, copy the entire JSON key file then store it as the value of a Key Vault secret.
 
         To create a new private key from Google's cloud platform:
         1. In the navigation menu, select IAM & Admin -\> Service Accounts -\> Select a project -\> 
@@ -123,7 +123,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
     1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location. 
 
         > [!Note]
-        > The driver should be accessible to all accounts in the VM.Please do not install in a user account.
+        > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
     1. **Dataset**: Specify a list of BigQuery datasets to import.
         For example, dataset1; dataset2. When the list is empty, all available datasets are imported.

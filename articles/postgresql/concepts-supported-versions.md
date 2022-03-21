@@ -1,11 +1,12 @@
 ---
 title: Supported versions - Azure Database for PostgreSQL - Single Server
 description: Describes the supported Postgres major and minor versions in Azure Database for PostgreSQL - Single Server.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 08/01/2021
+ms.author: sunila
+author: sunilagarwal
+ms.date: 02/17/2021
 ms.custom: fasttrack-edit
 ---
 # Supported PostgreSQL major versions
@@ -20,7 +21,7 @@ The current minor release is 11.11. Refer to the [PostgreSQL documentation](http
 ## PostgreSQL version 10
 The current minor release is 10.16. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-16.html) to learn more about improvements and fixes in this minor release.
 
-## PostgreSQL version 9.6
+## PostgreSQL version 9.6 (retired)
 The current minor release is 9.6.21. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/release-9-6-21.html) to learn more about improvements and fixes in this minor release.
 
 ## PostgreSQL version 9.5 (retired)

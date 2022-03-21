@@ -15,7 +15,7 @@ After you enable monitoring of your Azure Red Hat OpenShift and Red Hat OpenShif
 1. To first identify the Container insights helm chart release installed on your cluster, run the following helm command.
 
     ```
-    helm list
+    helm list --all-namespaces
     ```
 
     The output will resemble the following:
