@@ -21,6 +21,14 @@ This article explains the data resiliency behavior for Azure Stack Edge service 
 
 Azure Stack Edge service is used to deploy compute workloads on purpose-built hardware devices, right at the edge where the data is created. The purpose-built Azure Stack Edge devices are available in various form factors and can be ordered, configured, and monitored via the Azure portal.
 
+### Cloud environments for Azure Stack Edge
+
+Azure Stack Edge solution can also be deployed in the following distinct Azure cloud environments that are available to the customers: 
+
+- Azure public cloud, which is available globally.
+- Azure Government which is available in four regions in the United States to US government agencies and their partners.
+- Azure Government for Department of Defense (DoD) is available in two regions in the United States to the US Department of Defense.
+
 ### Regions for Azure Stack Edge
 
 Region information is used for Azure Stack Edge service in the following ways:
@@ -30,13 +38,7 @@ Region information is used for Azure Stack Edge service in the following ways:
 - Finally, there is a region associated with the storage accounts where the customer data is stored by the Azure Stack Edge service. You can configure SMB or NFS shares on the service to store customer data and then associate an Azure Storage account with each configured share. Depending on the Azure Storage account configured for the share, your data is automatically and transparently replicated. For example, Azure Geo-Redundant Storage account (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see Azure Storage Redundancy Options.
 
 
-### Cloud environments for Azure Stack Edge
 
-Azure Stack Edge solution can also be deployed in the following distinct Azure cloud environments that are available to the customers: 
-
-- Azure public cloud, which is available globally.
-- Azure Government which is available in four regions in the United States to US government agencies and their partners.
-- Azure Government for Department of Defense (DoD) is available in two regions in the United States to the US Department of Defense.
 
 ### Single region vs. regional pairs
 
