@@ -363,8 +363,6 @@
       href: database/elastic-pool-overview.md
     - name: Logical servers
       href: database/logical-servers.md
-    - name: Job automation with elastic jobs
-      href: database/job-automation-overview.md
     - name: Serverless
       href: database/serverless-tier-overview.md
     - name: Hyperscale
