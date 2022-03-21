@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0.
 
-You don't need to learn OAuth and OIDC at the protocol level to use the Microsoft identity platform. However, debugging apps you build with the [Microsoft Authentication Library (MSAL)](msal-overview.md) can be made easier by learning a few basics of the protocols and their implementation on the identity platform.
+You don't need to learn OAuth and OIDC at the protocol level to use the Microsoft identity platform. However, debugging your apps can be made easier by learning a few basics of the protocols and their implementation on the identity platform.
 
 ## Roles in OAuth 2.0
 
@@ -34,7 +34,7 @@ Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentic
 
 * **Resource owner** - The resource owner in an auth flow is typically the application user, or *end-user* in OAuth terminology. The end-user "owns" the protected resource--their data--your app accesses on their behalf. The resource owner can grant or deny your app (the client) access to the resources they own. For example, your app might call an external system's API to get a user's email address from their profile on that system. Their profile data is a resource the end-user owns on the external system, and the end-user can consent to or deny your app's request to access their data.
 
-* **Resource server** - MThe resource server hosts or provides access to a resource owner's data. Most often, the resource server is a web API fronting a data store. The resource server relies on the authorization server to perform authentication and uses information in bearer tokens issued by the authorization server to grant or deny access to resources.
+* **Resource server** - The resource server hosts or provides access to a resource owner's data. Most often, the resource server is a web API fronting a data store. The resource server relies on the authorization server to perform authentication and uses information in bearer tokens issued by the authorization server to grant or deny access to resources.
 
 ## Tokens
 
