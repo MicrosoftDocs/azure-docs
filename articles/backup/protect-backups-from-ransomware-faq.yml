@@ -16,7 +16,7 @@ summary: |
 sections:
   - name: Ignored
     questions:
-      - question: What’re the best practices to configure and protect Azure Backups against security and ransomware threats?
+      - question: What are the best practices to configure and protect Azure Backups against security and ransomware threats?
         answer: |
           Your backup data that’s securely stored in an Azure resource called Recovery Services Vault or Backup Vault is *isolated*. This vault is a management entity, any application or guest don’t have direct access to these backups, thus *prevents malicious actors* to perform destructive operations on the backup storage, such as deletions or tampering of backup data.
  

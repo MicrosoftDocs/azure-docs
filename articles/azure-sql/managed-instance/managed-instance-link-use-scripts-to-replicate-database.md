@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: mathoma
+ms.reviewer: mathoma, danil
 ms.date: 03/15/2022
 ---
 
@@ -75,13 +75,14 @@ The following section discloses steps to complete these actions.
 First, create master key on SQL Server and generate authentication certificate.
   
 ```sql
+-- Execute on SQL Server
 -- Create MASTER KEY encryption password
 -- Keep the password confidential and in a secure place.
 USE MASTER
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong_password>'
 GO
 
--- Create the SQL Server certificate for SQL Managed Instance link
+-- Create the SQL Server certificate for the instance link
 USE MASTER
 GO
 
@@ -92,9 +93,10 @@ EXEC sp_executesql @stmt = @create_sqlserver_certificate_command
 GO
 ```
 
-Then, use the following T-SQL query to verify the certificate has been created.
+Then, use the following T-SQL query on SQL Server to verify the certificate has been created.
   
 ```sql
+-- Execute on SQL Server
 USE MASTER
 GO
 SELECT * FROM sys.certificates
@@ -102,9 +104,10 @@ SELECT * FROM sys.certificates
 
 In the query results you'll find the certificate and will see that it has been encrypted with the master key.
 
-Now you can get the public key of the generated certificate.
+Now you can get the public key of the generated certificate on SQL Server.
 
 ```sql
+-- Execute on SQL Server
 -- Show the public key of the generated SQL Server certificate
 USE MASTER
 GO
@@ -120,8 +123,8 @@ Next step should be executed in PowerShell, with installed Az.Sql module, versio
 Execute the following PowerShell script in Azure Cloud Shell (fill out necessary user information, copy, paste into Azure Cloud Shell and execute).
 Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name  of your managed instance. Replace `<PublicKeyEncoded>` below with the public portion of the SQL Server certificate in binary format generated in the previous step. That will be a long string value starting with 0x, that you've obtained from SQL Server.
 
-  
 ```powershell
+# Execute in Azure Cloud Shell
 # ===============================================================================
 # POWERSHELL SCRIPT TO IMPORT SQL SERVER CERTIFICATE TO MANAGED INSTANCE
 # USER CONFIGURABLE VALUES
@@ -136,7 +139,6 @@ $ManagedInstanceName = "<YourManagedInstanceName>"
 # Insert the cert public key blob you got from the SQL Server
 $PublicKeyEncoded = "<PublicKeyEncoded>"
 
-
 # ===============================================================================
 # INVOKING THE API CALL -- REST OF THE SCRIPT IS NOT USER CONFIGURABLE
 # ===============================================================================
@@ -148,7 +150,6 @@ if ((Get-AzContext ) -eq $null)
     Login-AzAccount
 }
 Select-AzSubscription -SubscriptionName $SubscriptionID
-
 
 # Build URI for the API call.
 #
@@ -165,7 +166,6 @@ $bodyFull = @"
 
 echo $bodyFull 
 
-
 # Get auth token and build the HTTP request header.
 #
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
@@ -175,7 +175,6 @@ $token = $profileClient.AcquireAccessToken($currentAzureContext.Tenant.TenantId)
 $authToken = $token.AccessToken
 $headers = @{}
 $headers.Add("Authorization", "Bearer "+"$authToken")
-
 
 # Invoke API call
 #
@@ -191,16 +190,17 @@ Certificate for securing the endpoint for SQL Managed Instance link is automatic
 Use SSMS to connect to the SQL Managed Instance and execute stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key.
 
 ```sql
--- Execute stored procedure on SQL Managed Instance to get public key of the instance certificate.
+-- Execute on Managed Instance
 EXEC sp_get_endpoint_certificate @endpoint_type = 4
 ```
 
-Copy the entire public key from Managed Instance starting with “0x” shown in the previous step and use it in the below query by replacing `<InstanceCertificate>` with the key value. No quotations need to be used.
+Copy the entire public key from Managed Instance starting with “0x” shown in the previous step and use it in the below query on SQL Server by replacing `<InstanceCertificate>` with the key value. No quotations need to be used.
 
 > [!IMPORTANT]
 > Name of the certificate must be SQL Managed Instance FQDN.
 
 ```sql
+-- Execute on SQL Server
 USE MASTER
 CREATE CERTIFICATE [<SQLManagedInstanceFQDN>]
 FROM BINARY = <InstanceCertificate>
@@ -209,22 +209,25 @@ FROM BINARY = <InstanceCertificate>
 Finally, verify all created certificates by viewing the following DMV.
 
 ```sql
+-- Execute on SQL Server
 SELECT * FROM sys.certificates
 ```
 
 ## Mirroring endpoint on SQL Server
 
-If you don’t have existing Availability Group nor mirroring endpoint, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have existing Availability Group or mirroring endpoint, go straight to the next section “Altering existing database mirroring endpoint”
+If you don’t have existing Availability Group nor mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have existing Availability Group or mirroring endpoint, go straight to the next section “Altering existing database mirroring endpoint”
 To verify that you don't have an existing database mirroring endpoint created, use the following script.
 
 ```sql
+-- Execute on SQL Server
 -- View database mirroring endpoints on SQL Server
 SELECT * FROM sys.database_mirroring_endpoints WHERE type_desc = 'DATABASE_MIRRORING'
 ```
 
-In case that the above query doesn't show there exists a previous database mirroring endpoint, execute the following script to create a new database mirroring endpoint on the port 5022 and secure it with a certificate.
+In case that the above query doesn't show there exists a previous database mirroring endpoint, execute the following script on SQL Server to create a new database mirroring endpoint on the port 5022 and secure it with a certificate.
 
 ```sql
+-- Execute on SQL Server
 -- Create connection endpoint listener on SQL Server
 USE MASTER
 CREATE ENDPOINT database_mirroring_endpoint
@@ -240,8 +243,8 @@ GO
 
 Validate that the mirroring endpoint was created by executing the following on SQL Server.
 
-
 ```sql
+-- Execute on SQL Server
 -- View database mirroring endpoints on SQL Server
 SELECT
     name, type_desc, state_desc, role_desc,
@@ -257,16 +260,16 @@ New mirroring endpoint was created with CERTIFICATE authentication, and AES encr
 > [!NOTE]
 > Skip this step if you've just created a new mirroring endpoint. Use this step only if using existing Availability Groups with existing database mirroring endpoint.
 
-
 In case existing Availability Groups are used for SQL Managed Instance link, or in case there's an existing database mirroring endpoint, first validate it satisfies the following mandatory conditions for SQL Managed Instance Link:
 - Type must be “DATABASE_MIRRORING”.
 - Connection authentication must be “CERTIFICATE”.
 - Encryption must be enabled.
 - Encryption algorithm must be “AES”.
 
-Execute the following query to view details for an existing database mirroring endpoint.
+Execute the following query on SQL Server to view details for an existing database mirroring endpoint.
 
 ```sql
+-- Execute on SQL Server
 -- View database mirroring endpoints on SQL Server
 SELECT
     name, type_desc, state_desc, role_desc, connection_auth_desc,
@@ -281,9 +284,10 @@ On SQL Server, one database mirroring endpoint is used for both Availability Gro
 
 Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. See details of possible options at documentation page for [sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
-The script below is provided as an example of how to alter your existing database mirroring endpoint. Depending on your existing specific configuration, you perhaps might need to customize it further for your scenario. Replace `<YourExistingEndpointName>` with your existing endpoint name. Replace `<CERTIFICATE-NAME>` with the name of the generated SQL Server certificate. You can also use `SELECT * FROM sys.certificates` to get the name of the created certificate on the SQL Server.
+The script below is provided as an example of how to alter your existing database mirroring endpoint on SQL Server. Depending on your existing specific configuration, you perhaps might need to customize it further for your scenario. Replace `<YourExistingEndpointName>` with your existing endpoint name. Replace `<CERTIFICATE-NAME>` with the name of the generated SQL Server certificate. You can also use `SELECT * FROM sys.certificates` to get the name of the created certificate on the SQL Server.
 
 ```sql
+-- Execute on SQL Server
 -- Alter the existing database mirroring endpoint to use CERTIFICATE for authentication and AES for encryption
 USE MASTER
 ALTER ENDPOINT <YourExistingEndpointName>   
@@ -297,9 +301,10 @@ ALTER ENDPOINT <YourExistingEndpointName>
 GO
 ```
 
-After running the ALTER endpoint query and setting the dual authentication mode to Windows and Certificate, use again this query to show the database mirroring endpoint details.
+After running the ALTER endpoint query and setting the dual authentication mode to Windows and Certificate, use again this query on SQL Server to show the database mirroring endpoint details.
 
 ```sql
+-- Execute on SQL Server
 -- View database mirroring endpoints on SQL Server
 SELECT
     name, type_desc, state_desc, role_desc, connection_auth_desc,
@@ -318,15 +323,17 @@ If you don't have existing AG the next step is to create an AG on SQL Server. If
 -	Failover mode MANUAL
 -	Seeding mode AUTOMATIC
 
-Use the following script to create a new AG on SQL Server. Replace `<SQLServerName>` with the name of your SQL Server. Find out your SQL Server name with executing the following T-SQL:
+Use the following script to create a new Availability Group on SQL Server. Replace `<SQLServerName>` with the name of your SQL Server. Find out your SQL Server name with executing the following T-SQL:
 
 ```sql
+-- Execute on SQL Server
 SELECT @@SERVERNAME AS SQLServerName 
 ```
 
 Replace `<AGName>` with the name of your availability group. For multiple databases you'll need to create multiple Availability Groups. Managed Instance link requires one database per AG. In this respect, consider naming each AG so that its name reflects the corresponding database - for example `AG_<db_name>`. Replace `<DatabaseName>` with the name of database you wish to replicate. Replace `<SQLServerIP>` with SQL Server’s IP address. Alternatively, resolvable SQL Server host machine name can be used, but you need to make sure that the name is resolvable from SQL Managed Instance virtual network.
 
 ```sql
+-- Execute on SQL Server
 -- Create primary AG on SQL Server
 USE MASTER
 CREATE AVAILABILITY GROUP [<AGName>]
@@ -353,6 +360,7 @@ GO
 Use the following script to list all available Availability Groups and Distributed Availability Groups on the SQL Server. Availability Group state needs to be connected, and Distributed Availability Group state disconnected at this point. Distributed Availability Group state will move to `connected` only when it has been joined with SQL Managed Instance. This will be explained in one of the next steps.
 
 ```sql
+-- Execute on SQL Server
 -- This will show that Availability Group and Distributed Availability Group have been created on SQL Server.
 SELECT
     name, is_distributed, cluster_type_desc,
@@ -372,6 +380,7 @@ Invoking direct API call to Azure can be accomplished with various API clients. 
 Log in to Azure portal and execute the below PowerShell scripts in Azure Cloud Shell. Make the following replacements with the actual values in the script: Replace `<SubscriptionID>` with your Azure Subscription ID. Replace `<ManagedInstanceName>` with the short name of your managed instance. Replace `<AGName>` with the name of Availability Group created on SQL Server. Replace `<DAGName>` with the name of Distributed Availability Group create on SQL Server. Replace `<DatabaseName>` with the database replicated in Availability Group on SQL Server. Replace `<SQLServerAddress>` with the address of the SQL Server. This can be a DNS name, or public IP or even private IP address, as long as the address provided can be resolved from the backend node hosting the SQL Managed Instance.
   
 ```powershell
+# Execute in Azure Cloud Shell
 # =============================================================================
 # POWERSHELL SCRIPT FOR CREATING MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
@@ -447,6 +456,7 @@ The result of this operation will be the time stamp of the successful execution 
 To verify that connection has been made between SQL Managed Instance and SQL Server, execute the following query on SQL Server. Have in mind that connection will not be instantaneous upon executing the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until connection is shown as CONNECTED for SQL Managed Instance replica.
 
 ```sql
+-- Execute on SQL Server
 SELECT
     r.replica_server_name AS [Replica],
     r.endpoint_url AS [Endpoint],

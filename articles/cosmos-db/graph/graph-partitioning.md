@@ -50,12 +50,6 @@ The following guidelines describe how the partitioning strategy in Azure Cosmos 
         g.V(['partitionKey_value', 'vertex_id'])
         ```
 
-    - Specifying an **array of tuples of partition key values and IDs**:
-
-        ```java
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
-        ```
-
     - Selecting a set of vertices with their IDs and **specifying a list of partition key values**:
 
         ```java
