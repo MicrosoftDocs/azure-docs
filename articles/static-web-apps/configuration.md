@@ -440,7 +440,7 @@ For example, the following configuration shows how you can add a unique identifi
 - Keys are case insensitive
 - Values are case-sensitive
 
-## Trailing Slashes
+## Trailing slashes
 
 A trailing slash is the `/` at the end of a URL. The following redirect rules will apply for each of the available configurations:
 
