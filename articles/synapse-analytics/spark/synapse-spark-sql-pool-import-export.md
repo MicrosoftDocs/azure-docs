@@ -136,7 +136,7 @@ Click [here](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/m
 
 ## Code Templates
 
-This section provide reference code templates that describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
+This section presents reference code templates to describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
 
 ### Write Scenario
 
