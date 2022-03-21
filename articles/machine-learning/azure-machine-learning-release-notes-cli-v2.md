@@ -88,7 +88,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added support for command components ([command component YAML schema](reference-yaml-component-command.md))
 - `az ml online-endpoint`
   - `az ml endpoint` subgroup split into two separate groups: `az ml online-endpoint` and `az ml batch-endpoint`
-  - Updated [online endpoint YAML schema](reference-yaml-endpoint-managed-online.md)
+  - Updated [online endpoint YAML schema](reference-yaml-endpoint-online.md)
   - Added support for local endpoints for dev/test scenarios
   - Added interactive VSCode debugging support for local endpoints (added the `--vscode-debug` flag to `az ml batch-endpoint create/update`)
 - `az ml online-deployment`
