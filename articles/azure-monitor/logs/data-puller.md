@@ -17,8 +17,8 @@ This article describes the file based custom log ingestion via DCR and instructi
 ## Getting started
 To use the file based custom log ingestion, you need to have a Log Analytics workspace that includes logs.
 >[!tip] 
-> * [Create a Log Analytics Workspace](logs/quick-create-workspace.md)
-> * [Send Logs to Log Analytics Workspace](essentials/resource-logs#send-to-log-analytics-workspace)
+> * [Create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
+> * [Send Logs to Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
 
 ## Create a file based custom log
 From the Azure portal, go to the Log Analytics Workspace and choose Custom logs from the table of content and choose **Add custom Log**
@@ -28,7 +28,7 @@ From the Azure portal, go to the Log Analytics Workspace and choose Custom logs 
 * You can find more information about Custom logs creation [here](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-custom-logs)
 
 ## Create a Data Collection Rule (DCR)
-1. You need to create a [Data collection rule](essentials/data-collection-rule-overview), make sure that the name of the stream is Custom-{TableName}", for example:
+1. You need to create a [Data collection rule](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview), make sure that the name of the stream is Custom-{TableName}", for example:
 
 ```json
 {
