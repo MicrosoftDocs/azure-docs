@@ -218,7 +218,7 @@ We see that the message frequency on the problematic device got back to normal. 
   ```  
   Open a PowerShell console and run the code below:
   ```cmd/sh
-    ./Scripts/dploy-e2e-tutorial.ps1
+    ./Scripts/deploy-e2e-tutorial.ps1
   ```
 
 
