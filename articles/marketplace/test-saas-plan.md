@@ -146,4 +146,6 @@ Here are some general guidelines to be aware of when you’re testing your offer
 
 ## Next steps
 
-- When you complete your tests, the next step is to [Create and publish a production plan](test-saas-create-publish.md).
+When you complete your tests, you can do the following:
+- [Unsubscribe and deactivate your test plan](test-saas-unsubscribe.md).
+- [Create a plan](create-new-saas-offer-plans.md) in your production offer with the prices you want to charge customers and [publish the production offer live](test-publish-saas-offer.md).
