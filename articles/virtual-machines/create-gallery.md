@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/09/2022
+ms.date: 03/21/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -31,10 +31,10 @@ Choose an option below for creating your gallery:
 
 ### [Portal](#tab/portal)
 
-The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+The following example creates a gallery with the .
 
 1. Sign in to the Azure portal at https://portal.azure.com.
-1. Use the type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
+1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
 1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
@@ -188,7 +188,41 @@ te/galleries/{galleryName}/share?api-version=2021-07-01
   "operationType" : "EnableCommunity"
 } 
 ```
+
+### [Portal](#tab/portal)
+
+Making a community gallery available to all Azure users is a two-step process. First you create the gallery with community sharing enabled, when you are ready to make it public, you share the gallery.
+
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
+1. In the **Azure Compute Gallery** page, click **Add**.
+1. On the **Create Azure Compute Gallery** page, select the correct subscription.
+1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
+1. In **Name**, type *myGallery* for the name of the gallery.
+1. Leave the default for **Region**.
+1. You can type a short description of the gallery, like *My gallery for testing*. 
+1. At the bottom of the page, select **Next: Sharing method**.
+1. On the **Sharing** tab, select **RBAC + share to public community gallery**.
+1. For **Community gallery prefix** type a prefix that will be appended to a GUID to create the unique name for your community gallery.
+1. For **Publisher email** type a valid e-mail address that can be used to communicate with your about the gallery.
+1. For **Publisher URL**, type the a URL for where people can go to get more information about the images in your community gallery.
+1. For **EULA**, type the URL for your end user license agreement. XXXX License agreement and privacy statement.
+1. When you are done, select **Review + create**.
+1. After validation passes, select **Create**.
+1. When the deployment is finished, select **Go to resource**.
+
+To see the public name of your gallery, select **Sharing** in the left menu.
+
+When you are ready to make the gallery public:
+
+1. On the page for the gallery, select **Sharing** from the left menu.
+1. Select **Share** from the top of the page.
+1. When you are done, select **Save**.
+
+
+
 ---
+
 
 
 ## Next steps
