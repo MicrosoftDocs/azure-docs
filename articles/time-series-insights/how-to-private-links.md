@@ -23,6 +23,9 @@ Here are the steps that are covered in this article:
 1. Turn on Private Link and configure a private endpoint for a Time Series Insights Gen2 environment.
 1. Disable or enable public network access flags, to restrict access to Private Link connections only.
 
+> [!NOTE]
+> Please note that Private Link for an event source is not supported. Do not restrict Public Internet access to a hub or event source used by Time Series Insights.
+
 ## Prerequisites
 
 Before you can set up a private endpoint, you'll need an [**Azure Virtual Network (VNet)**](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the Azure Virtual Network [quickstarts](../virtual-network/quick-create-portal.md) to set this up.
