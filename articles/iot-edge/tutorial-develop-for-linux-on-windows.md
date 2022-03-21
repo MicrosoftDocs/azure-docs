@@ -229,7 +229,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
    Select **Add** to add your module to the project.
 
-   ![Add Application and Module](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
+   ![Screenshot of adding how to add an application and module to Visual Studio solution](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
 
 Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
@@ -263,7 +263,7 @@ Use the Azure IoT Edge tools extensions for Visual Studio Code to IoT Edge modul
 
 1. Replace the _DOCKER\_HOST_ localhost value with the EFLOW VM IP address. If you don't remember the IP address, use the EFLOW PowerShell cmdlet `Get-EflowVmAddr` to obtain it. For exmaple, if the EFLOW VM IP address is _172.20.1.100_, then the new value should be _tcp://172.20.1.100:2375_.
 
-   ![IoT Edge Tools settings](./media/tutorial-develop-for-linux-on-windows/iot-edge-tools-settings.png)
+   ![Screenshot of IoT Edge Tools settings](./media/tutorial-develop-for-linux-on-windows/iot-edge-tools-settings.png)
 
 1. Select **OK**
 
@@ -282,7 +282,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
-   ![Set Start-up Project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
+   ![Screenshot of setting the start-up project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
 1. To debug the C# Linux module, we need to update Dockerfile.amd64.debug to enable SSH service. Update the Dockerfile.amd64.debug file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/debugging/Dockerfile.amd64.debug).
 
@@ -293,7 +293,7 @@ Typically, you'll want to test and debug each module before running it within an
    > Make sure the last line of the template _ENTRYPOINT ["dotnet", "IotEdgeModule1.dll"]_ the name of the DLL matches the name of your IoT Edge module project.
 
 
-   ![Set Dockerfile template](./media/tutorial-develop-for-linux-on-windows/vs-solution.png)
+   ![Screenshot of setting the Dockerfile template](./media/tutorial-develop-for-linux-on-windows/visual-studio-solution.png)
 
 1. To establish an SSH connection with the Linux module, we need to create an RSA key. Open an elevated PowerShell session and run the following commands to create a new RSA key. Make sure you save the RSA key under the same IoT Edge module folder, and the name of the key is _id\_rsa_.
    
@@ -301,7 +301,7 @@ Typically, you'll want to test and debug each module before running it within an
    ssh-keygen -t RSA -b 4096 -m PEM
    ```
 
-   ![Create SSH key](./media/tutorial-develop-for-linux-on-windows/ssh-keygen.png)
+   ![Screenshot of how to create an SSH key](./media/tutorial-develop-for-linux-on-windows/ssh-keygen.png)
 
 1. If you're using a private registry like Azure Container Registry (ACR), use the following Docker command to sign in to it.  You can get the username and password from the **Access keys** page of your registry in the Azure portal. If you're using local registry, you can [run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
@@ -394,11 +394,11 @@ Typically, you'll want to test and debug each module before running it within an
    | **Passphrase**          | The one used for the key created in Step 5                    |
 
 
-   ![Connect to Remote System](./media/tutorial-develop-for-linux-on-windows/connect-remote-system.png)
+   ![Screenshot of how to connect to a remote system](./media/tutorial-develop-for-linux-on-windows/connect-remote-system.png)
 
 1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10/C20 seconds the first time you do so.
 
-   ![Attach process](./media/tutorial-develop-for-linux-on-windows/attach-process.png)
+   ![Screenshot of how to attach an edge module process](./media/tutorial-develop-for-linux-on-windows/attach-process.png#lightbox)
 
 1. Set a breakpoint to inspect the module.
 
@@ -407,7 +407,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
 
-   ![Debug Single Module](./media/tutorial-develop-for-linux-on-windows/debug-single-module.png)
+   ![Screenshot of how to debug a single module](./media/tutorial-develop-for-linux-on-windows/debug-single-module.png)
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 
