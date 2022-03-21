@@ -73,7 +73,7 @@ Follow these guidelines when preparing audio.
 | File format | RIFF (.wav), grouped into a .zip file |
 | File name | Numeric, with .wav extension. No duplicate file names allowed. |
 | Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
-| Sample format | PCM, 16-bit |
+| Sample format | PCM, at least 16-bit |
 | Audio length | Shorter than 15 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
@@ -114,9 +114,10 @@ Follow these guidelines when preparing audio for segmentation.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
+| File format | RIFF (.wav) or .mp3, grouped into a .zip file |
 | File name	| ASCII and Unicode characters supported. No duplicate names allowed. |
 | Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
@@ -153,9 +154,10 @@ Follow these guidelines when preparing audio.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
+| File format | RIFF (.wav) or .mp3, grouped into a .zip file |
 | File name | ASCII and Unicode characters supported. No duplicate name allowed. |
 | Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | No limit |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |

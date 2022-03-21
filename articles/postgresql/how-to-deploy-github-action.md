@@ -1,12 +1,13 @@
 ---
 title: 'Quickstart: Connect to Azure PostgreSQL with GitHub Actions'
 description: Use Azure PostgreSQL from a GitHub Actions workflow
-author: mksuni
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sumuth
-ms.date: 10/12/2020
+author: mksuni
 ms.custom: github-actions-azure, mode-other
+ms.date: 10/12/2020
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL

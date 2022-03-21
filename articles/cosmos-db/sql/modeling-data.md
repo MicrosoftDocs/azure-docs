@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/15/2022
-
+ms.custom: cosmos-db-video
 ---
 # Data modeling in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

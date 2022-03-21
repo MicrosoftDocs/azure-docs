@@ -33,7 +33,7 @@ The script in this article demonstrates performing resource lock operations for 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/lock.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/lock.sh" id="FullScript":::
 
 ## Clean up resources
 

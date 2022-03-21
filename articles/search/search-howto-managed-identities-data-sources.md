@@ -31,10 +31,12 @@ Cognitive Search supports system-assigned managed identity in all scenarios, and
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | No |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)| Yes | No |
 | [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1</sup>| No |
-| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes | No |
+| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes <sup>2</sup>| No |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | No |
 
 <sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
+
+<sup>2</sup> If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
 
 Debug sessions, enrichment cache, and knowledge store are features that write to Blob Storage. Assign a system managed identity to the **Storage Blob Data Contributor** role to support these features.
 

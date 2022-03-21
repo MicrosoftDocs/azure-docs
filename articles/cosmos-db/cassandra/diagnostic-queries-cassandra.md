@@ -51,76 +51,93 @@ For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setti
 :::image type="content" source="./media/cassandra-log-analytics/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Cosmos DB":::
 
 ### RU consumption
-- What application queries are causing high RU consumption
+- Cassandra operations that are consuming high RU/s.
 ```kusto
 CDBCassandraRequests 
-| where DatabaseName startswith "azure"
+| where DatabaseName=="azure_comos" and CollectionName=="user" 
 | project TimeGenerated, RequestCharge, OperationName,
 requestType=split(split(PIICommandText,'"')[3], ' ')[0]
-| summarize max(RequestCharge) by bin(TimeGenerated, 10m), tostring(requestType);
+| summarize max(RequestCharge) by bin(TimeGenerated, 10m), tostring(requestType), OperationName;
 ```
 
-- Monitoring RU Consumption per operation on logical partition keys.
+- Monitoring RU consumption per operation on logical partition keys.
 ```kusto
 CDBPartitionKeyRUConsumption
-| where DatabaseName startswith "azure"
+| where DatabaseName=="azure_comos" and CollectionName=="user"
 | summarize TotalRequestCharge=sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
 | order by TotalRequestCharge;
 
 CDBPartitionKeyRUConsumption
-| where DatabaseName startswith "azure"
+| where DatabaseName=="azure_comos" and CollectionName=="user"
 | summarize TotalRequestCharge=sum(todouble(RequestCharge)) by OperationName, PartitionKey
 | order by TotalRequestCharge;
 
-
 CDBPartitionKeyRUConsumption
-| where DatabaseName startswith "azure"
-| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by bin(TimeGenerated, 1m), PartitionKey, PartitionKeyRangeId
+| where DatabaseName=="azure_comos" and CollectionName=="user"
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by bin(TimeGenerated, 1m), PartitionKey
 | render timechart;
 ```
 
 - What are the top queries impacting RU consumption?
 ```kusto
-let topRequestsByRUcharge = CDBDataPlaneRequests 
-| where TimeGenerated > ago(24h)
-| project  RequestCharge , TimeGenerated, ActivityId;
 CDBCassandraRequests
-| project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0]
-| join kind=inner topRequestsByRUcharge on ActivityId
-| project DatabaseName, CollectionName, tostring(queryText), RequestCharge, TimeGenerated
-| order by RequestCharge desc
-| take 10;
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| where TimeGenerated > ago(24h)
+| project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0], RequestCharge, TimeGenerated
+| order by RequestCharge desc;
 ```
-- RU Consumption based on variations in payload sizes for read and write operations.
+- RU consumption based on variations in payload sizes for read and write operations.
 ```kusto
 // This query is looking at read operations
-CDBDataPlaneRequests
-| where OperationName in ("Read", "Query")
-| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName =="SELECT"
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 
 // This query is looking at write operations
-CDBDataPlaneRequests
-| where OperationName in ("Create", "Upsert", "Delete", "Execute")
-| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName in ("CREATE", "UPDATE", "INSERT", "DELETE", "DROP")
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 
 // Write operations over a time period.
-CDBDataPlaneRequests
-| where OperationName in ("Create", "Update", "Delete", "Execute")
-| summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 1m), OperationName
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName in ("CREATE", "UPDATE", "INSERT", "DELETE", "DROP")
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
 | render timechart;
+
+// Read operations over a time period.
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| project ResponseLength, TimeGenerated, RequestCharge, cassandraOperationName=split(split(PIICommandText,'"')[3], ' ')[0]
+| where cassandraOperationName =="SELECT"
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), tostring(cassandraOperationName)
+| render timechart;
+```
+
+- RU consumption based on read and write operations by logical partition.
+```kusto
+CDBPartitionKeyRUConsumption
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| where OperationName in ("Delete", "Read", "Upsert")
+| summarize totalRU=max(RequestCharge) by OperationName, PartitionKeyRangeId
 ```
 
 - RU consumption by physical and logical partition.
 ```kusto
 CDBPartitionKeyRUConsumption
-| where DatabaseName==”uprofile” and AccountName startswith “azure”
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
 | summarize totalRequestCharge=sum(RequestCharge) by PartitionKey, PartitionKeyRangeId;
 ```
 
-- Is there a high RU consumption because of having hot partition?
+- Is a hot partition leading to high RU consumption?
 ```kusto
 CDBPartitionKeyStatistics
-| where AccountName startswith “azure”
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
 | where  TimeGenerated > now(-8h)
 | summarize StorageUsed = sum(SizeKb) by PartitionKey
 | order by StorageUsed desc
@@ -133,7 +150,7 @@ CDBPartitionKeyStatistics
 | project AccountName=tolower(AccountName), PartitionKey, SizeKb;
 CDBCassandraRequests
 | project AccountName=tolower(AccountName),RequestCharge, ErrorCode, OperationName, ActivityId, DatabaseName, CollectionName, PIICommandText, RegionName
-| where DatabaseName != "<empty>"
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
 | join kind=inner storageUtilizationPerPartitionKey  on $left.AccountName==$right.AccountName
 | where ErrorCode != -1 //successful
 | project AccountName, PartitionKey,ErrorCode,RequestCharge,SizeKb, OperationName, ActivityId, DatabaseName, CollectionName, PIICommandText, RegionName;
@@ -142,26 +159,26 @@ CDBCassandraRequests
 ### Latency
 - Number of server-side timeouts (Status Code - 408) seen in the time window.
 ```kusto
-CDBDataPlaneRequests
-| where TimeGenerated >= now(-6h)
-| where AccountName startswith "azure"
-| where StatusCode == 408
-| summarize count() by bin(TimeGenerated, 10m)
-| render timechart 
+CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| where ErrorCode in (4608, 4352) //Corresponding code in Cassandra
+| summarize max(DurationMs) by bin(TimeGenerated, 10m), ErrorCode
+| render timechart;
 ```
 
 - Do we observe spikes in server-side latencies in the specified time window?
 ```kusto
-CDBDataPlaneRequests
+CDBCassandraRequests
 | where TimeGenerated > now(-6h)
-| where AccountName startswith "azure"
+| DatabaseName=="azure_cosmos" and CollectionName=="user"
 | summarize max(DurationMs) by bin(TimeGenerated, 10m)
-| render timechart
+| render timechart;
 ```
 
-- Query operations that are getting throttled.
+- Operations that are getting throttled.
 ```kusto
 CDBCassandraRequests
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
 | project RequestLength, ResponseLength,
 RequestCharge, DurationMs, TimeGenerated, OperationName,
 query=split(split(PIICommandText,'"')[3], ' ')[0]
@@ -178,12 +195,9 @@ CDBCassandraRequests
 ```
 - What queries are causing your application to throttle with a specified time period looking specifically at 429.
 ```kusto
-let throttledRequests = CDBDataPlaneRequests
-| where StatusCode==429
-| project  OperationName , TimeGenerated, ActivityId; 
 CDBCassandraRequests
-| project PIICommandText, ActivityId, DatabaseName , CollectionName
-| join kind=inner throttledRequests on ActivityId
+| where DatabaseName=="azure_cosmos" and CollectionName=="user"
+| where ErrorCode==4097 // Corresponding error code in Cassandra
 | project DatabaseName , CollectionName , CassandraCommands=split(split(PIICommandText,'"')[3], ' ')[0] , OperationName, TimeGenerated;
 ```
 
