@@ -71,7 +71,7 @@ To assign the custom role:
 
 2. Search for and select the role you just created.
 
-3. On the **Members** tab, enter and select **Windows Virtual Desktop** in the search bar.
+3. On the **Members** tab, enter and select **Windows Virtual Desktop** (With new service name change **Azure Virtual Desktop**) in the search bar.
 
       >[!NOTE]
       >You might see both the Windows Virtual Desktop and Windows Virtual Desktop Azure Resource Manager Provider first party applications appear if you've deployed Azure Virtual Desktop (classic). Assign the role to both apps.
