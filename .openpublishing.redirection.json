@@ -3735,54 +3735,79 @@
     },
     {
       "source_path_from_root": "/articles/app-service/containers/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-availability-performance-application-issues-faq.md",
-      "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-availability-performance-application-issues-faq.md",
-      "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-configuration-and-management-faq.md",
-      "redirect_url": "/azure/app-service/faq-configuration-and-management",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-configuration-and-management-faq.md",
-      "redirect_url": "/azure/app-service/faq-configuration-and-management",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/faq-app-service-linux.yml",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-availability-performance-application-issues.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-configuration-and-management.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-deployment.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-open-source-technologies.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
+      "redirect_document_id": false
+    },                    
+    {
       "source_path_from_root": "/articles/app-service/app-service-web-deployment-faq.md",
-      "redirect_url": "/azure/app-service/faq-deployment",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-deployment-faq.md",
-      "redirect_url": "/azure/app-service/faq-deployment",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-open-source-technologies-faq.md",
-      "redirect_url": "/azure/app-service/faq-open-source-technologies",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-open-source-technologies-faq.md",
-      "redirect_url": "/azure/app-service/faq-open-source-technologies",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
-    },
+    }, 
     {
       "source_path_from_root": "/articles/app-service/web-sites-backup.md",
       "redirect_url": "/azure/app-service/manage-backup",
