@@ -29,7 +29,7 @@ From the Azure portal, go to the Log Analytics Workspace and choose Custom logs 
 * You can find more information about Custom logs creation [here](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-custom-logs)
 
 ## Create a Data Collection Rule (DCR)
-1. You need to create a [Data collection rule](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview), make sure that the name of the stream is Custom-{TableName}", for example:
+1. You need to create a [Data collection rule](essentials/data-collection-rule-overview), make sure that the name of the stream is Custom-{TableName}", for example:
 
 ```json
 {
