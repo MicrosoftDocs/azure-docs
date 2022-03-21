@@ -158,10 +158,14 @@ Do a test migration as follows:
 
     ![Test migration](./media/tutorial-migrate-vmware/test-migrate.png)
 
-3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
-4. The **Test migration** job starts. Monitor the job in the portal notifications.
-5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
-6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
+3. In **Test migration**, select the Azure VNet in which the Azure VM will be located during testing. We recommend you use a non-production VNet. 
+4. Choose the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/test-migrate-subnet-selection.png" alt-text="Screenshot shows VNet and subnet selection during test migration.":::
+
+1. The **Test migration** job starts. Monitor the job in the portal notifications.
+1. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
+1. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
 
     ![Clean up migration](./media/tutorial-migrate-vmware/clean-up.png)
 
