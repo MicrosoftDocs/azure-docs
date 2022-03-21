@@ -35,7 +35,7 @@ Azure Load Testing supports two types of identities:
 
 To add a system-assigned identity for your Azure Load Testing resource, you need to enable a property on the resource. You can set this property by using the Azure portal or by using an Azure Resource Manager (ARM) template.
 
-# [Azure portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 To set up a managed identity in the portal, you first create an Azure Load Testing resource and then enable the feature.
 
