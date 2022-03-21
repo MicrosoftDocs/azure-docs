@@ -84,6 +84,8 @@ When the resource is created, it gets the following additional properties:
 
 The `tenantId` property identifies which Azure AD tenant the identity belongs to. The `principalId` is a unique identifier for the resource's new identity. Within Azure AD, the service principal has the same name as the Azure Load Testing resource.
 
+---
+
 ## Set a user-assigned identity
 
 Adding a user-assigned identity to an Azure Load testing resource requires that you create the identity and then add its resource identifier to your resource.
