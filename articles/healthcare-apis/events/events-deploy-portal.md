@@ -38,23 +38,23 @@ It's important that you have the following prerequisites completed before you be
 2. Select **+ Event Subscription** to begin the creation of an event subscription.
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-select.png" alt-text="Screenshot of Workspace and select events subscription button." lightbox="media/events-deploy-in-portal/events-new-subscription-select.png":::
-
-   >[!NOTE]
-   > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings at their default values.
  
 3. In the **Create Event Subscription** box, enter the following subscription information. 
 
     * **Name**: Provide a name for your Events subscription.
     * **System Topic Name**: Provide a name for your System Topic.
     * **Event types**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
-    * **Endpoint Details**: Endpoint to send Events messages to (for example: an Event Hubs).
+    * **Endpoint Details**: Endpoint to send Events messages to (for example: an Azure Event Hubs).
 
    >[!NOTE]
-   > The first time you set up Events, you will be required to create a **System Topic Name**. Once the system topic for the Workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the Workspace.
+   > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings at their default values.
 
    :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of the create event subscription box."  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
+
+   >[!NOTE]
+   > The first time you set up Events, you will be required to create a **System Topic Name**. Once the system topic for the Workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the Workspace.
 
 5. Event messages won't be sent until the Event Grid System Topic deployment has successfully completed. Upon successful creation of the Event Grid System Topic, the status of the Workspace will change from "Updating" to "Succeeded".
 
