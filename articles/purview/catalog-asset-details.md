@@ -1,16 +1,16 @@
 ---
-title: 'How to view, edit, and delete assets'
+title: How to view, edit, and delete assets
 description: This how to guide describes how you can view and edit asset details. 
-author: viseshag
-ms.author: viseshag
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 02/24/2022
 ---
 # View, edit and delete assets in Azure Purview catalog
 
-This article discusses how to you can view your assets and their relevant details. It also describes how you can edit and delete assets from your catalog.
+This article discusses how you can view your assets and their relevant details. It also describes how you can edit and delete assets from your catalog.
 
 ## Prerequisites
 
@@ -19,9 +19,9 @@ This article discusses how to you can view your assets and their relevant detail
 
 ## Viewing asset details
 
-You can discover your assets in Azure Purview by either:
-- [Browsing the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Searching the Azure Purview Data Catalog](how-to-search-catalog.md)
+You can discover your assets in the Azure Purview data catalog by either:
+- [Browsing the data catalog](how-to-browse-catalog.md)
+- [Searching the data catalog](how-to-search-catalog.md)
 
 Once you find the asset you are looking for, you can view all of its details, edit, or delete them as described in following sections.
 
@@ -29,12 +29,12 @@ Once you find the asset you are looking for, you can view all of its details, ed
 
 :::image type="content" source="media/catalog-asset-details/asset-tabs.png" alt-text="Asset details tabs":::
 
-- **Overview** - The overview tab covers an asset's basic details like description, classification, hierarchy, and glossary terms.
-- **Properties** - The properties tab covers both basic and advanced properties regarding an asset.
+- **Overview** - An asset's basic details like description, classification, hierarchy, and glossary terms.
+- **Properties** - The technical metadata and relationships discovered in the data source. 
 - **Schema** - The schema of the asset including column names, data types, column level classifications, terms, and descriptions are represented in the schema tab.
 - **Lineage** - This tab contains lineage graph details for assets where it is available.
 - **Contacts** - Every asset can have an assigned owner and expert that can be viewed and managed from the contacts tab.
-- **Related** - This tab lets you navigate to assets that are related to the current asset you are viewing. 
+- **Related** - This tab lets you navigate through the technical hierarchy of assets that are related to the current asset you are viewing.
 
 ## Asset overview
 The overview section of the asset details gives you a summarized view of an asset. The sections that follow explains the different parts of the overview page.

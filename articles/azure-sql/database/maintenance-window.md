@@ -7,18 +7,20 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: kendralittle, mathoma
+ms.reviewer: kendralittle, mathoma, urosmil
 ms.custom: references_regions
-ms.date: 02/02/2022
+ms.date: 03/07/2022
 ---
 
-# Maintenance window (Preview)
+# Maintenance window
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 The maintenance window feature allows you to configure maintenance schedule for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) resources making impactful maintenance events predictable and less disruptive for your workload. 
 
 > [!Note]
 > The maintenance window feature only protects from planned impact from upgrades or scheduled maintenance. It does not protect from all failover causes; exceptions that may cause short connection interruptions outside of a maintenance window include hardware failures, cluster load balancing, and database reconfigurations due to events like a change in database Service Level Objective. 
+
+[Advance notifications (Preview)](advance-notifications.md) are available for databases configured to use a non-default maintenance window. Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event. 
 
 ## Overview
 
@@ -49,7 +51,7 @@ Once the maintenance window selection is made and service configuration complete
 
 ## Advance notifications
 
-Maintenance notifications can be configured to alert you on upcoming planned maintenance events for your Azure SQL Database 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
+Maintenance notifications can be configured to alert you of upcoming planned maintenance events for your Azure SQL Database. The alerts arrive 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
 
 ## Feature availability
 
@@ -81,7 +83,7 @@ Choosing a maintenance window other than the default is currently available in t
 | Australia East | Yes | Yes | Yes |
 | Australia Southeast | Yes | Yes | |
 | Brazil South | Yes | Yes |  |
-| Brazil Southeast | Yes |  |  |
+| Brazil Southeast | Yes | Yes |  |
 | Canada Central | Yes | Yes | Yes |
 | Canada East | Yes | Yes | |
 | Central India | Yes | Yes | |
@@ -115,17 +117,17 @@ Choosing a maintenance window other than the default is currently available in t
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
 | US Gov Arizona | Yes | | |
-| US Gov Texas| Yes | | | 
-| US Gov Virginia | Yes | | | 
+| US Gov Texas| Yes | Yes | | 
+| US Gov Virginia | Yes | Yes | | 
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
 | West India | Yes | | |
 | West US | Yes | Yes |  |
 | West US 2 | Yes | Yes | Yes |
 | West US 3 | Yes | | |
-| | | | | 
 
-## Gateway maintenance for Azure SQL Database
+
+## Gateway maintenance
 
 To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. Redirect is the recommended connection policy, where clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput.  
 
@@ -162,6 +164,38 @@ Configuring and changing maintenance window causes change of the IP address of t
 Operations affecting the virtual cluster, like service upgrades and virtual cluster resize (adding new or removing unneeded compute nodes) are serialized. In other words, a new virtual cluster management operation cannot start until the previous one is completed. In case that maintenance window closes before the ongoing service upgrade or maintenance operation is completed, any other virtual cluster management operations submitted in the meantime will be put on hold until next maintenance window opens and service upgrade or maintenance operation completes. It is not common for a maintenance operation to take longer than a single window per virtual cluster, but it can happen in case of very complex maintenance operations.
 
 The serialization of virtual cluster management operations is general behavior that applies to the default maintenance policy as well. With a maintenance window schedule configured, the period between two adjacent windows can be few days long. Submitted operations can also be on hold for few days if the maintenance operation spans two windows. That is very rare case, but creation of new instances or resize of the existing instances (if additional compute nodes are needed) may be blocked during this period.
+
+## Retrieving list of maintenance events
+
+[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service designed to extend Azure Resource Management. The Azure Resource Graph Explorer provides efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+You can use the Azure Resource Graph Explorer to query for maintenance events. For an introduction on how to run these queries, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
+
+To check for the maintenance events for all SQL databases in your subscription, use the following sample query in Azure Resource Graph Explorer:
+
+```kusto
+servicehealthresources
+| where type =~ 'Microsoft.ResourceHealth/events'
+| extend impact = properties.Impact
+| extend impactedService = parse_json(impact[0]).ImpactedService
+| where  impactedService =~ 'SQL Database'
+| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = properties.ImpactStartTime, impactMitigationTime = properties.ImpactMitigationTime
+| where properties.Status == 'Active' and tolong(impactStartTime) > 1 and eventType == 'PlannedMaintenance'
+```
+
+To check for the maintenance events for all managed instances in your subscription, use the following sample query in Azure Resource Graph Explorer:
+
+```kusto
+servicehealthresources
+| where type =~ 'Microsoft.ResourceHealth/events'
+| extend impact = properties.Impact
+| extend impactedService = parse_json(impact[0]).ImpactedService
+| where  impactedService =~ 'SQL Managed Instance'
+| extend eventType = properties.EventType, status = properties.Status, description = properties.Title, trackingId = properties.TrackingId, summary = properties.Summary, priority = properties.Priority, impactStartTime = properties.ImpactStartTime, impactMitigationTime = properties.ImpactMitigationTime
+| where properties.Status == 'Active' and tolong(impactStartTime) > 1 and eventType == 'PlannedMaintenance'
+```
+
+For the full reference of the sample queries and how to use them across tools like PowerShell or Azure CLI, visit [Azure Resource Graph sample queries for Azure Service Health](../../service-health/resource-graph-samples.md). 
 
 ## Next steps
 

@@ -101,4 +101,4 @@ Two solutions are:
 * Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances.
 
 ## Next steps
-[Learn more about example utterances](/how-to/entities.md)
+[Learn more about example utterances](./how-to/entities.md)

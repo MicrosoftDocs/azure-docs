@@ -8,7 +8,7 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/11/2022
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell, contperf-fy22q3
+ms.custom: devx-track-azurepowershell, contperf-fy22q3, devx-track-azurecli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box

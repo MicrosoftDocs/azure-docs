@@ -32,7 +32,7 @@ Before connecting your Microsoft Sentinel workspace to an external source contro
 
     Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. The **Owner** role is required to create the connection between Microsoft Sentinel and your source control repository.
+- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. The **Owner** role is required to create the connection between Microsoft Sentinel and your source control repository. If you are using Azure Lighthouse in your environment, you can instead have the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 ### Maximum connections and deployments
 

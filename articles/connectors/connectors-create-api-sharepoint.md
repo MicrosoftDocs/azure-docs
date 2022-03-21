@@ -1,15 +1,15 @@
 ---
 title: Connect to SharePoint
-description: Monitor and manage resources in SharePoint Online or SharePoint Server on premises by using Azure Logic Apps
+description: Monitor and manage resources in SharePoint Online or SharePoint Server on premises using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/11/2021
 tags: connectors
 ---
 
-# Connect to SharePoint resources using Azure Logic Apps
+# Connect to SharePoint from Azure Logic Apps
 
 To automate tasks that monitor and manage resources, such as files, folders, lists, and items, in SharePoint Online or in on-premises SharePoint Server, you can create automated integration workflows by using Azure Logic Apps and the SharePoint connector.
 

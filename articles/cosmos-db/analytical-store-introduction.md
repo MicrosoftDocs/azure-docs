@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
-ms.custom: "seo-nov-2020"
+ms.custom: seo-nov-2020, devx-track-azurecli
 ---
 
 # What is Azure Cosmos DB analytical store?

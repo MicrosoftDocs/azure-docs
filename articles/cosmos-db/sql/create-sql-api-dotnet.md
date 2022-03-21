@@ -5,7 +5,7 @@ author: rothja
 ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.custom: devx-track-csharp, devx-track-azurecli, mode-api

@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 12/07/2021
+ms.date: 03/17/2022
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with service updates. Check out the [**Preview feature list**](search-api-preview.md) for an itemized list of features that are not yet approved for production workloads.
 
+## February 2022
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Index aliases](search-how-to-alias.md) | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias. | Public preview REST APIs (no portal support at this time).|
+
 ## December 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview REST APIs (no portal support at this time).|
+| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview in the portal and preview REST APIs.|
 
 ## November 2021
 
@@ -103,11 +109,11 @@ Learn what's new in the service. Bookmark this page to keep up to date with serv
 | May | [featuresMode relevance score expansion (preview)](index-similarity-and-scoring.md#featuresMode-param)  |   |
 |March  | [Native blob soft delete (preview)](search-howto-index-changed-deleted-blobs.md) | Deletes search documents if the source blob is soft-deleted in blob storage. |
 |March  | [Management REST API (2020-03-13)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
-|February | [PII Detection skill (preview)](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
-|February | [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
+|February | [PII Detection skill](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
+|February | [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
 |January | [Customer-managed key encryption](search-security-manage-encryption-keys.md) | Generally available  |
-|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
-|January | [Create a private endpoint (preview)](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
+|January | [IP rules for in-bound firewall support](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
+|January | [Create a private endpoint](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
 
 ## 2019 Archive
 
@@ -115,10 +121,10 @@ Learn what's new in the service. Bookmark this page to keep up to date with serv
 |-------|---------|-------------|
 |December | [Create Demo App](search-create-app-portal.md) | A wizard that generates a downloadable HTML file with query (read-only) access to an index, intended as a validation and testing tool rather than a short cut to a full client app.|
 |November | [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) | Caches skillset processing for future reuse.  |
-|November | [Document Extraction skill (preview)](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
+|November | [Document Extraction skill](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
 |November | [Text Translation skill](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text. Generally available.|
 |November | [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Template for visualizing content in knowledge store |
-|November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md) and [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
+|November | [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) and [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
 |July | [Azure Government Cloud support](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Generally available.|
 
 <a name="new-service-name"></a>

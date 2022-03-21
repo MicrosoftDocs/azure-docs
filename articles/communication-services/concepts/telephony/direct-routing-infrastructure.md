@@ -15,7 +15,7 @@ ms.subservice: pstn
 # Azure direct routing infrastructure requirements 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 
@@ -51,6 +51,9 @@ Customers who already use Office 365 and have a domain registered in Microsoft 3
 Domains that aren’t previously used in O365 must be provisioned.
 
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
+
+ >[!NOTE]
+ > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.
 
 >[!IMPORTANT]
 >During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and our team will add it as a trusted domain.
@@ -128,7 +131,7 @@ The media traffic flows via components called media processors. Media processors
 
 ## Media traffic: Codecs
 
-### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
+### Leg between SBC and Cloud Media Processor.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 

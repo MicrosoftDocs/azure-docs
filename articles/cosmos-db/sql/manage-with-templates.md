@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/13/2021
+ms.date: 02/18/2022
 ms.author: mjbrown
 ---
 
@@ -22,7 +22,6 @@ This article only shows Azure Resource Manager template examples for Core (SQL) 
 > * Account names are limited to 44 characters, all lowercase.
 > * To change the throughput values, redeploy the template with updated RU/s.
 > * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
-> * Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 > * To provision throughput at the database level and share across all containers, apply the throughput values to the database options property.
 
 To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../../azure-resource-manager/templates/deploy-to-azure-button.md).
@@ -34,7 +33,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for autoscale throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 > [!NOTE]
-> You can use Azure Resource Manager templates to create new autoscale databases/containers and change the autoscale max RU/s setting on an existing database/container that is already configured with autoscale. By design, migrating between manual and autoscale throughput is not supported with Azure Resource Manager templates. To do this programmatically, you can use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell).
+> You can use Azure Resource Manager templates update the autoscale max RU/s setting on an database and container resources already configured with autoscale. Migrating between manual and autoscale throughput is a POST operation and not supported with Azure Resource Manager templates. To migrate throughput use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell).
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-autoscale%2Fazuredeploy.json)
 
@@ -54,7 +53,7 @@ This template creates an Azure Cosmos account in one region with a container wit
 
 ## Azure Cosmos account with standard provisioned throughput
 
-This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for standard throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for standard throughput with many indexing policy options configured. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql%2Fazuredeploy.json)
 

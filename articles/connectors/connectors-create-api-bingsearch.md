@@ -1,10 +1,10 @@
 ---
 title: Connect to Bing Search
-description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps
+description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/21/2018
 tags: connectors
 ---

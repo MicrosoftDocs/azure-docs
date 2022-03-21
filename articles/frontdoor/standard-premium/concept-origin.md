@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 02/12/2022
 ms.author: duau
 ---
 
@@ -31,6 +31,8 @@ Azure Front Door Standard/Premium origin refers to the host name or public IP of
     >During configuration, APIs doesn't validate if the origin is not accessible from the Front Door environment. Make sure that Front Door can reach your origin.
 
 * **Subscription and Origin host name:** If you didn't select **Custom host** for your backend host type, select your backend by choosing the appropriate subscription and the corresponding backend host name.
+
+* **Private Link:** Azure Front Door Premium supports sending traffic to an origin by using Private Link. For more information, see [Secure your Origin with Private Link](concept-private-link.md).
 
 * **Origin host header:** The host header value sent to the backend for each request. For more information, see [Origin host header](#hostheader).
 

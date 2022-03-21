@@ -4,8 +4,8 @@ description: Automate Linux VM configuration tasks by using the Custom Script Ex
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 04/25/2018
 

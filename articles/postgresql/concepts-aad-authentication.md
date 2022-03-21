@@ -1,10 +1,11 @@
 ---
 title: Active Directory authentication - Azure Database for PostgreSQL - Single Server
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Single Server
-author: sunilagarwal 
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 07/23/2020
 ---
 

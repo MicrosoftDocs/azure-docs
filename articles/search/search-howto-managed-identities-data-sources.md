@@ -31,10 +31,12 @@ Cognitive Search supports system-assigned managed identity in all scenarios, and
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | No |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)| Yes | No |
 | [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1</sup>| No |
-| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes | No |
+| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes <sup>2</sup>| No |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | No |
 
 <sup>1</sup> The Import data wizard doesn't currently accept a system managed identity connection string for incremental enrichment, but after the wizard completes, you can update the indexer JSON definition to include the connection string, and then rerun the indexer.
+
+<sup>2</sup> If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
 
 Debug sessions, enrichment cache, and knowledge store are features that write to Blob Storage. Assign a system managed identity to the **Storage Blob Data Contributor** role to support these features.
 
@@ -102,12 +104,12 @@ See [Create a search service with a system assigned managed identity (Azure CLI)
 
 ## Create a user managed identity (preview)
 
-If you don't already have a user-assigned managed identity, you'll need to create one. A user-assigned managed identity is a resource on Azure.
+A user-assigned managed identity is a resource on Azure. It's useful if you need more granularity in role assignments. 
 
-A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios that are related to indexer-based indexing.
+Currently in Azure Cognitive Search, user managed identities are supported only for indexer data connections. You can create separate identities for different applications and scenarios that are related to indexer-based indexing.
 
 > [!IMPORTANT]
->This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) provides this feature.
+>This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ### [**Azure portal**](#tab/portal-user)
 
@@ -270,5 +272,5 @@ A debug session targets a container. Be sure to include the name of an existing 
 + [Security overview](search-security-overview.md)
 + [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Indexers overview](search-indexer-overview.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication.md)
++ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
 + [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
