@@ -229,7 +229,7 @@ To change the ownership of a resource, you can take one of these actions:
 
 You can create as many as 10 authoring keys per region, per subscription. Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located. For information on how authoring regions map to publishing regions, see [Authoring and publishing regions](luis-reference-regions.md). 
 
-For more information on key limits, see [key limits](luis-limits.md#key-limits).
+See [resource limits](luis-limits.md#resource-usage-and-limits) for more information.
 
 ### Errors for key usage limits
 
