@@ -212,8 +212,6 @@ az network application-gateway http-settings update \
     --name appGatewayBackendHttpSettings
 ```
 
-
-
 ### Check the deployment of the application gateway
 
 After it's created, check the backend health by using the following command. The output of this command enables you to determine whether the application gateway reaches your application through its private fully qualified domain name (FQDN).
