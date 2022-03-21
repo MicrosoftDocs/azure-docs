@@ -72,7 +72,7 @@ Applications you deploy in the Azure public MEC can be made available and resili
 
 - [Deploy resources in active/standby](/azure/architecture/example-scenario/hybrid/multi-access-edge-compute-ha), with primary resources in the Azure public MEC and standby resources in the parent Azure region. If there's a failure in the Azure public MEC, the resources in the parent region become active.
 
-- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and Azure Backup features. This solution:
+- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](../site-recovery/site-recovery-overview.md) and Azure Backup features. This solution:
   - Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back if there's an outage.
   - Backs up VMs to prevent data corruption or lost data.
 

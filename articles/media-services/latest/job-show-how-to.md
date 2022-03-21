@@ -6,7 +6,7 @@ author: IngridAtMicrosoft
 manager: femila 
 ms.service: media-services
 ms.topic: how-to
-ms.date: 03/10/2022
+ms.date: 03/11/2022
 ms.author: inhenkel
 ---
 
@@ -14,16 +14,22 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
+[!INCLUDE [term-job.md](./includes/term-job.md)]
+
 ## Methods
 
 Use the following methods to show or get a job.
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-show-job-cli.md)]
+[!INCLUDE [task-show-job-cli.md](includes/task-show-job-cli.md)]
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [Create an asset with CLI](includes/task-get-job-rest.md)]
+[!INCLUDE [task-get-job-rest.md](includes/task-get-job-rest.md)]
+
+## [Python](#tab/python/)
+
+[!INCLUDE [task-get-job-python.md](includes/task-get-job-python.md)]
 
 ---

@@ -1,10 +1,11 @@
 ---
 title: Logs - Azure Database for PostgreSQL - Single Server
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 06/25/2020
 ---
 
