@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ---
 
@@ -20,8 +20,8 @@ It's important that you have the following prerequisites completed before you be
 
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Azure Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
-* [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
-* [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
+* [Workspace deployed in the Azure Health Data Services](../healthcare-apis-quickstart.md)  
+* [FHIR service deployed the workspace](../fhir/fhir-portal-quickstart.md)
 
 > [!IMPORTANT]
 > You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
