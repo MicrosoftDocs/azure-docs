@@ -16,7 +16,11 @@
       href: ./linux/quick-create-portal.md
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./linux/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./linux/quick-create-template.md
   - name: Create a Windows VM
     items:
@@ -26,7 +30,11 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./windows/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./windows/quick-create-template.md
   expanded: true
 - name: Tutorials

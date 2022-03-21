@@ -68,7 +68,7 @@ items:
   - name: Tutorials
     items:
     - name: Use managed identities to access Azure storage
-      href: /azure/app-service/scenario-secure-app-access-storage?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json
     - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
@@ -98,7 +98,6 @@ items:
     - name: Request limits
       href: request-limits.md
 - name: Document Translation
-  expanded: true
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
@@ -137,12 +136,10 @@ items:
     - name: FAQ
       href: document-translation/faq.md
 - name: Custom Translator
-  expanded: true
   items:
   - name: What is Custom Translator?
     href: custom-translator/overview.md
   - name: Custom Translation | Preview
-    expanded: true
     items:
     - name: Custom Translator for beginners
       href: custom-translator/v2-preview/beginners-guide.md

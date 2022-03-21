@@ -1,12 +1,13 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure CLI.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: tutorial
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
+ms.custom: mvc, devx-track-azurecli
 ms.date: 01/26/2022 
 ---
 
@@ -63,7 +64,7 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 
 ## Configure a server-based firewall rule
 
-Create a firewall rule with the [az postgres server firewall-rule create](/azure/postgresql/concepts-firewall-rules) command to give your local environment access to connect to the server.
+Create a firewall rule with the [az postgres server firewall-rule create](./concepts-firewall-rules.md) command to give your local environment access to connect to the server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" id="CreateFirewallRule":::
 
