@@ -34,7 +34,7 @@ You can enable database protection on your subscription, or exclude specific dat
 
 ## Enable database protection on your subscription
 
-**To enable Defender for Databases for a specific subscription**:
+**To enable Defender for Databases on a specific subscription**:
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 
