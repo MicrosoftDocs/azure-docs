@@ -22,7 +22,7 @@ The azcmagent tool is used to configure the Azure Connected Machine agent during
 * **config** - View and change settings to enable features and control agent behavior.
 
 * **check** - Validate network connectivity.
-* 
+
 * **logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
 
 * **version** - Shows the Connected Machine agent version.
