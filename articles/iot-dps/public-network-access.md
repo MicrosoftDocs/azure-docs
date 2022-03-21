@@ -37,7 +37,7 @@ Note the following limitations when public network access is disabled:
 
 - The DPS instance is accessible only through [its VNET private endpoint using Azure private link](virtual-network-support.md).
 
-- You can no longer use the Azure portal to manage enrollments for the DPS instance. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the virtual network(s) configured on the DPS instance.
+- You can no longer use the Azure portal to manage enrollments for the DPS instance. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the virtual network(s) configured on the DPS instance. To learn more, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
 
 ## DPS endpoint, IP address, and ports after disabling public network access
 
