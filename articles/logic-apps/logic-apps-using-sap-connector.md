@@ -163,7 +163,7 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 1. Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway.
 
-   If you intend to use the host names or service names for connections from Azure Logic Apps, you have to set up name resolution for each SAP application, message, and gateway server along with their services:
+   If you intend to use the host names or service names for connections from Azure Logic Apps, you have to set up name resolution for each SAP Application, Message, and Gateway server along with their services:
   
    * Set up the network host name resolution in the **%windir%\System32\drivers\etc\hosts** file or in the DNS server that's available to your on-premises data gateway host machine.
   
@@ -228,7 +228,7 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 
 1. Get the IP addresses for the SAP Application, Message, and Gateway servers that you plan to use for connecting from your logic app workflow. Network name resolution isn't available for SAP connections in an ISE.
 
-1. Get the port numbers for the SAP application, message, and gateway services that you plan you'll use for connection with Logic App. Service name resolution isn't available for SAP connector in ISE.
+1. Get the port numbers for the SAP Application, Message, and Gateway services that you plan you'll use for connection with Logic App. Service name resolution isn't available for SAP connector in ISE.
 
 ### SAP client library prerequisites
 
