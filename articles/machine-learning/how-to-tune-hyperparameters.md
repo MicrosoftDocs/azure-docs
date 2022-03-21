@@ -190,6 +190,7 @@ You can configure the following parameters that control when a policy is applied
 
 * `evaluation_interval`: the frequency of applying the policy. Each time the training script logs the primary metric counts as one interval. An `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time. If not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This is an optional parameter that avoids premature termination of training runs by allowing all configurations to run for a minimum number of intervals. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
+* `exclude_finished_jobs`: specifies whether to exclude finished jobs as part of the early termination policy. This is an optional parameter that ______. If specified, the policy _____.
 
 Azure Machine Learning supports the following early termination policies:
 * [Bandit policy](#bandit-policy)
@@ -212,6 +213,8 @@ Specify the following configuration parameters:
     For example,  consider a Bandit policy applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric is 0.8 with a goal to maximize the primary metric. If the policy specifies a `slack_factor` of 0.2, any training runs whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated.
 * `evaluation_interval`: (optional) the frequency for applying the policy
 * `delay_evaluation`: (optional) delays the first policy evaluation for a specified number of intervals
+* `exclude_finished_jobs`: (optional) specifies whether to exclude finished jobs as part of the early termination policy
+
 
 
 ```Python
@@ -228,6 +231,7 @@ In this example, the early termination policy is applied at every interval when 
 This policy takes the following configuration parameters:
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
+* `exclude_finished_jobs`: (optional) specifies whether to exclude finished jobs as part of the early termination policy
 
 
 ```Python
@@ -246,6 +250,7 @@ This policy takes the following configuration parameters:
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. An integer value between 1 and 99.
 * `evaluation_interval`: (optional) the frequency for applying the policy
 * `delay_evaluation`: (optional) delays the first policy evaluation for a specified number of intervals
+* `exclude_finished_jobs`: (optional) specifies whether to exclude finished jobs as part of the early termination policy
 
 
 ```Python
