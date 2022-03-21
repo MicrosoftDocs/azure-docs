@@ -274,10 +274,7 @@ Here's the example host pool we're starting with:
 |Available session hosts | 1 |
 |Used host pool capacity | 60% |
 
-In this example scenario, the host pool admin applies the scaling plan exclusion tag to five out of the six session hosts.
-
-
-When a new user signs in, that brings the total number of user sessions up to four. There's only one available session host and the host pool's maximum session limit is still five, so the available host pool capacity is five. The used host pool capacity is 80%. However, even though the used host pool capacity is greater than the capacity threshold, the autoscale feature won't turn on any other session hosts because all of the session hosts except for the one currently running have been tagged with the exclusion tag.
+In this example scenario, the host pool admin applies the scaling plan exclusion tag to five out of the six session hosts. When a new user signs in, that brings the total number of user sessions up to four. There's only one available session host and the host pool's maximum session limit is still five, so the available host pool capacity is five. The used host pool capacity is 80%. However, even though the used host pool capacity is greater than the capacity threshold, the autoscale feature won't turn on any other session hosts because all of the session hosts except for the one currently running have been tagged with the exclusion tag.
 
 So, now the host pool looks like this:
 
