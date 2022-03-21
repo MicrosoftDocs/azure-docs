@@ -13,6 +13,9 @@
     items: 
     - name: Portal
       href: quickstart-create-data-migration-service-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: create-dms-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: create-dms-resource-manager-template.md
