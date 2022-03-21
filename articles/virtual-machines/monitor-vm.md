@@ -31,7 +31,7 @@ The **Alerts** pane shows you the alerts triggered in the last 24 hours, along w
 
 The **Key Metrics** pane includes charts that show key health metrics, such as average CPU and network utilization. At the top of the pane, you can select a duration to change the time range for the charts, or select a chart to open the **Metrics** pane to drill down further or to create an alert rule. 
 
-:::image type="content" source="media/monitor-vm/overview-keymetrics.png" alt-text="Screenshot of the Azure virtual machine 'Key metrics' pane.":::
+:::image type="content" source="media/monitor-vm/overview-key-metrics.png" alt-text="Screenshot of the Azure virtual machine 'Key metrics' pane.":::
 ## Activity log
 The [Activity log](../azure-monitor/essentials/activity-log.md) displays recent activity by the virtual machine, including any configuration changes and when it was stopped and started. View the Activity log in the Azure portal, or create a [diagnostic setting to send it to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace), where you can view events over time or analyze them with other collected data.
 
