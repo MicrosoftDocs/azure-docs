@@ -47,6 +47,8 @@ The following versions of Windows are supported:
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**
+- **Windows 10, version 21H2 or later**
+- **Windows 11**
 
 The following distributions are supported out of the box from the Azure Gallery: 
 - **Ubuntu 14.04 with the linux-azure kernel**
@@ -66,10 +68,20 @@ The following distributions are supported out of the box from the Azure Gallery:
 
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. 
 
-Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
+Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation.
+
+The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm?view=azure-cli-latest#az-vm-list-skus) command.
+
+```azurecli-interactive
+az vm list-skus \
+  --location westus \
+  --all true \
+  --resource-type virtualMachines \
+  --query '[].{size:size, name:name, acceleratedNetworkingEnabled: capabilities[?name==`AcceleratedNetworkingEnabled`].value | [0]}' \
+  --output table
+```
 
 ### Custom images
-
 
 If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
 
@@ -90,4 +102,3 @@ Virtual machines (classic) can't be deployed with accelerated networking.
 * Learn how to [create a VM with Accelerated Networking in PowerShell](./create-vm-accelerated-networking-powershell.md)
 * Learn how to [create a VM with Accerelated Networking using Azure CLI](./create-vm-accelerated-networking-cli.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
-* 

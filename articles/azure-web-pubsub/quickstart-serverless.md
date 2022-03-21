@@ -360,19 +360,19 @@ Use the following commands to create these items.
 
 1. If you haven't done so already, sign in to Azure:
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
 
-    ```bash
+    ```azurecli
     az group create -n WebPubSubFunction -l <REGION>
     ```
 
 1. Create a general-purpose storage account in your resource group and region:
 
-    ```bash
+    ```azurecli
     az storage account create -n <STORAGE_NAME> -l <REGION> -g WebPubSubFunction
     ```
 
@@ -380,17 +380,17 @@ Use the following commands to create these items.
 
     # [JavaScript](#tab/javascript)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
+    > [!NOTE]
+    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
 
     # [C#](#tab/csharp)
 
-    ```bash
+    ```azurecli
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
-    > [!NOTE]
-    > If you're running the function version other than v3.0, please check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime` parameter to supported value.
 
 1. Deploy the function project to Azure:
 

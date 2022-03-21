@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 09/24/2021
+ms.date: 02/25/2022
 ms.author: alkohli
 ---
 
@@ -63,6 +63,7 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F2**    | 2       | 4            | 32                  | 1000                           | 6000                                | 500                              | 8               | 4         |
 | **Standard_F4**    | 4       | 8            | 64                  | 1000                           | 12000                               | 500                              | 16              | 4         |
 | **Standard_F8**    | 8       | 16           | 128                 | 1000                           | 24000                               | 500                              | 32              | 8         |
+| **Standard_F12**  | 12      | 24          | 256                  | 1000                           | 48000                               | 500                             | 64              | 8         |
 | **Standard_F16**   | 16      | 32           | 256                 | 1000                           | 48000                               | 500                              | 64              | 8         |
 | **Standard_F1s**   | 1       | 2            | 4                   | 2000                           | 4000                                | 2300                             | 4               | 2         |
 | **Standard_F2s**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |

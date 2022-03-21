@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using Azure portal
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using the Azure portal.
-ms.subservice: logs
 ms.topic: tutorial
 ms.date: 02/20/2022
 ---
@@ -23,7 +22,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace. 
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 
 ## Overview of tutorial

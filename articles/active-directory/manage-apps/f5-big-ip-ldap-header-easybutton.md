@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO 
 description: Learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 services: active-directory
-author: NishthaBabith-V
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/22/2021
-ms.author: v-nisba
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -19,7 +19,7 @@ In this article, learn to secure header & LDAP based applications using Azure Ac
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
 * Full SSO between Azure AD and BIG-IP published services
 
@@ -29,15 +29,11 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 ## Scenario description
 
-This scenario looks at the classic legacy application using HTTP authorization headers to control access to protected content.
+This scenario looks at the classic legacy application using **HTTP authorization headers** sourced from LDAP directory attributes, to manage access to protected content.
 
-Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential downtime. 
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
-One option would be to consider [Azure AD Application Proxy](../app-proxy/application-proxy.md), to gate remote access to the application.
-
-Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
-
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
+Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
 ## Scenario architecture
 
@@ -104,9 +100,9 @@ There are many methods to configure BIG-IP for this scenario, including two temp
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be [trusted by the Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)
+Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
-The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
+This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
 1. Sign-in to the [Azure AD portal](https://portal.azure.com) using an account with Application Administrative rights
 
@@ -120,7 +116,7 @@ The Easy Button client must also be registered in Azure AD, before it is allowed
 
 6. Select **Register** to complete the initial app registration
 
-7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
+7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 
     * Application.Read.All
     * Application.ReadWrite.All
@@ -141,7 +137,7 @@ The Easy Button client must also be registered in Azure AD, before it is allowed
 
 ## Configure Easy Button
 
-Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+Initiate the APM's **Guided Configuration** to launch the **Easy Button** Template.
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
@@ -158,7 +154,7 @@ Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP
 
 ### Configuration Properties
 
-The **Configuration Properties** tab creates a new application config and SSO object. Consider **Azure Service Account Details** section to be the client application you registered in your Azure AD tenant earlier. These settings allow a BIG-IP to programmatically register a SAML application directly in your tenant, along with the properties you would normally configure manually. Easy Button does this for every BIG-IP APM service being enabled for SHA.
+The **Configuration Properties** tab creates a BIG-IP application config and SSO object. Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
 
 Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
 
@@ -174,9 +170,9 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 ### Service Provider
 
-The Service Provider settings define the SAML SP properties for the APM instance representing the application protected through secure hybrid access. 
+The Service Provider settings define the properties for the SAML SP instance of the application protected through SHA
 
-1. Enter **Host**. This is usually the FQDN that will be used for the applications external URL
+1. Enter **Host**. This is the public FQDN of the application being secured
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
@@ -204,9 +200,7 @@ The optional **Security Settings** specify whether Azure AD should encrypt issue
 
 ### Azure Active Directory
 
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. 
-
-The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, but we’ll use the generic secure hybrid access template by selecting **F5 BIG-IP APM Azure AD Integration > Add**.
+This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **F5 BIG-IP APM Azure AD Integration > Add**.
 
    ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
@@ -226,7 +220,7 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied
+7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
 
    ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
@@ -297,7 +291,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
 
-4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
+4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
 
    ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
@@ -309,7 +303,7 @@ The **Application Pool tab** details the services behind a BIG-IP that are repre
 
 2. Choose the **Load Balancing Method** as *Round Robin*
 
-3. Update **Pool Servers**. Select an existing node or specify an IP and port for the server hosting the header-based application
+3. For **Pool Servers** select an existing node or specify an IP and port for the server hosting the header-based application
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
@@ -334,21 +328,19 @@ Enabling SSO allows users to access BIG-IP published services without having to 
    ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-ldap/sso-headers.png)
 
 >[!NOTE]
->APM session variables defined within curly brackets are CASE sensitive. If you enter EventRoles when the Azure AD attribute name is being defined as eventroles, it will cause an attribute mapping failure.
+>APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure
 
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. Consult [F5 documentation](https://support.f5.com/csp/article/K18390492) for details on these settings.
+The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to [F5's docs](https://support.f5.com/csp/article/K18390492) for details on these settings.
 
-What isn’t covered there however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the client are terminated after a user has logged out.
+What isn’t covered here however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
 
-When the Easy Button wizard deploys a SAML application to Azure AD, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the MyApps portal also terminate the session between the BIG-IP and a client.
+Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
 
-During deployment, the SAML applications federation metadata is also imported, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign-outs also terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out.
+If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
 
-Consider a scenario where the BIG-IP web portal isn’t used, the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this, so the application session could easily be reinstated through SSO. For this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. The SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
-
-If making a change to the app is a no go, then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
 
 ## Summary
 
@@ -384,9 +376,7 @@ At that point, changes via the wizard UI are no longer possible, but all BIG-IP 
 
 ## Troubleshooting
 
-You can fail to access the secure hybrid access protected application due to any number of factors, including a misconfiguration.
-
-BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level.
+Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
 
 1. Navigate to **Access Policy > Overview > Event Logs > Settings**
 
@@ -394,18 +384,21 @@ BIG-IP logs are a great source of information for isolating all sorts of authent
 
 3. Select **Debug** from the SSO list then **OK**
 
-Reproduce your issue before looking at the logs but remember to switch this back when finished. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+
+If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
 1. Navigate to **Access > Overview > Access reports**
-2. Run the report for the last hour to see logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+
+2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
 
 If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
 
-1. In which case you should head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
 
-2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes
+2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source
 
-3. The following command from a bash shell validates the APM service account used for LDAP queries and can successfully authenticate and query a user object:
+The following command can also be used from the BIG-IP bash shell to validate the APM service account used for LDAP queries and can successfully authenticate and query a user object:
 
  ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
 

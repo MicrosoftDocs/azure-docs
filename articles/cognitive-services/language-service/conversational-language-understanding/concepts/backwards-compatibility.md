@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # Backwards compatibility with LUIS applications
 
-You can reuse some of the content of your existing LUIS applications in Conversational Language Understanding. When working with Conversational Language Understanding projects, you can:
+You can reuse some of the content of your existing LUIS applications in [Conversational Language Understanding](../overview.md). When working with Conversational Language Understanding projects, you can:
 * Create CLU conversation projects from LUIS application JSON files.
-* Create LUIS applications that can be connected to orchestration workflow projects.  
+* Create LUIS applications that can be connected to [orchestration workflow](../../orchestration-workflow/overview.md) projects.  
   
 > [!NOTE]
 > This guide assumes you have created a Language resource. If you're getting started with the service, see the [quickstart article](../quickstart.md). 
