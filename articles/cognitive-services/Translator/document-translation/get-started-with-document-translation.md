@@ -56,7 +56,7 @@ To get started, you'll need:
 
   1. After your resource has successfully deployed, select **Go to resource**.
 
-## Custom domain name and key
+## Your custom domain name and key
 
 > [!IMPORTANT]
 >
