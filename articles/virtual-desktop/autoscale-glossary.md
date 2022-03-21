@@ -12,6 +12,10 @@ manager: femila
 ---
 # Autoscale (preview) glossary
 
+> [!IMPORTANT]
+> The autoscale feature is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 This article is a list of definitions for key terms and concepts related to the autoscale (preview) feature for Azure Virtual Desktop.
 
 ## Autoscale

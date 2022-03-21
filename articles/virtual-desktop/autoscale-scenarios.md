@@ -7,9 +7,13 @@ ms.date: 03/22/2022
 ms.author: helohr
 manager: femila
 ---
-# Autoscale example scenarios
+# Autoscale (preview) example scenarios
 
-In this article, we're going to walk you through four scenarios that show how different parts of the autoscale feature work. In each section, we'll have tables that show the example host pool's settings and animated visual demonstrations.
+> [!IMPORTANT]
+> The autoscale feature is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+In this article, we're going to walk you through four scenarios that show how different parts of the autoscale (preview) feature work. In each section, we'll have tables that show the example host pool's settings and animated visual demonstrations.
 
 ## Scenario 1: When does the autoscale feature turn virtual machines on?
 

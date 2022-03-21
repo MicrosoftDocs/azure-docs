@@ -205,7 +205,7 @@
         href: autoscale-diagnostics.md
       - name: Autoscale glossary (preview)
         href: autoscale-glossary.md
-      - name: Autoscale scenarios
+      - name: Autoscale scenarios (preview)
         href: autoscale-scenarios.md
       - name: Autoscale feature FAQ (preview)
         href: autoscale-faq.yml
