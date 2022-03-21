@@ -207,9 +207,13 @@ For more information, see [Update a standalone sensor version](how-to-manage-ind
 
 ### New connectivity model and firewall requirements
 
-With this version, users are only required to install sensors and connect to Defender for IoT on the Azure portal. Defender for IoT no longer requires you to install, pay for, or manage an IoT Hub.
+Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-This new connectivity model requires that you open a new firewall rule. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+In addition to [migration steps](connect-sensors.md#migration-for-existing-customers), this new connectivity model requires that you open a new firewall rule. For more information, see:
+
+- **New firewall requirements**: [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+- **Architecture**: [Sensor connection methods](architecture-connections.md)
+- **Connection procedures**: [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
 
 ### Protocol improvements
 
