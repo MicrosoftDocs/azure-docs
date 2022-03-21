@@ -102,7 +102,6 @@ For more information, see [Azure IoT Edge dev container](https://github.com/Azur
 
 The IoT Edge runtime in a container provides a complete runtime that takes your device connection string as an environment variable. This container enables you to test IoT Edge modules and scenarios on a system that may not support the runtime natively, like macOS. Any modules that you deploy will be started outside of the runtime container. If you want the runtime and any deployed modules to exist within the same container, consider the IoT Edge device container instead.
 
-For more information, see [Running Azure IoT Edge in a container](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
 
 ### IoT Edge device container
 
