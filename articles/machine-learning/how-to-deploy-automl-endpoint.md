@@ -146,7 +146,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 
     > [!NOTE]
-    > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
+    > For a full description of the YAML, see [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md).
 
 1. From the command line, run: 
 
