@@ -147,9 +147,18 @@ Consider when to start displaying captions. Speech recognition results are subje
 
 For captioning of prerecorded speech or wherever latency is not a concern, you could wait for the complete transcription of each utterance before displaying any words. Given the final offset and duration of each word in an utterance, you know when to show subsequent words at pace with the soundtrack.
 
-Real time captioning presents additional challenges with respect latency versus accuracy. Do you show the text from each `Recognizing` event, even if the results could change? 
+Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There is also some middle ground, which is referred to as "partial intermediate results". 
 
-In the following recognition sequence, "math" was recognized as a word, but the final text was "mathematics". At another point, "course 2" was recognized, but the final text was "course 201". 
+You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
+
+```csharp
+speech_config.SetProperty (PropertyId.SpeechServiceResponse_StablePartialResultThreshold, 5);
+```
+
+Requesting more stable partial results will reduce the "flickering" or changing text, but it can increase latency as you wait for higher confidence results. 
+
+### Stable partial threshold example
+In the following recognition sequence without any stable partial threshold, "math" is recognized as a word, but the final text is "mathematics". At another point, "course 2" is recognized, but the final text is "course 201". 
 
 ```console
 RECOGNIZING: Text=welcome to
@@ -160,17 +169,9 @@ RECOGNIZING: Text=welcome to applied mathematics course 201
 RECOGNIZED: Text=Welcome to applied Mathematics course 201.
 ```
 
-In the previous example, the transcriptions were additive and no text was retracted. But at other times you might find that the intermediate results were inaccurate. In any case, the unstable intermediate results can be perceived as "flickering" when displayed. 
+In the previous example, the transcriptions were additive and no text was retracted. But at other times you might find that the intermediate results were inaccurate. In either case, the unstable intermediate results can be perceived as "flickering" when displayed. 
 
-You can request that the Speech service send you more stable results. You would effectively be asking the Speech service to make sure the words are recognized multiple times before returning intermediate `Recognizing` events. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. 
-
-The value that you set is the number of times a word has to be in partial results to be returned. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
-
-```csharp
-speech_config.SetProperty (PropertyId.SpeechServiceResponse_StablePartialResultThreshold, 5);
-```
-
-If the stable partial result threshold is set to `5`, for this example, no words are altered or backtracked.
+For this example, if the stable partial result threshold is set to `5`, no words are altered or backtracked.
 
 ```console
 RECOGNIZING: Text=welcome to
@@ -178,8 +179,6 @@ RECOGNIZING: Text=welcome to applied
 RECOGNIZING: Text=welcome to applied mathematics
 RECOGNIZED: Text=Welcome to applied Mathematics course 201.
 ```
-
-In summary, requesting more stable partial results will reduce the "flickering," but can increase latency as you wait for higher confidence results. 
 
 ## Profanity filter 
 
