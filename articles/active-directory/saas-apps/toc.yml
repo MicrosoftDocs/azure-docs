@@ -1406,7 +1406,7 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
-      - name: Mural Identity
+      - name: MURAL Identity
         href: mural-identity-tutorial.md  
       - name: MVISION Cloud Azure AD SSO Configuration
         href: skyhighnetworks-tutorial.md
@@ -2709,6 +2709,8 @@
         href: miro-provisioning-tutorial.md
       - name: monday.com
         href: mondaycom-provisioning-tutorial.md
+      - name: MURAL Identity
+        href: mural-identity-provisioning-tutorial.md  
       - name: MX3 Diagnostics
         href: mx3-diagnostics-connector-provisioning-tutorial.md  
       - name: myPolicies
