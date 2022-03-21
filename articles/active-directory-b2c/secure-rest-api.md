@@ -457,6 +457,32 @@ The following XML snippet is an example of a RESTful technical profile configure
 
 ::: zone-end
 
+1.In TrustFrameworkExtensions.xml ,  under the claim provider section , reference to REST-AcquireAccessToken in Technical Profile.
+
+ <ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
+        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
+        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
+        <OutputClaim ClaimTypeReferenceId="displayName"/>
+        <OutputClaim ClaimTypeReferenceId="givenName"/>
+        <OutputClaim ClaimTypeReferenceId="surName"/>
+        <!-- Required to present the text box to collect the data from the user -->
+        <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+        <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+        to subsequent orchestration steps and token issuance-->
+        <OutputClaim ClaimTypeReferenceId="promoCode" />
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+      </ValidationTechnicalProfiles>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+
 
 ## API key authentication
 
