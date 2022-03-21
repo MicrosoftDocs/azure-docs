@@ -448,75 +448,65 @@ A trailing slash is the `/` at the end of a URL. The following redirect rules wi
 
 This is the default mode for Static Web Apps.
 
-| Requests to... | returns... | with the status... |
-|--|--|--|
-| _/folder_ | The _/folder/index.html_ file | `200` |
-| _/folder/_ | The _/folder/index.html_ file | `200` |
-| _/folder/index.html_ | The _/folder/index.html_ file | `200` |
-| _/file_ | The _/file.html_ file | `200` |
-| _/file/_ | The _/file.html_ file | `301` |
-| _/file.html_ | The _/file.html_ file | `200` |
-| _/both_ | The _/both.html_ file | `200` |
-| _/both.html_ | The _/both.html_ file | `200` |
-| _/both/_ | The _/both/index.html_ file | `200` |
-| _/both/index.html_ | The _/both/index.html_ file | `200` |
-
-### auto
-
-```json
-"trailingSlashes": "auto"
-```
-
-| Requests to... | returns... | with the status... |
-|--|--|--|
-| _/folder_ | The _/folder/index.html_ file | `301` |
-| _/folder/_ | The _/folder/index.html_ file | `200` |
-| _/folder/index.html_ | The _/folder/index.html_ file | `301` |
-| _/file_ | The _/file.html_ file | `200` |
-| _/file/_ | The _/file.html_ file | `301` |
-| _/file.html_ | The _/file.html_ file | `301` |
-| _/both_ | The _/both.html_ file | `200` |
-| _/both.html_ | The _/both.html_ file | `301` |
-| _/both/_ | The _/both/index.html_ file | `200` |
-| _/both/index.html_ | The _/both/index.html_ file | `301` |
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `200` | _/about/index.html |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `200` | _/contact.html_ |
 
 ### always 
+
+When setting trailingSlashes to `always`, all requests that don't include a trailing slash will be redirected to a trailing slash URL. For example, `/contact` will be redirected to `/contact/`.
 
 ```json
 "trailingSlashes": "always"
 ```
 
-| Requests to... | returns... | with the status... |
-|--|--|--|
-| _/folder_ | The _/folder/index.html_ file | `301` |
-| _/folder/_ | The _/folder/index.html_ file | `200` |
-| _/folder/index.html_ | The _/folder/index.html_ file | `301` |
-| _/file_ | The _/file.html_ file | `301` |
-| _/file/_ | The _/file.html_ file | `200` |
-| _/file.html_ | The _/file.html_ file | `301` |
-| _/both_ | The _/both/index.html_ file | `301` |
-| _/both.html_ | The _/both/index.html_ file | `301` |
-| _/both/_ | The _/both/index.html_ file | `200` |
-| _/both/index.html_ | The _/both/index.html_ file | `301` |
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `301` | _/contact/_ |
+| _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
 
 ### none
+
+When setting trailingSlashes to `none`, all requests ending in a trailing slash will be redirected to a non trailing slash URL. For example, `/contact/` will be redirected to `/contact`.
 
 ```json
 "trailingSlashes": "none"
 ```
 
-| Requests to... | returns... | with the status... |
-|--|--|--|
-| _/folder_ | The _/folder/index.html_ file | `200` |
-| _/folder/_ | The _/folder/index.html_ file | `301` |
-| _/folder/index.html_ | The _/folder/index.html_ file | `301` |
-| _/file_ | The _/file.html_ file | `200` |
-| _/file/_ | The _/file.html_ file | `301` |
-| _/file.html_ | The _/file.html_ file | `301` |
-| _/both_ | The _/both.html_ file | `200` |
-| _/both.html_ | The _/both.html_ file | `301` |
-| _/both/_ | The _/both.html_ file | `301` |
-| _/both/index.html_ | The _/both.html_ file | `301` |
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+### auto
+
+When setting trailingSlashes to `auto`, all requests to folders will be redirected to a URL with a trailing slash. All requests to files will be redirected to a non trailing slash URL.
+
+```json
+"trailingSlashes": "auto"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
 
 ## Example configuration file
 
