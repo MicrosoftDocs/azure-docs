@@ -78,9 +78,6 @@ When designing your solution and defining a reprovisioning logic there are a few
 > 
 > We also recommend taking into account the service limits when planning activities like pushing updates to your fleet. For example, updating the fleet all at once could cause all devices to re-register through DPS (which could easily be above the registration quota limit) - For such scenarios, consider planning for device updates in phases instead of updating your entire fleet at the same time.
 
->[!Note]
-> The [get device registration state API](/rest/api/iot-dps/service/device-registration-state/get) does not currently work for TPM devices (the API surface does not include enough information to authenticate the request).
-
 
 ### Managing backwards compatibility
 
