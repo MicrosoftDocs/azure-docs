@@ -298,7 +298,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 > The above is an example of inplace rolling update: i.e. the same deployment is updated with the new configuration, with 20% nodes at a time. If the deployment has 10 nodes, 2 nodes at a time will be updated. For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
 ### (Optional) Configure autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints support autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
