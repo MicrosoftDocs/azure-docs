@@ -29,13 +29,14 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
-Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network isn't linked to a private DNS zone with the following in the name:
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
 
+* blob.core.windows.net
+* vault.azure.com
 * core.windows.net
 * azure.com
-* vault.azure.net
 
-If you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion *is not* supported with these setups.
+You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net) as long as it is not one of the recommended DNS zone names for an Azure service listed [here](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
 
 The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
 
@@ -136,7 +137,9 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 * sv-se-qwerty
 * tr-tr-qwerty
 
-To establish the correct key mappings for your target language, you must set either your language on your local computer or your language inside the target VM to English (United States). That is, your local computer language must be set to English (United States) while your target VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
+To establish the correct key mappings for your target language, you must set either the keyboard layout on your local computer to English (United States) or the keyboard layout inside the target VM to English (United States). That is, the keyboard layout on your local computer must be set to English (United States) while the keyboard layout on your target VM is set to your target language, or vice versa. 
+
+To set English (United States) as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Lanugage & Region. Under "Preferred languages," select "Add a language" and add English (United States). You will then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 

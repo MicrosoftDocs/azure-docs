@@ -69,7 +69,7 @@ The following sections describe the logs that are produced by the SAP data conne
 | TransactionCode       | Transaction code               |
 | User                  | User                           |
 | UserChange            | User change                    |
-| | |
+
 
 
 
@@ -119,7 +119,7 @@ The following sections describe the logs that are produced by the SAP data conne
 | ValueNew                 | Field content: new value |
 | ValueOld                 | Field content: old value |
 | Version                  | Version          |
-| | |
+
 
 ### ABAP CR log
 
@@ -155,7 +155,7 @@ The following sections describe the logs that are produced by the SAP data conne
 | TableKey     | Table key                         |
 | TableName    | Table name                        |
 | ViewName     | View name                         |
-| | |
+
 
 ### ABAP DB table data log
 
@@ -189,7 +189,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | TransactionCode  | Transaction code                      |
 | UserName         | User                                  |
 | VersionNumber    | Version number                        |
-| | |
+
 
 ### ABAP Gateway log
 
@@ -212,7 +212,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | Severity     | Message severity: `Debug`, `Info`, `Warning`, `Error`  |
 | SystemID     | System ID        |
 | SystemNumber | System number    |
-| | |
+
 
 ### ABAP ICM log
 
@@ -237,7 +237,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | Severity     | Message severity, including: `Debug`, `Info`, `Warning`, `Error`   |
 | SystemID     | System ID        |
 | SystemNumber | System number    |
-| | |
+
 
 ### ABAP Job log
 
@@ -281,7 +281,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | UserReleaseInstance | ABAP instance - user release     |
 | WorkProcessID       | Work process ID                  |
 | WorkProcessNumber   | Work process Number              |
-| | |
+
 
 ### ABAP Security Audit log
 
@@ -331,7 +331,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | Variable2                  | Message variable 2              |
 | Variable3                  | Message variable 3              |
 | Variable4                  | Message variable 4              |
-| | |
+
 
 ### ABAP Spool log
 
@@ -390,7 +390,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | TemseReadProtectionRule             | Temse read protection rule                 |
 | User                                | User                                       |
 | ValueAuthCheck                      | Value auth check                           |
-| | |
+
 
 ### APAB Spool Output log
 
@@ -440,7 +440,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | TemSeGeneralcounter                | Temse counter                             |
 | Title                              | Title                                     |
 | User                               | User                                      |
-| | |
+
 
 
 ### ABAP SysLog
@@ -472,7 +472,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | TransacationCode | Transaction code       |
 | Type             | SAP process type       |
 | User             | User                   |
-| | |
+
 
 
 ### ABAP Workflow log
@@ -524,7 +524,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | WIType              | Work item type                   |
 | WorkflowAction      | Workflow action                  |
 | WorkItemID          | Work item ID                     |
-| | |
+
 
 
 
@@ -555,7 +555,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | SystemID     | System ID           |
 | SystemNumber | System number       |
 | WPNumber     | Work process number |
-| | |
+
 
 
 ### HANA DB Audit Trail
@@ -582,7 +582,7 @@ To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Manage
 | SeverityLevel | Alert        |
 | SourceSystem  |   Source system OS, `Linux`           |
 | SyslogMessage | Message, an unparsed audit trail message      |
-| | |
+
 
 ### JAVA files
 
@@ -626,7 +626,7 @@ To have this log sent to Microsoft Sentinel, you must add it manually to the **s
 | Thrown           | Exception thrown     |
 | TimeZone         | Timezone             |
 | User             | User                 |
-| | |
+
 
 ## Tables retrieved directly from SAP systems
 
@@ -655,12 +655,12 @@ The tables listed below are required to enable functions that identify privilege
 | AGR_DEFINE | Role definition |
 | AGR_AGRS | Roles in composite roles |
 | PAHI | History of the system, database, and SAP parameters |
-|||
+
 
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](/azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 ### SAPUsersAssignments
 
@@ -684,7 +684,7 @@ The **SAPUsersAssignments** function gathers data from multiple SAP data sources
 | ChildRoles |Set of indirectly assigned roles  (default max set size = 50)	|`["Role 1", "Role 2",...,"”"Role 50"]` |
 | Client |	Client ID	| |
 | SystemID	| System ID | As defined in the connector |
-||||
+
 
 ### SAPUsersGetPrivileged
 
@@ -705,7 +705,7 @@ The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following 
 |User|SAP user ID	|
 |Client|	Client ID	|
 |SystemID|	System ID|
-| | |
+
 
 ### SAPUsersAuthorizations
 

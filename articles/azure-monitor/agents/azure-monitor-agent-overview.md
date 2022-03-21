@@ -4,15 +4,16 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 3/3/2022
+ms.date: 3/16/2022
 ms.custom: references_regions
 ---
 
 # Azure Monitor agent overview
-The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.  
+Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure Portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Relationship to other agents
-The Azure Monitor agent replaces the following legacy agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
+The Azure Monitor agent is meant to replace the following legacy monitoring agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
 
 - [Log Analytics agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
@@ -28,12 +29,12 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
-	- No support for collecting file based logs or IIS logs.
+	- Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
+	- The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
-  - No support for Event Hubs and Storage accounts as destinations.
-  - No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
+  - No support yet for Event Hubs and Storage accounts as destinations.
+  - No support yet for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -82,21 +83,20 @@ The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log A
 <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee and CEF (Common Event Format).
 
 ## Supported services and features
-The following table shows the current support for the Azure Monitor agent with other Azure services.
+The following table shows the current support for the Azure Monitor agent with other Azure services. 
 
 | Azure service | Current support | More information |
 |:---|:---|:---|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Linux Syslog CEF (Common Event Format): Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
+| File based logs and Windows IIS logs | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| Windows Client OS installer | Private preview | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
-| [Connect using private links](azure-monitor-agent-data-collection-endpoint.md) | Public preview | No sign-up needed |
-| [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
-| [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
 The following table shows the current support for the Azure Monitor agent with Azure solutions.
 
@@ -143,44 +143,39 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 
     ![Flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
-2. After the values for the *settings* and *protectedSettings* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
-
-    | Parameter | Value |
-    |:---|:---|
-    | settingsHashtable | A JSON object from the preceding flowchart converted to a hashtable. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
-    | protectedSettingsHashtable | A JSON object from the preceding flowchart converted to a hashtable. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
+2. After the values for the *settings* and *protectedSettings* parameters are determined, **provide these additional parameters** when you deploy the Azure Monitor agent by using PowerShell commands. Refer the following examples.
 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
-$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Settings $settingsString -ProtectedSettings $protectedSettingsString
 ```
 
 # [Linux VM](#tab/PowerShellLinux)
 ```powershell
-$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
+$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}};
 $protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
 
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Settings $settingsString -ProtectedSettings $protectedSettingsString
 ```
 
 # [Windows Arc enabled server](#tab/PowerShellWindowsArc)
 ```powershell
-$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
-$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings $settingsString -ProtectedSettings $protectedSettingsString
 ```
 
 # [Linux Arc enabled server](#tab/PowerShellLinuxArc)
 ```powershell
-$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
-$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings $settingsString -ProtectedSettings $protectedSettingsString
 ```
 
 ---
