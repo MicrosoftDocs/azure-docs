@@ -153,11 +153,7 @@
           href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
         - name: Symmetric key attestation
           href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-      - name: Configure nested virtualization for Windows VMs
-        href: nested-virtualization.md
-      - name: Create virtual switch
-        href: how-to-create-virtual-switch.md
-      - name: Configure GPU acceleration
+
         href: gpu-acceleration.md
     - name: Windows containers on Windows hosts
       items:
@@ -207,8 +203,6 @@
       href: how-to-create-virtual-switch.md
     - name: Configure GPU acceleration
       href: gpu-acceleration.md
-    
-
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2019
