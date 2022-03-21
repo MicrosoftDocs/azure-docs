@@ -41,26 +41,9 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ## March 2022
 
-- [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
-
-### More device properties in the Device inventory
-
-In this release, in the **Device inventory** page on the Azure portal, we've extended the data listed for the following fields:
-
-- **Description**
-- **Tags**
-- **Protocols**
-- **Scanner**
-- **Last Activity**
-
-For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
-
-> [!NOTE]
-> The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
->
 
 ### Edit and delete devices from the Azure portal (Public preview)
 
