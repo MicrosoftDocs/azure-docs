@@ -38,13 +38,13 @@ The replication between SQL Server and SQL Managed Instance is asynchronous by d
 
 Switching from async to sync mode requires a replication mode change on SQL Managed Instance and SQL Server.
 
-## Switch the replication mode on SQL Managed Instance
+### Switch the replication mode on SQL Managed Instance
 
 Use the following PowerShell script to call a REST API that changes the replication mode from asynchronous to synchronous on SQL Managed Instance. We suggest that you make the REST API call by using Azure Cloud Shell in the Azure portal. In the script, replace:
 
 - `<YourSubscriptionID>` with your subscription ID. 
 - `<ManagedInstanceName>` with the name of your managed instance. 
-- `<DAGName>` with the name of Distributed Availability Group link for which you’d like to get the status.
+- `<DAGName>` with the name of the distributed availability group link for which you want to get the status.
 
 ```powershell
 # Run in Azure Cloud Shell
@@ -89,7 +89,7 @@ $bodyFull = @"
 
 echo $bodyFull 
 
-# Get auth token and build the header
+# Get an authentication token and build the header
 #
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $currentAzureContext = Get-AzContext
@@ -99,13 +99,13 @@ $authToken = $token.AccessToken
 $headers = @{}
 $headers.Add("Authorization", "Bearer "+"$authToken")
 
-# Invoke API call
+# Invoke the API call
 #
 echo "Invoking API call switch Async-Sync replication mode on Managed Instance"
 Invoke-WebRequest -Method PATCH -Headers $headers -Uri $uriFull -ContentType "application/json" -Body $bodyFull
 ```
 
-## Switch the replication mode on SQL Server
+### Switch the replication mode on SQL Server
 
 Use the following T-SQL script on SQL Server to change the replication mode of the distributed availability group on SQL Server from async to sync. Replace:
 
@@ -153,13 +153,13 @@ Now that you've switched both SQL Managed Instance and SQL Server to sync mode, 
 
 To complete the migration, you need to ensure that the replication has finished. For this, you need to ensure that log sequence numbers (LSNs) indicating the log records written for both SQL Server and SQL Managed Instance are the same. 
 
-Initially, it's expected that the SQL Server LSN will be higher than the SQL Managed Instance LSN. The difference is caused by the fact that SQL Managed Instance might be lagging somewhat behind the primary SQL Server instance due to network latency. After some time, LSNs on SQL Managed Instance and SQL Server should match and stop changing, because the workload on SQL Server should be stopped.
+Initially, it's expected that the SQL Server LSN will be higher than the SQL Managed Instance LSN. Network latency might be causing SQL Managed Instance to lag somewhat behind the primary SQL Server instance. After some time, LSNs on SQL Managed Instance and SQL Server should match and stop changing, because the workload on SQL Server should be stopped.
 
-Use the following T-SQL query on SQL Server to read the LSN of the last recorded transaction log. Replace `<DatabaseName>` with your database name and look for the last hardened LSN number, as shown in this example.
+Use the following T-SQL query on SQL Server to read the LSN of the last recorded transaction log. Replace `<DatabaseName>` with your database name and look for the last hardened LSN number.
 
 ```sql
 -- Run on SQL Server
--- Obtain last hardened LSN for a database on SQL Server.
+-- Obtain the last hardened LSN for the database on SQL Server.
 SELECT
     ag.name AS [Replication group],
     db.name AS [Database name], 
@@ -179,11 +179,11 @@ WHERE
 
 Use the following T-SQL query on SQL Managed Instance to read the last hardened LSN for your database. Replace `<DatabaseName>` with your database name.
 
-This query will work on a General Purpose managed mnstance. For a Business Critical managed instance, you need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter will make sure that only primary replica details are read.
+This query will work on a General Purpose managed instance. For a Business Critical managed instance, you need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter will make sure that only primary replica details are read.
 
 ```sql
 -- Run on a managed instance
--- Obtain the LSN for a database on SQL Managed Instance.
+-- Obtain the LSN for the database on SQL Managed Instance.
 SELECT
     db.name AS [Database name],
     drs.database_id AS [Database ID], 
@@ -205,28 +205,33 @@ Verify once again that your workload is stopped on SQL Server. Check that LSNs o
 
 ## Start database failover and migration to Azure
 
-SQL Managed Instance link database failover and migration to Azure is accomplished by invoking REST API call. This will close the link and complete the replication on SQL Managed Instance. Replicated database will become read-write on SQL Managed Instance.
+You accomplish SQL Managed Instance link database failover and migration to Azure by invoking a REST API call. This call closes the link and completes the replication on SQL Managed Instance. The replicated database will become read/write on SQL Managed Instance.
 
-Use the following API to initiate database failover to Azure. Replace `<YourSubscriptionID>` with your actual Azure subscription ID. Replace `<RG>` with the resource group where your SQL Managed Instance is deployed and replace `<ManagedInstanceName>` with the name of our SQL Managed Instance. In addition, replace `<DAGName>` with the name of Distributed Availability Group made on SQL Server.
+Use the following API to start database failover to Azure. Replace:
+
+- `<YourSubscriptionID>` with your Azure subscription ID.
+- `<RG>` with the resource group where your managed instance is deployed. 
+- `<ManagedInstanceName>` with the name of your managed instance. 
+- `<DAGName>` with the name of the distributed availability group made on SQL Server.
 
 ```PowerShell
-# Execute in Azure Cloud Shell
+# Run in Azure Cloud Shell
 # ====================================================================================
 # POWERSHELL SCRIPT TO FAIL OVER AND MIGRATE DATABASE WITH SQL MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
 # (C) 2021-2022 SQL Managed Instance product group
 # ====================================================================================
-# Enter your Azure Subscription ID
+# Enter your Azure subscription ID
 $SubscriptionID = "<SubscriptionID>"
-# Enter your Managed Instance name – example "sqlmi1"
+# Enter your managed instance name – for example, "sqlmi1"
 $ManagedInstanceName = "<ManagedInstanceName>"
-# Enter the Distributed Availability Group link name
+# Enter the distributed availability group link name
 $DAGName = "<DAGName>"
 
 # ====================================================================================
 # INVOKING THE API CALL -- THIS PART IS NOT USER CONFIGURABLE.
 # ====================================================================================
-# Log in and select subscription if needed
+# Log in and select a subscription if needed
 if ((Get-AzContext ) -eq $null)
 {
     echo "Logging to Azure subscription"
@@ -234,13 +239,13 @@ if ((Get-AzContext ) -eq $null)
 }
 Select-AzSubscription -SubscriptionName $SubscriptionID
 
-# Build URI for the API call
+# Build a URI for the API call
 #
 $miRG = (Get-AzSqlInstance -InstanceName $ManagedInstanceName).ResourceGroupName
 $uriFull = "https://management.azure.com/subscriptions/" + $SubscriptionID + "/resourceGroups/" + $miRG+ "/providers/Microsoft.Sql/managedInstances/" + $ManagedInstanceName + "/distributedAvailabilityGroups/" + $DAGName + "?api-version=2021-05-01-preview"
 echo $uriFull
 
-# Get auth token and build the header
+# Get an authentication token and build the header
 #
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $currentAzureContext = Get-AzContext
@@ -250,7 +255,7 @@ $authToken = $token.AccessToken
 $headers = @{}
 $headers.Add("Authorization", "Bearer "+"$authToken")
 
-# Invoke API call
+# Invoke the API call
 #
 Invoke-WebRequest -Method DELETE -Headers $headers -Uri $uriFull -ContentType "application/json"
 ```
@@ -259,7 +264,10 @@ Invoke-WebRequest -Method DELETE -Headers $headers -Uri $uriFull -ContentType "a
 
 After you break the link and migrate a database to Azure SQL Managed Instance, consider cleaning up the availability group and distributed availability group on SQL Server if they aren't used otherwise on SQL Server.
 
-In the following code, replace `<DAGName>` with the name of the distributed availability group on SQL Server. Replace `<AGName>` with the name of the availability group name on SQL Server.
+In the following code, replace:
+
+- `<DAGName>` with the name of the distributed availability group on SQL Server. 
+- `<AGName>` with the name of the availability group name on SQL Server.
 
 ``` sql
 -- Run on SQL Server
