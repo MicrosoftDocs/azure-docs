@@ -446,7 +446,7 @@ A trailing slash is the `/` at the end of a URL. The following redirect rules wi
 
 ### undefined
 
-This is the default mode for Static Web Apps: 
+This is the default mode for Static Web Apps.
 
 | Requests to... | returns... | with the status... |
 |--|--|--|
