@@ -45,6 +45,17 @@ The Defender for IoT sensor and on-premises management console update packages i
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
+- [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot)
+
+### Use Azure Monitor workbooks with Microsoft Defender for IoT
+
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](/azure/governance/resource-graph/).
+
+In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
+
+:::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
+
+For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
 
 ### More device properties in the Device inventory
 
@@ -89,20 +100,6 @@ Starting in this version, CLI users are automatically signed out of their sessio
 For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
 
-
-## March 2022
-
-- [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot)
-
-### Use Azure Monitor workbooks with Microsoft Defender for IoT
-
-[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](/azure/governance/resource-graph/).
-
-In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
-
-:::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page.":::
-
-For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
 
 ## February 2022
 
