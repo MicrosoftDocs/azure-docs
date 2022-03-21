@@ -415,7 +415,7 @@ Checking available base model for en-us
 #### Display model download on the custom speech-to-text container
 Starting in v3.1.0 of the custom-speech-to-text container, you can get the available display models information and choose to download those models into your speech-to-text container to get highly improved final display output. 
 
-You can query or download any or all of these display model types: Rescoring (`Rescore`), Punctuation (`Rescore`), resegmentation (`Rescore`), and wfstitn (`Wfstitn`). You can use the `FullDisplay` option (and omit other types) to query or download all types of display models. 
+You can query or download any or all of these display model types: Rescoring (`Rescore`), Punctuation (`Punct`), resegmentation (`Resegment`), and wfstitn (`Wfstitn`). Otherwise, you can use the `FullDisplay` option (and omit the other types) to query or download all types of display models. 
 
 Set the `BaseModelLocale` to query the latest available display model on the target locale. If you include multiple display model types, the command will return the latest available display model for each type. For example:
 
