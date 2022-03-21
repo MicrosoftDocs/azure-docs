@@ -31,7 +31,7 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 
 | Property  | Description |
 | ------------- | ------------- |
-|Action|Action taken on the request. WAF log shows all action values. WAF metrics only show *Allow* and *Block* .|
+|Action|Action taken on the request. WAF log shows all action values. WAF metrics only show *Allow* and *Block*.|
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the header field. |
 | ClientPort | The IP port of the client that made the request. |
 | Details|Additional details on the matched request |
