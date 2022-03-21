@@ -264,7 +264,7 @@ Extension bundles is the recommended approach for functions projects other than 
 
 To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
 
-There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to locally install the specific extension packages required by your project. To learn more, see [Explicitly install extensions](#explicitly-install-extensions).
+There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to locally install the specific extension packages required by your project. To learn more, see [Install extensions](#install-extensions).
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
