@@ -200,8 +200,8 @@ This feature solves the problem of accessing resources in other virtual networks
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service virtual network integration][vnetintegrationp2s]. 
 
-<a id="regional-vnet-integration" />
-### Regional virtual network integration
+
+### <a id="regional-vnet-integration" />Regional virtual network integration
 
 Gateway-required virtual network integration is useful, but it doesn't solve the problem of accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there's a need for apps to be able to make calls to services secured by service endpoint. Another virtual network integration capability can meet these needs. 
 
