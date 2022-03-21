@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
 
-author: bozhlin
-ms.author: Bozhong68
+author: Bozhong68
+ms.author: bozhlin
 ms.date: 03/14/2022
 ms.reviewer: nibaccam
 ---
@@ -42,7 +42,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `instance_type` | string | The instance type used to place the inference workload. If omitted, the inference workload will be placed on the default instance type of the Kubernetes cluster specified in the endpoint's `compute` field. If specified, the inference workload will be placed on that selected instance type. <br><br> Note that the set of instance types for a Kubernetes cluster are configured via the Kubernetes cluster custom resource definition (CRD), hence they are not part of the Azure ML YAML schema for attaching Kubernetes compute.For more information, see [Create and select Kubernetes instance types](how-to-kubernetes-instance-type.md). | | |
 | `instance_count` | integer | The number of instances to use for the deployment. Specify the value based on the workload you expect. This field is only required if you are using the `default` scale type (`scale_settings.type: default`). <br><br> `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. | | |
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
-| `scale_settings` | object | The scale settings for the deployment. The two types of scale settings supported are the `default` scale type and the `target_utilization` scale type. <br><br> With the `default` scale type (`scale_settings.type: default`), you can either 1) manually scale the instance count up and down after deployment creation by updating the `instance_count` property or 2) create an [autoscaling policy](how-to-autoscale-endpoints.md). <br><br> To configure the `target_utilization` scale type (`scale_settings.type: target_utilization`), see [TargetUtilizationScaleSettings](#targetutilizationscalesettings) for the set of configurable properties. | | |
+| `scale_settings` | object | The scale settings for the deployment. The two types of scale settings supported are the `default` scale type and the `target_utilization` scale type. <br><br> With the `default` scale type (`scale_settings.type: default`), you can manually scale the instance count up and down after deployment creation by updating the `instance_count` property. <br><br> To configure the `target_utilization` scale type (`scale_settings.type: target_utilization`), see [TargetUtilizationScaleSettings](#targetutilizationscalesettings) for the set of configurable properties. | | |
 | `scale_settings.type` | string | The scale type. | `default`, `target_utilization` | `target_utilization` |
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -77,24 +77,24 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `min_instances` | integer | The minimum number of instances to use. | `1` |
 | `max_instances` | integer | The maximum number of instances to scale to. | `1` |
 | `target_utilization_percentage` | integer | The target CPU usage for the autoscaler. | `70` |
-| `polling_interval` | integer | ?? | `??` |
+| `polling_interval` | integer | How often the autoscaler should attempt to scale the deployment, in seconds. | `1` |
 
 
 ### ContainerResourceRequests
 
-| Key | Type | Description | Default value |
-| --- | ---- | ----------- | ------------- |
-| `cpu` | string | The number of CPU cores requested for the container. | ?? |
-| `memory` | string | The memory size requested for the container | ?? |
-| `nvidia.com/gpu` | string | The number of Nvidia GPU cards requested for the container | ?? |
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| `cpu` | string | The number of CPU cores requested for the container. |
+| `memory` | string | The memory size requested for the container |
+| `nvidia.com/gpu` | string | The number of Nvidia GPU cards requested for the container |
 
 ### ContainerResourceLimits
 
-| Key | Type | Description | Default value |
-| --- | ---- | ----------- | ------------- |
-| `cpu` | string | The limit for the number of CPU cores for the container. | ?? |
-| `memory` | string | The limit for the memory size for the container. | ?? |
-| `nvidia.com/gpu` | string | The limit for the number of Nvidia GPU cards for the container | ?? |
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| `cpu` | string | The limit for the number of CPU cores for the container. |
+| `memory` | string | The limit for the memory size for the container. |
+| `nvidia.com/gpu` | string | The limit for the number of Nvidia GPU cards for the container |
 
 ## Remarks
 
@@ -106,9 +106,9 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: sample deployments
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/amlarc/sample/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/amlarc/blue-deployment.yml":::
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/amlarc/sample/green-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/amlarc/green-deployment.yml":::
 
 ## Next steps
 
