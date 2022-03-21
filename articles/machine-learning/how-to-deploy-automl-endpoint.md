@@ -77,9 +77,9 @@ To deploy using these files, you can use either the studio or the Azure CLI.
 
 # [Studio](#tab/Studio)
 
-1. Go to the Models page in Azure machine learning studio
+1. Go to the Models page in Azure Machine Learning studio
 
-1. Click on + Register Model option
+1. Select + Register Model option
 
 1. Register the model you downloaded from Automated ML run
 
@@ -102,7 +102,7 @@ To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 ex
 
 If you receive an error message or you don't see `Extensions: ml` in the response, follow the steps at [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
-Login:
+Sign in:
 
 :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/misc.sh" id="az_login":::
 
