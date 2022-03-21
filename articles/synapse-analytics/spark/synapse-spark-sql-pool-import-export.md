@@ -130,6 +130,22 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
     EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
     ```
 
+## Handling Request End State Outcome
+
+Invoking `synapsesql` has two possible end states - Successful completion of the request (write or read) or a Failure state. In this section we will review how to handle each of these states with respect to a write and read use case.
+
+### Handling End State - Read Scenario
+
+In case of a read scenario, either success or failure will print snippets of the end state to the console below respective Cell.
+
+### Handling End State - Write Scenario
+
+The new write path API upgrade brings a graceful approach to handle the end state, by passing in a lambda (i.e., Scala Function) that can receive post-write feedback as a Key->Value pair. This approach will offer following benefits over state information that is presented on the console:
+
+* Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
+* Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
+* Recommend reviewing the section [Write Feedback Handle (i.e., `callBackHandle`)](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#Write-Request-Callback-Handle), where in a detailed approach of how to leverage the post-write job telemetry. Also review the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#Write-Code-Template)` which has the approach reference implementation.
+
 ## Connector API Documentation
 
 Click [here](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/utils/index.html) to access the latest Connector Scala API Documentation.
@@ -191,12 +207,11 @@ val writeOptions:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-
                                             Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
 
 //Setup optional callback/feedback function that can receive post write metrics of the job performed.
+var errorDuringWrite:Option[Throwable] = None
 val callBackFunctionToReceivePostWriteMetrics: (Map[String, Any], Option[Throwable]) => Unit =
     (feedback: Map[String, Any], errorState: Option[Throwable]) => {
-     if(errorState.isDefined){
-         println(errorState.getOrElse("<No errors spotted.>"))
-     }
-     println(s"Feedback map - ${feedback.map{case(key, value) => s"$key -> $value"}.mkString("{",",\n","}")}")
+    println(s"Feedback map - ${feedback.map{case(key, value) => s"$key -> $value"}.mkString("{",",\n","}")}")
+    errorDuringWrite = errorState
 }
 
 //Configure and trigger write to Synapse Dedicated SQL Pool (note - default SaveMode is set to ErrorIfExists)
@@ -206,12 +221,14 @@ readDF.
     mode(SaveMode.Overwrite).
     synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
                 tableType = Constants.INTERNAL, //For external table type value is Constants.EXTERNAL
-                location = None, //Not required for writing to internal table
+                location = None, //Not required for writing to an internal table
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
-    
+
+//If write request has failed, raise an error and fail the Cell's execution.
+if(errorDuringWrite.isDefined) throw errorDuringWrite.get    
 ```
 
-#### About the `callBackHandle` optional argument
+#### Write Request Callback Handle
 
 The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. These metrics provide information such as number of records staged, to number of records written to SQL table, time spent in staging and executing the SQL statements to write data to the Synapse Dedicated SQL Pool. String values for each Metric key is defined and accessible from the new Object reference - `Constants.FeedbackConstants`. These metrics are by default written to the Spark Driver logs. One can also fetch these by passing a call-back handle (a `Scala Function`). Following is the signature of this function:
 
