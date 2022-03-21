@@ -40,27 +40,29 @@ dotnet run -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q
 ```
 
 Usage options include:
-    -f: Enable profanity filter (remove profanity). Overrides -m
-    -h: Show this help and stop
-    -i: Input audio file *file* (default input is from the microphone.)
-    -l languages: Enable language identification for specified *languages*
-        Example: en-US,ja-JP
-    -m: Enable profanity filter (mask profanity). -f overrides this
-    -o file: Output to *file*
-    -p phrases: Add specified *phrases*
-        Example: Constoso;Jessie;Rehaan
-    -q: Suppress console output (except errors)
-    -r number: Set stable partial result threshold to *number*
-        Example: 3
-    -s: Emit SRT (default is WebVTT.)
-    -t: Enable TrueText
 
-Speak into your microphone when prompted. The speech should be output as captioned text. 
+- `-h`: Show this help and stop
 
-```console
-RECOGNIZING: Text=I'm excited to try speech to text
-RECOGNIZED: Text=I'm excited to try speech to text.
-```
+- `-o file`: Output captions to the specified `file`. This flag is required.
+
+- `-f`: Removes profane words. This setting overrides `-m` if set.
+
+- `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
+
+- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone.
+
+- `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
+
+- `-p phrases`: Add specified `phrases` to the phrase list. The semicolon delimited phrases must be in quotes. Example: "Constoso;Jessie;Rehaan"
+
+- `-q`: Suppress console output (except errors)
+
+- `-r number`: Set stable partial result threshold to the `number`. 
+
+- `-s`: Emit SRT caption format instead of the default WebVTT format.
+
+- `-t`: Capitalize intermediate results
+
 
 ## Clean up resources
 

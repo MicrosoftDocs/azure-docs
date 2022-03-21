@@ -27,7 +27,6 @@ Follow these steps to create a new console application and install the Speech SD
     Install-Package Microsoft.CognitiveServices.Speech
     ```
 1. Replace the contents of `caption.cpp` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/caption.cpp) at GitHub.
-
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
@@ -37,27 +36,29 @@ caption.exe [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] 
 ```
 
 Usage options include:
-    -f: Enable profanity filter (remove profanity). Overrides -m
-    -h: Show this help and stop
-    -i: Input audio file *file* (default input is from the microphone.)
-    -l languages: Enable language identification for specified *languages*
-        Example: en-US,ja-JP
-    -m: Enable profanity filter (mask profanity). -f overrides this
-    -o file: Output to *file*
-    -p phrases: Add specified *phrases*
-        Example: Constoso;Jessie;Rehaan
-    -q: Suppress console output (except errors)
-    -r number: Set stable partial result threshold to *number*
-        Example: 3
-    -s: Emit SRT (default is WebVTT.)
-    -t: Enable TrueText
 
-Speak into your microphone when prompted. The speech should be output as captioned text. 
+- `-h`: Show this help and stop
 
-```console
-RECOGNIZING: Text=I'm excited to try speech to text
-RECOGNIZED: Text=I'm excited to try speech to text.
-```
+- `-o file`: Output captions to the specified `file`. This flag is required.
+
+- `-f`: Removes profane words. This setting overrides `-m` if set.
+
+- `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
+
+- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone.
+
+- `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
+
+- `-p phrases`: Add specified `phrases` to the phrase list. The semicolon delimited phrases must be in quotes. Example: "Constoso;Jessie;Rehaan"
+
+- `-q`: Suppress console output (except errors)
+
+- `-r number`: Set stable partial result threshold to the `number`. 
+
+- `-s`: Emit SRT caption format instead of the default WebVTT format.
+
+- `-t`: Capitalize intermediate results
+
 
 ## Clean up resources
 
