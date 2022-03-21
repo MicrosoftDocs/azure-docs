@@ -81,11 +81,11 @@ When Analysis Ready Datasets are made available through APIs that enable search 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a PaaS version of SQL Server and is an intelligent, scalable, relational database service.
 - [Azure Database for PostgreSQL](../postgresql/overview.md) is a fully managed relational database service that&#39;s based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine.
 - [PostGIS](https://www.postgis.net/) is an extension for the PostgreSQL database that integrates with GIS servers. PostGIS can run SQL location queries that involve geographic objects.
-- [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
 - The [Azure Maps visual for Power BI](../azure-maps/power-bi-visual-get-started.md) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
 - [App Service](../app-service/overview.md) and its [Web Apps](../app-service/overview.md) feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 - [GIS data APIs in Azure Maps](../azure-maps/about-azure-maps.md) store and retrieve map data in formats like GeoJSON and vector tiles.
-- [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview) is a fast, fully managed data analytics service that can work with [large volumes of data](https://docs.microsoft.com/azure/data-explorer/engine-v3). This service originally focused on time series and log analytics. It now also handles diverse data streams from applications, websites, IoT devices, and other sources. [Geospatial functionality](https://azure.microsoft.com/updates/adx-geo-updates/) in Azure Data Explorer provides options for rendering map data.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fast, fully managed data analytics service that can work with [large volumes of data](/azure/data-explorer/engine-v3). This service originally focused on time series and log analytics. It now also handles diverse data streams from applications, websites, IoT devices, and other sources. [Geospatial functionality](https://azure.microsoft.com/updates/adx-geo-updates/) in Azure Data Explorer provides options for rendering map data.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) is an enterprise-class, high-performance, metered file Network Attached Storage (NAS) service.
 - [Quantum GIS](https://www.qgis.org/en/site/) is a free and open-source desktop GIS that supports editing, analysis, geovisualization of geospatial data.
 - [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a platform for mapping and geovisualization, analytics and data management, which hosts data, applications, and custom low-code/no-code applications. It works along with the desktop GIS called ArcGIS Pro or ArcGIS Desktop (not included here because it has been supplanted by ArcGIS Pro).
@@ -126,15 +126,15 @@ In these situations, consider using [Tippecanoe](https://github.com/mapbox/tippe
 
 #### Related architectures
 
-- [Big data analytics with Azure Data Explorer](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer)
-- [Health data consortium on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/data/azure-health-data-consortium)
-- [DataOps for the modern data warehouse](https://docs.microsoft.com/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-- [Azure Data Explorer interactive analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer)
+- [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer)
+- [Health data consortium on Azure](/azure/architecture/example-scenario/data/azure-health-data-consortium)
+- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+- [Azure Data Explorer interactive analytics](/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer)
 
 #### Related guides
 
-- [Geospatial data processing and analytics](https://docs.microsoft.com/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
-- [Compare the machine learning products and technologies from Microsoft - Azure Databricks](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning#azure-databricks)
+- [Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
+- [Compare the machine learning products and technologies from Microsoft - Azure Databricks](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning#azure-databricks)
 - [Machine learning operations (MLOps) framework to scale up machine learning lifecycle with Azure Machine Learning](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-technical-paper)
-- [Azure Machine Learning decision guide for optimal tool selection](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/aml-decision-tree)
-- [Monitor Azure Databricks](https://docs.microsoft.com/azure/architecture/databricks-monitoring/)
+- [Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
+- [Monitor Azure Databricks](/azure/architecture/databricks-monitoring/)
