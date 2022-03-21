@@ -15,7 +15,7 @@ In this article you, as the admin, use PowerShell and the Azure module to create
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2&preserve-view=true).
-- [Azure AzPreview PowerShell module](https://www.powershellgallery.com/packages/AzPreview). Must be version 7.2 or higher.  Alternatively, the [Az.LabServices](https://www.powershellgallery.com/packages/AzPreview) module can be installed alongside the [Azure Az PowerShell module](/powershell/azure/install-Az-ps?view=azps-7.2.0&preserve-view=true).
+- [Azure AzPreview PowerShell module](https://www.powershellgallery.com/packages/AzPreview). Must be version 7.2 or higher.
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure and verify an active subscription.
 
