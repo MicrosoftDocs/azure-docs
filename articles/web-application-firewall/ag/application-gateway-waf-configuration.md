@@ -72,23 +72,31 @@ In this example, you want to exclude the `User-Agent` request header. The `User-
 
 There can be any number of reasons to disable evaluating this header. There could be a string that the WAF sees and assumes it’s malicious. For example, the classic SQL attack “x=x” in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
-You can use the folllowing code to exclude the `User-Agent` header from evaluation:
+You can use the folllowing code to exclude the `User-Agent` header from evaluation by the SQL injection rules:
 
 # [Azure PowerShell](#tab/powershell)
 
-<!-- TODO -->
 ```azurepowershell
-$ruleSet = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleSet `
-   -RuleSetType TODO `
-   -RuleSetVersion TODO
+$ruleGroupEntry = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleGroup `
+  -RuleGroupName 'REQUEST-942-APPLICATION-ATTACK-SQLI' `
+  -Rule $ruleOverrideEntry
 
-$ruleGroup = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleGroup -RuleGroupName REQUEST-942-APPLICATION-ATTACK-SQLI
+$exclusionManagedRuleSet = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleSet `
+  -RuleSetType 'OWASP' `
+  -RuleSetVersion '3.2' `
+  -RuleGroup $ruleGroupEntry
 
-$exclusion = New-AzApplicationGatewayFirewallPolicyExclusion `
-   -MatchVariable 'RequestHeaderNames' `
-   -SelectorMatchOperator 'Equals' `
-   -Selector 'User-Agent' `
-   -ExclusionManagedRuleSet $ruleSet
+$exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion `
+  -MatchVariable "RequestHeaderNames" `
+  -SelectorMatchOperator 'Equals' `
+  -Selector 'User-Agent' `
+  -ExclusionManagedRuleSet $exclusionManagedRuleSet
+
+$wafPolicy = Get-AzApplicationGatewayFirewallPolicy `
+  -Name $wafPolicyName `
+  -ResourceGroupName $resourceGroupName
+$wafPolicy.ManagedRules[0].Exclusions.Add($exclusionEntry)
+$wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 ```
 
 # [Azure CLI](#tab/cli)
@@ -100,9 +108,78 @@ $exclusion = New-AzApplicationGatewayFirewallPolicyExclusion `
 
 # [Bicep](#tab/bicep)
 
-<!-- TODO -->
 ```bicep
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-05-01' = {
+  name: wafPolicyName
+  location: location
+  properties: {
+    managedRules: {
+      managedRuleSets: [
+        {
+          ruleSetType: 'OWASP'
+          ruleSetVersion: '3.2'
+        }
+      ]
+      exclusions: [
+        {
+          matchVariable: 'RequestHeaderNames'
+          selectorMatchOperator: 'Equals'
+          selector: 'User-Agent'
+          exclusionManagedRuleSets: [
+            {
+              ruleSetType: 'OWASP'
+              ruleSetVersion: '3.2'
+              ruleGroups: [
+                {
+                  ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
+# [ARM template](#tab/armtemplate)
+
+```json
+{
+   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+   "apiVersion": "2021-05-01",
+   "name": "[parameters('wafPolicyName')]",
+   "location": "[parameters('location')]",
+   "properties": {
+         "managedRules": {
+            "managedRuleSets": [
+               {
+                  "ruleSetType": "OWASP",
+                  "ruleSetVersion": "3.2"
+               }
+            ],
+            "exclusions": [
+               {
+                  "matchVariable": "RequestHeaderNames",
+                  "selectorMatchOperator": "Equals",
+                  "selector": "User-Agent",
+                  "exclusionManagedRuleSets": [
+                     {
+                        "ruleSetType":"OWASP",
+                        "ruleSetVersion": "3.2",
+                        "ruleGroups": [
+                           {
+                              "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+   }
+}
 ```
 
 ---
@@ -138,6 +215,34 @@ $exclusion = New-AzApplicationGatewayFirewallExclusionConfig `
 <!-- TODO -->
 ```bicep
 
+```
+
+# [ARM template](#tab/armtemplate)
+
+```json
+{
+   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+   "apiVersion": "2021-05-01",
+   "name": "[parameters('wafPolicyName')]",
+   "location": "[parameters('location')]",
+   "properties": {
+      "managedRules": {
+         "managedRuleSets": [
+            {
+                  "ruleSetType": "OWASP",
+                  "ruleSetVersion": "3.2"
+            }
+         ],
+         "exclusions": [
+            {
+                  "matchVariable": "RequestArgNames",
+                  "selectorMatchOperator": "StartsWith",
+                  "selector": "user"
+            }
+         ]
+      }
+   }
+}
 ```
 
 ---
