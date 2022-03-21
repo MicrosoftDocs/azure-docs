@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/30/2021
+ms.date: 03/08/2022
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
 
@@ -196,24 +196,18 @@ To limit the data that Microsoft collects on your workspace, select __High busin
 
 #### Use your own key
 
-You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription.
+You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed keys.md).
 
-[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Use the following steps to provide your own key:
 
 > [!IMPORTANT]	
 > Before following these steps, you must first perform the following actions:	
 >
-> 1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.	
-> 1. Follow the steps in [Configure customer-managed keys](../cosmos-db/how-to-setup-cmk.md) to:
->     * Register the Azure Cosmos DB provider
->     * Create and configure an Azure Key Vault
->     * Generate a key
->	
->     You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-workspace-resource-name>_<GUID>`.	
->	
-> You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.
+> Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
+> * Register the Azure Cosmos DB provider
+> * Create and configure an Azure Key Vault
+> * Generate a key
 
 # [Python](#tab/python)
 
