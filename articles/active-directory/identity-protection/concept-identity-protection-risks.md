@@ -39,6 +39,8 @@ Real-time detections may not show up in reporting for five to 10 minutes. Offlin
 
 ### Premium detections
 
+Premium detections are visible only to Azure AD Premium P2 customers.
+
 | Risk detection | Detection type | Description |
 | --- | --- | --- |
 | Atypical travel | Offline | This risk detection type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. Among several other factors, this machine learning algorithm takes into account the time between the two sign-ins and the time it would have taken for the user to travel from the first location to the second, indicating that a different user is using the same credentials. <br><br> The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of the earliest of 14 days or 10 logins, during which it learns a new user's sign-in behavior. |
@@ -66,7 +68,7 @@ Real-time detections may not show up in reporting for five to 10 minutes. Offlin
 | Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, and so on) for potentially malicious intent. |
 | Leaked credentials | Offline | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they're checked against Azure AD users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions). |
 | Azure AD threat intelligence | Offline | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-| Admin confirmed user compromised | Manual | Administrators can take immediate action based on their own signals or risk investigations and choose to mark a s|
+| Admin confirmed compromised | Manual | Administrators can take action based on their own signals or risk investigations and **Confirm users compromised** or **Confirm sign-ins compromised** in the **Risky users** or **Risky sign-ins report**. |
 
 ## Common questions
 
