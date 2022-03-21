@@ -29,7 +29,7 @@ To understand the data ingestion trend and the daily volume cap to define, revie
 Review Application Insights Usage and estimated costs to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won't be able to monitor your resources after the limit is reached.
 
 > [!WARNING]
-> The daily cap doesn't stop the collection of data types **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary**, except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017. 
+> For workspaces with Microsoft Defender for Cloud, the daily cap doesn't stop the collection of data types **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary**, except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017. 
 
 ## When daily cap is reached
 When the daily cap is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace, and an operation event is sent to the *Operation* table under the **LogManagement** category. 
