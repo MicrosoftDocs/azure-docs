@@ -27,7 +27,7 @@ If you're using Windows Server, make sure you [install the Hyper-V role](/window
 
 ## Deployment on Windows VM on VMware
 
-VMware ESXi [6.7](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-67-installation-setup-guide.pdf)] and [7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html) versions support nested virtualization needed for hosting Azure IoT Edge for Linux on Windows on top of a Windows virtual machine. 
+VMware ESXi [6.7](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-67-installation-setup-guide.pdf) and [7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html) versions support nested virtualization needed for hosting Azure IoT Edge for Linux on Windows on top of a Windows virtual machine. 
 
 To set up an Azure IoT Edge for Linux on Windows on a VMware ESXi Windows virtual machine, use the following steps:
 
@@ -44,7 +44,7 @@ To set up an Azure IoT Edge for Linux on Windows on a VMware ESXi Windows virtua
 1. Install Hyper-V hypervisor. If you're using Windows Client, make sure you [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). If you're using Windows Server, make sure you [install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server). 
 
 > [!NOTE]
-> If you plan to use an **External virtual switch** for the EFLOW virtual machine netowrking, make sure you enable _Promiscious mode_. For more information, see [Configuring promiscuous mode on a virtual switch or portgroup](https://kb.vmware.com/s/article/1004099). Failing to do so will result in EFLOW installation errors.
+> For VMware Windows virtual machines, if you plan to use an **External virtual switch** for the EFLOW virtual machine netowrking, make sure you enable _Promiscious mode_. For more information, see [Configuring promiscuous mode on a virtual switch or portgroup](https://kb.vmware.com/s/article/1004099). Failing to do so will result in EFLOW installation errors.
 
 
 ## Deployment on Azure VMs
