@@ -15,13 +15,16 @@ ms.author: dhruviyer
 ## Overview
 
 Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual
-key and/or rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For additional guidance and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
+key and/or rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For additional guidance and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final).
 
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Azure Managed HSM. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation.
 
 ## Pricing
 
 Managed HSM key rotation is offered at no extra cost. For more information on Managed HSM pricing, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
+
+> [!WARNING]
+> Managed HSM has a limit of 100 versions per key. Key versions created as part of automatic or manual rotation count toward this limit.
 
 ## Permissions required
 
@@ -40,16 +43,16 @@ The key rotation policy allows users to configure rotation intervals and set the
 > [!NOTE]
 > Managed HSM does not support Event Grid Notifications
 
-> [!WARNING]
-> Managed HSM has a limit of 100 versions per key. Key versions created as part of automatic or manual rotation count toward this limit.
-
 Key rotation policy settings:
 
--   Expiry time: key expiration interval. It is used to set expiration date on a newly rotated key. It does not affect a current key.
+-   Expiry time: key expiration interval (minimum 28 days). It is used to set expiration date on a newly rotated key (e.g. after rotation, the new key is set to expire in 30 days).
 -   Rotation types:
-    -   Automatically renew at a given time after creation (default)
-    -   Automatically renew at a given time before expiry. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key.
--   Rotation time: key rotation interval, the minimum value is 28 days from creation or 28 days from expiration time
+    -   Automatically renew at a given time after creation
+    -   Automatically renew at a given time before expiry. 'Expiration Date' must be set on the key for this event to fire.
+
+> [!WARNING]
+> The minimum time between automatic key rotations must be no less than 28 days. For `timeAfterCreate` rotation, this means the minimum value is `P28D`. For `timeBeforeExpiry`, the maximum time depends on the `expiryTime`. For example, if `expiryTime` is `P56D`, `timeBeforeExpiry` can be at most `P28D`.
+
 
 ## Configure a key rotation policy
 
