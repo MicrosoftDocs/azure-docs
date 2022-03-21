@@ -56,7 +56,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
 ## Define configuration YAML file for deployment
 
-To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
+To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-online.md) document.
 
 The YAML files in the following examples are used to create online endpoints. 
 
