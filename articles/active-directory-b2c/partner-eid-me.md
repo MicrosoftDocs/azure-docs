@@ -445,7 +445,7 @@ Now that you have a user journey, add the new identity provider to the user jour
 
 2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
 
-The following XML demonstrates **11** orchestration steps of a user journey with the identity provider:
+The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
 
 ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
@@ -544,7 +544,6 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
             <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" />
             <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-            <OutputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
             <OutputClaim ClaimTypeReferenceId="postalCode" PartnerClaimType="postal_code" DefaultValue="unknown postal_code" />
             <OutputClaim ClaimTypeReferenceId="locality" PartnerClaimType="locality" DefaultValue="unknown locality" />
             <OutputClaim ClaimTypeReferenceId="region" PartnerClaimType="region" DefaultValue="unknown region" />
@@ -552,6 +551,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
             <OutputClaim ClaimTypeReferenceId="picture" PartnerClaimType="thumbnail_portrait" DefaultValue="unknown portrait" />
             <OutputClaim ClaimTypeReferenceId="middle_name" PartnerClaimType="middle_name" DefaultValue="unknown middle name" />
             <OutputClaim ClaimTypeReferenceId="birthdate" PartnerClaimType="birthdate" DefaultValue="unknown DOB" />
+            <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="signupConditionsSatisfied" DefaultValue="false" />
           </OutputClaims>
           <SubjectNamingInfo ClaimType="sub" />
         </TechnicalProfile>
