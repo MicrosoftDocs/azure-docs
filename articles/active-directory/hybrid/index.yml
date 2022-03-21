@@ -45,6 +45,8 @@ landingContent:
             url: tutorial-passthrough-authentication.md
           - text: Integrate a single AD forest using federation
             url: tutorial-federation.md
+          - text: Set up PHS as backup for AD FS in Azure AD Connect
+            url: tutorial-phs-backup.md
 
   
   # Card
