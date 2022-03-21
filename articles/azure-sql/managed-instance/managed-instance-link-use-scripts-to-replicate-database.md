@@ -24,7 +24,7 @@ This article teaches you how to use T-SQL and PowerShell scripts to set up an [A
 > A SQL Managed Instance link is a feature of SQL Server and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-replicate-database.md) to set up the link feature for database replication.
 
 > [!NOTE]
-> For configuration on Azure side, PowerShell scripts call the SQL Managed Instance REST API. We're planning to release support for Azure PowerShell and the Azure CLI. At that point, this article will be updated with the simplified PowerShell scripts.
+> For configuration on the Azure side, PowerShell scripts call the SQL Managed Instance REST API. We're planning to release support for Azure PowerShell and the Azure CLI. At that point, this article will be updated with the simplified PowerShell scripts.
 
 ## Prerequisites 
 
@@ -50,7 +50,7 @@ As you run scripts from this user guide, it's important not to mistake SQL Serve
 
 ## Trust between SQL Server and SQL Managed Instance
 
-The first step in creating a SQL Managed Instance link is to establish trust between the two entities and secure the endpoints that are used for communication and encryption of data across the network. Distributed availability groups technology in SQL Server doesn't have its own database mirroring endpoint. Instead, it uses the existing database mirroring endpoint for the availability group. This is why the security and trust between the two entities needs to be configured for the availability group's database mirroring endpoint.
+The first step in creating a SQL Managed Instance link is to establish trust between the two entities and secure the endpoints that are used for communication and encryption of data across the network. The SQL Server technology for distributed availability groups doesn't have its own database mirroring endpoint. Instead, it uses the existing database mirroring endpoint for the availability group. This is why the security and trust between the two entities needs to be configured for a availability group's database mirroring endpoint.
 
 Certificate-based trust is the only supported way to secure database mirroring endpoints on SQL Server and SQL Managed Instance. If you have existing availability groups that use Windows authentication, you need to add certificate-based trust to the existing mirroring endpoint as a secondary authentication option. You can do this by using the `ALTER ENDPOINT` statement.
 
@@ -72,7 +72,7 @@ First, create a master key on SQL Server and generate an authentication certific
 ```sql
 -- Run on SQL Server
 -- Create a master key encryption password
--- Keep the password confidential in a secure place
+-- Keep the password confidential and in a secure place
 USE MASTER
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong_password>'
 GO
@@ -97,7 +97,7 @@ GO
 SELECT * FROM sys.certificates
 ```
 
-In the query results, you'll find the certificate and see that it has been encrypted with the master key.
+In the query results, you'll see that the certificate has been encrypted with the master key.
 
 Now you can get the public key of the generated certificate on SQL Server:
 
@@ -115,11 +115,11 @@ Save the value of `PublicKeyEncoded` from the output, because you'll need it for
 
 For the next step, use PowerShell with the installed Az.Sql module, version 3.5.1 or later. Or use Azure Cloud Shell online to run the commands, because it's always updated with the latest module versions.
   
-Run the following PowerShell script. (If you use Cloud Shell, fill out necessary user information, copy it, paste it into Cloud Shell, and then run.) Replace:
+Run the following PowerShell script. (If you use Cloud Shell, fill out necessary user information, copy it, paste it into Cloud Shell, and then run the script.) Replace:
 
 - `<SubscriptionID>` with your Azure subscription ID. 
 - `<ManagedInstanceName>` with the short name of your managed instance. 
-- `<PublicKeyEncoded>` with the public portion of the SQL Server certificate in binary format, which you generated in the previous step. It will be a long string value that starts with `0x`.
+- `<PublicKeyEncoded>` with the public portion of the SQL Server certificate in binary format, which you generated in the previous step. It's a long string value that starts with `0x`.
 
 ```powershell
 # Run in Azure Cloud Shell
@@ -181,9 +181,9 @@ Invoke-WebRequest -Method POST -Headers $headers -Uri $uriFull -ContentType "app
 
 The result of this operation will be a time stamp of the successful upload of the SQL Server certificate private key to SQL Managed Instance.
 
-### Get the SQL Managed Instance public certificate public key and import it to SQL Server
+### Get the certificate public key from SQL Managed Instance and import it to SQL Server
 
-The certificate for securing the endpoint for a SQL Managed Instance link is automatically generated. This section describes how to get the SQL Managed Instance certificate public key, and how to import it to SQL Server.
+The certificate for securing the endpoint for a SQL Managed Instance link is automatically generated. This section describes how to get the certificate public key from SQL Managed Instance, and how to import it to SQL Server.
 
 Use SSMS to connect to SQL Managed Instance. Run the stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key:
 
@@ -280,7 +280,7 @@ FROM
 
 If the output shows that the existing `DATABASE_MIRRORING` endpoint `connection_auth_desc` isn't `CERTIFICATE`, or `encryption_algorthm_desc` isn't `AES`, the *endpoint needs to be altered to meet the requirements*.
 
-On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability groups, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
+On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability group, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
 
 Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. For details about possible options for altering endpoints, see the [documentation page for sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 
@@ -306,7 +306,7 @@ ALTER ENDPOINT <YourExistingEndpointName>
 GO
 ```
 
-After running the `ALTER` endpoint query and setting the dual authentication mode to Windows and certificate, use this query again on SQL Server to show the database mirroring endpoint details:
+After you run the `ALTER` endpoint query and set the dual authentication mode to Windows and certificate, use this query again on SQL Server to show details for the database mirroring endpoint:
 
 ```sql
 -- Run on SQL Server
@@ -322,7 +322,7 @@ You've successfully modified your database mirroring endpoint for a SQL Managed 
 
 ## Availability group on SQL Server
 
-If you don't have an existing availability group, the next step is to create one on SQL Server. Created an availability group with the following parameters for a SQL Managed Instance link:
+If you don't have an existing availability group, the next step is to create one on SQL Server. Create an availability group with the following parameters for a SQL Managed Instance link:
 
 -	SQL Server name
 -	Database name
@@ -488,20 +488,20 @@ FROM
     ON rs.replica_id = r.replica_id
 ```
 
-After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring** The reason is that the initial seeding is in progress moving the full backup of the database, which is followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
+After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring**. The reason is that the initial seeding is in progress moving the full backup of the database, which is followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
 
 > [!IMPORTANT]
-> The link will not work unless network connectivity exists between SQL Server and Managed Instance. To troubleshoot the network connectivity following steps described in [test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
+> The link will not work unless network connectivity exists between SQL Server and Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
 
 > [!IMPORTANT]
-> Make regular backups of the log file on SQL Server. If the log space used reaches 100%, the replication to SQL Managed Instance will stop until this space use is reduced. It is highly recommended that you automate log backups through setting up a daily job. For more details on how to do this see [Backup log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
+> Make regular backups of the log file on SQL Server. If the used log space reaches 100 percent, the replication to SQL Managed Instance will stop until this space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
 
 ## Next steps
 
-For more information on the link feature, see the following:
+For more information on the link feature, see the following resources:
 
-- [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
-- [Prepare for SQL Managed Instance link](./managed-instance-link-preparation.md).
-- [Use SQL Managed Instance link with scripts to migrate database](./managed-instance-link-use-scripts-to-failover-database.md).
-- [Use SQL Managed Instance link via SSMS to replicate database](./managed-instance-link-use-ssms-to-replicate-database.md).
-- [Use SQL Managed Instance link via SSMS to migrate database](./managed-instance-link-use-ssms-to-failover-database.md).
+- [SQL Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog)
+- [Prepare your environment for a SQL Managed Instance link](./managed-instance-link-preparation.md)
+- [Use a SQL Managed Instance link with scripts to migrate a database](./managed-instance-link-use-scripts-to-failover-database.md)
+- [Use a SQL Managed Instance link via SSMS to replicate a database](./managed-instance-link-use-ssms-to-replicate-database.md)
+- [Use a SQL Managed Instance link via SSMS to migrate a database](./managed-instance-link-use-ssms-to-failover-database.md)
