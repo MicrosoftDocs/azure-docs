@@ -3,7 +3,7 @@ title: 'End-to-end geospatial reference architecture'
 description: 'Concepts: shows how to architect end-to-end geospatial on Azure '
 author: rovin-ms
 ms.service: orbital
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: public-preview
 ms.date: 03/15/2022
 ms.author: rovin
