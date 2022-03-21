@@ -24,6 +24,7 @@ ms.collection: M365-identity-device-management
 
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
+
 This article covers the recommendation to convert from per-user MFA to conditional access MFA . 
 
 
