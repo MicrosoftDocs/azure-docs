@@ -81,7 +81,7 @@ Claim names allow "dot notation" to enable JSON object navigation, for example:
 }
 ```
 
-Array specifications aren't presently supported. Per the grammar, objects are not allowed as values for matching.
+Array specifications aren't presently supported. Per the grammar, objects aren't allowed as values for matching.
 
 ## AnyOf, AllOf conditions
 
@@ -105,7 +105,7 @@ Examples are shown below. In the first, allOf requires all conditions to be met:
 }
 ```
 
-Meaning ( claim_1 == value_1 ) && ( claim_2 == value_2 ).
+Meaning (claim_1 == value_1) && (claim_2 == value_2).
 
 In this example, anyOf requires that any condition match:
 
@@ -125,7 +125,7 @@ In this example, anyOf requires that any condition match:
 }
 ```
 
-Meaning ( claim_1 == value_2 ) || ( claim_2 == value_2 )
+Meaning (claim_1 == value_2) || (claim_2 == value_2 )
 
 The anyOf and allOf condition objects may be nested:
 
