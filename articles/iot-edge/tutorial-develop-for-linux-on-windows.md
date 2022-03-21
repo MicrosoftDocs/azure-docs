@@ -35,6 +35,7 @@ In this tutorial, you learn how to:
 This article assumes that you use a machine running Windows as your development machine. On Windows computers, you can develop either Windows or Linux modules. This tutorial will guide you through the development of **Linux containers**, using [IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md) for building and deploying the modules. 
 
 * Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
+* Quickstart: [Deploy your first IoT Edge module to a Windows device](./quickstart.md)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1).
 
 Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C#** workloads in your Visual Studio 2019 installation. You can [Modify Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) to add the required workloads.
@@ -171,9 +172,9 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    172.31.24.105 
    ```
 
-1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.Replace <EFLOW-VM-IP> with the EFLOW VM IP address obtained in the previous step.
+1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.Replace \<EFLOW-VM-IP\> with the EFLOW VM IP address obtained in the previous step.
    ```powershell
-   docker -H tcp://\<EFLOW-VM-IP\>:2375 run --rm hello-world
+   docker -H tcp://<EFLOW-VM-IP>:2375 run --rm hello-world
    ```
    You should see that the container is being downloaded, and after will run and output the following.
 
@@ -305,7 +306,7 @@ Typically, you'll want to test and debug each module before running it within an
 1. If you're using a private registry like Azure Container Registry (ACR), use the following Docker command to sign in to it.  You can get the username and password from the **Access keys** page of your registry in the Azure portal. If you're using local registry, you can [run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
    ```cmd
-   docker -H tcp://\<EFLOW-VM-IP\>:2375 login -u <ACR username> -p <ACR password> <ACR login server>
+   docker -H tcp://<EFLOW-VM-IP>:2375 login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
 
@@ -356,7 +357,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Right-click on the IoT Edge device and choose **Create deployment**. Navigate to the debug deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.amd64.json`.
 
-1. In **Cloud Explorer**, select **Refresh All** to see the new module running along with **$edgeAgent** and **$edgeHub** modules.
+1. In **Cloud Explorer**, right-click your edge device and refresh to see the new module running along with **$edgeAgent** and **$edgeHub** modules.
 
 1. Using and elevated PowerShell session run the following commands
 
