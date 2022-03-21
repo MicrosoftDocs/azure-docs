@@ -65,4 +65,4 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 * Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 
-* [Analyze usage in Log Analytics workspace](../../azure-monitor/logsanalyze-usage.md) describes how to analyze and alert on your data usage.
+* [Analyze usage in Log Analytics workspace](../../azure-monitor/logs-analyze-usage.md) describes how to analyze and alert on your data usage.

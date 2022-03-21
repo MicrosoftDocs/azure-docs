@@ -89,7 +89,7 @@ Use [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) t
 
 ## Pricing models for Application Insights metrics
 
-Ingesting metrics into Application Insights, whether log-based or pre-aggregated, will generate costs based on the size of the ingested data, as described [here](../logs/cost-logs.md/application-insights-billing). Your custom metrics, including all its dimensions, are always stored in the Application Insights log-store; additionally, a pre-aggregated version of your custom metrics (with no dimensions) is forwarded to the metrics store by default.
+Ingesting metrics into Application Insights, whether log-based or pre-aggregated, will generate costs based on the size of the ingested data, as described in [Azure Monitor Logs pricing details](../logs/cost-logs.md). Your custom metrics, including all its dimensions, are always stored in the Application Insights log-store; additionally, a pre-aggregated version of your custom metrics (with no dimensions) is forwarded to the metrics store by default.
 
 Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dimensions-and-pre-aggregation) option to store all dimensions of the pre-aggregated metrics in the metric store, can generate **additional** costs based on [Custom Metrics pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

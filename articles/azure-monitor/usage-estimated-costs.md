@@ -116,7 +116,7 @@ Log Analytics charges are added to your Azure bill. You can see details of your 
 
 
 ## Data transfer charges 
-Sending data to Azure Monitor might incur data bandwidth charges. However, that's limited to virtual machines where an [agent](../agents/agent-overview.md) is installed and doesn't apply when using diagnostics settings or with other connectors that are built in to Microsoft Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions is charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small compared to the costs for data ingestion and retention.
+Sending data to Azure Monitor might incur data bandwidth charges. However, that's limited to virtual machines where an [agent](agents/agent-overview.md) is installed and doesn't apply when using diagnostics settings or with other connectors that are built in to Microsoft Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions is charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small compared to the costs for data ingestion and retention.
 
 ## Viewing data allocation benefits
 
