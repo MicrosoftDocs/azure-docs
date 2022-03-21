@@ -3,7 +3,7 @@ title: Azure Virtual Desktop autoscale example scenarios preview
 description: A collection of four example scenarios that illustrate how various parts of the autoscale feature for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/17/2022
+ms.date: 03/21/2022
 ms.author: helohr
 manager: femila
 ---
@@ -110,6 +110,7 @@ In this scenario, we'll show that the autoscale feature turns off session hosts 
 
 - The used host pool capacity is below the capacity threshold.
 - The autoscale feature can turn off session hosts without exceeding the capacity threshold.
+- The autoscale feature only turns off session hosts with no user sessions on them (unless the scaling plan is in ramp-down phase and you've enabled the force logoff setting).
 
 For this scenario, the host pool starts off looking like this:
 
@@ -134,7 +135,7 @@ If two of the seven users sign out during their lunch break, that leaves five us
 
 If the autoscale feature turned off a session host, the available host pool capacity would be 20, and with five users, the used host pool capacity would then be 25%. Because 25% is less than the capacity threshold of 30%, the autoscale feature will select a session host without user sessions on it, put it in drain mode, and turn it off.
 
-Once the autoscale feature turns off one of the session hosts without user sessions, there are four available session hosts left. The host pool maximum session limit is still five so the available host pool capacity is 20. Since there are five user sessions, the used host pool capacity is 25%, which is still below the capacity threshold.
+Once the autoscale feature turns off one of the session hosts without user sessions, there are four available session hosts left. The host pool maximum session limit is still five, so the available host pool capacity is 20. Since there are five user sessions, the used host pool capacity is 25%, which is still below the capacity threshold.
 
 However, if another user signs out and heads out for lunch, there are now four user sessions spread across the four session hosts in the host pool. Since the maximum session limit is still five, the available host pool capacity is 20, and the used host pool capacity is 20%. Turning another session host off would leave three session hosts and an available host pool capacity of 15, which would cause the used host pool capacity to jump up to around 27%. Even though 27% is below the host pool capacity threshold, there are no session hosts with zero user sessions on it, so the autoscale feature will select the session host with the least number of user sessions, put it in drain mode, and wait for all user sessions to sign out before turning it off. If at any point the used host pool capacity gets to a point where the autoscale feature can no longer turn off the session host, it will take the session host out of drain mode.
 
@@ -322,7 +323,7 @@ To summarize, the host pool now looks like this:
 |Available session hosts | 1 |
 |Used host pool capacity | 0% |
 
-If the admin applies the exclusion tag name to the last untagged session host virtual machine and turns it off, then that means even if other users try to sign in, autoscale won't be able to turn on a VM to accommodate their user session. That user will see a 'No resources available' error.
+If the admin applies the exclusion tag name to the last untagged session host virtual machine and turns it off, then that means even if other users try to sign in, autoscale won't be able to turn on a VM to accommodate their user session. That user will see a "No resources available" error.
 
 However, being unable to turn VMs back on means that the host pool won't be able to meet its minimum percentage of hosts. To fix any potential problems that causes, the admin removes the exclusion tags from two of the VMs. Autoscale only turns on one of the VMs, because it only needs one VM to meet the 10% minimum requirement.
 
