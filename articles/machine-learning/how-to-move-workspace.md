@@ -102,7 +102,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 Once the validation has succeeded, move the workspace. You may also include any associated resources into move operation by adding them to the ```ids``` parameter. This operation may take several minutes.
 
 ```azurecli-interactive
-az resource move --destination-group destination-rg --destination-subsctiption-id destination-sub-id --ids "/subscriptions/origin-sub-id/resourceGroups/origin-rg/providers/Microsoft.MachineLearningServices/workspaces/origin-workspace-name"
+az resource move --destination-group destination-rg --destination-subscription-id destination-sub-id --ids "/subscriptions/origin-sub-id/resourceGroups/origin-rg/providers/Microsoft.MachineLearningServices/workspaces/origin-workspace-name"
 ```
 
 After the move has completed, recreate any computes and redeploy any web service endpoints at the new location.
