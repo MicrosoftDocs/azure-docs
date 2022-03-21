@@ -15,7 +15,7 @@ ms.reviewer: ktuckerdavis, aniket.adnaik
 
 The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics efficiently transfers large volume data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. Using the Spark magic command `%%spark`, the Scala Connector code can be placed in any Synapse Notebook Cell regardless of the notebook language preferences.
 
-At a high-level, the connector provides following capabilities:
+At a high-level, the connector provides the following capabilities:
 
 * Write to Azure Synapse Dedicated SQL Pool:
   * Ingest large volume data to Internal and External table types.
@@ -86,7 +86,7 @@ Continuing with earlier versions, the new updates continue to support basic auth
 * **Write Data to Azure Synapse Dedicated SQL Pool**
   * When reading data from the data source by initializing a DataFrame object:
     * Considering an example, where data is read from a storage account where the workspace user is not permitted.
-    * In such scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
+    * In such a scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
 
        ```Scala
        //Specify options that Spark runtime must support when interfacing and consuming source data
@@ -198,7 +198,8 @@ The new write path API upgrade brings a graceful approach to handle the end stat
 
 * Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
 * Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
-* Recommend reviewing the section [Write Request Callback Handle](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-request-callback-handle), where in a detailed approach of how to leverage the post-write job telemetry. Also review the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template)` which has the approach reference implementation.
+  * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-request-callback-handle).
+* Recommend to review and leverage the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template)` that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
 
 ## Connector API Documentation
 
