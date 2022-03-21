@@ -469,6 +469,8 @@
           href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
+        - name: CI/CD with Azure Pipelines
+          href: ../aks/devops-pipeline.md
     - name: Troubleshoot
       items:
         - name: Common issues
