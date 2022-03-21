@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This article explains the data resiliency behavior for Azure Stack Edge service that runs in Azure and manages Azure Stack Edge devices.  
 
-## About data resiliency for Azure Stack Edge 
+## About Azure Stack Edge 
 
 Azure Stack Edge service is used to deploy compute workloads on purpose-built hardware devices, right at the edge where the data is created. The purpose-built Azure Stack Edge devices are available in various form factors and can be ordered, configured, and monitored via the Azure portal.
 
@@ -36,8 +36,6 @@ Region information is used for Azure Stack Edge service in the following ways:
 - You specify an Azure region when creating an Azure Stack Edge Hardware Center order for the Azure Stack Edge device. This region is used to provide a list of regions or countries to which the device can be shipped.
 - You specify an Azure region when creating a management resource for the Azure Stack Edge device. This region is used to store the metadata associated with the resource. The metadata can be stored in a location different than the physical device. 
 - Finally, there is a region associated with the storage accounts where the customer data is stored by the Azure Stack Edge service. You can configure SMB or NFS shares on the service to store customer data and then associate an Azure Storage account with each configured share. Depending on the Azure Storage account configured for the share, your data is automatically and transparently replicated. For example, Azure Geo-Redundant Storage account (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see Azure Storage Redundancy Options.
-
-
 
 
 ### Single region vs. regional pairs
@@ -91,7 +89,7 @@ Here are the high-level steps to set up disaster recovery using Azure portal for
 
 - Create a resource in another region. For more information, see how to [Create a management resource for Azure Stack Edge device]().
 - [Reset the device](azure-stack-edge-reset-reactivate-device.md#reset-device). When the device is reset, the local data on the device is lost. It is necessary that you back up the device prior to the reset. Use a third-party backup solution provider to back up the local data on your device. For more information, see how to [Protect data in Edge cloud shares, Edge local shares, VMs and folders for disaster recovery](azure-stack-edge-gpu-prepare-device-failure.md#protect-device-data). 
-- [Reactivate device against a new resource](azure-stack-edge-reset-reactivate-device.md#reactivate-device). When you move to the new resource, you'll also need to restore data on the new resource. For more information, see how to [Restore Edge cloud shares](azure-stack-edge-gpu-recover-device-failure.md##restore-edge-cloud-shares), [Restore Edge local shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-local-shares) and [Restore VM files and folders](azure-stack-edge-gpu-recover-device-failure.md#restore-vm-files-and-folders).
+- [Reactivate device against a new resource](azure-stack-edge-reset-reactivate-device.md#reactivate-device). When you move to the new resource, you'll also need to restore data on the new resource. For more information, see how to [Restore Edge cloud shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-cloud-shares), [Restore Edge local shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-local-shares) and [Restore VM files and folders](azure-stack-edge-gpu-recover-device-failure.md#restore-vm-files-and-folders).
 
 For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md). 
 
@@ -101,7 +99,7 @@ Microsoft and its customers operate under the Shared responsibility model. This 
 
 When using Azure Stack Edge service, the customer can create a resource proactively, ahead of time, in a different region. In the event of a disaster, this resource can then be deployed. <!--Engg to confirm if this is a feasible scenario or resource creation can be blocked-->
 
-## Testing Disaster recovery
+## Testing disaster recovery
 
 Azure Stack Edge doesn’t have DR available as a feature. This implies that the interested customers should perform their own DF failover testing for this service. If a customer is trying to restore a workload or configuration in a new device, he is responsible for the end-to-end configuration.
 
