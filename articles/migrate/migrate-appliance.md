@@ -158,6 +158,8 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 
 ### Government cloud URLs for private link connectivity
 
+**URL** | **Details**  
+--- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
 graph.windows.net | Sign in to your Azure subscription.
 login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
