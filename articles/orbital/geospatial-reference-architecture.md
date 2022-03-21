@@ -135,6 +135,6 @@ In these situations, consider using [Tippecanoe](https://github.com/mapbox/tippe
 
 - [Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
 - [Compare the machine learning products and technologies from Microsoft - Azure Databricks](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning#azure-databricks)
-- [Machine learning operations (MLOps) framework to scale up machine learning lifecycle with Azure Machine Learning](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+- [Machine learning operations (MLOps) framework to scale up machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
 - [Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
 - [Monitor Azure Databricks](/azure/architecture/databricks-monitoring/)
