@@ -6,7 +6,7 @@ ms.date: 03/21/2022
 ms.author: mbaldwin
 ---
 
-The following is a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](/azure/governance/policy/).
+This article documents a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](/azure/governance/policy/).
 
 ```json
 (* string and number from JSON *)
@@ -70,7 +70,7 @@ A Claim Condition is a JSON object that identifies a claim name, a condition for
 } 
 ```
 
-In the first iteration, the only allowed condition is "equals" but future iterations may allow for other operators [similar to Azure Policy](/azure/governance/policy/concepts/definition-structure) (see the section on Conditions). If a specified claim is not present, its condition is considered to have not been met.
+In the first iteration, the only allowed condition is "equals" but future iterations may allow for other operators [similar to Azure Policy](/azure/governance/policy/concepts/definition-structure) (see the section on Conditions). If a specified claim isn't present, its condition is considered to haven't been met.
 
 Claim names allow "dot notation" to enable JSON object navigation, for example:
 
@@ -81,7 +81,7 @@ Claim names allow "dot notation" to enable JSON object navigation, for example:
 }
 ```
 
-Array specifications are not presently supported. Per the grammar, objects are not allowed as values for matching.
+Array specifications aren't presently supported. Per the grammar, objects are not allowed as values for matching.
 
 ## AnyOf, AllOf conditions
 
@@ -206,7 +206,8 @@ Conditions are collected into Authority statements and combined:
 ```
 
 Where:
-- **authority**: An identifier for the authority making the claims. This identifier functions in the same fashion as the iss  claim in a JSON Web Token  and indirectly references a key that signs the Environment Assertion.
+
+- **authority**: An identifier for the authority making the claims. This identifier functions in the same fashion as the iss claim in a JSON Web Token. It indirectly references a key that signs the Environment Assertion.
 - **allOf**: One or more claim conditions that identify claims and values that must be satisfied in the environment assertion for the release policy to succeed. anyOf is also allowed. However, both are not allowed together. 
 
 ## Key Release Policy
@@ -249,6 +250,6 @@ The encoding is as follows:
 An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned by the target execution environment (and protected by it) that is used for key export, it must appear in one of, in preference order:
 
 - The TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set.
-- The Enclave Held Data claim (maa-ehd ) claim. The maa-ehd claim is expected to contain a string that is the Base64 URL encoding of an array of octets that contain a JSON document; within this document, AKV requires that there be a keys element containing a JSON Web Key Set.
+- The Enclave Held Data claim (maa-ehd) claim. The maa-ehd claim is expected to contain a string that is the Base64 URL encoding of an array of octets that contain a JSON document; within this document, AKV requires that there be a keys element containing a JSON Web Key Set.
 
 Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
