@@ -16,7 +16,7 @@ This quickstart details you how to assess and install updates on demand on a sel
 
 - Have an Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your role must be either an [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) for Azure VM and resource administrator for Arc enabled servers.
-- One or more [Azure virtual machines](/azure/virtual-machines), or [Arc-enabled servers](/azure/azure-arc/servers/overview), Windows and Linux machines
+- Ensure that the target machines meet the specific operating system requirements of the Windows Server and Linux. For more information, see [Overview](overview.md).
 
 
 ## Assess updates
