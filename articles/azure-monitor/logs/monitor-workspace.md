@@ -2,7 +2,7 @@
 title: Monitor health of Log Analytics workspace in Azure Monitor
 description: Describes how to monitor the health of your Log Analytics workspace using data in the Operation table.
 ms.topic: conceptual
-ms.reviewer: MeirMen
+ms.reviewer: shemers
 ms.date: 21/03/2022
 
 ---
