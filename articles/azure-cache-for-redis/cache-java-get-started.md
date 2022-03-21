@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java'
-description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis
+description: In this quickstart, you'll create a new Java app that uses Azure Cache for Redis
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/22/2020
@@ -13,7 +13,7 @@ ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java, mo
 
 # Quickstart: Use Azure Cache for Redis in Java
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Jedis](https://github.com/xetorthio/jedis) Redis client to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your cache is a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code on GitHub
 
@@ -63,11 +63,11 @@ Open the *pom.xml* file and add a dependency for [Jedis](https://github.com/xeto
 
 ```xml
     <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>3.2.0</version>
-        <type>jar</type>
-        <scope>compile</scope>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>4.1.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
     </dependency>
 ```
 
@@ -75,11 +75,12 @@ Save the *pom.xml* file.
 
 Open *App.java* and replace the code with the following code:
 
+<!-- Should we use the same approach here and put a link to the code. We are including a whole file so that seems reasonable. -->
 ```java
 package example.demo;
 
+import redis.clients.jedis.DefaultJedisClientConfig;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisShardInfo;
 
 /**
  * Redis test
@@ -95,13 +96,14 @@ public class App
         String cachekey = System.getenv("REDISCACHEKEY");
 
         // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-        JedisShardInfo shardInfo = new JedisShardInfo(cacheHostname, 6380, useSsl);
-        shardInfo.setPassword(cachekey); /* Use your access key. */
-        Jedis jedis = new Jedis(shardInfo);      
+        Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
+            .password(cachekey)
+            .ssl(useSsl)
+            .build());
 
         // Perform cache operations using the cache connection object...
 
-        // Simple PING command        
+        // Simple PING command
         System.out.println( "\nCache Command  : Ping" );
         System.out.println( "Cache Response : " + jedis.ping());
 
@@ -144,9 +146,9 @@ In the example below, you can see the `Message` key previously had a cached valu
 
 ## Clean up resources
 
-If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+If you'll be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
 
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
@@ -158,7 +160,7 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
    ![Azure resource group deleted](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
+1. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
