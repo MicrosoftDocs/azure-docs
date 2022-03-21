@@ -51,19 +51,20 @@ For your app to receive traffic, ensure that inbound network security group (NSG
 
 It's a good idea to configure the following inbound NSG rule:
 
-|Port|Source|Destination|
-|-|-|-|
-|80,443|Virtual network|App Service Environment subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80,443|Inbound|VirtualNetwork|App Service Environment subnet range|Allow app traffic and internal health ping traffic|
 
 The minimal requirement for App Service Environment to be operational is:
 
-|Port|Source|Destination|
-|-|-|-|
-|80|Azure Load Balancer|App Service Environment subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80|Inbound|AzureLoadBalancer|App Service Environment subnet range|Allow internal health ping traffic|
 
 If you use the minimum required rule, you might need one or more rules for your application traffic. If you're using any of the deployment or debugging options, you must also allow this traffic to the App Service Environment subnet. The source of these rules can be the virtual network, or one or more specific client IPs or IP ranges. The destination is always the App Service Environment subnet range.
+The internal health ping traffic on port 80 is isolated between the Load balancer and the internal servers. No outside traffic can reach the health ping endpoint.
 
-The normal app access ports are as follows:
+The normal app access ports inbound are as follows:
 
 |Use|Ports|
 |-|-|
