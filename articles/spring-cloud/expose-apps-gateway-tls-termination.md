@@ -100,7 +100,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-#### Create a managed identity for the application gateway
+### Create a managed identity for the application gateway
 
 Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command, replacing the *\<...>* placeholder:
 
@@ -118,7 +118,7 @@ APPGW_IDENTITY_CLIENTID=$(az identity show --resource-group $RESOURCE_GROUP --na
 APPGW_IDENTITY_OID=$(az ad sp show --id $APPGW_IDENTITY_CLIENTID --query objectId --output tsv)
 ```
 
-#### Set policy on Key Vault
+### Set policy on Key Vault
 
 Configure Key Vault using the following command so that the managed identity for the application gateway is allowed to access the certificate stored in Key Vault:
 
@@ -135,7 +135,7 @@ az keyvault set-policy \
 
 ### [CLI](#tab/azure-cli)
 
-Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Be sure to use the user-assigned managed identity and point to the certificate in Key Vault using the certificate's secret ID. Then, update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
+Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Be sure to use the user-assigned managed identity and point to the certificate in Key Vault using the certificate's secret ID.
 
 ```azurecli
 APPGW_NAME='<name-for-application-gateway>'
@@ -197,7 +197,7 @@ Create an application gateway using the following steps to enable SSL terminatio
 
 It can take up to 30 minutes for Azure to create the application gateway.
 
-#### Update HTTP settings to use the domain name towards the backend
+### Update HTTP settings to use the domain name towards the backend
 
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with `.private.azuremicroservices.io` to send traffic to Azure Spring Cloud with.
 
