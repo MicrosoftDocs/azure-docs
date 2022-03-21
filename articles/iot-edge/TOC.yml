@@ -153,8 +153,6 @@
           href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
         - name: Symmetric key attestation
           href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-
-        href: gpu-acceleration.md
     - name: Windows containers on Windows hosts
       items:
       - name: Provision a single device
