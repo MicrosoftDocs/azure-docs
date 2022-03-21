@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
+ms.date: 03/15/2022
 ---
 
 # Configure IoT Edge Module offer listing details
@@ -69,7 +69,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 The **Name** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered for **Offer alias** when you created the offer, but you can change it. The name:
 
 - Can include trademark and copyright symbols.
-- Must be 50 characters or less.
+- Must be 200 characters or less.
 - Can't include emojis.
 
 Provide a short description of your offer for the **Search results summary** (up to 100 characters). This description may be used in marketplace search results.

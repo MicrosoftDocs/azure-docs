@@ -30,9 +30,9 @@ Microsoft recommends an approach based on the principle of *Zero Trust* when des
 
 - **Least-privileged access** Devices should enforce least-privileged access control on local resources across workloads. For example, a firmware component that reports battery level shouldn't be able to access a camera component.
 
-- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
+- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](../iot-hub-device-update/device-update-azure-real-time-operating-system.md) to push the firmware that contains the patches or bug fixes.
 
-- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
+- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](../defender-for-iot/device-builders/concept-rtos-security-module.md) can be used for that purpose.
 
 
 ## Embedded security components - cryptography
@@ -370,7 +370,7 @@ Use cloud resources to record and analyze device failures remotely. Aggregate er
 
 **Azure RTOS**: No specific Azure RTOS requirements but consider logging Azure RTOS API return codes to look for specific problems with lower-level protocols (for example,  TLS alert causes, TCP failures) that may indicate problems.
 
-**Application**: Make use of logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) would provide this functionality and more. Microsoft Defender for IoT provides agent-less monitoring of devices in an IoT solution. Monitoring can be enhanced by including the [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) on your device. For more information, see the [Runtime security monitoring and threat detection](#runtime-security-monitoring-and-threat-detection) recommendation.
+**Application**: Make use of logging libraries and your cloud service's client SDK to push error logs to the cloud where they can be stored and analyzed safely without using valuable device storage space. Integration with [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) would provide this functionality and more. Microsoft Defender for IoT provides agent-less monitoring of devices in an IoT solution. Monitoring can be enhanced by including the [Microsoft Defender for IOT micro-agent for Azure RTOS](../defender-for-iot/device-builders/iot-security-azure-rtos.md) on your device. For more information, see the [Runtime security monitoring and threat detection](#runtime-security-monitoring-and-threat-detection) recommendation.
 
 ### Disable unused protocols and features
 
@@ -418,7 +418,7 @@ Connected IoT devices may not have the necessary resources to implement all secu
 
 **Azure RTOS**: Azure RTOS supports [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/).
 
-**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that is built into your device’s firmware and comes as part of Azure RTOS. The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations that will help to improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides an additional layer of security that is built right into the RTOS by default.
+**Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](../defender-for-iot/device-builders/iot-security-azure-rtos.md) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that is built into your device’s firmware and comes as part of Azure RTOS. The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations that will help to improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides an additional layer of security that is built right into the RTOS by default.
 
 ## Azure RTOS IoT application security checklist
 

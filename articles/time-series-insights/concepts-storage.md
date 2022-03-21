@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Data Storage
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes data storage in Azure Time Series Insights Gen2. It covers warm and cold, data availability, and best practices.
 
 ## Provisioning

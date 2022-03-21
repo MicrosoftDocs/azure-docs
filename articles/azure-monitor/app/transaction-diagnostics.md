@@ -95,3 +95,10 @@ This is by design. All of the related items, across all components, are already 
 *I see more events than expected in the transaction diagnostics experience when using the Application Insights JavaScript SDK. Is there a way to see fewer events per transaction?*
 
 The transaction diagnostics experience shows all telemetry in a [single operation](correlation.md#data-model-for-telemetry-correlation) that share an [Operation Id](data-model-context.md#operation-id). By default, the Application Insights SDK for JavaScript creates a new operation for each unique page view. In a Single Page Application (SPA), only one page view event will be generated and a single Operation Id will be used for all telemetry generated, this can result in many events being correlated to the same operation. In these scenarios, you can use Automatic Route Tracking to automatically create new operations for navigation in your single page app. You must turn on [enableAutoRouteTracking](javascript.md#single-page-applications) so a page view is generated every time the URL route is updated (logical page view occurs). If you want to manually refresh the Operation Id, you can do so by calling `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`. Manually triggering a PageView event will also reset the Operation Id.
+
+*Why do transaction detail durations not add up to the top-request duration?*
+
+Time not explained in the gantt chart, is time that is not covered by a tracked dependency.
+This can be due to either external calls that were not instrumented (automatically or manually), or that the time taken was in process rather than because of an external call.
+
+If all calls were instrumented, in process is the likely root cause for the time spent. A useful tool for diagnosing the process is the [Application Insights profiler](./profiler.md).
