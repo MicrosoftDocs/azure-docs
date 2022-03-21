@@ -114,10 +114,10 @@ In the Security step, select **Edit** and configure this information:
 * **Authentication type**: **OAuth 2.0**
 * **OAuth 2.0**:
     - **Identity provider**: **Azure Active Directory**
-    - **Client ID**: The Application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
-    - **Client secret**: The Client secret from the app registration 
+    - **Client ID**: The application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
+    - **Client secret**: The client secret value from the app registration 
     - **Login URL**: `https://login.windows.net` (leave default)
-    - **Tenant ID**: The Directory (tenant) ID for your Azure AD app registration
+    - **Tenant ID**: The directory (tenant) ID from the app registration
     - **Resource URL**: *0b07f429-9f4b-4714-9392-cc5e8e80c8b0*
     - **Enable on-behalf-of login**: *false* (leave default)
     - **Scope**: *Directory.AccessAsUser.All*
