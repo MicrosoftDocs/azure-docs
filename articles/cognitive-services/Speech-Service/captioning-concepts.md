@@ -56,6 +56,7 @@ The end of a single utterance is determined by listening for silence at the end.
 > [!NOTE]
 > Punctuation of intermediate results is not available. 
 
+### Recognizing offset and duration
 With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
 
 This code snippet shows how to get the offset and duration from a `Recognizing` event. 
@@ -72,6 +73,7 @@ speechRecognizer.Recognizing += (object sender, SpeechRecognitionEventArgs e) =>
     };
 ```
 
+### Recognized offset and duration
 Once an utterance has been recognized, you can get the offset and duration of the recognized speech. With the `Recognized` event, you can also get the offset and duration per word. To request the offset and duration per word, first you must set the corresponding `SpeechConfig` property as shown here:
 
 ```csharp
@@ -111,6 +113,7 @@ speechRecognizer.Recognized += (object sender, SpeechRecognitionEventArgs e) =>
     };
 ```
 
+### Example offset and duration
 The following table shows potential offset and duration in ticks when a speaker says "Welcome to Applied Mathematics course 201." For each utterance, the offset doesn't change throughout the `Recognized` and `Recognized` events. The duration of speech recognized so far is calculated as an offset from the beginning of the utterance.
 
 |Event  |Text  |Offset (in ticks)  |Duration (in ticks) |
