@@ -60,8 +60,10 @@ items:
       href: configure-sim-policy-azure-portal.md
   - name: SIMs
     items:
-    - name: Provision SIMs
+    - name: Provision SIMs - Azure portal
       href: provision-sims-azure-portal.md
+    - name: Provision SIMs - ARM template
+      href: provision-sims-arm-template.md
 - name: Reference
   items:
    - name: REST API
