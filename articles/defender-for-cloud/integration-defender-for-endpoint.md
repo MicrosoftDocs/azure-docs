@@ -2,7 +2,7 @@
 title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multi-cloud machines.
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 03/22/2022
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -274,7 +274,7 @@ Defender for Cloud automatically deploys the extension to machines running:
 > If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
 
 
-### I've enabled the solution by the "MDE.Windows" / "MDE.Linux" extension isn't showing on my machine
+### I've enabled the solution but the "MDE.Windows" / "MDE.Linux" extension isn't showing on my machine
 
 If you've enabled the integration, but still don't see the extension running on your machines, check the following:
 
