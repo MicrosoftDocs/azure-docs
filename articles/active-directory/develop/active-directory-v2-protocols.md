@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 03/23/2022
 ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
@@ -42,7 +42,7 @@ The parties in an authentication flow use **bearer tokens** to assure identifica
 
 Three types of bearer tokens are used by the Microsoft identity platform as *security tokens*:
 
-* [Access tokens](access-tokens.md) - Access tokens are issued by the authorization server to the client application. The client passes access tokens to the resource server. Access tokens contain the permissions the client has been granted by the authorization server. 
+* [Access tokens](access-tokens.md) - Access tokens are issued by the authorization server to the client application. The client passes access tokens to the resource server. Access tokens contain the permissions the client has been granted by the authorization server.
 
 * [ID tokens](id-tokens.md) - ID tokens are issued by the authorization server to the client application. Clients use ID tokens when signing in users and to get basic information about them.
 
@@ -50,13 +50,14 @@ Three types of bearer tokens are used by the Microsoft identity platform as *sec
 
 ## App registration
 
-Your client app needs a way to trust the security tokens issued to it by the Microsoft identity platform. The first step in establishing that trust is by [registering your app](quickstart-register-app.md) with the identity platform in Azure Active Directory (AD).
+Your client app needs a way to trust the security tokens issued to it by the Microsoft identity platform. The first step in establishing that trust is by [registering your app](quickstart-register-app.md) with the identity platform in Azure Active Directory (Azure AD).
 
 When you register your app in Azure AD, the Microsoft identity platform automatically assigns it some values, while others you configure based on the application's type.
 
-* **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. The client ID uniquely identifies your app in the identity platform and is included in the security tokens the platform issues to your app.
-* **Redirect URI** - The authorization server uses a redirect URI to direct the resource owner's *user-agent* (web browser, mobile app) to another destination after completing their interaction (for example, after the end-user authenticates with the authorization server). Not all client types use redirect URIs.
-* **Values specific to the client app type or scenario** - For example, a standard web app, single-page app (SPA), and a web API calling another web API might all require different settings values unique to each.
+Two the most commonly referenced app registration settings are:
+
+* **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. The client ID uniquely identifies your app in the identity platform and is included in the security tokens the platform issues.
+* **Redirect URI** - The authorization server uses a redirect URI to direct the resource owner's *user-agent* (web browser, mobile app) to another destination after completing their interaction. For example, after the end-user authenticates with the authorization server. Not all client types use redirect URIs.
 
 Your app's registration also holds information about the authentication and authorization *endpoints* you'll use in your code to get ID and access tokens.
 
@@ -64,25 +65,30 @@ Your app's registration also holds information about the authentication and auth
 
 Authorization servers like the Microsoft identity platform provide a set of HTTP endpoints for use by the parties in an auth flow to execute the flow.
 
-Two of the most commonly used endpoints are the [`authorization` endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [`token` endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). In the Microsoft identity platform, these two endpoints often--but not always--take this form:
+The endpoint URIs for your app are generated for you when you register or configure your app in Azure AD. The endpoints you use in your app's code depend on the application's type and the identities (account types) it should support.
 
-```
+Two commonly used endpoints are the [authorization endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [token endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). Here are examples of the `authorize` and `token` endpoints:
+
+```Bash
+# Authorization endpoint - used by client to obtain authorization from the resource owner.
 https://login.microsoftonline.com/<issuer>/oauth2/v2.0/authorize
+# Token endpoint - used by client to exchange an authorization grant or refresh token for an access token.
 https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
-```
 
-The endpoint URIs for your app are generated for you when you register the app in Azure AD. The endpoints you use in your app's code depend on the application's type and the identities (account types) it should support.
+# NOTE: These are examples. Endpoint URI format may vary based on application type,
+#       sign-in audience, and Azure cloud instance (global or national cloud).
+```
 
 To find the endpoints for an application you've registered, in the [Azure portal](https://portal.azure.com) navigate to:
 
 **Azure Active Directory** > **App registrations** > *{YOUR-APPLICATION}* > **Endpoints**
- 
+
 ## Next steps
 
 Next, learn about the OAuth 2.0 authentication flows used by each application type and the libraries you can use in your apps to perform them:
 
-- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
-- [Microsoft authentication libraries](reference-v2-libraries.md)
+* [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+* [Microsoft authentication libraries](reference-v2-libraries.md)
 
 Always prefer using an authentication library over making raw HTTP calls to execute auth flows. However, if you have an app that requires it or you'd like to learn more about the identity platform's implementation of OAuth and OIDC, see:
 
