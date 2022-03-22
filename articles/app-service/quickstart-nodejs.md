@@ -5,7 +5,7 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.custom: mvc, devcenter, seodec18, devdivchpfy22
 #zone_pivot_groups: app-service-platform-windows-linux
-ms.date: 03/10/2022
+ms.date: 03/22/2022
 ms.devlang: javascript
 #zone_pivot_groups: app-service-ide-oss
 zone_pivot_groups: app-service-vscode-cli-portal
@@ -165,7 +165,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 :::zone target="docs" pivot="development-environment-cli"
 
-In the terminal, ensure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the `az webapp up` command:
+In the terminal, ensure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the [az webapp up](../cli/azure/webapp#az-webapp-up) command:
 
 # [Deploy to Linux](#tab/linux)
 
@@ -186,7 +186,7 @@ az webapp up --sku F1 --name <app-name> --os-type Windows
 - The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
 - The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
-- If you see the error, "Couldn't auto-detect the runtime stack of your app," ensure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
+- If you see the error, "Could not auto-detect the runtime stack of your app," ensure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
@@ -335,7 +335,7 @@ You can stream log output (calls to `console.log()`) from the Azure app directly
 
     ![Start Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 
-1. If, asked to restart the app, select **Yes**. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream.
+1. If asked to restart the app, select **Yes**. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream.
 
 1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service. You can generate more output activity by refreshing the page in the browser.
 
