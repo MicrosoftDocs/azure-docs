@@ -222,7 +222,7 @@ WITH (
     | STRING_DELIMITER = string_delimiter
     | FIRST_ROW = integer
     | USE_TYPE_DEFAULT = { TRUE | FALSE }
-    | Encoding = {'UTF8' | 'UTF16'}
+    | ENCODING = {'UTF8' | 'UTF16'}
     | PARSER_VERSION = {'parser_version'}
 }
 ```
