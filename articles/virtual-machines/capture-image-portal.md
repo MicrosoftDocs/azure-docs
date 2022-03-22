@@ -34,6 +34,12 @@ For images stored in a Shared Image Gallery, you can use VMs that already have a
     
    To only create a managed image, select **No, capture only a managed image**. The VM must have been generalized to create a managed image. The only other required information is a name for the image. 
 
+### Warning: 
+```
+The machine will not be accessible after Capturing image. 
+If you generalize the virtual machine, no further actions on it are allowed. For example, a generalized virtual machine can't be started or modified. You can select this checkbox to have the virtual machine deleted automatically once the image is created. If you do not generalize the virtual machine, you can continue to use it as normal.
+```
+
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**. This is not recommended.
 
 1. For **Gallery details**, select the gallery or create a new gallery by selecting **Create new**.
