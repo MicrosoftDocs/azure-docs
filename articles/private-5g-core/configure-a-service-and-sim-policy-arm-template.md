@@ -65,7 +65,10 @@ Two Azure resources are defined in the template.
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
 1. Once your configuration has been validated, you can select **Create** to create the service and SIM policy. The Azure portal will display a confirmation screen when the deployment is complete.
-1. Select **Go to resource group**.
+
+## Review deployed resources
+
+1. On the confirmation screen, select **Go to resource group**.
 
     :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 

@@ -68,12 +68,18 @@ Three Azure resources are defined in the template.
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the private mobile network. The Azure portal will display the following confirmation screen when the private mobile network has been created.
+1. Once your configuration has been validated, you can select **Create** to create the private mobile network. The Azure portal will display a confirmation screen when the private mobile network has been created.
+
+## Review deployed resources
+
+1. On the confirmation screen, select **Go to resource group**.
 
     :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 
-1. Select **Go to resource group**.
 1. Confirm that the resource group contains the correct **Mobile Network**, **Slice** and **Data Network** resources.
+
+
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-arm-template\mobile-network-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing newly provisioned SIMs.":::
 
 ## Next steps
 

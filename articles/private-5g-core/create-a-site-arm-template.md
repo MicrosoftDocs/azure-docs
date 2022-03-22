@@ -79,11 +79,14 @@ Four Azure resources are defined in the template.
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
+1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display a confirmation screen when the site has been created.
 
-    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
+## Review deployed resources
 
-1. Select **Go to resource group**.
+1. On the confirmation screen, select **Go to resource group**.
+
+    :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
+
 1. Confirm that the resource group contains the following new resources:
 
     - A **Mobile Network Site** resource representing the site as a whole.
