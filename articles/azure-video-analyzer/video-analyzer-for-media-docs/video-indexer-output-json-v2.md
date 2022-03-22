@@ -1,7 +1,7 @@
 ---
-title: Examine the v2 API output from Azure Video Analyzer for Media (formerly Video Indexer)
+title: Examine the Azure Video Analyzer for Media output
 titleSuffix: Azure Video Analyzer for Media
-description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API.
+description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by the Get Video Index API.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
@@ -13,15 +13,15 @@ ms.author: juliako
 
 # Examine the Video Analyzer for Media output
 
-When a video is indexed, Azure Video Analyzer for Media (formerly Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Analyzer for Media (formerly Video Indexer) produces the JSON content that contains details of the specified video insights. The insights include transcripts, OCRs, faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. 
 
-You can also use the API by calling the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content.
+You can also use the Get Video Index API. If the response status is **OK**, you get a detailed JSON output as the response content.
 
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Screenshot of the Insights tab in Azure Video Analyzer for Media.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-This article examines the Video Analyzer for Media output (JSON content). <br/>For information about what features and insights are available to you, see [Video Analyzer for Media insights](video-indexer-overview.md#video-insights).
+This article examines the Video Analyzer for Media output (JSON content). For information about what features and insights are available to you, see [Video Analyzer for Media insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > Expiration of all the access tokens in Video Analyzer for Media is one hour.
@@ -40,8 +40,8 @@ For more information, see [View and edit video insights](video-indexer-view-edit
 
 ## Insights/output produced by API
 
-1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
-1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
+1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
+1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
 
     In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
 
@@ -220,7 +220,7 @@ instances|A list of time ranges of this block.|
 |confidence|The transcript accuracy confidence.|
 |speakerId|The ID of the speaker.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
-|instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only 1 instance.|
+|instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only one instance.|
 
 Example:
 
@@ -886,7 +886,7 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
 
 ## Next steps
 
-[Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai)
+Explore the [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai).
 
 For information about how to embed widgets in your application, see [Embed Video Analyzer for Media widgets into your applications](video-indexer-embed-widgets.md). 
 
