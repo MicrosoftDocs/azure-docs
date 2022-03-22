@@ -14,7 +14,6 @@ ms.custom: template-quickstart
 
 Get started with Azure Load Balancer by using the Azure portal to create a basic public load balancer and two virtual machines.
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
