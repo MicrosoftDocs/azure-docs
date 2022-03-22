@@ -279,6 +279,19 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get    
 ```
 
+#### SaveModes
+
+Following is a brief description of how the SaveMode setting by the User would translate into actions taken by the Connector:
+
+* ErrorIfExists (Connector's default save mode)
+  * If destination table exists, then the write is aborted with an exception returned to the callee. Else, a new table is created with data from the staging folders.
+* Ignore
+  * If the destination table exists, then the write will ignore the write request without returning an error. Else, a new table is created with data from the staging folders.
+* Overwrite
+  * If the destination table exists, then existing data in the destination is replaced with data from the staging folders. Else, a new table is created with data from the staging folders.
+* Append
+  * If the destination table exists, then the new data is appended to it. Else, a new table is created with data from the staging folders.
+  
 #### Write Request Callback Handle
 
 The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. These metrics provide information such as number of records staged, to number of records written to SQL table, time spent in staging and executing the SQL statements to write data to the Synapse Dedicated SQL Pool. String values for each Metric key is defined and accessible from the new Object reference - `Constants.FeedbackConstants`. These metrics are by default written to the Spark Driver logs. One can also fetch these by passing a call-back handle (a `Scala Function`). Following is the signature of this function:
