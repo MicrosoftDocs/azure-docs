@@ -192,6 +192,8 @@
           href: core/howto-query-with-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Manage organizations
+          href: core/howto-manage-organizations-with-rest-api.md
         - name: Data export
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates

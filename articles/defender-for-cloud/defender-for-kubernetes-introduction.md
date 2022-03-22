@@ -3,6 +3,8 @@ title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
 ms.date: 03/10/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 
 # Introduction to Microsoft Defender for Kubernetes (deprecated)
@@ -34,7 +36,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## What are the benefits of Microsoft Defender for Kubernetes?
 

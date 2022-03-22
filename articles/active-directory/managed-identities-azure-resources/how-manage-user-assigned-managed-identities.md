@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/04/2022
+ms.date: 03/08/2022
 ms.author: barclayn 
 ms.custom: devx-track-azurecli
 zone_pivot_groups: identity-mi-methods
@@ -81,13 +81,13 @@ In some environments, administrators choose to limit who can manage user-assigne
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 1. A list of the user-assigned managed identities for your subscription is returned. Select the user-assigned managed identity that you want to manage.
-1. Select **Azure role assignments**, and then select **Add role assignment**.
-1. In the **Add role assignment** pane, configure the following values, and then select **Save**:
-   - **Role**: The role to assign.
-   - **Assign access to**: The resource to assign the user-assigned managed identity.
-   - **Select**: The member to assign access.
-   
-   ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot-02.png)
+1. Select **Access control (IAM)**.
+1. Choose **Add role assignment**.
+  
+   ![Screenshot that shows the user-assigned managed identity access control screen](media/how-manage-user-assigned-managed-identities/role-assign.png)
+
+1. In the **Add role assignment** pane, choose the role to assign and choose **Next**.
+1. Choose who should have the role assigned.
 
 >[!NOTE]
 >You can find information on assigning roles to managed identities in [Assign a managed identity access to a resource by using the Azure portal](../../role-based-access-control/role-assignments-portal-managed-identity.md)
