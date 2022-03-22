@@ -639,8 +639,6 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     ```
    Response of the *PUT* call will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
-1. Go to the Azure portal page of the VM and in the **Extensions** tab, you can check the status of the Hybrid Worker Extension installation.
- 
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
