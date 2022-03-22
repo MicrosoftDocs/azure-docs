@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 02/27/2022
-ms.author: memildin
+ms.author: elkrieger
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 

@@ -303,7 +303,7 @@ The following sample creates a rule that can target any resource.
 ```
 
 ## Number of results template (up to version 2018-04-16)
-The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#count-of-the-results-table-rows).
+The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#result-count).
 
 ### Notes
 
@@ -396,7 +396,7 @@ The following sample creates a [number of results alert rule](../alerts/alerts-u
 ```
 
 ## Metric measurement template (up to version 2018-04-16)
-The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value).
+The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-a-value).
 
 ### Template file
 
