@@ -14,7 +14,7 @@ As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many det
 
 To enhance service capabilities, we're upgrading the API Management compute platform version - the Azure compute resources that host the service - for instances in several [service tiers](api-management-features.md). This article gives you context about the upgrade and the major versions of API Management's compute platform: `stv1` and `stv2`.
 
-We've minimized impacts of this upgrade on your operation of your API Management instance. Upgrades are managed by the platform, and new instances created in service tiers other than the Consumption tier are mostly hosted on the `stv2` platform. However, for existing instances in certain service tiers, you have options to trigger migration to the `stv2` platform.
+We've minimized impacts of this upgrade on your operation of your API Management instance. Upgrades are managed by the platform, and new instances created in service tiers other than the Consumption tier are mostly hosted on the `stv2` platform. However, for existing instances hosted on the `stv1` platform, you have options to trigger migration to the `stv2` platform.
 
 ## What are the compute platforms for API Management?
 
@@ -26,7 +26,7 @@ The following table summarizes the compute platforms currently used for instance
 | `stv1` |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) |  Developer, Basic, Standard, Premium | 
 | `mtv1` | Multi-tenant v1 |  [App service](../app-service/overview.md) |  Consumption |
 
-<sup>1</sup> Newly created instances in these tiers, created using the Azure portal or specifying API version 2021-01-01-preview or later. Includes some existing instances in Developer and Premium tiers configured with virtual networks or availablity zones.
+<sup>1</sup> Newly created instances in these tiers, created using the Azure portal or specifying API version 2021-01-01-preview or later. Includes some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 ## How do I know which platform hosts my API Management instance?
 
@@ -76,8 +76,8 @@ To update the existing external or internal VNet configuration using the portal:
 1. In the left menu, select **Network** > **Virtual network**.
 1. Select the network connection in the location you want to update.
 1. Select the virtual network, subnet, and IP address resources you want to configure, and select **Apply**.
-1. If you have network connections in other locations, follow the preceding steps to apply updates.
-1. Select **Save**.
+1. Continue configuring VNet settings for the remaining locations of your API Management instance.
+1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
 The virtual network configuration is updated, and the instance is migrated to the `stv2` platform. Confirm migration by checking the [`platformVersion` property](#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
