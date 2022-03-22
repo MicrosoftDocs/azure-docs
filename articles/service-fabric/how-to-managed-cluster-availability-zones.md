@@ -27,7 +27,7 @@ The recommended topology for managed cluster requires the resources outlined bel
 >Only 3 Availability Zone deployments are supported.
 
 >[!NOTE]
-> It is not possible to do an in-place change of a managed cluster from non-spanning to a spanned cluster.
+> It is not possible to do an in-place change of virtual machine scale sets in a managed cluster from non-zone-spanning to a zone-spanned cluster.
 
 Diagram that shows the Azure Service Fabric Availability Zone architecture
  ![Azure Service Fabric Availability Zone Architecture][sf-multi-az-arch]
@@ -71,10 +71,10 @@ Requirements:
 >[!NOTE]
 >Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
 
-1) Start with determining if there will be a new IP required and what resources need to be migrated to become zone resilient. To get the current Availability Zone resiliency state for the resources of the managed cluster use the following GET API call:
+1) Start with determining if there will be a new IP required and what resources need to be migrated to become zone resilient. To get the current Availability Zone resiliency state for the resources of the managed cluster use the following  API call:
 
    ```http
-   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/azresiliencystatus?api-version=2022-02-01-preview
+   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getazresiliencystatus?api-version=2022-02-01-preview
    ```
    This should provide with response similar to:
    ```json
@@ -150,7 +150,7 @@ Requirements:
    }
    ```
 
-4) Gradually start removing older non az spanning node types
+4) Start removing older non az spanning node types from the cluster
 
    Once all your services are not present on your non zone spanned node types, you must remove the old node types. Start by [removing the old node types from the cluster](./how-to-managed-cluster-modify-node-type.md) using Portal or cmdlet. As a last step, remove any old node types from your template.
 
@@ -172,7 +172,7 @@ Requirements:
    To validate the Availability Zone resiliency state for the resources of the managed cluster use the following GET API call:
 
    ```http
-   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/azresiliencystatus?api-version=2022-02-01-preview
+   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getazresiliencystatus?api-version=2022-02-01-preview
    ```
    This should provide with response similar to:
    ```json
