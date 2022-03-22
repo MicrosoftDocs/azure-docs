@@ -1865,6 +1865,10 @@ We recommend installing the [Advanced Security Information Model (ASIM)](normali
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 
+> [!NOTE]
+> Windows Defender Firewall logs are [uploaded to Sentinel only after 1000 activities or when the log file reaches it's maximum defined size](https://github.com/Azure/Azure-Sentinel/issues/164#issuecomment-525625659) which, by default, is 4096 KB. 
+> To increase the frequency of log ingestion, decrease the size of the firewall logs.
+
 
 ## Windows Security Events via AMA
 
