@@ -306,8 +306,6 @@ The managed identity information will also show up when you create linked servic
 
 To grant permissions:
 
-1. In the [Azure portal](https://portal.azure.com), select your data factory.
-
 1. Select **Access control (IAM)**.
 
 1. Select **Add** > **Add role assignment**.
