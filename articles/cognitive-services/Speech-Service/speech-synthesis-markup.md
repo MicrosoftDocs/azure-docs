@@ -256,9 +256,9 @@ The following table has descriptions of each supported role.
 
 ## Adjust speaking languages
 
-You can adjust speaking languages for neural voices at the sentence level and word level.
+By default, Text-to-Speech synthesizes text by using the primary language for a neural voice and supports multilingual in English. You can adjust the speaking languages [using multiple voices]( speech-synthesis-markup.md#use-multiple-voices) at the sentence level and word level.
 
-Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) by using the `<lang xml:lang>` element. This optional element is unique to the Speech service. Without this element, the voice speaks its primary language.
+Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) by using the `<lang xml:lang>` element. This optional element is unique to the Speech service. Without this element, the voice speaks its primary language and English.
 
 Speaking language adjustments are only supported for the `en-US-JennyMultilingualNeural` neural voice. The preceding changes are applied at the sentence level and word level. If a language isn't supported, the service won't return an audio stream.
 
@@ -298,18 +298,33 @@ Use this table to determine which speaking languages are supported for each neur
 
 **Example**
 
-This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX`, and `de-DE`.
+The `en-US-JennyMultilingualNeural` neural voice's primary lanaugage is `en-US` which needs to be specified within the `speak` element as default regardless of whether adjusted languages is `en-US` or not. This SSML snippet shows how to use `en-US-JennyMultilingualNeural` neural voice to speak `de-DE`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
-        I am looking forward to the exciting things.
-        <lang xml:lang="es-MX">
-            Estoy deseando que lleguen las cosas emocionantes.
-        </lang>
         <lang xml:lang="de-DE">
-            Ich freue mich auf die spannenden Dinge.
+            Wir freuen uns auf die Zusammenarbeit mit Ihnen!
+        </lang>
+    </voice>
+</speak>
+```
+
+Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        <lang xml:lang="es-MX">
+            ¡Esperamos trabajar con usted! 
+        </lang>
+        <lang xml:lang="en-US">
+           We look forward to working with you!
+        </lang>
+        <lang xml:lang="fr-FR">
+            Nous avons hâte de travailler avec vous!
         </lang>
     </voice>
 </speak>
