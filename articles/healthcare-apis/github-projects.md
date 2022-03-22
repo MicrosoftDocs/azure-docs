@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/28/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ---
 # GitHub Projects
@@ -67,7 +67,7 @@ This solution enables you to transform the data into tabular format as it gets w
 * [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): integration with IoT Hub or IoT Central to FHIR with data normalization and FHIR conversion of the normalized data
 * Normalization: device data information is extracted into a common format for further processing
 * FHIR Conversion: normalized and grouped data is mapped to FHIR. Observations are created or updated according to configured templates and linked to the device and patient.
-* [Tools to help build the conversation map](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing the device input data and transform it to the FHIR resources. Developers can use this tool to edit and test the Device and FHIR destination mappings and export them for uploading to the IoT connector in the Azure portal.
+* [Tools to help build the conversation map](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing the device input data and transform it to the FHIR resources. Developers can use this tool to edit and test the Device and FHIR destination mappings and export them for uploading to the MedTech service in the Azure portal.
 
 #### HealthKit and FHIR Integration
 

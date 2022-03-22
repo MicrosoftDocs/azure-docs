@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ---
 
@@ -58,6 +58,6 @@ Data for the managed service is automatically backed up every 12 hours, and the 
 
 [FAQs about Azure Health Data Services DICOM service](./dicom/dicom-services-faqs.yml)
 
-[FAQs about Azure Health Data Services IoT connector](./iot/iot-connector-faqs.md)
+[FAQs about Azure Health Data Services MedTech service](./iot/iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
