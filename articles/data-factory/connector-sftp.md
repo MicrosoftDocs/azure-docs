@@ -437,11 +437,11 @@ The below table lists the properties supported by SFTP source. You can edit thes
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Wildcard path | Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. | No | String[] | wildcardPaths  |
-| Partition Root Path | If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.  | No | String | partitionRootPath  |
+| Partition Root Path | If you have partitioned folders in your file source with  a ```key=value``` format (for example, `year=2019`), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.  | No | String | partitionRootPath  |
 | Allow no files found |If true, an error is not thrown if no files are found. | No | `true` or `false` | ignoreNoFilesFound  |
 | List of files |This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.  | No | `true` or `false` | fileList  |
 | Column to store file name | Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.  | No | String | rowUrlColumn |
-| After completion | Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative. | No | Delete: `true` or `false` <br> Move: `[<from>, <to>]` | purgeFiles<br/>moveFiles |
+| After completion | Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative. | No | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles<br/>moveFiles |
 | Filter by last modified | You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. | No | Timestamp | modifiedAfter<br/> modifiedBefore |
 
 #### SFTP source script example
@@ -451,8 +451,9 @@ When you use SFTP dataset as source type, the associated data flow script is:
 ```
 source(allowSchemaDrift: true,
 	validateSchema: false,
-	ignoreNoFilesFound: false,
+	ignoreNoFilesFound: true,
 	purgeFiles: true,
+	fileList: true,
 	modifiedAfter: (toTimestamp(1647388800000L)),
 	modifiedBefore: (toTimestamp(1647561600000L)),
 	partitionRootPath: 'partdata',
@@ -476,7 +477,7 @@ When you use SFTP dataset as sink type, the associated data flow script is:
 ```
 IncomingStream sink(allowSchemaDrift: true,
 	validateSchema: false,
-	partitionFileNames:['movieoutput.txt'],
+	filePattern:'loans[n].csv',
 	truncate: true,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> SFTPSink
