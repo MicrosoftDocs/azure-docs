@@ -152,6 +152,8 @@ The following list of prefixes are reserved for usage by AKS and can't be used f
 | kubernetes.azure.com/ |
 | kubernetes.io/ |
 
+For additional reserved prefixes, see [Kubernetes well-known labels, annotations, and taints][kubernetes-well-known-labels]
+
 ### Deprecated labels
 
 The following lists of labels are planned for deprecated with the release of [Kubernetes v1.24][aks-release-calendar]. Customers should change any label references to the recommended substitute. 
@@ -181,6 +183,7 @@ Learn more about Kubernetes labels at the [Kubernetes labels documentation][kube
 [aks-release-notes-gh]: https://github.com/Azure/AKS/releases
 [kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
+[kubernetes-well-known-labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/
 [virtual-kubelet-release]: https://github.com/virtual-kubelet/azure-aci/releases
 
 
