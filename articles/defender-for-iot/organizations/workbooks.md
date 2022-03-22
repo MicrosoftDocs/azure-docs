@@ -5,7 +5,11 @@ ms.topic: how-to
 ms.date: 03/06/2022
 ---
 
-# Use Azure Monitor workbooks in Microsoft Defender for IoT
+# Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)
+
+> [!IMPORTANT]
+>
+> The **Workbooks** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
@@ -24,7 +28,7 @@ To view out-of-the-box workbooks created by Microsoft, or other workbooks alread
 
 1. In the Azure portal, go to **Defender for IoT** and select **Workbooks** on the left.
 
-:::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
+    :::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
 
 1. Modify your filtering options if needed, and select a workbook to open it.
 
