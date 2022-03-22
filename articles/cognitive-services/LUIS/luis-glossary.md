@@ -4,7 +4,7 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 03/21/2022
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -35,7 +35,7 @@ Authoring is the ability to create, manage and deploy a LUIS app, either using t
 
 ### Authoring Key
 
-The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
+The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [resource limits](luis-limits.md#resource-usage-and-limits).
 
 ### Authoring Resource
 
