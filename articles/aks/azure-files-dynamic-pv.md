@@ -46,6 +46,7 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
 provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
+allowVolumeExpansion: true
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
@@ -172,6 +173,7 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
 provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
+allowVolumeExpansion: true
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
