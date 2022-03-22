@@ -20,6 +20,14 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
+### What do I need to think about before Resizing a VM?
+There are always a multitude of design considerations when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+
+1. The application requirements for resources from the VM
+2. The OS Patching or post patching pending restarts
+3. The IP address on the machine is set to static or dynamic
+4. The user work is save and machine is backed up
+
 ## Change the VM size
 
 ### [Portal](#tab/portal)
