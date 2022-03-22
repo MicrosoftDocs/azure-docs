@@ -9,7 +9,7 @@ ms.author: eur
 ### 2022-March release
 
 #### Custom speech-to-text Container v3.1.0
-- Add support to [get display models](../../speech-container-howto.md&tabs=cstt#display-model-download-on-the-custom-speech-to-text-container).
+- Add support to [get display models](../../speech-container-howto&tabs=cstt#display-model-download-on-the-custom-speech-to-text-container).
 
 ### 2022-January release
 
