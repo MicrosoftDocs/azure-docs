@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ---
 
@@ -28,13 +28,13 @@ It's important that you have the following prerequisites completed before you be
 
 ## Deploy Events 
 
-1. Browse to the Workspace that contains the FHIR service you want to send event messages from and select the **Events** blade.
+1. Browse to the workspace that contains the FHIR service you want to send event messages from and select the **Events** blade.
  
-   :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of Workspace and select Events button." lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of workspace and select Events button." lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
 
 2. Select **+ Event Subscription** to begin the creation of an event subscription.
 
-   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-select.png" alt-text="Screenshot of Workspace and select events subscription button." lightbox="media/events-deploy-in-portal/events-new-subscription-select.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-select.png" alt-text="Screenshot of workspace and select events subscription button." lightbox="media/events-deploy-in-portal/events-new-subscription-select.png":::
 
 3. In the **Create Event Subscription** box, enter the following subscription information.
 
@@ -49,7 +49,7 @@ It's important that you have the following prerequisites completed before you be
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
-5. After provisioning a new Events subscription, event messages won't be sent until the System Topic deployment has successfully completed and the status of the Workspace has changed from "Updating" to "Succeeded".
+5. After provisioning a new Events subscription, event messages won't be sent until the System Topic deployment has successfully completed and the status of the workspace has changed from "Updating" to "Succeeded".
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-create.png" alt-text="Screenshot of an events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-create.png":::
 

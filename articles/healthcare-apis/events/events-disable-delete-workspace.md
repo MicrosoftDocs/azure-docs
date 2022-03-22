@@ -6,13 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ---
 
 # Disable Events and delete Workspaces
 
-In this article, you'll learn how to disable Events and delete Workspaces in Azure Health Data Services.
+In this article, you'll learn how to disable Events and delete workspaces in Azure Health Data Services.
 
 ## Disable Events
 
@@ -36,13 +36,13 @@ To disable Events from sending event messages for a single Event Subscription, t
 
 ## Delete Workspaces
 
-To successfully delete a Workspace, delete all associated child resources first (for example: DICOM services, FHIR services and MedTech services), delete all Event Subscriptions, and then delete the Workspace. Not deleting the child resources and Event Subscriptions first will cause an error when attempting to delete a Workspace with child resources.
+To successfully delete a workspace, delete all associated child resources first (for example: DICOM services, FHIR services and MedTech services), delete all Event Subscriptions, and then delete the Workspace. Not deleting the child resources and Event Subscriptions first will cause an error when attempting to delete a Workspace with child resources.
 
 As an example:
 
- 1. Delete all Workspace associated child resources - for example: DICOM service(s), FHIR service(s), and MedTech service(s).
- 2. Delete all Workspace associated Event Subscriptions.
- 3. Delete Workspace.
+ 1. Delete all workspaces associated child resources - for example: DICOM service(s), FHIR service(s), and MedTech service(s).
+ 2. Delete all workspaces associated Event Subscriptions.
+ 3. Delete workspace.
 
 ## Next steps
 

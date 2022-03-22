@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ---
 
@@ -19,7 +19,7 @@ In this article, you'll learn how to display Events metrics in the Azure portal.
 
 ## Display metrics
 
-1. Within your Azure Health Data Services Workspace, select the **Events** button. 
+1. Within your Azure Health Data Services workspace, select the **Events** button. 
 
    :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the events button from the Workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
 
