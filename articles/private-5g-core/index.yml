@@ -81,13 +81,17 @@ landingContent:
   # Card
   - title: Monitor your private mobile network
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: Cloud monitoring with Azure Log Analytics
             url: monitoring-private-5g-core-with-log-analytics.md
-      - linkListType: concept
-        links:
           - text: Local monitoring with distributed tracing
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Log Analytics for Azure Private 5G Core
+            url: enable-log-analytics-for-private-5g-core.md
+          - text: Create an overview dashboard - ARM template
+            url: create-overview-dashboard.md            
