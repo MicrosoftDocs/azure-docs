@@ -130,7 +130,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 To host your application in Azure, you need to create Azure App Service web app.
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resource.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -176,7 +176,7 @@ You can create a PostgreSQL database in Azure using the [Azure portal](https://p
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
