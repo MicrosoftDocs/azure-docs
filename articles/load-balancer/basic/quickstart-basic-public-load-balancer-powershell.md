@@ -107,13 +107,13 @@ $lbrule = @{
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
 }
-$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset
+$rule = New-AzLoadBalancerRuleConfig @lbrule
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
     ResourceGroupName = 'CreatePubLBQS-rg'
     Name = 'myLoadBalancer'
-    Location = 'eastus'
+    Location = 'westus3'
     Sku = 'Basic'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
@@ -150,14 +150,13 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 $subnet = @{
     Name = 'myBackendSubnet'
     AddressPrefix = '10.1.0.0/24'
-    NatGateway = $natGateway
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.1.1.0/24'
+    AddressPrefix = '10.1.1.0/27'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -165,7 +164,7 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    Location = 'westus3'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
@@ -175,7 +174,7 @@ $vnet = New-AzVirtualNetwork @net
 $ip = @{
     Name = 'myBastionIP'
     ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    Location = 'westus3'
     Sku = 'Standard'
     AllocationMethod = 'Static'
 }
