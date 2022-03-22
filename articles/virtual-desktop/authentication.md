@@ -11,7 +11,7 @@ manager: femila
 ---
 # Supported identities and authentication methods
 
-In this article, we'll give you a brief overview of what kinds of identities and authentication you can use in Azure Virtual Desktop.
+In this article, we'll give you a brief overview of what kinds of identities and authentication methods you can use in Azure Virtual Desktop.
 
 ## Identities
 
