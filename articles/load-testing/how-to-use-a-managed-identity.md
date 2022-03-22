@@ -92,8 +92,6 @@ Before you can add a user-assigned identity to an Azure Load Testing resource, y
 
 # [Portal](#tab/azure-portal)
 
-To add a user-assigned managed identity in the portal, you first create a user-assigned identity resource and then add it to the Azure Load Testing resource.
-
 1. Create a user-assigned managed identity by following the instructions mentioned [here](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
