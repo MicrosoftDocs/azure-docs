@@ -25,13 +25,13 @@ This article demonstrates how to enable preview environments in GitHub.
 
 The following environment types are available in Azure Static Web Apps.
 
-- **Production environment**: Changes to production branches are deployed into the production environment. Your custom domain points to this environment and content served here is indexed by search engines.
+- **Production environment**: Changes to production branches are deployed into the production environment. Your custom domain points to this environment, and content served from this location is indexed by search engines.
 
-- **PR environments**: Each pull request against your production branch deploys to a temporary environment which disappears after the pull request is closed. The URL for this environment includes the PR number as a suffix. For example, if you make your first PR, the preview location looks something like `<DEFAULT_HOST_NAME>-1.<LOCATION>.azurestaticapps.net`.
+- **PR environments**: Pull requests against your production branch deploy to a temporary environment that disappears after the pull request is closed. The URL for this environment includes the PR number as a suffix. For example, if you make your first PR, the preview location looks something like `<DEFAULT_HOST_NAME>-1.<LOCATION>.azurestaticapps.net`.
 
-- **Preview environments**: You can optionally configure your site to deploy every change made to branches that are not a production branch. Preview environments are either mapped to specific branches, or changes from all branches are rolled up into a single named environment. If mapped to a specific branch, the environment lives for the entire lifetime of the branch.
+- **Preview environments**: You can optionally configure your site to deploy every change made to branches that aren't a production branch. Preview environments are either mapped to specific branches, or changes from all branches are rolled up into a single named environment. If mapped to a specific branch, the environment lives for the entire lifetime of the branch.
 
-  Preview environments are published to a URL which includes the environment or branch name as a suffix. For example, if the environment or branch is named `dev`, then the environment is available at a location like `<DEFAULT_HOST_NAME>-dev.<LOCATION>.azurestaticapps.net`.
+  Preview environments are published to a URL that includes the environment or branch name as a suffix. For example, if the environment or branch is named `dev`, then the environment is available at a location like `<DEFAULT_HOST_NAME>-dev.<LOCATION>.azurestaticapps.net`.
 
 ## Configuration
 
@@ -119,7 +119,7 @@ jobs:
 
 ```
 
-Here, the preview environments are defined for the `dev`, `feature1`, and `feature2` branches. Since the `deployment_environment` value is not set, then each branch is deployed to its own environment.
+Here, the preview environments are defined for the `dev`, `feature1`, and `feature2` branches. Since the `deployment_environment` value isn't set, then each branch is deployed to its own environment.
 
 ## Next steps
 
