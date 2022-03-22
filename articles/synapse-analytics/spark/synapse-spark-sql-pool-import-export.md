@@ -180,15 +180,15 @@ This section details authorization settings necessary to interact with Azure Syn
     EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
     ```
 
-## Processing the Response - Success or Failure
+## Processing the Response
 
 Invoking `synapsesql` has two possible end states - Successful completion of the request (write or read) or a Failure state. In this section we will review how to handle each of these states with respect to a write and read use case.
 
-### End State - Read Scenario
+### Read Request Response
 
 In case of a read scenario, either success or failure will print snippets of the end state to the console below respective Cell.
 
-### End State - Write Scenario
+### Write Request Response
 
 The new write path API upgrade brings a graceful approach to handle the end state, by passing in a lambda (i.e., Scala Function) that can receive post-write feedback as a Key->Value pair. This approach will offer following benefits over state information that is presented on the console:
 
