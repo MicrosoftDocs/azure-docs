@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
@@ -66,7 +66,7 @@ Now that the workspace is created, you can:
 
 * Deploy FHIR service
 * Deploy DICOM service
-* Deploy an IoT Connector and ingest data to your FHIR service
+* Deploy a MedTech service and ingest data to your FHIR service
 * Transform your data into different formats and secondary use through our conversion and de-identification APIs
 
 
