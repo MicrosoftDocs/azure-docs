@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/22/2022
 ms.author: duau
 ---
 
@@ -85,13 +85,13 @@ Before you can create an Azure Front Door origin, you must have an Azure Front D
 
 ## Clean up resources
 
-To delete an origin group when you no longer needed it, click the **...** and then select **Delete** from the drop-down.
+To delete an origin group when you no longer needed it, select the **...** and then select **Delete** from the drop-down.
 
 :::image type="content" source="./media/how-to-configure-origin/delete-origin-group.png" alt-text="Screenshot of how to delete an origin group.":::
 
-To remove an origin when you no longer need it, click the **...** and then select **Delete** from the drop-down. 
+To remove an origin when you no longer need it, select the **...** and then select **Delete** from the drop-down. 
 
-:::image type="content" source="./media/how-to-create-origin/delete-origin-view.png" alt-text="Screenshot of how to delete an origin.":::
+:::image type="content" source="./media/how-to-create-origin/delete-origin.png" alt-text="Screenshot of how to delete an origin.":::
 
 ## Next steps
 
