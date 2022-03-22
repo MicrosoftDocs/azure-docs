@@ -1,12 +1,12 @@
 ---
 title: Azure Front Door Rules actions
-description: This article provides a list of various actions you can do with Azure Front Door Rules engine/Rules set.
+description: This article provides a list of various actions you can do with Azure Front Door Rules set/Rules engine.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/07/2022
+ms.date: 03/22/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -15,16 +15,11 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-An Azure Front Door Standard/Premium [Rule Set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in Azure Front Door Standard/Premium Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door (Standard/Premium) Rule Set, a rule can contain up to five actions.
+An Azure Front Door [Rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in an Azure Front Door Rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door Rule set, a rule can contain up to five actions.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Front Door supports [server variable](rule-set-server-variables.md) in a Rule set action.
 
-Azure Front Door Standard/Premium supports [server variables](rule-set-server-variables.md) on Rule Set actions.
-
-The following actions are available to use in Azure Front Door rule set.  
+The following actions are available to use in an Azure Front Door rule set: 
 
 ## <a name="RouteConfigurationOverride"></a> Route configuration override
 
@@ -403,7 +398,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 ::: zone pivot="front-door-classic"
 
-In Azure Front Door, a [Rules Engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
+In Azure Front Door (classic), a [Rules engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
 
 An action defines the behavior that gets applied to the request type that matches the condition or set of match conditions. In the Rules engine configuration, a rule can have up to 10 matching conditions and 5 actions. You can only have one *Override Routing Configuration* action in a single rule.
 
