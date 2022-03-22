@@ -259,7 +259,7 @@ By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spend
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-The following example shows all possible configurations required to enable correlation, with scenario-specific notes below:
+The following example shows standard configuration options for enabling correlation, with scenario-specific notes below:
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -287,6 +287,14 @@ Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ## Single Page Applications
+
+For Single Page Applications please reference their documentation for specific guidance:
+
+[React]
+[React Native]
+[Angular]
+[Click Analytics]
+[WordPress]
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
