@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/11/2022
+ms.date: 03/22/2022
 ms.author: alkohli
 ---
 
@@ -31,7 +31,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
     If you have enabled the **copy to archive** option and you have not copied data into the Block Blob (Archive) shares, make sure to do so to prevent the following error:
 
-    :::image type="content" source="media/data-box-prepare-to-ship/prepare-to-ship-no-data-copy-archive.png" alt-text="No data archive error.":::
+    :::image type="content" source="media/data-box-prepare-to-ship/prepare-to-ship-no-data-copy-archive.png" alt-text="Screenshot of no data archive error.":::
 
     After the errors are resolved, run **Prepare to ship**.
 
