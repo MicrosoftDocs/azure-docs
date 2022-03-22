@@ -13,7 +13,7 @@ manager: femila
 
 Azure Virtual Desktop uses Azure role-based access control (RBAC) to control access to resources. There are a number of built-in roles for use with Azure Virtual Desktop  which is a collection of permissions. You assign roles to users and admins and these roles give permission to carry out certain tasks. To learn more about Azure RBAC, see [What is Azure RBAC?](../role-based-access-control/overview.md).
 
-The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Azure Virtual Desktop has additional roles that let you separate management roles for host pools, app groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
+The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Azure Virtual Desktop has additional roles that let you separate management roles for host pools, application groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
 
 Azure Virtual Desktop doesn't have a specific Owner role. However, you can use the general Owner role for the service objects.
 
@@ -21,7 +21,7 @@ The built-in roles for Azure Virtual Desktop and the permissions for each one ar
 
 ## Desktop Virtualization Contributor
 
-The Desktop Virtualization Contributor role allows you to manage all aspects of the deployment. However, it doesn't grant you access to compute resources. You'll also need the User Access Administrator role to publish app groups to users or user groups.
+The Desktop Virtualization Contributor role allows you to manage all aspects of the deployment. However, it doesn't grant you access to compute resources. You'll also need the User Access Administrator role to publish application groups to users or user groups.
 
 | Action type | Permissions |
 |--|--|
@@ -76,7 +76,7 @@ The Host Pool Reader role allows you to view everything in the host pool, but wo
 
 ## Desktop Virtualization Application Group Contributor
 
-The Application Group Contributor role allows you to manage all aspects of app groups. If you want to publish app groups to users or user groups, you'll need the User Access Administrator role.
+The Application Group Contributor role allows you to manage all aspects of application groups. If you want to publish application groups to users or user groups, you'll need the User Access Administrator role.
 
 The following table describes which permissions this role can access:
 
@@ -100,7 +100,7 @@ The Application Group Reader role allows you to view everything in the app group
 
 ## Desktop Virtualization Workspace Contributor
 
-The Workspace Contributor role allows you to manage all aspects of workspaces. To get information on applications added to the app groups, you'll also need to be assigned the Application Group Reader role.
+The Workspace Contributor role allows you to manage all aspects of workspaces. To get information on applications added to the application groups, you'll also need to be assigned the Application Group Reader role.
 
 | Action type | Permissions |
 |--|--|
