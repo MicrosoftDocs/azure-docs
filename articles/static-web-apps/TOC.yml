@@ -50,6 +50,8 @@
           href: authentication-custom.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
+    - name: Preview environments
+      href: preview-environments.md
     - name: Custom domains
       items:
       - name: About custom domains
