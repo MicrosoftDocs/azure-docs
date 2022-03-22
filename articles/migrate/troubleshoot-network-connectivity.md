@@ -256,7 +256,7 @@ In addition to the URLs above, the appliance needs access to the following URLs 
 |*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Azure Active Directory
 |management.azure.com | For triggering Azure Resource Manager deployments
 |*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
-|aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services
+|aka.ms/* (optional) | Allow access to *also know as* links; used to download and install the latest updates for appliance services
 |download.microsoft.com/download | Allow downloads from Microsoft download center    
 
 -  Open the command line and run the following nslookup command to verify privatelink connectivity to the URLs listed in the DNS settings file. Repeat this step for all URLs in the DNS settings file.
