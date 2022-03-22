@@ -44,7 +44,7 @@ With Azure AD authentication, you can centrally manage the identities of databas
 - Azure AD supports similar connections from SQL Server Data Tools (SSDT) that use Active Directory Interactive Authentication. For more information, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory)
 
 > [!NOTE]  
-> Connecting to a SQL Server instance that's running on an Azure virtual machine (VM) is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.  
+> Connecting to a SQL Server instance that's running on an Azure virtual machine (VM) is not supported using Azure Active Directory or Azure Active Directory Domain Services. Use an Active Directory domain account instead.
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
