@@ -108,7 +108,7 @@ To add a user-assigned managed identity in the portal, you first create a user-a
 
 # [ARM template](#tab/arm)
 
-You can use an ARM template to automate the deployment of your Azure resources. You can create any resource of type Microsoft.LoadTestService/loadtests with an identity by including the following block in the resource definition, replacing `<RESOURCEID>` with the resource ID of the desired identity:
+You can create an Azure Load Testing resource by using an ARM template and the resource type `Microsoft.LoadTestService/loadtests`. You can specify a user-assigned identity in the `identity` section of the resource definition. Replace the `<RESOURCEID>` text placeholder with the resource ID of your user-assigned identity:
 
 ```json
 "identity": {
