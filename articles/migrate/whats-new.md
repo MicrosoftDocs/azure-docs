@@ -14,7 +14,7 @@ ms.custom: mvc
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (March 2022)
-- Agentless VMware VM migrations now support discovery, assessments, and migrations over a private network using Azure Private Link. Learn more.
+- Agentless VMware VM migrations now support discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)
 
 
 ## Update (February 2022)
