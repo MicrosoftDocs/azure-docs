@@ -22,13 +22,15 @@ ms.custom: template-how-to
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
   - Importing a JSON file containing values for one or more SIM resources. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
 - For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
-- If you've configured static IP address allocation for your packet core instance, decide whether you want to assign a static IP address to any of the SIMs you're provisioning. These IP addresses must come from the pool you assigned for static IP address allocation, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). 
+- If you've configured static IP address allocation for your packet core instance(s), decide whether you want to assign a static IP address to any of the SIMs you're provisioning. If you have multiple sites in your private mobile network, you can assign a different static IP address for each site to the same SIM. 
+
+    Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant site, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). 
 
     If you're assigning a static IP address to a SIM, you'll also need the following information.
 
     - The SIM policy to assign to the SIM. You won't be able to set a static IP address for a SIM without also assigning a SIM policy.
     - The name of the data network the SIM will use.
-    - The site in which the SIM will be located.
+    - The site at which the SIM will use this static IP address.
 
 ## Collect the required information for your SIMs
 
@@ -136,13 +138,13 @@ In this step, you'll assign static IP addresses to your SIMs. You can skip this 
 
     :::image type="content" source="media/provision-sims-azure-portal/assign-static-ips.png" alt-text="Screenshot of the Azure portal showing a list of provisioned SIMs. Selected SIMs and the Assign Static IPs button are highlighted.":::
 
-1. In **Assign static IP configurations** on the right, repeat the following steps for each SIM in turn.
+1. In **Assign static IP configurations** on the right, run the following steps for each SIM in turn. If your private mobile network has multiple sites and you want to assign a different static IP address for each site to the same SIM, you'll need to repeat these steps on the same SIM for each IP address.
 
     1. Set **SIM name** your chosen SIM.
     1. Set **SIM policy** to the SIM policy you want to assign to this SIM.
     1. Set **Slice** to **slice-1**. 
     1. Set **Data network name** to the name of the data network this SIM will use.
-    1. Set **Site** to the site in which the SIM is located.
+    1. Set **Site** to the site at which the SIM will use this static IP address.
     1. Set **Static IP** to your chosen IP address.
     1. Select **Save static IP configuration**. The SIM will then appear in the list under **Number of pending changes**.
 
