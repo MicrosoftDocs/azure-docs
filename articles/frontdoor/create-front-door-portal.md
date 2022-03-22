@@ -140,7 +140,7 @@ Configure Azure Front Door to direct user traffic based on lowest latency betwee
 
 1. On the **Add a route** page, enter, or select the following information, select **Add** to add the route to the endpoint configuration.
 
-    :::image type="content" source="./media/create-front-door-portal/add-route-page.png" alt-text="Screenshot of add a route configuration page." lightbox="./media/create-front-door-portal/add-route-page.png":::
+    :::image type="content" source="./media/create-front-door-portal/add-route-page.png" alt-text="Screenshot of add a route configuration page." lightbox="./media/create-front-door-portal/add-route-page-expanded.png":::
 
     | Setting | Description |
     |--|--|
