@@ -467,7 +467,7 @@ The below table lists the properties supported by SFTP sink. You can edit these 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Clear the folder |Determines whether or not the destination folder gets cleared before the data is written. | No | `true` or `false` | truncate |
-| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>`. | no | Pattern: String <br> Per partition: String[] <br> Name file as column data: String <br> Name folder as column data: String <br>Output to single file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> rowFolderUrlColumn<br> partitionFileNames |
+| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>`. | No | Pattern: String <br> Per partition: String[] <br> Name file as column data: String <br> Name folder as column data: String <br>Output to single file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> rowFolderUrlColumn<br> partitionFileNames |
 | Quote all | Determines whether to enclose all values in quotes. | No | `true` or `false` | quoteAll |
 
 #### SFTP sink script example
