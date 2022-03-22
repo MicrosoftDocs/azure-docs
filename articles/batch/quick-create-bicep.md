@@ -2,7 +2,7 @@
 title: Azure Quickstart - Create a Batch account - Bicep file
 description: This quickstart shows how to create a Batch account by using a Bicep file.
 author: schaffererin
-ms.date: 03/11/2022
+ms.date: 03/22/2022
 ms.topic: quickstart
 ms.author: v-eschaffer
 ms.custom: subject-armqs, mode-arm
@@ -25,11 +25,11 @@ You must have an active Azure subscription.
 
 ## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/batchaccount-with-storage/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/batchaccount-with-storage/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.batch/batchaccount-with-storage/main.bicep":::
 
-Two Azure resources are defined in the template:
+Two Azure resources are defined in the Bicep file:
 
 - [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Creates a storage account.
 - [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): Creates a Batch account.
@@ -43,33 +43,59 @@ Two Azure resources are defined in the template:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-username>
+    az deployment group create --resource-group exampleRG --template-file main.bicep
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-username>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
 
     ---
 
-    > [!NOTE]
-    > Replace **\<admin-username\>** with a unique username. You'll also be prompted to enter adminPasswordOrKey.
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Validate the deployment
 
-You can validate the deployment in the Azure portal by navigating to the resource group you created. In the **Overview** screen, confirm that the Batch account and the storage account are present.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
 
 ## Clean up resources
 
-If you plan to continue on with more of our [tutorials](./tutorial-parallel-dotnet.md), you may wish to leave these resources in place. Or, if you no longer need them, you can [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), which will also delete the Batch account and the storage account that you created.
+If you plan to continue on with more of our [tutorials](./tutorial-parallel-dotnet.md), you may want to leave these resources in place. When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all of its resources.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name exampleRG
+```
+
+---
 
 ## Next steps
 
-In this quickstart, you created a Batch account and a storage account. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account and a storage account using Bicep. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
