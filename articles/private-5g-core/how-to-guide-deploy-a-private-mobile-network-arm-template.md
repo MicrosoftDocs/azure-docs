@@ -49,7 +49,7 @@ Three Azure resources are defined in the template.
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-mobile-network%2Fazuredeploy.json)
 
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites). <!-- We should also add a screenshot of a filled out set of parameters. -->
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     - **Subscription:** select the Azure subscription you want to use to create your private mobile network.
     - **Resource group:** create a new resource group.
@@ -61,14 +61,16 @@ Three Azure resources are defined in the template.
     - **Slice Name:** leave this field unchanged.
     - **Data Network Name:** enter the name of the data network to which the private mobile network will connect. 
 
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-arm-template\mobile-network-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the private mobile network ARM template":::
+
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. 
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the private mobile network. The Azure portal will display the following confirmation screen when the private mobile network has been created. <!-- This needs a new screenshot with the correct deployment confirmation. -->
+1. Once your configuration has been validated, you can select **Create** to create the private mobile network. The Azure portal will display the following confirmation screen when the private mobile network has been created.
 
-    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
+    :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 
 1. Select **Go to resource group**.
 1. Confirm that the resource group contains the correct **Mobile Network**, **Slice** and **Data Network** resources.
