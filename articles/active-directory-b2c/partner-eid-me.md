@@ -225,7 +225,7 @@ Store the client secret that you previously recorded in your Azure AD B2C tenant
 
 11. Select **Create**.
 
-### Step 3- Configure eID-ME as an Identity provider
+### Step 3- Configure eID-Me as an Identity provider
 
 To enable users to sign in using eID-Me decentralized identity, you need to define eID-Me as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital ID available on their device, proving the user’s identity.
 
