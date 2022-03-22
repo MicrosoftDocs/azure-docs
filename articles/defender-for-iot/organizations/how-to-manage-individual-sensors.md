@@ -1,7 +1,7 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 11/09/2021
+ms.date: 03/10/2022
 ms.topic: how-to
 ---
 
@@ -27,7 +27,7 @@ You can continue to work with Defender for IoT features even if the activation f
 
 ### About activation files for cloud-connected sensors
 
-Sensors that are cloud connected are associated with the Defender for IoT hub. These sensors are not limited by time periods for the activation file. The activation file for cloud-connected sensors is used to ensure connection to the Defender for IoT hub.
+Sensors that are cloud connected are not limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
 
 ### Upload new activation files
 
@@ -37,7 +37,7 @@ You might need to upload a new activation file for an onboarded sensor when:
 
 - You want to work in a different sensor management mode. 
 
-- You want to assign a new Defender for IoT hub to a cloud-connected sensor.
+- For sensors connected via an IoT Hub ([legacy](architecture-connections.md)), you want to assign a new Defender for IoT hub to a cloud-connected sensor.
 
 **To add a new activation file:**
 
@@ -69,7 +69,7 @@ You'll receive an error message if the activation file could not be uploaded. Th
 
 - **For locally connected sensors**: The activation file is not valid. If the file is not valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
 
-- **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific Defender for IoT hub should be opened in your firewall and/or proxy. For details, see [Reference - IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md).  
+- **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific endpoint (either a sensor, or for legacy connections, an IoT hub) should be opened in your firewall and/or proxy. For more information, see [Reference - IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md).
 
 - **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
@@ -173,8 +173,6 @@ If you create a new IP address, you might be required to sign in again.
 
 2. In the **System Settings** window, select **Network**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Configure your network settings.":::
-
 3. Set the parameters:
 
     | Parameter | Description |
@@ -191,8 +189,6 @@ If you create a new IP address, you might be required to sign in again.
 ## Synchronize time zones on the sensor
 
 You can configure the sensor's time and region so that all the users see the same time and region.
-
-:::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="Configure the time and region.":::
 
 | Parameter | Description |
 |--|--|
@@ -288,7 +284,31 @@ The console will display restore failures.
 
 ## Update a standalone sensor version
 
-The following procedure describes how to update a standalone sensor by using the sensor console.
+This procedure describes how to update a standalone sensor version. If you are upgrading from a version higher than 22.1.x, you can jump straight to [Update your sensor software version](#update-your-sensor-software-version). 
+
+However, if you're upgrading from a version earlier than 22.1.x, make sure to [Download a new activation file for version 22.1.x or higher](#download-a-new-activation-file-for-version-221x-or-higher) before you upgrade, and then [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
+
+Updates from legacy versions may require a series of upgrades. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+
+### Download a new activation file for version 22.1.x or higher
+
+Version [22.1.x ](release-notes.md#update-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
+
+1. Update your firewall rules between the sensor and the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+
+1. In Defender for IoT, select **Sites and sensors** on the left.
+
+1. Select the site where you want to update your sensor, and then navigate to the sensor you want to update.
+
+1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
+
+1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
+
+1. When the new activation file is ready, download it and verify that the sensor status has switched to **Pending activation**.
+
+### Update your sensor software version
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Updates**.
 
@@ -308,10 +328,24 @@ The following procedure describes how to update a standalone sensor by using the
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in.":::
 
-If you're upgrading from version 10.5.x to version 22.x, make sure to reactivate your sensor. For more information, see [Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version).
+### Reactivate your sensor for version 22.1.x or higher
 
-After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
+If you're upgrading from a legacy version to version 22.1.x or higher, make sure to reactivate your sensor using the activation file you downloaded earlier.
 
+1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
+
+1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select your new activation file.
+
+1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
+
+    - The sensor's **Overview** page shows an activation status of **Valid**.
+    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
+
+Your legacy sensors will continue to appear in the **Sites and sensors** page until you delete them. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+
+> [!NOTE]
+> After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
+>
 ## Forward sensor failure alerts
 
 You can forward alerts to third parties to provide details about:
