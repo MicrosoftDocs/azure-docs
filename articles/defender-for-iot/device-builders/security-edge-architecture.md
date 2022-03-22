@@ -7,6 +7,11 @@ ms.date: 11/09/2021
 
 # Microsoft Defender for IoT Edge azureiotsecurity
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Install Defender for IoT micro agent for Edge (Preview)](how-to-install-micro-agent-for-edge.md).
+>
+
+
 [Azure IoT Edge](../../iot-edge/index.yml) provides powerful capabilities to manage and perform business workflows at the edge. The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
 Defender for IoT azureiotsecurity provides a comprehensive security solution for your IoT Edge devices. Defender for IoT module collects, aggregates and analyzes raw security data from your Operating System and container system into actionable security recommendations and alerts.

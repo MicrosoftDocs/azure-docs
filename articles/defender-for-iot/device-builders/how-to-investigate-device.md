@@ -7,6 +7,10 @@ ms.date: 11/09/2021
 
 # Investigate a suspicious IoT device
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md).
+>
+
 Defender for IoT service alerts provides clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised.
 
 In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.

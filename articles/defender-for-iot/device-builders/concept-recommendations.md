@@ -43,4 +43,4 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 ## Next steps
 
-- Learn more about the [Classic Defender for IoT devices security alerts](agent-based-security-alerts.md)
+- Learn more about the [Legacy Defender for IoT devices security alerts](agent-based-security-alerts.md)

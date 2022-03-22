@@ -7,6 +7,10 @@ ms.date: 11/09/2021
 
 # Deploy Defender for IoT C based security agent for Linux
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
+>
+
 This guide explains how to install and deploy the Defender for IoT C-based security agent on Linux.
 
 - Install

@@ -7,6 +7,10 @@ ms.date: 11/09/2021
 
 # Security agent troubleshoot guide (Linux)
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
+>
+
 This article explains how to solve potential problems in the security agent start-up process.
 
 Microsoft Defender for IoT agent self-starts immediately after installation. The agent start up process includes reading local configuration, connecting to Azure IoT Hub, and retrieving the remote twin configuration. Failure in any one of these steps may cause the security agent to fail.

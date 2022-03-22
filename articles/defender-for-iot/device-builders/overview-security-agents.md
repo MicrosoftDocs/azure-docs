@@ -7,6 +7,11 @@ ms.date: 11/09/2021
 
 # Get started with Microsoft Defender for IoT device micro agents
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
+>
+
+
 Defender for IoT security agents offers enhanced security capabilities, such as monitoring operating system configuration best practices. Take control of your device field threat protection and security posture with a single service.
 
 The Defender for IoT security agents handle raw event collection from the device operating system, event aggregation to reduce cost, and configuration through a device module twin. Security messages are sent through your IoT Hub, into Defender for IoT analytics services.

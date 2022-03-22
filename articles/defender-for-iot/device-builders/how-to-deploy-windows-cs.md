@@ -7,6 +7,11 @@ ms.date: 11/09/2021
 
 # Deploy a Defender for IoT C#-based security agent for Windows
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
+>
+
+
 This guide explains how to install the Defender for IoT C#-based security agent on Windows.
 
 In this guide, you learn how to:

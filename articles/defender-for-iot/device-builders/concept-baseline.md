@@ -7,6 +7,11 @@ ms.date: 11/09/2021
 
 # Microsoft Defender for IoT baseline and custom checks
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Create custom alerts](quickstart-create-custom-alerts.md) and [Defender for IoT Hub custom security alerts](concept-customizable-security-alerts.md).
+>
+
+
 This article explains Defender for IoT baseline, and summarizes all associated properties of baseline custom checks.
 
 ## Baseline

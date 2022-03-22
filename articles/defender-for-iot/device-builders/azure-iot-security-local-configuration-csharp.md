@@ -8,6 +8,10 @@ ms.date: 11/09/2021
 
 # Understanding the local configuration file (C# agent)
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
+>
+
 The Defender for IoT security agent uses configurations from a local configuration file.
 
 The security agent reads the configuration file once when the agent starts running. Configurations found in the local configuration file contain both authentication configuration and other agent related configurations.

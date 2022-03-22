@@ -7,6 +7,10 @@ ms.date: 11/09/2021
 
 # Deploy a security module on your IoT Edge device
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Install Defender for IoT micro agent for Edge (Preview)](how-to-install-micro-agent-for-edge.md).
+>
+
 **Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices. The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts. To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
 In this article, you'll learn how to deploy a security module on your IoT Edge device.

@@ -7,6 +7,11 @@ ms.date: 11/09/2021
 
 # Security agent authentication methods
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Authenticate the micro agent](tutorial-standalone-agent-binary-installation.md#authenticate-the-micro-agent).
+>
+
+
 This article explains the different authentication methods you can use with the AzureIoTSecurity agent to authenticate with the IoT Hub.
 
 For each device onboarded to Defender for IoT in the IoT Hub, a Defender-IoT-micro-agent is required. To authenticate the device, Defender for IoT can use one of two methods. Choose the method that works best for your existing IoT solution.

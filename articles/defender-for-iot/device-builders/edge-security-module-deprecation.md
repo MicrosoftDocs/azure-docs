@@ -13,7 +13,7 @@ This article describes Microsoft Defender for IoT features and support for diffe
 
 The new micro agent will replace the current C, C#, and Edge Defender-IoT-micro-agent.  
 
-The new micro agent development is based on the knowledge, and experience gathered from the classic security module development, customers, and feedback from partners with four important improvements:
+The new micro agent development is based on the knowledge, and experience gathered from the legacy security module development, customers, and feedback from partners with four important improvements:
 
 - **Depth security value**: The new agent will run on the host level, which will provide more visibility to the underlying operations of the device, and to allow for better security coverage.
 

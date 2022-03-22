@@ -7,6 +7,10 @@ ms.date: 11/09/2021
 
 # Access your security data
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Tutorial: Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
+>
+
 Defender for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 
 ## Log Analytics
