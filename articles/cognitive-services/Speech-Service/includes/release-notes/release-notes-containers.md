@@ -9,7 +9,7 @@ ms.author: eur
 ### 2022-March release
 
 #### Custom speech-to-text Container v3.1.0
-- Add support to [get display models](../../../speech-container-howto.md#run-the-container-in-disconnected-environments).
+- Add support to [get display models](../../speech-container-howto.md#run-the-container-in-disconnected-environments).
 
 ### 2022-January release
 
