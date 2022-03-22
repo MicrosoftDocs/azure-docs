@@ -63,7 +63,7 @@ The following tables provide the settings for the default SIM policy and its ass
 
 |Setting  |Value  |
 |---------|---------|
-|The SIM policy name..     | *Default-policy*        |
+|The SIM policy name.     | *Default-policy*        |
 |The UE Aggregated Maximum Bit Rate (UE-AMBR) for uplink traffic (traveling away from SIMs) across all Non-GBR QoS Flows for a SIM to which this SIM policy is assigned.     | *2 Gbps*        |
 |The UE Aggregated Maximum Bit Rate (UE-AMBR) for downlink traffic (traveling towards SIMs) across all Non-GBR QoS Flows for a SIM to which this SIM policy is assigned.     | *2 Gbps*        |
 |The interval between UE registrations for SIMs to which this SIM policy is assigned, given in seconds.     | *3240*        |
