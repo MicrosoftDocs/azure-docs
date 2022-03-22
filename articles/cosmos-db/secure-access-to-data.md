@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.custom: devx-track-csharp, subject-rbac-steps, subject-rbac-steps
+ms.custom: devx-track-csharp, subject-rbac-steps
 
 ---
 # Secure access to data in Azure Cosmos DB
