@@ -74,7 +74,7 @@ impact on your secure score.
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
 |Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
 |Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
-||||
+
 
 ## Next steps
 

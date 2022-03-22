@@ -32,7 +32,7 @@ https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{R
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
 | ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
-|                |                                    |           |
+
 
 Request body:
  
@@ -55,7 +55,7 @@ Request body parameters:
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
 | location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
-|                                                                          |                                                                                          |           |
+
 
 
 ### [**Resource Manager**](#tab/aks-removeprofile-resource-manager)
