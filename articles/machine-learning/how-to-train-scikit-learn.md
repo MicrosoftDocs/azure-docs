@@ -24,13 +24,14 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 
 ## Prerequisites
 
-Run this code on either of these environments:
- - Azure Machine Learning compute instance - no downloads or installation necessary
+Use compute instance, or use your own Jupyter Notebook:
 
-    - Complete the [Tutorial: Train and deploy an image classification model with an example Jupyter Notebook](tutorial-train-deploy-notebook.md) to create a dedicated notebook server.
-    - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
+ - Compute instance
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance.
+    - Select the notebook tab in your azure portal. In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
+    - You will use the pre-populated code in the sample training folder to complete this tutorial.
 
- - Your own Jupyter Notebook server
+ - Create a Jupyter Notebook server if you want to train your own data
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
