@@ -106,7 +106,7 @@ As this table shows, the autoscale feature only turns on new session hosts when 
 
 The following animation is a visual recap of what we just went over in Scenario 1.
 
-:::image type="content" source="./media/scenario1.gif" alt-text="A visual recap of Scenario 1.":::
+:::image type="content" source="./media/autoscale-turn-on.gif" alt-text="A visual recap of Scenario 1.":::
 
 ## Scenario 2: When does the autoscale feature turn virtual machines off?
 
@@ -145,7 +145,7 @@ However, if another user signs out and heads out for lunch, there are now four u
 
 The following animation is a visual recap of what we just went over in Scenario 2.
 
-:::image type="content" source="./media/scenario2.gif" alt-text="A visual recap of Scenario 2.":::
+:::image type="content" source="./media/autoscale-turn-off.gif" alt-text="A visual recap of Scenario 2.":::
 
 ## Scenario 3: When does the autoscale feature force users to sign out?
 
@@ -257,7 +257,7 @@ Now there are three user sessions in the host pool. However, the host pool capac
 
 The following animation is a visual recap of what we just went over in Scenario 3.
 
-:::image type="content" source="./media/scenario3.gif" alt-text="A visual recap of Scenario 3.":::
+:::image type="content" source="./media/autoscale-force-sign-out.gif" alt-text="A visual recap of Scenario 3.":::
 
 ## Scenario 4: How do exclusion tags work?
 
@@ -333,7 +333,7 @@ So, finally, the host pool will look like this:
 
 The following animation is a visual recap of what we just went over in Scenario 4.
 
-:::image type="content" source="./media/scenario4.gif" alt-text="A visual recap of Scenario 4.":::
+:::image type="content" source="./media/autoscale-exclusion-tags.gif" alt-text="A visual recap of Scenario 4.":::
 
 ## Next steps
 
