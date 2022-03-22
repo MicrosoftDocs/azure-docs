@@ -19,7 +19,7 @@ In this quickstart, you’ll learn how to deploy the Azure Health Data Services 
 It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Health Data Services.
 
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
-* [Azure Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
+* [Microsoft Azure Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in the Azure Health Data Services](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in the workspace](../fhir/fhir-portal-quickstart.md)
 
