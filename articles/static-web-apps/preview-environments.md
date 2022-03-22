@@ -11,80 +11,115 @@ ms.custom: template-how-to
 
 # Create stable review locations in Azure Static Web Apps
 
-By default, when you deploy a site to Azure Static Web Apps [each pull request is associated with a temporary URL](review-publish-pull-requests.md). This location disappears once the PR is merged.
+By default, when you deploy a site to Azure Static Web Apps [each pull request deploys a preview version of your site available through a temporary URL](review-publish-pull-requests.md). This version of the site allows you to review changes before merging pull requests. Once the pull request is closed, the temporary environment disappears.
 
-Alternatively, you can enable the staging environments feature to create stable URLs that map to specific branches. When you enable this feature, keep in mind the following items:
+Beyond PR-driven temporary environments, you can enable preview environments that feature stable locations. The URLs for preview environments take on the following form:
 
-- URLs remain active for the life of the branch.
-- Preview versions are generated either for all pull requests, or for specific branches.
-  - Once you enable the staging environments feature, preview versions of your site are only generated for the listed branches.
+  ```text
+  <DEFAULT_HOST_NAME>-<BRANCH_OR_ENVIRONMENT_NAME>.<LOCATION>.azurestaticapps.net
+  ```
 
-The URLs for staging environments take the following form:
+This article demonstrates how to enable preview environments in GitHub.
 
-`<DEFAULT_HOST_NAME>-<BRANCH_NAME>.<LOCATION>.azurestaticapps.net`
+## Environment types
 
-For instance, a URL for the *dev* branch may resemble the following example:
+The following environment types are available in Azure Static Web Apps.
 
-`fresh-ocean-dev.centralus.azurestaticapps.net`
+- **Production environment**: Changes to production branches are deployed into the production environment. Your custom domain points to this environment and content served here is indexed by search engines.
 
-This article demonstrates how to enable stable review locations in both GitHub and Azure DevOps.
+- **PR environments**: Each pull request against your production branch deploys to a temporary environment which disappears after the pull request is closed. The URL for this environment includes the PR number as a suffix. For example, if you make your first PR, the preview location looks something like `<DEFAULT_HOST_NAME>-1.<LOCATION>.azurestaticapps.net`.
+
+- **Preview environments**: You can optionally configure your site to deploy every change made to branches that are not a production branch. Preview environments are either mapped to specific branches, or changes from all branches are rolled up into a single named environment. If mapped to a specific branch, the environment lives for the entire lifetime of the branch.
+
+  Preview environments are published to a URL which includes the environment or branch name as a suffix. For example, if the environment or branch is named `dev`, then the environment is available at a location like `<DEFAULT_HOST_NAME>-dev.<LOCATION>.azurestaticapps.net`.
 
 ## Configuration
 
-Update the list of branches in the `on` `>` `push` `>` `branches` section of the configuration.
+There are two configuration types available for enabling preview environments. Both configuration types apply only to non-production branches.
 
-Under the `jobs` section, locate the job named **Build and Deploy**. Under the `with` section, add the key `production_branch` and set it equal to your production branch name.
+| Type | Description |
+|--|--|
+| **Named environment** | Changes made to any non-production branches are available via a single URL that includes the designated environment name. |
+| **Branch environments** | Changes made to any non-production branches are available via URLs using individual branch names. |
 
-For example, the following code demonstrates how to assign the `production_branch`:
+To enable preview environments, make the following changes to your [configuration file](configuration.md).
+
+- Set the `PRODUCTION_BRANCH` environment variable to your production branch name.
+- List the branches you want to include in preview environments in the `on` `>` `push` `>` `branches` array in your site configuration.
+  - Set this array to `**` if you want to track all non-production branches.
+- If you want a single named environment, define the `DEPLOYMENT_ENVIRONMENT_NAME` environment variable.
+
+## Examples
+
+The following examples demonstrate how to enable named and branch preview environments.
+
+### Named environment
 
 ```yml
-jobs: 
-  build_and_deploy_job: 
+ame: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches:
+      - "**"
     ...
-    steps: 
-      ...
-      - name: Build And Deploy 
-        id: builddeploy 
-        uses: Azure/static-web-apps-deploy@v1 
-        with: 
+
+jobs:
+  build_and_deploy_job:
+    ...
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
           ...
-          production_branch: "main" 
+          production_branch: "main"
+	        deployment_environment: "dev"
 ```
 
-## Example
+In this case, the named environment is labeled as `dev` and tracks all non-production branches. If you wanted to only track changes for specific branches, then you would define them individually in the `branches` array.
 
-The following example configuration demonstrates how to create a stable review location for a branch named *dev*.
+Since the `deployment_environment` value is set, then changes to all branches roll up into a single environment.
 
-::: zone pivot="github"
+### Branch environments
 
 ```yml
-trigger: 
-  - main
-  - dev
- 
-pool: 
-  vmImage: ubuntu-latest 
- 
-steps: 
-  - checkout: self 
-    submodules: true 
-  - task: AzureStaticWebApp@0 
-    inputs: 
-      app_location: '/src' 
-      api_location: 'api' 
-      output_location: '/src' 
-      azure_static_web_apps_api_token: $(deployment_token) 
-      production_branch: 'main' 
+name: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature1
+      - feature2
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+jobs:
+  build_and_deploy_job:
+    ...
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          ...
+          production_branch: "main"
+
 ```
 
-::: zone-end
+Here, the preview environments are defined for the `dev`, `feature1`, and `feature2` branches. Since the `deployment_environment` value is not set, then each branch is deployed to its own environment.
 
 ## Next steps
 
-<!-- -->
-
-- **Production environment**: Azure Static Web Apps builds and deploys changes to the production branch into the production environment. Your custom domain points to this environment and  indexed by search engines.
-
-PR previews – Azure Static Web Apps builds and deploys changes included in a pull request against your production branch/branches defined in the PR triggers section. The PR preview is an ephemeral environment published to a URL which includes the PR number as a suffix. For example, if you make your first PR, the PR preview will be live at  defaulthostname-1.westeurope.azurestaticapps.net 
-
-Branch previews – Azure Static Web Apps builds and deploys every change made to a branch that is not a production branch. The branch preview is an environment that lives for the entire lifetime of the branch it’s attached to, and it’s published to a URL which includes the branch name as a suffix. For example, if a branch is called staging, the branch preview will be live at defaulthostname-staging.westeurope.azurestaticapps.net . 
