@@ -117,6 +117,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > [!IMPORTANT]
 > After the move operation, removed solutions and Automation account link should be reconfigured to bring the workspace back to its previous state.
 
-
 ## Next steps
 - For a list of which resources support move, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).
