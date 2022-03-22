@@ -26,13 +26,13 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 
 Let's begin by creating the containerized ASP.NET Core application that we'll deploy to Azure.
 
-1) Inside Visual Studio, select **File** and then choose **New => Project**.
+Inside Visual Studio, select **File** and then choose **New => Project**.
 
-2) In the dialog window, search for *ASP.NET*, and then choose **ASP.NET Core Web App** and select **Next**.
+In the dialog window, search for *ASP.NET*, and then choose **ASP.NET Core Web App** and select **Next**.
 
-3) In the Project Name field, name the application *MyContainerApp* and then select **Next**.
+In the Project Name field, name the application *MyContainerApp* and then select **Next**.
 
-4) On the **Additional Information** screen, make sure to select **Enable Docker**.  This will ensure our project template supports containerization by default. With this setting enabled, when we build and run our project, it will run using a container. 
+On the **Additional Information** screen, make sure to select **Enable Docker**.  This will ensure our project template supports containerization by default. With this setting enabled, when we build and run our project, it will run using a container. 
 
     Click **Create** and Visual Studio will create and load the project.
 
