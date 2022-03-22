@@ -653,5 +653,5 @@ Authorization: Bearer <token>
 
 ## Next steps
 
-- Learn about [Log Analytics dedicated cluster billing](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
 - Learn about [proper design of Log Analytics workspaces](../logs/design-logs-deployment.md)

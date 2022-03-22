@@ -67,13 +67,39 @@ On this page, users can view their resource usage for the past 31 days, aggregat
 
 This example shows monitoring usage and an estimate of the resulting costs:
 
-![Screenshot of the Azure portal that shows usage and estimated costs.](./media/usage-estimated-costs/001.png)
+:::image type="content" source="media/usage-estimated-costs/001.png" lightbox="media/usage-estimated-costs/001.png" alt-text="Screenshot of the Azure portal that shows usage and estimated costs":::
 
 Select the link in the **MONTHLY USAGE** column to open a chart that shows usage trends over the last 31-day period: 
 
-![Screenshot that shows a bar chart for included data volume per node.](./media/usage-estimated-costs/002.png)
+:::image type="content" source="media/usage-estimated-costs/002.png" lightbox="media/usage-estimated-costs/002.png" alt-text="Screenshot that shows a bar chart for included data volume per node":::
 
+### Log Analytics workspace
+To learn about your usage trends and choose the most cost-effective pricing tier for your Log Analytics workspace, select **Usage and Estimated Costs** from the **Log Analytics workspace** menu in the Azure portal. This shows how much data is collected by each solution, how much data is being retained, and an estimate of your costs for each pricing tier based on recent data ingestion patterns. 
 
+:::image type="content" source="logs/media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Usage and estimated costs":::
+
+To explore the data in more detail, click on the icon in the upper-right corner of either chart on the **Usage and Estimated Costs** page. Now you can work with this query to explore more details of your usage.  
+
+:::image type="content" source="logs/media/manage-cost-storage/logs.png" lightbox="logs/media/manage-cost-storage/logs.png" alt-text="Logs view":::
+
+From the **Usage and Estimated Costs** page, you can review your data volume for the month. This includes all the billable data received and retained in your Log Analytics workspace.  
+ 
+Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the **Billing** section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
+
+### Application insights
+Application Insights makes it easy to understand what your costs are likely to be based on recent usage patterns. To get started, in the Azure portal, for the Application Insights resource, go to the **Usage and estimated costs** page:
+
+:::image type="content" source="app/media/pricing/pricing-001.png" lightbox="app/media/pricing/pricing-001.png" alt-text="Choose pricing":::
+
+A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](app/sampling.md)) from your server and client apps, and from availability tests.  
+B. A separate charge is made for [Multi-step web tests](app/availability-multistep.md). (This doesn't include simple availability tests, which are included in the data volume charge.)  
+C. View data volume trends for the past month.  
+D. Enable data ingestion [sampling](app/sampling.md).
+E. Set the daily data volume cap.  
+
+(All prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/application-insights/).)
+
+To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type".
 
 ## Estimate Azure Monitor usage and costs
 If you're new to Azure Monitor, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate your costs. In the **Search** box, enter "Azure Monitor", and then select the **Azure Monitor** tile. The pricing calculator will help you estimate your likely costs based on your expected utilization.
@@ -101,20 +127,6 @@ With the ASP.NET SDK's [adaptive sampling](app/sampling.md#adaptive-sampling), t
 For SDKs that don't support adaptive sampling, you can employ [ingestion sampling](app/sampling.md#ingestion-sampling), which samples when the data is received by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](app/sampling.md#fixed-rate-sampling) to reduce the traffic sent from your web server and web browsers
 
 
-## Understand your usage and optimize your pricing tier
-To learn about your usage trends and choose the most cost-effective pricing tier for your Log Analytics workspace, select **Usage and Estimated Costs** from the **Log Analytics workspace** menu in the Azure portal. This shows how much data is collected by each solution, how much data is being retained, and an estimate of your costs for each pricing tier based on recent data ingestion patterns. 
-
-:::image type="content" source="logs/media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Usage and estimated costs":::
-
-To explore the data in more detail, click on the icon in the upper-right corner of either chart on the **Usage and Estimated Costs** page. Now you can work with this query to explore more details of your usage.  
-
-:::image type="content" source="logs/media/manage-cost-storage/logs.png" alt-text="Logs view":::
-
-From the **Usage and Estimated Costs** page, you can review your data volume for the month. This includes all the billable data received and retained in your Log Analytics workspace.  
- 
-Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the **Billing** section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
-
-
 ## Data transfer charges 
 Sending data to Azure Monitor might incur data bandwidth charges. However, that's limited to virtual machines where an [agent](agents/agents-overview.md) is installed and doesn't apply when using diagnostics settings or with other connectors that are built in to Microsoft Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions is charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small compared to the costs for data ingestion and retention.
 
@@ -128,7 +140,7 @@ To view data allocation benefits from sources such as [Microsoft Defender for Se
 
 ## Operations Management Suite subscription entitlements
 
-Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) and [Application Insights](app/pricing.md). Each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no extra cost.
+Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for Log Analytics and Application Insights. Each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no extra cost.
 
 To receive these entitlements for Log Analytics workspaces or Application Insights resources in a subscription, they must be use the Per-Node (OMS) pricing tier. This entitlement isn't visible in the estimated costs shown in the Usage and estimated cost pane. 
 

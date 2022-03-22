@@ -41,7 +41,7 @@ The configuration change will vary depending on the data source. The following t
 | Source | Strategy |
 |:---|:---|
 | Resource logs | Change the [diagnostic settings](essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources that send logs to Log Analytics. <br> - Collect only required logs.<br> - Use [ingesting-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter log data that isn't required. |
-| Application Insights | Review options for [managing Application Insights data volume](app/pricing.md#managing-your-data-volume). |
+| Application Insights | See [Manage Application Insights data volume](#manage-application-insights-data-volume). |
 | Container insights | See [Controlling ingestion to reduce cost](containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) for guidance on reducing the amount of data sent from Container insights. |
 | [SQL Analytics](insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings.
 
@@ -97,7 +97,7 @@ See the following table for methods to apply transformations to different workfl
 
 ## Set a daily cap for Log Analytics workspace and Application Insights
 
-## Application Insights
+## Manage Application Insights data volume
 The volume of data you send can be managed using the following techniques:
 
 * **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](app/sampling.md).

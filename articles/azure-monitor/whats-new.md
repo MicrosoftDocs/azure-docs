@@ -237,7 +237,6 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [Troubleshooting no data - Application Insights for .NET/.NET Core](app/asp-net-troubleshoot-no-data.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)
 - [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md)
 - [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)
 - [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
