@@ -28,7 +28,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
 - If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-az-ps) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Deploy confidential VM template with Azure CLI (for both with and without OS disk confidential encryption via platform-managed key)
+## Deploy confidential VM template with Azure CLI with optional OS disk confidential encryption via platform-managed key)
 
 To create and deploy a confidential VM using an ARM template through the Azure CLI:
 
