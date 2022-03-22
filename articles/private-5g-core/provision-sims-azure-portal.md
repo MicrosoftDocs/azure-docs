@@ -167,7 +167,7 @@ In this step, you'll assign SIM policies to your SIMs. SIMs need an assigned SIM
 1. In the resource menu, select **SIMs**.
 1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following:
 
-    1. Tick the checkbox next to the name of each SIM to which you assign the SIM policy.
+    1. Tick the checkbox next to the name of each SIM to which you want to assign the SIM policy.
     1. Select **Assign SIM policy**.
     1. In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
     1. Select **Assign SIM policy**.
