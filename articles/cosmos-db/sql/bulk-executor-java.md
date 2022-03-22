@@ -86,7 +86,7 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
     ```
 
 
-4. The sample contains methods for bulk create, upsert, replace, and delete. In each method we map the families documents in the BulkWriter Flux<Family>` stream to multiple method calls in `CosmosBulkOperations`. These operations are added to another reactive stream object `Flux<CosmosItemOperation>`. The stream is then passed to the `executeBulkOperations` method of the async `container` we created at the beginning, and operations are executed in bulk. See the `bulkCreateItems` method below as an example:
+4. The sample contains methods for bulk create, upsert, replace, and delete. In each method we map the families documents in the BulkWriter `Flux<Family>` stream to multiple method calls in `CosmosBulkOperations`. These operations are added to another reactive stream object `Flux<CosmosItemOperation>`. The stream is then passed to the `executeBulkOperations` method of the async `container` we created at the beginning, and operations are executed in bulk. See the `bulkCreateItems` method below as an example:
 
    ```java
     private void bulkCreateItems(Flux<Family> families) {
