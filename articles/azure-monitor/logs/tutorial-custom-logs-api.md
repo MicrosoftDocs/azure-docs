@@ -340,6 +340,9 @@ Once the data collection rule has been created, the application needs to be give
 ## Send sample data
 The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. 
 
+> [!NOTE]
+> This tutorial uses commands that require PowerShell v7.0 or later. Please make sure your local installation of PowerShell is up to date, or execute this script using the Azure CloudShell.  
+
 1. Run the following PowerShell command which adds a required assembly for the script.
 
     ```powershell
@@ -409,13 +412,13 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
     $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableRawData?api-version=2021-11-01-preview"
 
-    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers -TransferEncoding "GZip"
+    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
 
     > [!NOTE]
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and executely. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
 
-2. After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
+2. After executing this script, you should see a `HTTP - 204` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
 
 ## Troubleshooting
 This section describes different error conditions you may receive and how to correct them.
