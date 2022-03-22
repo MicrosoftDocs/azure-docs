@@ -74,7 +74,7 @@ We recommend performance testing to choose the right tier and validate connectio
 
 Locate your cache instance and your application in the same region. Connecting to a cache in a different region can significantly increase latency and reduce reliability.  
 
-While you can connect from outside of Azure, it is not recommended *especially when using Redis as a cache*.  If you're using Redis server as just a key/value store, latency may not be the primary concern.
+While you can connect from outside of Azure, it isn't recommended *especially when using Redis as a cache*.  If you're using Redis server as just a key/value store, latency may not be the primary concern.
 
 ## Use TLS encryption
 
