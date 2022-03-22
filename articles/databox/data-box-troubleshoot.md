@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.author: alkohli
 ---
 
@@ -124,7 +124,7 @@ These errors are related to data exceeding the size of data allowed in a contain
 
 1. Enable and apply **Disregard Large File Share Errors**. 
      
-    :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy-settings.png" alt-text="Connect and copy settings":::
+    :::image type="content" source="media/data-box-troubleshoot/icon-connect-copy-settings-2.png" alt-text="Connect and copy settings":::
 
 1. **Enable large file shares** on your storage account(s) in the Azure portal. 
 
