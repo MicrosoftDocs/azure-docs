@@ -1,5 +1,5 @@
 ---
-title: Deploy SAP continuous threat monitoring | Microsoft Docs
+title: Deploy Continuous Threat Monitoring for SAP | Microsoft Docs
 description: Learn how to deploy the Microsoft Sentinel solution for SAP environments.
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,24 +7,27 @@ ms.topic: how-to
 ms.date: 02/01/2022
 ---
 
-# Deploying SAP continuous threat monitoring
+# Deploy Continuous Threat Monitoring for SAP
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article takes you step by step through the process of deploying Microsoft Sentinel continuous threat monitoring for SAP.
+This article introduces you to the process of deploying the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.  The full process is detailed in a whole set of articles linked under [Deployment milestones](#deployment-milestones) below.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Overview
 
-[Microsoft Sentinel solutions](../sentinel-solutions.md) includes bundled security content, such as threat detections, workbooks, and watchlists. With these solutions, onboarding Microsoft Sentinel security content for a specific workload is simplified into a streamlined experience. Continuous Threat Monitoring for SAP is a solution, consisting of a data connector, analytic rules and workbooks.
+**Continuous Threat Monitoring for SAP** is a [Microsoft Sentinel solution](../sentinel-solutions.md) that you can use to monitor your SAP systems and detect sophisticated threats throughout the business logic and application layers. The solution includes the following components:
+- The SAP data connector for data ingestion.
+- Analytics rules and watchlists for threat detection.
+- Workbooks for interactive data visualization. 
 
-Using Microsoft Sentinel SAP data connector, SAP systems can be monitored for sophisticated threats within the business and application layers.
+The SAP data connector is an agent, installed on a VM or a physical server, that collects application logs from across the entire SAP system landscape. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the SAP Continuous Threat Monitoring solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
 
-The SAP data connector streams a number of application logs from the entire SAP system landscape. The data connector collects logs from Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and from file storage data via OSSAP Control interface. The SAP data connector adds to the ability of Microsoft Sentinel to monitor the SAP infrastructure.
+Unlike other solutions available in the Content Hub, in this case the data connector is deployed separately from the rest of the solution.
 
-To ingest SAP logs into Microsoft Sentinel, Microsoft Sentinel SAP data connector needs to be installed and connected to SAP environment. Microsoft Sentinel SAP data connector is packaged as a Docker container. For the deployment, it is recommended to deploy the container onto an Azure virtual machine, however deployment to a an on-premise physical or virtual machine is also supported.
+To ingest SAP logs into Microsoft Sentinel, the  SAP data connector needs to be installed and connected to your SAP environment. The connector is packaged as a Docker container. We recommend deploying the container onto an Azure virtual machine, although deployment to an on-premises physical or virtual machine is also supported.
 
 After the SAP data connector is deployed, deploy the  SAP solution security content to gain insight into organization's SAP environment and improve any related security operation capabilities.
 
