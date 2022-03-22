@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -100,11 +100,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Create a community gallery
 
-A community gallery is shared publicly with everyone. Microsoft does not support images published to the community gallery. For more information, see XXX.
+A community gallery is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of pubic instance of your gallery will be the prefix you provide, plus a unique GUID.
 
-For a community gallery, you create the gallery first, then enable it for sharing.
-
-During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to be aboe to share your gallery publicly.
+During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
 > [!IMPORTANT]
 > Community Galleries is currently in public preview.
@@ -149,9 +147,9 @@ az sig share enable-community \
    --resource-group $resourceGroup 
 ```
 
-XXX
-To go back to only RBAC based sharing, use the `Reset` command.
-To delete a gallery shared to community, first Reset the gallery then delete the gallery 
+To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) command.
+
+To delete a gallery shared to community, you must first reset the gallery then delete the gallery.
 
 ### [REST](#tab/rest)
 

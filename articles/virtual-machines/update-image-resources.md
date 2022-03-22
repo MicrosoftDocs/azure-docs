@@ -274,7 +274,7 @@ az sig image-definition delete \
 ```
 
 
-Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
+Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete). Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) to stop sharing the gallery publicly.
 
 ```azurecli-interactive
 az sig delete \
