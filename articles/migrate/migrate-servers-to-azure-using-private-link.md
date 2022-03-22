@@ -60,8 +60,8 @@ Enable replication as follows:
 
 1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).  
     >[!NOTE] 
-    > The storage account cannot be changed after you enable replication.  
-    > To orchestrate replications, Azure Migrate will grant the trusted Microsoft services and the Recovery Services vault managed identity, access to the selected storage account. 
+    > - The storage account cannot be changed after you enable replication.  
+    > - To orchestrate replications, Azure Migrate will grant the trusted Microsoft services and the Recovery Services vault managed identity, access to the selected storage account. 
 
     >[!Tip] 
     > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and  private IP address of the storage account. 
