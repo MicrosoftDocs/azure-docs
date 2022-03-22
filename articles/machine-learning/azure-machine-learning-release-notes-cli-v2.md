@@ -31,7 +31,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - For all job types, changed the schema for defining data inputs to the job in the job YAML. Instead of specifying the data path using either the `file` or `folder` fields, use the `path` field to specify either a local path, a URI to a cloud path containing the data, or a reference to an existing registered Azure ML data asset via `path: azureml:<data_name>:<data_version>`. Also specify the `type` field to clarify whether the data source is a single file (`uri_file`) or a folder (`uri_folder`). If `type` field is omitted, it defaults to `type: uri_folder`. For more information, see the section of any of the [job YAML references](reference-yaml-job-command.md) that discuss the schema for specifying input data.
   - In the [sweep job YAML schema](reference-yaml-job-sweep.md), changed the `sampling_algorithm` field from a string to an object in order to support additional configurations for the random sampling algorithm type
   - Removed the component job YAML schema. With this release, if you want to run a command job inside a pipeline that uses a component, just specify the component to the `component` field of the command job YAML definition. 
-  - For all job types, added support for referencing the latest version of a nested asset in the job YAML configuration. When referencing a registered environment or data asset to use as input in a job, you can alias by latest version rather than having to explicity specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
+  - For all job types, added support for referencing the latest version of a nested asset in the job YAML configuration. When referencing a registered environment or data asset to use as input in a job, you can alias by latest version rather than having to explicitly specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
   - For pipeline jobs, introduced the `${{ parent }}` context for binding inputs and outputs between steps in a pipeline. For more information, see [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job).
   - Added support for downloading named outputs of job via the `--output-name` argument for the `az ml job download` command
 - `az ml data`
@@ -51,7 +51,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - In the [batch deployment YAML schema](reference-yaml-deployment-batch.md), flattened the `code` section of the `code_configuration` field. Instead of `code_configuration.code.local_path` to specify the path to the source code directory containing the scoring files, it is now just `code_configuration.code`
 - `az ml component`
   - Flattened the `code` section of the [command component YAML schema](reference-yaml-component-command.md). Instead of `code.local_path` to specify the path to the source code directory, it is now just `code`
-  -  Added support for referencing the latest version of a registered environment to use in the component YAML configuration. When referencing a registered environment, you can alias by latest version rather than having to explicity specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
+  -  Added support for referencing the latest version of a registered environment to use in the component YAML configuration. When referencing a registered environment, you can alias by latest version rather than having to explicitly specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
   -  Renamed the component input and output type value from `path` to `uri_folder` for the `type` field when defining a component input or output
 - Removed the `delete` commands for assets (model, component, data, environment). The existing delete functionality is only a soft delete, so the `delete` commands will be reintroduced in a later release once hard delete is supported
 - Added support for archiving and restoring assets (model, component, data, environment) and jobs, e.g. `az ml model archive` and `az ml model restore`. You can now archive assets and jobs, which will hide the archived entity from list queries (e.g. `az ml model list`).
@@ -88,7 +88,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added support for command components ([command component YAML schema](reference-yaml-component-command.md))
 - `az ml online-endpoint`
   - `az ml endpoint` subgroup split into two separate groups: `az ml online-endpoint` and `az ml batch-endpoint`
-  - Updated [online endpoint YAML schema](reference-yaml-endpoint-managed-online.md)
+  - Updated [online endpoint YAML schema](reference-yaml-endpoint-online.md)
   - Added support for local endpoints for dev/test scenarios
   - Added interactive VSCode debugging support for local endpoints (added the `--vscode-debug` flag to `az ml batch-endpoint create/update`)
 - `az ml online-deployment`

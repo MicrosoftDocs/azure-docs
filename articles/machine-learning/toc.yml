@@ -771,6 +771,8 @@
               href: reference-yaml-compute-instance.md
             - name: Attached Virtual Machine
               href: reference-yaml-compute-vm.md
+            - name: Attached Azure Arc-enabled Kubernetes (KubernetesCompute)
+              href: reference-yaml-compute-kubernetes.md
         - name: Job
           items:
             - name: Command
@@ -791,14 +793,16 @@
               href: reference-yaml-datastore-data-lake-gen2.md
         - name: Endpoint
           items:
-            - name: Managed online (real-time)
-              href: reference-yaml-endpoint-managed-online.md
+            - name: Online (real-time)
+              href: reference-yaml-endpoint-online.md
             - name: Batch
               href: reference-yaml-endpoint-batch.md
         - name: Deployment
           items:
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
+            - name: Kubernetes online (real-time)
+              href: reference-yaml-deployment-kubernetes-online.md
             - name: Batch
               href: reference-yaml-deployment-batch.md
         - name: Component

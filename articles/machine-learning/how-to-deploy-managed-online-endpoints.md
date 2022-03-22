@@ -74,9 +74,9 @@ The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* f
 :::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 > [!NOTE]
-> For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
+> For a full description of the YAML, see [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md).
 
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
 
 | Key | Description |
 | --- | --- |
@@ -107,7 +107,7 @@ The table describes the attributes of a `deployment`:
 | `instance_type` | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). |
 | `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. |
 
-For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
+For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
@@ -298,7 +298,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 > The above is an example of inplace rolling update: i.e. the same deployment is updated with the new configuration, with 20% nodes at a time. If the deployment has 10 nodes, 2 nodes at a time will be updated. For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
 ### (Optional) Configure autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints support autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
