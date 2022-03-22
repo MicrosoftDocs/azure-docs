@@ -131,23 +131,18 @@ Next, install the Azure Container Apps extension for the Azure CLI.
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.4-py2.py3-none-any.whl
+az extension add --name containerapp
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.4-py2.py3-none-any.whl 
+az extension add --name containerapp
 ```
 
 ---
 
 Now that the extension is installed, register the `Microsoft.App` namespace.
-
-> [!NOTE]
-> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 > [!NOTE]
 > Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
@@ -190,61 +185,6 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 
 The Azure Container Apps environment acts as a secure boundary around a group of container apps. Container Apps deployed to the same environment share a virtual network and write logs to the same Log Analytics workspace.
 
-Your container apps are monitored with Azure Log Analytics, which is required when you create a Container Apps environment.
-
-Create a Log Analytics workspace with the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az monitor log-analytics workspace create \
-  --resource-group $RESOURCE_GROUP \
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-New-AzOperationalInsightsWorkspace `
-  -Location $LOCATION `
-  -Name $LOG_ANALYTICS_WORKSPACE `
-  -ResourceGroupName $RESOURCE_GROUP
-```
-
----
-
-Next, retrieve the Log Analytics Client ID and client secret.
-
-# [Bash](#tab/bash)
-
-Make sure to run each query separately to give enough time for the request to complete.
-
-```azurecli
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
-```
-
-```azurecli
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
-```
-
-# [PowerShell](#tab/powershell)
-
-Make sure to run each query separately to give enough time for the request to complete.
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
-```
-
-<!--- This was taken out because of a breaking changes warning.  We should put it back after it's fixed. Until then we'll go with the az command
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).PrimarySharedKey
---->
-
-```azurecli
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
----
-
 Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
 
 # [Bash](#tab/bash)
@@ -253,8 +193,6 @@ Individual container apps are deployed to an Azure Container Apps environment. T
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION"
 ```
 
@@ -264,8 +202,6 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION"
 ```
 
@@ -448,7 +384,7 @@ param storage_account_name string
 param storage_account_key string
 param storage_container_name string
 
-resource nodeapp 'Microsoft.App/containerapps@2021-03-01' = {
+resource nodeapp 'Microsoft.App/containerapps@2022-01-01-preview' = {
   name: 'nodeapp'
   kind: 'containerapp'
   location: location
@@ -584,7 +520,7 @@ Save the following file as *clientapp.bicep*:
 param location string = 'canadacentral'
 param environment_name string
 
-resource pythonapp 'Microsoft.App/containerApps@2021-03-01' = {
+resource pythonapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
   name: 'pythonapp'
   kind: 'containerapp'
   location: location
@@ -806,6 +742,8 @@ Use the following command to view logs in bash or PowerShell.
 # [Bash](#tab/bash)
 
 ```azurecli
+LOG_ANALYTICS_WORKSPACE_CLIENT_Id=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
+
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
@@ -815,6 +753,8 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
 $queryResults.Results
 ```

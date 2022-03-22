@@ -100,8 +100,8 @@ Activate a revision by using `az containerapp revision activate`.
 
 ```azurecli
 az containerapp revision activate \
-  --name <REVISION_NAME> \
-  --app <CONTAINER_APP_NAME> \
+  --revision <REVISION_NAME> \
+  --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -109,8 +109,8 @@ az containerapp revision activate \
 
 ```poweshell
 az containerapp revision activate `
-  --name <REVISION_NAME> `
-  --app <CONTAINER_APP_NAME> `
+  --revision <REVISION_NAME> `
+  --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -126,8 +126,8 @@ Deactivate revisions that are no longer in use with `az container app revision d
 
 ```azurecli
 az containerapp revision deactivate \
-  --name <REVISION_NAME> \
-  --app <CONTAINER_APP_NAME> \
+  --revision <REVISION_NAME> \
+  --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -135,8 +135,8 @@ az containerapp revision deactivate \
 
 ```azurecli
 az containerapp revision deactivate `
-  --name <REVISION_NAME> `
-  --app <CONTAINER_APP_NAME> `
+  --revision <REVISION_NAME> `
+  --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -152,8 +152,8 @@ All existing container apps revisions will not have access to this secret until 
 
 ```azurecli
 az containerapp revision restart \
-  --name <REVISION_NAME> \
-  --app <APPLICATION_NAME> \
+  --revision <REVISION_NAME> \
+  --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
@@ -161,8 +161,8 @@ az containerapp revision restart \
 
 ```azurecli
 az containerapp revision restart `
-  --name <REVISION_NAME> `
-  --app <APPLICATION_NAME> `
+  --revision <REVISION_NAME> `
+  --name <APPLICATION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
