@@ -78,8 +78,11 @@ jobs:
         with:
           ...
           production_branch: "main"
-	        deployment_environment: "dev"
+          deployment_environment: "dev"
 ```
+
+> [!NOTE]
+> The `...` denotes code skipped for clarity.
 
 In this case, the named environment is labeled as `dev` and tracks all non-production branches. If you wanted to only track changes for specific branches, then you would define them individually in the `branches` array.
 
@@ -116,8 +119,10 @@ jobs:
         with:
           ...
           production_branch: "main"
-
 ```
+
+> [!NOTE]
+> The `...` denotes code skipped for clarity.
 
 Here, the preview environments are defined for the `dev`, `feature1`, and `feature2` branches. Since the `deployment_environment` value isn't set, then each branch is deployed to its own environment.
 
