@@ -26214,6 +26214,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-nfs-shares.md",
+      "redirect_url": "/azure/storage/files/storage-files-quick-create-use-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
       "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false

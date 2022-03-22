@@ -2126,20 +2126,20 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
-* Release notes for version `1.5.0`:
-    * Added new languages: Bulgarian, Croatian, Czech, Hungarian, Indonesian, Latvian, Lithuanian, Slovak, Slovenian, Tamil, and Turkish. 
-    * Improved performance on short audios.
+* Release notes for version `1.6.1`:
+    * Added new languages: Ukrainian
 
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
-| `1.5.0-amd64-preview`                       |      |
+| `1.6.1-amd64-preview`                       |      |
 
 # [Previous versions](#tab/previous)
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `1.5.0-amd64-preview`                       |      |
 | `1.3.0-amd64-preview`                       |      |
 | `1.2.0-amd64-preview`                       |      |
 | `1.1.0-amd64-preview`                       |      |
