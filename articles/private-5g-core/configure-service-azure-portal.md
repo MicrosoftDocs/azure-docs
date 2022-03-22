@@ -1,5 +1,5 @@
 ---
-title: Configure a service
+title: Configure a service - Azure portal
 titleSuffix: Azure Private 5G Core Preview
 description: With this how-to guide, learn how to configure a service for Azure Private 5G Core Preview through the Azure portal. 
 author: djrmetaswitch

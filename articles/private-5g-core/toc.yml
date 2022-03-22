@@ -46,18 +46,18 @@ items:
       href: create-a-site.md
     - name: Create a site - ARM template
       href: create-a-site-arm-template.md
-  - name: Services
+  - name: Policy control
     items:
     - name: Collect the required information for a service
       href: collect-required-information-for-service.md
-    - name: Configure a service
+    - name: Configure a service - Azure portal
       href: configure-service-azure-portal.md
-  - name: SIM policies
-    items:
     - name: Collect the required information for a SIM policy
       href: collect-required-information-for-sim-policy.md
-    - name: Configure a SIM policy
+    - name: Configure a SIM policy - Azure portal
       href: configure-sim-policy-azure-portal.md
+    - name: Configure a service and SIM policy - ARM template
+      href: configure-a-service-and-sim-policy-arm-template.md
   - name: SIMs
     items:
     - name: Provision SIMs - Azure portal
