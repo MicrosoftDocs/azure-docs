@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/04/2022
+ms.date: 03/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -75,6 +75,10 @@ Create a location based Conditional Access policy that applies to service princi
 1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
 1. Set **Enable policy** to **On**.
 1. Select **Create** to complete your policy.
+
+#### Report-only mode
+
+Saving your policy in Report-only mode won't allow administrators to estimate the effects because we don't currently log this risk information in sign-in logs.
 
 ## Roll back
 
