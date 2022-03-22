@@ -61,7 +61,7 @@ Enable replication as follows:
 1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).  
     >[!NOTE] 
     > - The storage account cannot be changed after you enable replication.  
-    > - To orchestrate replications, Azure Migrate will grant the trusted Microsoft services and the Recovery Services vault managed identity, access to the selected storage account. 
+    > - To orchestrate replications, Azure Migrate will grant the trusted Microsoft services and the Recovery Services vault managed identity access to the selected storage account. 
 
     >[!Tip] 
     > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and  private IP address of the storage account. 
@@ -91,7 +91,7 @@ Enable replication as follows:
 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating and click **Next**. 
 
-     :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/azure-hybrid-benefit-agentless.png" alt-text="Screenshot shows the options in Azure Hybrid Benefit."::: 
+     :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/azure-hybrid-benefit.png" alt-text="Screenshot shows the options in Azure Hybrid Benefit."::: 
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements). 
 
@@ -254,11 +254,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
     Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v.md#migrate-vms). 
-
-#### Provisioning for the first time  
-
-Azure Migrate does not create any additional resources for replications using Azure Private Link (Service Bus, Key Vault, and storage accounts are not created). Azure Migrate will make use of the selected storage account for uploading replication data, state data, and orchestration messages.
-
+]
 ### Grant access permissions to the Recovery Services vault
 
 You must grant the permissions to the Recovery Services vault for authenticated access to the cache/replication storage account.
@@ -390,7 +386,7 @@ Now, select machines for replication and migration.
 
 1. In **Target settings**, select the subscription,the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agent.png" alt-text="Screenshot of Target settings screen.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agent-inline.png" alt-text="Screenshot displays the options in Overview." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agent-expanded.png":::
 
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
@@ -443,10 +439,6 @@ Now, select machines for replication and migration.
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
    Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
-
-#### Provisioning for the first time  
-
-Azure Migrate does not create any additional resources for replications using Azure Private Link (Service Bus, Key Vault, and storage accounts are not created). Azure Migrate will make use of the selected storage account for uploading replication data, state data, and orchestration messages.
 
 ### Grant access permissions to the Recovery Services vault
 
