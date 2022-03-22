@@ -66,7 +66,7 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 
 ## How to automate a scaling operation
 
-You can scale your cache instances in the Azure portal. And, you can scale using PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML).
+You can scale your cache instances in the Azure portal. And, you can scale using PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML). When you scale a cache up or down, using the REST API, Powershell cmdlets, or Azure CLI, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can  update these memory settings after the scaling operation has completed.
 
 - [Scale using PowerShell](#scale-using-powershell)
 - [Scale using Azure CLI](#scale-using-azure-cli)

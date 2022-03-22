@@ -13,7 +13,7 @@ ms.author: franlanglois
 
 ## Scaling under load
 
-While scaling a cache under load, configure your maxmemory-reserved setting to improve system responsiveness. For more information, see [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting).
+While scaling a cache under load, configure your `maxmemory-reserved` setting to improve system responsiveness. For more information, see [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting).
 
 ## Scaling clusters
 
