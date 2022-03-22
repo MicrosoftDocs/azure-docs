@@ -78,9 +78,10 @@ FROM input
 WHERE <model-specific-data-structure> is not null
 ```
 
-If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return an response with error code 400 which will cause your Stream Analytics job to go to a failed state. It is recommended that you [enable resource logs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#send-diagnostics-to-azure-monitor-logs) for you job which will enable you to easily debug and troubleshoot such problems. Therefore, it is strongly recommended that you:
-1. Validate input to your ML UDF is not null
-2. Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
+If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return a response with error code 400, which will cause your Stream Analytics job to go to a failed state. It is recommended that you [enable resource logs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#send-diagnostics-to-azure-monitor-logs) for your job, which will enable you to easily debug and troubleshoot such problems. Therefore, it is strongly recommended that you:
+
+- Validate input to your ML UDF is not null
+- Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
 
 
 ## Pass multiple input parameters to the UDF
@@ -178,8 +179,8 @@ When you deploy your model to Azure Kubernetes Service, you can [profile your mo
 
 If you have a scenario with high event throughput, you may need to change the following parameters in Stream Analytics to achieve optimal performance with low end-to-end latencies:
 
-1. Maximum batch count.
-2. Number of parallel requests per partition.
+- Maximum batch count.
+- Number of parallel requests per partition.
 
 ### Determine the right batch size
 
