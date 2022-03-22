@@ -277,7 +277,13 @@ To clean up after this quickstart, choose which resources you want to remove bas
 
 [!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
-[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+* If you don't need your Azure Digital Twins instance anymore, you can delete it using the Azure portal.
+    
+    Navigate back to the instance's **Overview** page in the portal. (If you've already closed that tab, you can find the instance again by searching for its name in the Azure portal search bar and selecting it from the search results.)
+
+    Select **Delete** to delete the instance, along with all of its models and twins.
+
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/delete-instance.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The Delete button is highlighted.":::
 
 You may also want to delete the sample project folder from your local machine.
 
