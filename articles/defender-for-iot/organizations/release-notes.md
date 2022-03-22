@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/20/2022
+ms.date: 03/22/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -31,7 +31,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.1.2 | 03/2022 | 11/2022 |
+| 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
@@ -41,26 +41,16 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ## March 2022
 
-- [More device properties in the Device inventory](#more-device-properties-in-the-device-inventory)
+- [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
 
-### More device properties in the Device inventory
+### IoT OT Threat Monitoring with Defender for IoT solution GA
 
-In this release, in the **Device inventory** page on the Azure portal, we've extended the data listed for the following fields:
+The IoT OT Threat Monitoring with Defender for IoT solution in Microsoft Sentinel is now GA. Use this solution to help secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
 
-- **Description**
-- **Tags**
-- **Protocols**
-- **Scanner**
-- **Last Activity**
-
-For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
-
-> [!NOTE]
-> The extended data in these fields is only available for sensors with software versions 22.1.x or higher. If you have earlier sensor versions installed, we recommend updating to the latest version. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
->
+For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) and [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended).
 
 ### Edit and delete devices from the Azure portal (Public preview)
 
@@ -87,7 +77,6 @@ For more information, see [Manage your IoT devices with the device inventory for
 Starting in this version, CLI users are automatically signed out of their session after 300 inactive seconds. To sign out manually, use the new `logout` CLI command.
 
 For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
-
 
 
 ## February 2022
