@@ -12,7 +12,7 @@ ms.author: nicolela
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-This article shows you how to set up a lab to teach a big data analytics class. A big data analytics class helps students to learn how to handle large volumes of data. It also helps them to apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn how to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/). The software package provides tools for storing, managing, and processing big data.
+This article shows you how to set up a lab to teach a big data analytics class. A big data analytics class teaches students to learn how to handle large volumes of data. It also teaches them to apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn how to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/). The software package provides tools for storing, managing, and processing big data.
 
 In this lab, students will use a popular commercial version of Hadoop provided by [Cloudera](https://www.cloudera.com/), called [Hortonworks Data Platform (HDP)](https://www.cloudera.com/products/hdp.html). Specifically, students will use [HDP Sandbox 3.0.1](https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox/1.html) that's a simplified, easy-to-use version of the platform. HDP Sandbox 3.0.1 is also free of cost and is intended for learning and experimentation. Although this class may use either Windows or Linux virtual machines (VM) with HDP Sandbox deployed. This article will show you how to use Windows.
 
@@ -27,7 +27,7 @@ To set up this lab, you need an Azure subscription to get started. If you don't 
 
 ### Lab plan settings
 
-When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+Once you've an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
 
 Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 

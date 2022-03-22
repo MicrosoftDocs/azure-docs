@@ -24,7 +24,7 @@ The following sections outline what you need to do before you can set up a lab a
 
 ### Access your Azure subscription
 
-To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You can use a subscription to manage billing and security for all of your Azure resources and services, including lab accounts. Azure subscriptions are managed by your IT department. For more information, see [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
+To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts. Azure subscriptions are managed by your IT department. For more information, see [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
 
 ### Estimate how many VMs and VM sizes you need
 
@@ -38,7 +38,7 @@ For more information on how to structure labs, see the "Lab" section of [Azure L
 
 After you've estimated the number of VMs and the VM sizes for your labs, you need to:
 
-- Ensure that your Azure subscription's capacity limit lets the number of VMs and the VM size that you plan to use.
+- Ensure that your Azure subscription's capacity limit allows for the number of VMs and the VM size that you plan to use in your labs.
 - Create your lab account within a region that has sufficient available VM capacity.
 
 For more information, see [VM subscription limits and regional capacity](https://techcommunity.microsoft.com/t5/azure-lab-services/vm-subscription-limits-and-regional-capacity/ba-p/1845553).
@@ -111,11 +111,11 @@ When you set up a lab account, you also can peer your lab account with a virtual
 
 - **Access to other on-premises resources such as a file share or database**
 
-   You ordinarily create a virtual network to provide access to on-premises resources by using a site-to-site virtual network gateway. Setting up this type of environment will take more time.
+   You ordinarily create a virtual network to provide access to on-premises resources by using a site-to-site virtual network gateway. Setting up this type of environment will take additional time.
 
 - **Access to other Azure resources that are located outside a virtual network**
 
-   You can access the Azure resources that *aren't* secured in a virtual network through the public internet.
+   You can access the Azure resources that *aren't* secured in a virtual network through the public internet, without having to do any virtual network peering.
 
    For more information about virtual networks, see:
   - The "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)

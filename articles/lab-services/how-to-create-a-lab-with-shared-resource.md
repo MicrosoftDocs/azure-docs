@@ -24,7 +24,7 @@ The virtual network for the shared resource must be created before the lab is cr
 
 The shared resource can be software running on a virtual machine or an Azure provided service. The shared resource should be available through private IP address. By making the shared resource available through private IP only, you limit access to that shared resource.
 
-The diagram also shows a network security group (NSG) which can be used to restrict traffic coming from the student VM. For example, you can write a security rule that states traffic from the student VM's IP addresses can only access one shared resource. For more information on how to set security rules, see [manage network security group](../virtual-network/manage-network-security-group.md#work-with-security-rules). If you want to restrict access, to a shared resource of a specific lab, get the IP address from the [lab settings of the lab](manage-labs.md#view-labs). And then, set an inbound rule to allow access only from that IP address. Don’t forget to allow ports 49152 to 65535 for that IP address. Optionally, you can find the private IP address of the student’s VMs by using the [virtual machine pool page](how-to-set-virtual-machine-passwords.md).
+The diagram also shows a network security group (NSG) which can be used to restrict traffic coming from the student VM. For example, you can write a security rule that states traffic from the student VM's IP addresses can only access one shared resource and nothing else. For more information on how to set security rules, see [manage network security group](../virtual-network/manage-network-security-group.md#work-with-security-rules). If you want to restrict access, to a shared resource of a specific lab, get the IP address for the lab from the [lab settings of the lab](manage-labs.md#view-labs). And then, set an inbound rule to allow access only from that IP address. Don’t forget to allow ports 49152 to 65535 for that IP address. Optionally, you can find the private IP address of the student’s VMs by using the [virtual machine pool page](how-to-set-virtual-machine-passwords.md).
 
 If your shared resource is an Azure virtual machine running necessary software, you might have to modify the default firewall rules for the virtual machine.
 
@@ -42,7 +42,7 @@ By default virtual machines have a dynamic private ip. [Before you setup any sof
 
 #### Control Access
 
-Controlling access to the license server is key. When the VM is set up, access will still be needed for maintenance, troubleshooting, and updating. Following are the few ways for controlling access:
+Controlling access to the license server is key. When the VM is set up, access will still be needed for maintenance, troubleshooting, and updating. Following are a few ways for controlling access:
 
 - [Setting up Just in Time (JIT) access within Microsoft Defender for Cloud.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
 - [Setting up a Network Security Group to restrict access.](../virtual-network/network-security-groups-overview.md)

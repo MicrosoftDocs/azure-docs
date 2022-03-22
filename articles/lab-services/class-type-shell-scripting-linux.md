@@ -76,7 +76,7 @@ This section shows you how to install a couple of text editors. Gedit is the def
     sudo apt-get install gedit
     ```
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/). Use the Snap Store to install Visual Studio code. For alternate installation options, see [Visual Studio Code alternate downloads](https://code.visualstudio.com/#alt-downloads).
+1. Install [Visual Studio Code](https://code.visualstudio.com/). Visual Studio code can be installed using the Snap Store. For alternate installation options, see [Visual Studio Code alternate downloads](https://code.visualstudio.com/#alt-downloads).
 
     ```bash
     sudo snap install vscode --classic 
