@@ -47,7 +47,7 @@ Region information is used for Azure Stack Edge service in the following ways:
 Azure Stack Edge service is a non-regional, always-available service and has no dependency on a specific Azure region. Azure Stack Edge service is also resilient to zone-wide outages and region-wide outages.
 
 
-- **Regional pairs** - In general, Azure Stack Edge service uses Azure Regional Pairs when storing and processing customer data in all the geographies. If there is a regional failure, the instance of the service in the Azure paired region continues to service customers. This ensures that the service is fully resilient to all the zone-wide and region-wide outages. 
+- **Regional pairs** - In general, Azure Stack Edge service uses Azure Regional Pairs when storing and processing customer data in all the geographies except Singapore. If there is a regional failure, the instance of the service in the Azure paired region continues to service customers. This ensures that the service is fully resilient to all the zone-wide and region-wide outages. 
 
     For all the Azure Regional Pairs, by default, Microsoft is responsible for the disaster recovery (DR) setup, execution, and testing. In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration. 
 
@@ -58,20 +58,18 @@ Azure Stack Edge service is a non-regional, always-available service and has no 
 
 ## Cross-region disaster recovery
 
-Cross region disaster recovery for all regions for multiple region geography is done via using the Azure regional pairs. A regional pair consists of two regions, primary and secondary, within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. For more information, see Azure regional pairs. 
+Cross region disaster recovery for all regions for multiple region geography is done via using the Azure regional pairs. A regional pair consists of two regions, primary and secondary, within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md#cross-region-replication). 
 
 In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration.
+
+For cross-region DR, Microsoft is responsible. The Recovery Time Objective (RTO) for DR is 8 hours, and Recovery Point Objective (RPO) is 15 minutes. For more information, see [Resiliency and continuity overview](/compliance/assurance/assurance-resiliency-and-continuity). <!--Azure Global - Bcdr Service Details, (Go to Business Impact Analysis)-->
 
 Cross region disaster recovery for single region geography only pertains to Singapore. If there is a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong, you have two options:
 
 - Wait for the Singapore region to be restored.
-- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see Reset and reactivate your Azure Stack Edge device.
+- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
 
-Microsoft is responsible for DR. The Recovery Time Objective (RTO) for DR is 8 hours, and Recovery Point Objective (RPO) is 15 minutes. For more information, see Resiliency and continuity overview. Azure Global - Bcdr Service Details, (Go to Business Impact Analysis), 
-
-When customer is responsible for DR, he must set up a new device and configure all the workloads that were deployed on the device. 
-
-For minimizing effort, perhaps we can refer to SDK automation to bring down set up time.
+In this case, the customer is responsible for DR and must set up a new device and then deploy all the workloads. 
 
 
 ## Single region disaster recovery
