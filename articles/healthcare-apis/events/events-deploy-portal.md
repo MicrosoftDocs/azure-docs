@@ -21,7 +21,7 @@ It's important that you have the following prerequisites completed before you be
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Azure Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in the Azure Health Data Services](../healthcare-apis-quickstart.md)  
-* [FHIR service deployed the workspace](../fhir/fhir-portal-quickstart.md)
+* [FHIR service deployed in the workspace](../fhir/fhir-portal-quickstart.md)
 
 > [!IMPORTANT]
 > You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
@@ -43,6 +43,10 @@ It's important that you have the following prerequisites completed before you be
 
     * **Name**: Provide a name for your Events subscription.
     * **System Topic Name**: Provide a name for your System Topic.
+   
+   >[!NOTE]
+   > The first time you set up the Events feature, you will be required to enter a new **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the workspace.
+
     * **Event types**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
     * **Endpoint Details**: Endpoint to send Events messages to (for example: an Azure Event Hubs namespace + an event hub).
 
@@ -52,9 +56,6 @@ It's important that you have the following prerequisites completed before you be
    :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of the create event subscription box."  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
-
-   >[!NOTE]
-   > The first time you set up the Events feature, you will be required to create a **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the workspace.
 
 5. Event messages won't be sent until the Event Grid System Topic deployment has successfully completed. Upon successful creation of the Event Grid System Topic, the status of the workspace will change from "Updating" to "Succeeded".
 
