@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/03/2022
+ms.date: 03/02/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -40,7 +40,7 @@ Here's what's changed in the Azure Virtual Desktop Agent:
     - Fixes an issue with arithmetic overflow casting exceptions.
     - Updated the agent to now start the Azure Instance Metadata Service (IMDS) when the agent starts.
     - Fixes an issue that caused Sandero name pipe service start ups to be slow when the VM has no registration information.
-    - Gneral bug fixes and agent improvements.
+    - General bug fixes and agent improvements.
 - Version 1.0.4009.1500: This update was released in January 2022 and includes the following changes:
     - Added logging to better capture agent update telemetry.
     - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
@@ -84,6 +84,22 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
+## February 2022
+
+Here's what changed in February 2022:
+
+### Network data for Azure Virtual Desktop user connections
+
+You now collect network data (both round trip time and available bandwidth) throughout a user’s connection in Azure Virtual Desktop with Azure Log Analytics. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/collect-and-query-network-data-for-azure-virtual-desktop/m-p/3140397).
+
+### Unassigning and reassigning personal desktops now generally available
+
+The feature that lets you reassign or unassign personal desktops is now generally available. You can unassign or reassign desktops using the Azure portal or REST API. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-support-for-personal-desktop-unassignment/m-p/3168914).
+
+### Teams media optimizations for macOS now in public preview
+
+Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine are now in public preview. To use this feature, you'll need to update your Azure Virtual Desktop macOS client to version 10.7.7 or later. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/teams-media-optimizations-now-in-public-preview-on-azure-virtual/ba-p/3165276) or [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
+
 ## January 2022
 
 Here's what changed in January 2022:
@@ -102,7 +118,7 @@ We've increased number of Azure Virtual Desktop application groups you can have 
 
 ### Updates to required URLs
 
-We've updated the required URL list for Azure Virtual Desktop to accomodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
+We've updated the required URL list for Azure Virtual Desktop to accommodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
 
 ## December 2021
 

@@ -28,7 +28,7 @@ The [Azure Machine Learning Algorithm Cheat Sheet](./algorithm-cheat-sheet.md?WT
 Machine Learning designer provides a comprehensive portfolio of algorithms, such as [Multiclass Decision Forest](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [Recommendation systems](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [Neural Network Regression](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [Multiclass Neural Network](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri), and [K-Means Clustering](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and component reference](./component-reference/component-reference.md?WT.mc_id=docs-article-lazzeri) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm.
 
 > [!NOTE]
-> To download the machine learning algorithm cheat sheet, go to [Azure Machine learning algorithm cheat sheet](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
+> Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-july-2021.pdf)
 > 
 > 
 

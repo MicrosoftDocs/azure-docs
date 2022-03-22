@@ -225,7 +225,7 @@ Finally, you must create the private endpoint in your data factory.
     | **Private DNS integration** |  |
     | Integrate with private DNS zone | Leave the default of **Yes**. |
     | Subscription | Select your subscription. |
-    | Private DNS zones | Leave the default of **(New) privatelink.azurewebsites.net**.
+    | Private DNS zones | Leave the default value in both Target sub-resources:  1. datafactory: **(New) privatelink.datafactory.azure.net**. 2. portal: **(New) privatelink.adf.azure.com**.|
     
 
 7. Select **Review + create**.

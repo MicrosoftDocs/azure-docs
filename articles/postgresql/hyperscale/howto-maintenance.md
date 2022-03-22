@@ -1,8 +1,8 @@
 ---
 title: Azure Database for PostgreSQL - Hyperscale (Citus) - Scheduled maintenance - Azure portal
 description: Learn how to configure scheduled maintenance settings for an Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

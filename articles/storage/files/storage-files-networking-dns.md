@@ -1,11 +1,11 @@
 ---
 title: Configuring DNS forwarding for Azure Files | Microsoft Docs
 description: Learn how to configure DNS forwarding for Azure Files.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/02/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---

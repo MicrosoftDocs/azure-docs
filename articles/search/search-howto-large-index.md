@@ -1,7 +1,7 @@
 ---
 title: Index large data set using built-in indexers
 titleSuffix: Azure Cognitive Search
-description: Strategies for large data indexing or computationally-intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
+description: Strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 
 manager: nitinme
 author: dereklegenzoff

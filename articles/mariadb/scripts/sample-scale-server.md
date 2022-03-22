@@ -24,7 +24,7 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh" range="4-49":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh" id="FullScript":::
 
 ## Clean up resources
 

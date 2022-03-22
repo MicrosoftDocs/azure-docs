@@ -56,9 +56,9 @@ We recommend assigning this role at the subscription or resource group you want 
 
 6. Select the custom role you want to assign (one of **Azure Arc VMware Administrator**, **Azure Arc VMware Private Cloud User**, or **Azure Arc VMware VM Contributor**).
 
-7. Search for Azure Active Directory user or group that you want assign this role to.
+7. Search for the Azure Active Directory (Azure AD) user or group to which you want to assign this role.
 
-8. Click on the AAD user or group name to select. Repeat this for each user/group you want to provide this permission.
+8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
 
 9. Repeat the above steps for each scope and role.
 

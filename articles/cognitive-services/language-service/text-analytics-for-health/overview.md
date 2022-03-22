@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 02/16/2022
+ms.date: 03/01/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -46,7 +46,7 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 
 ## Input requirements and service limits
 
-* Text Analytics for health takes raw unstructured text for analysis. See the [data and service limits](how-to/call-api.md#data-limits) in the how-to guide for more information.
+* Text Analytics for health takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) for more information.
 * Text Analytics for health works with a variety of written languages. See [language support](language-support.md) for more information.
 
 ## Reference documentation and code samples

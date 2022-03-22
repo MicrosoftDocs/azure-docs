@@ -469,12 +469,14 @@
           href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
+        - name: CI/CD with Azure Pipelines
+          href: ../aks/devops-pipeline.md
     - name: Troubleshoot
       items:
         - name: Common issues
           href: troubleshooting.md
-        - name: SSH node access
-          href: ssh.md
+        - name: Node access
+          href: node-access.md
         - name: Linux performance tools
           href: troubleshoot-linux.md
         - name: Check for Resource Health events (preview)
