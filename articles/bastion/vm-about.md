@@ -42,6 +42,10 @@ You can enable remote audio output for your VM. Some VMs automatically enable th
 
 For steps, see the [Deploy Bastion](tutorial-create-host-portal.md#audio) tutorial.
 
+## <a name="faq"></a>FAQ
+
+For FAQs, see [Bastion FAQ - VM connectons and features](bastion-faq.md#vm).
+
 ## Next steps
 
-For frequently asked questions, see the VM section of the [Azure Bastion FAQ](bastion-faq.md).
+[Quickstart: Deploy Azure Bastion with default settings](quickstart-host-portal.md)
