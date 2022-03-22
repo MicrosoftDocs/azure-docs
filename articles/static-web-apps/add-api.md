@@ -241,25 +241,28 @@ There is no need to build the app.
 
 # [Angular](#tab/angular)
 
-Build the app into the _dist/angular-basic_ folder.
+Install npm dependencies and build the app into the _dist/angular-basic_ folder.
 
 ```bash
+npm install
 npm run build --prod
 ```
 
 # [React](#tab/react)
 
-Build the app into the _build_ folder.
+Install npm dependencies and build the app into the _build_ folder.
 
 ```bash
+npm install
 npm run build
 ```
 
 # [Vue](#tab/vue)
 
-Build the app into the _dist_ folder.
+Install npm dependencies and build the app into the _dist_ folder.
 
 ```bash
+npm install
 npm run build
 ```
 
