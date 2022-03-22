@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a basic internal load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer using Azure PowerShell
+description: This quickstart shows how to create a basic internal load balancer using Azure PowerShell
 author: asudbring
 ms.author: allensu
 ms.date: 03/22/2022
@@ -104,7 +104,7 @@ $lbrule = @{
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
 }
-$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset -DisableOutboundSNAT
+$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
@@ -333,7 +333,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 Ensure the **State** of the VM creation is **Completed** before moving on to the next steps.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
@@ -389,8 +389,6 @@ Get-AzPublicIPAddress @ip | select IpAddress
 
 Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-   :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of the load balancer test web page.":::
-
 ## Clean up resources
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
@@ -411,4 +409,4 @@ In this quickstart, you:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
