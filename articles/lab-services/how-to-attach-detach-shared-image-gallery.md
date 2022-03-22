@@ -2,7 +2,8 @@
 title: Attach or detach an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
 description: This article describes how to attach an Azure Compute Gallery to a lab in Azure Lab Services. 
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 03/22/2022
+ms.custom: devdivchpfy22
 ---
 
 # Attach or detach a compute gallery in Azure Lab Services
@@ -10,14 +11,14 @@ ms.date: 01/21/2022
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [January 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery in Azure Lab Services (deprecated)](how-to-attach-detach-shared-image-gallery-1.md).
+> If you're using a version of Azure Lab Services prior to the [January 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery in Azure Lab Services (deprecated)](how-to-attach-detach-shared-image-gallery-1.md).
 
 This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
 
 > [!IMPORTANT]
-> Lab plan administrators must manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the computes gallery.  An Azure Compute Gallery image must be replicated to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
+> Lab plan administrators must manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the compute gallery. An Azure compute gallery image must be replicated to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
 
-Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
+Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure compute gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
 
 ## Scenarios
 
@@ -31,21 +32,22 @@ When you [save a template image of a lab](how-to-use-shared-image-gallery.md#sav
 A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services.
 
 > [!IMPORTANT]
-> While using an Azure Compute Gallery, Azure Lab Services supports only images use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
+> While using an Azure compute gallery, Azure Lab Services supports only images use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
 
 ## Create and attach a compute gallery
 
 > [!IMPORTANT]
-> Your user account must have permission to create a new Azure Compute Gallery.
+> Your user account must have permission to create a new Azure compute gallery.
 
 1. Open your lab plan in the [Azure portal](https://portal.azure.com.).
 1. Select **Azure compute gallery** on the menu.
 1. Select the **Create Azure compute gallery** button.  
 
-    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-create-new.png" alt-text="Create Azure compute gallery button":::
-1. In the **Create Azure compute gallery** window, enter a **name** for the gallery. Select **Create**.
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-create-new.png" alt-text="Screenshot of the Create Azure compute gallery button.":::
 
-    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/create-gallery-window.png" alt-text="Create compute gallery window":::
+1. In the **Create Azure compute gallery** window, enter a **name** for the gallery and then, select **Create**.
+
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/create-azure-compute-gallery-window.png" alt-text="Screenshot of the Create compute gallery window.":::
 
 Azure Lab Services creates the compute gallery and attaches it to the lab plan. All labs created using this lab plan can now use images from the attached compute gallery.
 
@@ -61,10 +63,11 @@ The following procedure shows you how to attach an existing compute gallery to a
 1. Select **Azure compute gallery** on the menu.
 1. Select the **Attach existing gallery** button.  
 
-    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-attach-existing.png" alt-text="Attached to existing Azure compute gallery button":::
-1. On the **Attach an existing compute gallery** page, select your compute gallery.  Select the **Select** button.
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-attach-existing.png" alt-text="Screenshot of the Attach existing gallery button.":::
 
-    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/gallery-attach-existing-list.png" alt-text="Azure compute gallery page for lab plan when gallery has been attached.":::
+1. On the **Attach an existing compute gallery** page, select your compute gallery and then, select the **Select** button.
+
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attach-existing-compute-gallery.png" alt-text="Azure compute gallery page for lab plan when gallery has been attached.":::
 
 > [!NOTE]
 > The **Azure Lab Services** app must be assigned the **Owner** role on the compute gallery to show in the list.
@@ -79,7 +82,7 @@ All images in the attached compute gallery are disabled by default. To enable se
 1. Select **Enable image**  button.
 1. Select **Apply**.
 
-:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-list-enable.png" alt-text="Enable an imaged for an attached compute gallery.":::
+:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/enable-attached-gallery-image.png" alt-text="Enable an imaged for an attached compute gallery.":::
 
 To disable selected images:
 
@@ -91,7 +94,7 @@ To disable selected images:
 
 To detach a compute gallery from your lab, select **Detach** on the toolbar. Confirm the detach operation.  
 
-Only one Azure Compute Gallery can be attached to a lab. If you would like to attach another compute gallery, select **Change gallery** on the toolbar.  Confirm the change operation. On the **Attach an existing compute gallery** page, select your compute gallery.  Select the **Select** button.
+Only one Azure Compute Gallery can be attached to a lab. If you would like to attach another compute gallery, select **Change gallery** on the toolbar. Confirm the change operation. On the **Attach an existing compute gallery** page, select your compute gallery. And then, select the **Select** button.
 
 :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-detach.png" alt-text="Detach the compute gallery from the lab plan":::
 
