@@ -17,17 +17,28 @@ SSH access to Arc-enabled servers provides the following key benefits:
  - Ability to log-in as a local user or an Azure user (Linux only)
  - Support for other OpenSSH based tooling with config file support
 
-## Availability
+## Prerequisites
+To leverage this functionality please ensure the following: 
+ - Ensure the Arc-enabled server has a hybrid agent version of "1.13.21320.014" or higher.
+ - Ensure the Arc-enabled server has the "sshd" service enabled.
+ - 
+TODO
+- extension version
+- role assignment
+
+### Availability
 SSH access to Arc-enabled servers is currently supported in the following regions:
 - eastus2euap, eastus, eastus2, westus2, southeastasia, westeurope, northeurope, westcentralus, southcentralus, uksouth, australiaeast, francecentral, japaneast, eastasia, koreacentral, westus3, westus, centralus, northcentralus.
 
-## Prerequisites
-TODO
-- hybrid agent version
-- extension version
-- role assignment
-- sshd enabled 
-- supported operating systems
+### Supported operating systems
+ - Windows: Windows 7+ and Windows Server 2012+
+ - Linux: 
+    | Distribution | Version |
+    | --- | --- |
+    | CentOS | CentOS 7, CentOS 8 |
+    | RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
+    | SUSE Linux Enterprise Server (SLES) | SLES 12, SLES 15.1+ |
+    | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
 
 ## Getting started
 ### Register the HybridConnectivity resource provider
