@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 03/10/2021
+ms.date: 02/16/2022
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -25,7 +25,7 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Attention needed | We discovered a critical issue during certification or during another publishing phase. |
 | Preview | We certified the offer, which now awaits a final verification by the publisher. Select **Go live** to publish the offer live. |
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
-| Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
+| Pending Stop distribution | Publisher selected "Stop distribution" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
 |
 
@@ -52,7 +52,7 @@ After all pages are complete and you have entered applicable testing notes,  sel
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
-For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](dynamics-365-operations-validation.md).
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations Apps functional validation](dynamics-365-operations-validation.md).
 
 ## Automated validation phase
 
@@ -123,11 +123,13 @@ The offer is tested across various platforms and versions to ensure it’s robus
 
 If your offer fails any of the listing, technical, or policy checks, or if you are not eligible to submit an offer of that type, we email a certification failure report to you.
 
-This report contains descriptions of any policies that failed, along with review notes. Review this email report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
+This report contains descriptions of any policies that failed, along with review notes. Review this email report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
 
 ## Preview creation phase
 
 During the preview creation phase, we create a version of your offer that will be accessible to only the audience you specified on the **Preview audience** page of your offer, if any. The preview version of your offer won’t be available to anyone outside the preview audience until you publish the offer live.
+
+If the offer already has a preview, you can publish another preview on top of the existing preview. The latest preview submission overrides the previous preview submission.
 
 > [!NOTE]
 > Do not use the preview audience to give people outside your organization visibility into an offer. Use the Private Offer option instead. At this point, your offering has not been fully tested and validated, and is not ready for outside distribution.
@@ -151,12 +153,12 @@ When the offer is ready for you to review and be signed off, we’ll send you an
 
 The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. The certification phase can happen during submission to preview or submission to live, depending on the offer type.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
+[ ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
 
 ### Previewing and approving your offer
 
 > [!IMPORTANT]
-> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
 
 On the **Offer overview** page, you will see preview links under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
@@ -200,17 +202,21 @@ The **History** page in Partner Center shows the publishing events for your comm
 To view the history of your offer:
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
-3. Select your offer.
-4. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select your offer.
+1. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
 
 |Event    |Description    |
 |---------|---------------|
-|Created offer    |The offer was created in Partner Center. A user selected the offer type, offer ID, and offer alias in **Commercial Marketplace** > **Overview**.    |
+|Created offer | The offer was created in Partner Center. A user selected the offer type, offer ID, and offer alias from the commercial marketplace **Overview** page.    |
 |Created plan: *plan name*    |A user created a new plan by entering the plan ID and plan name in the **Plan overview** tab.</br>*This event applies only to offer types that support plans*.    |
 |Deleted plan    |A user deleted a draft plan that had not been published by selecting **Delete draft** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
-|Initiated plan stop sell: *plan name*    |A user initiated a plan stop-sell by selecting **Stop selling** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
-|Undo plan stop sell: *plan name*    |A user canceled a plan stop-sell by selecting **Undo stop selling** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Initiated plan Stop distribution: *plan name*    |A user initiated a plan Stop distribution by selecting **Stop distribution** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Resume distribution: *plan name*    |A user canceled a plan stop distribution by selecting **Resume distribution** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
 |Submitted offer to preview    |A user submitted the offer to preview by selecting **Publish** from the **Review and publish** page.    |
 |Initiated submit to preview cancellation    |A user requested to cancel the offer publication to preview by selecting **Cancel publish** from the **Offer overview** page after the submission to preview.</br>*This event is displayed as the cancellation request is being processed*.    |
 |Canceled submission to preview    |A user canceled the offer publication to preview by selecting **Cancel publish** from the **Offer overview** page after the submission to preview.</br>*This event is displayed after the cancellation request is successfully processed*.    |
@@ -218,7 +224,7 @@ To view the history of your offer:
 |Initiated publish to marketplace cancellation    |A user requested to cancel the offer publication by selecting **Cancel publish** from the **Offer overview** page after the sign-off to go live.</br>*This event is displayed as the cancellation request is being processed*.    |
 |Canceled publishing to the commercial marketplace    |A user canceled the offer publication by selecting **Cancel publish** from the **Offer overview** page after the sign-off to go live.</br>*This event is displayed after the cancellation request is successfully processed*.    |
 |Sync private audience    |A user updated and synced the private audience by selecting **Sync private audience** from the **Plan overview** page or the **Plan pricing & availability** page.</br>*This event applies only to offer types that support private plans*.    |
-|Stop sell offer    |A user stopped selling the offer by selecting **Stop selling** from the **Offer overview** page.    |
+|Stop distribution offer    |A user stopped selling the offer by selecting **Stop distribution** from the **Offer overview** page.    |
 
 > [!NOTE]
 > The History page doesn’t say when an offer draft was saved.

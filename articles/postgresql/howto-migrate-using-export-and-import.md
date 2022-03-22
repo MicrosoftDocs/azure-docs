@@ -1,10 +1,11 @@
 ---
 title: Migrate a database - Azure Database for PostgreSQL - Single Server
 description: Describes how extract a PostgreSQL database into a script file and import the data into the target database from that file.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: srranga
+author: sr-msft
 ms.date: 09/22/2020
 ---
 # Migrate your PostgreSQL database using export and import
@@ -24,7 +25,7 @@ Follow these steps to export and import your PostgreSQL database.
 To export your existing PostgreSQL database on-premises or in a VM to a sql script file, run the following command in your existing environment:
 
 ```bash
-pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
+pg_dump --host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
 For example, if you have a local server and a database called **testdb** in it:
 ```bash

@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Splashtop for automatic user provisioning with Azure
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Splashtop.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 8d8c3745-aaa9-4dbd-9fbf-92da4ada2a9e
@@ -12,10 +12,9 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/19/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Splashtop for automatic user provisioning

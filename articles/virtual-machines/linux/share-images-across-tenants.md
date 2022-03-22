@@ -1,24 +1,24 @@
 ---
 title: Share gallery images across tenants
-description: Learn how to share VM images across Azure tenants using Shared Image Galleries using Azure CLI.
-author: axayjo
+description: Learn how to share VM images across Azure tenants using Azure Compute Galleries and the Azure CLI.
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2019
-ms.author: akjosh
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli
+author: sandeepraichura
+ms.author: saraic
 ---
 # Share gallery VM images across Azure tenants using the Azure CLI
 
-Shared Image Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](./shared-images-portal.md#share-the-gallery).
+Azure Compute Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
-> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or [Powershell](../windows/share-images-across-tenants.md).
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or [PowerShell](../windows/share-images-across-tenants.md).
 
 ## Create a VM using Azure CLI
 
@@ -50,4 +50,4 @@ az vm create \
 
 ## Next steps
 
-If you run into any issues, you can [troubleshoot shared image galleries](../troubleshooting-shared-images.md).
+If you run into any issues, you can [troubleshoot galleries](../troubleshooting-shared-images.md).

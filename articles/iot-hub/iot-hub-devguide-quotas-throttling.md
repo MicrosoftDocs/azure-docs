@@ -2,12 +2,12 @@
 title: Understand Azure IoT Hub quotas and throttling
 
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 02/22/2022
 ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
@@ -62,7 +62,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 *  **Quota** is the aggregate number of messages you can send in your hub *per day*. You can find your hub's quota limit under the column **Total number of messages /day** on the [IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-*  Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages -- number of messages irrespective of 4 KB chunks. Each message can be up to 256 KB which is the [maximum message size](iot-hub-devguide-quotas-throttling.md#other-limits).
+*  Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages -- number of messages irrespective of 4 KB chunks. D2C messages can be up to 256 KB; C2D messages can be up to 64 KB. These are the [maximum message sizes] for each type of message.
 
 *  It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, refer to [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 
@@ -99,10 +99,11 @@ IoT Hub enforces other operational limits:
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery is 50 per device. |
 | Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB. |
-| Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
+| Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 10 configurations per free SKU hub. |
 | IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
 | Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. |
 | Shared access policies | Maximum number of shared access policies is 16. |
+| Restrict outbound network access | Maximum number of allowed FQDNs is 20. |
 | x509 CA certificates | Maximum number of x509 CA certificates that can be registered on IoT Hub is 25. |
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).

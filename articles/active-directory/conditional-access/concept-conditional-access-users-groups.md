@@ -10,7 +10,7 @@ ms.date: 03/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ The following options are available to include when creating a Conditional Acces
    - Directory roles
       - Allows administrators to select specific built-in Azure AD directory roles used to determine policy assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role. Other role types are not supported, including administrative unit-scoped roles and custom roles.
    - Users and groups
-      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
+      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of user group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
 
 > [!IMPORTANT]
 > When selecting which users and groups are included in a Conditional Access Policy, there is a limit to the number of individual users that can be added directly to a Conditional Access policy. If there are a large amount of individual users that are needed to be added to directly to a Conditional Access policy, we recommend placing the users in a group, and assigning the group to the Conditional Access policy instead.
@@ -74,7 +74,7 @@ By default the policy will provide an option to exclude the current user from th
 
 ![Warning, don't lock yourself out!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-If you do find yourself locked out[What to do if you are locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+If you do find yourself locked out[What to do if you are locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-youre-locked-out-of-the-azure-portal)
 
 ## Next steps
 

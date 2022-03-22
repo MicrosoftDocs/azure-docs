@@ -4,7 +4,7 @@ description: The OMS portal is being sunsetted with all functionality moving to 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
+ms.date: 10/20/2021
 
 ---
 

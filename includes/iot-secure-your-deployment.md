@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-fundamentals
- author: robinsh
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: include
  ms.date: 08/07/2018
- ms.author: robinsh
+ ms.author: kgremban
  ms.custom: include file
 ---
 
@@ -24,7 +24,7 @@ Securing the Azure IoT deployment can be divided into the following three securi
 
 ## Secure device provisioning and authentication
 
-The IoT solution accelerators secure IoT devices using the following two methods:
+IoT solutions secure IoT devices using the following two methods:
 
 * By providing a unique identity key (security tokens) for each device, which can be used by the device to communicate with the IoT Hub.
 

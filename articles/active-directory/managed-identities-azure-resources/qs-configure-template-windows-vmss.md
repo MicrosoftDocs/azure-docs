@@ -4,18 +4,17 @@ description: Step-by-step instructions for configuring managed identities for Az
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
 ---
 
 # Configure managed identities for Azure resources on an Azure virtual machine scale using a template
@@ -46,7 +45,7 @@ In this article, you learn how to perform the following managed identities for A
 
 As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/management/overview.md) templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
+   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
    - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/templates/export-template-portal.md), or from the [current state of the deployment](../../azure-resource-manager/templates/export-template-portal.md).
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to both create and deploy a template.  
@@ -68,7 +67,7 @@ In this section, you will enable and disable the system-assigned managed identit
    }
    ```
 
-4. When you're done, the following sections should added to the resource section of your template  and should resemble the following:
+4. When you're done, the following sections should added to the resource section of your template  and should resemble the example shown below:
 
    ```json
     "resources": [

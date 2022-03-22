@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/04/2021
+ ms.date: 2/10/2022
  ms.author: cherylmc
  ms.custom: include file, devx-track-azurepowershell
 ---
@@ -17,14 +17,15 @@ It depends on the gateway SKU. For more information on the number of connections
 
 The following client operating systems are supported:
 
-* Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
 * Windows Server 2016 (64-bit only)
 * Windows Server 2019 (64-bit only)
+* Windows Server 2022 (64-bit only)
 * Windows 10
+* Windows 11 
 * macOS version 10.11 or above
 * Linux (StrongSwan)
 * iOS
@@ -43,11 +44,11 @@ Azure supports three types of Point-to-site VPN options:
 
 ### If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
-By default, the client computer will not reestablish the VPN connection automatically.
+Auto-reconnect is a function of the client being used. Windows supports auto-reconnect by configuring the **Always On VPN** client feature.
 
-### Does Point-to-Site support auto-reconnect and DDNS on the VPN clients?
+### Does Point-to-Site support DDNS on the VPN clients?
 
-Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
+DDNS is currently not supported in Point-to-Site VPNs.
 
 ### Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
 
@@ -75,11 +76,13 @@ Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2 in certain OS versions, you must install updates and set a registry key value locally. Note that OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
+
+> NOTE: Windows OS builds newer than Windows 10 Version 1709 and Windows Server 2016 Version 1607 do not require these steps.
 
 To prepare Windows 10 or Server 2016 for IKEv2:
 
-1. Install the update.
+1. Install the update based on your OS version:
 
    | OS version | Date | Number/Link |
    |---|---|---|
@@ -89,6 +92,11 @@ To prepare Windows 10 or Server 2016 for IKEv2:
    |  |  |  |
 
 2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
+
+### What is the IKEv2 traffic selector limit for point-to-site connections?
+Windows 10 version 2004 (released September 2021) increased the traffic selector limit to 255. Versions of Windows earlier than this have a traffic selector limit of 25.
+
+The traffic selectors limit in Windows determines the maximum number of address spaces in your virtual network and the maximum sum of your local networks, VNet-to-VNet connections, and peered VNets connected to the gateway. Windows based point-to-site clients will fail to connect via IKEv2 if they surpass this limit.
 
 ### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
 

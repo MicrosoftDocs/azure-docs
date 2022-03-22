@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Arkose Labs to identify risky and fraudulent users
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -145,7 +146,7 @@ Install the [Azure Functions extension](https://marketplace.visualstudio.com/ite
 
 3. The Azure Function extension will automatically generate a few files for local development, install dependencies, and install the Function Core tools if not already present. These tools help with the debugging experience.
 
-4. Output from the Function Core tool appears in the Visual Studio Code **Terminal** panel. Once the host has started, **Alt+click** the local URL shown in the output to open the browser and run the function. In the Azure Functions explorer, right-click on the function to see the url of the locally hosted function.
+4. Output from the Function Core tool appears in the Visual Studio Code **Terminal** panel. Once the host has started, **Alt+click** the local URL shown in the output to open the browser and run the function. In the Azure Functions explorer, right-click on the function to see the URL of the locally hosted function.
 
 To redeploy the local instance during testing, repeat steps 1 to 4.
 
@@ -153,7 +154,7 @@ To redeploy the local instance during testing, repeat steps 1 to 4.
 
 This sample protects the web API endpoint using [HTTP Basic authentication](https://tools.ietf.org/html/rfc7617).
 
-Username and password are stored as environment variables and  not as part of the repository. See [local.settings.json](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file) file for more information.
+Username and password are stored as environment variables and  not as part of the repository. See [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file) file for more information.
 
 1. Create a local.settings.json file in your root folder
 

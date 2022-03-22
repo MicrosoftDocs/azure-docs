@@ -2,7 +2,8 @@
 title: Submit a large number of tasks to a Batch job
 description: Learn how to efficiently submit a very large number of tasks in a single Azure Batch job.
 ms.topic: how-to
-ms.date: 12/30/2020
+ms.date: 08/25/2021
+ms.devlang: csharp, python
 ms.custom: "devx-track-python, devx-track-csharp"
 ---
 # Submit a large number of tasks to a Batch job
@@ -135,7 +136,7 @@ pip install azure-batch
 pip install azure-batch-extensions
 ```
 
-Set up a `BatchExtensionsClient` that uses the SDK extension:
+After importing the package using `import azext.batch as batch`, set up a `BatchExtensionsClient` that uses the SDK extension:
 
 ```python
 

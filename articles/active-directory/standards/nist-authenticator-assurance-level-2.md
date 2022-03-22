@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: barbaraselden
 ms.author: baselden
-manager: mtillman
+manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
@@ -37,18 +37,20 @@ The following table provides details about the authenticator types permitted for
 | FIDO 2 security key<br>Microsoft Authenticator app for Android (Passwordless)<br>Windows Hello for Business with hardware TPM<br>Smartcard (Active Directory Federation Services) | Multifactor crypto hardware |
 | **Additional methods** |  |
 | Password + Phone (SMS) | Memorized Secret + Out-of-Band |
-| Password + Microsoft Authenticator App (OTP)<br>Password + SF OTP | Memorized Secret +  ‎Single-factor one-time password |
-| Password + Azure AD joined with software TPM <br>Password + Compliant mobile device<br>Password + Hybrid Azure AD Joined with software TPM <br>Password + Microsoft Authenticator App (Notification) | Memorized Secret + ‎Single-factor crypto SW |
-| Password + Azure AD joined with hardware TPM <br>Password + Hybrid Azure AD joined with hardware TPM | Memorized Secret + ‎Single-factor crypto hardware |
+| Password + Microsoft Authenticator App (OTP)<br>Password + SF OTP | Memorized Secret +  Single-factor one-time password |
+| Password + Azure AD joined with software TPM <br>Password + Compliant mobile device<br>Password + Hybrid Azure AD Joined with software TPM <br>Password + Microsoft Authenticator App (Notification) | Memorized Secret + Single-factor crypto SW |
+| Password + Azure AD joined with hardware TPM <br>Password + Hybrid Azure AD joined with hardware TPM | Memorized Secret + Single-factor crypto hardware |
 
+> [!NOTE]
+> In a conditional access policy, if you require a device to be either marked as compliant or hybrid Azure AD joined, Authenticator acts as verifier impersonation resistance.
 
 ### Our recommendations
 
 To achieve AAL2, use multifactor cryptographic hardware or software authenticators. Passwordless authentication eliminates the greatest attack surface (the password), and offers users a streamlined method to authenticate. 
 
-For detailed guidance on selecting a passwordless authentication method, see [Plan a passwordless authentication deployment in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-deployment).
+For detailed guidance on selecting a passwordless authentication method, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 
-For more information on implementing Windows Hello for Business, see the [Windows Hello for Business deployment guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide).
+For more information on implementing Windows Hello for Business, see the [Windows Hello for Business deployment guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide).
 
 ## FIPS 140 validation
 
@@ -60,7 +62,7 @@ Azure AD uses the Windows FIPS 140 Level 1 overall validated cryptographic ‎mo
 
 ### Authenticator requirements
 
-The cryptographic authenticators of government agencies are required to be validated for FIPS 140 Level 1 overall. This isn't a requirement for non-governmental agencies. The following Azure AD authenticators meet the requirement when running on [Windows in a FIPS 140 approved mode of operation](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation):
+The cryptographic authenticators of government agencies are required to be validated for FIPS 140 Level 1 overall. This isn't a requirement for non-governmental agencies. The following Azure AD authenticators meet the requirement when running on [Windows in a FIPS 140 approved mode of operation](/windows/security/threat-protection/fips-140-validation):
 
 * Password
 
@@ -74,14 +76,14 @@ The cryptographic authenticators of government agencies are required to be valid
 
 While the Microsoft Authenticator app in all its modes (notification, OTP and passwordless) uses FIPS 140 approved cryptography, it is not FIPS 140 Level 1 validated.
 
-FIDO2 security key providers are in various stages of FIPS certification, including some that have completed validation. We recommend you review the [list of supported FIDO2 key vendors](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-key-providers) and check with your provider for current FIPS validation status.
+FIDO2 security key providers are in various stages of FIPS certification, including some that have completed validation. We recommend you review the [list of supported FIDO2 key vendors](../authentication/concept-authentication-passwordless.md#fido2-security-key-providers) and check with your provider for current FIPS validation status.
 
 
 ## Reauthentication 
 
 At the AAL2 level, NIST requires reauthentication every 12 hours, regardless of user activity. Reauthentication is also required after any period of inactivity lasting 30 minutes or longer. Presentation of something you know or something you are is required, because the session secret is something you have.
 
-To meet the requirement for reauthentication regardless of user activity, Microsoft recommends configuring [user sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime) to 12 hours. 
+To meet the requirement for reauthentication regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours. 
 
 NIST also allows the use of compensating controls for confirming the subscriber’s presence:
 
@@ -111,4 +113,4 @@ All Azure AD authentication methods at AAL2 use either nonce or challenges. The 
 
 [Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md)  
+[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md)

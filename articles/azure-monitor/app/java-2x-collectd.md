@@ -3,10 +3,8 @@ title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
-
 ---
 
 # collectd: Linux performance metrics in Application Insights [Deprecated]
@@ -27,11 +25,13 @@ Take a copy of the instrumentation key, which identifies the resource.
 
 ![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/java-collectd/instrumentation-key-001.png)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Install collectd and the plug-in
 On your Linux server machines:
 
 1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 4. Edit `/etc/collectd/collectd.conf`:
    * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
@@ -39,7 +39,7 @@ On your Linux server machines:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Add this snippet, using the Instrumentation Key from your resource:
 
-```XML
+```xml
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -49,7 +49,7 @@ On your Linux server machines:
 
 Here's part of a sample configuration file:
 
-```XML
+```xml
 
     ...
     # collectd plugins

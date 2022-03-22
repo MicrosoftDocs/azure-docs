@@ -4,12 +4,12 @@ description: How to take over a DNS domain name in an unmanaged Azure AD organiz
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/18/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 # Take over an unmanaged directory as administrator in Azure Active Directory
 
 This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
+
+
+> [!VIDEO https://www.youtube.com/embed/GOSpjHtrRsg]
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
@@ -87,13 +90,16 @@ External admin takeover is supported by the following online services:
 
 The supported service plans include:
 
-- PowerApps Free
-- PowerFlow Free
+- Power Apps Free
+- Power Automate Free
 - RMS for individuals
 - Microsoft Stream
 - Dynamics 365 free trial
 
 External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. 
+
+> [!NOTE]
+> External admin takeover is not supported cross cloud boundaries (ex. Azure Commercial to Azure Government).  In these scenarios it is recommended to perform External admin takeover into another Azure Commercial tenant, and then delete the domain from this tenant so you may verify succesfully into the destination Azure Government tenant.
 
 You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged organization and verifying it on the desired organization. 
 

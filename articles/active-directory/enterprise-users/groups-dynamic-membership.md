@@ -4,12 +4,12 @@ description: How to create membership rules to automatically populate groups, an
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -26,7 +26,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 - You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
 
 > [!NOTE]
-> This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
+> This feature requires an Azure AD Premium P1 license or Intune for Education for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 > No license is required for devices that are members of a dynamic device group.
 
 ## Rule builder in the Azure portal
@@ -128,7 +128,7 @@ For the properties used for device rules, see [Rules for devices](#rules-for-dev
 
 ## Supported expression operators
 
-The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The **Contains** operator does partial string matches but not item in a collection matches.
 
 | Operator | Syntax |
 | --- | --- |
@@ -171,25 +171,25 @@ David evaluates to true, Da evaluates to false.
 
 The values used in an expression can consist of several types, including:
 
-* Strings
-* Boolean – true, false
-* Numbers
-* Arrays – number array, string array
+- Strings
+- Boolean – true, false
+- Numbers
+- Arrays – number array, string array
 
 When specifying a value within an expression it is important to use the correct syntax to avoid errors. Some syntax tips are:
 
-* Double quotes are optional unless the value is a string.
-* String and regex operations are not case sensitive.
-* When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value.
-* You can also perform Null checks, using null as a value, for example, `user.department -eq null`.
+- Double quotes are optional unless the value is a string.
+- String and regex operations are not case sensitive.
+- When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value. Single quotes should be escaped by using two single quotes instead of one each time.
+- You can also perform Null checks, using null as a value, for example, `user.department -eq null`.
 
 ### Use of Null values
 
 To specify a null value in a rule, you can use the *null* value. 
 
-* Use -eq or -ne when comparing the *null* value in an expression.
-* Use quotes around the word *null* only if you want it to be interpreted as a literal string value.
-* The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null.
+- Use -eq or -ne when comparing the *null* value in an expression.
+- Use quotes around the word *null* only if you want it to be interpreted as a literal string value.
+- The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null.
 
 The correct way to reference the null value is as follows:
 
@@ -199,7 +199,7 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. 
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
 
 The following are examples of properly constructed membership rules with multiple expressions:
 
@@ -236,9 +236,9 @@ Parentheses are needed only when precedence does not meet your requirements. For
 
 A membership rule can consist of complex expressions where the properties, operators, and values take on more complex forms. Expressions are considered complex when any of the following are true:
 
-* The property consists of a collection of values; specifically, multi-valued properties
-* The expressions use the -any and -all operators
-* The value of the expression can itself be one or more expressions
+- The property consists of a collection of values; specifically, multi-valued properties
+- The expressions use the -any and -all operators
+- The value of the expression can itself be one or more expressions
 
 ## Multi-value properties
 
@@ -253,8 +253,8 @@ Multi-value properties are collections of objects of the same type. They can be 
 
 You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively.
 
-* -any (satisfied when at least one item in the collection matches the condition)
-* -all (satisfied when all items in the collection match the condition)
+- -any (satisfied when at least one item in the collection matches the condition)
+- -all (satisfied when all items in the collection match the condition)
 
 #### Example 1
 
@@ -264,7 +264,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom an Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom a Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 
@@ -352,8 +352,8 @@ Extension attributes and custom extension properties are supported as string pro
 
 [Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
-* [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
-* [Attribute] is the name of the property as it was created
+- [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
+- [Attribute] is the name of the property as it was created
 
 An example of a rule that uses a custom extension property is:
 
@@ -361,7 +361,9 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app.
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. Extension attributes and custom extension properties must be from applications in your tenant.  
+
+For more information, see [Use the attributes in dynamic groups](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 
 ## Rules for devices
 
@@ -389,7 +391,7 @@ The following device attributes can be used.
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
+ managementType | MDM (for mobile devices) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")

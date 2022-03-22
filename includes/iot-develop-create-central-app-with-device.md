@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 04/28/2021
+ ms.date: 02/16/2022
  ms.author: timlt
  ms.custom: include file
 ---
@@ -33,16 +33,15 @@ To create a new application:
     :::image type="content" source="media/iot-develop-create-central-app-with-device/iot-central-created.png" alt-text="IoT Central new application dashboard":::
 
 ## Add a device
-In this section, you add a new device to your IoT Central application. The device is an instance of a device template that represents a real or simulated device that you'll connect to the application. 
+In this section, you add a new device to your IoT Central application. The device is an instance of a device template that represents a device that you'll connect to the application. 
 
 To create a new device:
 1. In the left pane select **Devices**, then select **+New**.
-1. Leave **Device template** set to *Unassigned*.
+1. Leave **Device template** set to *Unassigned* and **Simulate this device?** set to *No*.
 
-    > [!NOTE]
-    > In this quickstart for simplicity, you connect a simulated device that uses an unassigned template. If you continue using IoT Central to manage devices, you'll learn about using device templates. For an overview of working with device templates, see [Quickstart: Add a simulated device to your IoT Central application](../articles/iot-central/core/quick-create-simulated-device.md).
 1. Set a friendly **Device name** and **Device ID**. Optionally, use the generated values.
     :::image type="content" source="media/iot-develop-create-central-app-with-device/iot-central-create-device.png" alt-text="IoT Central new device dialog":::
+
 1. Select **Create**.
 
     The created device appears in the **All devices** list.

@@ -1,7 +1,7 @@
 ---
 title: Australian Government ISM PROTECTED blueprint sample controls
 description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
@@ -28,7 +28,7 @@ to support audit requirements** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
 
 ## Location Constraints
 

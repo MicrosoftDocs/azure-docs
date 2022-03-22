@@ -5,16 +5,15 @@ description: In this quickstart, you configure an app registration representing 
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperf-fy21q1
+ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: lenalepa, aragra, sureshja
-# Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
+#Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
 ---
 
 # Quickstart: Configure a client application to access a web API
@@ -125,7 +124,7 @@ You can add or remove the permissions that appear in this table by using the ste
 
 ### Other permissions granted
 
-You might also see a table entitled **Other permissions granted for {your tenant}** on the **API permissions** pane. The **Other permissions granted for {your tenant}** table shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to. This section appears only if there is at least one permission that applies.
+You might also see a table titled **Other permissions granted for {your tenant}** on the **API permissions** pane. The **Other permissions granted for {your tenant}** table shows permissions granted tenant-wide for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to by an admin, on behalf of all users. This section appears only if there is at least one permission that applies.
 
 You can add the full set of an API's permissions or individual permissions appearing this table to the **Configured permissions** table. As an admin, you can revoke admin consent for APIs or individual permissions in this section.
 

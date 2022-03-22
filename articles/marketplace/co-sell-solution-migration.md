@@ -1,15 +1,14 @@
 ---
-title: Migrate co-sell solutions from OCP GTM to Partner Center for Microsoft AppSource
-description: Learn how to migrate co-sell solutions from OCP GTM to Partner Center for Microsoft AppSource).
+title: Migrate Co-sell solutions from OCP GTM to Partner Center for Microsoft AppSource
+description: Migrate Co-sell solutions from OCP GTM to Partner Center (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
-ms.date: 05/18/2021
+ms.date: 09/27/2021
 ---
-
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
 
@@ -32,7 +31,7 @@ Ensure you have an active Microsoft Partner Network membership and are enrolled 
 
 ## Publishing updates for attaining co-sell-ready status
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). For a Microsoft seller to be a Co-sell incentive, your solution must meet the [incentive-eligible requirements](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
@@ -41,8 +40,8 @@ After you’ve enrolled in the commercial marketplace, prepare to migrate your s
 
 Follow these steps before importing your solutions from OCP GTM:
 
-1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](user-roles.md).
-2. Ask one of the listed contacts to [add users](https://partner.microsoft.com/dashboard/account/usermanagement) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
+1. Visit your company's [publisher list](https://go.microsoft.com/fwlink/?linkid=2165704). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](user-roles.md).
+2. Ask one of the listed contacts to [add users](https://go.microsoft.com/fwlink/?linkid=2166003) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 4. Decide which of the following you want to do:
     1. If you have a solution in OCP GTM that you want to migrate to Partner Center - *to retain referral pipeline, collateral, co-sell status and incentives* - there are two scenarios for you to choose from:
@@ -56,18 +55,18 @@ Follow these steps before importing your solutions from OCP GTM:
 
 > [!IMPORTANT]
 > On May 17, 2021, the migrate option below was removed.  If you previously used the Migration option and have an offer that was migrated to the commercial marketplace as a draft offer, it is important that you complete the publishing process in the commercial marketplace.  
-> - Learn more about [How to review and publish an offer to Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/review-publish-offer)
+> - Learn more about [How to review and publish an offer to Microsoft commercial marketplace | Microsoft Docs](./review-publish-offer.md)
 > - [Publishing in the commercial marketplace training deck](https://assetsprod.microsoft.com/mpn/en-us/guidance-and-permissions-needed-to-publish-an-offer-and-co-sell-with-ms.pptm)
 :::image type="content" source="media/co-sell-migrate/ready-to-migrate.png" alt-text="I want to migrate this solution to commercial marketplace":::
 
 ## Begin the migration of your solutions from OCP GTM
 
-1. Begin the migration [here](https://partner.microsoft.com/solutions/migration#).
-2. Select the **Overview** page, then **Click here to get started**.
+1. Begin the migration [here](https://go.microsoft.com/fwlink/?linkid=2165807).
+1. Select the **Overview** page, then **Click here to get started**.
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Displays overview page":::
 
-3. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
+1. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
 
     :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Partner Center Overview page, Solutions tab.":::
 
@@ -76,7 +75,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
     Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action**.<a name="beginmigration"></a>
 
-4. Select **Begin migration** (see image above) for the solution you want to migrate, then select one of the following options:
+1. Select **Begin migration** (see image above) for the solution you want to migrate, then select one of the following options:
 
     :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="The three options for migration.":::
 
@@ -94,32 +93,38 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
 1. Create a draft offer in commercial marketplace
 
-   1. Select **+New Offer**
+   1. On the commercial marketplace Overview page, select **+ New Offer**, and then select the offer type you want.
 
-        :::image type="content" source="media/co-sell-migrate/new-offer.png" alt-text="New Offer display":::
+        [ ![Screenshot of the New Offer button on the Marketplace offers page.](media/co-sell-migrate/new-offer-workspaces.png) ](media/co-sell-migrate/new-offer-workspaces.png#lightbox)
 
    2. Complete the required information in each tab.
-         • The **Learn more** links and tooltips will guide you through the requirements and details.
-         • Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
+      - The **Learn more** links and tooltips will guide you through the requirements and details.
+      - Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
 
-        :::image type="content" source="media/co-sell-migrate/offer-setup-nav.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
+        [ ![Displays the Offer Setup page with overview options highlighted.](media/co-sell-migrate/offer-setup-nav-workspaces.png) ](media/co-sell-migrate/offer-setup-nav-workspaces.png#lightbox)
+
    3. Select **Save Draft**.
-        - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](/azure/marketplace/publisher-guide-by-offer-type).
+        - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](./publisher-guide-by-offer-type.md).
         - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
         - Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
-        - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/gtm-offer-listing-best-practices)
+        - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](./gtm-offer-listing-best-practices.md)
 
     > [!TIP]
     > We recommend that you *do not fill out* the data in the **Co-sell with Microsoft** tab. To save you time we will take care of populating this data for you with your existing collateral in OCP GTM during the merge process.
 
-    After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
+    After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](/partner-center/co-sell-configure?context=/azure/marketplace/context/context).
 1. When complete, select **Review and publish**.
 
-     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
-1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
+    [ ![Co-Sell with Microsoft page is displayed with options highlighted.](media/co-sell-migrate/co-sell-with-ms-workspaces.png) ](media/co-sell-migrate/co-sell-with-ms-workspaces.png#lightbox)
+
+1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](./review-publish-offer.md).
+
+    [ ![Displays the Review and Publish page.](media/co-sell-migrate/review-and-publish-workspaces.png) ](media/co-sell-migrate/review-and-publish-workspaces.png#lightbox)
+
 1. Track the status of your submission on the Overview tab.
 
-    :::image type="content" source="media/co-sell-migrate/offer-overview-tab.png" alt-text="Dispalys overview tab":::
+    [ ![Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
+
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
 
 1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
@@ -149,7 +154,7 @@ Select this option if the solution is already published and live in the commerci
 
 ### Discard this solution
 
-We recommend that you take the time to assess the viability and relevance of your solutions to optimize your presence and discoverability in the commercial marketplace with high quality offers that fulfill customer demand.
+We recommend that you take the time to assess the viability and relevance of your solutions to optimize your presence and discoverability in the commercial marketplace with high quality offers that meet customer demand.
 
 Select this option when a solution in OCP GTM solutions is no longer relevant. You will be asked to confirm the discard, and you can also undo it later.
 
@@ -171,5 +176,5 @@ Select this option when a solution in OCP GTM solutions is no longer relevant. Y
 ## Next steps
 
 - [Resell through CSP Partners](cloud-solution-providers.md)
-- [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md)
+- [Configure co-sell for a commercial marketplace offer](/partner-center/co-sell-configure?context=/azure/marketplace/context/context)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

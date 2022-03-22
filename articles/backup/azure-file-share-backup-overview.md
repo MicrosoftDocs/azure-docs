@@ -2,12 +2,15 @@
 title: About Azure file share backup
 description: Learn how to back up Azure file shares in the Recovery Services vault 
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 12/10/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # About Azure file share backup
 
-Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in a few simple steps with an assurance that you can recover your data in any disaster scenario.
+Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in a few simple steps with an assurance that you can recover your data in case of any accidental deletion.
 
 ## Key benefits of Azure file share backup
 
@@ -17,6 +20,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 * **Instant restore**: Azure file share backup uses file share snapshots, so you can select just the files you want to restore instantly.
 * **Alerting and reporting**: You can configure alerts for backup and restore failures and use the reporting solution provided by Azure Backup to get insights on backups across your files shares.
 * **Protection against accidental deletion of file shares**: Azure Backup enables the [soft delete feature](../storage/files/storage-files-prevent-file-share-deletion.md) on a storage account level with a retention period of 14 days. Even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for a configurable retention period, allowing the successful and complete recovery of source contents and snapshots with no data loss.
+* **Protection against accidental deletion of snapshots**: Azure Backup acquires a lease on the snapshots taken by scheduled/on-demand backup jobs. The lease acts as a lock that adds a layer of protection and secures the snapshots against accidental deletion.
 
 ## Architecture
 
@@ -49,9 +53,20 @@ There are two costs associated with Azure file share backup solution:
 
 1. **Snapshot storage cost**: Storage charges incurred for snapshots are billed along with Azure Files usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Protected Instance fee**: Starting September 1, 2020, customers will be charged a protected instance fee according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/backup/).The protected instance fee depends on the total size of protected file shares in a storage account.
+2. **Protected Instance fee**: Starting September 1, 2020, customers will be charged a protected instance fee according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/backup/). The protected instance fee depends on the total size of protected file shares in a storage account.
 
 To get detailed estimates for backing up Azure file shares, you can download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
+
+## How lease snapshot works?
+
+When Azure Backup takes a snapshot, scheduled or on-demand, it adds a lock on the snapshot using the lease snapshot capability of the _Files_ platform. The lock protects the snapshots from accidental deletion, and the lock’s duration is infinite. If a file share has leased snapshots, the deletion is no more a one-click operation. Therefore, you also get protection against accidental deletion of the backed-up file share.
+
+To protect a snapshot from deletion while restore operation is in progress, Azure Backup checks the lease status on the snapshot. If it's non-leased, it adds a lock by taking a lease on the snapshot.
+
+The following diagram explains the lifecycle of the lease acquired by Azure Backup:
+
+:::image type="content" source="./media/azure-file-share-backup-overview/backup-lease-lifecycle-diagram.png" alt-text="Diagram explaining the lifecycle of the lease acquired by Azure Backup." border="false":::
+
 
 ## Next steps
 

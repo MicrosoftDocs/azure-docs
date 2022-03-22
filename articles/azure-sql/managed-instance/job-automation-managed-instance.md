@@ -12,7 +12,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer:
-ms.date: 06/03/2021
+ms.date: 02/23/2022
 ---
 # Automate management tasks using SQL Agent jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,12 +96,14 @@ A schedule can define the following conditions for the time when a job runs:
 - One time, at a specific date and time, which is useful for delayed execution of some job.
 - On a recurring schedule.
 
+For more information on scheduling a SQL Agent job, see [Schedule a Job](/sql/ssms/agent/schedule-a-job).
+
 > [!Note]
-> SQL Managed Instance currently does not enable you to start a job when the CPU is idle.
+> Azure SQL Managed Instance currently does not enable you to start a job when the CPU is idle.
 
 ### SQL Agent job notifications
 
-SQL Agent Jobs enable you to get notifications when the job finishes successfully or fails. You can receive notifications via email.
+SQL Agent jobs enable you to get notifications when the job finishes successfully or fails. You can receive notifications via email.
 
 If it isn't already enabled, first you would need to configure [the Database Mail feature](/sql/relational-databases/database-mail/database-mail) on SQL Managed Instance:
 
@@ -179,6 +181,8 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 SQL Managed Instance currently doesn't allow you to change any SQL Agent properties because they are stored in the underlying registry values. This means options for adjusting the Agent retention policy for job history records are fixed at the default of 1000 total records and max 100 history records per job.
 
+For more information, see [View SQL Agent job history](/sql/ssms/agent/view-the-job-history).
+
 ### SQL Agent fixed database role membership
 
 If users linked to non-sysadmin logins are added to any of the three SQL Agent fixed database roles in the msdb system database, there exists an issue in which explicit EXECUTE permissions need to be granted to three system stored procedures in the master database. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown. 
@@ -198,6 +202,6 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ## Learn more
 
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
-- [What's new in Azure SQL Database & SQL Managed Instance?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)
+- [What's new in Azure SQL Managed Instance?](doc-changes-updates-release-notes-whats-new.md)
 - [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 - [Features comparison: Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)

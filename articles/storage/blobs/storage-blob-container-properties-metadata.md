@@ -9,6 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

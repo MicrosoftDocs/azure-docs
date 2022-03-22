@@ -3,7 +3,7 @@ title: Add an existing Azure subscription to your tenant - Azure AD
 description: Instructions about how to add an existing Azure subscription to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.workload: identity
@@ -27,6 +27,8 @@ One or more Azure subscriptions can establish a trust relationship with an insta
 When a user signs up for a Microsoft cloud service, a new Azure AD tenant is created and the user is made a member of the Global Administrator role. However, when an owner of a subscription joins their subscription to an existing tenant, the owner isn't assigned to the Global Administrator role.
 
 All of your users have a single *home* directory for authentication. Your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
+
+:::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Screenshot that shows the trust relationship between Azure subscriptions and Azure active directories.":::
 
 > [!Important]
 > When you associate a subscription with a different directory, users that have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.

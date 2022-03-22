@@ -2,17 +2,18 @@
 title: Troubleshoot SSIS Integration Runtime management
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
-ms.date: 07/08/2019
+ms.date: 02/15/2022
 ---
 
-# Troubleshoot SSIS Integration Runtime management in Azure Data Factory
+# Troubleshoot SSIS Integration Runtime management
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 This article provides troubleshooting guidance for management issues in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), also known as SSIS IR.
 
@@ -167,9 +168,9 @@ This error can occur for a variety of reasons when you start the Azure-SSIS IR:
 | The provided static public IP address is already used, please provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
 | The provided static public IP address has no DNS name, please provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can setup the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then click **Save** button; (3) Restart your Azure-SSIS IR. |
 | The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
-| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](../virtual-network/public-ip-addresses.md#sku) for help. |
+| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](../virtual-network/ip-services/public-ip-addresses.md#sku) for help. |
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+:::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Azure-SSIS IR":::
 
 ### PublicIPResourceGroupLockedDuringStart
 
@@ -177,12 +178,18 @@ If Azure-SSIS IR provisioning fails, all the resources that were created are del
 
 ### PublicIPResourceGroupLockedDuringStop
 
-When you stop Azure-SSIS IR, all the network resources created in the resource group containing your public IP address will be deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level. Please remove the delete lock and restart the IR.
+When you stop Azure-SSIS IR, all the network resources created in the resource group containing your public IP address will be deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level. Remove the delete lock and restart the IR.
 
 ### PublicIPResourceGroupLockedDuringUpgrade
 
-Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. Also, the created network resources (e.g., the load balancer and the network security group) for the old nodes are deleted, and the new network resources are created under your subscription. This error means that deleting the network resources for the old nodes failed due to a delete lock at the subscription or resource group (which contains your static public IP address) level. Please remove the delete lock so that we can cleanup the old nodes and release the static public IP address for the old nodes. Otherwise the static public IP address cannot be released and we will not be able to upgrade your IR further.
+Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. Also, the created network resources (e.g., the load balancer and the network security group) for the old nodes are deleted, and the new network resources are created under your subscription. This error means that deleting the network resources for the old nodes failed due to a delete lock at the subscription or resource group (which contains your static public IP address) level. Remove the delete lock so that we can clean up the old nodes and release the static public IP address for the old nodes. Otherwise the static public IP address cannot be released and we will not be able to upgrade your IR further.
 
 ### PublicIPNotUsableDuringUpgrade
 
-When you want to bring your own static public IP addresses, two public IP addresses should be provided. One of them will be used to create the IR nodes immediately and another one will be used during upgrade of the IR. This error can occur when the other public IP address is unusable during upgrade. Please refer to  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) for possible causes.
+When you want to bring your own static public IP addresses, two public IP addresses should be provided. One of them will be used to create the IR nodes immediately and another one will be used during upgrade of the IR. This error can occur when the other public IP address is unusable during upgrade. Refer to  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) for possible causes.
+
+## Resource management
+
+### Resource tag not updated
+
+You can apply [tags](../azure-resource-manager/management/tag-resources.md) to your Azure resources to logically organize them into a taxonomy. While the SSIS IR is running, changes to SSIS IR parent data factory tags will not take effective until SSIS IR is restarted.

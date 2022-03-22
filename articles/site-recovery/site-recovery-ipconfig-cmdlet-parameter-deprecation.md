@@ -16,7 +16,7 @@ This article describes the deprecation, the corresponding implications, and the 
 
 Configuring Primary IP Config settings for Failover or Test Failover. 
 
-This cmdlet impacts all the customers of Azure to Azure DR scenario using the cmdlet New-AzRecoveryServicesAsrVMNicConfig in Version _Az Powershell 5.9.0 and above_.
+This cmdlet impacts all the customers of Azure to Azure DR scenario using the cmdlet New-AzRecoveryServicesAsrVMNicConfig in Version _Az PowerShell 5.9.0 and above_.
 
 > [!IMPORTANT]
 > Customers are advised to take the remediation steps at the earliest to avoid any disruption to their environment. 
@@ -41,7 +41,7 @@ These parameters will no longer be accepted by the cmdlet.
  
 ## Alternatives 
 
-As an alternative, a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) is introduced for configuring IP Config FO/TFO settings. 
+As an alternative, a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) is introduced for configuring IP Config FO/TFO settings. 
 
 
 ## Remediation steps

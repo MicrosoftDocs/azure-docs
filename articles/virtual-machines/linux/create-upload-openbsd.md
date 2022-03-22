@@ -10,6 +10,9 @@ ms.author: guybo
 
 ---
 # Create and Upload an OpenBSD disk image to Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure through Azure CLI.
 
 
@@ -83,7 +86,7 @@ Now you can shut down your VM.
 
 
 ## Prepare the VHD
-The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the Powershell [convert-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet. An example is as following.
+The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the PowerShell [convert-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet. An example is as following.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed

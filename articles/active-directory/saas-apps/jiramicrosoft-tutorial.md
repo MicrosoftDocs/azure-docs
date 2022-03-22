@@ -30,7 +30,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.16.1 or JIRA Service Desk 3.0 to 4.16.1 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.22.0 or JIRA Service Desk 3.0 to 4.22.0 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on the Internet particularly to the Azure AD login page for authentication and should able to receive the token from Azure AD
@@ -51,8 +51,8 @@ To get started, you need the following items:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.16.1
-* JIRA Service Desk 3.0 to 4.16.1
+* JIRA Core and Software: 6.4 to 8.22.0
+* JIRA Service Desk 3.0 to 4.22.0
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -252,9 +252,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to JIRA SAML SSO by Microsoft Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the JIRA SAML SSO by Microsoft tile in the My Apps, this will redirect to JIRA SAML SSO by Microsoft Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the JIRA SAML SSO by Microsoft tile in the My Apps, this will redirect to JIRA SAML SSO by Microsoft Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure JIRA SAML SSO by Microsoft you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure JIRA SAML SSO by Microsoft you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

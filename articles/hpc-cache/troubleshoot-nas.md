@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure HPC Cache NFS storage targets
 description: Tips to avoid and fix configuration errors and other problems that can cause failure when creating an NFS storage target
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Troubleshoot NAS configuration and NFS storage target issues
@@ -141,4 +141,4 @@ For systems that use ACLs, Azure HPC Cache needs to track additional user-specif
 
 ## Next steps
 
-If you have a problem that was not addressed in this article, [open a support ticket](hpc-cache-support-ticket.md) to get expert help.
+If you have a problem that was not addressed in this article, [contact support](hpc-cache-support-ticket.md) to get expert help.

@@ -5,9 +5,9 @@ keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 07/27/2020
 ---
 
@@ -99,7 +99,7 @@ The following example creates an external stream object to the local database in
 3. Create an external data source with CREATE EXTERNAL DATA SOURCE. The following example:
 
     * Creates an external data source named *LocalSQLOutput*.
-    * Identifies the external data source (LOCATION = '<vendor>://<server>[:<port>]'). In the example, it points to a local instance of Azure SQL Edge.
+    * Identifies the external data source (`LOCATION = '<vendor>://<server>[:<port>]'`). In the example, it points to a local instance of Azure SQL Edge.
     * Uses the credential created previously.
 
     ```sql

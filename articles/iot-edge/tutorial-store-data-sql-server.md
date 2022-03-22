@@ -2,9 +2,9 @@
 title: Tutorial - Store data with SQL module using Azure IoT Edge
 description: This tutorial shows how to store data locally on your IoT Edge device with a SQL Server module
 services: iot-edge
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -82,6 +82,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

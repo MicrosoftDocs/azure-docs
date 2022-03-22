@@ -2,11 +2,11 @@
 title: Azure Marketplace
 description: Describes how EA customers can use Azure Marketplace
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/21/2021
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ This article explains how EA customers and partners can view marketplace charges
 
 ## Azure Marketplace for EA customers
 
-For direct customers, Azure Marketplace charges are visible on the Azure Enterprise portal. Azure Marketplace purchases and consumption are billed outside of Azure Prepayment on a quarterly or monthly cadence and in arrears.
+For direct customers, Azure Marketplace charges are visible on the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Azure Marketplace purchases and consumption are billed outside of Azure Prepayment on a quarterly or monthly cadence and in arrears. See [Manage Azure Marketplace on Azure portal](direct-ea-administration.md#enable-azure-marketplace-purchases).
 
 Indirect customers can find their Azure Marketplace subscriptions on the **Manage Subscriptions** page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their Licensing Solutions Provider (LSP) for information on Azure Marketplace charges.
 
@@ -47,12 +47,21 @@ Enterprise administrators can disable or enable Azure Marketplace purchases for 
 
 Although customers can convert their direct Azure subscriptions to Azure EA by associating them to their enrollment in the Azure Enterprise portal, this action doesn't automatically convert the child subscriptions.
 
-To enable Azure Marketplace purchases:
+To enable Azure Marketplace purchases on Azure Enterprise Portal:
 
 1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Go to **Manage**.
 1. Under **Enrollment Detail**, select the pencil icon next to the **Azure Marketplace** line item.
 1. Toggle **Enabled/Disabled** or Free **BYOL SKUs Only** as appropriate.
+1. Select **Save**.
+
+Direct customer can enable Azure Marketplace purchase in Azure portal:
+
+1. Sign in to the Azure portal.
+1. Navigate to **Cost Management + Billing**.
+1. In the left menu, select Billing scopes and then select a billing account scope.
+1. In the left menu, select **Policies**.
+1. Under Azure Marketplace, set the policy to **On**.
 1. Select **Save**.
 
 > [!NOTE]

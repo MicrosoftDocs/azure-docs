@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 07/15/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -20,6 +20,9 @@ You can upgrade your [Azure free account](https://azure.microsoft.com/free/) to 
 If you have an [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) and are eligible for an [Azure free account](https://azure.microsoft.com/free/), you can upgrade to it to a [Azure free account](https://azure.microsoft.com/free/). You'll get $200 Azure credit in your billing currency and 12 months of free services on upgrade. If you don't qualify for a free account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) with a [support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 If you have an [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) with a [support request](https://go.microsoft.com/fwlink/?linkid=2083458)
+
+>[!NOTE]
+>If you use resources that aren’t free and your subscription gets disabled because you run out of credit, and then you upgrade your subscription, the resources get enabled after upgrade. This situation will result in you getting charged for the resources used.
 
 <a id="freetrial"></a>
 

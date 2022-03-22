@@ -2,20 +2,16 @@
 title: 'Tutorial: Configure Atea for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Atea.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
-
 ms.assetid: b788328b-10fd-4eaa-a4bc-909d738d8b8b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/25/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Atea for automatic user provisioning
@@ -44,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atea to support provisioning with Azure AD
 
-To configure Atea to support provisioning with Azure AD - please write an email to Atea support team <SSO.Support@atea.com>
+Contact [Atea support](mailto:sso.support@atea.com) to configure Atea to support provisioning with Azure AD.
 
 ## Step 3. Add Atea from the Azure AD application gallery
 

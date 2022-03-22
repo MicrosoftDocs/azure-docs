@@ -4,7 +4,7 @@ description: The Custom Fields feature of Azure Monitor allows you to create you
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/23/2019
+ms.date: 10/20/2021
 
 ---
 

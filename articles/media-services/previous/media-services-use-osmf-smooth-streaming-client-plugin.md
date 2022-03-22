@@ -10,7 +10,7 @@ ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
@@ -387,8 +387,6 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 
 2. Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash&reg; Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
 3. Enjoy Smooth Streaming content inside Adobe&reg; Flash&reg; Player.
-
-For more information on general OSMF development, please see the official [OSMF development page](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

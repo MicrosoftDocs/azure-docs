@@ -4,15 +4,16 @@ description: Learn how to enable and get started using Azure AD Privileged Ident
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim  
 ms.collection: M365-identity-device-management
 ---

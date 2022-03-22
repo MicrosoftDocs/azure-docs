@@ -110,7 +110,7 @@ In the following code, `_artifactsLocation` is used to point to a single locatio
     "metadata": {
       "description": "The base URI where artifacts required by this template are located."
     },
-    "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-custom-script-windows/"
+    "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-custom-script-windows/"
   },
   "_artifactsLocationSasToken": {
     "type": "securestring",
@@ -212,7 +212,7 @@ A template deploys and configures resources. A resource type is provided by a re
 
 ![Resource providers](./media/templates-cloud-consistency/resource-providers.png)
 
-To verify the resource providers that are available in a given cloud, run the following script in the Azure command line interface ([CLI](/cli/azure/install-azure-cli)):
+To verify the resource providers that are available in a given cloud, run the following script in the [Azure CLI](/cli/azure/):
 
 ```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
@@ -663,4 +663,4 @@ Consider the following tips for testing and automation:
 ## Next steps
 
 * [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
-* [Best practices for ARM templates](template-syntax.md)
+* [Best practices for ARM templates](./syntax.md)

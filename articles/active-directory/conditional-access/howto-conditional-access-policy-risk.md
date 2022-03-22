@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 11/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: calebb, rogoya
+manager: karenhoran
+ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
@@ -22,6 +22,10 @@ Most users have a normal behavior that can be tracked, when they fall outside of
 A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
 
 There are two locations where this policy may be configured, Conditional Access and Identity Protection. Configuration using a Conditional Access policy is the preferred method providing more context including enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes in the policy.
+
+## Template deployment
+
+Organizations can choose to deploy this policy using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
 ## Enable with Conditional Access policy
 
@@ -38,8 +42,10 @@ There are two locations where this policy may be configured, Conditional Access 
    1. Select **High** and **Medium**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
+
+After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Enable through Identity Protection
 

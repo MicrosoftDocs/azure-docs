@@ -46,13 +46,13 @@
       href: conditions-prerequisites.md
     - name: Conditions FAQ
       href: conditions-faq.md
+    - name: Custom security attributes example
+      href: conditions-custom-security-attributes-example.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-  - name: Conditional Access for Azure management
-    href: conditional-access-azure-management.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -100,8 +100,12 @@
       href: conditions-role-assignments-cli.md
     - name: REST API
       href: conditions-role-assignments-rest.md
+    - name: ARM template
+      href: conditions-role-assignments-template.md
     - name: Troubleshoot conditions
       href: conditions-troubleshoot.md
+    - name: Conditions and custom security attributes
+      href: conditions-custom-security-attributes.md
   - name: Remove role assignments
     href: role-assignments-remove.md
   - name: List deny assignments
@@ -146,7 +150,7 @@
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: Azure RBAC limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: CLI

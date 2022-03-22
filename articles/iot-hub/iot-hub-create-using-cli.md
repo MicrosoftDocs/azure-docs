@@ -1,12 +1,12 @@
 ---
 title: Create an IoT Hub using Azure CLI | Microsoft Docs
 description: Learn how to use the Azure CLI commands to create a resource group and then create an IoT hub in the resource group. Also learn how to remove the hub.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
-ms.author: robinsh
+ms.author: kgremban
 ---
 
 # Create an IoT hub using the Azure CLI

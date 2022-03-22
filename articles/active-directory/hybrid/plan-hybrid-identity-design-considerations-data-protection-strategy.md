@@ -4,12 +4,11 @@ description: You define the data protection strategy for your hybrid identity so
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -58,7 +57,7 @@ One advantage of using Azure AD to manage a hybrid identity infrastructure is th
 
 Organizations that are concern about data privacy usually require data classification for their solution. If their current on-premises infrastructure is already using data classification, it is possible to use Azure AD as the main repository for the user’s identity. A common tool that it is used on-premises for data classification is called [Data Classification Toolkit](/previous-versions/tn-archive/hh204743(v=technet.10)) for Windows Server 2012 R2. This tool can help to identify, classify, and protect data on file servers in your private cloud. It is also possible to use the [Automatic File Classification](/windows-server/identity/solution-guides/deploy-automatic-file-classification--demonstration-steps-) in Windows Server 2012 to accomplish this task.
 
-If your organization doesn’t have data classification in place but needs to protect sensitive files without adding new Servers on-premises, they can use Microsoft [Azure Rights Management Service](/azure/information-protection/what-is-azure-rms).  Azure RMS uses encryption, identity, and authorization policies to help secure your files and email, and it works across multiple devices—phones, tablets, and PCs. Because Azure RMS is a cloud service, there’s no need to explicitly configure trusts with other organizations before you can share protected content with them. If they already have an Microsoft 365 or an Azure AD directory, collaboration across organizations is automatically supported. You can also synchronize just the directory attributes that Azure RMS needs to support a common identity for your on-premises Active Directory accounts, by using Azure Active Directory Synchronization Services (Azure AD Sync) or Azure AD Connect.
+If your organization doesn’t have data classification in place but needs to protect sensitive files without adding new Servers on-premises, they can use Microsoft [Azure Rights Management Service](/azure/information-protection/what-is-azure-rms).  Azure RMS uses encryption, identity, and authorization policies to help secure your files and email, and it works across multiple devices—phones, tablets, and PCs. Because Azure RMS is a cloud service, there’s no need to explicitly configure trusts with other organizations before you can share protected content with them. If they already have a Microsoft 365 or an Azure AD directory, collaboration across organizations is automatically supported. You can also synchronize just the directory attributes that Azure RMS needs to support a common identity for your on-premises Active Directory accounts, by using Azure Active Directory Synchronization Services (Azure AD Sync) or Azure AD Connect.
 
 A vital part of content management is to understand who is accessing which resource, therefore a rich logging capability is important for the identity management solution. Azure AD provides log over 30 days including:
 

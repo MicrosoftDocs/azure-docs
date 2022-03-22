@@ -41,7 +41,6 @@ Serverless is a new Azure Cosmos account type, which means that you have to choo
 Any container that is created in a serverless account is a serverless container. Serverless containers expose the same capabilities as containers created in provisioned throughput mode, so you read, write and query your data the exact same way. However serverless accounts and containers also have specific characteristics:
 
 - A serverless account can only run in a single Azure region. It is not possible to add additional Azure regions to a serverless account after you create it.
-- It is not possible to enable the [Synapse Link feature](synapse-link.md) on a serverless account.
 - Provisioning throughput is not required on serverless containers, so the following statements are applicable:
     - You can't pass any throughput when creating a serverless container and doing so returns an error.
     - You can't read or update the throughput on a serverless container and doing so returns an error.

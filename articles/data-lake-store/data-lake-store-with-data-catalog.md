@@ -2,11 +2,11 @@
 title: Integrate Data Lake Storage Gen1 with Azure Data Catalog
 description: Learn how to register data from Azure Data Lake Storage Gen1 in Azure Data Catalog to make data discoverable in your organization.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog
@@ -23,8 +23,6 @@ Before you begin this tutorial, you must have the following:
 * **Azure Data Catalog**. Your organization must already have an Azure Data Catalog created for your organization. Only one catalog is allowed for each organization.
 
 ## Register Data Lake Storage Gen1 as a source for Data Catalog
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
 1. Go to `https://azure.microsoft.com/services/data-catalog`, and click **Get started**.
 1. Log into the Azure Data Catalog portal, and click **Publish data**.

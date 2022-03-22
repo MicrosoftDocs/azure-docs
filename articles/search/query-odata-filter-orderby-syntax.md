@@ -3,23 +3,12 @@ title: OData language overview
 titleSuffix: Azure Cognitive Search
 description: OData language overview for filters, select, and order-by for Azure Cognitive Search queries.
 
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 10/06/2021
+
 ---
 
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure Cognitive Search

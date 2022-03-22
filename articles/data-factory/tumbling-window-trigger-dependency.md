@@ -1,12 +1,14 @@
 ---
 title: Create tumbling window trigger dependencies
-description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory and Synapse Analytics.
 ms.author: chez
 author: chez-charlie
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/03/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Create a tumbling window trigger dependency
@@ -14,17 +16,17 @@ ms.date: 09/03/2020
 
 This article provides steps to create a dependency on a tumbling window trigger. For general information about Tumbling Window triggers, see [How to create tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
-In order to build a dependency chain and make sure that a trigger is executed only after the successful execution of another trigger in the data factory, use this advanced feature to create a tumbling window dependency.
+In order to build a dependency chain and make sure that a trigger is executed only after the successful execution of another trigger within the service, use this advanced feature to create a tumbling window dependency.
 
-For a demonstration on how to create dependent pipelines in your Azure Data Factory using tumbling window trigger, watch the following video:
+For a demonstration on how to create dependent pipelines using tumbling window trigger, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
-## Create a dependency in the Data Factory UI
+## Create a dependency in the UI
 
-To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the data factory changes for the dependencies to take effect.
+To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the changes for the dependencies to take effect.
 
-![Dependency Creation](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Dependency Creation")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png" alt-text="Dependency Creation":::
 
 ## Tumbling window dependency properties
 
@@ -124,37 +126,37 @@ Below are illustrations of scenarios and usage of tumbling window dependency pro
 
 ### Dependency offset
 
-![Offset Example](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Offset Example")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png" alt-text="Offset Example":::
 
 ### Dependency size
 
-![Size example](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Size example")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png" alt-text="Size example":::
 
 ### Self-dependency
 
-![Self-dependency](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Self-dependency")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png" alt-text="Self-dependency":::
 
 ### Dependency on another tumbling window trigger
 
 A daily telemetry processing job depending on another daily job aggregating the last seven days output and generates seven day rolling window streams:
 
-![Dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Dependency example")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png" alt-text="Dependency example":::
 
 ### Dependency on itself
 
 A daily job with no gaps in the output streams of the job:
 
-![Self-dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Self-dependency example")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png" alt-text="Self-dependency example":::
 
 ## Monitor dependencies
 
 You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**. If a Tumbling Window trigger has dependencies, Trigger Name will bear a hyperlink to dependency monitoring view.  
 
-![Monitor trigger runs](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Monitor trigger runs - entires to tumbling window dependency view")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png" alt-text="Monitor trigger runs":::
 
 Click through the trigger name to view trigger dependencies. Right-hand panel shows detailed trigger run information, such as RunID, window time, status, and so on.
 
-![Monitor dependencies list view](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Monitor dependencies list view")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png" alt-text="Monitor dependencies list view":::
 
 You can see the status of the dependencies, and windows for each dependent trigger. If one of the dependencies triggers fails, you must successfully rerun it in order for the dependent trigger to run.
 
@@ -162,7 +164,7 @@ A tumbling window trigger will wait on dependencies for _seven days_ before timi
 
 For a more visual to view the trigger dependency schedule, select the Gantt view.
 
-![Monitor dependencies gantt chart](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Monitor dependencies Gantt chart view")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png" alt-text="Monitor dependencies gantt chart":::
 
 Transparent boxes show the dependency windows for each down stream-dependent trigger, while solid colored boxes above show individual window runs. Here are some tips for interpreting the Gantt chart view:
 

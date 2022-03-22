@@ -3,7 +3,7 @@ title: Feature interoperability with availability groups and DNN listener
 description: "Learn about the additional considerations when working with certain SQL Server features and a distributed network name (DNN) listener with an Always On availability group on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,18 +11,28 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "10/08/2020"
-ms.author: mathoma
-
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 
 # Feature interoperability with AG and DNN listener 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs, there may be some additional considerations. 
+> [!TIP]
+> Eliminate the need for a distributed network name for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs in a single subnet, there may be some additional considerations. 
 
 This article details SQL Server features and interoperability with the availability group DNN listener. 
 
+## Behavior differences
+
+There are some behavior differences between the functionality of the VNN listener and DNN listener that are important to note: 
+
+- **Failover time**: Failover time is faster when using a DNN listener since there is no need to wait for the network load balancer to detect the failure event and change its routing. 
+- **Existing connections**: Connections made to a *specific database* within a failing-over availability group will close, but other connections to the primary replica will remain open since the DNN stays online during the failover process. This is different than a traditional VNN environment where all connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. When using a DNN listener, you may need to adjust application connection strings to ensure that connections are redirected to the new primary replica upon failover.
+- **Open transactions**: Open transactions against a database in a failing-over availability group will close and roll back, and you need to *manually* reconnect. For example, in SQL Server Management Studio, close the query window and open a new one. 
 
 ## Client drivers
 
@@ -117,12 +127,17 @@ Configure the linked server using the AG DNN listener name and port. If the port
 
    Yes. The cluster binds the DNN in DNS with the physical IP addresses of all replicas in the availability regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
 
+- Does the availability group DNN listener support read-only routing? 
+
+   Yes. Read-only routing is supported with the DNN listener. 
 
 
 ## Next steps
 
-For more information, see: 
+To learn more, see:
 
-- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Always on availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
 

@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -49,25 +49,16 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
-### Spring Cloud 1.1.x
-
 ```xml
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.1.2</version>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-cloud-feature-management-web</artifactId>
+    <version>2.0.0</version>
 </dependency>
 ```
 
-### Spring Cloud 1.2.x
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.2.2</version>
-</dependency>
-```
+> [!NOTE]
+> If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
 
 ## Feature flag declaration
 
@@ -181,7 +172,7 @@ public String getOldFeature() {
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For more information about feature management support in Spring Boot and App Configuration, see the following resources:
+In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `azure-spring-cloud-feature-management-web` libraries. For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
 * [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

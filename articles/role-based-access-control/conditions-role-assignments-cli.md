@@ -3,7 +3,7 @@ title: Add or edit Azure role assignment conditions using Azure CLI (preview) - 
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure CLI and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
@@ -37,7 +37,7 @@ To add a role assignment condition, use [az role assignment create](/cli/azure/r
 The following example shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'.
 
 ```azurecli
-az role assignment create --role "Storage Blob Data Reader" --assignee "user1@contoso.com" --resource-group {resourceGroup} \
+az role assignment create --role "Storage Blob Data Reader" --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --assignee "user1@contoso.com" --resource-group {resourceGroup} \
 --description "Read access if container name equals blobs-example-container" \
 --condition "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))" \
 --condition-version "2.0"

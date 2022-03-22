@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/16/2021
 ---
 
 # Access control
@@ -16,8 +16,7 @@ Access control in workbooks refers to two things:
 
 * Access required to save workbooks
 
-    - Saving private `("My")` workbooks requires no additional privileges. All users can save private workbooks, and only they can see those workbooks.
-    - Saving shared workbooks requires write privileges in a resource group to save the workbook. These privileges are usually specified by the [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, but can also be set via the *Workbooks Contributor* role.
+    - Saving workbooks requires write privileges in a resource group to save the workbook. These privileges are usually specified by the [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, but can also be set via the *Workbooks Contributor* role.
     
 ## Standard roles with workbook-related privileges
 
@@ -25,11 +24,10 @@ Access control in workbooks refers to two things:
 
 [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) includes general `/write` privileges used by various monitoring tools for saving items (including `workbooks/write` privilege to save shared workbooks).
 “Workbooks Contributor” adds “workbooks/write” privileges to an object to save shared workbooks.
-No special privileges are required for users to save private workbooks that only they can see.
 
 For custom roles:
 
-Add `microsoft.insights/workbooks/write` to save shared workbooks. For more details, see the [Workbook Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role.
+Add `microsoft.insights/workbooks/write` to save workbooks. For more details, see the [Workbook Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role.
 
 ## Next steps
 

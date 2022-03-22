@@ -3,13 +3,17 @@ title: Repairing an Azure Import/Export export job - v1 | Microsoft Docs
 description: Learn how to repair an export job that was created and run using the Azure Import/Export service.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
+
 ---
 # Repairing an export job
+
+> [!IMPORTANT]
+> Job repair is no longer supported by the Azure Import/Export tool. In version 1.5.0.300 and later, you'll need to fix the issues in your blob export and then [create a new export job](storage-import-export-data-from-blobs.md?tabs=azure-portal#step-1-create-an-export-job).
+
 After an export job has completed, you can run the Microsoft Azure Import/Export Tool on-premises to:  
   
 1.  Download any files that the Azure Import/Export service was unable to export.  
@@ -146,7 +150,7 @@ Any component failing the verification will be downloaded by the tool and rewrit
   
 ## Next steps
  
-* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [Preparing hard drives for an import job](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
+<!--* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->

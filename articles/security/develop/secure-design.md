@@ -67,7 +67,7 @@ with security best practices on Azure:
     application attacks.
 
   - [Secure DevOps Kit for
-    Azure](https://azsk.azurewebsites.net/index.html) is a collection of
+    Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of
     scripts, tools, extensions, and automations that caters to the
     comprehensive Azure subscription and resource security needs of
     DevOps teams that use extensive automation. The Secure DevOps Kit
@@ -156,7 +156,7 @@ Awareness of these security risks can help you make requirement and
 design decisions that minimize these risks in your application.
 
 Thinking about security controls to prevent breaches is important.
-However, you also want to [assume a breach](/azure/devops/learn/devops-at-microsoft/security-in-devops)
+However, you also want to [assume a breach](/devops/operate/security-in-devops)
 will occur. Assuming a breach helps answer some important questions
 about security in advance, so they don't have to be answered in an
 emergency:

@@ -3,11 +3,11 @@ title: 'Azure AD Connect cloud sync accidental deletes'
 description: This topic describes how to use the accidental delete feature to prevent deletions.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -22,6 +22,10 @@ The following document describes the accidental deletion feature for Azure AD Co
 - set up a notification email address so they can get an email notification once the sync job in question is put in quarantine for this scenario 
 
 To use this feature, you set the threshold for the number of objects that, if deleted, synchronization should stop.  So if this number is reached, the synchronization will stop and a notification will be sent to the email that is specified.  This notification will allow you to investigate what is going on.
+
+For additional information and an example, see the following video.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mV]
 
 
 ## Configure accidental delete prevention

@@ -1,17 +1,23 @@
 ---
 title: Overview of share snapshots for Azure Files | Microsoft Docs
 description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/17/2018
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files
-
 Azure Files provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## When to use share snapshots
 
@@ -57,7 +63,7 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count toward your 5-TB share limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the share size limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
 
 ## Limits
 
@@ -91,7 +97,7 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
 ## Next steps
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [CLI](storage-how-to-use-files-cli.md)
+    - [PowerShell](./storage-how-to-use-files-portal.md)
+    - [CLI](./storage-how-to-use-files-portal.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

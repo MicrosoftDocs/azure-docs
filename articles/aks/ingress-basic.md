@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure a basic NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 ---
 
@@ -14,7 +14,10 @@ An ingress controller is a piece of software that provides reverse proxy, config
 
 This article shows you how to deploy the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Two applications are then run in the AKS cluster, each of which is accessible over the single IP address.
 
-You can also:
+> [!NOTE]
+> There are two open source ingress controllers for Kubernetes based on Nginx:  One is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article will be using the Kubernetes community ingress controller. 
+
+Alternatively, you can also:
 
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
@@ -25,7 +28,99 @@ You can also:
 
 This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* Helm repository. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
 
+### [Azure CLI](#tab/azure-cli)
+
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This article also requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr-ps].
+
+---
+
+## Basic configuration
+
+To create a simple NGINX ingress controller without customizing the defaults, you will use helm.
+
+### [Azure CLI](#tab/azure-cli)
+
+```console
+NAMESPACE=ingress-basic
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $NAMESPACE 
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```powershell-interactive
+$Namespace = 'ingress-basic'
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $Namespace 
+```
+
+---
+
+Note that the above configuration uses the 'out of the box' configuration for simplicity.  If needed, you could add parameters for customizing the deployment, eg, `--set controller.replicaCount=3`.  The next section will show a highly customized example of the ingress controller.
+
+## Customized configuration
+As an alternative to the basic configuration presented in the above section, the next set of steps will show how to deploy a customized ingress controller.
+
+### Import the images used by the Helm chart into your ACR
+
+### [Azure CLI](#tab/azure-cli)
+
+To control image versions, you will want to import them into your own Azure Container registry.  The [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] relies on three container images. Use `az acr import` to import those images into your ACR.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+SOURCE_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v1.0.4
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.1.1
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To control image versions, you will want to import them into your own Azure Container registry.  The [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] relies on three container images. Use `Import-AzContainerRegistryImage` to import those images into your ACR.
+
+
+```azurepowershell-interactive
+$RegistryName = "<REGISTRY_NAME>"
+$ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
+$SourceRegistry = "k8s.gcr.io"
+$ControllerImage = "ingress-nginx/controller"
+$ControllerTag = "v1.0.4"
+$PatchImage = "ingress-nginx/kube-webhook-certgen"
+$PatchTag = "v1.1.1"
+$DefaultBackendImage = "defaultbackend-amd64"
+$DefaultBackendTag = "1.5"
+
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${PatchImage}:${PatchTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
+```
+
+---
+
+> [!NOTE]
+> In addition to importing container images into your ACR, you can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure container registry][acr-helm].
 
 ## Create an ingress controller
 
@@ -34,26 +129,74 @@ To create the ingress controller, use Helm to install *nginx-ingress*. For added
 The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
-> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed.
-
-> [!TIP]
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic* and is intended to work within that namespace. Specify a namespace for your own environment as needed.
+>  
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, SSL pass-through will not work.
 
-```console
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
+### [Azure CLI](#tab/azure-cli)
 
+```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
+# Set variable for ACR location to use for pulling images
+ACR_URL=<REGISTRY_URL>
+
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
+    --version 4.0.13 \
+    --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+    --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set controller.admissionWebhooks.patch.image.digest="" \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
+    --set defaultBackend.image.digest=""
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Set variable for ACR location to use for pulling images
+$AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
+
+# Use Helm to deploy an NGINX ingress controller
+helm install nginx-ingress ingress-nginx/ingress-nginx `
+    --namespace ingress-basic --create-namespace `
+    --set controller.replicaCount=2 `
+    --set controller.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.image.registry=$AcrUrL `
+    --set controller.image.image=$ControllerImage `
+    --set controller.image.tag=$ControllerTag `
+    --set controller.image.digest="" `
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
+    --set controller.admissionWebhooks.patch.image.image=$PatchImage `
+    --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
+    --set controller.admissionWebhooks.patch.image.digest="" `
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux `
+    --set defaultBackend.image.registry=$AcrUrl `
+    --set defaultBackend.image.image=$DefaultBackendImage `
+    --set defaultBackend.image.tag=$DefaultBackendTag `
+    --set defaultBackend.image.digest=""
+```
+
+---
+
+## Check the load balancer service
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, a dynamic public IP address is assigned, as shown in the following example output:
 
@@ -64,7 +207,7 @@ NAME                                     TYPE           CLUSTER-IP    EXTERNAL-I
 nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
-No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the internal IP address. Ingress rules are configured in the following steps.
+No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the external IP address. Ingress rules are configured in the following steps.
 
 ## Run demo applications
 
@@ -167,11 +310,11 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -202,10 +345,10 @@ kind: Ingress
 metadata:
   name: hello-world-ingress-static
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /static/$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -224,8 +367,8 @@ Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml
 ```
 $ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
-ingress.extensions/hello-world-ingress created
-ingress.extensions/hello-world-ingress-static created
+ingress.networking.k8s.io/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress-static created
 ```
 
 ## Test the ingress controller
@@ -306,6 +449,8 @@ You can also:
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
+[nginxinc/kubernetes-ingress]: https://github.com/nginxinc/kubernetes-ingress
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
@@ -317,3 +462,7 @@ You can also:
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-supported versions]: supported-kubernetes-versions.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[acr-helm]: ../container-registry/container-registry-helm-repos.md
+[azure-powershell-install]: /powershell/azure/install-az-ps

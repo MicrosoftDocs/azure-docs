@@ -2,7 +2,8 @@
 title: include file
 description: include file
 services: active-directory
-author: msaburnley
+author: ajburnle
+manager: karenhoran
 ms.service: active-directory
 ms.topic: include
 ms.date: 03/30/2020
@@ -42,7 +43,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/external-identities/delegate-invitations.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../articles/active-directory/external-identities/external-collaboration-settings-configure.md).
 
 > [!NOTE]
 > A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/external-identities/user-properties.md).
@@ -84,7 +85,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. In the **Users who can request access** section, click **None (administrator direct assignments only)**.
 
     ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -205,7 +206,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Next**.
 
-## Add Requestor information (preview) to an access package
+## Add Requestor information to an access package
 
 1. Go to the **Requestor information** tab and click the **Questions** sub tab.
  
@@ -224,13 +225,19 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
  
     ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
-    1. After selecting view and edit the **View/edit question** pane will open.
+1. If selecting multiple choice, click on the **edit and localize** button to configure the answer options.
+    1. After selecting edit and localize the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
+    1. Select the language the for the response option. You can localize response options if you choose additional languages.
     1. Type in as many responses as you need then click **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
 1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
 
-1. Click Next
+1. Click on the **Attributes (Preview)** sub tab to view attributes associated with resources added to the access package.
+
+    > [!NOTE]
+    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Read [Add resource-attributes (preview) in the catalog](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
+
+1. Click **Next**

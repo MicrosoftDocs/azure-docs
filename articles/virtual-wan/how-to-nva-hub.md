@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
@@ -88,6 +88,8 @@ In this step, you will create a Network Virtual Appliance in the hub. The proced
 1. On this page, you will be asked to accept the terms of the Co-Admin Access agreement. This is standard with Managed Applications where the Publisher will have access to some resources in this deployment. Check the **I agree to the terms and conditions above** box, and then select **Create**.
 
 ## <a name="vnet"></a>Connect the VNet to the hub
+
+In this section, you create a connection between your hub and VNet.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

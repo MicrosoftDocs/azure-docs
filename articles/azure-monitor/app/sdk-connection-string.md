@@ -2,8 +2,6 @@
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
 ms.topic: conceptual
-author: timothymothra
-ms.author: tilee
 ms.date: 01/17/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mbullwin
@@ -23,13 +21,15 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > [!TIP]
 > We recommend the use of connection strings over instrumentation keys.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Scenario overview 
 
 Customer scenarios where we visualize this having the most impact:
 
 - Firewall exceptions or proxy redirects 
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.md#can-i-monitor-an-intranet-web-server). 
+    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.yml#can-i-monitor-an-intranet-web-server-). 
     Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 - Sovereign or Hybrid cloud environments
@@ -98,22 +98,6 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 ## Connection string examples
 
 
-### Minimal valid connection string
-
-`InstrumentationKey=00000000-0000-0000-0000-000000000000;`
-
-In this example, only the Instrumentation Key has been set.
-
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs) and will connect to the public global Azure:
-   - Ingestion: `https://dc.services.visualstudio.com/`
-   - Live metrics: `https://rt.services.visualstudio.com/`
-   - Profiler: `https://profiler.monitor.azure.com/`
-   - Debugger: `https://snapshot.monitor.azure.com/`
-
-
-
 ### Connection string with endpoint suffix
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
@@ -148,7 +132,7 @@ In this example, this connection string specifies explicit overrides for every s
 ## How to set a connection string
 
 Connection Strings are supported in the following SDK versions:
-- .NET and .NET Core v2.12.0
+- .NET v2.12.0
 - Java v2.5.1 and Java 3.0
 - JavaScript v2.3.0
 - NodeJS v1.5.0
@@ -185,7 +169,7 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
-NetCore Explicitly Set:
+.NET Core Explicitly Set:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -194,7 +178,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-NetCore config.json: 
+.NET Core config.json: 
 
 ```json
 {
@@ -207,17 +191,22 @@ NetCore config.json:
 
 # [Java](#tab/java)
 
+You can set the connection string in the `applicationinsights.json` configuration file:
 
-Java (v2.5.x) Explicitly Set:
-```java
-TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+}
 ```
 
-ApplicationInsights.xml
+For more information, [connection string configuration](./java-standalone-config.md#connection-string).
+
+For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;</ConnectionString>
+    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
 </ApplicationInsights>
 ```
 
@@ -288,7 +277,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 Get started at runtime with:
 
 * [Azure VM and Azure virtual machine scale set IIS-hosted apps](./azure-vm-vmss-apps.md)
-* [IIS server](./monitor-performance-live-website-now.md)
+* [IIS server](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 Get started at development time with:
@@ -298,4 +287,3 @@ Get started at development time with:
 * [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
-

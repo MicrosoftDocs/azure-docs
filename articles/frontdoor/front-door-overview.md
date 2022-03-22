@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 03/09/2021
+ms.date: 01/27/2022
 ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
@@ -39,7 +39,7 @@ With Front Door you can build, operate, and scale out your dynamic web applicati
 
 Key features included with Front Door:
 
-* Accelerated application performance by using **[split TCP](front-door-routing-architecture.md#splittcp)**-based **[anycast protocol](front-door-routing-architecture.md#anycast)**.
+* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic#splittcp)**-based **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#anycast)**.
 
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
 
@@ -63,7 +63,7 @@ Key features included with Front Door:
 
 ## Pricing
 
-For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
+For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
 
 ## What's new?
 
@@ -71,5 +71,6 @@ Subscribe to the RSS feed and view the latest Azure Front Door feature updates o
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- [Quickstart: Create a Front Door](quickstart-create-front-door.md).
+- [Learn module: Introduction to Azure Front Door](/learn/modules/intro-to-azure-front-door/).
 - Learn [how Front Door works](front-door-routing-architecture.md).

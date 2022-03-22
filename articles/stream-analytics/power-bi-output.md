@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/7/2021
+ms.date: 7/7/2021
 ---
 
 # Power BI output from Azure Stream Analytics
@@ -71,9 +71,9 @@ Datetime | String | String |  Datetime | String
 ## Limitations and best practices
 Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
 
-For more info on output batch size, see [Power BI Rest API limits](/power-bi/developer/automation/api-rest-api-limitations).
+For more info on output batch size, see [Power BI REST API limits](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## Next steps
 
-* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI (preview)](powerbi-output-managed-identity.md)
+* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

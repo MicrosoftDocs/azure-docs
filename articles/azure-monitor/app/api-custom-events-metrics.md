@@ -2,13 +2,16 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/11/2020 
+ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Application Insights API for custom events and metrics
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](./app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](./app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.    
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]       
 
 ## API summary
 
@@ -174,7 +177,7 @@ To send a single metric value:
 *JavaScript*
 
 ```javascript
-appInsights.trackMetric("queueLength", 42.0);
+appInsights.trackMetric({name: "queueLength", average: 42});
 ```
 
 *C#*
@@ -182,7 +185,7 @@ appInsights.trackMetric("queueLength", 42.0);
 ```csharp
 var sample = new MetricTelemetry();
 sample.Name = "queueLength";
-sample.Value = 42.3;
+sample.Sum = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
 
@@ -394,7 +397,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException(ex);
+    appInsights.trackException({exception: ex});
 }
 ```
 
@@ -629,13 +632,23 @@ dependencies
 
 Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
-*C#*
+*.NET*
+
+When using Flush(), we recommend this [pattern](./console.md#full-example):
 
 ```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
 ```
+
+When using FlushAsync(), we recommend this pattern:
+
+```csharp
+await telemetryClient.FlushAsync()
+```
+
+We recommend always flushing as part of the application shutdown to guarantee that telemetry is not lost.
 
 *Java*
 
@@ -653,7 +666,8 @@ telemetry.flush();
 
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
-Ideally, flush() method should be used in the shutdown activity of the Application.
+> [!NOTE]
+> The Java and Javascript SDKs automatically flush on application shutdown.
 
 ## Authenticated users
 
@@ -1086,7 +1100,6 @@ If you set any of these values yourself, consider removing the relevant line fro
   * **ID**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find related items.
   * **Name**: An identifier, usually the URL of the HTTP request.
   * **SyntheticSource**: If not null or empty, a string that indicates that the source of the request has been identified as a robot or web test. By default, it is excluded from calculations in Metrics Explorer.
-* **Properties**: Properties that are sent with all telemetry data. It can be overridden in individual Track* calls.
 * **Session**: The user's session. The ID is set to a generated value, which is changed when the user has not been active for a while.
 * **User**: User information.
 
@@ -1100,14 +1113,13 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Reference docs
 
-* [ASP.NET reference](/dotnet/api/overview/azure/insights)
+* [.NET reference](/dotnet/api/overview/azure/insights)
 * [Java reference](/java/api/overview/azure/appinsights)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## SDK code
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
@@ -1125,4 +1137,4 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](./diagnostic-search.md)
-* [Troubleshooting](../faq.md)
+* [Troubleshooting](../faq.yml)

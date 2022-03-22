@@ -4,203 +4,16 @@ description: Sample Azure Resource Manager templates to deploy Azure Monitor log
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 
 ---
 
 # Resource Manager template samples for log alert rules in Azure Monitor
-This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-## Number of results template (up to version 2018-04-16)
-The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#count-of-the-results-table-rows).
-
-### Notes
-
-- This sample includes a [webhook payload](../alerts/alerts-log-webhook.md). If the alert rule shouldn't trigger a webhook, then remove the **customWebhookPayload** element.
-
-### Template file
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sourceId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Resource ID of the Log Analytics workspace."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Location for the alert. Must be the same location as the workspace."
-            }
-        },
-        "actionGroupId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The ID of the action group that is triggered when the alert is activated."
-            }
-        }
-    },
-    "resources":[ 
-        {
-            "type":"Microsoft.Insights/scheduledQueryRules",
-            "name":"Sample log query alert",
-            "apiVersion": "2018-04-16",
-            "location": "[parameters('location')]",
-            "properties":{
-                "description": "Sample log query alert",
-                "enabled": "true",
-                "source": {
-                    "query": "Event | where EventLevelName == \"Error\" | summarize count() by Computer",
-                    "dataSourceId": "[parameters('sourceId')]",
-                    "queryType":"ResultCount"
-                },
-                "schedule":{
-                    "frequencyInMinutes": 15,
-                    "timeWindowInMinutes": 60
-                },
-                "action":{
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                    "severity": "4",
-                    "aznsAction":{
-                        "actionGroup": "[array(parameters('actionGroupId'))]",
-                        "emailSubject": "Alert mail subject",
-                        "customWebhookPayload":"{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
-                    },
-                    "trigger":{
-                        "thresholdOperator": "GreaterThan",
-                        "threshold": 1
-                    }
-                }
-            }
-        }
-    ]
-}
-```
-
-### Parameter file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "sourceId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
-      },
-      "location": {
-        "value": "westus"
-      },
-      "actionGroupId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
-      }
-  }
-}
-```
-
-## Metric measurement template (up to version 2018-04-16)
-The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value).
-
-### Template file
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sourceId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Resource ID of the Log Analytics workspace."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Location for the alert. Must be the same location as the workspace."
-            }
-        },
-        "actionGroupId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The ID of the action group that is triggered when the alert is activated."
-            }
-        }
-    },
-    "resources":[ 
-        {
-            "type":"Microsoft.Insights/scheduledQueryRules",
-            "name":"Sample metric measurement log query alert",
-            "apiVersion": "2018-04-16",
-            "location": "[parameters('location')]",
-            "properties":{
-                "description": "Sample metric measurement query alert rule",
-                "enabled": "true",
-                "source": {
-                    "query": "Event | where EventLevelName == \"Error\" | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Computer",
-                    "dataSourceId": "[parameters('sourceId')]",
-                    "queryType":"ResultCount"
-                },
-                "schedule":{
-                    "frequencyInMinutes": 15,
-                    "timeWindowInMinutes": 60
-                },
-                "action":{
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                    "severity": "4",
-                    "aznsAction":{
-                        "actionGroup": "[array(parameters('actionGroupId'))]",
-                        "emailSubject": "Alert mail subject"
-                    },
-                    "trigger":{
-                        "thresholdOperator": "GreaterThan",
-                        "threshold": 10,
-                        "metricTrigger":{
-                            "thresholdOperator": "Equal",
-                            "threshold": 1,
-                            "metricTriggerType": "Consecutive",
-                            "metricColumn": "Computer"
-                        }
-                    }
-                }
-            }
-        }
-    ]
-}
-```
-
-### Parameter file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "sourceId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
-      },
-      "location": {
-        "value": "westus"
-      },
-      "actionGroupId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
-      }
-  }
-}
-```
-
-## Template for all resource types (from version 2020-05-01-preview)
+## Template for all resource types (from version 2021-08-01)
 The following sample creates a rule that can target any resource.
 
 ```json
@@ -248,6 +61,20 @@ The following sample creates a rule that can target any resource.
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -328,7 +155,7 @@ The following sample creates a rule that can target any resource.
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -386,7 +213,7 @@ The following sample creates a rule that can target any resource.
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-08-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -413,11 +240,15 @@ The following sample creates a rule that can target any resource.
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]
@@ -468,6 +299,193 @@ The following sample creates a rule that can target any resource.
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group"
         }
     }
+}
+```
+
+## Number of results template (up to version 2018-04-16)
+The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#result-count).
+
+### Notes
+
+- This sample includes a [webhook payload](../alerts/alerts-log-webhook.md). If the alert rule shouldn't trigger a webhook, then remove the **customWebhookPayload** element.
+
+### Template file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the Log Analytics workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Location for the alert. Must be the same location as the workspace."
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated."
+            }
+        }
+    },
+    "resources":[
+        {
+            "type":"Microsoft.Insights/scheduledQueryRules",
+            "name":"Sample log query alert",
+            "apiVersion": "2018-04-16",
+            "location": "[parameters('location')]",
+            "properties":{
+                "description": "Sample log query alert",
+                "enabled": "true",
+                "source": {
+                    "query": "Event | where EventLevelName == \"Error\" | summarize count() by Computer",
+                    "dataSourceId": "[parameters('sourceId')]",
+                    "queryType":"ResultCount"
+                },
+                "schedule":{
+                    "frequencyInMinutes": 15,
+                    "timeWindowInMinutes": 60
+                },
+                "action":{
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                    "severity": "4",
+                    "aznsAction":{
+                        "actionGroup": "[array(parameters('actionGroupId'))]",
+                        "emailSubject": "Alert mail subject",
+                        "customWebhookPayload":"{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+                    },
+                    "trigger":{
+                        "thresholdOperator": "GreaterThan",
+                        "threshold": 1
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "sourceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
+      },
+      "location": {
+        "value": "westus"
+      },
+      "actionGroupId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
+      }
+  }
+}
+```
+
+## Metric measurement template (up to version 2018-04-16)
+The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-a-value).
+
+### Template file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the Log Analytics workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Location for the alert. Must be the same location as the workspace."
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated."
+            }
+        }
+    },
+    "resources":[
+        {
+            "type":"Microsoft.Insights/scheduledQueryRules",
+            "name":"Sample metric measurement log query alert",
+            "apiVersion": "2018-04-16",
+            "location": "[parameters('location')]",
+            "properties":{
+                "description": "Sample metric measurement query alert rule",
+                "enabled": "true",
+                "source": {
+                    "query": "Event | where EventLevelName == \"Error\" | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Computer",
+                    "dataSourceId": "[parameters('sourceId')]",
+                    "queryType":"ResultCount"
+                },
+                "schedule":{
+                    "frequencyInMinutes": 15,
+                    "timeWindowInMinutes": 60
+                },
+                "action":{
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                    "severity": "4",
+                    "aznsAction":{
+                        "actionGroup": "[array(parameters('actionGroupId'))]",
+                        "emailSubject": "Alert mail subject"
+                    },
+                    "trigger":{
+                        "thresholdOperator": "GreaterThan",
+                        "threshold": 10,
+                        "metricTrigger":{
+                            "thresholdOperator": "Equal",
+                            "threshold": 1,
+                            "metricTriggerType": "Consecutive",
+                            "metricColumn": "Computer"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "sourceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/bw-samples-arm/providers/microsoft.operationalinsights/workspaces/bw-arm-01"
+      },
+      "location": {
+        "value": "westus"
+      },
+      "actionGroupId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/bw-samples-arm/providers/microsoft.insights/actionGroups/ARM samples group 01"
+      }
+  }
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
-title: Use Platform-as-a-Service (PaaS) services in Azure DevTest Labs
+title: Use Platform-as-a-Service (PaaS) services
 description: Learn how to use Platform-as-a-Service (Pass) services in Azure DevTest Labs. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -73,8 +73,3 @@ See the following articles for details about environments:
 - [Connect an environment to your lab's virtual network in Azure DevTest Labs](connect-environment-lab-virtual-network.md)
 - [Integrate environments into your Azure DevOps CI/CD pipelines](integrate-environments-devops-pipeline.md)
  
-
-
-
-
-

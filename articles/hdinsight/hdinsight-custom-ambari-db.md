@@ -40,6 +40,7 @@ When you host your Apache Ambari DB in an external database, remember the follow
 
 - You're responsible for the additional costs of the Azure SQL DB that holds Ambari.
 - Back up your custom Ambari DB periodically. Azure SQL Database generates backups automatically, but the backup retention time-frame varies. For more information, see [Learn about automatic SQL Database backups](../azure-sql/database/automated-backups-overview.md).
+- Don't change the custom Ambari DB password after the HDInsight cluster reaches the **Running** state. It is not supported. 
 
 ## Deploy clusters with a custom Ambari DB
 
@@ -56,19 +57,25 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --parameters azuredeploy.parameters.json
 ```
 
-## Database sizing
+
+> [!WARNING]
+> Please use the following recommended SQL DB and Headnode VM for your HDInsight cluster. Please don't use default Ambari DB (S0) for any production environment. 
+>
+
+
+## Database and Headnode sizing
 
 The following table provides guidelines on which Azure SQL DB tier to select based on the size of your HDInsight cluster.
 
-| Number of worker nodes | Required DB tier |
-|---|---|
-| <=4 | S0 |
-| >4 && <=8 | S1 |
-| >8 && <=16 | S2 |
-| >16 && <=32 | S3 |
-| >32 && <=64 | S4 |
-| >64 && <=128 | P2 |
-| >128 | Contact Support |
+| Number of worker nodes | Required DB tier | Required Headnode VM |
+|---|---|---|
+| <=4 | S0 | 4 core/28 GB RAM or higher |
+| >4 && <=8 | S1 | 4 core/28 GB RAM or higher |
+| >8 && <=16 | S2 | 4 core/28 GB RAM or higher |
+| >16 && <=32 | S3 | 8 core/56 GB RAM or higher |
+| >32 && <=64 | S4 | 8 core/56 GB RAM or higher |
+| >64 && <=128 | P2 | 16 core/112 GB RAM or higher |
+| >128 | Contact Support | Contact Support |
 
 ## Next steps
 

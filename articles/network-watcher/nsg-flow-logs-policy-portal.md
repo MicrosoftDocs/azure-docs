@@ -8,7 +8,6 @@ documentationcenter: na
 author: damendo
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -22,9 +21,9 @@ ms.author: damendo
 ## Overview
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
 
-If you are creating an Azure policy for the first time, you can read through: 
+If you are creating an Azure Policy definition for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
-- [Tutorial for creating policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutorial for creating an Azure Policy assignment](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## Locate the policies
@@ -61,7 +60,7 @@ There are separate instructions for each policy below.
 
 The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups”, that is it looks at all NSGs in a given scope, and checks for the existence of linked Flow logs via the Flow Logs property of the NSG. If the property does not exist, the NSG is flagged.
 
-If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy
+If you want to see the full definition of the policy, you can visit the [Definitions tab](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy
 
 ### Assignment
 
@@ -90,7 +89,7 @@ You should see something similar to the following screenshot once your policy ru
 
 The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups”, that is it looks at all NSGs in a given scope, and checks for the existence of linked Flow logs via the Flow Logs property of the NSG. If the property does not exist, the policy deploys a Flow log. 
 
-If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy. 
+If you want to see the full definition of the policy, you can visit the [Definitions tab](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy. 
 
 ### Assignment
 
@@ -135,5 +134,6 @@ You should see something like following screenshot once your policy. In case you
 
 ## Next steps 
 
+-	Learn about [Traffic Analytics Built-in Policies](./traffic-analytics-policy-portal.md)
 -	Use this [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
 -	Learn more about [Network Watcher](./index.yml)

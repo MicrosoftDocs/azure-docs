@@ -1,17 +1,20 @@
 ---
-title: Copy data from Xero using Azure Data Factory 
-description: Learn how to copy data from Xero to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from Xero
+description: Learn how to copy data from Xero to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
-# Copy data from Xero using Azure Data Factory
+# Copy data from Xero using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Xero. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Xero. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -31,6 +34,31 @@ Specifically, this Xero connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a linked service to Xero using UI
+
+Use the following steps to create a linked service to Xero in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for Xero and select the Xero connector.
+
+   :::image type="content" source="media/connector-xero/xero-connector.png" alt-text="Select the Xero connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-xero/configure-xero-linked-service.png" alt-text="Configure a linked service to Xero.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Xero connector.
 
 ## Linked service properties
@@ -44,10 +72,10 @@ The following properties are supported for Xero linked service:
 | ***Under `connectionProperties`:*** | | |
 | host | The endpoint of the Xero server (`api.xero.com`).  | Yes |
 | authenticationType | Allowed values are `OAuth_2.0` and `OAuth_1.0`. | Yes |
-| consumerKey | For OAuth 2.0, specify the **client ID** for your Xero application.<br>For OAuth 1.0, specify the consumer key associated with the Xero application.<br>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | For OAuth 2.0, specify the **client secret** for your Xero application.<br>For OAuth 1.0, specify the private key from the .pem file that was generated for your Xero private application, see [Create a public/private key pair](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Note to **generate the privatekey.pem with numbits of 512** using `openssl genrsa -out privatekey.pem 512`, 1024 is not supported. Include all the text from the .pem file including the Unix line endings(\n), see sample below.<br/><br>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| consumerKey | For OAuth 2.0, specify the **client ID** for your Xero application.<br>For OAuth 1.0, specify the consumer key associated with the Xero application.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | For OAuth 2.0, specify the **client secret** for your Xero application.<br>For OAuth 1.0, specify the private key from the .pem file that was generated for your Xero private application. Note to **generate the privatekey.pem with numbits of 512** using `openssl genrsa -out privatekey.pem 512`, 1024 is not supported. Include all the text from the .pem file including the Unix line endings(\n), see sample below.<br/><br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenantId | The tenant ID associated with your Xero application. Applicable for OAuth 2.0 authentication.<br>Learn how to get the tenant ID from [Check the tenants you're authorized to access section](https://developer.xero.com/documentation/oauth2/auth-flow). | Yes for OAuth 2.0 authentication |
-| refreshToken | Applicable for OAuth 2.0 authentication.<br/>The OAuth 2.0 refresh token is associated with the Xero application and used to refresh the access token; the access token expires after 30 minutes. Learn about how the Xero authorization flow works and how to get the refresh token from [this article](https://developer.xero.com/documentation/oauth2/auth-flow). To get a refresh token, you must request the [offline_access scope](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Know limitation**: Note Xero resets the refresh token after it's used for access token refresh. For operationalized workload, before each copy activity run, you need to set a valid refresh token for ADF to use.<br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication |
+| refreshToken | Applicable for OAuth 2.0 authentication.<br/>The OAuth 2.0 refresh token is associated with the Xero application and used to refresh the access token; the access token expires after 30 minutes. Learn about how the Xero authorization flow works and how to get the refresh token from [this article](https://developer.xero.com/documentation/oauth2/auth-flow). To get a refresh token, you must request the [offline_access scope](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Know limitation**: Note Xero resets the refresh token after it's used for access token refresh. For operationalized workload, before each copy activity run, you need to set a valid refresh token for the service to use.<br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether the host name is required in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |

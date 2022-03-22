@@ -17,7 +17,7 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 # Customer intent: As an application developer, I need to know how to modify which account types can sign in to or access my application or API.
 ---
 
-# How to modify the accounts supported by an application
+# Modify the accounts supported by an application
 
 When you registered your application with the Microsoft identity platform, you specified who--which account types--can access it. For example, you might've specified accounts only in your organization, which is a *single-tenant* app. Or, you might've specified accounts in any organization (including yours), which is a *multi-tenant* app.
 
@@ -32,7 +32,7 @@ In the following sections, you learn how to modify your app's registration in th
 To specify a different setting for the account types supported by an existing app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which the app is registered.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, then select your application.
 1. Now, specify who can use the application, sometimes referred to as the *sign-in audience*.

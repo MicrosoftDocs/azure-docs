@@ -10,10 +10,10 @@ ms.author: cgronlun
 This menu links to technologies you can use to move data to and from Azure Blob storage:
 
 > [!div class="op_single_selector" title1="Blob storage tools"]
-> * [Overview](../articles/machine-learning/team-data-science-process/move-azure-blob.md)
-> * [Azure Storage-Explorer](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md)
+> * [Overview](/azure/architecture/data-science-process/move-azure-blob)
+> * [Azure Storage-Explorer](/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
 > * [AzCopy](../articles/storage/common/storage-use-azcopy-v10.md)
 > * [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)
-> * [SSIS](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md)
+> * [SSIS](/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis)
 > 
 >

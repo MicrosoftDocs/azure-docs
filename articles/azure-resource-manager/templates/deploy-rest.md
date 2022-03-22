@@ -2,7 +2,7 @@
 title: Deploy resources with REST API and template
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/01/2022
 ---
 
 # Deploy resources with ARM templates and Azure Resource Manager REST API
@@ -10,6 +10,8 @@ ms.date: 10/22/2020
 This article explains how to use the Azure Resource Manager REST API with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure.
 
 You can either include your template in the request body or link to a file. When using a file, it can be a local file or an external file that is available through a URI. When your template is in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment scope
 
@@ -68,7 +70,7 @@ The examples in this article use resource group deployments.
    }
    ```
 
-1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI.
 
@@ -190,6 +192,45 @@ The examples in this article use resource group deployments.
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
    ```
 
+## Deploy with ARMClient
+
+ARMClient is a simple command line tool to invoke the Azure Resource Manager API. To install the tool, see [ARMClient](https://github.com/projectkudu/ARMClient).
+
+To list your subscriptions:
+
+```cmd
+armclient GET /subscriptions?api-version=2021-04-01
+```
+
+To list your resource groups:
+
+```cmd
+armclient GET /subscriptions/<subscription-id>/resourceGroups?api-version=2021-04-01
+```
+
+Replace **&lt;subscription-id>** with your Azure subscription ID.
+
+To create a resource group in the *Central US* region:
+
+```cmd
+armclient PUT /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>?api-version=2021-04-01  "{location: 'central us', properties: {}}"
+```
+
+Alternatively, you can put the body into a JSON file called **CreateRg.json**:
+
+```json
+{
+  "location": "Central US",
+  "properties": { }
+}
+```
+
+```cmd
+armclient PUT /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>?api-version=2021-04-01 '@CreateRg.json'
+```
+
+For more information, see [ARMClient: a command line tool for the Azure API](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
+
 ## Deployment name
 
 You can give your deployment a name such as `ExampleDeployment`.
@@ -211,4 +252,4 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](../management/async-operations.md).
-- To learn more about templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- To learn more about templates, see [Understand the structure and syntax of ARM templates](./syntax.md).

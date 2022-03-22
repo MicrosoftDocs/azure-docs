@@ -28,10 +28,10 @@ Use the Optical character recognition REST API to read printed and handwritten t
 * [cURL](https://curl.haxx.se/) installed
 
 
+## Extract printed and handwritten text
 
-## Read printed and handwritten text
+The OCR service can extract visible text in an image or document and convert it to a character stream. For more information on text extraction, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
-The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
 ### Call the Read API
 
@@ -51,6 +51,14 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 The response will include an `Operation-Location` header, whose value is a unique URL. You use this URL to query the results of the Read operation. The URL expires in 48 hours.
+
+### Optionally, specify the model version
+As an optional step, see [How to specify the model version](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models.
+
+For example, to use the model-version = `2022-01-30-preview` parameter, use the following command:
+```bash
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze?model-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+```
 
 ### Get Read results
 

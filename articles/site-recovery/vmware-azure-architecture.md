@@ -1,19 +1,21 @@
 ---
-title: VMware VM disaster recovery architecture in Azure Site Recovery 
-description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery
+title: VMware VM disaster recovery architecture in Azure Site Recovery - Classic
+description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Classic
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 08/19/2021
 ---
 
-# VMware to Azure disaster recovery architecture
+# VMware to Azure disaster recovery architecture - Classic
 
-This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
+
+For architecture details in Preview, [see this article](vmware-azure-architecture-preview.md)
 
 
 ## Architectural components
 
-The following table and graphic provide a high-level view of the components used for VMware disaster recovery to Azure.
+The following table and graphic provide a high-level view of the components used for VMware VMs/Physical machines disaster recovery to Azure.
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---
@@ -50,8 +52,11 @@ For exhaustive list of URLs to be filtered for communication between on-premises
     - For VMware VMs, replication is block-level, near-continuous, using the Mobility service agent running on the VM.
     - Any replication policy settings are applied:
         - **RPO threshold**. This setting does not affect replication. It helps with monitoring. An event is raised, and optionally an email sent, if the current RPO exceeds the threshold limit that you specify.
-        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours. 
+        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention is 15 days on Managed disk.
         - **App-consistent snapshots**. App-consistent snapshot can be taken every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
+        >[!NOTE]
+        >High recovery point retention period may have an implication on the storage cost since more recovery points may need to be saved. 
+        
 
 2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 3. Initial replication operation ensures that entire data on the machine at the time of enable replication is sent to Azure. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
@@ -61,7 +66,7 @@ For exhaustive list of URLs to be filtered for communication between on-premises
     - The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
-5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as asr seed disk). The recovery points are created on this disk.
+5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as Azure Site Recovery seed disk). The recovery points are created on this disk.
 
 ![Diagram showing the VMware to Azure replication process.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
@@ -77,24 +82,14 @@ For exhaustive list of URLs to be filtered for communication between on-premises
 6. If default resynchronization fails outside office hours and a manual intervention is required, then an error is generated on the specific machine in Azure portal. You can resolve the error and trigger the resynchronization manually.
 7. After completion of resynchronization, replication of delta changes will resume.
 
-## Replication policy 
-
-When you enable Azure VM replication, by default Site Recovery creates a new replication policy with the default settings summarized in the table.
-
-**Policy setting** | **Details** | **Default**
---- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
-
 ### Managing replication policies
 
-You can manage and modify the default replication policies settings as follows:
-- You can modify the settings as you enable replication.
+- You can customize the settings of replication policies as you enable replication.
 - You can create a replication policy at any time, and then apply it when you enable replication.
 
 ### Multi-VM consistency
 
-If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs running workloads that need consistency across all machines. 
+If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs running workloads that need consistency across all machines.
 
 
 
@@ -123,7 +118,7 @@ A crash consistent snapshot captures data that was on the disk when the snapshot
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication.
 
 ## Failover and failback process
 
@@ -144,8 +139,8 @@ After replication is set up and you run a disaster recovery drill (test failover
     - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
     -  Stage 2: Run a failover to the on-premises site.
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
-    
- 
+
+
 
 ![Diagram showing VMware failback from Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 

@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Triggered pipelines allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: laobri
-author: lobrien
-ms.date: 01/29/2021
+ms.subservice: mlops
+ms.author: nibaccam
+author: nibaccam
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -20,7 +20,7 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 * A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
 
@@ -54,7 +54,7 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 To run a pipeline on a recurring basis, you'll create a schedule. A `Schedule` associates a pipeline, an experiment, and a trigger. The trigger can either be a`ScheduleRecurrence` that describes the wait between runs or a Datastore path that specifies a directory to watch for changes. In either case, you'll need the pipeline identifier and the name of the experiment in which to create the schedule.
 
-At the top of your python file, import the `Schedule` and `ScheduleRecurrence` classes:
+At the top of your Python file, import the `Schedule` and `ScheduleRecurrence` classes:
 
 ```python
 

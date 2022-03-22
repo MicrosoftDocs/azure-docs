@@ -3,7 +3,7 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -75,7 +75,7 @@ For detailed information on the topic, see [KCD for single sign-on](application-
 
    * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage Conditional Access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
-* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.
+* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) for a full list of licensing options and features.
 
 ### Application Discovery
 
@@ -88,7 +88,7 @@ Compile an inventory of all in-scope applications that are being published via A
 | Domain membership| Web server’s fully qualified domain name (FQDN) |
 | Application location | Where the web server or farm is located in your infrastructure |
 | Internal access | The exact URL used when accessing the application internally. <br> If a farm, what type of load balancing is in use? <br> Whether the application draws content from sources other than itself.<br> Determine if the application operates over WebSockets. |
-| External access | The vendor solution that the application is already exposed to externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
+| External access | The vendor solution that the application may already be exposed throught, externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
 | Public certificate | If using a custom domain, procure a certificate with a corresponding subject name. if a certificate exists note the serial number and location from where it can be obtained. |
 | Authentication type| The type of authentication supported by the application support such as Basic, Windows Integration Authentication, forms-based, header-based, and claims. <br>If the application is configured to run under a specific domain account, note the Fully Qualified Domain Name (FQDN) of the service account.<br> If SAML-based, the identifier and reply URLs. <br> If header-based, the vendor solution and specific requirement for handling authentication type. |
 | Connector group name | The logical name for the group of connectors that will be designated to provide the conduit and SSO to this backend application. |
@@ -103,7 +103,7 @@ The following are areas for which you should define your organization’s busine
 
  **Access**
 
-* Remote users with domain joined or Azure AD joined devices users can access published applications securely with seamless single sign-on (SSO).
+* Remote users with domain-joined or Azure AD-joined devices can access published applications securely with seamless single sign-on (SSO).
 
 * Remote users with approved personal devices can securely access published applications provided they are enrolled in MFA and have registered the Microsoft Authenticator app on their mobile phone as an authentication method.
 
@@ -129,7 +129,7 @@ The following are areas for which you should define your organization’s busine
 
 ### Best practices for a pilot
 
-Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for Integrated Windows Authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
+Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for integrated Windows authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
 
 The following design elements should increase the success of your pilot implementation directly in a production tenant.
 

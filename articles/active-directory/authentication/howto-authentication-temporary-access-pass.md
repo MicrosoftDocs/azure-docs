@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 10/22/2021
 
 ms.author: justinha
-author: justinha
-manager: daveba
-ms.reviewer: inbarckms
+author: inbarckMS 
+manager: karenhoran
+ms.reviewer: inbarc
 
 ms.collection: M365-identity-device-management
 ---
@@ -25,7 +25,6 @@ Users can bootstrap Passwordless methods in one of two ways:
 
 A Temporary Access Pass is a time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones. 
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
-
 
 This article shows you how to enable and use a Temporary Access Pass in Azure AD using the Azure portal. 
 You can also perform these actions using the REST APIs. 
@@ -63,10 +62,10 @@ To configure the Temporary Access Pass authentication method policy:
 After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
 These roles can perform the following actions related to a Temporary Access Pass.
 
-- Global administrator can create, delete, view a Temporary Access Pass on any user (except themselves)
-- Privileged Authentication administrators can create, delete, view a Temporary Access Pass on admins and members (except themselves)
-- Authentication administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
-- Global Administrator can view the Temporary Access Pass details on the user (without reading the code itself).
+- Global Administrator can create, delete, view a Temporary Access Pass on any user (except themselves)
+- Privileged Authentication Administrators can create, delete, view a Temporary Access Pass on admins and members (except themselves)
+- Authentication Administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
+- Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
 1. Sign in to the Azure portal as either a Global administrator, Privileged Authentication administrator, or Authentication administrator. 
 1. Click **Azure Active Directory**, browse to Users, select a user, such as *Chris Green*, then choose **Authentication methods**.
@@ -121,14 +120,28 @@ The most common use for a Temporary Access Pass is for a user to register authen
 
 The user is now signed in and can update or register a method such as FIDO2 security key. 
 Users who update their authentication methods due to losing their credentials or device should make sure they remove the old authentication methods.
+Users can also continue to sign-in by using their password; a TAP doesn’t replace a user’s password.
 
-Users can also use their Temporary Access Pass to register for Passwordless phone sign-in directly from the Authenticator app. For more information, see [Add your work or school account to the Microsoft Authenticator app](../user-help/user-help-auth-app-add-work-school-account.md).
+### Passwordless phone sign-in
+
+Users can also use their Temporary Access Pass to register for Passwordless phone sign-in directly from the Authenticator app. 
+For more information, see [Add your work or school account to the Microsoft Authenticator app](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c).
 
 ![Screenshot of how to enter a Temporary Access Pass using work or school account](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
-## Delete a Temporary Access Pass
+### Guest access
 
-An expired Temporary Access Pass can’t be used. Under the **Authentication methods** for a user, the **Detail** column shows when the Temporary Access Pass expired. You can delete an expired Temporary Access Pass using the following steps:
+Guest users can sign-in to a resource tenant with a Temporary Access Pass that was issued by their home tenant if the Temporary Access Pass meets the home tenant authentication requirement. 
+If MFA is required for the resource tenant, the guest user needs to perform MFA in order to gain access to the resource.
+
+### Expiration
+
+An expired or deleted Temporary Access Pass can’t be used for interactive or non-interactive authentication. 
+Users need to reauthenticate with different authentication methods after the Temporary Access Pass is expired or deleted. 
+
+## Delete an expired Temporary Access Pass
+
+Under the **Authentication methods** for a user, the **Detail** column shows when the Temporary Access Pass expired. You can delete an expired Temporary Access Pass using the following steps:
 
 1. In the Azure AD portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
 1. On the right-hand side of the **Temporary Access Pass (Preview)** authentication method shown in the list, select **Delete**.
@@ -144,8 +157,8 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 
 - A user can only have one Temporary Access Pass. The passcode can be used during the start and end time of the Temporary Access Pass.
 - If the user requires a new Temporary Access Pass:
-  - If the existing Temporary Access Pass is valid, the admin needs to delete the existing Temporary Access Pass and create a new pass for the user. Deleting a valid Temporary Access Pass will revoke the user’s sessions. 
-  - If the existing Temporary Access Pass has expired, a new Temporary Access Pass will override the existing Temporary Access Pass and will not revoke the user’s sessions.
+  - If the existing Temporary Access Pass is valid, the admin needs to delete the existing Temporary Access Pass and create a new pass for the user. 
+  - If the existing Temporary Access Pass has expired, a new Temporary Access Pass will override the existing Temporary Access Pass.
 
 For more information about NIST standards for onboarding and recovery, see [NIST Special Publication 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html#sec4).
 
@@ -154,11 +167,10 @@ For more information about NIST standards for onboarding and recovery, see [NIST
 Keep these limitations in mind:
 
 - When using a one-time Temporary Access Pass to register a Passwordless method such as FIDO2 or Phone sign-in, the user must complete the registration within 10 minutes of sign-in with the one-time Temporary Access Pass. This limitation does not apply to a Temporary Access Pass that can be used more than once.
-- Guest users can't sign in with a Temporary Access Pass.
 - Temporary Access Pass is in public preview and currently not available in Azure for US Government.
 - Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) will be required to register authentication methods after they have signed in with a Temporary Access Pass. 
 Users in scope for these policies will get redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience does not currently support FIDO2 and Phone Sign-in registration. 
-- A Temporary Access Pass cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter, or during Windows Setup/Out-of-Box-Experience (OOBE) and Autopilot. 
+- A Temporary Access Pass cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter, or during Windows Setup/Out-of-Box-Experience (OOBE), Autopilot, or to deploy Windows Hello for Business. 
 - When Seamless SSO is enabled on the tenant, the users are prompted to enter a password. The **Use your Temporary Access Pass instead** link will be available for the user to sign-in with a Temporary Access Pass.
 
   ![Screenshot of Use a Temporary Access Pass instead](./media/how-to-authentication-temporary-access-pass/alternative.png)
@@ -171,8 +183,8 @@ Users in scope for these policies will get redirected to the [Interrupt mode of 
 - If **Temporary Access Pass sign in was blocked due to User Credential Policy** appears during sign-in with a Temporary Access Pass, check the following:
   - The user has a multi-use Temporary Access Pass while the authentication method policy requires a one-time Temporary Access Pass.
   - A one-time Temporary Access Pass was already used.
+- If Temporary Access Pass sign-in was blocked due to User Credential Policy, check that the user is in scope for the TAP policy.
 
 ## Next steps
 
 - [Plan a passwordless authentication deployment in Azure Active Directory](howto-authentication-passwordless-deployment.md)
-

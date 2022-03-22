@@ -1,14 +1,13 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS) 
 description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in Synapse SQL for developing solutions.
-services: synapse-analytics
-author: XiaoyuMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/26/2019
-ms.author: xiaoyul
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
 ---

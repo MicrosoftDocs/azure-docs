@@ -1,7 +1,7 @@
 ---
-title: What's new in Face service?
+title: What's new in Azure Face service?
 titleSuffix: Azure Cognitive Services
-description: Release notes for the Face service include a history of release changes for various versions.
+description: Stay up to date on recent releases and updates to the Azure Face service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,20 +9,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/26/2021
+ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, contperf-fy22q1
 ---
 
-# What's new in Face service?
+# What's new in Azure Face service?
 
-The Azure Face service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
+The Azure Face service is updated on an ongoing basis. Use this article to stay up to date with new features, enhancements, fixes, and documentation updates.
+
+## February 2022
+
+### New Quality Attribute in Detection_01 and Detection_03
+* To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concepts/face-detection.md) and see how to use it with [QuickStart](./quickstarts/client-libraries.md?pivots=programming-language-csharp&tabs=visual-studio).
+
+
+## July 2021
+
+### New HeadPose and Landmarks improvements for Detection_03
+
+* The Detection_03 model has been updated to support facial landmarks.
+* The landmarks feature in Detection_03 is much more precise, especially in the eyeball landmarks which are crucial for gaze tracking.
+
 
 ## April 2021
 
-### PersonDirectory
+### PersonDirectory data structure
 
-* In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities. Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details see [Use the PersonDirectory structure](Face-API-How-to-Topics/use-persondirectory.md).
+* In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities. 
+* Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details see [Use the PersonDirectory structure](Face-API-How-to-Topics/use-persondirectory.md).
 
 
 ## February 2021

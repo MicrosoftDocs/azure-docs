@@ -61,7 +61,7 @@ In this section, you will create a Virtual Network and the subnet to host the VM
     | Size | Leave the default **Standard DS1 v2**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Leave the default **None**. |
@@ -153,6 +153,9 @@ In this section, you will create a private endpoint to the MariaDB server to it.
     |Target sub-resource |Select *mariadbServer*|
     |||
 7. Select **Next: Configuration**.
+    > [!Note]
+    > To enable virtual network service endpoints, you need a subscription with Network contributor role
+If your virtual network and Azure database for MariaDB account are in different subscriptions, make sure that the subscription that has virtual network also has Microsoft.DBforMariaDB resource provider registered. To register a resource provider, see [Azure resource providers and types article](../azure-resource-manager/management/resource-providers-and-types.md).
 8. In **Create a private endpoint - Configuration**, enter or select this information:
 
     | Setting | Value |

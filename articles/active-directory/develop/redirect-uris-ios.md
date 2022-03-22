@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn about how to use redirect URIs.
 ---
 
@@ -42,7 +42,7 @@ Given the following application registration in the Azure portal:
 
 App1 uses redirect `msauth.com.contoso.app1://auth`.\
 App2 uses `msauth.com.contoso.app2://auth`.\
-App3 uses `msauth.com.contoso.app1://auth`.
+App3 uses `msauth.com.contoso.app3://auth`.
 
 ### Migrating from ADAL to MSAL
 

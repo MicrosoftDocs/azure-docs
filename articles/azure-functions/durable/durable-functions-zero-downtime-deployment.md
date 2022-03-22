@@ -1,13 +1,13 @@
 ---
 title: Zero-downtime deployment for Durable Functions
-description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments. 
+description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments.
 author: tsushi
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 #Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.
---- 
+---
 
 # Zero-downtime deployment for Durable Functions
 

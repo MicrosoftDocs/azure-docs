@@ -142,7 +142,7 @@ The objective of this section is to create a user called B.Simon in Lessonly.com
 There is no action item for you in this section. A new user will be created during an attempt to access Lessonly.com if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create an user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
+> If you need to create a user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
 
 ## Test SSO
 
@@ -152,8 +152,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Lesson.ly Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Lesson.ly tile in the My Apps, this will redirect to Lesson.ly Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Lesson.ly tile in the My Apps, this will redirect to Lesson.ly Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Lesson.ly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Lesson.ly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

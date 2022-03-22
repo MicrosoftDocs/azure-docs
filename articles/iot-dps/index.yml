@@ -6,12 +6,12 @@ summary: The IoT Hub Device Provisioning Service (DPS) is a helper service for I
 metadata:
   title: Azure IoT Hub Device Provisioning Service (DPS) Documentation
   description: Azure IoT Hub Device Provisioning Service (DPS) - Tutorials, Quickstarts, HowTos, and API Reference
-  author: wesmc7777
+  author: kgremban
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page
   ms.date: 03/03/2020
-  ms.author: wesmc
+  ms.author: kgremban
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -43,10 +43,8 @@ landingContent:
             url: quick-setup-auto-provision.md
       - linkListType: sample
         links:
-          - text: Provision a simulated symmetric key device using C
+          - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md
-          - text: Provision a simulated symmetric key device using Java
-            url: quick-create-simulated-device-symmetric-key-java.md
       - linkListType: how-to-guide
         links:
           - text: How to provision for multitenancy

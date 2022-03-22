@@ -13,7 +13,7 @@ Learn how to use Apache Maven to create a Java-based MapReduce application, then
 
 ## Prerequisites
 
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
@@ -145,7 +145,7 @@ Save the `pom.xml` file.
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java
     ```
 
-2. Then copy and paste the java code below into the new file. Then close the file.
+2. Then copy and paste the Java code below into the new file. Then close the file.
 
     ```java
     package org.apache.hadoop.examples;

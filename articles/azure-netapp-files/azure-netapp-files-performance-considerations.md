@@ -3,7 +3,7 @@ title: Performance considerations for Azure NetApp Files | Microsoft Docs
 description: Learn about performance for Azure NetApp Files, including the relationship of quota and throughput limit and how to dynamically increase/decrease volume quota.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files
 

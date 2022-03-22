@@ -25,6 +25,9 @@ There are two ways to enable file compression:
 - Enabling compression on your origin server. Azure Front Door passes along the compressed files and delivers them to clients that request them.
 - Enabling compression directly on the Azure Front Door POP servers (*compression on the fly*). In this case, Azure Front Door compresses the files and sends them to the end users.
 
+> [!NOTE]
+> Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `accept-encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on Origin/Azure Front Door or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
+
 > [!IMPORTANT]
 > Azure Front Door configuration changes takes up to 10 mins to propagate throughout the network. If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to all the POPs.
 
@@ -132,4 +135,4 @@ If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to th
 
 - Learn how to configure your first [Rules Set](how-to-configure-rule-set.md)
 - Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
-- Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
+- Learn more about [Azure Front Door Rule Set](../front-door-rules-engine.md)

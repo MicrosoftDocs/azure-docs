@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 08/20/2021
 ms.author: jeedes
 
 ---
@@ -33,9 +33,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* CheckProof supports **IDP** initiated SSO
+* CheckProof supports **IDP** initiated SSO.
+* CheckProof supports [Automated user provisioning](checkproof-provisioning-tutorial.md).
 
-## Adding CheckProof from the gallery
+## Add CheckProof from the gallery
 
 To configure the integration of CheckProof into Azure AD, you need to add CheckProof from the gallery to your list of managed SaaS apps.
 
@@ -45,7 +46,6 @@ To configure the integration of CheckProof into Azure AD, you need to add CheckP
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **CheckProof** in the search box.
 1. Select **CheckProof** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for CheckProof
 
@@ -66,11 +66,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **CheckProof** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://api.checkproof.com/api/v1/saml/<ID>/metadata`
@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Settings > Company Settings > SAML SETTINGS** page and Upload the **Federation Metadata XML** in **Federation XML** textbox.
 
-    ![saml settings page](./media/checkproof-tutorial/saml-settings.png)
+    ![SAML settings page.](./media/checkproof-tutorial/settings.png)
 
 ### Create CheckProof test user
 
@@ -126,23 +126,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Profile** and select **My profile**.
 
-    ![CheckProof test user page](./media/checkproof-tutorial/create-user.png)
+    ![CheckProof test user page.](./media/checkproof-tutorial/create-user.png)
 
 1. Click on **CREATE USER**.
 
 1. In the **CREATE USER** page, fill the required fields and click on **SAVE**.
 
-    ![CheckProof test user1 page](./media/checkproof-tutorial/create-user-2.png)
+    ![CheckProof create user page.](./media/checkproof-tutorial/user.png)
+
+> [!NOTE]
+>CheckProof also supports automatic user provisioning, you can find more details [here](./checkproof-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click on Test this application in Azure portal and you should be automatically signed in to the CheckProof for which you set up the SSO
+* Click on Test this application in Azure portal and you should be automatically signed in to the CheckProof for which you set up the SSO.
 
-1. You can use Microsoft Access Panel. When you click the CheckProof tile in the Access Panel, you should be automatically signed in to the CheckProof for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the CheckProof tile in the My Apps, you should be automatically signed in to the CheckProof for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure CheckProof you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure CheckProof you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

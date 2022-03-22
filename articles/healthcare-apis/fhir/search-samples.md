@@ -1,11 +1,11 @@
 ---
-title: Search examples for Azure API for FHIR
-description: How to search using different search parameters, modifiers, and other FHIR search tools
+title: Search examples for FHIR service
+description: How to search using different search parameters, modifiers, and other search tools for FHIR
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/21/2021
+ms.date: 03/01/2022
 ms.author: cavoeg
 ---
 
@@ -17,7 +17,7 @@ Below are some examples of using FHIR search operations, including search parame
 
 ### _include
 
-`_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`. In the example below, this will pull all the `MedicationRequests` and all patients that are referenced from the `MedicationRequests`:
+`_include` searches for resources that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`. In the example below, this will pull all the `MedicationRequests` and all patients that are referenced from the `MedicationRequests`:
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -25,7 +25,7 @@ Below are some examples of using FHIR search operations, including search parame
 ```
 
 > [!NOTE]
-> **_include** and **_revinclude** is limited to 100 items.
+> **_include** and **_revinclude** are limited to 100 items.
 
 ### _revinclude
 
@@ -50,14 +50,14 @@ In this request, you'll get back a bundle of patients, but each resource will on
 
 ### :not
 
-`:not` allows you to find resources where an attribute is not true. For example, you could search for patients where the gender is not female:
+`:not` allows you to find resources where an attribute isn't true. For example, you could search for patients where the gender isn't female:
 
 ```rest
 GET [your-fhir-server]/Patient?gender:not=female
 
 ```
 
-As a return value, you would get all patient entries where the gender is not female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that would not include the entries without a specific gender.
+As a return value, you would get all patient entries where the gender isn't female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that wouldn't include the entries without a specific gender.
 
 ### :missing
 
@@ -76,7 +76,7 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 
 ```
 
-This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had Patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it does not exactly match the specified value.
+This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it doesn't exactly match the specified value.
 
 ### :contains
 `:contains` is used for `string` parameters and searches for resources with partial matches of the specified value anywhere in the string within the field being searched. `contains` is case insensitive and allows character concatenating. For example:
@@ -97,7 +97,7 @@ To perform a series of search operations that cover multiple reference parameter
 
 ```
 
-This request would return all the resources with the patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
+This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
 
 Another common use of a regular search (not a chained search) is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
 
@@ -106,7 +106,7 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 
 ```
 
-Using chained search, you can find all the `Encounter` resources that matches a particular piece of `Patient` information, such as the `birthdate`:
+Using chained search, you can find all the `Encounter` resources that match a particular piece of `Patient` information, such as the `birthdate`:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
@@ -115,14 +115,14 @@ GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 This would allow not just searching `Encounter` resources for a single patient, but across all patients that have the specified birth date value. 
 
-In addition, chained search can be done more than once in one request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once. It's an OR operation, not an AND operation. For instance, if you want to get all patients who had a practitioner with a certain name or from a particular state:
+In addition, chained search can be done more than once in one request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once:
 
 ```rest
-GET [your-fhir-server]/Patient?general-practitioner.name=Sarah&general-practitioner.address-state=WA
+GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-This would return all `Patient` resources that have "Sarah" as the `generalPractitioner`, and all `Patient` resources that have `generalPractitioner` that have the address with the state WA. In other words, you can have Sarah from the state NY and Bill from the state WA both as the returned results. Chained search doesn't require meeting all conditions and is evaluated individually per the parameter.
+This would return all `Patient` resources that have "Sarah" as the `generalPractitioner` and have a `generalPractitioner` that has the address with the state WA. In other words, if a patient had Sarah from the state NY and Bill from the state WA both referenced as the patient's `generalPractitioner`, the would be returned.
 
 For scenarios in which the search has to be an AND operation that covers all conditions as a group, refer to the **composite search** example below.
 
@@ -140,12 +140,9 @@ This request returns Patient resources that are referred by `Observation` with t
 In addition, reverse chain search can have a recursive structure. For example, if you want to search for all patients that have `Observation` where the observation has an audit event from a specific user `janedoe`, you could do:
 
 ```rest
-GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=janedoe
+GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
 
 ``` 
-
-> [!NOTE]
-> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown. By default, chained search is behind a feature flag. To use the chained searching on Cosmos DB, use the header x-ms-enable-chained-search: true.
 
 ## Composite search
 
@@ -157,6 +154,12 @@ GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 ``` 
 
 This request specifies the component containing a code of `2823-3`, which in this case would be potassium. Following the `$` symbol, it specifies the range of the value for the component using `lt` for "less than or equal to" and `9.2` for the potassium value range. 
+
+Composite search parameters can also be used to filter multiple component code value quantities with an OR. For example, to express the query to find diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
+
+```rest
+GET [your-fhir-server]/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
+``` 
 
 ## Search the next entry set
 
@@ -212,6 +215,8 @@ name=John
 
 ```
 ## Next steps
+
+In this article, you learned about how to search using different search parameters, modifiers, and other search tools for FHIR. For more information about FHIR search, see
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR Search](overview-of-search.md)

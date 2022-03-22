@@ -3,7 +3,7 @@ title: Monitor application sign-in health for resilience in Azure Active Directo
 description: Create queries and notifications to monitor the sign-in health of your applications.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

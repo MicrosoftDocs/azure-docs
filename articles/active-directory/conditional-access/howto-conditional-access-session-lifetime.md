@@ -10,7 +10,7 @@ ms.date: 10/23/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jlu, calebb
 
 ms.collection: M365-identity-device-management
@@ -91,7 +91,11 @@ Conditional Access is an Azure AD Premium capability and requires a premium lice
 
 ### Policy 1: Sign-in frequency control
 
-1. Create new policy
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Search for **Azure AD Conditional Access**.
+1. Select **Policies**.
+1. Select **+ New policy**.
+1. Select **Create new policy**.
 1. Choose all required conditions for customer’s environment, including the target cloud apps.
 
    > [!NOTE]
@@ -108,7 +112,11 @@ On Azure AD registered Windows devices sign in to the device is considered a pro
 
 ### Policy 2: Persistent browser session
 
-1. Create new policy
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Search for **Azure AD Conditional Access**.
+1. Select **Policies**.
+1. Select **+ New policy**.
+1. Select **Create new policy**.
 1. Choose all required conditions.
 
    > [!NOTE]
@@ -132,6 +140,10 @@ Use the What-If tool to simulate a login from the user to the target application
 ## Policy deployment
 
 To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Plan a Conditional Access deployment](plan-conditional-access.md).
+
+## Known issues
+- If you configure sign-in frequency for mobile devices, authentication after each sign-in frequency internal would be slow (can take 30 seconds on average). Also, it could happen across various apps at the same time. 
+- In iOS devices, if an app configures certificates as the first authentication factor and the app has both Sign-in frequency and [Intune mobile application management](/mem/intune/apps/app-lifecycle) policies applied, the end-users will be blocked from signing in to the app when the policy is triggered.
 
 ## Next steps
 

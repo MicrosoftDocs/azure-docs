@@ -2,10 +2,7 @@
 title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers enable and use Application Insights Profiler.
 ms.topic: conceptual
-author: cweining
-ms.author: cweining
 ms.date: 08/06/2018
-
 ms.reviewer: mbullwin
 ---
 
@@ -124,7 +121,7 @@ It will display a Status Page similar like the below:
     
 ### Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually:
+When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for Power Apps. To apply updates manually:
 
 1. In the **Web App Control** pane, open **Settings**.
 

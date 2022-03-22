@@ -8,7 +8,8 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
-ms.reviewer: prishet 
+ms.reviewer: prishet
+ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -22,20 +23,20 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
-- .NET Framework is 4.7.2 or greater installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+- .NET Framework is 4.7.2 or greater installed. For more information, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 - PowerShell version `5.1` or higher.
 
 ## Install the PowerShell module
 
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.
 
    ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
+   echo $PSVersionTable.PSVersion.ToString()
    ```
 
    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
@@ -50,7 +51,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Connect to the account
 
-Choose how you want your commands to obtain authorization to the storage account. 
+Choose how you want your commands to obtain authorization to the storage account.
 
 ### Option 1: Obtain authorization by using Azure Active Directory (Azure AD)
 
@@ -66,7 +67,7 @@ With this approach, the system ensures that your user account has the appropriat
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
-   ``` 
+   ```
 
 3. Get the storage account context.
 
@@ -84,7 +85,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -Storag
 
 ## Create a container
 
-A container acts as a file system for your files. You can create one by using the `New-AzStorageContainer` cmdlet. 
+A container acts as a file system for your files. You can create one by using the `New-AzStorageContainer` cmdlet.
 
 This example creates a container named `my-file-system`.
 
@@ -95,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 ## Create a directory
 
-Create a directory reference by using the `New-AzDataLakeGen2Item` cmdlet. 
+Create a directory reference by using the `New-AzDataLakeGen2Item` cmdlet.
 
 This example adds a directory named `my-directory` to a container.
 
@@ -105,7 +106,7 @@ $dirname = "my-directory/"
 New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory
 ```
 
-This example adds the same directory, but also sets the permissions, umask, property values, and metadata values. 
+This example adds the same directory, but also sets the permissions, umask, property values, and metadata values.
 
 ```powershell
 $dir = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory -Permission rwxrwxrwx -Umask ---rwx---  -Property @{"ContentEncoding" = "UDF8"; "CacheControl" = "READ"} -Metadata  @{"tag1" = "value1"; "tag2" = "value2" }
@@ -146,7 +147,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Use the `-Force` parameter if you want to overwrite without prompts.
 
-This example moves a directory named `my-directory` to a subdirectory of `my-directory-2` named `my-subdirectory`. 
+This example moves a directory named `my-directory` to a subdirectory of `my-directory-2` named `my-subdirectory`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -164,7 +165,7 @@ This example deletes a directory named `my-directory`.
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname 
+Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
 You can use the `-Force` parameter to remove the file without a prompt.
@@ -194,7 +195,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-The following example lists the `ACL`, `Permissions`, `Group`, and `Owner` properties of each item in the directory. The `-FetchProperty` parameter is required to get values for the `ACL` property. 
+The following example lists the `ACL`, `Permissions`, `Group`, and `Owner` properties of each item in the directory. The `-FetchProperty` parameter is required to get values for the `ACL` property.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -213,14 +214,14 @@ $properties.Owner
 
 Upload a file to a directory by using the `New-AzDataLakeGen2Item` cmdlet.
 
-This example uploads a file named `upload.txt` to a directory named `my-directory`. 
+This example uploads a file named `upload.txt` to a directory named `my-directory`.
 
 ```powershell
 $localSrcFile =  "upload.txt"
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $destPath = $dirname + (Get-Item $localSrcFile).Name
-New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force 
+New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force
 ```
 
 This example uploads the same file, but then sets the permissions, umask, property values, and metadata values of the destination file. This example also prints these values to the console.
@@ -257,12 +258,12 @@ $file.Properties.Metadata
 
 Delete a file by using the `Remove-AzDataLakeGen2Item` cmdlet.
 
-This example deletes a file named `upload.txt`. 
+This example deletes a file named `upload.txt`.
 
 ```powershell
 $filesystemName = "my-file-system"
 $filepath = "upload.txt"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $filepath 
+Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $filepath
 ```
 
 You can use the `-Force` parameter to remove the file without a prompt.

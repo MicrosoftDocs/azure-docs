@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
-ms.devlang: .NET
+ms.devlang: csharp
 ---
 
 # 3 - Deploy the search-enabled .NET website

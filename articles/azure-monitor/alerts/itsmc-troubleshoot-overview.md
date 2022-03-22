@@ -4,7 +4,7 @@ description: Learn how to resolve common problems in IT Service Management Conne
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 04/12/2020
+ms.date: 2/23/2022
 
 ---
 # Troubleshoot problems in IT Service Management Connector
@@ -95,7 +95,7 @@ The following sections identify common symptoms, possible causes, and resolution
 **Cause**: There can be several reasons for this symptom:
 
 * Templates are not shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
-* Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: <field names>."
+* Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
 * Incidents/Events are not created in ServiceNow.
 
 **Resolution**: 

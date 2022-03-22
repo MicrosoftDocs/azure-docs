@@ -1,13 +1,13 @@
 ---
 title: Test and publish an Azure application offer 
 description: Submit your Azure application offer to preview, preview your offer, test, and publish it to Azure Marketplace. 
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 09/27/2021
 ---
 
 # Test and publish an Azure application offer
@@ -16,8 +16,13 @@ This article explains how to use Partner Center to submit your Azure Application
 
 ## Submit the offer for publishing
 
-1. Sign in to the commercial marketplace dashboard in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-1. On the **Overview** page, select the offer you want to publish.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select the offer you want to publish.
 1. In the upper-right corner of the portal, select **Review and publish**.
 1. Make sure that the **Status** column for each page says **Complete**. The three possible statuses are as follows:
     - **Not started** – The page is incomplete.

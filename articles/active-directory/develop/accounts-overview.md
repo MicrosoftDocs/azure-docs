@@ -11,7 +11,7 @@ ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
-ms.custom: aaddev, devx-track-java
+ms.custom: aaddev, devx-track-java, has-adal-ref
 ms.reviewer: shoatman
 ---
 

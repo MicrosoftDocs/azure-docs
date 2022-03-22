@@ -1,7 +1,7 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: operations  
+ms.subservice: service-overview  
 ms.topic: include
 ms.date: 08/23/2019
 ms.author: mathoma
@@ -27,6 +27,6 @@ After selecting **+ Add**, view additional information about the different optio
 For details, see:
 
 - [Create a single database](../database/single-database-create-quickstart.md)
-- [Create an elastic pool](../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Create an elastic pool](../database/elastic-pool-overview.md#create-a-new-sql-database-elastic-pool-by-using-the-azure-portal)
 - [Create a managed instance](../managed-instance/instance-create-quickstart.md)
 - [Create a SQL virtual machine](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)

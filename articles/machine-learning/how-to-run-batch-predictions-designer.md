@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create a batch prediction pipeline. Deploy the pipeline as a parameterized web service, and trigger it from any HTTP library.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---
@@ -25,6 +25,8 @@ In this how-to, you learn to do the following tasks:
 > * Manage endpoint versions
 
 To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](./tutorial-pipeline-batch-scoring-classification.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 
@@ -60,7 +62,7 @@ To create predictions on new data, you can either manually connect a different d
 
 In this section, you create a dataset parameter to specify a different dataset to make predictions on.
 
-1. Select the dataset module.
+1. Select the dataset component.
 
 1. A pane will appear to the right of the canvas. At the bottom of the pane, select **Set as pipeline parameter**.
    
@@ -146,13 +148,13 @@ If you make some modifications in your training pipeline, you should re-submit t
 
 Note that only models will be updated in the inference pipeline, while data transformation will not be updated.
 
-To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
+To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation component as dataset.
 
 ![Screenshot showing how to register transformation dataset](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
 
-Then manually replace the **TD-** module in inference pipeline with the registered dataset.
+Then manually replace the **TD-** component in inference pipeline with the registered dataset.
 
-![Screenshot showing how to replace transformation module](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+![Screenshot showing how to replace transformation component](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
 
 Then you can submit the inference pipeline with the updated model and transformation, and publish.
 

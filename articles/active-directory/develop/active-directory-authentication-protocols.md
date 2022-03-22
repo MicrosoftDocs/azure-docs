@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/18/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ROBOTS: NOINDEX
 ---
 

@@ -6,14 +6,13 @@ metadata:
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 07/14/2020
   ms.author: justinha
   author: justinha
-  manager: daveba
+  manager: karenhoran
   ms.reviewer: michmcla
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions about Azure AD Multi-Factor Authentication
 summary: |
   This FAQ answers common questions about Azure AD Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
@@ -140,7 +139,7 @@ sections:
           
           If the steps above don't work, check if users are configured for more than one verification method. Try signing in again, but select a different verification method on the sign-in page.
           
-          For more information, see the [end-user troubleshooting guide](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
+          For more information, see the [end-user troubleshooting guide](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5).
           
       - question: |
           What should I do if one of my users can't get in to their account?
@@ -155,7 +154,7 @@ sections:
       - question: |
           What if a user can't sign in to non-browser apps?
         answer: |
-          If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](../user-help/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+          If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
           
           If your organization doesn't have legacy clients, you shouldn't allow your users to create app passwords.
           
@@ -246,6 +245,13 @@ sections:
           The *0x800434D4L* error occurs when you try to sign in to a non-browser application, installed on a local computer, that doesn't work with accounts that require two-step verification.
           
           A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](https://help.outlook.com/141/gg709759.aspx?sl=1).
+          
+      - question: |  
+          What are the possible reasons why a user fails, with the error code "LsaLogonUser failed with NTSTATUS -1073741715 for MFA Server"?
+        answer: |
+          Error 1073741715 = Status Logon Failure -> The attempted logon is invalid. This is due to either a bad username or authentication.
+
+          A plausible reason for this error: If the primary credentials entered are correct, there might be a mismatch between the supported NTLM version on the MFA server and the domain controller. MFA Server supports only NTLMv1 (LmCompatabilityLevel=1 thru 4) and not NTLMv2 (LmCompatabilityLevel=5).
           
 additionalContent: |
   ## Next steps

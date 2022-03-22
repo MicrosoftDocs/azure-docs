@@ -5,15 +5,13 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
@@ -37,7 +35,7 @@ A registration associates the Platform Notification Service (PNS) handle for a d
 
 ### Installations
 
-An Installation is an enhanced registration that includes a bag of push related properties. It is the latest and best approach to registering your devices. However, it is not supported by client-side .NET SDK ([Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) as of yet.  This means if you are registering from the client device itself, you would have to use the [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) approach to support installations. If you are using a backend service, you should be able to use [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+An Installation is an enhanced registration that includes a bag of push related properties. It is the latest and best approach to registering your devices using the server-side .NET SDK ([Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  You can also use the [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) approach to register installations on client device itself. If you are using a backend service, you should be able to use [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 The following are some key advantages to using installations:
 
@@ -92,6 +90,9 @@ Registrations and installations must contain a valid PNS handle for each device/
 > The Installations API does not support the Baidu service (although the Registrations API does). 
 
 ### Templates
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also holds all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.
 

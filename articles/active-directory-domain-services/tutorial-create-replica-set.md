@@ -3,7 +3,7 @@ title: Tutorial - Create a replica set in Azure AD Domain Services | Microsoft D
 description: Learn how to create and use replica sets in the Azure portal for service resiliency with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -103,7 +103,7 @@ The replica set reports as *Provisioning* as deployment continues, as shown in t
 A managed domain is currently limited to four replicas - the initial replica set, and three additional replica sets. If you don't need a replica set anymore, or if you want to create a replica set in another region, you can delete unneeded replica sets.
 
 > [!IMPORTANT]
-> You can't delete the last replica set in a managed domain.
+> You can't delete either the last replica set or the initial replica set in a managed domain.
 
 To delete a replica set, complete the following steps:
 
@@ -111,6 +111,7 @@ To delete a replica set, complete the following steps:
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Replica sets**. From the list of replica sets, select the **...** context menu next to the replica set you want to delete.
 1. Select **Delete** from the context menu, then confirm you want to delete the replica set.
+1. In the Azure ADDS management VM, access the DNS console and manually delete DNS records for the domain controllers from the deleted replica set.
 
 > [!NOTE]
 > Replica set deletion may be a time-consuming operation.

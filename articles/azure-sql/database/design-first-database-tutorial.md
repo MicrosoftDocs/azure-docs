@@ -7,7 +7,7 @@ ms.subservice: development
 ms.topic: tutorial
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma, v-masebo
+ms.reviewer: kendralittle, mathoma, v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ---

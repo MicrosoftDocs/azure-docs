@@ -4,8 +4,8 @@ description: Learn more about Azure VM extensions
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.date: 08/03/2020
 
 ---
@@ -29,7 +29,10 @@ Some individual VM extension applications may have their own environmental prere
 
 ## Troubleshoot extensions
 
-Troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. Here is a list of the troubleshooting information available:
+If you are looking for general troubleshooting steps for Windows VM extensions, please refer to [Troubleshooting Azure Windows VM extension failures
+](troubleshoot.md).
+
+Otherwise, specific troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. Here is a list of the troubleshooting information available:
 
 | Namespace | Troubleshooting |
 |-----------|-----------------|

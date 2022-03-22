@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Arc enabled data services
+title: Troubleshoot Azure Arc-enabled data services
 description: Introduction to troubleshooting resources
 services: azure-arc
 ms.service: azure-arc
@@ -7,15 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Troubleshooting resources
 
-This article identifies troubleshooting resources for Azure Arc enabled data services.
+This article identifies troubleshooting resources for Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Resources by type
 

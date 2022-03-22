@@ -4,20 +4,23 @@ description: Overview of Data Factory's data flow script code-behind language
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/15/2021
+ms.date: 09/22/2021
 ---
 
 # Data flow script (DFS)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Data flow script (DFS) is the underlying metadata, similar to a coding language, that is used to execute the transformations that are included in a mapping data flow. Every transformation is represented by a series of properties that provide the necessary information to run the job properly. The script is visible and editable from ADF by clicking on the "script" button on the top ribbon of the browser UI.
 
-![Script button](media/data-flow/scriptbutton.png "Script button")
+:::image type="content" source="media/data-flow/scriptbutton.png" alt-text="Script button":::
 
-For instance, `allowSchemaDrift: true,` in a source transformation tells the service to include all columns from the source dataset in the data flow even if they are not included in the schema projection.
+For instance, `allowSchemaDrift: true,` in a source transformation tells the service to include all columns from the source dataset in the data flow even if they aren't included in the schema projection.
 
 ## Use cases
 The DFS is automatically produced by the user interface. You can click the Script button to view and customize the script. You can also generate scripts outside of the ADF UI and then pass that into the PowerShell cmdlet. When debugging complex data flows, you may find it easier to scan the script code-behind instead of scanning the UI graph representation of your flows.
@@ -27,9 +30,9 @@ Here are a few example use cases:
 - Complex expressions that are difficult to manage in the UI or are resulting in validation issues.
 - Debugging and better understanding various errors returned during execution.
 
-When you build a data flow script to use with PowerShell or an API, you must collapse the formatted text into a single line. You can keep tabs and newlines as escape characters. But the text must be formatted to fit inside a JSON property. There is a button on the script editor UI at the bottom that will format the script as a single line for you.
+When you build a data flow script to use with PowerShell or an API, you must collapse the formatted text into a single line. You can keep tabs and newlines as escape characters. But the text must be formatted to fit inside a JSON property. There's a button on the script editor UI at the bottom that will format the script as a single line for you.
 
-![Copy button](media/data-flow/copybutton.png "Copy button")
+:::image type="content" source="media/data-flow/copybutton.png" alt-text="Copy button":::
 
 ## How to add transforms
 Adding transformations requires three basic steps: adding the core transformation data, rerouting the input stream, and then rerouting the output stream. This can be seen easiest in an example.
@@ -95,7 +98,7 @@ deriveTransformationName sink(allowSchemaDrift: true,
 ```
 
 ## DFS fundamentals
-The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script with start with one or more sources followed by many transformations and ending with one or more sinks.
+The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script will start with one or more sources followed by many transformations and ending with one or more sinks.
 
 Sources all have the same basic construction:
 ```
@@ -129,7 +132,7 @@ source1 derive(
 ) ~> derive1
 ```
 
-And a sink with no schema would simply be:
+And a sink with no schema would be:
 ```
 derive1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
@@ -160,7 +163,7 @@ ValueDistAgg aggregate(numofunique = countIf(countunique==1),
 ```
 
 ### Include all columns in an aggregate
-This is a generic aggregate pattern that demonstrates how you can keep the remaining columns in your output metadata when you are building aggregates. In this case, we use the ```first()``` function to choose the first value in every column whose name is not "movie". To use this, create an Aggregate transformation called DistinctRows and then paste this in your script over top of the existing DistinctRows aggregate script.
+This is a generic aggregate pattern that demonstrates how you can keep the remaining columns in your output metadata when you're building aggregates. In this case, we use the ```first()``` function to choose the first value in every column whose name isn't "movie". To use this, create an Aggregate transformation called DistinctRows and then paste this in your script over top of the existing DistinctRows aggregate script.
 
 ```
 aggregate(groupBy(movie),
@@ -200,7 +203,7 @@ aggregate(updates = countIf(isUpdate(), 1),
 ```
 
 ### Distinct row using all columns
-This snippet will add a new Aggregate transformation to your data flow which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurrence of each duplicate as output. You do not need to explicitly name the columns, they will be automatically generated from your incoming data stream.
+This snippet will add a new Aggregate transformation to your data flow, which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurrence of each duplicate as output. You don't need to explicitly name the columns, they'll be automatically generated from your incoming data stream.
 
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
@@ -211,12 +214,12 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
 
 ```
-split(contains(array(columns()),isNull(#item)),
+split(contains(array(toString(columns())),isNull(#item)),
 	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ### AutoMap schema drift with a select
-When you need to load an existing database schema from an unknown or dynamic set of incoming columns, you must map the right-side columns in the Sink transformation. This is only needed when you are loading an existing table. Add this snippet before your Sink to create a Select that auto-maps your columns. Leave your Sink mapping to auto-map.
+When you need to load an existing database schema from an unknown or dynamic set of incoming columns, you must map the right-side columns in the Sink transformation. This is only needed when you're loading an existing table. Add this snippet before your Sink to create a Select that auto-maps your columns. Leave your Sink mapping to auto-map.
 
 ```
 select(mapColumn(
@@ -244,7 +247,7 @@ derive(each(match(type=='string'), $$ = 'string'),
 ```
 
 ### Fill down
-Here is how to implement the common "Fill Down" problem with data sets when you want to replace NULL values with the value from the previous non-NULL value in the sequence. Note that this operation can have negative performance implications because you must create a synthetic window across your entire data set with a "dummy" category value. Additionally, you must sort by a value to create the proper data sequence to find the previous non-NULL value. This snippet below creates the synthetic category as "dummy" and sorts by a surrogate key. You can remove the surrogate key and use your own data-specific sort key. This code snippet assumes you've already added a Source transformation called ```source1```
+Here's how to implement the common "Fill Down" problem with data sets when you want to replace NULL values with the value from the previous non-NULL value in the sequence. Note that this operation can have negative performance implications because you must create a synthetic window across your entire data set with a "dummy" category value. Additionally, you must sort by a value to create the proper data sequence to find the previous non-NULL value. This snippet below creates the synthetic category as "dummy" and sorts by a surrogate key. You can remove the surrogate key and use your own data-specific sort key. This code snippet assumes you've already added a Source transformation called ```source1```
 
 ```
 source1 derive(dummy = 1) ~> DerivedColumn
@@ -265,6 +268,30 @@ window(over(stocksymbol),
 	endRowOffset: 7L,
 	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
 ```
+
+### Distinct count of all column values
+You can use this script to identify key columns and view the cardinality of all columns in your stream with a single script snippet. Add this script as an aggregate transformation to your data flow and it will automatically provide distinct counts of all columns.
+
+```
+aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
+```
+
+### Compare previous or next row values
+This sample snippet demonstrates how the Window transformation can be used to compare column values from the current row context with column values from rows before and after the current row. In this example, a Derived Column is used to generate a dummy value to enable a window partition across the entire data set. A Surrogate Key transformation is used to assign a unique key value for each row. When you apply this pattern to your data transformations, you can remove the surrogate key if you're a column that you wish to order by and you can remove the derived column if you have columns to use to partition your data by.
+
+```
+source1 keyGenerate(output(sk as long),
+	startAt: 1L) ~> SurrogateKey1
+SurrogateKey1 derive(dummy = 1) ~> DerivedColumn1
+DerivedColumn1 window(over(dummy),
+	asc(sk, true),
+	prevAndCurr = lag(title,1)+'-'+last(title),
+		nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
+```
+
+### How many columns are in my data?
+
+```size(array(columns()))```
 
 ## Next steps
 

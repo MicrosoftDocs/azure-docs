@@ -1,32 +1,41 @@
 ---
 title: Copy activity performance optimization features
-description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory。
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory and Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/24/2020
+ms.custom: synapse
+ms.date: 01/27/2022
+
 ---
 
 # Copy activity performance optimization features
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory.
+This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory and Synapse pipelines.
+
+## Configuring performance features with UI
+
+When you select a Copy activity on the pipeline editor canvas and choose the Settings tab in the activity configuration area below the canvas, you will see options to configure all of the performance features detailed below.
+
+:::image type="content" source="media/copy-activity-performance/copy-activity-performance-configuration-with-ui.png" alt-text="Shows the Copy activity performance features on the Settings tab for the activity in the pipeline editor.":::
 
 ## Data Integration Units
 
-A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit within the service. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose "Auto" on the UI, Data Factory dynamically applies the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the supported DIU ranges and default behavior in different copy scenarios:
+The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose "Auto" on the UI, the service dynamically applies the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the supported DIU ranges and default behavior in different copy scenarios:
 
 | Copy scenario | Supported DIU range | Default DIUs determined by service |
 |:--- |:--- |---- |
 | Between file stores |- **Copy from or to single file**: 2-4 <br>- **Copy from and to multiple files**: 2-256 depending on the number and size of the files <br><br>For example, if you copy data from a folder with 4 large files and choose to preserve hierarchy, the max effective DIU is 16; when you choose to merge file, the max effective DIU is 4. |Between 4 and 32 depending on the number and size of the files |
 | From file store to non-file store |- **Copy from single file**: 2-4 <br/>- **Copy from multiple files**: 2-256 depending on the number and size of the files <br/><br/>For example, if you copy data from a folder with 4 large files, the max effective DIU is 16. |- **Copy into Azure SQL Database or Azure Cosmos DB**: between 4 and 16 depending on the sink tier (DTUs/RUs) and source file pattern<br>- **Copy into Azure Synapse Analytics** using PolyBase or COPY statement: 2<br>- Other scenario: 4 |
-| From non-file store to file store |- **Copy from partition-option-enabled data stores** (including [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), and [Teradata](connector-teradata.md#teradata-as-source)): 2-256 when writing to a folder, and 2-4 when writing to one single file. Note per source data partition can use up to 4 DIUs.<br>- **Other scenarios**: 2-4 |- **Copy from REST or HTTP**: 1<br/>- **Copy from Amazon Redshift** using UNLOAD: 2<br>- **Other scenario**: 4 |
-| Between non-file stores |- **Copy from partition-option-enabled data stores** (including [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), and [Teradata](connector-teradata.md#teradata-as-source)): 2-256 when writing to a folder, and 2-4 when writing to one single file. Note per source data partition can use up to 4 DIUs.<br/>- **Other scenarios**: 2-4 |- **Copy from REST or HTTP**: 1<br>- **Other scenario**: 4 |
+| From non-file store to file store |- **Copy from partition-option-enabled data stores** (including [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#azure-database-for-postgresql-as-source), [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), and [Teradata](connector-teradata.md#teradata-as-source)): 2-256 when writing to a folder, and 2-4 when writing to one single file. Note per source data partition can use up to 4 DIUs.<br>- **Other scenarios**: 2-4 |- **Copy from REST or HTTP**: 1<br/>- **Copy from Amazon Redshift** using UNLOAD: 2<br>- **Other scenario**: 4 |
+| Between non-file stores |- **Copy from partition-option-enabled data stores** (including [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#azure-database-for-postgresql-as-source), [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), and [Teradata](connector-teradata.md#teradata-as-source)): 2-256 when writing to a folder, and 2-4 when writing to one single file. Note per source data partition can use up to 4 DIUs.<br/>- **Other scenarios**: 2-4 |- **Copy from REST or HTTP**: 1<br>- **Other scenario**: 4 |
 
 You can see the DIUs used for each copy run in the copy activity monitoring view or activity output. For more information, see [Copy activity monitoring](copy-activity-monitoring.md). To override this default, specify a value for the `dataIntegrationUnits` property as follows. The *actual number of DIUs* that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
 
@@ -72,10 +81,10 @@ You can set parallel copy (`parallelCopies` property) on copy activity to indica
 
 The parallel copy is orthogonal to [Data Integration Units](#data-integration-units) or [Self-hosted IR nodes](#self-hosted-integration-runtime-scalability). It is counted across all the DIUs or Self-hosted IR nodes.
 
-For each copy activity run, by default Azure Data Factory dynamically applies the optimal parallel copy setting based on your source-sink pair and data pattern. 
+For each copy activity run, by default the service dynamically applies the optimal parallel copy setting based on your source-sink pair and data pattern. 
 
 > [!TIP]
-> The default behavior of parallel copy usually gives you the best throughput, which is auto-determined by ADF based on your source-sink pair, data pattern and number of DIUs or the Self-hosted IR's CPU/memory/node count. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on when to tune parallel copy.
+> The default behavior of parallel copy usually gives you the best throughput, which is auto-determined by the service based on your source-sink pair, data pattern and number of DIUs or the Self-hosted IR's CPU/memory/node count. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on when to tune parallel copy.
 
 The following table lists the parallel copy behavior:
 
@@ -83,8 +92,8 @@ The following table lists the parallel copy behavior:
 | --- | --- |
 | Between file stores | `parallelCopies` determines the parallelism **at the file level**. The chunking within each file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given data store type to load data in parallel. <br/><br/>The actual number of parallel copies copy activity uses at run time is no more than the number of files you have. If the copy behavior is **mergeFile** into file sink, the copy activity can't take advantage of file-level parallelism. |
 | From file store to non-file store | - When copying data into Azure SQL Database or Azure Cosmos DB, default parallel copy also depend on the sink tier (number of DTUs/RUs).<br>- When copying data into Azure Table, default parallel copy is 4. |
-| From non-file store to file store | - When copying data from partition-option-enabled data store (including [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), and [Teradata](connector-teradata.md#teradata-as-source)), default parallel copy is 4. The actual number of parallel copies copy activity uses at run time is no more than the number of data partitions you have. When use Self-hosted Integration Runtime and copy to Azure Blob/ADLS Gen2, note the max effective parallel copy is 4 or 5 per IR node.<br>- For other scenarios, parallel copy doesn't take effect. Even if parallelism is specified, it's not applied. |
-| Between non-file stores | - When copying data into Azure SQL Database or Azure Cosmos DB, default parallel copy also depend on the sink tier (number of DTUs/RUs).<br/>- When copying data from partition-option-enabled data store (including [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), and [Teradata](connector-teradata.md#teradata-as-source)), default parallel copy is 4.<br>- When copying data into Azure Table, default parallel copy is 4. |
+| From non-file store to file store | - When copying data from partition-option-enabled data store (including [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md#amazon-rds-for-oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Amazon RDS for SQL Server](connector-amazon-rds-for-sql-server.md#amazon-rds-for-sql-server-as-a-source) and [Teradata](connector-teradata.md#teradata-as-source)), default parallel copy is 4. The actual number of parallel copies copy activity uses at run time is no more than the number of data partitions you have. When use Self-hosted Integration Runtime and copy to Azure Blob/ADLS Gen2, note the max effective parallel copy is 4 or 5 per IR node.<br>- For other scenarios, parallel copy doesn't take effect. Even if parallelism is specified, it's not applied. |
+| Between non-file stores | - When copying data into Azure SQL Database or Azure Cosmos DB, default parallel copy also depend on the sink tier (number of DTUs/RUs).<br/>- When copying data from partition-option-enabled data store (including [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md#amazon-rds-for-oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Amazon RDS for SQL Server](connector-amazon-rds-for-sql-server.md#amazon-rds-for-sql-server-as-a-source) and [Teradata](connector-teradata.md#teradata-as-source)), default parallel copy is 4.<br>- When copying data into Azure Table, default parallel copy is 4. |
 
 To control the load on machines that host your data stores, or to tune copy performance, you can override the default value and specify a value for the `parallelCopies` property. The value must be an integer greater than or equal to 1. At run time, for the best performance, the copy activity uses a value that is less than or equal to the value that you set.
 
@@ -126,9 +135,9 @@ When you copy data from a source data store to a sink data store, you might choo
 
 ### How staged copy works
 
-When you activate the staging feature, first the data is copied from the source data store to the staging storage (bring your own Azure Blob or Azure Data Lake Storage Gen2). Next, the data is copied from the staging to the sink data store. Azure Data Factory copy activity automatically manages the two-stage flow for you, and also cleans up temporary data from the staging storage after the data movement is complete.
+When you activate the staging feature, first the data is copied from the source data store to the staging storage (bring your own Azure Blob or Azure Data Lake Storage Gen2). Next, the data is copied from the staging to the sink data store. The copy activity automatically manages the two-stage flow for you, and also cleans up temporary data from the staging storage after the data movement is complete.
 
-![Staged copy](media/copy-activity-performance/staged-copy.png)
+:::image type="content" source="media/copy-activity-performance/staged-copy.png" alt-text="Staged copy":::
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to the staging store and then decompressed before you move data from an interim or staging data store to the sink data store.
 

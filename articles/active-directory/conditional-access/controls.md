@@ -10,7 +10,7 @@ ms.date: 08/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: inbarc
 
 ms.collection: M365-identity-device-management
@@ -23,6 +23,9 @@ Custom controls is a preview capability of the Azure Active Directory. When usin
 > For more information about changes we are planning to the Custom Control capability, see the February 2020 [Archive for What's new](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls).
 
 ## Creating custom controls
+
+> [!IMPORTANT]
+> Custom controls cannot be used with Identity Protection's automation requiring Azure AD Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
 
 Custom Controls works with a limited set of approved authentication providers. To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with Conditional Access. At that point, the provider will provide you with a block of data in JSON format. This data allows the provider and Conditional Access to work together for your tenant, creates the new control and defines how Conditional Access can tell if your users have successfully performed verification with the provider.
 

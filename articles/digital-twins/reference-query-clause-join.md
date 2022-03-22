@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - JOIN clauses
+title: Azure Digital Twins query language reference - JOIN clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language JOIN clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,16 +17,16 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: JOIN clause
 
-This document contains reference information on the **JOIN clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *JOIN clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The `JOIN` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md) when you want to query to traverse the Azure Digital Twins graph.
 
 This clause is optional while querying.
 
 ## Core syntax: JOIN ... RELATED 
-Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection. This set of relationships can be assigned a collection name.
+Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection (the type is specified using the relationship's `name` field from its [DTDL definition](concepts-models.md#basic-relationship-example)). The set of relationships can be assigned a collection name within the query.
 
-The query must then use the `WHERE` clause to specify which specific twin or twins are being used to support the relationship query. This is done by filtering on either the source or target twin's `$dtId` value.
+The query must then use the `WHERE` clause to specify which specific twin or twins are being used to support the relationship query, which is done by filtering on either the source or target twin's `$dtId` value.
 
 ### Syntax
 
@@ -34,7 +34,7 @@ The query must then use the `WHERE` clause to specify which specific twin or twi
 
 ### Example
 
-The following query selects all digital twins that are related to the twin with an ID of *ABC* through a *contains* relationship.
+The following query selects all digital twins that are related to the twin with an ID of `ABC` through a `contains` relationship.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="JoinExample":::
 
@@ -59,7 +59,7 @@ The following limits apply to queries using `JOIN`.
 * [No OUTER JOIN semantics](#no-outer-join-semantics)
 * [Source twin required](#twins-required)
 
-See the sections below for more details.
+For more information, see the following sections.
 
 ### Depth limit of five
 
@@ -67,13 +67,13 @@ Graph traversal depth is restricted to five `JOIN` levels per query.
 
 #### Example
 
-The following query illustrates the maximum number of `JOINs` that are possible in an Azure Digital Twins query. It gets all the LightBulbs in Buliding1.
+The following query illustrates the maximum number of `JOIN` clauses that are possible in an Azure Digital Twins query. It gets all the LightBulbs in Building1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MaxJoinExample":::
 
 ### No OUTER JOIN semantics
 
-`OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
+`OUTER JOIN` semantics aren't supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 
 #### Example
 
@@ -85,6 +85,6 @@ If Building1 contains no floors, then this query will return an empty result set
 
 ### Twins required
 
-Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This is included as part of the default `JOIN` usage in Azure Digital Twins through the `RELATED` keyword. 
+Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This functionality is included as part of the default `JOIN` usage in Azure Digital Twins through the `RELATED` keyword. 
 
 Queries with a `JOIN` clause must also filter by any twin's `$dtId` property in the `WHERE` clause, to clarify which twin(s) are being used to support the relationship query.

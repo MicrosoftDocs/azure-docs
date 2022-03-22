@@ -15,7 +15,7 @@ This article demonstrates how to debug a local function that handles an Azure Ev
 ## Prerequisites
 
 - Create or use an existing function app
-- Create or use an existing storage account. Event Grid notification subscription can be set on Azure Storage accounts for `BlobStorage`, `StorageV2`, or [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction).
+- Create or use an existing storage account. Event Grid notification subscription can be set on Azure Storage accounts for `BlobStorage`, `StorageV2`, or [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 - Download [ngrok](https://ngrok.com/) to allow Azure to call your local function
 
 ## Create a new function

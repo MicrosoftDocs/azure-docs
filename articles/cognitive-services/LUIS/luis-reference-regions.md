@@ -6,48 +6,55 @@ ms.subservice: language-understanding
 author: aahill
 ms.author: aahi
 ms.topic: reference
-ms.date: 05/27/2021
+ms.date: 02/08/2022
 ms.custom: references_regions
 ---
 
 # Authoring and publishing regions and the associated keys
 
-LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app to more than one region, you need at least one key per region.
-
+LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app to more than one region, you need at least one predection key per region.
 
 <a name="luis-website"></a>
 
 ## LUIS Authoring regions
 
-[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+Authoring regions are the regions where the application gets created and the training take place.
 
-LUIS has the following authoring regions available:
+LUIS has the following authoring regions available with [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md):
 	
 * Australia east
 * West Europe
 * West US
 * Switzerland north
 
-
-LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.luis.ai). You must still author and publish in the same region. Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
+LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.luis.ai).
 
 <a name="regions-and-azure-resources"></a>
 
 ## Publishing regions and Azure resources
 
-The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS or Cognitive Service resource in **westus** and [add it to the app as a resource](luis-how-to-azure-subscription.md), the app is published in that region.
+Publishing regions are the regions where the application will be used in runtime. To use the application in a publishing region, you must create a resource in this region and assign your application to it. For example, if you create an app with the *westus* authoring region and publish it to the *eastus* and *brazilsouth* regions, the app will run in those two regions.
+
 
 ## Public apps
-A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with their resource key.
+A public app is published in all regions so that a user with a supported predection resource can access the app in all regions.
 
 <a name="publishing-regions"></a>
 
 ## Publishing regions are tied to authoring regions
 
-The authoring region app can only be published to a corresponding publish region. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region for your publishing region.
+When you first create our LUIS application, you are required to choose an [authoring region](#luis-authoring-regions). To use the application in runtime, you are required to create a resource in a publishing region.
 
-> [!NOTE]
-> LUIS apps created on https://www.luis.ai can now be published to all endpoints including the [European](#publishing-to-europe) and [Australian](#publishing-to-australia) regions.
+Every authoring region has corresponding prediction regions that you can publish your application to, which are listed in the tables below. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region to match the required publishing region.
+
+
+## Single data residency
+
+Single data residency means that the data does not leave the boundaries of the region.
+
+> [!Note]
+> * Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the runtime region. 
+> * If `log=true`, data is returned to the authoring region for active learning.
 
 ## Publishing to Europe
 
@@ -58,6 +65,7 @@ The authoring region app can only be published to a corresponding publish region
 | Europe | `westeurope`| West Europe<br>`westeurope`    |  `https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Europe | `westeurope`| UK South<br>`uksouth`    |  `https://uksouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Europe | `westeurope`| Switzerland North<br>`switzerlandnorth`    |  `https://switzerlandnorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| Europe | `westeurope`| Norway East<br>`norwayeast`    |  `https://norwayeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
 ## Publishing to Australia
 
@@ -74,6 +82,7 @@ The authoring region app can only be published to a corresponding publish region
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| East Asia<br>`eastasia`     |  `https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Japan East<br>`japaneast`     |   `https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Japan West<br>`japanwest`     |   `https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
+| Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Jio India West<br>`jioindiawest`     |   `https://jioindiawest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Korea Central<br>`koreacentral`     |   `https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Southeast Asia<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| North UAE<br>`northuae`     |   `https://northuae.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
@@ -86,6 +95,7 @@ The authoring region app can only be published to a corresponding publish region
 | North America |`westus`<br>[www.luis.ai][www.luis.ai] | West Central US<br>`westcentralus`    |  `https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | North America | `westus`<br>[www.luis.ai][www.luis.ai] | West US<br>`westus`  |   `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | North America |`westus`<br>[www.luis.ai][www.luis.ai] | West US 2<br>`westus2`    |  `https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
+| North America |`westus`<br>[www.luis.ai][www.luis.ai] | West US 3<br>`westus3`    |  `https://westus3.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 | South America | `westus`<br>[www.luis.ai][www.luis.ai] | Brazil South<br>`brazilsouth`    |  `https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY` |
 
 ## Endpoints
@@ -94,13 +104,18 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 
 ## Failover regions
 
-Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
+Each region has a secondary region to fail over to. Failover will only happen in the same geographical region.
 
-Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
+Authoring regions have [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md).
+
+The following publishing regions do not have a failover region:
+
+* Brazil South
+* Southeast Asia
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+
 > [Prebuilt entities reference](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai

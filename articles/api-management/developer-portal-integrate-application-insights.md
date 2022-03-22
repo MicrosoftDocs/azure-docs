@@ -3,7 +3,7 @@ title: Integrate Application Insights to developer portal
 titleSuffix: Azure API Management
 description: Learn how to integrate Application Insights into your managed or self-hosted developer portal.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to

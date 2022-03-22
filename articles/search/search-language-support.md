@@ -8,16 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 09/08/2021
 ---
 
-# How to create an index for multiple languages in Azure Cognitive Search
+# Create an index for multiple languages in Azure Cognitive Search
 
 A key requirement in a multilingual search application is the ability to search over and retrieve results in the user's own language. In Azure Cognitive Search, one way to meet the language requirements of a multilingual app is to create dedicated fields for storing strings in a specific language, and then constrain full text search to just those fields at query time.
 
-+ On field definitions, set a language analyzer that invokes the linguistic rules of the target language. To view the full list of supported analyzers, see [Add language analyzers](index-add-language-analyzers.md).
++ On field definitions, [specify a language analyzer](index-add-language-analyzers.md) that invokes the linguistic rules of the target language. 
 
-+ On the query request, set parameters to scope full text search to specific fields, and then trim the results of any fields that don't provide content compatible with the search experience you want to deliver.
++ On the query request, set the `searchFields` parameter to scope full text search to specific fields, and then use `select` to return just those fields that have compatible content.
 
 The success of this technique hinges on the integrity of field contents. Azure Cognitive Search does not translate strings or perform language detection as part of query execution. It is up to you to make sure that fields contain the strings you expect.
 
@@ -137,7 +137,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 ## Next steps
 
-+ [Language analyzers](index-add-language-analyzers.md)
++ [Add a language analyzer](index-add-language-analyzers.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](/rest/api/searchservice/search-documents)
 + [AI enrichment overview](cognitive-search-concept-intro.md)

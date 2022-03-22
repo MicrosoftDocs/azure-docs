@@ -24,23 +24,38 @@ landingContent:
         links:
           - text: What is Azure Web PubSub service?
             url: overview.md
+          - text: Key concepts in Azure Web PubSub service
+            url: key-concepts.md
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with a live demo 
-            url: quickstart-live-demo.md
+          - text: Connect to the instance 
+            url: quickstart-cli-try.md
           - text: Start with a simple chatroom serverless application 
             url: quickstart-serverless.md
+          - text: Serverless Development with Azure Functions
+            url: tutorial-serverless-notification.md
       - linkListType: how-to-guide
         links:
-          - text: How to create Web PubSub instance
-            url: howto-develop-create-instance.md
-          - text: Publish and subscribe messages
-            url: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
-          - text: Work with subprotocols 
-            url: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+          - text: Build a chat app 
+            url: tutorial-build-chat.md
+          - text: Client streaming using service-supported subprotocol
+            url: tutorial-subprotocol.md
           - text: Authentication and permissions
-            url: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
+            url: tutorial-permission.md
+     
+  # Card
+  - title: Live Demos
+    linkLists:       
+      - linkListType: quickstart
+        links:
+          - text: Whiteboard
+            url: https://azure.github.io/azure-webpubsub/demos/whiteboard
+          - text: Simple chat
+            url: https://azure.github.io/azure-webpubsub/demos/chat
+          - text: Code streaming
+            url: https://azure.github.io/azure-webpubsub/demos/code-streaming
+        

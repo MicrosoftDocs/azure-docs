@@ -1,16 +1,16 @@
-﻿---
+---
 title: Understand and solve Azure Active Directory Application Proxy CORS issues
 description: Provides an understanding of CORS in Azure Active Directory Application Proxy, and how to identify and solve CORS issues. 
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/28/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Understand and solve Azure Active Directory Application Proxy CORS issues
@@ -88,6 +88,7 @@ Add a custom HTTP response header on the web service to match the origin request
 
 This modification doesn't require any code changes. You can verify it in the Fiddler traces:
 
+```output
 **Post the Header Addition**\
 HTTP/1.1 200 OK\
 Cache-Control: no-cache\
@@ -100,6 +101,7 @@ Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
+```
 
 ### Option 4: Modify the app
 

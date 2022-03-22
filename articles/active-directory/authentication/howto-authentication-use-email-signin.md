@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 5/3/2021
+ms.date: 07/07/2021
 
 ms.author: justinha
-author: justinha
-manager: daveba
+author: calui
+manager: karenhoran
 ms.reviewer: calui
 
 ---
@@ -27,7 +27,9 @@ Some organizations haven't moved to hybrid authentication for the following reas
 * Changing the Azure AD UPN creates a mismatch between on-premises and Azure AD environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
 
-To help with the move to hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `balas@fabrikam.com`.
+To help with the move to hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `ana@fabrikam.com`.
+
+![Diagram of email as an alternate login ID.](media/howto-authentication-use-email-signin/email-alternate-login-id.png)
 
 This article shows you how to enable and use email as an alternate login ID.
 
@@ -36,8 +38,9 @@ This article shows you how to enable and use email as an alternate login ID.
 Here's what you need to know about email as an alternate login ID:
 
 * The feature is available in Azure AD Free edition and higher.
-* The feature enables sign-in with verified domain *ProxyAddresses* for cloud-authenticated Azure AD users.
-* When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) will have the value of the non-UPN email.
+* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD B2B scenarios in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
+* When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
+* The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
     * [Home Realm Discovery (HRD) policy](#enable-user-sign-in-with-an-email-address) - Use this option to enable the feature for the entire tenant. Global administrator privileges required.
     * [Staged rollout policy](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - Use this option to test the feature with specific Azure AD groups. Global administrator privileges required.
@@ -46,31 +49,39 @@ Here's what you need to know about email as an alternate login ID:
 
 In the current preview state, the following limitations apply to email as an alternate login ID:
 
-* Users may see their UPN, even when they signed-in with their non-UPN email. The following example behavior may be seen:
+* **User experience** - Users may see their UPN, even when they signed-in with their non-UPN email. The following example behavior may be seen:
     * User is prompted to sign in with UPN when directed to Azure AD sign-in with `login_hint=<non-UPN email>`.
     * When a user signs-in with a non-UPN email and enters an incorrect password, the *"Enter your password"* page changes to display the UPN.
-    * On some Microsoft sites and apps, such as Microsoft Office, the **Account Manager** control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
+    * On some Microsoft sites and apps, such as Microsoft Office, the *Account Manager* control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
 
-* Some flows are currently not compatible with non-UPN emails, such as the following:
+* **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
     * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
-    * B2B invites sent to a non-UPN email are not fully supported. After accepting an invite sent to a non-UPN email, sign-in with the non-UPN email may not work for the guest user on the resource tenant endpoint.
-    * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity via alternate email.
+    * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
-* The following scenarios are not supported. Sign-in with non-UPN email to:
-    * Hybrid Azure AD joined devices
-    * Azure AD joined devices
+* **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
+    * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
+    * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
+    * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
+    * [Applications using Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
+    * Applications using legacy authentication such as POP3 and SMTP
     * Skype for Business
     * Microsoft Office on macOS
-    * OneDrive (when the sign-in flow does not involve Multi-Factor Authentication)
-    * Microsoft Teams on web
-    * Resource Owner Password Credentials (ROPC) flows
+    * Microsoft 365 Admin Portal
 
-* Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs.
-* Staged rollout policy does not work as expected for users that are included in multiple staged rollout policies.
-* Within a tenant, a cloud-only user's UPN can be the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. More on this issue in the [Troubleshoot](#troubleshoot) section.
+* **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
+
+* **Logging** - Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs. In addition, the *Sign-in identifier type* field in the sign-in logs may not be always accurate and should not be used to determine whether the feature has been used for sign-in.
+
+* **Staged rollout policy** - The following limitations apply only when the feature is enabled using staged rollout policy:
+    * The feature does not work as expected for users that are included in other staged rollout policies.
+    * Staged rollout policy supports a maximum of 10 groups per feature.
+    * Staged rollout policy does not support nested groups.
+    * Staged rollout policy does not support dynamic groups.
+    * Contact objects inside the group will block the group from being added to a staged rollout policy.
+
+* **Duplicate values** - Within a tenant, a cloud-only user's UPN can be the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. More on this issue in the [Troubleshoot](#troubleshoot) section.
 
 ## Overview of alternate login ID options
-
 To sign in to Azure AD, users enter a value that uniquely identifies their account. Historically, you could only use the Azure AD UPN as the sign-in identifier.
 
 For organizations where the on-premises UPN is the user's preferred sign-in email, this approach was great. Those organizations would set the Azure AD UPN to the exact same value as the on-premises UPN, and users would have a consistent sign-in experience.
@@ -90,15 +101,15 @@ A different approach is to synchronize the Azure AD and on-premises UPNs to the 
 
 | Option | Description |
 |---|---|
-| [Alternate Login ID for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Enable sign-in with an alternate attribute (such as Mail) for AD FS users. |
-| [Alternate Login ID in Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-userprincipalname#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
+| [Alternate Login ID for AD FS](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Enable sign-in with an alternate attribute (such as Mail) for AD FS users. |
+| [Alternate Login ID in Azure AD Connect](../hybrid/plan-connect-userprincipalname.md#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
 | Email as an Alternate Login ID | Enable sign-in with verified domain *ProxyAddresses* for Azure AD users. |
 
 ## Synchronize sign-in email addresses to Azure AD
 
 Traditional Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) authentication happens directly on your network and is handled by your AD DS infrastructure. With hybrid authentication, users can instead sign in directly to Azure AD.
 
-To support this hybrid authentication approach, you synchronize your on-premises AD DS environment to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use Password Hash Sync (PHS) or Pass-Through Authentication (PTA). For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution][hybrid-auth-methods].
+To support this hybrid authentication approach, you synchronize your on-premises AD DS environment to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use PHS or PTA. For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution][hybrid-auth-methods].
 
 In both configuration options, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. When users sign in to Azure AD, it removes the need for your organization to host and manage an AD FS infrastructure.
 
@@ -109,10 +120,16 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 >
 > For more information, see [Add and verify a custom domain name in Azure AD][verify-domain].
 
+## B2B guest user sign-in with an email address
+
+![Diagram of email as an alternate login ID for B2B guest user sign-in.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
+
+Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenanted endpoint. No action is required from the resource tenant to enable this functionality.
+
 ## Enable user sign-in with an email address
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
@@ -224,7 +241,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 ## Enable staged rollout to test user sign-in with an email address  
 
 > [!NOTE]
->This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](https://docs.microsoft.com/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true).
+>This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](/graph/api/resources/featurerolloutpolicy).
 
 Staged rollout policy allows tenant administrators to enable features for specific Azure AD groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use [HRD policy](#enable-user-sign-in-with-an-email-address).  
 
@@ -301,7 +318,7 @@ To test that users can sign in with email, go to [https://myprofile.microsoft.co
 
 ## Troubleshoot
 
-If users have trouble signing-in with their email address, review the following troubleshooting steps:
+If users have trouble signing in with their email address, review the following troubleshooting steps:
 
 1. Make sure it's been at least 1 hour since email as an alternate login ID was enabled. If the user was recently added to a group for staged rollout policy, make sure it's been at least 24 hours since they were added to the group.
 1. If using HRD policy, confirm that the Azure AD *HomeRealmDiscoveryPolicy* has the *AlternateIdLogin* definition property set to *"Enabled": true* and the *IsOrganizationDefault* property set to *True*:

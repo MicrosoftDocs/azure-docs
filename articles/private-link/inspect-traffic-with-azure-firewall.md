@@ -24,7 +24,7 @@ You may need to inspect or block traffic from clients to the services exposed vi
 The following limitations apply:
 
 * Network security groups (NSG) are bypassed by traffic coming from private endpoints
-* User-defined routes (UDR) are bypassed by traffic coming from private endpoints
+* User-defined routes (UDR) are bypassed by traffic coming from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
 * A single route table can be attached to a subnet
 * A route table supports up to 400 routes
 
@@ -171,7 +171,7 @@ Replace the following parameters in the steps with the information below:
     | **Administrator account** |  |
     | Authentication type | Select **Password**. |
     | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |

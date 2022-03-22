@@ -3,7 +3,7 @@ title: How to log events to Azure Event Hubs in Azure API Management | Microsoft
 description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -13,22 +13,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
 
-This article is a companion to the [Integrate Azure API Management with Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video and describes how to log API Management events using Azure Event Hubs.
+This article describes how to log API Management events using Azure Event Hubs.
 
 ## Create an Azure Event Hub
 
 For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
 
-## Create an API Management logger
-Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/2019-12-01/logger) in your API Management service so that it can log events to the Event Hub.
+> [!NOTE]
+> The Event Hub resource **can be** in a different subscription or even a different tenant than the API Management resource
 
-API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+## Create an API Management logger
+Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the Event Hub.
+
+API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/current-ga/logger/create-or-update).
 
 ## Configure log-to-eventhub policies
 
@@ -81,7 +84,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
-  * [Logger entity reference](/rest/api/apimanagement/2019-12-01/logger)
+  * [Logger entity reference](/rest/api/apimanagement/current-ga/logger)
   * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)

@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    `https://api.heybuddy.com/auth/<ENTITY ID>`
 
    > [!NOTE]
-   > The value is not real. Update the value with the actual Sign-On URL. The `Entity ID` in the Sign on url is auto generated for each organization. Contact [HeyBuddy Client support team](mailto:support@heybuddy.com) to get these values.
+   > The value is not real. Update the value with the actual Sign-On URL. The `Entity ID` in the Sign on URL is auto generated for each organization. Contact [HeyBuddy Client support team](mailto:support@heybuddy.com) to get these values.
 
 1. HeyBuddy application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -141,8 +141,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 - Go to HeyBuddy Sign-on URL directly and initiate the login flow from there.
 
-- You can use Microsoft My Apps. When you click the HeyBuddy tile in the My Apps, this will redirect to HeyBuddy Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+- You can use Microsoft My Apps. When you click the HeyBuddy tile in the My Apps, this will redirect to HeyBuddy Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure HeyBuddy you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure HeyBuddy you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

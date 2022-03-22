@@ -13,6 +13,8 @@ ms.reviewer: jagaveer
 
 # Deploy Azure Spot Virtual Machines using the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Using [Azure Spot Virtual Machines](../spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. Therefore, Azure Spot Virtual Machines are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 Pricing for Azure Spot Virtual Machines is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
@@ -66,7 +68,7 @@ You can simulate an eviction of an Azure Spot Virtual Machine using REST, PowerS
 
 In most cases, you will want to use the REST API [Virtual Machines - Simulate Eviction](/rest/api/compute/virtualmachines/simulateeviction) to help with automated testing of applications. For REST, a `Response Code: 204` means the simulated eviction was successful. You can combine simulated evictions with the [Scheduled Event service](scheduled-events.md), to automate how your app will respond when the VM is evicted.
 
-To see scheduled events in action, watch [Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
+To see scheduled events in action, watch Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance.
 
 
 ### Quick test

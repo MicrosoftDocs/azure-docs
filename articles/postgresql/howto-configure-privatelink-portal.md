@@ -1,9 +1,10 @@
 ---
 title: Private Link - Azure portal - Azure Database for PostgreSQL - Single server
 description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure portal
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
+ms.author: sumuth
+author: mksuni
 ms.topic: how-to
 ms.date: 01/09/2020
 ---
@@ -61,7 +62,7 @@ In this section, you will create a Virtual Network and the subnet to host the VM
     | Size | Leave the default **Standard DS1 v2**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Leave the default **None**. |

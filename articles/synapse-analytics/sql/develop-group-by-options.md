@@ -1,7 +1,6 @@
 ---
 title: Use GROUP BY options in Synapse SQL
 description: Synapse SQL allows for developing solutions by implementing different GROUP BY options.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: 
 ---
 
@@ -22,7 +21,7 @@ Synapse SQL allows for developing solutions by implementing different GROUP BY o
 
 The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) T-SQL clause aggregates data to a summary set of rows.
 
-Serverless SQL pool supports the whole range of GROUP BY options. Dedicated SQL pool supports a limited number of GROUP BY options.
+Serverless SQL pool doesn't support GROUP BY options. Dedicated SQL pool supports a limited number of GROUP BY options.
 
 ## GROUP BY options supported in dedicated SQL pool
 

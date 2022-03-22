@@ -3,28 +3,36 @@ title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
 titleSuffix: Microsoft identity platform
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/7/2020
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.date: 08/30/2021
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
 # Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
 
-
 The OAuth 2.0 On-Behalf-Of flow (OBO) serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform, on behalf of the user.
 
-This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+The OBO flow only works for user principals at this time. A service principal cannot request an app-only token, send it to an API, and have that API exchange that for another token that represents that original service principal. Additionally, the OBO flow is focused on acting on another party's behalf, known as a delegated scenario - this means that it uses only delegated *scopes*, and not application *roles*, for reasoning about permissions. *Roles* remain attached to the principal (the user) in the flow, never the application operating on the users behalf.
 
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead. For more info about which clients can perform OBO calls, see [limitations](#client-limitations).
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
+
+## Client limitations
+
+As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead.
+
+If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token can't be used for an OBO flow.  However, access tokens acquired through the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered.
+
+Additionally, applications with custom signing keys cannot be used as middle-tier API's in the OBO flow (this includes enterprise applications configured for single sign-on). This will result in an error because tokens signed with a key controlled by the client cannot be safely accepted.
 
 ## Protocol diagram
 
@@ -50,6 +58,8 @@ To request an access token, make an HTTP POST to the tenant-specific Microsoft i
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
 
+[!INCLUDE [remind-not-to-relay-token-nonaud](includes/remind-not-to-relay-token-nonaud.md)]
+
 There are two cases depending on whether the client application chooses to be secured by a shared secret or a certificate.
 
 ### First case: Access token request with a shared secret
@@ -60,7 +70,7 @@ When using a shared secret, a service-to-service access token request contains t
 | --- | --- | --- |
 | `grant_type` | Required | The type of  token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Required | The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
-| `client_secret` | Required | The client secret that you generated for your app in the Azure portal - App registrations page. |
+| `client_secret` | Required | The client secret that you generated for your app in the Azure portal - App registrations page.  The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 | `assertion` | Required | The access token that was sent to the middle-tier API.  This token must have an audience (`aud`) claim of the app making this OBO request (the app denoted by the `client-id` field). Applications cannot redeem a token for a different app (so e.g. if a client sends an API a token meant for MS Graph, the API cannot redeem it using OBO.  It should instead reject the token).  |
 | `scope` | Required | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). |
 | `requested_token_use` | Required | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
@@ -77,8 +87,8 @@ Host: login.microsoftonline.com/<tenant>
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-&client_id=2846f71b-a7a4-4987-bab3-760035b2f389
-&client_secret=BYyVnAt56JpLwUcyo47XODd
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&client_secret=sampleCredentia1s
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiIyO{a lot of characters here}
 &scope=https://graph.microsoft.com/user.read+offline_access
 &requested_token_use=on_behalf_of
@@ -149,16 +159,16 @@ The following example shows a success response to a request for an access token 
 
 The above access token is a v1.0-formatted token for Microsoft Graph. This is because the token format is based on the **resource** being accessed and unrelated to the endpoints used to request it. The Microsoft Graph is setup to accept v1.0 tokens, so the Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Other apps may indicate that they want v2.0-format tokens, v1.0-format tokens, or even proprietary or encrypted token formats.  Both the v1.0 and v2.0 endpoints can emit either format of token - this way the resource can always get the right format of token regardless of how or where the token was requested by the client. 
 
-Only applications should look at access tokens. Clients **must not** inspect them. Inspecting access tokens for other apps in your code will result in your app unexpectedly breaking when that app changes the format of their tokens or starts encrypting them. 
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### Error response example
 
-An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as [multi-factor authentication](../authentication/concept-mfa-howitworks.md)) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
+An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as [multifactor authentication](../authentication/concept-mfa-howitworks.md)) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```json
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multifactor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -194,20 +204,20 @@ A service-to-service request for a SAML assertion contains the following paramet
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. For a request that uses a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | The type of the token request. For a request that uses a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | assertion |required | The value of the access token used in the request.|
 | client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
-| client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
-| resource |required | The app ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token. To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
-| requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
-| requested_token_type | required | Specifies the type of token requested. The value can be **urn:ietf:params:oauth:token-type:saml2** or **urn:ietf:params:oauth:token-type:saml1** depending on the requirements of the accessed resource. |
+| client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration.  The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
+| scope |required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). SAML itself doesn't have a concept of scopes, but here it is used to identify the target SAML application for which you want to receive a token. For this OBO flow, the scope value must always be the SAML Entity ID with `/.default` appended. For example, in case the SAML application's Entity ID is `https://testapp.contoso.com`, then the requested scope should be `https://testapp.contoso.com/.default`. In case the Entity ID doesn't start with a URI scheme such as `https:`, Azure AD prefixes the Entity ID with `spn:`. In that case you must request the scope `spn:<EntityID>/.default`, for example `spn:testapp/.default` in case the Entity ID is `testapp`. Note that the scope value you request here determines the resulting `Audience` element in the SAML token, which may be important to the SAML application receiving the token. |
+| requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be `on_behalf_of`. |
+| requested_token_type | required | Specifies the type of token requested. The value can be `urn:ietf:params:oauth:token-type:saml2` or `urn:ietf:params:oauth:token-type:saml1` depending on the requirements of the accessed resource. |
 
 The response contains a SAML token encoded in UTF8 and Base64url.
 
 - **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
 - **The SubjectConfirmationData node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
-
-- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information on permissions and obtaining administrator consent, see [Permissions and consent in the Azure Active Directory v1.0 endpoint](../azuread-dev/v1-permissions-consent.md).
+- **API permissions**: You have to [add the necessary API permissions](quickstart-configure-app-access-web-apis.md) on the middle-tier application to allow access to the SAML application, so that it can request a token for the `/.default` scope of the SAML application.
+- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application) below.
 
 ### Response with SAML assertion
 
@@ -236,15 +246,19 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 Depending on the architecture or usage of your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given so that the client app can call the middle-tier app, and the middle tier app has permission to call the back-end resource.
 
 > [!NOTE]
-> Previously the Microsoft account system (personal accounts) did not support the "Known client application" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
+> Previously the Microsoft account system (personal accounts) did not support the "known client applications" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
 
-### /.default and combined consent
+### .default and combined consent
 
-The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application. On the Microsoft identity platform, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+The middle tier application adds the client to the [known client applications list](reference-app-manifest.md#knownclientapplications-attribute) (`knownClientApplications`) in its manifest. If a consent prompt is triggered by the client, the consent flow will be both for itself and the middle tier application. On the Microsoft identity platform, this is done using the [`.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+
+The resource service (API) identified in the request should be the API for which the client application is requesting an access token as a result of the user's sign-in. For example, `scope=openid https://middle-tier-api.example.com/.default` (to request an access token for the middle tier API), or `scope=openid offline_access .default` (when a resource is not identified, it defaults to Microsoft Graph).
+
+Regardless of which API is identified in the authorization request, the consent prompt will be a combined consent prompt including all required permissions configured for the client app, as well as all required permissions configured for each middle tier API listed in the client's required permissions list, and which have identified the client as a known client application. 
 
 ### Pre-authorized applications
 
-Resources can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can declare multiple pre-authorized applications - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
+Resources can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can [declare multiple pre-authorized applications](reference-app-manifest.md#preauthorizedapplications-attribute) (`preAuthorizedApplications`) in its manifest - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
 
 ### Admin consent
 
@@ -253,10 +267,6 @@ A tenant admin can guarantee that applications have permission to call their req
 ### Use of a single application
 
 In some scenarios, you may only have a single pairing of middle-tier and front-end client. In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether. To authenticate between the front-end and the web API, you can use cookies, an id_token, or an access token requested for the application itself. Then, request consent from this single application to the back-end resource.
-
-## Client limitations
-
-If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token can't be used for an OBO flow.  However, access tokens acquired through the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered.
 
 ## Next steps
 

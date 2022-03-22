@@ -7,7 +7,6 @@ documentationcenter: na
 author: damendo
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -39,7 +38,7 @@ The scenario covered in this article gets the security group view for a virtual 
 In this scenario, you will:
 
 - Retrieve a known good rule set
-- Retrieve a virtual machine with Rest API
+- Retrieve a virtual machine with REST API
 - Get security group view for virtual machine
 - Evaluate Response
 

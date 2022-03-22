@@ -2,7 +2,10 @@
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 02/14/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Email Azure Backup Reports
@@ -47,7 +50,7 @@ To perform the authorization, follow the steps below:
 
 ## Contents of the email
 
-* All the charts and graphs shown in the portal are available as inline content in the email.
+* All the charts and graphs shown in the portal are available as inline content in the email. [Learn more](configure-reports.md) about the information shown in Backup Reports.
 * The grids shown in the portal are available as *.csv attachments in the email.
 * The data shown in the email uses all the report-level filters selected by the user in the report, at the time of creating the email task.
 * Tab-level filters such as **Backup Instance Name**, **Policy Name** and so on, are not applied. The only exception to this is the **Retention Optimizations** grid in the **Optimize** tab, where the filters for **Daily**, **Weekly**, **Monthly** and **Yearly** RP retention are applied.
@@ -70,6 +73,20 @@ To troubleshoot this issue:
 2.	At the bottom of the **Overview** screen, you will see a **Runs History** section. You can open on the latest run and view which steps in the workflow failed. Some possible causes could be:
     * **Azure Monitor Logs Connector has not been not authorized**: To fix this issue, follow the authorization steps as provided above.
     * **Error in the LA query**: In case you have customized the logic app with your own queries, an error in any of the LA queries might be causing the logic app to fail. You can select the relevant step and view the error which is causing the query to run incorrectly.
+
+### Scenario 3: Error in authorizing O365 API connection
+
+When attempting to authorize the O365 API connection, you might see an error of the form _Test connection failed. Error 'REST API is not yet supported for this mailbox. This error can occur for sandbox (test) accounts or for accounts that are on a dedicated (on-premises) mail server._ 
+
+This error can occur if the mailbox is on a dedicated Microsoft Exchange Server and isn't a valid Office 365 mailbox. [Learn more](/connectors/office365/#common-errors)
+
+To get a valid Office 365 mailbox, submit a request to your Exchange or Global administrator to migrate the mailbox account. Users who don't have administrator permissions can't migrate accounts. For information on how to migrate the mailbox account, see [How to migrate mailbox data by using the Exchange Admin Center in Office 365](/exchange/troubleshoot/move-or-migrate-mailboxes/migrate-data-with-admin-center).
+
+### Scenario 4: Error in authorizing Azure Monitor Logs connection
+
+When attempting to authorize the Azure Monitor logs connection, you might see an _InvalidAuthenticationTokenTenant_ error. This generally happens when you're logged in to a different tenant at the time of authorizing the connection to Azure Monitor logs. You need to log in to the same tenant as the tenant where the Log Analytics workspace exists to complete the authorization successfully.
+
+To ensure you're logged in to the right tenant, you can open _portal.azure.com/< tenant-id-of-workspace >_ in the browser and perform the authorization. To find the tenant ID, go to **Azure Activity Directory** -> **Overview** -> **Manage Tenants**.
 
 If the issues persist, contact Microsoft support.
 

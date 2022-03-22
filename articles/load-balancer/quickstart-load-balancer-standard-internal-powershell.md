@@ -6,16 +6,15 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-# Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
-ms.author: allensu 
-ms.custom: devx-track-azurepowershell
+ms.author: allensu
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell
@@ -48,10 +47,6 @@ New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
-
-The following diagram shows the resources created in this quickstart:
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
 
 ## Configure virtual network - Standard
 
@@ -173,11 +168,10 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 
@@ -310,10 +304,6 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
 
-The following diagram shows the resources created in this quickstart:
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
-
 ## Configure virtual network - Basic
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
@@ -427,20 +417,16 @@ $lbip = @{
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @lbip
 
-## Create load balancer frontend configuration and place in variable. ##
-$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
-
 ## Create backend address pool configuration and place in variable. ##
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 

@@ -4,20 +4,19 @@ description: In this quickstart, you learn how to register an application with t
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/30/2021
+ms.date: 01/13/2022
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
-# Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4, mode-other
+#Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-In this quickstart, you register an app in the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application and its users.
+Get started with the Microsoft identity platform by registering an application in the Azure portal.
 
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
@@ -27,6 +26,10 @@ The Microsoft identity platform performs identity and access management (IAM) on
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
+  - [Application administrator](../roles/permissions-reference.md#application-administrator)
+  - [Application developer](../roles/permissions-reference.md#application-developer)
+  - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
@@ -36,7 +39,7 @@ Registering your application establishes a trust relationship between your app a
 Follow these steps to create the app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, in the top menu, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
@@ -58,7 +61,7 @@ Follow these steps to create the app registration:
 When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the _client ID_, this value uniquely identifies your application in the Microsoft identity platform.
 
 > [!IMPORTANT]
-> New app registrations are hidden to users by default. When you are ready for users to see the app on their [My Apps page](../user-help/my-apps-portal-end-user-access.md) you can enable it. To enable the app, in the Azure portal navigate to **Azure Active Directory** > **Enterprise applications** and select the app. Then on the **Properties** page toggle **Visible to users?** to Yes.
+> New app registrations are hidden to users by default. When you are ready for users to see the app on their [My Apps page](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) you can enable it. To enable the app, in the Azure portal navigate to **Azure Active Directory** > **Enterprise applications** and select the app. Then on the **Properties** page toggle **Visible to users?** to Yes.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID. The ID is used as part of validating the security tokens it receives from the identity platform.
 
@@ -76,7 +79,7 @@ You add and modify redirect URIs for your registered applications by configuring
 
 Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms, like mobile and desktop, you can select from redirect URIs generated for you when you configure their other settings.
 
-To configure application settings based on the platform or device you're targeting:
+To configure application settings based on the platform or device you're targeting, follow these steps:
 
 1. In the Azure portal, in **App registrations**, select your application.
 1. Under **Manage**, select **Authentication**.
@@ -101,7 +104,7 @@ There are some restrictions on the format of the redirect URIs you add to an app
 
 ## Add credentials
 
-Credentials are used by [confidential client applications](msal-client-applications.md) that access a web API. Examples of confidential clients are [web apps](scenario-web-app-call-api-overview.md), other [web APIs](scenario-protected-web-api-overview.md), or [service-type and daemon-type applications](scenario-daemon-overview.md). Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+Credentials are used by [confidential client applications](msal-client-applications.md) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
@@ -112,7 +115,7 @@ You can add both certificates and client secrets (a string) as credentials to yo
 Sometimes called a _public key_, a certificate is the recommended credential type because they're considered more secure than client secrets. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md).
 
 1. In the Azure portal, in **App registrations**, select your application.
-1. Select **Certificates & secrets** > **Upload certificate**.
+1. Select **Certificates & secrets** > **Certificates** > **Upload certificate**.
 1. Select the file you want to upload. It must be one of the following file types: _.cer_, _.pem_, _.crt_.
 1. Select **Add**.
 
@@ -120,10 +123,10 @@ Sometimes called a _public key_, a certificate is the recommended credential typ
 
 Sometimes called an _application password_, a client secret is a string value your app can use in place of a certificate to identity itself.
 
-Client secrets are considered less secure than certificate credentials. Application developers sometimes use client secrets during local app development because of their ease of use. However, you should use certificate credentials for any application you have running in production.
+Client secrets are considered less secure than certificate credentials. Application developers sometimes use client secrets during local app development because of their ease of use. However, you should use certificate credentials for any of your applications that are running in production.
 
 1. In the Azure portal, in **App registrations**, select your application.
-1. Select **Certificates & secrets** > **New client secret**.
+1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Add a description for your client secret.
 1. Select an expiration for the secret or specify a custom lifetime.
     - Client secret lifetime is limited to two years (24 months) or less. You can't specify a custom lifetime longer than 24 months.

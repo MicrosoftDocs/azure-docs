@@ -4,17 +4,16 @@ description: Learn about how to detect and handle user accounts in Azure AD that
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 12/17/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -40,7 +39,7 @@ The last successful sign-in provides potential insights into a user's continued 
     
 ## How to detect inactive user accounts
 
-You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. Using this property, you can implement a solution for the following scenarios:
+You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. The **lastSignInDateTime** property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
 - **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
@@ -56,7 +55,10 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 ### How can I access this property?
 
-The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
+The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph API](/graph/overview#whats-in-microsoft-graph).   
+
+> [!NOTE]
+> The signInActivity resource type is available only on the Microsoft Graph `beta` endpoint and isn't yet supported in US Government GCC High environments.
 
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
@@ -70,8 +72,8 @@ To access this property, you need an Azure Active Directory Premium edition.
 
 To read this property, you need to grant the following rights: 
 
-- AuditLogs.Read.All
-- Organization.Read.All  
+- AuditLog.Read.All
+- Directory.Read.All  
 
 
 ### When does Azure AD update the property?
@@ -85,6 +87,10 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 
 - The last successful sign-in of a user took place before April 2020.
 - The affected user account was never used for a successful sign-in.
+
+### For how long is the last sign-in retained?
+
+The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
 
 ## Next steps
 

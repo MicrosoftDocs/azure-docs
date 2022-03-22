@@ -4,12 +4,11 @@ description: Learn how to delegate access governance from IT administrators to a
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
@@ -34,6 +33,8 @@ To delegate the creation and management of access packages in a catalog, you add
 This video provides an overview of how to delegate access governance from catalog owner to access package manager.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
+
+In addition to the catalog owner and access package manager roles, you can also add users to the catalog reader role, which provides view-only access to the catalog, or to the access package assignment manager role, which enables the users to change assignments but not access packages or policies.
 
 ## As a catalog owner, delegate to an access package manager
 

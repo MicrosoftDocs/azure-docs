@@ -3,14 +3,13 @@ title: Tutorial - Configure subnet traffic routing with Azure Traffic Manager
 description: This tutorial explains how to configure Traffic Manager to route traffic from user subnets to specific endpoints. 
 services: traffic-manager
 documentationcenter: ''
-author: duongau
+author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2021
-ms.author: duau
+ms.author: allensu
 ---
 
 # Tutorial: Direct traffic to specific endpoints based on user subnet using Traffic Manager
@@ -62,9 +61,9 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWestEurope* in t
    - **Instance Details** > **Virtual machine name**: Type *myIISVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
-   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull-down box.
+   - **Inbound Port Rules** > **Select inbound ports**virtual-machines/windows/faq.yml: Select **RDP** and **HTTP** in the pull-down box.
 
 3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
 4. Select **Review + create**.
@@ -130,7 +129,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
    - **Instance Details** > **Virtual machine name**: Type *myVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull-down box.
 
@@ -170,9 +169,9 @@ Add the two VMs running the IIS servers - *myIISVMEastUS* & *myIISVMWestEurope* 
     | Name           | myInternalWebSiteEndpoint                                        |
     | Target resource type           | Public IP Address                          |
     | Target resource          | **Choose a Public IP address** to show the listing of resources with Public IP addresses under the same subscription. In **Resource**, select the public IP address named *myIISVMEastUS-ip*. This is the public IP address of the IIS server VM in East US.|
-    |  Subnet routing settings    |   Add the IP address of *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myInternalWebSiteEndpoint*.    |
+    |  Subnet routing settings    |   Add the IP address of the recursive DNS resolver used by *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myInternalWebSiteEndpoint*.    |
 
-4. Repeat steps 2 and 3 to add another endpoint named *myProdWebsiteEndpoint* for the public IP address *myIISVMWestEurope-ip* that is associated with the IIS server VM named *myIISVMWestEurope*. For **Subnet routing settings**, add the IP address of the test VM - *myVMWestEurope*. Any user query from this test VM will be routed to the endpoint - *myProdWebsiteEndpoint*.
+4. Repeat steps 2 and 3 to add another endpoint named *myProdWebsiteEndpoint* for the public IP address *myIISVMWestEurope-ip* that is associated with the IIS server VM named *myIISVMWestEurope*. For **Subnet routing settings**, add the IP address of the recursive DNS resolver used by test VM - *myVMWestEurope*. Any user query from this test VM via its DNS resolver will be routed to the endpoint - *myProdWebsiteEndpoint*.
 5. When the addition of both endpoints is complete, they're displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
 ## Test Traffic Manager profile

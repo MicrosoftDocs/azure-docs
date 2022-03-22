@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ---
-# Manage Azure Resource Manager resource groups by using the Azure portal
+# Manage Azure resource groups by using the Azure portal
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
 
@@ -104,6 +104,6 @@ For information about exporting templates, see [Single and multi-resource export
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

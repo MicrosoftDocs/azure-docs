@@ -4,12 +4,13 @@ description: In this article, you'll learn about how to fix database corruption 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 09/21/2020
 ---
 
 # Troubleshoot database corruption in Azure Database for MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Database corruption can cause downtime for your application. It's also critical to resolve corruption problems in time to avoid data loss. When database corruption occurs, you'll see this error in your server logs: `InnoDB: Database page corruption on disk or a failed.`
 
@@ -24,13 +25,15 @@ You typically notice a database or table is corrupt when your application access
 ## Use the dump and restore method
 
 We recommend that you resolve corruption problems by using a *dump and restore* method. This method involves:
+
 1. Accessing the corrupt table.
-1. Using the mysqldump utility to create a logical backup of the table. The backup will retain the table structure and the data within it.
-1. Reloading the table into the database.
+2. Using the mysqldump utility to create a logical backup of the table. The backup will retain the table structure and the data within it.
+3. Reloading the table into the database.
 
 ### Back up your database or tables
 
 > [!Important]
+>
 > - Make sure you have configured a firewall rule to access the server from your client machine. For more information, see [configure a firewall rule on Single Server](howto-manage-firewall-using-portal.md) and [configure a firewall rule on Flexible Server](flexible-server/how-to-connect-tls-ssl.md).
 > - Use SSL option `--ssl-cert` for mysqldump if you have SSL enabled.
 

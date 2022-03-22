@@ -5,11 +5,11 @@ services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 04/02/2021
+ms.date: 02/18/2022
 ms.author: caya
 ---
 
-# Troubleshooting mutual authentication errors in Application Gateway (Preview)
+# Troubleshooting mutual authentication errors in Application Gateway
 
 Learn how to troubleshoot problems with mutual authentication when using Application Gateway. 
 
@@ -22,7 +22,7 @@ After configuring mutual authentication on an Application Gateway, there can be 
 * Uploaded a certificate chain that only contained a leaf certificate without a CA certificate 
 * Validation errors due to issuer DN mismatch  
 
-We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. 
+We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. All client certificate authentication failures should result in an HTTP 400 error code. 
 
 ## Scenario troubleshooting - configuration problems
 There are a few scenarios that you might be facing when trying to configure mutual authentication. We'll walk through how to troubleshoot some of the most common pitfalls. 
@@ -57,7 +57,7 @@ openssl s_client -connect <hostname:port> -cert <path-to-certificate> -key <clie
 
 The `-cert` flag is the leaf certificate, the `-key` flag is the client private key file. 
 
-For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html).
+For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/manmaster/man1/openssl-s_client.html).
 
 ### SslClientVerify is FAILED
 

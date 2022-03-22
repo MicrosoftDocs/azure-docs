@@ -2,12 +2,14 @@
 title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage various tasks on ML Services cluster in Azure HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
+ROBOTS: NOINDEX
 ---
 
 # Manage ML Services cluster on Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding multiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
 
@@ -34,7 +36,7 @@ The R Studio Server Community version used in the ML Services cluster on HDInsig
   
 Currently, only one SSH user account can be created when provisioning an HDInsight cluster. So to enable multiple users to access ML Services cluster on HDInsight, you must create additional users in the Linux system.
 
-Because RStudio runs on the cluster’s edge node, there are several steps here:
+Because RStudio runs on the cluster's edge node, there are several steps here:
 
 1. Use the existing SSH user to sign in to the edge node
 2. Add more Linux users in edge node

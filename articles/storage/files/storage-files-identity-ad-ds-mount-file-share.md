@@ -1,12 +1,12 @@
 ---
 title: Mount Azure file share to an AD DS-joined VM
 description: Learn how to mount a file share to your on-premises Active Directory Domain Services-joined machines.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.author: rogarana
+ms.author: kendownie
 ---
 
 # Part four: mount a file share from a domain-joined VM
@@ -18,6 +18,13 @@ The process described in this article verifies that your file share and access p
 Sign in to the client by using the credentials that you granted permissions to, as shown in the following image.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Mounting prerequisites
 

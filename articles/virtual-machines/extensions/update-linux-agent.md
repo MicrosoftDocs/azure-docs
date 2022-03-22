@@ -4,8 +4,8 @@ description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 08/02/2017
 
@@ -395,7 +395,7 @@ cd WALinuxAgent-2.2.14
 ### 2. Install the Azure Linux Agent
 
 For version 2.2.x, use:
-You may need to install the package `setuptools` first--see [here](https://pypi.python.org/pypi/setuptools). Then run:
+You may need to install the package `setuptools` first--see [setuptools](https://pypi.python.org/pypi/setuptools). Then run:
 
 ```bash
 sudo python setup.py install

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 08/31/2021
 ms.author: alkohli
 ---
 
@@ -22,6 +22,9 @@ The article describes how to install your own certificates and how to revert to 
 A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party such as a **certificate authority**.  A certificate provides a convenient way of distributing trusted public encryption keys. In this way, certificates ensure your communication is trusted and you're sending encrypted information to the right server.
 
 When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
+
+> [!NOTE]
+> [!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)]
 
 On a Data Box or Data Box Heavy device, two types of endpoint certificates are used:
 

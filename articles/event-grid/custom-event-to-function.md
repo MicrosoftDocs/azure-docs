@@ -1,8 +1,10 @@
 ---
 title: 'Quickstart: Send custom events to Azure Function - Event Grid'
-description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.' 
-ms.date: 07/07/2020
+description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.'
+ms.date: 09/28/2021
 ms.topic: quickstart
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Route custom events to an Azure Function with Event Grid
@@ -15,14 +17,17 @@ Azure Event Grid is an eventing service for the cloud. Azure Functions is one of
 Before subscribing to the custom topic, create a function to handle the events. 
 
 1. Create a function app using instructions from [Create a function app](../azure-functions/functions-get-started.md).
-2. Create a function using the **Event Grid Trigger**. Select If this is your first time using this trigger, you may have to click 'Install' to install the extension.
-    1. On the **Function App** page, select **Functions** on the left menu, search for **Event Grid** in templates, and then select **Azure Event Grid trigger**. 
+1. On the **Function App** page, select **Functions** on the left menu. 
+1. Select **+Create** on the toolbar to create a function.
+1. On the **Create Function** page, follow these steps:
+    1. This step is optional. For **Development environment**, select the development environment that you want to use to work with the function code. 
+    1. Select **Azure Event Grid Trigger** in the **Select a template** section. 
+    1. Enter a name for the function. In this example, it's **HandleEventsFunc**. 
 
-        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Select Event Grid trigger":::
-3. On the **New Function** page, enter a name for the function, and select **Create Function**.
-
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="New Function page":::
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" lightbox="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Select Event Grid trigger.":::
 4. Use the **Code + Test** page to see the existing code for the function and update it. 
+
+    :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -33,33 +38,22 @@ An event grid topic provides a user-defined endpoint that you post your events t
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. Select **All services** on the left navigational menu, search for **Event Grid**, and select **Event Grid Topics**. 
 
-    ![Select Event Grid Topics](./media/custom-event-to-function/select-event-grid-topics.png)
+    :::image type="content" source="./media/custom-event-to-function/select-event-grid-topics.png" alt-text="Image showing the selection of Event Grid Topics.":::
 3. On the **Event Grid Topics** page, select **+ Add** on the toolbar. 
 
-    ![Add Event Grid Topic button](./media/custom-event-to-function/add-event-grid-topic-button.png)
-
+    :::image type="content" source="./media/custom-event-to-function/add-event-grid-topic-button.png" alt-text="Image showing the Create button to create an event grid topic.":::
 4. On the **Create Topic** page, follow these steps:
-
-    1. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
-    2. Select your Azure **subscription**.
-    3. Select the same resource group from the previous steps.
+    1. Select your **Azure subscription**.
+    2. Select the same **resource group** from the previous steps.
+    3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
     4. Select a **location** for the event grid topic.
-    5. Keep the default value **Event Grid Schema** for the **Event Schema** field. 
+    5. Select **Review + create**. 
+    
+        :::image type="content" source="./media/custom-event-to-function/create-custom-topic.png" alt-text="Image showing the Create Topic page.":::      
+    1. On the **Review + create** page, review settings and select **Create**. 
+5. After the custom topic has been created, select **Go to resource** link to see the following Event Grid Topic page for the topic you created. 
 
-       ![Create Topic page](./media/custom-event-to-function/create-custom-topic.png)
-    6. Select **Create**. 
-
-5. After the custom topic has been created, you see the successful notification. Select **Go to resource group**. 
-
-   ![See succeed notification](./media/custom-event-to-function/success-notification.png)
-
-6. On the **Resource Group** page, select the event grid topic. 
-
-   ![Select the event grid topic resource](./media/custom-event-to-function/select-event-grid-topic.png)
-
-7. You see the **Event Grid Topic** page for your event grid. Keep this page open. You use it later in the quickstart. 
-
-    ![Event Grid Topic home page](./media/custom-event-to-function/event-grid-topic-home-page.png)
+    :::image type="content" source="./media/custom-event-to-function/event-grid-topic-home-page.png" alt-text="Image showing the home page for your Event Grid custom topic.":::
 
 ## Subscribe to custom topic
 
@@ -67,23 +61,21 @@ You subscribe to an event grid topic to tell Event Grid which events you want to
 
 1. Now, on the **Event Grid Topic** page for your custom topic, select **+ Event Subscription** on the toolbar.
 
-   ![Add event subscription](./media/custom-event-to-function/new-event-subscription.png)
-
+    :::image type="content" source="./media/custom-event-to-function/new-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription on the toolbar.":::
 2. On the **Create Event Subscription** page, follow these steps:
     1. Enter a **name** for the event subscription.
     3. Select **Azure Function** for the **Endpoint type**. 
     4. Choose **Select an endpoint**. 
 
-       ![Provide event subscription values](./media/custom-event-to-function/provide-subscription-values.png)
-
+        :::image type="content" source="./media/custom-event-to-function/provide-subscription-values.png" alt-text="Image showing event subscription values.":::
     5. For the function endpoint, select the Azure Subscription and Resource Group your Function App is in and then select the Function App and function you created earlier. Select **Confirm Selection**.
 
-       ![Provide endpoint URL](./media/custom-event-to-function/provide-endpoint.png)
+        :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Image showing the Select Azure Function page showing the selection of function you created earlier.":::
     6. This step is optional, but recommended for production scenarios. On the **Create Event Subscription** page, switch to the **Advanced Features** tab, and set values for **Max events per batch** and **Preferred batch size in kilobytes**. 
     
         Batching can give you high-throughput. For **Max events per batch**, set maximum number of events that a subscription will include in a batch. Preferred batch size sets the preferred upper bound of batch size in kilo bytes, but can be exceeded if a single event is larger than this threshold.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Enable batching":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Image showing batching settings for an event subscription.":::
     6. On the **Create Event Subscription** page, select **Create**.
 
 ## Send an event to your topic
@@ -96,7 +88,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 ### Azure CLI
 1. In the Azure portal, select **Cloud Shell**. Select **Bash** in the top-left corner of the Cloud Shell window. 
 
-    ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Image showing Cloud Shell - Bash window":::
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. 
 
     ```azurecli
@@ -165,10 +157,10 @@ The second example uses PowerShell to perform similar steps.
     Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
     ```
 
-### Verify in the Event Grid Viewer
+### Verify that function received the event
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Navigate to your Event Grid triggered function and open the logs. You should see a copy of the data payload of the event in the logs. If you don't make sure you open the logs window first, or hit reconnect, and then try sending a test event again.
 
-![Successful Function Trigger Log](./media/custom-event-to-function/successful-function.png)
+:::image type="content" source="./media/custom-event-to-function/successful-function.png" alt-text="Image showing the Monitor view of the Azure function with a log.":::
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, delete the resources you created in this article.

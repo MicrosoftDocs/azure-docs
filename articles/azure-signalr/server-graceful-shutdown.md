@@ -1,16 +1,15 @@
 ---
 title: Stop your app server gracefully.
 description: This article provides information about gracefully shutdown SignalR app server
-author: terencefan
-
-ms.author: tefa
-ms.date: 11/12/2020
+author: vicancy
+ms.author: lianwei
+ms.date: 08/16/2021
 ms.service: signalr
 ms.topic: conceptual
 ---
 
 # Server graceful shutdown
-Microsoft Azure SignalR Service provides two modes for gracefully shutdown a server. 
+Microsoft Azure SignalR Service provides two modes for gracefully shutdown a SignalR Hub server when Azure SignalR Service is configured as **Default mode** that Azure SignalR Service acts as a proxy between the SignalR Clients and the SignalR Hub Server.
 
 The key advantage of using this feature is to prevent your customer from experiencing unexpectedly connection drops. 
 
@@ -45,7 +44,7 @@ In general, there will be four stages in a graceful shutdown process:
 
     Azure SignalR Service will try to reroute the client connection on this server to another valid server. 
     
-    In this scenario, `OnConnectedAsync` and `OnDisconnectedAsync` will be triggered on the new server and the old server respectively with an `IConnectionMigrationFeature` set in the `HttpContext`, which can be used to identify if the client connection was being migrated-in our migrated-out. It could be useful especially for stateful scenarios.
+    In this scenario, `OnConnectedAsync` and `OnDisconnectedAsync` will be triggered on the new server and the old server respectively with an `IConnectionMigrationFeature` set in the `Context`, which can be used to identify if the client connection was being migrated-in our migrated-out. It could be useful especially for stateful scenarios.
 
     The client connection will be immediately migrated after the current message has been delivered, which means the next message will be routed to the new server.
 
@@ -86,7 +85,7 @@ public class Chat : Hub {
     {
         Console.WriteLine($"{Context.ConnectionId} connected.");
 
-        var feature = Context.GetHttpContext().Features.Get<IConnectionMigrationFeature>();
+        var feature = Context.Features.Get<IConnectionMigrationFeature>();
         if (feature != null)
         {
             Console.WriteLine($"[{feature.MigrateTo}] {Context.ConnectionId} is migrated from {feature.MigrateFrom}.");
@@ -100,7 +99,7 @@ public class Chat : Hub {
     {
         Console.WriteLine($"{Context.ConnectionId} disconnected.");
 
-        var feature = Context.GetHttpContext().Features.Get<IConnectionMigrationFeature>();
+        var feature = Context.Features.Get<IConnectionMigrationFeature>();
         if (feature != null)
         {
             Console.WriteLine($"[{feature.MigrateFrom}] {Context.ConnectionId} will be migrated to {feature.MigrateTo}.");

@@ -1,14 +1,16 @@
 ---
-title: Process change feed in Azure Blob Storage | Microsoft Docs
+title: Process change feed in Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn how to process change feed logs in a .NET client application
 author: tamram
 
 ms.author: tamram
-ms.date: 09/08/2020
+ms.date: 03/03/2022
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -27,13 +29,14 @@ To learn more about the change feed, see [Change feed in Azure Blob Storage](sto
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
+
 ## Read records
 
 > [!NOTE]
 > The change feed is an immutable and read-only entity in your storage account. Any number of applications can read and process the change feed simultaneously and independently at their own convenience. Records aren't removed from the change feed when an application reads them. The read or iteration state of each consuming reader is independent and maintained by your application only.
 
 This example iterates through all records in the change feed, adds them to a list, and then returns that list to the caller.
- 
+
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
 {
@@ -55,7 +58,7 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionSt
 }
 ```
 
-This example prints to the console a few values from each record in the list. 
+This example prints to the console a few values from each record in the list.
 
 ```csharp
 public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
@@ -77,7 +80,7 @@ public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
 
 You can choose to save your read position in the change feed, and then resume iterating through the records at a future time. You can save the read position by getting the change feed cursor. The cursor is a **string** and your application can save that string in any way that makes sense for your application's design (For example: to a file, or database).
 
-This example iterates through all records in the change feed, adds them to a list, and saves the cursor. The list and the cursor are returned to the caller. 
+This example iterates through all records in the change feed, adds them to a list, and saves the cursor. The list and the cursor are returned to the caller.
 
 ```csharp
 public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
@@ -99,10 +102,10 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
     foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
     {
-    
+
         changeFeedEvents.Add(changeFeedEvent);             
     }
-    
+
     // Update the change feed cursor.  The cursor is not required to get each page of events,
     // it is intended to be saved and used to resume iterating at a later date.
     cursor = enumerator.Current.ContinuationToken;
@@ -114,7 +117,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 You can choose to process change feed records as they are committed to the change feed. See [Specifications](storage-blob-change-feed.md#specifications). The change events are published to the change feed at a period of 60 seconds on average. We recommend that you poll for new changes with this period in mind when specifying your poll interval.
 
-This example periodically polls for changes.  If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
+This example periodically polls for changes.  If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario.
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -147,7 +150,7 @@ public async Task ChangeFeedStreamAsync
                         "Event Type: " + eventType + "\n" +
                         "Api: " + api);
                 }
-            
+
                 // helper method to save cursor. 
                 SaveCursor(enumerator.Current.ContinuationToken);
             }
@@ -212,4 +215,5 @@ The start time that you provide is rounded down to the nearest hour and the end 
 
 ## Next steps
 
-Learn more about change feed logs. See [Change feed in Azure Blob Storage](storage-blob-change-feed.md)
+- [Data protection overview](data-protection-overview.md)
+- [Change feed in Azure Blob Storage](storage-blob-change-feed.md)

@@ -2,8 +2,8 @@
 ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ---
 
 ## Review deployed resources
@@ -12,13 +12,13 @@ The pipeline automatically creates the output folder in the adftutorial blob con
 
 1. In the Azure portal, on the **adftutorial** container page, select **Refresh** to see the output folder. 
     
-    ![Screenshot shows the container page where you can refresh the page.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    :::image type="content" source="media/data-factory-quickstart-verify-output-cleanup/output-refresh.png" alt-text="Screenshot shows the container page where you can refresh the page.":::
 
 2. Select **output** in the folder list. 
 
 3. Confirm that the **emp.txt** is copied to the output folder. 
 
-    ![Screenshot shows the output folder contents.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    :::image type="content" source="media/data-factory-quickstart-verify-output-cleanup/output-file.png" alt-text="Screenshot shows the output folder contents.":::
 
 ## Clean up resources
 

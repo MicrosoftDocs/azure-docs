@@ -2,11 +2,11 @@
  title: Azure IoT Device Provisioning Service (DPS) TLS support
  description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
  services: iot-dps
- author: wesmc7777
+ author: kgremban
  ms.service: iot-dps
  ms.topic: conceptual
  ms.date: 09/14/2020
- ms.author: wesmc
+ ms.author: kgremban
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
@@ -15,8 +15,6 @@ DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_La
 
 Current TLS protocol versions supported by DPS are: 
 * TLS 1.2
-
-TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
 ## Restrict connections to TLS 1.2
 

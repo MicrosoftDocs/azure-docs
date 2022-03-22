@@ -73,7 +73,7 @@ The height attribute sets the display height of the video.
 
 The plugins JSON determines which plugins get loaded with that instance of AMP lets you configure any options that plugin may have.
 
-   `<video... data-setup='{plugins: { "contentTitle": {"name": "Azure Medi Services Overview"}}}'...>`
+   `<video... data-setup='{plugins: { "contentTitle": {"name": "Azure Media Services Overview"}}}'...>`
 
 For more information on plugin development and usage, see [writing plugins](azure-media-player-writing-plugins.md)
 

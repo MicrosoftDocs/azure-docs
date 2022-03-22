@@ -1,22 +1,23 @@
 ---
-title: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A to Azure IoT Central quickstart
-description: Use Azure RTOS embedded software to connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A device to Azure IoT and send telemetry.
+title: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Central quickstart
+description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
+ms.custom: mode-other
 ---
 
-# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A Discovery kit to IoT Central
+# Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+)
+[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
 
-In this quickstart, you use Azure RTOS to connect either the ST Microelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) or [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) Discovery kit (hereafter, the STM DevKit) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
 
 You will complete the following tasks:
 
@@ -26,13 +27,13 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    > * Either the [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) or the [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (STM DevKit)
-    > * Wi-Fi 2.4 GHz
-    > * USB 2.0 A male to Micro USB male cable
+    * The [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) (STM DevKit)
+    * Wi-Fi 2.4 GHz
+    * USB 2.0 A male to Micro USB male cable
 
 ## Prepare the development environment
 
@@ -62,7 +63,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
@@ -80,7 +81,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 1. Open the following file in a text editor:
 
-    > *getting-started\STMicroelectronics\STM32L4_L4+\app\azure_config.h*
+    *getting-started\STMicroelectronics\B-L475E-IOT01A\app\azure_config.h*
 
 1. Set the Wi-Fi constants to the following values from your local environment.
 
@@ -102,37 +103,35 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the batch file *rebuild.bat* at the following path to build the image:
 
-> *getting-started\STMicroelectronics\STM32L4_L4+\tools\rebuild.bat*
+    *getting-started\STMicroelectronics\B-L475E-IOT01A\tools\rebuild.bat*
 
-After the build completes, confirm that two binary files were created. There's a binary image for each STM Devkit. The build saves the images to the following paths:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\STMicroelectronics\STM32L4_L4+\build\app\stm32l475_azure_iot.bin*
-
-> *getting-started\STMicroelectronics\STM32L4_L4+\build\app\stm32l4S5_azure_iot.bin*
+    *getting-started\STMicroelectronics\B-L475E-IOT01A\build\app\stm32l475_azure_iot.bin*
 
 ### Flash the image
 
-1. On the STM DevKit MCU, locate the **Reset** button, the Micro USB port, which is labeled **USB STLink**, and the board part number. You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board.png" alt-text="Locate key components on the STM DevKit board":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
     > [!NOTE]
-    > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L475E-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html#resource) or [B-L4S5I-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource).
+    > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L475E-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html#resource)
 
 1. In File Explorer, find the binary files that you created in the previous section.
 
-1. Copy the binary file whose file name corresponds to the part number of the STM Devkit you're using. For example, if your board part number is **B-L475E-IOT01A1**, copy the binary file named *stm32l475_azure_iot.bin*.
+1. Copy the binary file named *stm32l475_azure_iot.bin*.
 
 1. In File Explorer, find the STM Devkit that's connected to your computer. The device appears as a drive on your system with the drive label **DIS_L4IOT**.
 
 1. Paste the binary file into the root folder of the STM Devkit. Flashing starts automatically and completes in a few seconds.
 
     > [!NOTE]
-    > During the flashing process, a LED toggles between red and green on the STM DevKit.
+    > During the flashing process, an LED toggles between red and green on the STM DevKit.
 
 ### Confirm device connection details
 
@@ -140,13 +139,13 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
     * **Port**: The port that your STM DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is black and is labeled on the device.
@@ -186,7 +185,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Initializing Azure IoT Hub client
 	    Hub hostname: ***.azure-devices.net
 	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsg;1
+	    Model id: dtmi:azurertos:devkit:gsgstml4s5;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
     ```
@@ -203,7 +202,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -215,7 +214,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -229,7 +228,7 @@ To call a method in IoT Central portal:
 1. Select the **Command** tab from the device page.
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
@@ -239,11 +238,11 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -269,6 +268,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-
-
-

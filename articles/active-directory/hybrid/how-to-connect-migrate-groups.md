@@ -3,11 +3,11 @@ title: 'Azure AD Connect: Migrate groups from one forest to another'
 description: This article describes the steps needed to successfully migrate groups from one forest to another for Azure AD Connect.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/02/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Get started with Azure Cognitive Search using Visual Studio Code'
 titleSuffix: Azure Cognitive Search
-description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search. 
-
+description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search.
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/10/2021
+ms.custom: mode-ui
 ---
 
 # Get started with Azure Cognitive Search using Visual Studio Code
@@ -18,7 +17,7 @@ This article explains how to formulate REST API requests interactively using the
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT] 
-> This feature is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 
@@ -28,7 +27,7 @@ The following services and tools are required for this quickstart.
 
 + [Azure Cognitive Search for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Install the extension
 

@@ -1,17 +1,18 @@
 ---
-title: Manage app consent policies in Azure AD
+title: Manage app consent policies
 description: Learn how to manage built-in and custom app consent policies to control when consent can be granted.
+titleSuffix: Azure AD
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+author: psignoret
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
-ms.author: iangithinji
-ms.reviewer: arvindh, luleon, phsignor
+ms.date: 09/02/2021
+ms.author: phsignor
 ms.custom: contperf-fy21q2
+
+#customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
 ---
 
 # Manage app consent policies
@@ -26,14 +27,13 @@ App consent policies where the ID begins with "microsoft-" are built-in policies
 
 ## Pre-requisites
 
-1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
-
-    ```powershell
-    Remove-Module AzureAD -ErrorAction SilentlyContinue
-    Import-Module AzureADPreview
-    ```
-
-1. Connect to Azure AD PowerShell.
+1. A user or service with one of the following:
+   - Global Administrator directory role
+   - Privileged Role Administrator directory role
+   - A custom directory role with the necessary [permissions to manage app consent policies](../roles/custom-consent-permissions.md#managing-app-consent-policies)
+   - The Microsoft Graph app role (application permission) Policy.ReadWrite.PermissionGrant (when connecting as an app or a service)
+   
+1. Connect to [Azure AD PowerShell](/powershell/module/azuread/).
 
    ```powershell
    Connect-AzureAD
@@ -117,7 +117,7 @@ Once the app consent policy has been created, you can [allow user consent](confi
    ```
 
 > [!WARNING]
-> Deleted app consent policies cannot be restored. If you accidentally delete an custom app consent policy, you will need to re-create the policy.
+> Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
 
 ---
 
@@ -147,4 +147,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
+
 * [Azure AD on Microsoft Q&A](/answers/products/)

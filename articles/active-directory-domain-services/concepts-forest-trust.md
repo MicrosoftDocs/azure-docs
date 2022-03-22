@@ -3,13 +3,13 @@ title: How trusts work for Azure AD Domain Services | Microsoft Docs
 description: Learn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/15/2021
 ms.author: justinha
 ---
 
@@ -33,7 +33,7 @@ The flow of secured communications over trusts determines the elasticity of a tr
 
 The flow of communication over trusts is determined by the direction of the trust. Trusts can be one-way or two-way, and can be transitive or non-transitive.
 
-The following diagram shows that all domains in *Tree 1* and *Tree 2* have transitive trust relationships by default. As a result, users in *Tree 1* can access resources in domains in *Tree 2* and users in *Tree 1* can access resources in *Tree 2*, when the proper permissions are assigned at the resource.
+The following diagram shows that all domains in *Tree 1* and *Tree 2* have transitive trust relationships by default. As a result, users in *Tree 1* can access resources in domains in *Tree 2* and users in *Tree 2* can access resources in *Tree 1*, when the proper permissions are assigned at the resource.
 
 ![Diagram of trust relationships between two forests](./media/concepts-forest-trust/trust-relationships.png)
 
@@ -104,7 +104,7 @@ Before you can create a forest trust, you need to verify you have the correct Do
 
 To create a forest trust, you must be a member of the Domain Admins group (in the forest root domain) or the Enterprise Admins group in Active Directory. Each trust is assigned a password that the administrators in both forests must know. Members of Enterprise Admins in both forests can create the trusts in both forests at once and, in this scenario, a password that is cryptographically random is automatically generated and written for both forests.
 
-The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory.
+A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory. 
 
 ## Trust processes and interactions
 
@@ -151,6 +151,9 @@ If the account does not exist in the database, the domain controller determines 
 When two forests are connected by a forest trust, authentication requests made using the Kerberos V5 or NTLM protocols can be routed between forests to provide access to resources in both forests.
 
 When a forest trust is first established, each forest collects all of the trusted namespaces in its partner forest and stores the information in a [trusted domain object](#trusted-domain-object). Trusted namespaces include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces used in the other forest. TDO objects are replicated to the global catalog.
+
+>[!NOTE]
+>Alternate UPN suffixes on trusts are not supported. If an on-premises domain uses the same UPN suffix as Azure AD DS, sign in must use **sAMAccountName**.  
 
 Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following names:
 

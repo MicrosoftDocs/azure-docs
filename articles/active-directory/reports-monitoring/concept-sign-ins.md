@@ -1,26 +1,25 @@
 ---
-title: Sign-ins logs in Azure Active Directory | Microsoft Docs
-description: Overview of the sign-ins logs in Azure Active Directory.  
+title: Sign-in logs in Azure Active Directory | Microsoft Docs
+description: Overview of the sign-in logs in Azure Active Directory.  
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 10/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-ins logs in Azure Active Directory
+# Sign-in logs in Azure Active Directory
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
@@ -35,7 +34,7 @@ This article gives you an overview of the sign-ins report.
 
 ## What can you do with it?
 
-You can use the the sign-ins log to find answers to questions like:
+You can use the sign-ins log to find answers to questions like:
 
 - What is the sign-in pattern of a user?
 
@@ -59,22 +58,22 @@ To access the sign-ins log, you need to be:
 
     - Global reader
 
-    - Report reader
+    - Reports reader
 
 
 
 ## What Azure AD license do you need?
 
-The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you also can access the sign-in activity report through the Microsoft Graph API.
 
 
 ## Where can you find it in the Azure portal?
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Open sign-in logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+Additionally, you can get directly get to the sign-in logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 
 ## What is the default view?
@@ -161,6 +160,10 @@ The **Location** - The location the connection was initiated from:
 ![Client app filter](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> Due to privacy commitments, Azure AD does not populate this field to the home tenant in the case of a cross-tenant scenario.
+
+
 |Name|Modern authentication|Description|
 |---|:-:|---|
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
@@ -179,6 +182,10 @@ The **Location** - The location the connection was initiated from:
 |POP3| |A legacy mail client using POP3 to retrieve email.|
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
 |Other clients| |Shows all sign-in attempts from users where the client app is not included or unknown.|
+
+
+
+
 
 
 
@@ -211,7 +218,7 @@ The **Location** - The location the connection was initiated from:
 
 ## Download sign-in activities
 
-Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal.  
+Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](./howto-download-logs.md) if you want to work with it outside the Azure portal.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -260,7 +267,7 @@ By clicking an item, you get more details about the sign-in operation:
 
 > [!NOTE]
 > IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
@@ -271,6 +278,7 @@ On the **Users** page, you get a complete overview of all user sign-ins by click
 The **Authentication Details** tab located within the sign-ins report provides the following information, for each authentication attempt:
 
 - A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
+- A list of session lifetime policies applied (such as Sign-in frequency, Remember MFA, Configurable Token lifetime)
 - The sequence of authentication methods used to sign-in
 - Whether or not the authentication attempt was successful
 - Detail about why the authentication attempt succeeded or failed
@@ -278,6 +286,7 @@ The **Authentication Details** tab located within the sign-ins report provides t
 This information allows admins to troubleshoot each step in a user’s sign-in, and track:
 
 - Volume of sign-ins protected by multi-factor authentication 
+- Reason for authentication prompt based on the session lifetime policies
 - Usage and success rates for each authentication method 
 - Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
 - How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
@@ -321,13 +330,12 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 ## Microsoft 365 activity logs
 
-You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Consider the point  that, Microsoft 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Consider the point that, Microsoft 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
 You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 
-* [Sign-in activity report error codes]()
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
 * [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

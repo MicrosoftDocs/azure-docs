@@ -6,11 +6,14 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/27/2020
+ms.date: 08/27/2021
 ms.author: cynthn
 
 ---
 # How to open ports to a virtual machine with the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
@@ -25,7 +28,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     The **Create network security group** window opens.
 
-    ![Create a network security group](./media/nsg-quickstart-portal/create-nsg.png)
+    :::image type="content" source="media/nsg-quickstart-portal/create-nsg.png" alt-text="Create a network security group.":::
 
 1. Enter a name for your network security group. 
 
@@ -35,14 +38,14 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an inbound security rule
 
-1. Select your new network security group. 
+1. Select your new network security group.
 
 1. Select **Inbound security rules** from the left menu, then select **Add**.
 
-    ![Toggle to the advanced page](./media/nsg-quickstart-portal/advanced.png)
+    :::image type="content" source="media/nsg-quickstart-portal/advanced.png" alt-text="Add an inbound security rule.":::
 
-1. In the **Add an inbound security rule** page, toggle to **Advanced** from **Basic** at the top of the page. 
-
+1. You can limit the **Source** and **Source port ranges** as needed or leave the default of *Any*.
+1. You can limit the **Destination** as needed or leave the default of *Any*.
 1. Choose a common **Service** from the drop-down menu, such as **HTTP**. You can also select **Custom** if you want to provide a specific port to use. 
 
 1. Optionally, change the **Priority** or **Name**. The priority affects the order in which rules are applied: the lower the numerical value, the earlier the rule is applied.

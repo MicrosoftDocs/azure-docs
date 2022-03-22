@@ -2,7 +2,7 @@
 title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 09/28/2021
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 
@@ -114,15 +114,15 @@ az resource delete \
 
 ---
 
-## Required access
+## Required access and deletion failures
 
 To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource. You also need delete for all resources in the resource group.
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you have the required access, but the delete request fails, it may be because there's a [lock](lock-resources.md) on the resource group.
+If you have the required access, but the delete request fails, it may be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, it may have been [automatically locked by a related service](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.
 
 ## Next steps
 
 * To understand Resource Manager concepts, see [Azure Resource Manager overview](overview.md).
-* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az_group_delete), and [REST API](/rest/api/resources/resourcegroups/delete).
+* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete), and [REST API](/rest/api/resources/resourcegroups/delete).

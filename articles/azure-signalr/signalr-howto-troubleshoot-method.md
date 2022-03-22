@@ -1,11 +1,11 @@
 ---
 title: "Troubleshooting practice for Azure SignalR Service"
 description: Learn how to troubleshoot connectivity and message delivery issues
-author: yjin81
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: yajin1
+ms.author: lianwei
 ---
 
 # How to troubleshoot connectivity and message delivery issues
@@ -22,9 +22,17 @@ First, you need to check from the Azure portal which [ServiceMode](./concept-ser
 
 * For `Classic` mode, refer to [classic mode troubleshooting](#classic_mode_tsg)
 
-<a name="default_mode_tsg"></a>
+Second, you need to capture service traces to troubleshoot. For how to capture traces, refer to [How to capture service traces](#how-to-capture-service-traces).
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
+## How to capture service traces
+
+To simplify troubleshooting process, Azure SignalR service provides **live trace tool** to expose service traces on **connectivity** and **messaging** categories. The traces includes but not limited to connection connected/disconnected events, message received/left events. With **live trace tool**, you can capture, view, sort, filter and export live traces. For more details, refer to [How to use live trace tool](./signalr-howto-troubleshoot-live-trace.md).
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
+<a name="default_mode_tsg"></a>
 
 ## Default mode troubleshooting
 

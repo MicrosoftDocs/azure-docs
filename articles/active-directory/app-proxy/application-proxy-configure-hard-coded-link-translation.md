@@ -3,14 +3,14 @@ title: Translate links and URLs Azure Active Directory Application Proxy
 description: Learn how to redirect hard-coded links for apps published with Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Redirect hard-coded links for apps published with Azure Active Directory Application Proxy
@@ -52,7 +52,7 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
-To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
+To learn more, including how to configure this option, please see the [MyApps Browser Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
 > [!NOTE]
 > The MyApps Browser Extension does not support link translation for wildcard URLs.
@@ -137,10 +137,6 @@ Getting started with link translation is as easy as clicking a button:
 4. Select **Save** to apply your changes.
 
 Now, when your users access this application, the proxy will automatically scan for internal URLs that have been published through Application Proxy on your tenant.
-
-## Send feedback
-
-We want your help to make this feature work for all your apps. We search over 30 tags in HTML and CSS. If you have an example of generated links that aren't being translated, send a code snippet to [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
 
 ## Next steps
 [Use custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md) to have the same internal and external URL

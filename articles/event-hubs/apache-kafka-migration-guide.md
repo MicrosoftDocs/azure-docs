@@ -2,7 +2,7 @@
 title: Migrate to Azure Event Hubs for Apache Kafka
 description: This article explains how to migrate clients from Apache Kafka to Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ---
 
 # Migrate to Azure Event Hubs for Apache Kafka Ecosystems
@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Follow step-by-step instructions in the [Create an event hub](event-hubs-create.md) article to create an Event Hubs namespace and an event hub. 
 
 ### Connection string
-Follow steps from the [Get connection string from the portal](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) article. And, note down the connection string for later use. 
+Follow steps from the [Get connection string from the portal](event-hubs-get-connection-string.md#azure-portal) article. And, note down the connection string for later use. 
 
 ### Fully qualified domain name (FQDN)
 You may also need the FQDN that points to your Event Hub namespace. The FQDN can be found within your connection string as follows:

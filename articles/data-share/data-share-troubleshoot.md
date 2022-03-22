@@ -6,7 +6,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 04/22/2021
+ms.date: 09/10/2021
 ---
 
 # Troubleshoot common problems in Azure Data Share 
@@ -30,6 +30,8 @@ In some cases, when new users select **Accept Invitation** in an email invitatio
 * **The invitation is sent to your email alias instead of your Azure sign-in email address.** If you already registered the Azure Data Share service or created a Data Share resource in the Azure tenant, but you still can't see the invitation, your email alias might be listed as the recipient. Contact your data provider and ensure that the invitation will be sent to your Azure sign-in email address and not your email alias.
 
 * **The invitation is already accepted.** The link in the email takes you to the **Data Share Invitations** page in the Azure portal. This page lists only pending invitations. Accepted invitations don't appear on the page. To view received shares and configure your target Azure Data Explorer cluster setting, go to the Data Share resource you used to accept the invitation.
+
+* **You are guest user of the tenant.** If you are a guest user of the tenant, you will need to verify your email address for the tenant prior to viewing the invitation. Once verified, it is valid for 12 months. 
 
 ## Creating and receiving shares
 

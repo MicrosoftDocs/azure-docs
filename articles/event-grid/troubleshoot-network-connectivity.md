@@ -3,7 +3,7 @@ title: Troubleshoot network connectivity issues - Azure Event Grid | Microsoft D
 description: This article provides information on troubleshooting network connectivity issues with Azure Event Grid.
 author: batrived
 ms.topic: article
-ms.date: 06/21/2020
+ms.date: 09/28/2021
 ms.author: batrived
 ---
 
@@ -45,7 +45,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 When you're working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you're using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Grid. For IP addresses used by Azure Event Grid: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - AzureEventGrid](network-security.md#service-tags).
 
-The [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document also lists IP addresses **by region**. You can allow address ranges for the **topic's region** and the **paired region** in your corporate firewall or proxy. For a paired region for a region, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md). 
+The [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document also lists IP addresses **by region**. You can allow address ranges for the **topic's region** and the **paired region** in your corporate firewall or proxy. For a paired region for a region, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md). 
 
 > [!NOTE]
 > New IP addresses could be added to AzureEventGrid service tag, though it's not usual. So it's good to do a weekly check on the service tags.
@@ -66,7 +66,7 @@ For more information, see [Configure IP firewall rules for an Azure Event Grid t
 
 #### Find the IP addresses blocked by IP Firewall
 
-Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). You'll see the IP address for the connection that's denied.
+Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains). You'll see the IP address for the connection that's denied.
 
 ```json
 {

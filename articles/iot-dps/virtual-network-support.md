@@ -1,12 +1,13 @@
 ---
  title: Azure IoT Device Provisioning Service (DPS) support for virtual networks
  description: How to use virtual networks connectivity pattern with Azure IoT Device Provisioning Service (DPS)
- services: iot-hub
- author: wesmc7777
+ services: iot-dps
+ author: kgremban
  ms.service: iot-dps
+ manager: lizross
  ms.topic: conceptual
- ms.date: 06/30/2020
- ms.author: wesmc
+ ms.date: 10/06/2021
+ ms.author: kgremban
 ---
 
 # Azure IoT Hub Device Provisioning Service (DPS) support for virtual networks
@@ -14,8 +15,6 @@
 This article introduces the virtual network (VNET) connectivity pattern for IoT devices provisioning with IoT hubs using DPS. This pattern provides private connectivity between the devices, DPS, and the IoT hub inside a customer-owned Azure VNET. 
 
 In most scenarios where DPS is configured with a VNET, your IoT Hub will also be configured in the same VNET. For more specific information on VNET support and configuration for IoT Hubs, see, [IoT Hub virtual network support](../iot-hub/virtual-network-support.md).
-
-
 
 ## Introduction
 
@@ -36,8 +35,7 @@ Common approaches to restricting connectivity include [DPS IP filter rules](./io
 
 Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a VNET in Azure and access DPS resources through private endpoints. 
 
-A private endpoint is a private IP address allocated inside a customer-owned VNET by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you will be able to allow devices operating inside your VNET to request provisioning by your DPS resource without allowing traffic to the public endpoint.
-
+A private endpoint is a private IP address allocated inside a customer-owned VNET by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you will be able to allow devices operating inside your VNET to request provisioning by your DPS resource without allowing traffic to the public endpoint. Each DPS resource can support multiple private endpoints, each of which may be located in a VNET in a different region.
 
 ## Prerequisites
 
@@ -60,6 +58,11 @@ Note the following current limitations for DPS when using private endpoints:
 * Current DPS VNET support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated VNET. Support for full VNET-based egress lockdown between DPS and IoT Hub is not currently available.
 
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment. 
+
+>[!NOTE]
+>**Data residency consideration:**
+>
+>DPS provides a **Global device endpoint** (`global.azure-devices-provisioning.net`). However, when you use the global endpoint, your data may be redirected outside of the region where the DPS instance was initially created. To ensure data residency within the initial DPS region, use private endpoints.
 
 ## Set up a private endpoint
 
@@ -100,13 +103,12 @@ To set up a private endpoint, follow these steps:
     Click **Next : Configuration** to configure the VNET for the private endpoint.
 
 4. On the _Create a private endpoint Configuration_ page, choose your virtual network and subnet to create the private endpoint in.
- 
+
     Click **Next : Tags**, and optionally provide any tags for your resource.
 
     ![Configure private endpoint](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
-6. Click **Review + create** and then **Create** to create your private endpoint resource.
-
+5. Click **Review + create** and then **Create** to create your private endpoint resource.
 
 ## Use private endpoints with devices
 
@@ -114,7 +116,7 @@ To use private endpoints with device provisioning code, your provisioning code m
 
 `<Your DPS Tenant Name>.azure-devices-provisioning.net`
 
-Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS resource. Use the service endpoint in place of the global device endpoint when connecting to a DPS resource using private links to provision your devices.
+Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS resource. Use the service endpoint in place of the global device endpoint when connecting to a DPS resource using private endpoints to provision your devices.
 
 For example, the provisioning device client sample ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) is designed to use the **Global device endpoint** as the global provisioning URI (`global_prov_uri`) in [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
 
@@ -122,7 +124,7 @@ For example, the provisioning device client sample ([pro_dev_client_sample](http
 
 :::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
 
-To use the sample with a private link, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if you service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
+To use the sample with a private endpoint, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if you service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
 
 ```C
 static const char* global_prov_uri = "global.azure-devices-provisioning.net";

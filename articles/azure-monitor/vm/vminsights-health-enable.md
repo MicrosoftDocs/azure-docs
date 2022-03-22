@@ -34,6 +34,7 @@ Virtual machine must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
 - Canada Central
 - Central India
 - Central US
@@ -44,13 +45,16 @@ Virtual machine must be located in one of the following regions:
 - France Central
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - South Africa North
 - Southeast Asia
 - Switzerland North
+- UAE North
 - UK South
 - UK West
 - West Central US
@@ -64,6 +68,8 @@ Log Analytics workspace must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
 - Canada Central
 - Canada India
 - Central US
@@ -73,12 +79,17 @@ Log Analytics workspace must be located in one of the following regions:
 - East US 2 EUAP
 - France Central
 - Japan East
+- Japan West
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - Southeast Asia
 - Switzerland North
+- Switzerland West
+- UAE North
 - UK South
+- UK West
 - West Europe region
 - West US
 - West US 2
@@ -123,7 +134,7 @@ There are three steps required to enable virtual machines using Azure Resource M
 > [!NOTE]
 > If you enable a virtual machine using the Azure portal, then the data collection rule described here is created for you. In this case, you do not need to perform this step.
 
-Configuration for the monitors in VM insights guest health is stored in [data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
+Configuration for the monitors in VM insights guest health is stored in [data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
 
 > [!NOTE]
 > You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in VM insights guest health (preview)](vminsights-health-configure.md).
@@ -351,13 +362,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

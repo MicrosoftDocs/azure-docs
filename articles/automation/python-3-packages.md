@@ -3,27 +3,51 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/19/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
+ms.custom: has-adal-ref
 ---
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
+This article describes how to import, manage, and use Python 3 (preview) packages in Azure Automation running on the Azure sandbox environment and Hybrid Runbook Workers.To help simplify runbooks, you can use Python packages to import the modules you need. 
+
+To support Python 3 runbooks in the Automation service, Azure package 4.0.0 is installed by default in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
+ Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
+
+For information on managing Python 2 packages, see [Manage Python 2 packages](./python-packages.md).
+
+## Packages as source files
+
+Azure Automation supports only a Python package that only contains Python code and doesn't include other language extensions or code in other languages. However, the Azure Sandbox environment might not have the required compilers for C/C++ binaries, so it's recommended to use [wheel files](https://pythonwheels.com/) instead. The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software for the Python programming language. When selecting a Python 3 package to import into your Automation account from PyPI, note the following filename parts:
+
+| Filename part | Description |
+|---|---|
+|cp38|Automation supports **Python 3.8.x** for Cloud Jobs.|
+|amd64|Azure sandbox processes are **Windows 64-bit** architecture.|
+
+For example, if you wanted to import pandas, you could select a wheel file with a name similar as `pandas-1.2.3-cp38-win_amd64.whl`.
+
+Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using `pip`. For example, perform the following steps using a 64-bit machine with Python 3.8.x and wheel package installed:
+
+1. Download the source file `pandas-1.2.4.tar.gz`.
+1. Run pip to get the wheel file with the following command: `pip wheel --no-deps pandas-1.2.4.tar.gz`.
 
 ## Import a package
 
-In your Automation account, select **Python packages** under **Shared Resources**. select **+ Add a Python package**.
+1. In your Automation account, select **Python packages** under **Shared Resources**. Then select **+ Add a Python package**.
 
-:::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python 3 packages page shows Python 3 packages in the left menu and Add a Python 2 package highlighted.":::
+   :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-On the **Add Python Package** page, select **Python 3** for the **Version**, and select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, select **OK** to upload it.
+1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file. 
+1. Enter a name and select the **Runtime Version** as Python 3.8.x (preview)
+1. Select **Import**
 
-:::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3 Package page with an uploaded tar.gz file selected.":::
+   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8.x Package page with an uploaded tar.gz file selected.":::
 
-Once a package has been imported, it's listed on the Python packages page in your Automation account, under the **Python 3 packages (preview)** tab. If you need to remove a package, select the package and click **Delete**.
+After a package has been imported, it's listed on the Python packages page in your Automation account. To remove a package, select the package and click **Delete**.
 
-:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3 packages page after a package has been imported.":::
+:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3.8.x packages page after a package has been imported.":::
 
 ### Import a package with dependencies
 
@@ -105,6 +129,25 @@ resource_client = azure.mgmt.resource.ResourceManagementClient(
 groups = resource_client.resource_groups.list()  
 for group in groups:  
     print(group.name) 
+```
+
+> [!NOTE]
+> The Python `automationassets` package is not available on pypi.org, so it's not available for import onto a Windows machine.
+
+## Identify available packages in sandbox
+
+Use the following code to list the default installed modules:
+
+```python
+#!/usr/bin/env python3
+
+import pkg_resources
+installed_packages = pkg_resources.working_set
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+   for i in installed_packages])
+
+for package in installed_packages_list:
+    print(package)
 ```
 
 ## Next steps

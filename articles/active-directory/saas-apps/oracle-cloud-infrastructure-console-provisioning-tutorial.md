@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Oracle Cloud Infrastructure Console for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Oracle Cloud Infrastructure Console.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Oracle Cloud Infrastructure Console for automatic user provisioning
@@ -66,7 +66,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Oracle token generation](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. To generate a secret token Base64 encode the client ID and client secret in the format **client ID:Client Secret**. Save the secret token. This value will be entered in the **Secret Token** field in the provisioning tab of your Oracle Cloud Infrastructure Console application in the Azure portal.
+6. To generate a secret token, encode the client ID and client secret as Base64 in the format **client ID:Client Secret**. Note - this value must be generated with line wrapping disabled (base64 -w 0). Save the secret token. This value will be entered in the **Secret Token** field in the provisioning tab of your Oracle Cloud Infrastructure Console application in the Azure portal.
 
 ## Step 3. Add Oracle Cloud Infrastructure Console from the Azure AD application gallery
 
@@ -76,9 +76,9 @@ Add Oracle Cloud Infrastructure Console from the Azure AD application gallery to
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Oracle Cloud Infrastructure Console, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
-
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles. 
 
 
 ## Step 5. Configure automatic user provisioning to Oracle Cloud Infrastructure Console 

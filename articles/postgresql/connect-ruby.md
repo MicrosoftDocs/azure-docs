@@ -1,10 +1,11 @@
 ---
 title: 'Quickstart: Connect with Ruby - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a Ruby code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.subservice: single-server
+ms.author: sumuth
+author: mksuni
+ms.custom: mvc, mode-other
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
@@ -97,7 +98,7 @@ begin
 	password = String('<server_admin_password>')
 
 	# Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :database => dbname, :port => '5432', :password => password)
+    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
     resultSet = connection.exec('SELECT * from inventory;')

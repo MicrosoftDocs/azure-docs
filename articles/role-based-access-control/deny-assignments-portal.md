@@ -4,15 +4,14 @@ description: Learn how to list the users, groups, service principals, and manage
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/10/2019
+ms.date: 01/24/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -22,7 +21,7 @@ ms.reviewer: bagovind
 [Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For more information, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
@@ -88,14 +87,14 @@ Follow these steps to list additional details about a deny assignment.
 
     | Action type | Description |
     | --- | --- |
-    | **Actions**  | Denied management operations. |
-    | **NotActions** | Management operations excluded from denied management operation. |
-    | **DataActions**  | Denied data operations. |
-    | **NotDataActions** | Data operations excluded from denied data operation. |
+    | **Actions**  | Denied control plane actions. |
+    | **NotActions** | Control plane actions excluded from denied control plane actions. |
+    | **DataActions**  | Denied data plane actions. |
+    | **NotDataActions** | Data plane actions excluded from denied data plane actions. |
 
     For the example shown in the previous screenshot, the following are the effective permissions:
 
-    - All storage operations on the data plane are denied except for compute operations.
+    - All storage actions on the data plane are denied except for compute actions.
 
 1. To see the properties for a deny assignment, click **Properties**.
 

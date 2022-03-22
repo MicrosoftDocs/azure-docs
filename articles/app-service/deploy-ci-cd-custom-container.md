@@ -260,6 +260,6 @@ az acr webhook create --name <webhook-name> --registry <registry-name> --resourc
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md)
 * [Quickstart: Run a custom container on App Service](quickstart-custom-container.md)
-* [App Service on Linux FAQ](faq-app-service-linux.md)
+* [App Service on Linux FAQ](faq-app-service-linux.yml)
 * [Configure custom containers](configure-custom-container.md)
 * [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
