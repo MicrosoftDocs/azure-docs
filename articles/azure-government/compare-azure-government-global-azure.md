@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 03/07/2022
+ms.date: 03/21/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -207,7 +207,7 @@ The following Azure Database for MySQL **features are not currently available** 
 
 The following Azure Database for PostgreSQL **features are not currently available** in Azure Government:
 
-- Hyperscale (Citus) and Flexible server deployment options
+- Hyperscale (Citus) deployment option
 - The following features of the Single server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
