@@ -250,7 +250,7 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Remove the MDE.Windows/MDE.Linux extension from the machine.
 
-1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines?view=o365-worldwide) from the Defender for Endpoint documentation.
+1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines?view=o365-worldwide&preserve-view=true) from the Defender for Endpoint documentation.
 
 ## FAQ - Microsoft Defender for Cloud integration with Microsoft Defender for Endpoint
 
