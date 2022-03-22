@@ -11,8 +11,11 @@ ms.author: duau
 
 # How to configure an origin for Azure Front Door
 
-
 This article will show you how to create an Azure Front Door origin in an existing origin group. The origin group can be then associated with a route to determine how traffic will reach your origins.
+
+> [!NOTE]
+> An *Origin* and a *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
+>
 
 ## Prerequisites
 
