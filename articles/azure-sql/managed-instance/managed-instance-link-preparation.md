@@ -352,7 +352,7 @@ If the connection is unsuccessful, verify the following items:
 
 ## Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance 
 
-If you are migrating a database on SQL Server protected by Transparent Data Encryption to a managed instance, the corresponding encryption certificate from the on-premises or Azure VM SQL Server needs to be migrated to managed instance before using the link. For detailed steps, see [Migrate a TDE cert to a managed instance](tde-certificate-migrate).
+If you are migrating a database on SQL Server protected by Transparent Data Encryption to a managed instance, the corresponding encryption certificate from the on-premises or Azure VM SQL Server needs to be migrated to managed instance before using the link. For detailed steps, see [Migrate a TDE cert to a managed instance](tde-certificate-migrate.md).
 
 ## Install SSMS
 
