@@ -52,13 +52,15 @@ The following table summarizes migration options for instances in the different 
 
 |Tier  |Migration options  |
 |---------|---------|
-|Premium     |  1. Enable [zone redundancy](zone-redundancy.md)<br/> -or-<br/> 2. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<br/> -or-<br/> 3. Update existing [VNet configuration](#update-vnet-configuration)    |   
-|Developer     | 1. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<br/>-or-<br/> 2. Update existing [VNet configuration](#update-vnet-configuration)   |   
-| Standard | 1. [Change your service tier](upgrade-and-scale.md#change-your-api-management-service-tier) (downgrade to Developer or upgrade to Premium). Follow migration options in new tier.<br/>-or-<br/>2. Deploy new instance in existing tier and migrate configurations<sup>1</sup> |
-| Basic | 1. [Change your service tier](upgrade-and-scale.md#change-your-api-management-service-tier) (downgrade to Developer or upgrade to Premium). Follow migration options in new tier<br/>-or-<br/>2. Deploy new instance in existing tier and migrate configurations<sup>1</sup> |
-| Consumption | Not available |
+|Premium     |  1. Enable [zone redundancy](zone-redundancy.md)<br/> -or-<br/> 2. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<sup>1</sup><br/> -or-<br/> 3. Update existing [VNet configuration](#update-vnet-configuration)    |   
+|Developer     | 1. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<sup>1</sup><br/>-or-<br/> 2. Update existing [VNet configuration](#update-vnet-configuration)   |   
+| Standard | 1. [Change your service tier](upgrade-and-scale.md#change-your-api-management-service-tier) (downgrade to Developer or upgrade to Premium). Follow migration options in new tier.<br/>-or-<br/>2. Deploy new instance in existing tier and migrate configurations<sup>2</sup> |
+| Basic | 1. [Change your service tier](upgrade-and-scale.md#change-your-api-management-service-tier) (downgrade to Developer or upgrade to Premium). Follow migration options in new tier<br/>-or-<br/>2. Deploy new instance in existing tier and migrate configurations<sup>2</sup> |
+| Consumption | Not applicable |
 
-<sup>1</sup> Migrate configurations with the following mechanisms: [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md), [Migration script for the developer portal](automate-portal-deployments.md), [APIOps with Azure API Management](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
+<sup>1</sup> Use Azure portal or specify API version 2021-01-01-preview or later.
+ 
+<sup>2</sup> Migrate configurations with the following mechanisms: [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md), [Migration script for the developer portal](automate-portal-deployments.md), [APIOps with Azure API Management](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
 
 ## Update VNet configuration
 
