@@ -28,7 +28,7 @@ The workspace source and destination subscriptions must exist within the same Az
 ## Workspace move considerations
 - Managed solutions that are installed in the workspace will be moved in this operation. 
 - Workspace keys (both primary and secondary) are re-generated with workspace move operation. If you keep a copy of your workspace keys in key vault, update them with the new keys generated after the workspace move. 
-- Connected [MMA agents](../agents/log-analytics-agent.md) will remain connected and keep send data to the workspace after the move. [AMA agents](../agents/azure-monitor-agent-overview.md) via DCR will be disconnected during the move and should be reconfigured after the move. 
+- Connected [MMA agents](../agents/log-analytics-agent.md) will remain connected and keep sending data to the workspace after the move. [AMA agents](../agents/azure-monitor-agent-overview.md) via DCR will be disconnected during the move and should be reconfigured after the move. 
 - Since the move operation requires that there are no Linked Services from the workspace, solutions that rely on that link must be removed to allow the workspace move. Solutions that must be removed before you can unlink your automation account:
   - Update Management
   - Change Tracking
