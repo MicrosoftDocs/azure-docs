@@ -19,7 +19,7 @@ At a high-level, the connector provides the following capabilities:
 
 * Write to Azure Synapse Dedicated SQL Pool:
   * Ingest large volume data to Internal and External table types.
-  * Support for different Spark DataFrame write modes:
+  * Supports following DataFrame save mode preferences:
     * `Append`
     * `ErrorIfExists`
     * `Ignore`
@@ -46,22 +46,22 @@ At a high-level, the connector provides the following capabilities:
 
 ## Pre-requisites
 
-This section details necessary pre-requisite steps include Azure Resource setup and Configurations including authentication and authorization requirements for using the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
+This section details necessary pre-requisite steps include Azure Resource set up and Configurations including authentication and authorization requirements for using the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
 
 ### Azure Resources
 
-Review and setup following dependent Azure Resources:
+Review and set up following dependent Azure Resources:
 
 * [Azure Data Lake Storage](../../storage/blobs/data-lake-storage-introduction.md) - used as the primary storage account for the Azure Synapse Workspace.
 * [Azure Synapse Workspace](../../synapse-analytics/get-started-create-workspace.md) - create notebooks, build and deploy DataFrame based ingress-egress workflows.
 * [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - used to host and manage various data assets.
 * [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
 
-#### Database Setup
+#### Database Set up
 
-Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
+Connect to the Synapse Dedicated SQL Pool database and run following set up statements:
 
-* Create a database user for the Azure Active Directory User Identity User Identity. This must be the same identity that is used to log in to Azure Synapse Workspace. If your use case for the Connector is to write data to destination tables in Azure Synapse Dedicated SQL Pool, this step can be skipped. This step is necessary only if your scenario is both write-to and read-from Synapse Dedicated SQL Pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
+* Create a database user for the Azure Active Directory User Identity. This must be the same identity that is used to log in to Azure Synapse Workspace. If your use case for the Connector is to write data to destination tables in Azure Synapse Dedicated SQL Pool, this step can be skipped. This step is necessary only if your scenario is both write-to and read-from Synapse Dedicated SQL Pool, where the database user must be present in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role.
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
@@ -77,15 +77,15 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 #### Azure Active Directory based Authentication
 
-Azure Active Directory (AAD) based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. When interacting with respective resources such as storage and Synapse Dedicated SQL Pool, the user tokens are leveraged from the runtime. It is important to verify that the respective users can connect and access respective resources to perform write and read actions. The User Identity must be setup in the Azure Active Directory associated with the Azure Subscription where the resources are setup and configured to connect using Azure Active Directory based authentication.
+Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace. When interacting with respective resources such as storage and Synapse Dedicated SQL Pool, the user tokens are leveraged from the runtime. It's important to verify that the respective users can connect and access respective resources to perform write and read actions. The User Identity must be set up in the Azure Active Directory associated with the Azure Subscription where the resources are set up and configured to connect using Azure Active Directory based authentication.
 
 #### SQL Basic Authentication
 
-An alternative to Azure Active Directory (AAD) based authentication is to use SQL basic authentication. This approach requires additional parameters as described below:
+An alternative to Azure Active Directory based authentication is to use SQL basic authentication. This approach requires additional parameters as described below:
 
 * Write Data to Azure Synapse Dedicated SQL Pool
   * When reading data from the data source by initializing a DataFrame object:
-    * Consider an example scenario where the data is read from a Storage Account for which the workspace user does not have access permissions.
+    * Consider an example scenario where the data is read from a Storage Account for which the workspace user does'nt have access permissions.
     * In such a scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
 
        ```Scala
@@ -160,7 +160,7 @@ This section details authorization settings necessary to interact with Azure Syn
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
-    * Setup required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
+    * Set up required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
     * Following is a quick access snippet of the same:
 
       ```sql
@@ -194,7 +194,7 @@ Upon completion, in either case of a success or a failure the result is rendered
 
 ### Write Request Response
 
-The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The signature enhancements for `synapsesql` includes an optional lambda (i.e., Scala function) that can be submitted to receive and process post-write feedback. The feedback will be two part - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
+The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The method `synapsesql` now supports an additional argument to pass an optional lambda (i.e., Scala Function ). The expected arguments for this function are - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
 
 Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
 
@@ -256,14 +256,14 @@ val readDF:DataFrame=spark.
             csv(pathToInputSource).
             limit(1000) //Reads first 1000 rows from the source CSV input.
 
-//Setup and trigger the read DataFrame for write to Synapse Dedicated SQL Pool.
+//Set up and trigger the read DataFrame for write to Synapse Dedicated SQL Pool.
 //Fully qualified SQL Server DNS name can be obtained using one of the following methods:
 //    1. Synapse Workspace - Manage Pane - SQL Pools - <Properties view of the corresponding Dedicated SQL Pool>
 //    2. From Azure Portal, follow the bread-crumbs for <Portal_Home> -> <Resource_Group> -> <Dedicated SQL Pool> and then go to Connection Strings/JDBC tab. 
 val writeOptions:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net", 
                                             Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
 
-//Setup optional callback/feedback function that can receive post write metrics of the job performed.
+//Set up optional callback/feedback function that can receive post write metrics of the job performed.
 var errorDuringWrite:Option[Throwable] = None
 val callBackFunctionToReceivePostWriteMetrics: (Map[String, Any], Option[Throwable]) => Unit =
     (feedback: Map[String, Any], errorState: Option[Throwable]) => {
