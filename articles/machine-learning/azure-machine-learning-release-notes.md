@@ -1487,8 +1487,8 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
 ## 2020-05-04
 **New Notebook Experience**
 
-You can now create, edit, and share machine learning notebooks and files directly inside the studio web experience of Azure Machine Learning. You can use all the classes and methods available in [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) from inside these notebooks
-Get started [here](./how-to-run-jupyter-notebooks.md)
+You can now create, edit, and share machine learning notebooks and files directly inside the studio web experience of Azure Machine Learning. You can use all the classes and methods available in [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) from inside these notebooks.
+To get started, visit the [Run Jupyter Notebooks in your workspace](./how-to-run-jupyter-notebooks.md) article. 
 
 **New Features Introduced:**
 
