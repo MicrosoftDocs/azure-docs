@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 01/10/2022
-ms.author: memildin
+ms.author: elkrieger
 ---
 ## Remove the Defender extension
 
