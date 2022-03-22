@@ -165,7 +165,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 :::zone target="docs" pivot="development-environment-cli"
 
-In the terminal, ensure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the [az webapp up](../cli/azure/webapp#az-webapp-up) command:
+In the terminal, ensure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the [az webapp up](/cli/azure/webapp#az-webapp-up) command:
 
 # [Deploy to Linux](#tab/linux)
 
