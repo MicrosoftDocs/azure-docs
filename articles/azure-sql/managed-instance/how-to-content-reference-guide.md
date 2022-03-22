@@ -10,7 +10,8 @@ ms.devlang:
 ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
-ms.date: 04/16/2019
+ms.reviewer: mathoma, danil
+ms.date: 03/22/2022
 ---
 # Azure SQL Managed Instance content reference
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,8 +39,6 @@ In this article you can find a content reference to various guides, scripts, and
   Secure your subnet against erroneous or malicious data exfiltration into unauthorized Azure Storage accounts.
 - [Configure custom DNS](custom-dns-configure.md):
   Configure custom DNS to grant external resource access to  custom domains from SQL Managed Instance via a linked server of db mail profiles. 
-- [Sync network configuration](azure-app-sync-network-configuration.md):
-  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 - [Find the management endpoint IP address](management-endpoint-find-ip-address.md): 
   Determine the public endpoint that SQL Managed Instance is using for management purposes. 
 - [Verify built-in firewall protection](management-endpoint-verify-built-in-firewall.md):
@@ -55,14 +54,27 @@ In this article you can find a content reference to various guides, scripts, and
 - [Configure multi-factor auth](../database/authentication-mfa-ssms-configure.md)
 - [Configure auto-failover group](auto-failover-group-configure-sql-mi.md) to automatically failover all databases on an instance to a secondary instance in another region in the event of a disaster. 
 - [Configure a temporal retention policy](../database/temporal-tables-retention-policy.md)
-- [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
-- [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
-- [Remove a TDE protector](../database/transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configure In-Memory OLTP](../in-memory-oltp-configure.md)
 - [Configure Azure Automation](../database/automation-manage.md)
 - [Transactional replication](replication-between-two-instances-configure-tutorial.md) enables you to replicate your data between managed instances, or from SQL Server on-premises to SQL Managed Instance, and vice versa.
 - [Configure threat detection](threat-detection-configure.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL injection or access from suspicious locations. 
 - [Creating alerts](alerts-create.md) enables you to set up alerts on monitored metrics such as CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
+
+### Transparent Data Encryption
+
+- [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
+- [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
+- [Remove a TDE protector](../database/transparent-data-encryption-byok-remove-tde-protector.md)
+
+### Managed Instance link feature
+
+- [Prepare environment for link feature](managed-instance-link-preparation.md)
+- [Replicate database with link feature in SSMS](managed-instance-link-use-ssms-to-replicate-database.md)
+- [Replicate database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts](managed-instance-link-use-scripts-to-replicate-database.md)
+- [Failover database with link feature in SSMS - Azure SQL Managed Instance](managed-instance-link-use-ssms-to-failover-database.md)
+- [Failover (migrate) database with Azure SQL Managed Instance link feature with T-SQL and PowerShell scripts](managed-instance-link-use-scripts-to-failover-database.md)
+- [Best practices with link feature for Azure SQL Managed Instance](link-feature-best-practices.md)
+
 
 ## Monitoring and tuning
 

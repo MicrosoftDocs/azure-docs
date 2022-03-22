@@ -12,7 +12,7 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 ## When to use search jobs
 
-Use a search job when the log query timeout of 10 minutes is not enough time to search through large volumes of data or when you are running a slow query.
+Use a search job when the log query timeout of 10 minutes isn't enough time to search through large volumes of data or when you're running a slow query.
 
 Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
 
@@ -26,7 +26,7 @@ Search jobs also let you retrieve records from [Archived Logs](data-retention-ar
 
 A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
-The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this retention once the table is created.
+The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
 
 The search results table schema is based on the source table schema and the specified query. The following additional columns help you track the source records:
 
@@ -40,13 +40,16 @@ The search results table schema is based on the source table schema and the spec
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
 ## Create a search job
+
+# [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-### Request body
+**Request body**
+
 Include the following values in the body of the request:
 
 |Name | Type | Description |
@@ -57,15 +60,18 @@ Include the following values in the body of the request:
 |properties.searchResults.endSearchTime | string  | End of the time range to search. |
 
 
-### Sample request
+**Sample request**
+
 This example creates a table called *Syslog_suspected_SRCH* with the results of a query that searches for particular records in the *Syslog* table.
 
 **Request**
+
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_suspected_SRCH?api-version=2021-12-01-preview
 ```
 
 **Request body**
+
 ```json
 {
     "properties": { 
@@ -79,18 +85,33 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-**Response**<br>
+**Response**
+
 Status code: 202 accepted.
 
+# [CLI](#tab/cli-1)
+
+To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` parameter, must end with *_SRCH*.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table search-job create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --search-query 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z" --no-wait
+```
+
+---
 
 ## Get search job status and details
+
+# [API](#tab/api-2)
 
 Call the **Tables - Get** API to get the status and details of a search job:
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-### Table status
+**Table status**<br>
+
 Each search job table has a property called *provisioningState*, which can have one of the following values:
 
 | Status | Description |
@@ -101,15 +122,18 @@ Each search job table has a property called *provisioningState*, which can have 
 | Deleting | Deleting the search job table. |
 
 
-#### Sample request
+**Sample request**
+
 This example retrieves the table status for the search job in the previous example.
 
 **Request**
+
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Syslog_SRCH?api-version=2021-12-01-preview
 ```
 
-**Response**<br>
+**Response**
+
 ```json
 {
         "properties": {
@@ -142,15 +166,40 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
+# [CLI](#tab/cli-2)
+
+To check the status and details of a search job table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --output table \
+```
+
+---
 
 ## Delete search job table
-We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and additional charges for data retention. 
+We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
+
+# [API](#tab/api-3)
 
 To delete a table, call the **Tables - Delete** API: 
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
+
+# [CLI](#tab/cli-3)
+
+To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
+```
+
+---
 
 ## Limitations
 Search jobs are subject to the following limitations:
@@ -172,7 +221,7 @@ Log queries in a search job are intended to scan very large sets of data. To sup
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
 - [project](/azure/data-explorer/kusto/query/projectoperator)
 - [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
-- [project-keep](/azure/data-explorer/kusto/query/projectkeepoperator)
+- [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
 - [parse](/azure/data-explorer/kusto/query/whereoperator)

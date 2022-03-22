@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/11/2022
+ms.date: 03/17/2022
 ms.custom: references_regions
 ms.author: cavoeg
 ---
@@ -14,6 +14,22 @@ ms.author: cavoeg
 # Release notes: Azure API for FHIR
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+## February 2022
+
+### **Features and enhancements**
+
+|Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
+| :----------------------------------- | ---------------: |
+|Added 429 retry and logging in BundleHandler |We sometimes encounter 429 errors when processing a bundle. If the FHIR service receives a 429 at the BundleHandler layer, we abort processing of the bundle and skip the remaining resources. We've added an additional retry (in addition to the retry present in the data store layer) that will execute one time per resource that encounters a 429. For more about this feature enhancement, see [PR #2400](https://github.com/microsoft/fhir-server/pull/2400).|
+|Billing for $convert-data and $de-id |Azure API for FHIR's data conversion and de-identified export features are now Generally Available. Billing for $convert-data and $de-id operations in Azure API for FHIR has been enabled. Billing meters were turned on March 1, 2022. |
+
+### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | ---------------: |
+|Update compartment search index |There was a corner case where the compartment search index wasn't being set on resources. Now we use the same index as the main search for compartment search to ensure all data is being returned. For more about the code fix, see [PR #2430](https://github.com/microsoft/fhir-server/pull/2430).|
+
 
 ## December 2021
 
@@ -31,7 +47,6 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Fixed 500 error when `SearchParameter` Code is null |Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it will result in an  `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343) |
 |Returned `BadRequestException` with valid message when input JSON body is invalid |For invalid JSON body requests, the FHIR server was returning a 500 error. Now we will return a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) |
 |`_sort` can cause `ChainedSearch` to return incorrect results |Previously, the sort options from the chained search's `SearchOption` object was not cleared, causing the sorting options to be passed through to the chained sub-search, which are not valid. This could result in no results when there should be results. This bug is now fixed  [#2347](https://github.com/microsoft/fhir-server/pull/2347). It addressed GitHub bug [#2344](https://github.com/microsoft/fhir-server/issues/2344). |
-
 
 
 ## November 2021
@@ -124,4 +139,4 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 For information about the features and bug fixes in Azure Healthcare APIs (FHIR service, DICOM service, and IoT connector), see
 
 >[!div class="nextstepaction"]
->[Release notes: Azure Healthcare APIs](../release-notes.md)
+>[Release notes: Azure Health Data Services](../release-notes.md)

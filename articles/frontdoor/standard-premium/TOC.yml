@@ -57,8 +57,10 @@
       href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
       href: ../front-door-rules-engine-actions.md
-  - name: URL redirect and URL rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+  - name: URL redirect 
+    href: ../front-door-url-redirect.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
+  - name: URL rewrite
+    href: ../front-door-url-rewrite.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Security
     items:
     - name: Security baseline
@@ -129,7 +131,7 @@
         href: how-to-enable-private-link-internal-load-balancer.md
       - name: Connect to a storage account
         href: how-to-enable-private-link-storage-account.md
-      - name: Connect to a web app
+      - name: Connect to an App Service
         href: how-to-enable-private-link-web-app.md
   - name: Monitor and reports
     items:

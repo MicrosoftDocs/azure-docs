@@ -29,13 +29,14 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
-Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network isn't linked to a private DNS zone with the following in the name:
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
 
+* blob.core.windows.net
+* vault.azure.com
 * core.windows.net
 * azure.com
-* vault.azure.net
 
-If you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion *is not* supported with these setups.
+You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net) as long as it is not one of the recommended DNS zone names for an Azure service listed [here](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
 
 The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
 
@@ -77,7 +78,7 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
-## <a name="vm"></a>VMs and connections
+## <a name="vm"></a>VM features and connections
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
@@ -100,13 +101,13 @@ No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virt
 
 No. You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and doesn't require any additional software for RDP/SSH.
 
-### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
+### <a name="rdpfeaturesupport"></a>What features are supported for VM sessions?
 
-At this time, only text copy/paste is supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
+See [About VM connections and features](vm-about.md) for supported features.
 
-### Does Azure Bastion support file transfer?
+### <a name="file-transfer"></a>Does Azure Bastion support file transfer?
 
-Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. File transfer is supported using the native client only. At this time, you can’t upload or download files using PowerShell or via the Azure portal. To learn more, see [Upload and download files using the native client](vm-upload-download-native.md).
+Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can’t upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](vm-upload-download-native.md).
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 

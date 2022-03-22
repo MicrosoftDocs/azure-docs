@@ -21,6 +21,8 @@ ms.author: rsetlem
 
 This article introduces feature differences when you're working with failover cluster instances (FCI) for SQL Server on Azure Virtual Machines (VMs). 
 
+To get started, [prepare your vm](failover-cluster-instance-prepare-vm.md). 
+
 ## Overview
 
 SQL Server on Azure VMs uses [Windows Server Failover Clustering (WSFC)](hadr-windows-server-failover-cluster-overview.md) functionality to provide local high availability through redundancy at the server-instance level: a failover cluster instance. An FCI is a single instance of SQL Server that's installed across WSFC (or simply the cluster) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be a single instance of SQL Server running on a single computer. But the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
