@@ -65,9 +65,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Connect to VMs
+          - text: Connecting to VMs
             url: vm-about.md#connect
-          - text: VM features
+          - text: VM supported features
             url: vm-about.md
       - linkListType: how-to-guide
         links:
