@@ -412,9 +412,10 @@ The latest release of the Connector introduced certain default behavior changes 
     * Please refer to the approach demonstrated in the Write path [Code Template](#write-code-template).
     * Handling and throwing an error as the last statement will allow the Cell execution to fail when there is a write failure.
 
-* A write request results in a validation error - “java.lang.IllegalArgumentException: Valid SQL Server option - logical_server and a valid three-part table name are required..."
-  * Detailed error message -  “java.lang.IllegalArgumentException: Valid SQL Server option - logical_server and a valid three-part table name are required to succesfully setup SQL Server connections".
-  * Mitigation - As shown in the following code snippet provide the option `Constants.SERVER`:
+* A write request returns a validation error message, as described below
+  * Detailed Error Message
+    `“java.lang.IllegalArgumentException: Valid SQL Server option - logical_server and a valid three-part table name are required to succesfully setup SQL Server connections`.
+  * Mitigation - Specify the write option parameter `Constants.SERVER`as shown below (also included in the [Write Code Template](#write-code-template))
 
    ```Scala
     df.write.
@@ -423,8 +424,6 @@ The latest release of the Connector introduced certain default behavior changes 
     mode(SaveMode.Overwrite). //Defaults to ErrorIfExists SaveMode option.
     synapsesql("<db_name>.<schema_name>.<table_name>", Constants.INTERNAL, None, Option(callBackHandle))
    ```
-
-  * Above mitigation is included in the [Write Code Template](#write-code-template) above.
 
 * Deprecation Warning
   * Context - Users would see following deprecation warning statement printed to the console output below the Cell:
