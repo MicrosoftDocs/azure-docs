@@ -119,7 +119,7 @@ You can create an Azure Load Testing resource by using an ARM template and the r
 }
 ```
 
-By adding the the user-assigned, you're telling Azure to use the user-assigned identity specified for your resource. For example, an Azure Load Testing resource might look like the following:
+The following code snippet shows an example of an Azure Load Testing ARM resource definition with a user-assigned identity:
 
 ```json
 {
