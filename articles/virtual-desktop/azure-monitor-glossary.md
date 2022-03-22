@@ -162,7 +162,10 @@ As an example, the time for a desktop experience to launch would be measured up 
 
 -   The time it takes the user to provide credentials is subtracted from their time to connect to help avoid signaling long connection times where a user may have had a long delay to enter credentials or use alternative authentication methods.
 
-When troubleshooting a high time to connect, you can breakdown total connection time into a few components to help identify actionable ways to reduce logon time. Note: only primary connection steps are surfaced in the stages, and these components can run in parallel, meaning they will not add up to equal a total time to connect. 
+When troubleshooting a high time to connect, you can breakdown total connection time into a few components to help identify actionable ways to reduce logon time. 
+
+>[!NOTE]
+>Only primary connection steps are surfaced in the stages, and these components can run in parallel, meaning they will not add up to equal a total time to connect. 
 
 Connection stages:
  
