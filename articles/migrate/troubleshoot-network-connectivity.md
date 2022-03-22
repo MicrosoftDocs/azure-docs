@@ -48,7 +48,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 2. If you have created a private endpoint for the storage account(s) for replicating over a private network, you can obtain the private link FQDN and IP address as illustrated below. 
 
-  - Go to the Storage account > **Networking** > **Private endpoint connections** and select the private endpoint created. 
+  - Go to the **Storage account** > **Networking** > **Private endpoint connections** and select the private endpoint created. 
 
       :::image type="content" source="./media/troubleshoot-network-connectivity/private-endpoint.png" alt-text="Screenshot of the Private Endpoint connections.":::
 
@@ -58,7 +58,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
--  Enter nslookup_ ```<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+-  Enter ```nslookup_<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 
