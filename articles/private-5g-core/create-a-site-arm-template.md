@@ -57,7 +57,7 @@ Four Azure resources are defined in the template.
     - **Region:** select **East US**.
     - **Location:** leave this field unchanged.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
-    - **Existing Data Network Name:** enter the name of data network to which your private mobile network connects. 
+    - **Existing Data Network Name:** enter the name of the data network to which your private mobile network connects. 
     - **Site Name:** enter a name for your site. 
     - **Control Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
     - **Control Plane Access Ip Address:** enter the IP address for the packet core instance's N2 signaling interface.

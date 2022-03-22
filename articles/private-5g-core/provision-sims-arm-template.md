@@ -101,7 +101,7 @@ The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templ
 1. Once your configuration has been validated, you can select **Create** to provision your SIMs. The Azure portal will display a confirmation screen when the SIMs have been provisioned.
 1. Select **Go to resource group**.
 
-    :::image type="content" source="media/provision-sims-arm-template/sim-provisioning-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
+    :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
 
 1. Confirm that your SIMs have been created in the resource group.
 
