@@ -499,7 +499,7 @@ When setting trailingSlashes to `auto`, all requests to folders will be redirect
 
 For optimal website performance, it is recommended to configure a trailing slashes strategy using one of the `always`, `none` or `auto` modes.
 
-By default, when the trailingSlashes configuration is ommited, Azure Static Web Apps will apply the following rules: 
+By default, when the trailingSlashes configuration is omitted, Azure Static Web Apps will apply the following rules: 
 
 | Requests to... | returns... | with the status... | and path... |
 |--|--|--|--|
