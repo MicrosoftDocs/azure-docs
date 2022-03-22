@@ -33,10 +33,14 @@ landingContent:
         links:
           - text: Configure data source plugins with Managed Identity
             url: how-to-data-source-plugins-managed-identity.md
+          - text: Call APIs in your automation
+            url: how-to-api-calls.md
 
   - title: Manage Access
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure Permissions for Managed Grafana
+          - text: Configure permissions for Managed Grafana
             url: how-to-permissions.md
+          - text: Share your Managed Grafana workspace
+            url: how-to-share-grafana-workspace.md

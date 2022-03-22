@@ -14,6 +14,7 @@ ms.date: 3/31/2022
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/how-to-permissions.md).
+- A resource including monitoring data with  Managed Grafana monitoring permissions. Read [how to configure permissions](how-to-permissions.md) for more information.
 
 ## Sign in to Azure
 
@@ -21,29 +22,43 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Supported data source plugins
 
-Azure Managed Grafana Preview supports the main data source plugins requested by our customers. If upgraded to Enterprise SKU, it will support everything currently available in Grafana Enterprise.
+Azure Managed Grafana Preview supports the main data source plugins requested by Azure customers. The Enterprise version of Managed Grafana also supports all data sources available in Grafana Enterprise.
 
-Azure specific data source plugins supported are:
+Azure specific data source plugins supported:
 
 - Azure Monitor
 - Azure Data Explorer
 
-The full list of available Grafana data source plugins can be found from the left menu in **Configuration** > **Data sources** > **Add a data source**. Search for the data source you need from the available list. Fore more information about data source plugins, go to [Data sources](https://grafana.com/grafana/plugins/) on the Grafana Labs website's plugins page.
+You can find the all available Grafana data source plugins by going to your workspace endpoint and selecting this page from the left menu: **Configuration** > **Data sources** > **Add a data source**. Search for the data source you need from the available list. Fore more information about data source plugins, go to [Data sources](https://grafana.com/grafana/plugins/) on the Grafana Labs website.
 
-   :::image type="content" source="media/how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
+   :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
 ## Default data source plugins in Azure Grafana workspace
 
-The Azure Monitor plugin is automatically added to your Managed Grafana workspace, whenever you create a new workspace. To finalize the configuration of the plugin, follow these steps:
+The Azure Monitor plugin is automatically added to all new Managed Grafana resources. To finalize its configuration, follow these steps in your workspace endpoint:
 
-1. From the left menu, select **Configuration** > **Data Sources**. You can see that Azure Monitor is already listed as an existing data source for your workspace. 
-1. Select **Azure Monitor** and select a subscription to finish configuring this plugin.
+1. From the left menu, select **Configuration** > **Data Sources**.
 
-As you can see, the authentication and authorization is using Managed Identity - you can go to Azure portal or use Azure CLI to assign permissions for the Azure Grafana workspace to be able to access Monitor data, without having to manually manage service principals in Microsoft Azure Active Directory (Azure AD).
+   :::image type="content" source="media/managed-grafana-how-to-source-configuration.png" alt-text="Screenshot of the Add data sources page.":::
+
+1. Azure Monitor is already listed as an existing data source for your workspace. Select **Azure Monitor**.
+1. In **Settings**, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
+
+   :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
+
+Authentication and authorization are made through Managed Identity. You can use the Azure portal or the Azure CLI to assign permissions for your Managed Grafana workspace to access Azure Monitor data, without having to manually manage service principals in Azure Active Directory (Azure AD).
+
+
 
 ## Manually assign permissions for Managed Grafana to access data in Azure
 
-The default permission assignment upon creating is Log Analytics Reader role for the subscription. It may not be applicable in your specific scenario. In this case, go to the Log Analytics resource that contains monitoring data you want to visualization, go to Access Control (IAM), search for Grafana workspace name and give it Reader permissions on the Log Analytics resource.
+By default, Managed Grafana has a **Log Analytics Reader** access to all the resources in the subscription. To change this:
 
-By default, Managed Grafana grants a Log Analytics Reader access role for all resources within a subscription. To learn how to manually edit permissions for specific resources, go to [Configure permissions for Azure Managed Grafana Preview](how-to-permissions.md).
+1. Go to the Log Analytics resource that contains the monitoring data you want to visualize.
+1. Go to **Access Control (IAM)**.
+1. Search for your Managed Grafana workspace and change the permission.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Share an Azure Managed Grafana Preview workspace](./how-to-share-grafana-workspace.md)
