@@ -5,22 +5,22 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/03/2022
-ms.author: yuajia
+ms.date: 03/22/2022
+ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# Azure Front Door rules match conditions
+# Rules match conditions
 
 ::: zone pivot="front-door-standard-premium"
 
-In Azure Front Door Standard/Premium [rule sets](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rule sets.
+In Azure Front Door [Rule sets](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rule sets.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-In Azure Front Door [rules engines](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rules engines.
+In Azure Front Door (classic) [Rules engines](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door (classic) Rules engines.
 
 ::: zone-end
 
@@ -49,11 +49,6 @@ You can use a match condition to:
 ::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ::: zone-end
 
@@ -1798,7 +1793,7 @@ For rules that can transform strings, the following transforms are valid:
 
 ::: zone pivot="front-door-classic"
 
-* Learn more about Azure Front Door [Rules Engine](front-door-rules-engine.md)
+* Learn more about Azure Front Door (classic) [Rules Engine](front-door-rules-engine.md)
 * Learn how to [configure your first Rules Engine](front-door-tutorial-rules-engine.md). 
 * Learn more about [Rules actions](front-door-rules-engine-actions.md)
 
@@ -1806,7 +1801,7 @@ For rules that can transform strings, the following transforms are valid:
 
 ::: zone pivot="front-door-standard-premium"
 
-* Learn more about Azure Front Door Standard/Premium [Rule Set](front-door-rules-engine.md).
+* Learn more about Azure Front Door [Rule Set](front-door-rules-engine.md).
 * Learn how to [configure your first Rule Set](standard-premium/how-to-configure-rule-set.md).
 * Learn more about [Rule actions](front-door-rules-engine-actions.md).
 
