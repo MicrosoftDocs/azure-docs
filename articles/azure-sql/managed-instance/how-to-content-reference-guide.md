@@ -9,7 +9,8 @@ ms.custom: sqldbrb=1, ignite-fall-2021
 ms.devlang: 
 ms.topic: guide
 author: MashaMSFT
-ms.author: mathoma, danil
+ms.author: mathoma
+ms.reviewer: mathoma, danil
 ms.date: 03/22/2022
 ---
 # Azure SQL Managed Instance content reference
