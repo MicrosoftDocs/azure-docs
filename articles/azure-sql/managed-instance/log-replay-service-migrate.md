@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 01/04/2022
+ms.date: 03/22/2022
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -425,6 +425,9 @@ Functional limitations of LRS are:
 - LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 
+> [!NOTE]
+> If you require database to be R/O accessible during the migration, and if you require migration window larger than 36 hours, please consider an alternative online migrations solution [link feature for Managed Instance](link-feature.md) providing such capability.
+
 ## Troubleshooting
 
 After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogreplay` or `az_sql_midb_log_replay_show`) to see the status of the operation. If LRS fails to start after some time and you get an error, check for the most common issues:
@@ -438,6 +441,7 @@ After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogrep
 - If you started LRS in autocomplete mode, was a valid filename for the last backup file specified?
 
 ## Next steps
-- Learn more about [migrating SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
+- Learn more about [migrating to Managed Instance using the link feature](link-feature.md).
+- Learn more about [migrating from SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 - Learn more about [differences between SQL Server and SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
 - Learn more about [best practices to cost and size workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
