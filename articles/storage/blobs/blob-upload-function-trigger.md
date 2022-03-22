@@ -1,5 +1,5 @@
 ---
-title: Upload and process a file with Azure Functions and Blob Storage
+title: Upload and analyze a file with Azure Functions and Blob Storage
 description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
 author: alexwolfmsft
 ms.author: alexwolf
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 3/11/2022
 ---
 
-# Tutorial: Upload and process a file with Azure Functions and Blob Storage
+# Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
 
 In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You will also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
