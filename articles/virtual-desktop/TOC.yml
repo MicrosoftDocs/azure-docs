@@ -67,7 +67,7 @@
       href: authentication.md
     - name: Azure RBAC roles
       href: rbac.md
-    - name: Delegated access in Azure Virtual Desktop
+    - name: Delegated access
       href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
