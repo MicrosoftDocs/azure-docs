@@ -32,11 +32,11 @@ Let's begin by creating the containerized ASP.NET Core application that we'll de
 
 3) In the Project Name field, name the application *MyContainerApp* and then select **Next**.
 
-4) On the **Additional Information** screen, make sure to select **Enable Docker**.  This will ensure our project template supports containerization by default. With this setting enabled, when we build and run our project, it will run using a container.
+4) On the **Additional Information** screen, make sure to select **Enable Docker**.  This will ensure our project template supports containerization by default. With this setting enabled, when we build and run our project, it will run using a container. 
+
+    Click **Create** and Visual Studio will create and load the project.
 
 :::image type="content" source="media/visual-studio/container-apps-enable-docker.png" alt-text="A screenshot showing to enable docker.":::
-
-5) Click **Create** and Visual Studio will create and load the project.
 
 
 ### Docker Installation
@@ -57,19 +57,17 @@ Your are now ready to deploy to Azure Containers apps.
 
 Visual Studio can create all of the necessary Azure Resources to deploy and run Azure Container Apps for us through the publishing workflow. 
 
-1) Begin by right clicking on the **MyContainerApp** project node and selecting **Publish**.
+Begin by right clicking on the **MyContainerApp** project node and selecting **Publish**.
 
-2) In the dialog, choose **Azure** from the list of publishing options, and then select **Next**.
+In the dialog, choose **Azure** from the list of publishing options, and then select **Next**.
 
 :::image type="content" source="media/visual-studio/container-apps-deploy-azure.png" alt-text="A screenshot showing to publish to Azure.":::
 
-3) On the next screen, choose Azure Container Apps Preview (Linux), and then select **Next** again.
+On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
 
 :::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing to publish to Azure.":::
 
-4) We need to create an Azure Container App to host our project.  Select the the green plus icon on the right to open the create dialog.
-
-    In the **Create new** dialog, enter the following values:
+We need to create an Azure Container App to host our project.  Select the the green plus icon on the right to open the create dialog. In the **Create new** dialog, enter the following values:
 
 - **Container App name**: Enter a name of `msdocscontainerapp`.
 - **Subscription name**: Choose the subscription where you would like to host your app.
@@ -83,19 +81,15 @@ Visual Studio can create all of the necessary Azure Resources to deploy and run 
 
 :::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
 
-- Select **Create** to finalize the creation or your Container App.
+Select **Create** to finalize the creation or your Container App. Visual Studio and Azure will create the resources you requested.  This process may take a couple minutes, so allow it to run to completion before moving on.
 
-    Visual Studio and Azure will create the resources you requested.  This process may take a couple minutes, so allow it to run to completion before moving on.
+Once the resources are created, choose **Next**.
 
-    Once the resources are created, choose **Next**.
-
-6) On the **Container Name** dialog, ensure the Container name you created is selected, and then choose **Next** again.
+On the **Container Name** dialog, ensure the Container name you created is selected, and then choose **Next** again.
 
 :::image type="content" source="media/visual-studio/container-apps-container-name.png" alt-text="A screenshot showing how to select the right container.":::
 
-7) On the Azure Container Registry Screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. 
-
-    On the **Create new** registry screen, fill in the following values:
+On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
 - **DNS prefix**: Enter a value of `msdocscontainerregistry` or a name of your choosing.
 - **Subscription Name**: Select the subscription you want to use - you may only have one to choose from.
