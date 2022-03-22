@@ -118,7 +118,40 @@ To set up alerts for deadlock events, follow the steps in the article [Create al
 
 Select **Deadlocks** as the signal name for the alert. Configure the **Action group** to notify you using the method of your choice, such as the **Email/SMS/Push/Voice** action type.
 
-### Cause a deadlock in the AdventureWorksLT database
+## Collect deadlock graphs in Azure SQL Database with Extended Events
+
+Deadlock graphs are a rich source of information regarding the processes and locks involved in a deadlock. To collect deadlock graphs with Extended Events (XEvents), capture the `sqlserver.database_xml_deadlock_report` event.
+
+This sample code creates an XEvents trace which captures deadlock graphs in memory using the [ring buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target). The maximum memory allowed for the ring buffer target is 4MB, and the trace will automatically run when the database comes online, such as after a failover. 
+
+To create and then start the trace, connect to your user database and run the following Transact-SQL:
+
+```sql
+CREATE EVENT SESSION [deadlocks] ON DATABASE 
+ADD EVENT sqlserver.database_xml_deadlock_report
+ADD TARGET package0.ring_buffer 
+WITH (STARTUP_STATE=ON, MAX_MEMORY=4 MB)
+GO
+
+ALTER EVENT SESSION [deadlocks] ON DATABASE
+    STATE = START;
+GO
+```
+
+While the ring buffer target is convenient, it does not persist events to storage, and the ring buffer target is cleared when the trace is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. Use the [Event File target code for extended events in Azure SQL Database](xevent-code-event-file.md) instead of the ring buffer to persist deadlock graphs to a file so that they are available even after failovers. The event file target also allows you to capture more deadlock graphs without utilizing more memory in your database.
+
+When you no longer need to collect deadlock information, it is a best practice to stop and delete your XEvents trace. To stop and delete our example trace, you can run the following statements when desired:
+
+```sql
+ALTER EVENT SESSION [deadlocks] ON DATABASE
+    STATE = STOP;
+GO
+
+DROP EVENT SESSION [deadlocks] ON DATABASE;
+GO
+```
+
+## Cause a deadlock in AdventureWorksLT
 
 To cause a deadlock, you will need to connect two sessions to the `AdventureWorksLT` database. We'll refer to these sessions as **Session A** and **Session B**. 
 
@@ -175,41 +208,37 @@ After a few seconds, the deadlock monitor will identify that the transactions in
 
 If you [set up deadlock alerts in the Azure portal](#set-up-deadlock-alerts-in-the-azure-portal), you should receive a notification shortly after the deadlock occurs.
 
-## Collect deadlock graphs in Azure SQL Database
+## View deadlock graphs from an XEvents trace
 
-You can query recent deadlock history in a database in Azure SQL Database using the [sys.fn_xe_telemetry_blob_target_read_file](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql) dynamic management function (DMF) in the `master` database. This DMF reads from an extended events trace automatically run by Azure SQL Database. Specify `dl` as the path to query deadlock events.
+If you have set up an [XEvents trace to collect deadlocks](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), you can view an interactive graphic display of the deadlock graph as well as the XML for the deadlock graph.
 
-Connect to the `master` database on the [logical server](logical-servers.md) for your database in Azure SQL Database to run the following query:
+If you set up an XEvents trace named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL:
 
 ```sql
-WITH deadlock_events AS (
+with ring_buffer AS (
+	SELECT CAST(target_data AS XML) as rb
+	FROM sys.dm_xe_database_sessions AS s 
+	JOIN sys.dm_xe_database_session_targets AS t 
+		ON CAST(t.event_session_address AS BINARY(8)) = CAST(s.address AS BINARY(8))
+	WHERE s.name = N'Deadlocks' and
+	t.target_name = N'ring_buffer'
+), dx AS (
+	SELECT 
+		dxdr.evtdata.query('.') as deadlock_xml_deadlock_report
+	FROM ring_buffer
+	CROSS APPLY rb.nodes('/RingBufferTarget/event[@name=''database_xml_deadlock_report'']') AS dxdr(evtdata)
+) 
 SELECT 
-	CAST(event_data AS XML) AS [target_data_XML] 
-	FROM sys.fn_xe_telemetry_blob_target_read_file('dl', null, null, null)
-), deadlocks AS (
-SELECT 
-	target_data_XML.query('/event/data[@name=''deadlock_cycle_id'']/value').value('(/value)[1]', 'int') AS [deadlock_cycle_id],
-	target_data_XML.query('/event/data[@name=''database_name'']/value').value('(/value)[1]', 'nvarchar(250)') AS [database_name],
-	target_data_XML.value('(/event/@timestamp)[1]', 'DateTime2') AS [deadlock_timestamp],
-	target_data_XML.query('/event/data[@name=''xml_report'']/value/deadlock') AS deadlock_xml,
-	LTRIM(RTRIM(Replace(Replace(c.value('.', 'nvarchar(250)'),CHAR(10),' '),CHAR(13),' '))) as query_text
-FROM deadlock_events
-CROSS APPLY target_data_XML.nodes('(/event/data/value/deadlock/process-list/process/inputbuf)') AS T(C)
-)
-SELECT 
-	[deadlock_cycle_id], [database_name], [deadlock_timestamp], deadlock_xml, query_text
-FROM deadlocks
+	d.query('/event/data[@name=''deadlock_cycle_id'']/value').value('(/value)[1]', 'int') AS [deadlock_cycle_id],
+	d.value('(/event/@timestamp)[1]', 'DateTime2') AS [deadlock_timestamp],
+	d.query('/event/data[@name=''database_name'']/value').value('(/value)[1]', 'nvarchar(256)') AS [database_name],
+	d.query('/event/data[@name=''xml_report'']/value/deadlock') AS deadlock_xml,
+	LTRIM(RTRIM(REPLACE(REPLACE(d.value('.', 'nvarchar(2000)'),CHAR(10),' '),CHAR(13),' '))) as query_text
+FROM dx
+CROSS APPLY deadlock_xml_deadlock_report.nodes('(/event/data/value/deadlock/process-list/process/inputbuf)') AS ib(d)
 ORDER BY [deadlock_timestamp] DESC;
 GO
 ```
-
-> [!NOTE]
-> If no rows are returned by the query, ensure that you have connected this session to the master database on the [logical server](logical-servers.md).
-
-
-The `deadlock_cycle_id` column is present to help identify rows associated with the same deadlock. In this example, the same deadlock is reoccurring between two sessions, so two rows are present for each deadlock.
-
-You can view and save a deadlock graph in the raw XML format. You can also save a deadlock graph with the `.xdl` file extension to view an interactive representation of the deadlock graph in SSMS.
 
 ### View and save a deadlock graph in XML
 
