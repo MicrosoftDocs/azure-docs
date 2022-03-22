@@ -25,6 +25,7 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Virtual network configuration](#virtual-network-configuration)
   - [Private endpoint configuration](#private-endpoint-configuration)
   - [Firewall rules](#third-party-firewall-or-external-proxy)
+  - 
 
 ## Intermittent connectivity issues
 
@@ -91,6 +92,10 @@ If you have a firewall configured for your Azure Cache For Redis, ensure that yo
 #### Third-party firewall or external proxy
 
 When you use a third-party firewall or proxy in your network, check that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache or geo-replication.
+
+#### Public IP address change
+
+If you have configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP changed. For more information, see 
 
 ## Next steps
 
