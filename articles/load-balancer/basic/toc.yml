@@ -9,7 +9,10 @@ items:
       href: quickstart-basic-public-load-balancer-portal.md
     - name: CLI
       href: quickstart-basic-public-load-balancer-cli.md
-  expanded: true
+  - name: Create a basic internal load balancer
+    items:
+    - name: Portal
+      href: quickstart-basic-internal-load-balancer-portal.md
 - name: Reference
   items:
   - name: Azure CLI
