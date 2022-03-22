@@ -97,7 +97,7 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
     }
    ```
 
-5. There is also a class `BulkWriter.java` in the same directory as the sample application. This class demonstrates how to handle rate limiting, and is implemented in `bulkCreateItemsSimple()` in the application. 
+5. There is also a class `BulkWriter.java` in the same directory as the sample application. This class demonstrates how to handle rate limiting (429) and timeout (408) errors that may occur during bulk execution, and retrying those operations effectively. It is implemented in the `bulkCreateItemsSimple()` method in the application. 
 
     ```java
         private void bulkCreateItemsSimple() {
