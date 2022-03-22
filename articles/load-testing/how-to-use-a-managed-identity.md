@@ -88,7 +88,7 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 ## Set a user-assigned identity
 
-Adding a user-assigned identity to an Azure Load testing resource requires that you create the identity and then add its resource identifier to your resource.
+Before you can add a user-assigned identity to an Azure Load Testing resource, you must first create this identity. You can then add the identity by using its resource identifier.
 
 # [Portal](#tab/azure-portal)
 
