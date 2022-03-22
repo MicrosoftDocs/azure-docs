@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2021
+ms.date: 03/22/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -78,7 +78,7 @@ Before you start cabling your device, you need the following:
 
 - Your Azure Stack Edge Mini R physical device on the installation site.
 - One power cable.
-- At least one 1-GbE RJ-45 Ethernet crossover cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
+- At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 10-GbE SFP+ cable for each data network interface to be configured. At least one data network interface from PORT 3 or PORT 4 needs to be connected to the Internet (with connectivity to Azure).
 
   Use of the highest-performing copper SFP+ (10 Gbps) transceiver is strongly recommended. Compatible fiber-optic transceivers can be used but have not been tested. For more information, see [transceiver and cable specifications](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables) for Azure Stack Edge Mini R.
@@ -147,7 +147,7 @@ Take the following steps to cable your device for power and network.
     - Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 is the dedicated management interface.
     - Connect one or more of PORT 2, PORT 3, or PORT 4 to the datacenter network/Internet.
     
-        - If connecting PORT 2, use the RJ-45 Ethernet crossover cable.
+        - If connecting PORT 2, use the RJ-45 network cable.
         - For the 10-GbE network interfaces, use the SFP+ copper cables.
 
 ## Next steps

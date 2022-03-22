@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -207,7 +207,7 @@ Before you start cabling your device, you need the following things:
 
 - Your Azure Stack Edge Pro 2 physical device, unpacked, and rack mounted.
 - One power cable (included in the device package).
-- At least one 1-GbE RJ-45 Ethernet crossover cable to connect to the Port 1. Port 1 and Port 2 the two 10/1-GbE network interfaces on your device.
+- At least one 1-GbE RJ-45 network cable to connect to the Port 1. Port 1 and Port 2 the two 10/1-GbE network interfaces on your device.
 - One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured. Here is an example of the QSFP28 DAC connector: 
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
@@ -226,7 +226,7 @@ Before you start cabling your device, you need the following things:
 - Your two Azure Stack Edge Pro 2 physical devices, unpacked, and rack mounted.
 - One power cable for each device node (included in the device package).
 - Access to one power distribution unit for each device node.
-- At least two 1-GbE RJ-45 Ethernet crossover cable per device to connect to Port 1 and Port2. These are the two 10/1-GbE network interfaces on your device. 
+- At least two 1-GbE RJ-45 network cables per device to connect to Port 1 and Port2. These are the two 10/1-GbE network interfaces on your device. 
 - A 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured on each device. The total number needed would depend on the network topology you will deploy. Here is an example QSFP28 DAC connector: 
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
@@ -327,7 +327,7 @@ Follow these steps to cable your device for network:
 
 1. Connect one or more of Port 2, Port 3, Port 4 to the datacenter network/internet.
 
-    - If connecting Port 2, use the 1-GbE RJ-45 Ethernet crossover cable.
+    - If connecting Port 2, use the 1-GbE RJ-45 network cable.
     - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
     
     The back plane of a cabled device would be as follows: 
@@ -354,7 +354,7 @@ Cable your device as shown in the following diagram:
 ![Diagram showing cabling scheme for Switchless network topology.](./media/azure-stack-edge-pro-2-deploy-install/switchless-initial-1.png)
 
 1. Connect Port 1 on each node to a computer using an Ethernet crossover cable or a USB Ethernet adapter for the initial configuration of the device.
-1. Connect Port 2 on each node to a 1-GbE switch via a 1-GbE RJ-45 Ethernet crossover cable. If available, a 10-GbE switch can also be used. 
+1. Connect Port 2 on each node to a 1-GbE switch via a 1-GbE RJ-45 network cable. If available, a 10-GbE switch can also be used. 
 1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection.
 1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection. 
 
