@@ -44,6 +44,9 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 
         > [!IMPORTANT]
         > Talk to your admin, if you don't see the virtual machine image you need.  They may have to [specify Marketplace images](specify-marketplace-images.md) or [specify custom images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images) available to lab creators.  If using custom images, the admin must also verify the custom image is replicated to the same region as the lab plan.
+
+        > [!NOTE]
+        > Prices shown are for example only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).
         
         :::image type="content" source="./media/tutorial-setup-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
 
