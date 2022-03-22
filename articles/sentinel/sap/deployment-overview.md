@@ -25,41 +25,21 @@ This article introduces you to the process of deploying the Microsoft Sentinel C
 
 The SAP data connector is an agent, installed on a VM or a physical server, that collects application logs from across the entire SAP system landscape. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the SAP Continuous Threat Monitoring solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
 
-Unlike other solutions available in the Content Hub, in this case the data connector is deployed separately from the rest of the solution.
+## Deployment milestones
 
-To ingest SAP logs into Microsoft Sentinel, the  SAP data connector needs to be installed and connected to your SAP environment. The connector is packaged as a Docker container. We recommend deploying the container onto an Azure virtual machine, although deployment to an on-premises physical or virtual machine is also supported.
+Follow your deployment journey through this series of articles, in which you'll learn how to navigate each of the following steps:
 
-After the SAP data connector is deployed, deploy the  SAP solution security content to gain insight into organization's SAP environment and improve any related security operation capabilities.
-
-In this series of articles, you'll learn how to:
-
-
-- Prepare your SAP system for the SAP data connector deployment.
-- Deploy the SAP data connector.
-- Deploy the SAP solution security content in Microsoft Sentinel.
-- Configure auditing.
-- Configure data connector to connect to SAP using SNC and X.509 certificate authentication.
+| Milestone | Article |
+| --------- | ------- |
+| **1. Deployment overview** | **YOU ARE HERE** |
+| **2. Prerequisites** | [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
+| **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing_sap.md) |
+| **4. Deploy data connector agent** | [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md) |
+| **5. Deploy SAP security content** | [Deploy SAP security content](deploy_sap_security_content.md)
+| **6. Optional steps** | <li>[Configure auditing](configure_audit.md).<li>[Configure SAP data connector to use SNC](configure_snc.md)
 
 > [!NOTE]
 > Extra steps are required to configure communications between SAP data connector and SAP over a Secure Network Communications (SNC) connection. This is covered in [Deploy the Microsoft Sentinel SAP data connector with SNC](configure_snc.md) section of the guide.
-
-
-## Deployment milestones
-Deployment of the SAP continuous threat monitoring solution is divided into the following sections
-
-1. **Deployment overview (*You are here*)**
-
-1. [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-
-1. [Prepare SAP environment by deploying SAP CRs, configure Authorization and create user](preparing_sap.md)
-
-1. [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
-
-1. [Deploy SAP security content](deploy_sap_security_content.md)
-
-1. Optional deployment steps
-   - [Configure auditing](configure_audit.md)
-   - [Configure SAP data connector to use SNC](configure_snc.md)
 
 ## Next steps
 
