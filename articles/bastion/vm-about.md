@@ -38,9 +38,7 @@ For steps and more information, see [Upload or download files to a VM using a na
 
 ## <a name="audio"></a>Remote audio
 
-You can enable remote audio output for your VM. Some VMs automatically enable this setting, others require you to enable audio settings manually. The settings are changed on the VM itself. Your Bastion deployment doesn't need any special configuration settings to enable remote audio output.
-
-For steps, see the [Deploy Bastion](tutorial-create-host-portal.md#audio) tutorial.
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
 
 ## <a name="faq"></a>FAQ
 
