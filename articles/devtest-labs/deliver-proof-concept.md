@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/21/2022
 ---
 
-# Deliver a proof of concept for Azure DevTest Labs
+# Deliver a proof of concept for Azure DevTest Labs enterprise deployment
 
 This article describes how an enterprise can deliver a successful proof of concept or pilot for an Azure DevTest Labs deployment. Proof of concept uses a concentrated effort from a single team to establish organizational value.
 
@@ -55,7 +55,7 @@ For management, such as adding users or adding lab owners, all lab users must be
 
 ## Scope the proof of concept
 
-The focus of the pilot is to use the minimum necessary workloads and dependencies to decide whether Azure DevTest Labs is right for your enterprise. Choose the simplest workload with the fewest dependencies to help ensure quick and clean success. Or, pick the most representative workload that exposes potential complexities, so you can replicate pilot success in the scale-out phase.
+The focus of the pilot is to use the minimum necessary workloads and dependencies to decide whether Azure DevTest Labs is right for your enterprise. Choose the simplest workload with the fewest dependencies to help ensure quick and clean success. Or, pick the most representative workload that exposes potential complexities, so you can replicate pilot success in the [scale-out phase](devtest-lab-guidance-scale.md).
 
 Plan the proof of concept carefully before you start the implementation. Be sure to set appropriate expectations with users that the pilot resources won't stay around indefinitely.
 
@@ -91,7 +91,7 @@ The [default network infrastructure](/azure/app-service/networking-features) tha
 
 For more information, see [Networking components](devtest-lab-reference-architecture.md#networking-components).
 
-DevTest Labs also supports [connecting existing virtual networks to the lab](devtest-lab-configure-vnet.md) to use for creating new VMs.
+DevTest Labs also supports adding existing virtual networks to the lab to use for creating new VMs. For more information, see [Add a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
 ### Virtual machine remote access
 
@@ -99,7 +99,7 @@ There are several options for enterprise users to remotely access DevTest Labs V
 
 - The easiest and most secure method is to use browser connectivity through Azure Bastion. The VMs don't need to use public IP addresses. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
-- Another option is to use public IPs or a [shared public IPs](devtest-lab-shared-ip.md), and connect through Remote Desktop Protocol (RDP) or secure shell (SSH).
+- Another option is to use public IPs or [shared public IPs](devtest-lab-shared-ip.md), and connect through Remote Desktop Protocol (RDP) or secure shell (SSH).
 
 - If the preceding options aren't sufficient, you can connect through a remote access gateway, as shown in the [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md). For more information, see [Configure a lab to use Remote Desktop Gateway](configure-lab-remote-desktop-gateway.md).
 
@@ -111,15 +111,15 @@ Before final DevTest Labs rollout, it's important to decide broadly who to give 
 
 ## Complete the proof of concept 
 
-After you cover the defined scenarios, complete the pilot. Gather feedback from the users, determine if the pilot was successful, and decide if the organization will move ahead on an [enterprise-scale](devtest-lab-guidance-scale.md) DevTest Labs rollout. Start to consider automating deployment of DevTest Labs and associated resources to ensure consistency throughout the scaled rollout.
+After you cover the defined scenarios, complete the pilot. Gather feedback from the users, determine if the pilot was successful, and decide if the organization will move ahead on an enterprise-scale DevTest Labs rollout. Start to consider automating deployment of DevTest Labs and associated resources to ensure consistency throughout the scaled rollout.
 
 ## Example proof-of-concept plan
 
-This following example shows a plan for scoping a DevTest Labs proof of concept.
+This following example shows a plan for scoping a DevTest Labs proof of concept deployment.
 
 ### Overview
 
-An enterprise plans to develop a new Azure DevTest Labs for vendors to use, which is isolated from the corporate network. To determine if the solution will meet the requirements, the organization develops a proof of concept to validate the end-to-end scenario.
+An enterprise plans to develop a new Azure DevTest Labs environment for vendors to use, which is isolated from the corporate network. To determine if the solution will meet the requirements, the organization develops a proof of concept to validate the end-to-end scenario.
 
 ### Goals
 
