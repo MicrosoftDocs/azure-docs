@@ -101,13 +101,13 @@ No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virt
 
 No. You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and doesn't require any additional software for RDP/SSH.
 
-### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
+### <a name="rdpfeaturesupport"></a>What features are supported for VM sessions?
 
-At this time, only text copy/paste is supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
+See [About VM connections and features](vm-about.md) for supported features.
 
-### Does Azure Bastion support file transfer?
+### <a name="file-transfer"></a>Does Azure Bastion support file transfer?
 
-Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. File transfer is supported using the native client only. At this time, you can’t upload or download files using PowerShell or via the Azure portal. To learn more, see [Upload and download files using the native client](vm-upload-download-native.md).
+Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can’t upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](vm-upload-download-native.md).
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
