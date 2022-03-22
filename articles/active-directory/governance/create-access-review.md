@@ -231,17 +231,17 @@ Ue the following instructions to create an access review on a team with shared c
     
     ![Screenshot that shows setting the review scope to for shared channels review.](./media/create-access-review/create-shared-channels-review.png)
 
-    1. Choose **All users** to include:
+    - Choose **All users** to include:
         - All internal users
         - B2B collaboration users that are members of the Team
         - B2B direct connect users
         - Teams that access shared channels
-    1. Or, chose **Guest users only** to only include B2B direct connect users and Teams and B2B collaboration users. 
+    - Or, choose **Guest users only** to only include B2B direct connect users and Teams and B2B collaboration users. 
 
 1. Continue on to the **Reviews** tab. Select a reviewer to complete the review, then specify the **Duration** and **Review recurrence**. 
 
-> [!NOTE]
-> <ul> If you set **Select reviewers** to **Users review their own access** or **Managers of users**, B2B direct connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will get an email that asks the owner to review the B2B direct connect user and Teams.</ul><ul>If you select **Managers of users**, a selected fallback reviewer will review any user without a manager in the home tenant. This includes B2B direct connect users and Teams without a manager.</ul>
+    > [!NOTE]
+    > <ul> If you set **Select reviewers** to **Users review their own access** or **Managers of users**, B2B direct connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will get an email that asks the owner to review the B2B direct connect user and Teams.</ul><ul>If you select **Managers of users**, a selected fallback reviewer will review any user without a manager in the home tenant. This includes B2B direct connect users and Teams without a manager.</ul>
 
 1. Go on to the **Settings** tab and configure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
 
