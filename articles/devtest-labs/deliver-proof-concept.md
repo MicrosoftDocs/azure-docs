@@ -2,7 +2,7 @@
 title: Deliver a proof of concept
 description: Use a proof of concept or pilot deployment to investigate incorporating Azure DevTest Labs into an enterprise environment.
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ---
 
 # Deliver a proof of concept for Azure DevTest Labs enterprise deployment
@@ -69,7 +69,7 @@ Do these tasks to scope the pilot:
 - Decide on the pilot duration, such as two weeks or a month.
 - Decide how to dispose of the pilot resources when the pilot ends.
 
-There's a tendency to try to make the pilot perfect, so it will mirror the final state after DevTest Labs rollout. However, trying to make the proof of concept perfect is too much effort before you can start the pilot. The purpose of the pilot is to determine the right decisions for scaling up and rolling out the final service.
+There's a tendency to try to make the pilot perfect, so it will mirror the final state after DevTest Labs rollout. However, trying to make the proof of concept perfect means too much effort before you can start the pilot. The purpose of the pilot is to determine the right decisions for scaling up and rolling out the final service.
 
 ## Make other planning and design decisions
 

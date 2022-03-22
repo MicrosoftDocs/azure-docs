@@ -2,7 +2,7 @@
 title: Use platform-as-a-service (PaaS) environments in labs
 description: Learn about platform-as-a-service (PaaS) environments in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ---
 
 # Use PaaS services in Azure DevTest Labs
@@ -26,7 +26,7 @@ DevTest Labs PaaS environments support the following scenarios:
 
 ### Developer scenarios
 
-To create an environment, a developer selects an environment template rather than a machine image, and enters any required information. Individual developer environments allow faster change deployment and improved inner loop debugging. Developers can destroy their environments anytime, and recreate them by using the latest templates. This capability helps reduce downtime manually creating systems or recovering from faults.
+To create an environment, a developer selects an environment template rather than a machine image, and enters any required information. Individual developer environments allow faster change deployment and improved inner loop debugging. Developers can destroy their environments anytime, and recreate them by using the latest templates. This capability helps reduce downtime from creating systems manually or recovering from faults.
 
 ### Test scenarios
 
