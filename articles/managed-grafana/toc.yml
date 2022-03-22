@@ -19,4 +19,4 @@ items:
   - name: Share your Managed Grafana workspace
     href: how-to-share-grafana-workspace.md
   - name: Call APIs in your automation
-    href: how-to-API-calls.md
+    href: how-to-api-calls.md

@@ -32,7 +32,7 @@ To edit permissions for a specific resource, follow these steps:
 1. Select **Access Control (IAM)**.
 2. Under **Grant access to this resource**, select **Add role assignment**.
    
-   :::image type="content" source="media/managed-grafana-how-to-permissions-IAM.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+   :::image type="content" source="media/managed-grafana-how-to-permissions-iam.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
 
 1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
 1. Select **Next**.
