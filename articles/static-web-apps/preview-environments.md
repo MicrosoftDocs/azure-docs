@@ -44,10 +44,10 @@ There are two configuration types available for enabling preview environments. B
 
 To enable preview environments, make the following changes to your [configuration file](configuration.md).
 
-- Set the `PRODUCTION_BRANCH` environment variable to your production branch name.
-- List the branches you want to include in preview environments in the `on` `>` `push` `>` `branches` array in your site configuration.
+- Set the `production_branch` environment variable to your production branch name.
+- List the branches you want to include in preview environments in the `on > push > branches` array in your site configuration.
   - Set this array to `**` if you want to track all non-production branches.
-- If you want a single named environment, define the `DEPLOYMENT_ENVIRONMENT_NAME` environment variable.
+- If you want a single named environment, define the `deployment_environment_name` environment variable.
 
 ## Examples
 
@@ -84,7 +84,7 @@ jobs:
 > [!NOTE]
 > The `...` denotes code skipped for clarity.
 
-In this case, the named environment is labeled as `dev` and tracks all non-production branches. If you wanted to only track changes for specific branches, then you would define them individually in the `branches` array.
+In this case, the named environment is labeled as `dev` and tracks all non-production branches. If you wanted to only track changes specific branches, then define them individually in the `branches` array.
 
 Since the `deployment_environment` value is set, then changes to all branches roll up into a single environment.
 
