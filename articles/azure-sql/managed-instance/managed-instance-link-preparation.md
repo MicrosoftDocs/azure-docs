@@ -350,7 +350,7 @@ If the connection is unsuccessful, verify the following items:
 > [!CAUTION]
 > Proceed with the next steps only if there is validated network connectivity between your source and target environments. Otherwise, please troubleshoot network connectivity issues before proceeding any further.
 
-## Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance 
+## Migrate a certificate of a TDE-protected database
 
 If you are migrating a database on SQL Server protected by Transparent Data Encryption to a managed instance, the corresponding encryption certificate from the on-premises or Azure VM SQL Server needs to be migrated to managed instance before using the link. For detailed steps, see [Migrate a TDE cert to a managed instance](tde-certificate-migrate.md).
 
