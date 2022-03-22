@@ -117,5 +117,4 @@ When you're ready to develop at-scale solutions for extensive production scenari
 For more information, guidance, and examples, see the following pages:
 
 * [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
-* [Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter](how-to-devops-starter.md)
 * [IoT Edge DevOps GitHub repo](https://github.com/toolboc/IoTEdge-DevOps)
