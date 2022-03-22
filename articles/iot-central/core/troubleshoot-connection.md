@@ -196,11 +196,14 @@ You may be prompted to install the `uamqp` library the first time you run a `val
 
 There are two main categories of common issues that cause device data to not appear in IoT Central:
 
-Device template to device data mismatch:
+- Device template to device data mismatch.
+- Data shape is invalid JSON.
 
-- Mismatch in naming such as typos or case-matching issues.
+### Device template to device data mismatch
 
-The following output shows example error and warning messages from the validate command:
+Mismatch in naming such as typos or case-matching issues.
+
+The following output shows example error and warning message where the device is sending a telemetry value called Temperature, when it should be temperature.
 
 ```output
 Validating telemetry.
@@ -209,22 +212,19 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 [WARNING] [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['Temperature']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'. 
 ```
 
-- Unmodeled properties where the schema isn't defined in the device template.
+Unmodeled properties where the schema isn't defined in the device template.
 
-The following output shows example error and warning messages from the validate command:
+The following output shows example error and warning message where the osVersion is not defined in the device template :
 
 ```output
 Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 [WARNING]  [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['osVersion']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'.
 ```
 
-When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
-If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
+Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
 
-- Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
-
-The following output shows example error and warning messages from the validate command:
+The following output shows example error and warning messages where the device using a string value for a property that's defined as a double.
 
 ```output
 Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
@@ -234,12 +234,19 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 [ERROR] [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg]  Datatype of telemetry field 'temperature' does not match the datatype double. Data sent by the device : curr_temp. For more information, see: https://aka.ms/iotcentral-payloads
 ```
 
-- The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
+The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
 
-Data shape is invalid JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON.
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
+If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
+
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
+
+When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
+
+If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
 
 ## Next steps
 
