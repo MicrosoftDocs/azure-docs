@@ -133,7 +133,7 @@ The User Session Operator role allows you to send messages, disconnect sessions,
 
 ## Desktop Virtualization Session Host Operator
 
-The Session Host Operator role allows you to view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
+The Session Host Operator role allows you to view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of the Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
 
 | Action type | Permissions |
 |--|--|
