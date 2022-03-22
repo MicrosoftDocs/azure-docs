@@ -91,7 +91,7 @@ If you don't have SID claim configured or need to bypass the account selection p
 ```javascript
 var request = {
   scopes: ["user.read"],
-  loginHint: preferred_username,
+  login_hint: preferred_username,
   extraQueryParameters: { domain_hint: "organizations" },
 };
 
@@ -100,7 +100,7 @@ var request = {
 
 To get the values for login_hint and domain_hint by reading the claims returned in the ID token for the user.
 
-- **loginHint** should be set to the `preferred_username` claim in the ID token.
+- **login_hint** should be set to the `preferred_username` claim in the ID token.
 
 - **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` it's consumers. Otherwise, it's organizations.
 
@@ -121,7 +121,7 @@ Pass the `sid` if available (or `login_hint` and optionally `domain_hint`) as re
 ```javascript
 var request = {
   scopes: ["user.read"],
-  loginHint: preferred_username,
+  login_hint: preferred_username,
   extraQueryParameters: { domain_hint: "organizations" },
 };
 
