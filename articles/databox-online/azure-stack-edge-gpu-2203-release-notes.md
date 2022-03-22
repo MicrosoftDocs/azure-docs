@@ -25,7 +25,7 @@ This article applies to the **Azure Stack Edge 2203** release, which maps to sof
 
 The 2203 release has the following features and enhancements:
 
-- **Introduction of Azure Stack Edge Pro 2** - This release introduces Azure Stack Edge Pro 2, a new generation of an AI-enabled edge computing device offered as a service from Microsoft. For more information, see [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md)
+- **Enhancement 1** - 
 
 
 
