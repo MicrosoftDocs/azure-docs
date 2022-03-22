@@ -171,9 +171,7 @@ Auditing of Microsoft Support operations for SQL Managed Instance allows you to 
 
 To enable auditing of Microsoft Support operations navigate to create audit under audit in your SQL MI Instance, and switch Enable Auditing of Microsoft support operations to ON
 
-![image](https://user-images.githubusercontent.com/31034666/159246575-82d29458-2d21-44bf-bf5b-235ef502b2fd.png)
-
-
+![create audit icon](./media/auditing-configure/MI.png)
 
 
 ## Set up auditing for your server to Event Hubs or Azure Monitor logs
