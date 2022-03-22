@@ -156,7 +156,7 @@ landingContent:
         links:
           - text: What is BareMetal Infrastructure for Nutanix? 
             url: nutanix-baremetal-overview
-           - linkListType: reference
+      - linkListType: reference
         links:
           - text: High availability and disaster recovery
             url: workloads/oracle/concepts-oracle-high-availability.md
