@@ -203,6 +203,6 @@ Use edit and delete options as required. Certain rules are embedded and cannot b
 
 When you create multiple rules, alerts are triggered when any rule condition or condition sets are valid.
 
-## See also
+## Next steps
 
-[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
+For more information, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).

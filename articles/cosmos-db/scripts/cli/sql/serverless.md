@@ -27,7 +27,7 @@ The script in this article demonstrates creating a SQL API serverless account wi
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/serverless.sh" range="4-30":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/serverless.sh" id="FullScript":::
 
 ## Clean up resources
 

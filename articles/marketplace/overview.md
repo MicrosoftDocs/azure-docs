@@ -6,8 +6,7 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
-ms.custom: contperf-fy21q4
-ms.date: 10/15/2020
+ms.date: 3/7/2022
 ---
 
 # What is the Microsoft commercial marketplace?
@@ -15,6 +14,11 @@ ms.date: 10/15/2020
 The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Partner Network, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed together with our Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world.
 
 The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. If you sell to established Microsoft customers, they have the added benefit of including commercial marketplace purchases in their existing Microsoft purchase agreements to receive a consolidated invoice from Microsoft.
+
+The following video provides more information about transacting in the commercial marketplace.
+
+<br />
+<iframe src=https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=ae2b72e2-6591-407f-8740-50cc4860e8ee width="1080" height="529"></iframe>
 
 ## Why sell with Microsoft?
 
@@ -30,7 +34,7 @@ Partners who list with the commercial marketplace are eligible for a diverse set
 
 - Get the technical resources you need to get your application ready for launch, from technical support, application design, and architecture design, to Azure credits for development and testing.
 - Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for Microsoft marketing campaigns and opportunities to be featured in the commercial marketplace.
-- Reach more customers and expand your sales opportunities with the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](/partner-center/co-sell-overview?context=/azure/marketplace/context/context) program, and Microsoft Sales teams.
+- Reach more customers and expand your sales opportunities with the [Cloud Solution Provider](/partner-center/csp-overview) (CSP) program, the [co-sell](/partner-center/co-sell-overview) program, and Microsoft Sales teams.
 
 To learn about these benefits in more detail, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
 

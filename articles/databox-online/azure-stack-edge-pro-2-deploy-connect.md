@@ -55,7 +55,7 @@ Before you configure and set up your device, make sure that:
 
     ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
 
-    The back plane of the device may look slightly different depending on the exact model you’ve received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
+    The back plane of the device may look slightly different depending on the exact model you’ve received. For more information, see [Cable your device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device).
 
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  

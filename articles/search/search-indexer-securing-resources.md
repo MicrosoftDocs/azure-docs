@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 03/10/2022
 ---
 
 # Indexer access to content protected by Azure network security features
@@ -40,7 +40,8 @@ Your Azure resources could be protected using any number of the network isolatio
 
 | Resource | IP Restriction | Private endpoint |
 | --- | --- | ---- |
-| Azure Storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
+| Azure Storage for text-based indexing (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions. | Supported |
+| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions, and when the search service connects using a full access connection string. Managed identity is not currently supported for write back operations to an IP restricted storage account. | Unsupported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |

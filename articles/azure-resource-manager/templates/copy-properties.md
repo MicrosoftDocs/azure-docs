@@ -13,6 +13,9 @@ You can only use copy loop with top-level resources, even when applying copy loo
 
 You can also use copy loop with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
+
 ## Syntax
 
 Add the `copy` element to the resources section of your template to set the number of items for a property. The copy element has the following general format:

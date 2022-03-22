@@ -22,6 +22,8 @@ Follow the steps in [Create a Media Services account](./account-create-how-to.md
 
 ## Methods
 
+Use the following methods to create a Media Services asset.
+
 ## [Portal](#tab/portal/)
 
 Creating assets in the portal is as simple as uploading a file.
@@ -32,23 +34,18 @@ Creating assets in the portal is as simple as uploading a file.
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
-
 ## [REST](#tab/rest/)
 
 ### Using REST
 
-[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-rest.md)]
+[!INCLUDE [create an asset writh REST](./includes/task-create-asset-rest.md)]
 
 ### Using cURL
 
-[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
+[!INCLUDE [create an asset with CURL](./includes/task-create-asset-curl.md)]
 
 ## [.NET](#tab/net/)
 
-[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-dotnet.md)]
+[!INCLUDE [Create an asset with .NET](./includes/task-create-asset-dotnet.md)]
 
 ---
-
-## Next steps
-
-[Media Services Overview](media-services-overview.md)
