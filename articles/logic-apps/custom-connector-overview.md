@@ -61,13 +61,31 @@ In this built-in connector extensibility model, you have to implement the follow
 
   At runtime, the Azure Logic Apps runtime uses these implementations to call the specified operation in the workflow definition.
 
-When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](#register-connector).
+When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](create-built-in-custom-connector-standard.md#register-connector).
 
 <a name="service-provider-interface-implementation"></a>
 
 ### Service provider interface implementation
 
-A custom built-in connector is also called a *service provider*, which can connect to the underlying service in multiple ways, such as a connection string, Azure Active Directory (Azure AD), and a managed identity. The **Microsoft.Azure.Workflows.WebJobs.Extension** NuGet package that you add to your class library project provides the  service provider interface that's named **IServiceOperationsTriggerProvider**, which your custom built-in connector has to implement. As part of the operation descriptions, this **IServiceOperationsTriggerProvider** interface provides the following methods that your custom built-in connector has to implement:
+In single-tenant Azure Logic Apps, a built-in connector that has the following attributes is also called a *service provider*:
+
+* Provides access to a service, such as Azure Blob Storage, Azure Service Bus, Azure Event Hubs, SFTP, and SQL Server, from a Standard logic app workflow.
+
+* Is based on the Azure Functions extensibility model.
+
+* Runs in the same process as the redesigned Azure Logic Apps runtime. 
+
+* Can connect to the underlying service in multiple ways, such as a connection string, Azure Active Directory (Azure AD), and a managed identity.
+
+A built-in connector that's *not a service provider* has the following attributes:
+
+* Isn't based on the Azure Functions extensibility model.
+
+* Is directly implemented as a job within the Azure Logic Apps runtime.
+
+As a developer, you can create your own service provider as a custom built-in connector. However, you can't create a non-service provider connector or a new job type that runs directly in the Azure Logic Apps runtime.
+
+The **Microsoft.Azure.Workflows.WebJobs.Extension** NuGet package that you add to your class library project provides the  service provider interface that's named **IServiceOperationsTriggerProvider**, which your custom built-in connector has to implement. As part of the operation descriptions, this **IServiceOperationsTriggerProvider** interface provides the following methods that your custom built-in connector has to implement:
 
 * **GetOperations()**
 * **GetService()**
