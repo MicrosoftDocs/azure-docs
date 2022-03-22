@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 03/22/2022
 author: DavidCBerry13
 ms.author: daberry
 ms.devlang: python
@@ -39,7 +39,7 @@ To run the application locally:
 
 ### [Flask](#tab/flask)
 
-1. Navigate into in the application folder:
+1.  Go to the application folder:
 
     ```Console
     cd msdocs-python-flask-webapp-quickstart
@@ -69,7 +69,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ### [Django](#tab/django)
 
-1. Navigate into in the application folder:
+1. Go to the application folder:
 
     ```Console
     cd msdocs-python-django-webapp-quickstart
