@@ -18,7 +18,6 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Ensure you can sign in to the distributed tracing web GUI as described in [Distributed tracing](distributed-tracing.md).
-- Speak to your support representative to agree on a suitable expiration date/time for your SAS URL and the IP addresses that will be allowed to access it.
 
 ## Create a storage account and blob container in Azure
 
@@ -78,8 +77,8 @@ You'll now generate a shared access signature (SAS) URL for your trace. Once you
 1. Fill out the fields with the following configuration:
     1. Under **Signing method**, select **Account key**. This means anyone with access to the URL you generate will be able to paste it into a browser and download the trace.
     1. Under **Permissions**, select **Read**.
-    1. Under **Start and expiry date/time**, set the start and expiration time for your token and URL that you agreed on with your support representative.
-    1. Under **Allowed IP addresses**, add the IP addresses that you agreed on with your support representative.
+    1. Under **Start and expiry date/time**, set an expiration window of 48 hours for your token and URL.
+    1. If you know the IP address from which your support representative will download the trace, set it under **Allowed IP addresses**. Otherwise, you can leave this blank.
 
 1. Select **Generate SAS token and URL**.
 
