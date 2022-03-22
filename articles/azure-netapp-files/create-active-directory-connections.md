@@ -322,7 +322,14 @@ This feature is currently in preview. You need to register the feature before us
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
- 
+
+## Reset Active Directory 
+
+If you accidentally delete the computer account on your AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes.
+
+1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**
+1. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
+
 ## Next steps  
 
 * [Modify Active Directory connections](modify-active-directory-connections.md)
