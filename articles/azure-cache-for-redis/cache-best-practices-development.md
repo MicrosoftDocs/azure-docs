@@ -132,9 +132,9 @@ To continue to pin intermediate certificates, add the following to the pinned in
 
 If your application validates certificate in code, you need to modify it to recognize the properties --- for example, Issuers, Thumbprint --- of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
 
-#### Rely on hostname not public IP address for your cache
+#### Rely on hostname not public IP address
 
-The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on hostname, in the form `<cachename>.redis.cache.windows.net`, instead of an explicit public IP address.
+The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname, in the form `<cachename>.redis.cache.windows.net`, instead of an explicit public IP address.
 
 ## Client library-specific guidance
 

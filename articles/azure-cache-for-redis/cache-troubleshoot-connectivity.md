@@ -95,7 +95,7 @@ When you use a third-party firewall or proxy in your network, check that the end
 
 ### Public IP address change
 
-If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP changed. For more information, see [Rely on hostname not public IP address for your cache](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address-for-your-cache).
+If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP address changed. For more information, see [Rely on hostname not public IP address for your cache](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address).
 
 ## Next steps
 
