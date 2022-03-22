@@ -1,24 +1,24 @@
 ---
-title: Server variables in Azure Front Door Standard/Premium
-description: This article provides a list of the server variables available in Azure Front Door Standard/Premium rule sets.
+title: Server variables - Azure Front Door
+description: This article provides a list of the server variables available in Azure Front Door rule sets.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 03/22/2022
 ms.author: duau
 ---
 
-# Azure Front Door Standard/Premium (Preview) Rule Set server variables
+# Azure Front Door Rule set server variables
 
-Rule Set server variables provide access to structured information about the request when you work with [Rule Sets](front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
+Rule set server variables provide access to structured information about the request when you work with [Rule sets](front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
 
-When you use [Rule Set match conditions](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json), server variables are available as match conditions so that you can identify requests with specific properties.
+When you use [Rule set match conditions](rules-match-conditions.md), server variables are available as match conditions so that you can identify requests with specific properties.
 
-When you use [Rule Set actions](front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form is posted.
+When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form is posted.
 
 > [!NOTE]
-> Server variable is only applicable to Azure Front Door Standard and Premium tiers. 
+> Server variable is only avaialble with Azure Front Door Standard and Premium tiers. 
 
 ## Supported variables
 
@@ -48,7 +48,7 @@ When you work with Rule Set actions, specify server variables by using the follo
 
 ## Supported rule set actions
 
-Server variables are supported on the following Rule Set actions:
+Server variables are supported on the following Rule set actions:
 
 * Query string caching behavior in [Route configuration override](front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#RouteConfigurationOverride)
 * [Modify request header](front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ModifyRequestHeader)
@@ -58,6 +58,6 @@ Server variables are supported on the following Rule Set actions:
 
 ## Next steps
 
-* Learn more about [Azure Front Door Standard/Premium Rule Set](front-door-rules-engine-actions.md).
-* Learn more about [Rule Set match conditions](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
-* Learn more about [Rule Set actions](front-door-rules-engine-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
+* Learn more about [Azure Front Door Rule set](front-door-rules-engine-actions.md).
+* Learn more about [Rule set match conditions](rules-match-conditions.md).
+* Learn more about [Rule set actions](front-door-rules-engine-actions.md).
