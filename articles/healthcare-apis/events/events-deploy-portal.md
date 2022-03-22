@@ -27,7 +27,7 @@ It's important that you have the following prerequisites completed before you be
 > You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 > [!NOTE]
-> For the purposes of this quickstart, we'll be using a basic set up and an event hub as the endpoint for Events messages.
+> For the purposes of this quickstart, we'll be using a basic Events set up and an event hub as the endpoint for Events messages. To learn how to deploy Azure Event Hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
 
 ## Deploy Events 
 
