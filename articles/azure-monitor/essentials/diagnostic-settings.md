@@ -59,7 +59,7 @@ Currently, there are two category groups:
 - **Audit** - All resource logs that record customer interactions with data or the settings of the service.
 
 ### Activity Log
-See section below 
+See [Activity Log settings](#activity-log-settings) section below. 
 
 ## Destinations
 Platform logs and metrics can be sent to the destinations in the following table. 
