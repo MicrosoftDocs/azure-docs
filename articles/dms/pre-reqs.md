@@ -131,6 +131,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. The Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
 * Create a blob container and retrieve its SAS URI by using the steps in the article [Manage Azure Blob Storage resources with Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container). Be sure to select all permissions (Read, Write, Delete, List) on the policy window while creating the SAS URI.
+* Ensure both Azure Database Migration Service IP address and Azure SQL Managed Instance subnet can communicate with blob container.
 
    > [!NOTE]
    > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to SQL Managed Instance, see the tutorial [Migrate SQL Server to SQL Managed Instance](./tutorial-sql-server-to-managed-instance.md).
