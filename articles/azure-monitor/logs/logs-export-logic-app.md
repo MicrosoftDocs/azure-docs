@@ -32,7 +32,7 @@ SecurityEvent
 | project TimeGenerated , Account , AccountType , Computer
 ```
 
-When you export the data on a schedule, use the ingestion_time() function in your query to ensure that you don’t miss late arriving data. If data is delayed due to network or platform issues, using the ingestion time ensures that data is included in the next Logic App execution. See [Add Azure Monitor Logs action](#add-azure-monitor-logs-action) for an example.
+When you export the data on a schedule, use the ingestion_time() function in your query to ensure that you don’t miss late arriving data. If data is delayed due to network or platform issues, using the ingestion time ensures that data is included in the next Logic App execution. See *Add Azure Monitor Logs action* under [Logic App procedure]](#logic-app-procedure) for an example.
 
 ## Prerequisites
 Following are prerequisites that must be completed before this procedure.
@@ -57,17 +57,15 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 
 1. **Create Logic App**
 
-   1. Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new Logic App and then give it a unique name. You can turn on **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
-   
-        [![Create Logic App](media/logs-export-logic-app/create-logic-app.png)](media/logs-export-logic-app/create-logic-app.png#lightbox)
+   1. Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new Logic App and then give it a unique name. You can turn on **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.<br>
+    [![Create Logic App](media/logs-export-logic-app/create-logic-app.png)](media/logs-export-logic-app/create-logic-app.png#lightbox)
 
    1. Click **Review + create** and then **Create**. When the deployment is complete, click **Go to resource** to open the **Logic Apps Designer**.
 
 1. **Create a trigger for the Logic App**
    
-    1. Under **Start with a common trigger**, select **Recurrence**. This creates a Logic App that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1** to run the workflow once per day.
-   
-        [![Recurrence action](media/logs-export-logic-app/recurrence-action.png)](media/logs-export-logic-app/recurrence-action.png#lightbox)
+    1. Under **Start with a common trigger**, select **Recurrence**. This creates a Logic App that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1** to run the workflow once per day.<br>
+    [![Recurrence action](media/logs-export-logic-app/recurrence-action.png)](media/logs-export-logic-app/recurrence-action.png#lightbox)
 
 2. **Add Azure Monitor Logs action**
    
@@ -75,18 +73,16 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 
    You will be prompted to select a tenant to grant access to the Log Analytics workspace with the account that the workflow will use to run the query. 
 
-   1. Click **+ New step** to add an action that runs after the recurrence action. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.
-   
-        [![Azure Monitor Logs action](media/logs-export-logic-app/select-azure-monitor-connector.png)](media/logs-export-logic-app/select-azure-monitor-connector.png#lightbox)
+   1. Click **+ New step** to add an action that runs after the recurrence action. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.<br>
+   [![Azure Monitor Logs action](media/logs-export-logic-app/select-azure-monitor-connector.png)](media/logs-export-logic-app/select-azure-monitor-connector.png#lightbox)
 
-   1. Click **Azure Log Analytics – Run query and list results**.
-   
-        [![Screenshot of a new action being added to a step in the Logic App Designer. Azure Monitor Logs is highlighted under Choose an action.](media/logs-export-logic-app/select-query-action-list.png)](media/logs-export-logic-app/select-query-action-list.png#lightbox)
+   2. Click **Azure Log Analytics – Run query and list results**.<br>
+      [![Screenshot of a new action being added to a step in the Logic App Designer. Azure Monitor Logs is highlighted under Choose an action.](media/logs-export-logic-app/select-query-action-list.png)](media/logs-export-logic-app/select-query-action-list.png#lightbox)
    
    3. Select the **Subscription** and **Resource Group** for your Log Analytics workspace. Select *Log Analytics Workspace* for the **Resource Type** and then select the workspace's name under **Resource Name**.
 
-   4. Add the following log query to the **Query** window.  
-
+   4. Add the following log query to the **Query** window. 
+   
         ```Kusto
         let dt = now();
         let year = datetime_part('year', dt);
@@ -112,9 +108,8 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
             ResourceId = _ResourceId 
         ```
 
-   5. The **Time Range** specifies the records that will be included in the query based on the **TimeGenerated** column. This should be set to a value greater than the time range selected in the query. Since this query isn't using the **TimeGenerated** column, then **Set in query** option isn't available. See [Query scope](./scope.md) for more details about the time range.  Select **Last 4 hours** for the **Time Range**. This will ensure that any records with an ingestion time larger than **TimeGenerated** will be included in the results.
-   
-        [![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/logs-export-logic-app/run-query-list-action.png)](media/logs-export-logic-app/run-query-list-action.png#lightbox)
+   5. The **Time Range** specifies the records that will be included in the query based on the **TimeGenerated** column. This should be set to a value greater than the time range selected in the query. Since this query isn't using the **TimeGenerated** column, then **Set in query** option isn't available. See [Query scope](./scope.md) for more details about the time range.  Select **Last 4 hours** for the **Time Range**. This will ensure that any records with an ingestion time larger than **TimeGenerated** will be included in the results.<br>
+   [![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/logs-export-logic-app/run-query-list-action.png)](media/logs-export-logic-app/run-query-list-action.png#lightbox)
 
 3. **Add Parse JSON activity (optional)**
     
@@ -122,15 +117,13 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 
     You can provide a JSON schema that describes the payload you expect to receive. The designer parses JSON content by using this schema and generates user-friendly tokens that represent the properties in your JSON content. You can then easily reference and use those properties throughout your Logic App's workflow. 
 
-   1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **json** and then select **Parse JSON**.
-    
-        [![Select Parse JSON activity](media/logs-export-logic-app/select-parse-json.png)](media/logs-export-logic-app/select-parse-json.png#lightbox)
+   1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **json** and then select **Parse JSON**.<br>
+   [![Select Parse JSON activity](media/logs-export-logic-app/select-parse-json.png)](media/logs-export-logic-app/select-parse-json.png#lightbox)
 
-   2. Click in the **Content** box to display a list of values from previous activities. Select **Body** from the **Run query and list results** action. This is the output from the log query.
-   
-        [![Select Body](media/logs-export-logic-app/select-body.png)](media/logs-export-logic-app/select-body.png#lightbox)
+   2. Click in the **Content** box to display a list of values from previous activities. Select **Body** from the **Run query and list results** action. This is the output from the log query.<br>
+   [![Select Body](media/logs-export-logic-app/select-body.png)](media/logs-export-logic-app/select-body.png#lightbox)
 
-   1. Click **Use sample payload to generate schema**. Run the log query and copy the output to use for the sample payload.  For the sample query here, you can use the following output:
+   3. Click **Use sample payload to generate schema**. Run the log query and copy the output to use for the sample payload.  For the sample query here, you can use the following output:
 
         ```json
         {
@@ -155,23 +148,20 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
    
     The **Compose** action takes the parsed JSON output and creates the object that you need to store in the blob.
 
-   1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **compose** and then select the **Compose** action.
-        
-        [![Select Compose action](media/logs-export-logic-app/select-compose.png)](media/logs-export-logic-app/select-compose.png#lightbox)
+   1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **compose** and then select the **Compose** action.<br>
+   [![Select Compose action](media/logs-export-logic-app/select-compose.png)](media/logs-export-logic-app/select-compose.png#lightbox)
 
-   2. Click the **Inputs** box display a list of values from previous activities. Select **Body** from the **Parse JSON** action. This is the parsed output from the log query.
-   
-        [![Select body for Compose action](media/logs-export-logic-app/select-body-compose.png)](media/logs-export-logic-app/select-body-compose.png#lightbox)
+   2. Click the **Inputs** box display a list of values from previous activities. Select **Body** from the **Parse JSON** action. This is the parsed output from the log query.<br>
+   [![Select body for Compose action](media/logs-export-logic-app/select-body-compose.png)](media/logs-export-logic-app/select-body-compose.png#lightbox)
 
 5. **Add the Create Blob action**
    
     The Create Blob action writes the composed JSON to storage.
 
-   1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **blob** and then select the **Create Blob** action.
-   
-        [![Select Create blob](media/logs-export-logic-app/select-create-blob.png)](media/logs-export-logic-app/select-create-blob.png#lightbox)
+   1. Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **blob** and then select the **Create Blob** action.<br>
+   [![Select Create blob](media/logs-export-logic-app/select-create-blob.png)](media/logs-export-logic-app/select-create-blob.png#lightbox)
 
-   1. Type a name for the connection to your Storage Account in **Connection Name** and then click the folder icon in the **Folder path** box to select the container in your Storage Account. Click the **Blob name** to see a list of values from previous activities. Click **Expression** and enter an expression that matches your time interval. For this query which is run hourly, the following expression sets the blob name per previous hour: 
+   2. Type a name for the connection to your Storage Account in **Connection Name** and then click the folder icon in the **Folder path** box to select the container in your Storage Account. Click the **Blob name** to see a list of values from previous activities. Click **Expression** and enter an expression that matches your time interval. For this query which is run hourly, the following expression sets the blob name per previous hour: 
 
         ```json
         subtractFromTime(formatDateTime(utcNow(),'yyyy-MM-ddTHH:00:00'), 1,'Hour')
@@ -179,23 +169,20 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 
         [![Blob expression](media/logs-export-logic-app/blob-expression.png)](media/logs-export-logic-app/blob-expression.png#lightbox)
 
-   2. Click the **Blob content** box to display a list of values from previous activities and then select **Outputs** in the **Compose** section.
-   
-        [![Create blob expression](media/logs-export-logic-app/create-blob.png)](media/logs-export-logic-app/create-blob.png#lightbox)
+   3. Click the **Blob content** box to display a list of values from previous activities and then select **Outputs** in the **Compose** section.<br>
+   [![Create blob expression](media/logs-export-logic-app/create-blob.png)](media/logs-export-logic-app/create-blob.png#lightbox)
 
 
 6. **Test the Logic App**
    
-    Test the workflow by clicking **Run**. If the workflow has errors, it will be indicated on the step with the problem. You can view the executions and drill in to each step to view the input and output to investigate failures. See [Troubleshoot and diagnose workflow failures in Azure Logic Apps](../../logic-apps/logic-apps-diagnosing-failures.md) if necessary.
-    
-        [![Runs history](media/logs-export-logic-app/runs-history.png)](media/logs-export-logic-app/runs-history.png#lightbox)
+    Test the workflow by clicking **Run**. If the workflow has errors, it will be indicated on the step with the problem. You can view the executions and drill in to each step to view the input and output to investigate failures. See [Troubleshoot and diagnose workflow failures in Azure Logic Apps](../../logic-apps/logic-apps-diagnosing-failures.md) if necessary.<br>
+    [![Runs history](media/logs-export-logic-app/runs-history.png)](media/logs-export-logic-app/runs-history.png#lightbox)
 
 
 7. **View logs in Storage**
  
-    Go to the **Storage accounts** menu in the Azure portal and select your Storage Account. Click the **Blobs** tile and select the container you specified in the Create blob action. Select one of the blobs and then **Edit blob**.
-    
-        [![Blob data](media/logs-export-logic-app/blob-data.png)](media/logs-export-logic-app/blob-data.png#lightbox)
+    Go to the **Storage accounts** menu in the Azure portal and select your Storage Account. Click the **Blobs** tile and select the container you specified in the Create blob action. Select one of the blobs and then **Edit blob**.<br>
+    [![Blob data](media/logs-export-logic-app/blob-data.png)](media/logs-export-logic-app/blob-data.png#lightbox)
 
 ## Next steps
 
