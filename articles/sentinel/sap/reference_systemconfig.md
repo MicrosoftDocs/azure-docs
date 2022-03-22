@@ -9,7 +9,7 @@ ms.date: 03/03/2022
 # Systemconfig.ini file reference
 
 ## Systemconfig file description
-Systemconfig.ini file is used to configure behavior of the data collector. Configuration options are grouped into several sections
+Systemconfig.ini file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 ### Systemconfig configuration file sections
 - [Secrets Source](#secrets-source-section)<br>

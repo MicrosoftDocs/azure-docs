@@ -15,8 +15,8 @@ The following article provides a step-by-step guidance to deploy Microsoft Senti
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Some installations of SAP may not have audit log enabled by default.
-To get best experience from evaluation of SAP continuous threat monitoring, it is recommended to enable auditing of SAP and configure audit parameters.
+Some installations of SAP systems may not have audit log enabled by default.
+To get best experience from evaluation of Microsoft Sentinel continuous threat monitoring for SAP, it is recommended to enable auditing of SAP system and configure audit parameters.
 This guide is a step-by-step instruction on how to enable and configure auditing
 
 > [!IMPORTANT]
@@ -36,13 +36,13 @@ This guide is a step-by-step instruction on how to enable and configure auditing
 #### Enabling auditing
 
 > [!IMPORTANT]
-> Audit policy should be configured in tight collaboration between SAP administrators and security department. Below steps outline a sample on how to enable auditing in SAP
+> Audit policy should be configured in tight collaboration between SAP administrators and security department. Below steps outline a sample on how to enable auditing in SAP system
 
 1. Logon to SAP GUI and run **RSAU_CONFIG** transaction
 1. In **Security Audit Log** select **Parameter** under **Security Audit Log Configuration** section in **Configuration** tree.
 1. If the **Static security audit active** checkbox is selected, system-level auditing is turned on, if it isn't, click on **Display <-> Change** and ensure **Static security audit active** checkbox is selected. 
     > [!NOTE]
-    > By default SAP logs the client name (terminal ID) rather than client IP address<br>
+    > By default SAP system logs the client name (terminal ID) rather than client IP address<br>
     > Consider enabling logging of client IP instead of hostname<br>
     > To enable such logging, check the **Log peer address not terminal ID** checkbox in the **General Parameters** section
 1. If settings were changed in Security Audit Log Configuration - Parameter section, click **Save** to save the changes. A server reboot will be necessary to activate the auditing.<br>
