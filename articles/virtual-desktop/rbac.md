@@ -21,7 +21,7 @@ The built-in roles for Azure Virtual Desktop and the permissions for each one ar
 
 ## Desktop Virtualization Contributor
 
-The Desktop Virtualization Contributor role allows you to manage all aspects of the deployment. However, it doesn't grant you access to compute resources. You'll also need the User Access Administrator role to publish application groups to users or user groups.
+The Desktop Virtualization Contributor role allows users to manage all aspects of the deployment. However, it doesn't grant users access to compute resources. You'll also need the *User Access Administrator* role to publish application groups to users or user groups.
 
 | Action type | Permissions |
 |--|--|
@@ -32,7 +32,7 @@ The Desktop Virtualization Contributor role allows you to manage all aspects of 
 
 ## Desktop Virtualization Reader
 
-The Desktop Virtualization Reader role allows you to view everything in the deployment but doesn't let you make any changes.
+The Desktop Virtualization Reader role allows users to view everything in the deployment, but doesn't let them make any changes.
 
 | Action type | Permissions |
 |--|--|
@@ -54,7 +54,7 @@ The Desktop Virtualization User role allows users to use the applications in an 
 
 ## Desktop Virtualization Host Pool Contributor
 
-The Host Pool Contributor role allows you to manage all aspects of host pools, including access to resources. You'll need an extra contributor role, Virtual Machine Contributor, to create virtual machines. You will need AppGroup and Workspace contributor roles to create host pool using the portal or you can use Desktop Virtualization Contributor role.
+The Desktop Virtualization Host Pool Contributor role allows users to manage all aspects of host pools, including access to resources. You'll also need the *Virtual Machine Contributor* role to create virtual machines. You will need *Desktop Virtualization Application Group Contributor* and *Desktop Virtualization Workspace Contributor* roles to create host pools using the portal, or you can use the *Desktop Virtualization Contributor* role.
 
 | Action type | Permissions |
 |--|--|
@@ -65,7 +65,7 @@ The Host Pool Contributor role allows you to manage all aspects of host pools, i
 
 ## Desktop Virtualization Host Pool Reader
 
-The Host Pool Reader role allows you to view everything in the host pool, but won't allow you to make any changes.
+The Desktop Virtualization Host Pool Reader role allows users to view everything in the host pool, but won't allow them to make any changes.
 
 | Action type | Permissions |
 |--|--|
@@ -76,9 +76,7 @@ The Host Pool Reader role allows you to view everything in the host pool, but wo
 
 ## Desktop Virtualization Application Group Contributor
 
-The Application Group Contributor role allows you to manage all aspects of application groups. If you want to publish application groups to users or user groups, you'll need the User Access Administrator role.
-
-The following table describes which permissions this role can access:
+The Desktop Virtualization Application Group Contributor role allows users to manage all aspects of application groups. If you want users to publish application groups to users or user groups, they'll also need the *User Access Administrator* role.
 
 | Action type | Permissions |
 |--|--|
@@ -89,7 +87,7 @@ The following table describes which permissions this role can access:
 
 ## Desktop Virtualization Application Group Reader
 
-The Application Group Reader role allows you to view everything in the app group and will not allow you to make any changes.
+The Desktop Virtualization Application Group Reader role allows users to view everything in the application group and will not allow them to make any changes.
 
 | Action type | Permissions |
 |--|--|
@@ -100,7 +98,7 @@ The Application Group Reader role allows you to view everything in the app group
 
 ## Desktop Virtualization Workspace Contributor
 
-The Workspace Contributor role allows you to manage all aspects of workspaces. To get information on applications added to the application groups, you'll also need to be assigned the Application Group Reader role.
+The Desktop Virtualization Workspace Contributor role allows users to manage all aspects of workspaces. To get information on applications added to the application groups, they'll also need the *Application Group Reader* role.
 
 | Action type | Permissions |
 |--|--|
@@ -111,7 +109,7 @@ The Workspace Contributor role allows you to manage all aspects of workspaces. T
 
 ## Desktop Virtualization Workspace Reader
 
-The Workspace Reader role allows you to view everything in the workspace, but won't allow you to make any changes.
+The Desktop Virtualization Workspace Reader role allows users to view everything in the workspace, but won't allow them to make any changes.
 
 | Action type | Permissions |
 |--|--|
@@ -122,7 +120,7 @@ The Workspace Reader role allows you to view everything in the workspace, but wo
 
 ## Desktop Virtualization User Session Operator
 
-The User Session Operator role allows you to send messages, disconnect sessions, and use the "logoff" function to sign sessions out of the session host. However, this role doesn't let you perform session host management like removing session host, changing drain mode, and so on. This role can see assignments, but can't modify admins. We recommend you assign this role to specific host pools. If you give this permission at a resource group level, the admin will have read permission on all host pools under a resource group.
+The Desktop Virtualization User Session Operator role allows users to send messages, disconnect sessions, and use the "logoff" function to sign sessions out of the session host. However, this role doesn't let users perform session host management like removing session host, changing drain mode, and so on. This role can see assignments, but can't modify admins. We recommend you assign this role to specific host pools. If you give this permission at a resource group level, the admin will have read permission on all host pools under a resource group.
 
 | Action type | Permissions |
 |--|--|
@@ -133,7 +131,7 @@ The User Session Operator role allows you to send messages, disconnect sessions,
 
 ## Desktop Virtualization Session Host Operator
 
-The Session Host Operator role allows you to view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of the Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
+The Desktop Virtualization Session Host Operator role allows users to view and remove session hosts, as well as change drain mode. Users can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), users assigned this role can add session hosts to the host pool outside of the Azure portal if they also have the *Virtual Machine Contributor* role.
 
 | Action type | Permissions |
 |--|--|
