@@ -36,7 +36,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
-|                                                                                                                                   |                                                                                                                 |                                      |                                |                                         |
+
 
 ### [**Linux machines**](#tab/features-linux)
 
@@ -60,7 +60,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
-|                                                                                                                                   |                                                                                                                 |                                      |                                |                                         |
+
 
 
 ### [**Multi-cloud machines**](#tab/features-multi-cloud)
@@ -85,7 +85,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
-|  |  |
+
 
 --- 
 
@@ -109,7 +109,7 @@ For information about when recommendations are generated for each of these solut
 | McAfee v10+                                                         | Linux (GA)                   | No                              |
 | Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (GA)                   | Via extension                   |
 | Sophos V9+                                                          | Linux (GA)                   | No                              |
-|                                                                     |                              |                                 |
+
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
@@ -159,7 +159,7 @@ For information about when recommendations are generated for each of these solut
 | - [Microsoft Defender for Endpoint deployment and integrated license](./integration-defender-for-endpoint.md)                                                 | GA             | GA                             | Not Available                  |
 | - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
 | - [Connect GCP project](./quickstart-onboard-gcp.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
-|                                                                                                                                                               |                |                                |                                |
+
 
 <sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 

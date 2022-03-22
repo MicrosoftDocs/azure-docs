@@ -1,17 +1,17 @@
 ---
-title:  "Expose applications to the internet using Application Gateway"
+title: Expose applications with end-to-end TLS in a virtual network using Application Gateway
 titleSuffix: Azure Spring Cloud
-description: How to expose applications to internet using Application Gateway
+description: How to expose applications to the internet using Application Gateway
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 02/28/2022
 ms.custom: devx-track-java, devx-track-azurecli 
-ms.devlang: azurecli
+ms.devlang: java, azurecli
 ---
 
-# Expose applications to the internet using Application Gateway
+# Expose applications with end-to-end TLS in a virtual network
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
@@ -31,6 +31,7 @@ We recommend that the domain name, as seen by the browser, is the same as the ho
 To configure Application Gateway in front of Azure Spring Cloud, use the following steps.
 
 1. Follow the instructions in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+1. Follow the instructions in [Access your application in a private network](./access-app-virtual-network.md).
 1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Cloud. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Cloud](./tutorial-custom-domain.md).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
@@ -148,18 +149,6 @@ az spring-cloud app custom-domain bind \
     --certificate $CERT_NAME_IN_ASC \
     --app $APPNAME
 ```
-
-> [!NOTE]
-> For development and test purposes when you want to do TLS termination at Application Gateway, there's no need to configure a certificate on Azure Spring Cloud or to provide permissions for Azure Spring Cloud to read from Key Vault. You just need to bind the domain name, which you can do with the following command:
->
-> ```azurecli
-> az spring-cloud app custom-domain bind \
->     --resource-group $RESOURCE_GROUP \
->     --service $SPRING_CLOUD_NAME \
->     --domain-name $DOMAIN_NAME \
->     --app $APPNAME
-> ```
-
 ## Create network resources
 
 The Azure Application Gateway to be created will join the same virtual network as--or peered virtual network to--the Azure Spring Cloud service instance. First create a new subnet for the Application Gateway in the virtual network using `az network vnet subnet create`, and also create a Public IP address as the Frontend of the Application Gateway using `az network public-ip create`.
@@ -238,9 +227,6 @@ az network application-gateway create \
 ```
 
 It can take up to 30 minutes for Azure to create the application gateway.
-
->[!NOTE]
-> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` and `http-settings-protocol` to `Https` and continue to follow the instructions below for "Use a publicly signed certificate".
 
 ### Update HTTP Settings to use the domain name towards the backend
 
