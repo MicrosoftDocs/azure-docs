@@ -109,7 +109,7 @@ You can add this version of the extension from the preview extension bundle v3 b
 
 ```json
 {
-  "version": "3.0",
+  "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[3.3.0, 4.0.0)"
