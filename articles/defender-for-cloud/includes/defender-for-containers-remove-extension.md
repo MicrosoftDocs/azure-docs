@@ -72,7 +72,7 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's subscription ID |
 | Resource Group  | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's resource group  |
 | Cluster Name    | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's name            |
-||||||
+
 
 For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 

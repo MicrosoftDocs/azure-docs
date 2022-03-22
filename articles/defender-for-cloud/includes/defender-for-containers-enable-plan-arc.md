@@ -135,7 +135,7 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
     | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes resource's subscription ID                     |
     |Resource Group   | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
     | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource                               |
-    |                 |      |          |        |                                                                                  |
+
 
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
