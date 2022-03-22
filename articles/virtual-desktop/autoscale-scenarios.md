@@ -25,13 +25,13 @@ For example, let's look at the following host pool setup as described in this ta
 |---|---|
 |Phase | Ramp-up |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 30% |
 |Minimum percentage of hosts | 30% |
+|Available session hosts | 2 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 10 |
 |User sessions | 0 |
-|Available session hosts | 2 |
 |Used host pool capacity | 0% |
 
 >[!NOTE]
@@ -46,14 +46,14 @@ At this point, the host pool's parameters look like this:
 |Parameter | Value|
 |---|---|
 |Phase | Ramp-up |
-|Total session hosts | 6 |
-|Maximum session limit | 5 |
+|Total session hosts |6 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 30% |
 |Minimum percentage of hosts | 30% |
+|Available session hosts | 2 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 10 |
 |User sessions | 3 |
-|Available session hosts | 2 |
 |Used host pool capacity | 30% |
 
 When another user signs in and starts a session, there are now four total users sessions distributed across two session hosts. The used host pool capacity is now 40%, which is greater than the capacity threshold. As a result, the autoscale feature will turn on another session host to bring the used host pool capacity to less than or equal to the capacity threshold (30%).
@@ -64,13 +64,13 @@ In summary, here are the parameters when the used host pool capacity exceeds the
 |---|---|
 |Phase | Ramp-up |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 30% |
 |Minimum percentage of hosts | 30% |
+|Available session hosts | 2 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 10 |
 |User sessions | 4 |
-|Available session hosts | 2 |
 |Used host pool capacity | 40% |
 
 Here are the parameters after autoscale turns on another session host:
@@ -79,13 +79,13 @@ Here are the parameters after autoscale turns on another session host:
 |---|---|
 |Phase | Ramp-up |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 30% |
 |Minimum percentage of hosts | 30% |
+|Available session hosts | 3 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 15 |
 |User sessions | 4 |
-|Available session hosts | 3 |
 |Used host pool capacity | 27% |
 
 Turning on another session host means there are now three available session hosts in the host pool. With the maximum session limit still being five, the available host pool capacity has gone up to 15. Because the available host pool capacity increased, the used host pool capacity has gone down to 27%, which is below the 30% capacity threshold.
@@ -122,13 +122,13 @@ For this scenario, the host pool starts off looking like this:
 |---|---|
 |Phase | Peak |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 30% |
 |Minimum percentage of hosts | 30% |
+|Available session hosts | 5 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 25 |
 |User sessions | 7 |
-|Available session hosts | 5 |
 |Used host pool capacity | 28% |
 
 Because we're in the peak phase, we can expect the number of users to remain relatively stable. However, to keep the amount of resources used stable while also remaining efficient, the autoscale feature will turn session hosts on and off as needed.
@@ -157,13 +157,13 @@ For example, let's look at a host pool with the following parameters:
 |---|---|
 |Phase | Ramp-down |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Depth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 4 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 20 |
 |User sessions | 4 |
-|Available session hosts | 4 |
 |Used host pool capacity | 20% |
 
 During the ramp-down phase, the host pool admin has set the capacity threshold to 75% and the minimum percentage of hosts to 10%. Having a high capacity threshold and a low minimum percentage of hosts in this phase decreases the need to turn on new session hosts at the end of the workday.
@@ -178,13 +178,13 @@ Once the autoscale feature turns off the two session hosts, the available host p
 |---|---|
 |Phase | Ramp-down |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Depth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 2 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 10 |
 |User sessions | 2 |
-|Available session hosts | 2 |
 |Used host pool capacity | 20% |
 
 Now, let's say that the two users who were forced to sign out want to continue doing work and sign back in. Since the available host pool capacity is still 10, the used host pool capacity is now 40%, which is below the capacity threshold of 75%. However, the autoscale feature can't turn off more session hosts, because that would leave only one available session host and an available host pool capacity of five. With four users, that would make the used host pool capacity 80%, which is above the capacity threshold.
@@ -195,13 +195,13 @@ So now the parameters look like this:
 |---|---|
 |Phase | Ramp-down |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Depth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 2 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 10 |
 |User sessions | 4 |
-|Available session hosts | 2 |
 |Used host pool capacity | 40% |
 
 If at this point another user signs out, that leaves only three user sessions distributed across the two available session hosts. In other words, the host pool now looks like this:
@@ -210,13 +210,13 @@ If at this point another user signs out, that leaves only three user sessions di
 |---|---|
 |Phase | Ramp-down |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Depth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 2 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 10 |
 |User sessions | 3 |
-|Available session hosts | 2 |
 |Used host pool capacity | 30% |
 
 Because the maximum session limit is still five and the available host pool capacity is 10, the used host pool capacity is now 30%. The autoscale feature can now turn off one session host without exceeding the capacity threshold. The autoscale feature turns off a session host by choosing the session host with the fewest number of user sessions on it. The autoscale feature then puts the session host in drain mode, sends users a notification that says the session host will be turned off, then after a set amount of time, forcibly signs any remaining users out and turns it off. After doing so, there's now one remaining available session host in the host pool with a maximum session limit of five, making the available host pool capacity five. 
@@ -244,13 +244,13 @@ After that, let's imagine that the user who was forced to sign out signs back in
 |---|---|
 |Phase | Ramp-down |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Depth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 1 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 5 |
 |User sessions | 3 |
-|Available session hosts | 1 |
 |Used host pool capacity | 60% |
 
 Now there are three user sessions in the host pool. However, the host pool capacity is still five, which means the used host pool capacity is 60% and below the capacity threshold. Because turning off the remaining session host would make the available host pool capacity zero, which is below the 10% minimum percentage of hosts, the autoscale feature will ensure that there's always at least one available session host during the ramp-down phase.
@@ -269,13 +269,13 @@ Here's the example host pool we're starting with:
 |---|---|
 |Phase | Off-peak |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 1 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 5 |
 |User sessions | 3 |
-|Available session hosts | 1 |
 |Used host pool capacity | 60% |
 
 In this example scenario, the host pool admin applies the scaling plan exclusion tag to five out of the six session hosts. When a new user signs in, that brings the total number of user sessions up to four. There's only one available session host and the host pool's maximum session limit is still five, so the available host pool capacity is five. The used host pool capacity is 80%. However, even though the used host pool capacity is greater than the capacity threshold, the autoscale feature won't turn on any other session hosts because all of the session hosts except for the one currently running have been tagged with the exclusion tag.
@@ -286,13 +286,13 @@ So, now the host pool looks like this:
 |---|---|
 |Phase | Off-peak |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts |  1|
+|Maximum session limit | 5 |
 |Available host pool capacity | 5 |
 |User sessions | 4 |
-|Available session hosts | 1 |
 |Used host pool capacity | 80% |
 
 Next, let's say all four users have signed out, leaving no user sessions left on the available session host. Because there are no user sessions in the host pool, the used host pool capacity is 0. The autoscale feature will keep this single session host on despite it having no users, because during the off-peak phase, autoscale's minimum percentage of hosts setting dictates that it needs to keep at least one session host available during this phase.
@@ -303,13 +303,13 @@ To summarize, the host pool now looks like this:
 |---|---|
 |Phase | Off-peak |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 75% |
 |Minimum percentage of hosts | 10% |
+|Available session hosts | 1 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 5 |
 |User sessions | 0 |
-|Available session hosts | 1 |
 |Used host pool capacity | 0% |
 
 If the admin applies the exclusion tag name to the last untagged session host virtual machine and turns it off, then that means even if other users try to sign in, autoscale won't be able to turn on a VM to accommodate their user session. That user will see a "No resources available" error.
@@ -322,13 +322,13 @@ So, finally, the host pool will look like this:
 |---|---|
 |Phase | Off-peak |
 |Total session hosts | 6 |
-|Maximum session limit | 5 |
 |Load balancing algorithm | Breadth-first |
 |Capacity threshold | 75% |
-|Minimum percentage of hosts | 10% |
+|Minimum percentage of hosts | 19% |
+|Available session hosts | 1 |
+|Maximum session limit | 5 |
 |Available host pool capacity | 5 |
 |User sessions | 0 |
-|Available session hosts | 1 |
 |Used host pool capacity | 0% |
 
 The following animation is a visual recap of what we just went over in Scenario 4.
