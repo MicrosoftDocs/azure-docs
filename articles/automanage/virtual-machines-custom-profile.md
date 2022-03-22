@@ -120,11 +120,9 @@ The `location` value is the region where you would like to store this custom con
 
 The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose for the Azure server security baseline. Your options are 
 
-*ApplyAndAutoCorrect : This will apply the Azure security baseline through the Guest Configuration extention, and if any setting within the baseline drifts, we will auto-remediate the setting so it stays compliant.
-
-*ApplyAndMonitor : This will apply the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it is applied, the Guest Configuration service will monitor the sever baseline and report any drift from the desired state. However, it will not auto-remdiate.
-
-*Audit : This will install the Azure security baseline using the Guest Configuration extension. You will be able to see where your machine is out of compliance with the baseline, but noncompliance won't be automatically remediated.
+* ApplyAndAutoCorrect : This will apply the Azure security baseline through the Guest Configuration extention, and if any setting within the baseline drifts, we will auto-remediate the setting so it stays compliant.
+* ApplyAndMonitor : This will apply the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it is applied, the Guest Configuration service will monitor the sever baseline and report any drift from the desired state. However, it will not auto-remdiate.
+* Audit : This will install the Azure security baseline using the Guest Configuration extension. You will be able to see where your machine is out of compliance with the baseline, but noncompliance won't be automatically remediated.
 
 Follow these steps to deploy the ARM template:
 1. Save this ARM template as `azuredeploy.json`
