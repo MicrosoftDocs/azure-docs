@@ -130,8 +130,6 @@ Create a network security group to define inbound connections to your virtual ne
 
 Create an Azure Bastion host to securely manage the virtual machines in the backend pool.
 
-Use a NAT gateway to provide outbound internet access to resources in the backend pool of your load balancer.
-
 ### Create virtual network, network security group and bastion host.
 
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
@@ -143,8 +141,6 @@ Use a NAT gateway to provide outbound internet access to resources in the backen
 * Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 * Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
-
-* Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
 ```azurepowershell-interactive
 ## Create backend subnet config ##
