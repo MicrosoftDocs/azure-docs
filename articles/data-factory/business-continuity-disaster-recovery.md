@@ -39,7 +39,7 @@ Customers are responsible for the availability of their applications in the clou
 1. Data factory only stores data that includes metadata (pipeline, datasets, linked services, integration runtime, and triggers) and monitoring data (pipeline, trigger, and activity runs).
     1. When regions have an outage, we will follow the existing Azure approach for disaster recovery.
     1. In Azure regions where there is a paired region, the data factory backend will fail over to the paired region (With the exception of Southeast Asia and Brazil, where data residency requirements require data to stay in the region). Refer to the [Azure Trust Center](https://www.microsoft.com/trust-center/?rtc=1). 
-    1. Refer to this [list of cross-region pairings for replication in Azure](https://docs.microsoft.com/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies).
+    1. Refer to this [list of cross-region pairings for replication in Azure](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies).
     1. Azure conducts regular BCDR drills.  Data factory participates in these drills.
     1. Refer to the article [Azure Data Factory data redundancy](concepts-data-redundancy.md).
 
