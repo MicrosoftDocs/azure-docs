@@ -6,6 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2021
+ms.custom: cosmos-db-video
 ---
 
 # Pricing model in Azure Cosmos DB

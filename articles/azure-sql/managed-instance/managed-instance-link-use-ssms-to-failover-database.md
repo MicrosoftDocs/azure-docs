@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: mathoma
+ms.reviewer: mathoma, danil
 ms.date: 03/10/2022
 ---
 # Failover database with link feature in SSMS - Azure SQL Managed Instance
