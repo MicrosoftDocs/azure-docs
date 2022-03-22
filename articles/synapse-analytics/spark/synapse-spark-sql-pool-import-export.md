@@ -190,11 +190,13 @@ Invoking `synapsesql` has two possible end states - Successful completion of the
 
 ### Read Request Response
 
-In case of a read scenario, either success or failure will print snippets of the end state to the console below respective Cell.
+Upon completion, in either case of a success or a failure the result is rendered below the respective cell. Detailed information can be obtained from the application logs.
 
 ### Write Request Response
 
-The new write path API upgrade brings a graceful approach to handle the end state, by passing in a lambda (i.e., Scala Function) that can receive post-write feedback as a Key->Value pair. This approach will offer following benefits over state information that is presented on the console:
+The new write path API introduces a graceful approach, where the results can be programmatically interpreted and processed, besides printing the snippets below respective cell from which the request is submitted. The signature enhancements for `synapsesql` includes an optional lambda (i.e., Scala function) that can be submitted to receive and process post-write feedback. The feedback will be two part - a `scala.collection.immutable.Map[String, Any]` and an optional `Throwable`.
+
+Benefits of this approach over printing the end state result to console (partial snippet) and to the application logs include:
 
 * Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
 * Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
