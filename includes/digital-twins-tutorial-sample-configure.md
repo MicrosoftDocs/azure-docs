@@ -13,7 +13,7 @@ Next, set up a sample client application that will interact with your Azure Digi
 
 Navigate on your machine to the file you downloaded earlier from [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (and unzip it if you haven't already).
 
-Once inside the folder, navigate into *AdtSampleApp*. Open *AdtE2ESample.sln* in Visual Studio 2019. 
+Once inside the folder, navigate into *AdtSampleApp*. Open *AdtE2ESample.sln* in Visual Studio. 
 
 In Visual Studio, select the *SampleClientApp > appsettings.json* file to open it in the editing window. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
 

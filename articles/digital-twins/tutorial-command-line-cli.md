@@ -56,15 +56,17 @@ Otherwise, follow the instructions in [Set up an instance and authentication](ho
 
 After you set up your Azure Digital Twins instance, make a note of the following values that you'll need to connect to the instance later:
 * The instance's **host name**
-* The **Azure subscription** that you used to create the instance. 
+* The **Azure subscription** that you used to create the instance
 
-You can get both of these values for your instance in the output of the following Azure CLI command: 
-
-```azurecli-interactive
-az dt show --dt-name <Azure-Digital-Twins-instance-name>
-```
-
-:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot of Cloud Shell browser window showing the output of the az dt show command. The hostName field and subscription ID are highlighted.":::
+>[!TIP]
+>If you know the name of your instance, you can use the following CLI command to get the host name and subscription values:
+>
+>```azurecli-interactive
+>az dt show --dt-name <Azure-Digital-Twins-instance-name>
+>```
+>
+>They'll appear in the output like this:
+>:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot of Cloud Shell browser window showing the output of the az dt show command. The hostName field and subscription ID are highlighted.":::
 
 ## Model a physical environment with DTDL
 
