@@ -203,7 +203,7 @@ sections:
       - question: |
           Is Azure Active Directory Domain Services (AAD DS) supported with SQL Server on Azure VMs? 
         answer: |
-             No. Using Azure Active Directory Domain Services (AAD DS) is not currently supported with SQL Server on Azure VMs. Use a domain Active Directory account instead. 
+             No. Using Azure Active Directory Domain Services (AAD DS) is not currently supported with SQL Server on Azure VMs. Use an Active Directory domain account instead. 
           
   - name: Updating and patching
     questions:
