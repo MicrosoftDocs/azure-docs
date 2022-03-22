@@ -1,12 +1,12 @@
 ---
-title: How to set up access control for your Synapse workspace
+title: How to set up access control for your Azure Synapse workspace
 description: This article will teach you how to control access to an Azure Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 services: synapse-analytics 
 author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
-ms.date: 8/05/2021
+ms.date: 3/07/2022
 ms.author: ronytho
 ms.reviewer: sngun, wiassaf
 ms.custom: subject-rbac-steps
@@ -146,7 +146,7 @@ To run pipelines and perform system tasks, Azure Synapse requires that the works
 
 ## STEP 5: Grant Synapse administrators the Azure Contributor role on the workspace 
 
-To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor role at the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling. If you are using Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, then you need Azure Contributor role at the resource group level. 
+To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor role at the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling. If you're using Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, then you need Azure Contributor role at the resource group level. 
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`
@@ -193,7 +193,7 @@ To grant access to the serverless SQL pool, 'Built-in', the scripts can be run b
 
 ### STEP 7.1: Serverless SQL pool, Built-in
 
-In this section, there are script examples showing how to give a user permission to access a particular database or to all databases in the serverless SQL pool, 'Built-in'.
+In this section, there are script examples showing how to give a user permission to access a particular database or to all databases in the serverless SQL pool, `Built-in`.
 
 > [!NOTE]
 > In the script examples, replace *alias* with the alias of the user or group being granted access, and *domain* with the company domain you are using.
@@ -202,38 +202,31 @@ In this section, there are script examples showing how to give a user permission
 
 To grant access to a user to a **single** serverless SQL database, follow the steps in this example:
 
-1. Create LOGIN
+1. Create a login. Change to the `master` database context.
 
     ```sql
-    use master
-    go
+    --In the master database
     CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-    go
     ```
 
-2. Create USER
+2. Create user in your database. Change context to your database.
 
     ```sql
-    use yourdb -- Use your database name
-    go
+    -- In your database
     CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
-3. Add USER to members of the specified role
+3. Add user as a member of the specified role in your database (in this case, the **db_owner** role).
 
     ```sql
-    use yourdb -- Use your database name
-    go
-    alter role db_owner Add member alias -- Type USER name from step 2
+    ALTER ROLE db_owner ADD member alias; -- Type USER name from step 2
     ```
 
 #### Workspace-scoped permission
 
-To grant full access to **all** serverless SQL pools in the workspace, use the script in this example:
+To grant full access to **all** serverless SQL pools in the workspace, in the `master` database, use the script in this example:
 
 ```sql
-use master
-go
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 ```
@@ -257,8 +250,8 @@ To grant access to a **single** dedicated SQL pool database, follow these steps 
     ```
 
 > [!IMPORTANT]
-> *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is not desired.
-> For a Spark user to read and write directly from Spark into or from a SQL pool, *db_owner* permission is required.
+> The **db_datareader** and **db_datawriter** database roles can work for read/write permissions if granting **db_owner** permission is not desired.
+> However, for a Spark user to read and write directly from Spark into or from a SQL pool, **db_owner** permission is required.
 
 After creating the users, run queries to validate that the serverless SQL pool can query the storage account.
 
@@ -289,6 +282,8 @@ This guide has focused on setting up a basic access control system. You can supp
 **Restrict developer access** to specific resources.  Create additional finer-grained security groups for developers who need access only to specific resources.  Assign these groups appropriate Azure Synapse roles that are scoped to specific Spark pools, Integration runtimes, or credentials.
 
 **Restrict operators from accessing code artifacts**.  Create security groups for operators who need to monitor operational status of Synapse compute resources and view logs but who don't need access to code or to publish updates to the service. Assign these groups the Compute Operator role scoped to specific Spark pools and Integration runtimes.  
+
+**Disable local authentication**. By allowing only Azure Active Directory authentication, you can centrally manage access to Azure Synapse resources, such as SQL pools. Local authentication for all resources within the workspace can be disabled during or after workspace creation. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ## Next steps
 

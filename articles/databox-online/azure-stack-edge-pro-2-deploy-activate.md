@@ -43,7 +43,7 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
 
     ![Screenshot of local web UI with "Activate" highlighted in the Activation tile.](./media/azure-stack-edge-pro-2-deploy-activate/activate-1.png)
     
-3. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
+3. In the **Activate** pane, enter the **Activation key** from [Get the activation key for Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
 4. Select **Activate**.
 
@@ -100,7 +100,7 @@ After you've activated the device, the next step is to deploy workloads.
     - Make sure that you create a Device resource for Azure Network Function Manager (NFM) that is linked to the Azure Stack Edge resource. The device resource aggregates all the network functions deployed on Azure Stack Edge device. For detailed instructions, see [Tutorial: Create a Network Function Manager Device resource (Preview)](../network-function-manager/create-device.md). 
     - You can then deploy Network Function Manager as per the instructions in [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
 - To deploy IoT Edge and Kubernetes workloads:
-    - You'll need to first configure compute as described in [Tutorial: Configure compute on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-configure-compute.md). This step creates a Kubernetes cluster that acts as the hosting platform for IoT Edge on your device. 
+    - You'll need to first configure compute as described in [Tutorial: Configure compute on Azure Stack Edge Pro 2 device](azure-stack-edge-pro-2-deploy-configure-compute.md). This step creates a Kubernetes cluster that acts as the hosting platform for IoT Edge on your device. 
     - After a Kubernetes cluster is created on your Azure Stack Edge device, you can deploy application workloads on this cluster via any of the following methods:
 
         - Native access via `kubectl`
@@ -120,4 +120,4 @@ In this tutorial, you learned about:
 To learn how to deploy workloads on your Azure Stack Edge device, see:
 
 > [!div class="nextstepaction"]
-> [Configure compute to deploy IoT Edge and Kubernetes workloads on Azure Stack Edge](./azure-stack-edge-gpu-deploy-configure-compute.md)
+> [Configure compute to deploy IoT Edge and Kubernetes workloads on Azure Stack Edge Pro 2](./azure-stack-edge-pro-2-deploy-configure-compute.md)

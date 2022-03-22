@@ -65,7 +65,7 @@ items:
             href: how-to-custom-speech-test-and-train.md
           - name: Human-labeled transcripts with audio data
             href: how-to-custom-speech-human-labeled-transcriptions.md
-          - name: Structured-text data for training
+          - name: Create phonetic pronunciation data
             href: customize-pronunciation.md
         - name: Create a custom speech model 
           items:

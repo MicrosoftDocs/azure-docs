@@ -7,7 +7,7 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.reviewer: amhindma
-ms.date: 11/12/2021
+ms.date: 03/08/2022
 ---
 
 # Add a preview audience for a virtual machine offer
@@ -15,6 +15,9 @@ ms.date: 11/12/2021
 On the **Preview audience** page (select from the left-nav menu in Partner Center), configure a limited *Preview audience* to be authorized to validate your offer before publishing it live to the broader commercial marketplace audience. When you publish your offer, preview links will be made available to the members of the preview audience that you specified. Only the preview audience you configure will be able to access the preview links and verify the details of your offer preview before you sign off to **Go live**.
 
 Preview links are not available for hidden plans. For hidden plans, the preview audience can test the offer via the command prompt.
+
+> [!NOTE]
+> Previews are not supported by offers configured to be available to the [Cloud Solution Provider (CSP) program](cloud-solution-providers.md).
 
 Your preview audience is identified by **Azure subscription IDs**, along with an optional **Description** for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **[Subscriptions](https://go.microsoft.com/fwlink/?LinkId=2122490)** page in the Azure portal.
 

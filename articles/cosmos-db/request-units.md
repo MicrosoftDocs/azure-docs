@@ -6,8 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.custom: "seo-nov-2020"
-
+ms.custom: seo-nov-2020, cosmos-db-video
 ---
 # Request Units in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

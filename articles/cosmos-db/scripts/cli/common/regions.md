@@ -35,7 +35,7 @@ This script uses a SQL (Core) API account, but these operations are identical ac
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/regions.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/regions.sh" id="FullScript":::
 
 ## Clean up resources
 
