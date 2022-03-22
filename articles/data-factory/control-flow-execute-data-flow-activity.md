@@ -27,7 +27,7 @@ To use a Data Flow activity in a pipeline, complete the following steps:
    :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a Data Flow activity.":::
 1. Checkpoint key is used to set the checkpoint when data flow is used for changed data capture. You can overwrite it. Dataflow settings with checkpoint key is as shown below.
 
-   :::image type="content" source="media/control-flow-execute-data-flow-activity/Newdataflowcheckpoint.png" alt-text="Shows the UI for a Data Flow activity with checkpoint key.":::
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/Newdatflowcheckpoint.png" alt-text="Shows the UI for a Data Flow activity with checkpoint key.":::
 3. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration. 
 
 ## Syntax
