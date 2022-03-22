@@ -57,6 +57,8 @@ All Azure regions support DPDK.
 
 Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
+On virtual machines that are using InfiniBand, ensure the appropriate `mlx4_ib` or `mlx5_ib` drivers are loaded, see [Enable InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
+
 ## Install DPDK via system package (recommended)
 
 ### Ubuntu 18.04

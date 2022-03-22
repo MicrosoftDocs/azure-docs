@@ -3,18 +3,12 @@ title: Configure offline PlayReady streaming
 description: This article shows how to configure your Azure Media Services v3 account for streaming PlayReady for Windows 10 offline.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
+manager: femila
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: csharp
-ms.topic: article
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.date: 03/09/2022
+ms.author: inhenkel
 ---
 
 # Offline PlayReady Streaming for Windows 10 with Media Services v3
@@ -68,6 +62,8 @@ Below are two sets of test assets, the first one using PlayReady license deliver
 
 For playback testing, we used a Universal Windows Application on Windows 10. In [Windows 10 Universal samples](https://github.com/Microsoft/Windows-universal-samples), there is a basic player sample called [Adaptive Streaming Sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). All we have to do is to add the code for us to pick downloaded video and use it as the source, instead of adaptive streaming source. The changes are in button click event handler:
 
+## [.NET](#tab/net/)
+
 ```csharp
 private async void LoadUri_Click(object sender, RoutedEventArgs e)
 {
@@ -119,3 +115,5 @@ In summary, we have achieved offline mode on Azure Media Services:
 * Content can be hosted in Azure Media Services or Azure Storage for progressive download;
 * PlayReady license delivery can be from Azure Media Services or elsewhere;
 * The prepared smooth streaming content can still be used for online streaming via DASH or smooth with PlayReady as the DRM.
+
+---

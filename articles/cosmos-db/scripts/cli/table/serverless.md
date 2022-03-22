@@ -27,7 +27,7 @@ The script in this article demonstrates creating a Table API serverless account 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/serverless.sh" range="4-24":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/serverless.sh" id="FullScript":::
 
 ## Clean up resources
 

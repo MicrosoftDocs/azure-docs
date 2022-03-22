@@ -13,7 +13,7 @@ ms.reviewer: mathoma
 ms.date: 01/26/2022 
 ---
 
-# Use CLI to configure active geo-replication for a single database in Azure SQL Database
+# Configure active geo-replication for a single database in Azure SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI script example configures active geo-replication for a single dat
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.sh" range="4-46":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.sh" id="FullScript":::
 
 ## Clean up resources
 
