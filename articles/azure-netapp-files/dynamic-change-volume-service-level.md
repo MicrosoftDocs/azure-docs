@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 03/22/2022
 ms.author: anfdocs
 ---
 # Dynamically change the service level of a volume
@@ -25,7 +25,7 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 ## Considerations
 
-* This functionality is supported within the same NetApp account.  
+* This functionality is supported within the same NetApp account. You can't move the volume to a capacity pool in a different NetApp Account.
 
 * After the volume is moved to another capacity pool, you will no longer have access to the previous volume activity logs and volume metrics. The volume will start with new activity logs and metrics under the new capacity pool.
 
