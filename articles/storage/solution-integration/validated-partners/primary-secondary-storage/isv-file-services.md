@@ -5,7 +5,7 @@ description: Basic guidance for different ISV options on running file services i
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual 
-ms.date: 05/24/2021
+ms.date: 03/22/2022
 ms.service: storage
 ms.subservice: common
 ---
@@ -80,7 +80,7 @@ This article compares several ISV solutions that provide files services in Azure
 
 |                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **SMB 2.1**                                         | Yes                  | Yes                            | Yes                       | No                    | Yes                   | Yes                   |
+| **SMB 2.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
 | **SMB 3.0**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
 | **SMB 3.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
 | **NFS v3**                                          | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
@@ -118,7 +118,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Global file locking**                             | Yes                  | Yes (NetApp Global File Cache) | Yes                       | Yes                   | Yes                   | Yes                   |
 | **Namespace aggregation over backend sources**      | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
 | **Caching of active data**                          | Yes                  | Yes                            | Yes                       | Yes                   | yes                   | Yes                   |
-| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | Proprietary           | LRU                   | LRU                   |
+| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | Predictive            | LRU                   | LRU                   |
 | **Encryption at rest**                              | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | No                    |
 | **De-duplication**                                  | Yes                  | Yes                            | Yes                       | No                    | No                    | No                    |
 | **Compression**                                     | Yes                  | Yes                            | Yes                       | No                    | No                    | No                    |
@@ -127,7 +127,7 @@ This article compares several ISV solutions that provide files services in Azure
 
 |                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Azure AD support**                                | Yes (via ADDS)       | Yes (via ADDS)                 | Yes (via ADDS)            | Yes                   | Yes (via ADDS)        | Yes (via ADDS)        |
+| **Azure AD support**                                | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       |
 | **Active directory support**                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
 | **LDAP support**                                    | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
 
