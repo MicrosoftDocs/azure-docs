@@ -10,7 +10,7 @@ ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# Azure Front Door rules match conditions
+# Rules match conditions
 
 ::: zone pivot="front-door-standard-premium"
 
