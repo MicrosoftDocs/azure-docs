@@ -1,7 +1,7 @@
 ---
-title: Authentication flows and MSAL | Azure
+title: Authentication flow support in the Microsoft Authentication Library (MSAL) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about the authentication flows and grants supported by the Microsoft Authentication Library (MSAL).
+description: Learn about the authorization grants and authentication flows supported by MSAL.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -16,18 +16,18 @@ ms.reviewer: saeeda
 # Customer intent: As an application developer, I want to learn about the authentication flows supported by MSAL.
 ---
 
-# Authentication flows
+# Authentication flow support in MSAL
 
-The Microsoft Authentication Library (MSAL) supports several authentication flows for use by different application types in different scenarios.
+The Microsoft Authentication Library (MSAL) supports several authorization grants and associated token flows for use by different application types and scenarios.
 
 | Authentication flow                                                               | Enables                                                                                                                                                                                          | Supported application types                                                                                                                                                                             |
 |-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Authorization code](#authorization-code)                                         | User sign-in and access to web APIs on behalf of the user.                                                                                                                                       | [Desktop](scenario-desktop-overview.md), [Mobile](scenario-mobile-overview.md), [Single-page application (SPA)](scenario-spa-overview.md) (requires PKCE), [Web](scenario-web-app-call-api-overview.md) |
+| [Authorization code](#authorization-code)                                         | User sign-in and access to web APIs on behalf of the user.                                                                                                                                       | * [Desktop](scenario-desktop-overview.md) <br /> * [Mobile](scenario-mobile-overview.md) <br /> * [Single-page app (SPA)](scenario-spa-overview.md) (requires PKCE) <br /> * [Web](scenario-web-app-call-api-overview.md) |
 | [Client credentials](#client-credentials)                                         | Access to web APIs by using the identity of the application itself. Typically used for server-to-server communication and automated scripts requiring no user interaction.                       | [Daemon](scenario-daemon-overview.md)                                                                                                                                                                   |
 | [Device code](#device-code)                                                       | User sign-in and access to web APIs on behalf of the user on input-constrained devices like smart TVs and IoT devices. Also used by command line interface (CLI) applications.                   | [Desktop, Mobile](scenario-desktop-acquire-token-device-code-flow.md)                                                                                                                                   |
-| [Implicit grant](#implicit-grant)                                                 | User sign-in and access to web APIs on behalf of the user. _The implicit grant flow is no longer recommended - use authorization code with PKCE instead._                                        | [Single-page application (SPA)](scenario-spa-overview.md), [Web](scenario-web-app-call-api-overview.md)                                                                                                 |
+| [Implicit grant](#implicit-grant)                                                 | User sign-in and access to web APIs on behalf of the user. _The implicit grant flow is no longer recommended - use authorization code with PKCE instead._                                        | * [Single-page app (SPA)](scenario-spa-overview.md) <br /> * [Web](scenario-web-app-call-api-overview.md)                                                                                                 |
 | [On-behalf-of (OBO)](#on-behalf-of-obo)                                           | Access from an "upstream" web API to a "downstream" web API on behalf of the user. The user's identity and delegated permissions are passed through to the downstream API from the upstream API. | [Web API](scenario-web-api-call-api-overview.md)                                                                                                                                                        |
-| [Username/password (ROPC)](#usernamepassword-ropc)                                | Allows an application to sign in the user by directly handling their password. _Not recommended._                                                                                                | [Desktop, Mobile](scenario-desktop-acquire-token-username-password.md)                                                                                                                                  |
+| [Username/password (ROPC)](#usernamepassword-ropc)                                | Allows an application to sign in the user by directly handling their password. _The ROPC flow is NOT recommended._                                                                                                | [Desktop, Mobile](scenario-desktop-acquire-token-username-password.md)                                                                                                                                  |
 | [Integrated Windows authentication (IWA)](#integrated-windows-authentication-iwa) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user).                                      | [Desktop, Mobile](scenario-desktop-acquire-token-integrated-windows-authentication.md)                                                                                                                  |
 
 ## Tokens
@@ -49,7 +49,7 @@ Your application can use one or more authentication flows. Each flow uses certai
 
 Several of these flows support both interactive and non-interactive token acquisition.
 
-- **Interactive** - The user may be prompted for input by the authorization server. For example, to sign in, perform multi-factor authentication (MFA), or to grant consent to more resources.
+- **Interactive** - The user may be prompted for input by the authorization server. For example, to sign in, perform multi-factor authentication (MFA), or to grant consent to more resource access permissions.
 - **Non-interactive** - The user may _not_ be prompted for input. Also called "silent" token acquisition, the application tries to get a token by using a method in which the authorization server _may not_ prompt the user for input.
 
 Your MSAL-based application should first try to acquire a token silently and fall back to the interactive method only if the non-interactive attempt fails. For more information about this pattern, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
@@ -71,7 +71,9 @@ In the preceding diagram, the application:
 
 - Single-page applications require Proof Key for Code Exchange (PKCE) when using the authorization code grant flow. PKCE is supported by MSAL.
 
-- The OAuth 2.0 specification requires you to use an authorization code to redeem an access token only _once_. If you attempt to acquire access token multiple times with the same authorization code, an error similar to the following is returned by the Microsoft identity platform. Keep in mind that some libraries and frameworks request the authorization code for you automatically, and requesting a code manually in such cases will also result in this error.
+- The OAuth 2.0 specification requires you use an authorization code to redeem an access token only _once_.
+
+    If you attempt to acquire access token multiple times with the same authorization code, an error similar to the following is returned by the Microsoft identity platform. Keep in mind that some libraries and frameworks request the authorization code for you automatically, and requesting a code manually in such cases will also result in this error.
 
     `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
@@ -80,9 +82,6 @@ In the preceding diagram, the application:
 The [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md) allows you to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts.
 
 The client credentials grant flow permits a web service (a confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a website. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
-
-> [!NOTE]
-> The confidential client flow isn't available on mobile platforms like UWP, iOS, or Android because they support only public client applications. Public client applications don't know how to prove the application's identity to the identity provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
 
 ### Application secrets
 
@@ -106,6 +105,10 @@ These client credentials need to be:
 
 - Registered with Azure AD.
 - Passed in when constructing the confidential client application object in your code.
+
+### Constraints for client credentials
+
+The confidential client flow is **unsupported** on mobile platforms like Android, iOS, or UWP. Mobile applications are considered public client applications that are incapable of guaranteeing the confidentiality of their credentials.
 
 ## Device code
 
@@ -131,13 +134,15 @@ In the preceding diagram:
 
 The implicit grant has been replaced by the [authorization code flow with PCKE](scenario-spa-overview.md) as the preferred and more secure token grant flow for client-side single page-applications (SPAs). If you're building a SPA, use the authorization code flow with PKCE instead.
 
-Single-page web apps written in JavaScript (including frameworks like Angular, Vue.js, or React.js) are downloaded from the server and their code is run directly in the web browser. Because their client-side code runs in the browser, not on a web server, they have different security characteristics than traditional server-side web applications. Prior to the availability of Proof Key for Code Exchange (PKCE) for the authorization code flow, the implicit grant flow was used by SPAs for improved responsiveness and efficiency in getting access tokens.
+Single-page web apps written in JavaScript (including frameworks like Angular, Vue.js, or React.js) are downloaded from the server and their code runs directly in the browser. Because their client-side code runs in the browser and not on a web server, they have different security characteristics than traditional server-side web applications. Prior to the availability of Proof Key for Code Exchange (PKCE) for the authorization code flow, the implicit grant flow was used by SPAs for improved responsiveness and efficiency in getting access tokens.
 
 The [OAuth 2 implicit grant flow](v2-oauth2-implicit-grant-flow.md) allows the app to get access tokens from the Microsoft identity platform without performing a back-end server credential exchange. The implicit grant flow allows an app to sign in the user, maintain a session, and get tokens for other web APIs from within the JavaScript code downloaded and run by the user-agent (typically a web browser).
 
 ![Diagram of implicit grant flow](media/msal-authentication-flows/implicit-grant.svg)
 
-The implicit grant flow doesn't include application scenarios that use cross-platform JavaScript frameworks like Electron or React Native because they require further capabilities for interaction with the native platforms.
+### Constraints for implicit grant
+
+The implicit grant flow doesn't include application scenarios that use cross-platform JavaScript frameworks like Electron or React Native. Cross-platform frameworks like these require further capabilities for interaction with the native desktop and mobile platforms on which they run.
 
 Tokens issued via the implicit flow mode have a **length limitation** because they're returned to the browser by URL (where `response_mode` is either `query` or `fragment`). Some browsers limit the length of the URL in the browser bar and fail when it's too long. Thus, these implicit flow tokens don't contain `groups` or `wids` claims.
 
@@ -161,6 +166,8 @@ In the preceding diagram:
 
 The [OAuth 2 resource owner password credentials](v2-oauth-ropc.md) (ROPC) grant allows an application to sign in the user by directly handling their password. In your desktop application, you can use the username/password flow to acquire a token silently. No UI is required when using the application.
 
+Some application scenarios like DevOps might find ROPC useful, but you should avoid it in any application in which you provide an interactive UI for user sign-in.
+
 ![Diagram of the username/password flow](media/msal-authentication-flows/username-password.png)
 
 In the preceding diagram, the application:
@@ -170,22 +177,16 @@ In the preceding diagram, the application:
 
 To acquire a token silently on Windows domain-joined machines, we recommend [integrated Windows authentication (IWA)](#integrated-windows-authentication-iwa) instead of ROPC. For other scenarios, use the [device code flow](#device-code).
 
-Although the username/password flow might be useful in some scenarios like DevOps, avoid it if you want to use username/password in interactive scenarios where you provide your own UI.
-
-By using username/password:
-
-- Users that need to perform multi-factor authentication won't be able to sign in because there is no interaction.
-- Users won't be able to do single sign-on.
-
 ### Constraints for ROPC
 
 The following constraints apply to the applications using the ROPC flow:
 
-- Conditional Access is **unsupported**.
+- Single sign-on is **unsupported**.
 - Multi-factor authentication (MFA) is **unsupported**.
   - Check with your tenant admin before using this flow - MFA is a commonly used feature.
+- Conditional Access is **unsupported**.
 - ROPC works _only_ for work and school accounts.
-- Personal Microsoft accounts (MSA) are **unsupported**.
+- Personal Microsoft accounts (MSA) are **unsupported** by ROPC.
 - ROPC is **supported** in .NET desktop and .NET Core applications.
 - ROPC is **unsupported** in Universal Windows Platform (UWP) applications.
 - ROPC in Azure AD B2C is supported _only_ for local accounts.
@@ -193,7 +194,7 @@ The following constraints apply to the applications using the ROPC flow:
 
 ## Integrated Windows authentication (IWA)
 
-MSAL supports integrated Windows authentication (IWA) for desktop and mobile applications that run on a domain-joined or Azure AD-joined Windows computer. Using IWA, these applications can acquire a token silently without requiring UI interaction by user.
+MSAL supports integrated Windows authentication (IWA) for desktop and mobile applications that run on domain-joined or Azure AD-joined Windows computers. By using IWA, these applications acquire a token silently without requiring UI interaction by user.
 
 ![Diagram of integrated Windows authentication](media/msal-authentication-flows/integrated-windows-authentication.png)
 
@@ -206,21 +207,21 @@ In the preceding diagram, the application:
 
 **Compatibility**
 
-The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps.
+Integrated Windows authentication (IWA) is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps.
 
-**Federation with AD FS is required**
+IWA supports AD FS-federated users *only* - users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing (managed users) can't use this authentication flow.
 
-Integrated Windows authentication (IWA) supports federated users *only* - users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing (managed users) can't use this authentication flow.
+**Multi-factor authentication (MFA)**
 
-IWA doesn't bypass multi-factor authentication. If multi-factor authentication is configured, IWA might fail if a multi-factor authentication challenge is required. Multi-factor authentication requires user interaction.
+IWA's non-interactive (silent) authentication can fail if MFA is enabled in the Azure AD tenant and an MFA challenge is issued by Azure AD. If IWA fails, you should fall back to an [interactive method of authentication](#interactive-and-non-interactive-authentication) as described earlier.
 
-You don't control when the identity provider requests two-factor authentication to be performed. The tenant admin does. Typically, two-factor authentication is required when you sign in from a different country/region, when you're not connected via VPN to a corporate network, and sometimes even when you're connected via VPN. Azure AD uses AI to continuously learn if two-factor authentication is required. If IWA fails, you should fall back to an [interactive user prompt](#interactive-and-non-interactive-authentication).
+Azure AD uses AI to determine when two-factor authentication is required. Two-factor authentication is typically required when a user signs in from a different country/region, when connected to a corporate network without using a VPN, and sometimes when they _are_ connected through a VPN. Because MFA's configuration and challenge frequency may be outside of your control as the developer, your application should gracefully handle a failure of IWA's silent token acquisition.
 
 **Authority URI restrictions**
 
 The authority passed in when constructing the public client application must be one of:
 
-- `https://login.microsoftonline.com/{tenant}/` - This authority indicates a single-tenant application whose sign-in audience is restricted to the users in the specified Azure AD tenant. The `{tenant}` value is the tenant ID in GUID form or the domain name associated with the tenant.
+- `https://login.microsoftonline.com/{tenant}/` - This authority indicates a single-tenant application whose sign-in audience is restricted to the users in the specified Azure AD tenant. The `{tenant}` value can be the tenant ID in GUID form or the domain name associated with the tenant.
 - `https://login.microsoftonline.com/organizations/` - This authority indicates a multi-tenant application whose sign-in audience is users in any Azure AD tenant.
 
 Authority values must NOT contain `/common` or `/consumers` because personal Microsoft accounts (MSA) are unsupported by IWA.
