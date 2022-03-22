@@ -15,6 +15,9 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines.
 
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](../skus.md)**.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
