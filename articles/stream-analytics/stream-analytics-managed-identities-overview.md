@@ -1,5 +1,5 @@
 ---
-title: Managed Identities for Azure Stream Analytics
+title: Managed identities for Azure Stream Analytics
 description: This article describes managed identities for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/02/2022
 ---
 
-# Managed Identities for Azure Stream Analytics
+# Managed identities for Azure Stream Analytics
 
 Azure Stream Analytics currently allows you to authenticate to other Azure resources using managed identities.
 A common challenge when building cloud applications is credential management in your code to authenticate cloud services. Keeping the credentials secure is an important task. The credentials shouldn't be stored in developer workstations or checked into source control. 
@@ -17,12 +17,12 @@ The Azure Active Directory (Azure AD) managed identities for Azure resources fea
 
 
 
-## Managed Identity types
+## Managed identity types
 
 Stream Analytics supports two types of managed identities:
 
-*	System-assigned Identity: When you enable a system-assigned managed identity for your job, you create an identity in Azure AD that is tied to the lifecycle of that job. So when you delete the resource, Azure automatically deletes the identity for you. 
-*	User-assigned Identity: You may also create a managed identity as a standalone Azure resource and assign it to your Stream Analytics job. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
+*	System-assigned identity: When you enable a system-assigned managed identity for your job, you create an identity in Azure AD that is tied to the lifecycle of that job. So when you delete the resource, Azure automatically deletes the identity for you. 
+*	User-assigned identity: You may also create a managed identity as a standalone Azure resource and assign it to your Stream Analytics job. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 
 
@@ -30,11 +30,11 @@ Stream Analytics supports two types of managed identities:
 > [!IMPORTANT] 
 > Regardless of the type of identity chosen, a managed identity is a service principal of a special type that may only be used with Azure resources. The corresponding service principal is automatically removed when the managed identity is deleted.
 
-## Connecting your job to other Azure resources using Managed Identity
+## Connecting your job to other Azure resources using managed identity
 
-Below is a table that shows Azure Stream Analytics inputs and outputs that support System Assigned Managed Identity or User Assigned Managed Identity:
+Below is a table that shows Azure Stream Analytics inputs and outputs that support system-assigned managed identity or user-assigned managed identity:
 
-| Type            |  Adapter                      | User-Assigned Managed Identity Support                                 | System Assigned Managed Identity Support |
+| Type            |  Adapter                      | User-assigned managed identity                                         | System-assigned managed identity       |
 |-----------------|-------------------------------|------------------------------------------------------------------------|------------------------------------------|
 | Storage Account | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
 | Inputs          | Event Hubs                    | Yes                                                                    | Yes                                      |
