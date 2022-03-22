@@ -28,9 +28,12 @@ For information on provisioning a IP address, [Create a custom IP address prefix
 
 ## Create a public IP prefix from a custom IP prefix
 
-When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range. 
+When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range.
 
-Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix. 
+> [!NOTE]
+> A public IP prefix can be derived from a custom IP prefix in another subscription with the appropriate permissions.
+
+Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix.
 
 |Tool|Command|
 |---|---|

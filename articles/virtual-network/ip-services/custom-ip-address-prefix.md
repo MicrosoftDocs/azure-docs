@@ -40,27 +40,25 @@ When you are ready, you can issue the command to have your range advertised from
 
 ## Limitations
 
-* A custom IP address prefix must be associated with a single Azure region.  (The exception is IPv6 as described below.)
+* A custom IP prefix must be associated with a single Azure region.
 
 * In regions with availability zones, a custom IP prefix must be either zone-redundant or associated with a specific zone.  It cannot be created with no zone specified in these regions.
 
-* The minimum size of an IPv4 range is /24.  An IPv6 range must be exactly /48, and individual /64s can be allocated per region.  Only the first 2000 IPv6 addresses out of each /64 is usable.
+* The minimum size of an IP range is /24.
 
-* A custom IP address prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
+* IPv6 is currently not supported for custom IP prefixes.
 
-* The number of overall prefixes that can be provisioned is limited to 5 per region.
+* A custom IP prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
+
+* The number of overall prefixes that can be provisioned is limited to 5 per region.  If additional custom IP prefixes are required, please open a support ticket.
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute are not currently supported.
 
-* Once provisioned, custom IP address prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription.  Note that it is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
-
-* Overlapping ranges in the same region currently aren't allowed.
-    
-    * Example: You attempt to provision a /23 in a region. You then deprovision the /23 and then provision a pair of child /24s.
+* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription.  Note that it is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
 
 ## Pricing
 
-* There is no charge to provision or utilize custom IP address prefixes. This applies to all public IP prefixes and public IP addresses that are derived from custom IP address prefixes.
+* There is no charge to provision or utilize custom IP prefixes. This applies to all public IP prefixes and public IP addresses that are derived from custom IP prefixes.
 
 * All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
 
