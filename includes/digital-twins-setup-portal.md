@@ -16,6 +16,6 @@ In this section, you'll create a new instance of Azure Digital Twins using the [
 
     :::image type="content" source= "../articles/digital-twins/media/how-to-set-up-instance/portal/create-resource.png" alt-text="Screenshot of the Azure portal, highlighting the 'Create a resource' icon from the home page.":::
 
-2. Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the **Create** button to create a new instance of the service.
+2. Search for *azure digital twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the **Create** button to create a new instance of the service.
 
     :::image type="content" source= "../articles/digital-twins/media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Screenshot of the Azure portal, highlighting the 'Create' button from the Azure Digital Twins service page.":::
