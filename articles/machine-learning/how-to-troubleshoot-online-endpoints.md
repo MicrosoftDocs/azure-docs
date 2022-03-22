@@ -88,7 +88,18 @@ By default the logs are pulled from the inference server. Logs include the conso
 
 You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
 
-Add `--help` and/or `--debug` to commands to see more information. Include the `x-ms-client-request-id` header to help with troubleshooting.
+Add `--help` and/or `--debug` to commands to see more information. 
+
+## Request tracing
+
+There are three supported tracing headers:
+
+- `x-request-id` is reserved for server tracing. We override this header to ensure it's a valid GUID.
+
+   > [!Note]
+   > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
+   
+- `x-ms-request-id` and `x-ms-client-request-id` are available for client tracing scenarios. We sanitize these headers to remove non-alphanumeric symbols. These headers are truncated to 72 characters.
 
 ## Common deployment errors
 

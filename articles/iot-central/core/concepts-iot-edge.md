@@ -58,7 +58,7 @@ An IoT Edge device can be:
 
 ## IoT Edge devices and IoT Central
 
-IoT Edge devices can use *shared access signature* tokens or X.509 certificates to authenticate with IoT Central. You can manually register your IoT Edge devices in IoT Central before they connect for the first time, or use the Device Provisioning Service to handle the registration. To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md).
+IoT Edge devices can use *shared access signature* tokens or X.509 certificates to authenticate with IoT Central. You can manually register your IoT Edge devices in IoT Central before they connect for the first time, or use the Device Provisioning Service to handle the registration. To learn more, see [How devices connect](overview-iot-central-developer.md#how-devices-connect).
 
 IoT Central uses [device templates](concepts-device-templates.md) to define how IoT Central interacts with a device. For example, a device template specifies:
 

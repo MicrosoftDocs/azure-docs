@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/28/2022
+ms.date: 03/04/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro 2 so I can use it to transfer data to Azure. 
 ---
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 This tutorial is the first in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro 2. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
 
-You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
+You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 20 minutes.
 
 In this tutorial, you learn how to:
 
@@ -41,7 +41,7 @@ For Azure Stack Edge Pro 2 deployment, you need to first prepare your environmen
 |**[5. Configure device settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-r-security.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
 |**[7. Activate Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
-|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
+|**[8. Configure compute](azure-stack-edge-pro-2-deploy-configure-compute.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
 |**[9A. Transfer data with Edge shares](./azure-stack-edge-gpu-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
 |**[9B. Transfer data with Edge storage accounts](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
 
@@ -75,7 +75,7 @@ Before you begin, make sure that:
 
 Before you begin, make sure that:
 
-- The network in your datacenter is configured per the networking requirements for your Azure Stack device. For more information, see [Azure Stack Edge Pro 2 System Requirements](azure-stack-edge-gpu-system-requirements.md).
+- The network in your datacenter is configured per the networking requirements for your Azure Stack device. For more information, see [Azure Stack Edge Pro 2 System Requirements](azure-stack-edge-pro-2-system-requirements.md).
 
 - For normal operating conditions of your Azure Stack Edge, you have:
 
@@ -113,7 +113,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
    Once you've specified a key vault name, select **Generate key** to create an activation key. 
 
-   ![Screenshot of the Overview pane for a newly created Azure Stack Edge resource. The Generate Activation Key button is highlighted.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+   ![Screenshot of the Overview pane for a newly created Azure Stack Edge resource. The Generate Activation Key button is highlighted.](media/azure-stack-edge-pro-2-deploy-prep/generate-activation-key-1.png)
 
    Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 

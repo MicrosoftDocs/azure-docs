@@ -27,12 +27,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure Storage account**. You create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
+* **Azure Storage account**. You create a Python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 
-### Upload python script to your Blob Storage account
-1. Create a python file named **WordCount_Spark.py** with the following content: 
+### Upload Python script to your Blob Storage account
+1. Create a Python file named **WordCount_Spark.py** with the following content: 
 
     ```python
     import sys

@@ -48,15 +48,15 @@ Before a device connects to IoT Central, it must be registered and provisioned i
 
 When a device first connects to your IoT Central application, DPS provisions the device in one of the enrollments group's linked IoT hubs. The device is then associated with that IoT hub. DPS uses an allocation policy to load balance the provisioning across the IoT hubs in the application. This process makes sure each IoT hub has a similar number of provisioned devices.
 
-To learn more about registration and provisioning in IoT Central, see [Get connected to Azure IoT Central](concepts-get-connected.md).
+To learn more about registration and provisioning in IoT Central, see [IoT Central device connectivity guide](overview-iot-central-developer.md#how-devices-connect).
 
 ### Device connections
 
 After DPS provisions a device to an IoT hub, the device always tries to connect to that hub. If a device can't reach the IoT hub it's provisioned to, it can't connect to your IoT Central application. To handle this scenario, your device firmware should include a retry strategy that reprovisions the device to another hub.
 
-To learn more about how device firmware should handle connection errors and connect to a different hub, see [Best practices](overview-iot-central-developer.md#best-practices).
+To learn more about how device firmware should handle connection errors and connect to a different hub, see [Best practices](concepts-device-implementation.md#best-practices).
 
-To learn more about how to verify your device firmware can handle connection failures, see [Test failover capabilities](overview-iot-central-developer.md#test-failover-capabilities).
+To learn more about how to verify your device firmware can handle connection failures, see [Test failover capabilities](concepts-device-implementation.md#test-failover-capabilities).
 
 ## Data export
 

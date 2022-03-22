@@ -63,11 +63,11 @@ pip install azure.confidentialledger
 
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
-## Create your python app
+## Create your Python app
 
 ### Initialization
 
-We can now start writing our python application.  First, we'll import the required packages.
+We can now start writing our Python application.  First, we'll import the required packages.
 
 ```python
 # Import the Azure authentication library

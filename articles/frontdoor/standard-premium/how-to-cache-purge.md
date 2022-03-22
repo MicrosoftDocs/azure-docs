@@ -27,7 +27,7 @@ Best practice is to make sure your users always obtain the latest copy of your a
 
 ## Prerequisites
 
-Review [Azure Front Door Caching](concept-caching.md) to understand how caching works.
+Review [Azure Front Door Caching](../front-door-caching.md) to understand how caching works.
 
 ## Configure cache purge
 
