@@ -116,7 +116,7 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 
     * Select the **Key Vault reference identity** that you would like to use to access your secrets. If you have selected **User-assigned identity**, select one of the identities that you added to the Load Testing resource. In the previous step, you granted this identity access to the resource.
 
-    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how tos elect key vault reference identity":::
+    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how to select key vault reference identity.":::
 
     * Alternatively, you can specify a secret in the YAML configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
