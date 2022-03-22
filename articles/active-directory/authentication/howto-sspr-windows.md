@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 03/18/2022
 
 ms.author: justinha
 author: justinha
@@ -66,7 +66,7 @@ To configure a Windows 10 device for SSPR at the sign-in screen, review the foll
     - Not unique to using SSPR from the Windows sign-in screen, all users must provide the authentication contact information before they can reset their password.
 - Network proxy requirements:
     - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
-    - Windows 10 devices only support machine-level proxy configuration.
+    - Windows 10 devices require a machine-level proxy configuration or scoped proxy configuration for the temporary defaultuser1 account used to perform SSPR (see [Troubleshooting](#proxy-configurations-for-windows-password-reset) section for more details).
 - Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
     - Azure AD joined
     - Hybrid Azure AD joined
@@ -112,7 +112,7 @@ To enable SSPR at the sign-in screen using a registry key, complete the followin
        "AllowPasswordReset"=dword:00000001
     ```
 
-#### Troubleshooting Windows 10 password reset
+### Troubleshooting Windows 10 password reset
 
 If you have problems with using SSPR from the Windows sign-in screen, the Azure AD audit log includes information about the IP address and *ClientType* where the password reset occurred, as shown in the following example output:
 
@@ -121,6 +121,25 @@ If you have problems with using SSPR from the Windows sign-in screen, the Azure 
 When users reset their password from the sign-in screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure.
 
 The account itself has a randomly generated password, which is validated against an organizations password policy, doesn't show up for device sign-in, and is automatically removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
+
+#### Proxy configurations for Windows password reset
+
+During the password reset, SSPR creates a temporary local user account to connect to `https://passwordreset.microsoftonline.com/n/passwordreset`. When a proxy is configured for user authentication, it may fail with the error **"Something went wrong. Please, try again later."** This is because the local user account is not authorized to use the authenticated proxy. 
+
+In this case, you can use one of the following workarounds:
+
+- Configure a machine-wide proxy setting that doesn't depend on the type of user logged into the machine. For example, you can enable the Group Policy **Make proxy settings per-machine (rather than per-user)** for the workstations.
+- You can also use Per-User proxy configuration for SSPR if you modify the registry template for the Default Account. The commands are as follows:
+    
+    ```cmd
+    reg load "hku\Default" "C:\Users\Default\NTUSER.DAT"
+    reg add "hku\Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d "1" /f
+    reg add "hku\Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d "<your proxy:port>" /f
+    reg unload "hku\Default"
+    ```
+
+- The error **"Something went wrong"** can also occur when anything interrupts connectivity to URL `https://passwordreset.microsoftonline.com/n/passwordreset`. For example, this error can occur when antivirus software runs on the workstation without exclusions for URLs `passwordreset.microsoftonline.com`, `ajax.aspnetcdn.com`, and `ocsp.digicert.com`. Disable this software temporarily to test if the issue is resolved or not.
+
 
 ## Windows 7, 8, and 8.1 password reset
 
