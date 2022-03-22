@@ -34,11 +34,11 @@ At a high-level, the connector provides the following capabilities:
 
 ### Write
 
-![Write-Orchestration](./media/synapse-spark-sql-pool-import-export/SynapseDedicatedSQLPoolSparkConnector-WriteOrchestration.png)
+![Write-Orchestration](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-write-orchestration.png)
 
 ### Read
 
-![Read-Orchestration](./media/synapse-spark-sql-pool-import-export/SynapseDedicatedSQLPoolSparkConnector-ReadOrchestration.png)
+![Read-Orchestration](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-read-orchestration.png)
 
 ## Pre-requisites
 
@@ -57,15 +57,11 @@ Review and setup following dependent Azure Resources:
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
-* Create a database user that maps to the Azure Active Directory User Identity (also used to login to Azure Synapse Workspace).
+* Create a database user that maps to the Azure Active Directory User Identity (also used to login to Azure Synapse Workspace). This is not a required step, if your use of connector is limited to writing to destination tables in Azure Synapse Dedicated SQL Pool. Adding an Azure Active Directory User Identity to a Azure Synapse Dedicated SQL Pool database is necessary for setting up the role -[`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse).
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
     ```
-  
-  * Note:
-    * This is not a required step to perform a write.
-    * However, for read in order to assign the [`db_exporter`](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) role the user must exist in the database.
 
 * Create schema in which tables will be defined, such that the Connector can successfully write-to and read-from respective tables.
 
@@ -75,7 +71,7 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### AAD-based Authentication
+#### Azure Active Directory based Authentication
 
 Azure Active Directory (AAD) based authentication is an integrated authentication approach, where the user is expected to successfully sign-in to the Azure Synapse Analytics Workspace. Further, when interacting with respective Azure Resources the logged in user's identity is referenced (i.e., tokens). From a configuration stand point, ensure the corresponding User Identity is allowed to access such resources including Azure Storage (Data Lake Storage Gen2), and Azure Synapse Dedicated SQL Pool. Note - the user identity must be setup within the Azure Active Directory associated with the subscription, where the remaining resources will be deployed.
 
@@ -83,7 +79,7 @@ Azure Active Directory (AAD) based authentication is an integrated authenticatio
 
 Continuing with earlier versions, the new updates continue to support basic authentication approach to connect with Azure Synapse Dedicated SQL Pool. With basic authentication, the end user is required to meet following auth criteria, so that Connector can successfully establish connections to Azure Storage, at various stages of its orchestration:
 
-* **Write Data to Azure Synapse Dedicated SQL Pool**
+* Write Data to Azure Synapse Dedicated SQL Pool
   * When reading data from the data source by initializing a DataFrame object:
     * Considering an example, where data is read from a storage account where the workspace user is not permitted.
     * In such a scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
@@ -127,7 +123,7 @@ Continuing with earlier versions, the new updates continue to support basic auth
       * Internal Table Type - the Connector requires the option `staging_storage_acount_key` set on the DataFrameWriter[Row] before invoking the method `synapsesql`.
       * External Table Type - the Connector expects the workspace user has access to read/write access to the target storage location where external table's data is staged.
 
-* **Reading from Azure Synapse Dedicated SQL Pool table**:
+* Reading from Azure Synapse Dedicated SQL Pool table:
   * With SQL basic authentication approach, in order to read data from the source tables, Connector's ability to write to staging table must met.
   * This requirement can be made possible by providing the `data_source` configuration option on the DataFrameReader reference, prior to invoking the `synapsesql` method.
   
@@ -156,7 +152,8 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-**Note** If the workspace User is set as an `Active Directory Admin` on the target database, this step can be skipped.
+[!NOTE]
+If the User Identity that is used to login to Azure Synapse WorkSpace is also configured as an `Active Directory Admin` on the target database, this step can be skipped.
 
 * Write Scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
@@ -199,11 +196,11 @@ The new write path API upgrade brings a graceful approach to handle the end stat
 * Allow the end-users (i.e., developers) to model dependent workflow activities that depend on a prior state, without having to change the cell.
 * Provide a programmatic approach to handle the outcome - `if <success> <do_something_next> else <capture_error_and_handle_necessary_mitigation>`.
   * Reviewing the sample error code snippet presented in the section [Write Request Callback Handle](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-request-callback-handle).
-* Recommend to review and leverage the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template)` that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
+* Recommend to review and leverage the [Write Scenario - Code Template](../../synapse-analytics/spark/synapse-spark-sql-pool-import-export.md#write-code-template) that makes easy to adopt to the signature changes, as well motivate to build better write workflows by leveraging the call-back function (a.ka., lambda).
 
 ## Connector API Documentation
 
-Click [here](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/utils/index.html) to access the latest Connector Scala API Documentation.
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/utils/index.html).
 
 ## Code Templates
 
