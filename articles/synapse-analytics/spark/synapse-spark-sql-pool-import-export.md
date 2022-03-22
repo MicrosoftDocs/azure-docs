@@ -85,7 +85,7 @@ An alternative to Azure Active Directory based authentication is to use SQL basi
 
 * Write Data to Azure Synapse Dedicated SQL Pool
   * When reading data from the data source by initializing a DataFrame object:
-    * Consider an example scenario where the data is read from a Storage Account for which the workspace user does'nt have access permissions.
+    * Consider an example scenario where the data is read from a Storage Account for which the workspace user doesn't have access permissions.
     * In such a scenario, the initialization attempt should pass relevant access credentials, as shown in the following sample code snippet:
 
        ```Scala
@@ -144,7 +144,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
   * RBAC offers a coarse control approach at the container level.
 * [Access Control Lists (ACL)](../../storage/blobs/data-lake-storage-access-control.md)
   * ACL approach allows for fine-grained controls over specific paths and/or files under a given folder.
-  * ACL checks are'nt enforced if the User is already granted permissions using RBAC approach.
+  * ACL checks aren't enforced if the User is already granted permissions using RBAC approach.
   * There are two broad types of ACL permissions:
     * Access Permissions (applied at a specific level or object).
     * Default Permissions (automatically applied for all child objects at the time of their creation).
