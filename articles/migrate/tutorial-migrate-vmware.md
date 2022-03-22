@@ -1,9 +1,9 @@
 ---
 title: Migrate VMware VMs agentless Azure Migrate Server Migration
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-ms
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
