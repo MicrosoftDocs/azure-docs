@@ -3,18 +3,21 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to use kms etc encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 
 ---
 
 # Add KMS etcd encryption to an Azure Kubernetes Service (AKS) cluster
 
-Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+Enables encryption at rest of your Kubernetes data in etcd using Azure Key Vault. From the Kubernetes documentation on Encrypting Secret Data at Rest:
 
-Using Azure Dedicated Hosts for nodes with your AKS cluster has the following benefits:
+[KMS Plugin for Key Vault is] the recommended choice for using a third party tool for key management. Simplifies key rotation, with a new data encryption key (DEK) generated for each encryption, and key encryption key (KEK) rotation controlled by the user.
 
-* Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
-* Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
+Features
+* Use a key in Key Vault for etcd encryption
+* Use a key in Key Vault protected by a Hardware Security Module (HSM)
+* Bring your own keys
+* Store secrets, keys, and certs in etcd, but manage them as part of Kubernetes
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -25,7 +28,7 @@ Using Azure Dedicated Hosts for nodes with your AKS cluster has the following be
 
 ### Install the `aks-preview` Azure CLI
 
-You also need the *aks-preview* Azure CLI extension version 0.5.54 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version 0.5.58 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -34,20 +37,20 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Register the `DedicatedHostGroupPreview` preview feature
+### Register the `AzureKeyVaultKmsPreview` preview feature
 
-To use the feature, you must also enable the `DedicatedHostGroupPreview` feature flag on your subscription.
+To use the feature, you must also enable the `AzureKeyVaultKmsPreview` feature flag on your subscription.
 
-Register the `DedicatedHostGroupPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AzureKeyVaultKmsPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "DedicatedHostGroupPreview"
+az feature register --namespace "Microsoft.ContainerService" --name "AzureKeyVaultKmsPreview"
 ```
 
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DedicatedHostGroupPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AzureKeyVaultKmsPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
@@ -58,72 +61,68 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-The following limitations apply when you integrate Azure Dedicated Host with Azure Kubernetes Service:
-* An existing agentpool cannot be converted from non-ADH to ADH or ADH to non-ADH.
-* It is not supported to update agentpool from host group A to host group B.
+The following limitations apply when you integrate KMS with Azure Kubernetes Service:
+* Changing of keys
+* Disabling KMS
+* System-Assigned Managed Identity
+* Leveraging KeyVault with PrivateLink enabled.
+* Using more than 2000 secrets in a cluster.
 
-## Add a Dedicated Host Group to an AKS cluster
+## Create a KeyVault and key
 
-A host group is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts:
-
-Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
-Span across multiple fault domains which are mapped to physical racks.
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
-
-You can also decide to use both availability zones and fault domains.
-
-Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
-```azurecli-interactive
-az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
+```azurecli
+az keyvault create --name MyKevVault --resource-group MyResourceGroup
 ```
 
-## Add Dedicated Hosts to the Host Group
-
-Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
-
-For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
-
-Use az vm host create to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
-
-In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create?view=azure-cli-latest&preserve-view=true) to create a host group using both availability zones and fault domains.
-
-```azurecli-interactive
-az vm host group create \
---name myHostGroup \
--g myDHResourceGroup \
--z 1\
---platform-fault-domain-count 2
+```azurecli
+az keyvault key create --name MyKeyName --vault-name MyKevVault
 ```
 
-## Create an AKS cluster using the Host Group
-Create an AKS cluster, and add the Host Group you just configured.
-
-```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --location westus2 --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
+```azurecli
+export KEY_ID=$(az keyvault key show --name MyKeyName --vault-name MyKevVault --query 'key.kid' -o tsv)
+echo $KEY_ID
 ```
 
-## Add a Dedicated Host Nodepool to an existing AKS cluster
-Add a Host Group to an already existing AKS cluster.
+## Create a user-assigned managed identity
 
-```azurecli-interactive
-az aks nodepool add --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3
+```azurecli
+az identity create --name MyIdentity --resource-group MyResourceGroup
 ```
 
-## Remove a Dedicated Host Nodepool from an AKS cluster
+```azurecli
+IDENTITY_OBJECT_ID=$(az identity show --name MyIdentity --resource-group MyResourceGroup --query 'principalId' -o tsv)
+```
+
+```azurecli
+echo $IDENTITY_OBJECT_ID
+```
+
+```azurecli
+IDENTITY_RESOURCE_ID=$(az identity show --name MyIdentity --resource-group MyResourceGroupE --query 'id' -o tsv)
+```
+
+```azurecli
+echo $IDENTITY_RESOURCE_ID
+```
+
+
+## Assign permissions (decrypt and encrypt) to access key vault
 
 ```azurecli-interactive
-az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup
+az keyvault set-policy -n $KEYVAULT_NAME --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+```
+
+## Create an AKS cluster with KMS
+
+```azurecli-interactive
+az keyvault set-policy -n $KEYVAULT_NAME --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 ## Next steps
 
-In this article, you learned how to create an AKS cluster with a Dedicated host, and to add a dedicated host to an existing cluster. For more information about Dedicated Hosts, see [dedicated-hosts](../virtual-machines/dedicated-hosts.md).
-
-<!-- LINKS - External -->
-[kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+In this article, you learned how to create an AKS cluster with a KMS. 
 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dedicated-hosts]: /azure/virtual-machines/dedicated-hosts.md
