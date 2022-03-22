@@ -46,7 +46,7 @@ This pattern takes the approach of using Azure native geospatial capabilities wh
 
 The most significant difference between this approach and the previous flow diagram is the use of FME on from Safe Software, Inc. which can be acquired from the Azure Marketplace. FME allows geospatial architects to integrate various type of geospatial data which includes CAD (for Azure Maps Creator), GIS, BIM, 3D, point clouds, LIDAR, etc. There are 450+ integration options, and can speed up the creation of many data transformations through its functionality. Implementation, however, is based on the usage of a virtual machine, and has therefore limits in its scaling capabilities. The automation of FME transformations might be reached using FME API calls with the use of Azure Data Factory and/or with Azure Functions. Once the data is loaded in Azure SQL, for example, it can then be served in GeoServer and published as a Web Feature Service (vector) or Web Mapping Tile Service (raster) and visualized in Azure Maps web SDK or analyzed with QGIS for the desktop along with the other [Azure Maps base maps](../azure-maps/supported-map-styles.md).
 
-   :::image type="content" source="media/geospatial-3rd-open-source-software.png" alt-text="Diagram of Azure and 3rd Party tools and open-source sofware." lightbox="media/geospatial-3rd-open-source-software.png":::
+   :::image type="content" source="media/geospatial-3rd-open-source-software.png" alt-text="Diagram of Azure and 3rd Party tools and open-source software." lightbox="media/geospatial-3rd-open-source-software.png":::
 
 ## COTS geospatial architecture: Esri with static and streaming sources
 
@@ -122,7 +122,7 @@ In these situations, consider using [Tippecanoe](https://github.com/mapbox/tippe
 
 - Like Event Hubs, [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) can ingest large amounts of data. But IoT Hub also offers bi-directional communication capabilities with devices. If you receive data directly from devices but also send commands and policies back to devices, consider IoT Hub instead of Event Hubs.
 
-### Next Steps
+### Next steps
 
 - [Connect a WFS to Azure Maps](../azure-maps/spatial-io-connect-wfs-service.md)
 - [Geospatial clustering](/azure/data-explorer/kusto/query/geospatial-grid-systems)
