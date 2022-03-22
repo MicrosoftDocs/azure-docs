@@ -136,7 +136,7 @@ The following code snippet shows an example of an Azure Load Testing ARM resourc
 }
 ```
 
-When the resource is created, it gets the following additional properties:
+After the Load Testing resource is created, Azure provides the `principalId` and `clientId` properties:
 
 ```json
 "identity": {
