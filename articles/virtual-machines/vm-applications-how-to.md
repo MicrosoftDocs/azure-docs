@@ -177,7 +177,7 @@ $appversion = Get-AzGalleryApplicationVersion `
 $packageid = $appversion.Id
 $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
 Add-AzVmGalleryApplication -VM $vmname -GalleryApplication $app
-Update-AzVM -ResourceGroupName $rgname -VM $vmname
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
  
 Verify the application succeeded:
