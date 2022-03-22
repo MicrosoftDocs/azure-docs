@@ -27,7 +27,7 @@ ms.custom: template-how-to, devx-track-azurecli
     - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
 
  
-## Deploy a trusted VM
+## Deploy a trusted launch VM
 Create a virtual machine with trusted launch enabled. Choose an option below:
 
 ### [Portal](#tab/portal)
@@ -153,6 +153,167 @@ You can deploy trusted launch VMs using a quickstart template:
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ---
+
+## Deploy a trusted launch VM from an Azure Compute Gallery image
+
+### [Portal](#tab/portal)
+
+1. Sign in to the Azure [portal](https://portal.azure.com).
+2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
+3. In the Create an Image page that follows, allow the image to be shared to the gallery as a VM image version as Managed Images are not supported for Trusted Launch.
+4. Create a new target Azure Compute Gallery or select an existing gallery.
+5. Select the **Operating system state** as either **Generalized** or **Specialized**.
+6. Create a new image definition by providing a name, publisher, offer and SKU details. The Security Type of the image definition is already set to 'Trusted launch'.
+7. Provide a version number for the image version.
+8. Modify replication options if required.
+9. At the bottom of the **Create an Image** page, select **Review + Create** and when validation shows as passed, select **Create**.
+10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the image definition.
+11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
+12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+14. The image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
+15. Fill in the **Administrator account** information and then **Inbound port rules**.
+16. At the bottom of the page, select **Review + Create**
+17. On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
+
+### [CLI](#tab/cli)
+
+Make sure you are running the latest version of Azure CLI 
+
+Sign in to Azure using `az login`.  
+
+```azurecli-interactive
+az login 
+```
+
+Create an image definition with TrustedLaunch security type 
+
+```azurecli-interactive
+az sig image-definition create --resource-group MyResourceGroup --location eastus \ 
+--gallery-name MyGallery --gallery-image-definition MyImageDef \ 
+--publisher TrustedLaunchPublisher --offer TrustedLaunchOffer --sku TrustedLaunchSku \ 
+--os-type Linux --os-state Generalized \ 
+--hyper-v-generation V2 \ 
+--features SecurityType=TrustedLaunch
+```
+
+Generalize the VM using waagagent command and create an image version with an existing Trusted Launch VM as image source
+
+```azurecli-interactive
+az sig image-version create --resource-group MyResourceGroup \
+--gallery-name MyGallery --gallery-image-definition MyImageDef \
+--gallery-image-version 1.0.0 \
+--managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+```
+Create a Trusted Launch VM from the above image version
+
+```azurecli-interactive
+adminUsername=linuxvm
+az vm create --resource-group MyResourceGroup \
+    --name myTrustedLaunchVM \
+    --image "/subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImageDef" \
+    --security-type TrustedLaunch \
+    --enable-secure-boot true \ 
+    --enable-vtpm true \
+    --admin-username $adminUsername \
+    --generate-ssh-keys
+```
+
+### [PowerShell](#tab/powershell)
+
+Create an image definition with `TrustedLaunch` security type
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$publisherName = "TrustedlaunchPublisher"
+$offerName = "TrustedlaunchOffer"
+$skuName = "TrustedlaunchSku"
+$description = "My gallery"
+$SecurityType = @{Name='SecurityType';Value='TrustedLaunch'}
+$features = @($SecurityType)
+New-AzGalleryImageDefinition -ResourceGroupName $rgName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -HyperVGeneration "V2" -OsState "Generalized" -OsType "Windows" -Description $description -Feature $features
+```
+
+Generalize the VM using sysprep tool and create an image version with an existing Trusted Launch VM as image source
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$galleryImageVersionName = "1.0.0"
+$sourceImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myVMRG/providers/Microsoft.Compute/virtualMachines/myVM"
+New-AzGalleryImageVersion -ResourceGroupName $rgName -GalleryName $galleryName -GalleryImageDefinitionName $galleryImageDefinitionName -Name $galleryImageVersionName -Location $location -SourceImageId $sourceImageId
+```
+Create a Trusted Launch VM from the above image version
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$vmName = "myVMfromImage"
+$vmSize = "Standard_D2s_v3"
+$imageDefinition = Get-AzGalleryImageDefinition `
+   -GalleryName $galleryName `
+   -ResourceGroupName $rgName `
+   -Name $galleryImageDefinitionName
+$cred = Get-Credential `
+   -Message "Enter a username and password for the virtual machine"
+# Network pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet `
+   -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name MYvNET `
+   -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name "mypublicdns$(Get-Random)" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+   -Name myNetworkSecurityGroupRuleRDP  `
+   -Protocol Tcp `
+  -Direction Inbound `
+   -Priority 1000 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 `
+   -Access Deny
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name myNetworkSecurityGroup `
+  -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface `
+   -Name myNic `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+$vm = New-AzVMConfig -vmName $vmName -vmSize $vmSize | `
+      Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+      Set-AzVMSourceImage -Id $imageDefinition.Id | `
+      Add-AzVMNetworkInterface -Id $nic.Id
+$vm = Set-AzVMSecurityProfile -SecurityType "TrustedLaunch" -VM $vm
+$vm = Set-AzVmUefi -VM $vm `
+   -EnableVtpm $true `
+   -EnableSecureBoot $true 
+New-AzVM `
+   -ResourceGroupName $rgName `
+   -Location $location `
+   -VM $vm
+```
 
 ## Verify or update your settings
 
