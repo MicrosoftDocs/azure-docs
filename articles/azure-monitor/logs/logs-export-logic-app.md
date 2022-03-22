@@ -9,6 +9,7 @@ ms.date: 03/01/2022
 
 ---
 
+
 # Archive data from Log Analytics workspace to Azure storage using Logic App
 This article describes a method to use [Azure Logic App](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.  
 
@@ -17,7 +18,7 @@ The method described in this article describes a scheduled export from a log que
 
 - To export data from your Log Analytics workspace to an Azure Storage Account or Event Hubs, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor](logs-data-export.md)
 - One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
-- One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
+- One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Overview
 This procedure uses the [Azure Monitor Logs connector](/connectors/azuremonitorlogs/) which lets you run a log query from a Logic App and use its output in other actions in the workflow. The [Azure Blob Storage connector](/connectors/azureblob/) is used in this procedure to send the query output to Azure storage.
@@ -154,16 +155,14 @@ Click in the **Content** box to display a list of values from previous activitie
 }
 ```
 
-
-
-![Parse JSON payload](media/logs-export-logic-app/parse-json-payload.png)
+[![Parse JSON payload](media/logs-export-logic-app/parse-json-payload.png)](media/logs-export-logic-app/parse-json-payload.png#lightbox)
 
 ## Add the Compose action
 The **Compose** action takes the parsed JSON output and creates the object that you need to store in the blob.
 
 Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **compose** and then select the **Compose** action.
 
-![Select Compose action](media/logs-export-logic-app/select-compose.png)
+[![Select Compose action](media/logs-export-logic-app/select-compose.png)](media/logs-export-logic-app/select-compose.png#lightbox)
 
 
 Click the **Inputs** box display a list of values from previous activities. Select **Body** from the **Parse JSON** action. This is the parsed output from the log query.
@@ -189,7 +188,7 @@ subtractFromTime(formatDateTime(utcNow(),'yyyy-MM-ddTHH:00:00'), 1,'Hour')
 Click the **Blob content** box to display a list of values from previous activities and then select **Outputs** in the **Compose** section.
 
 
-![Create blob expression](media/logs-export-logic-app/create-blob.png)
+[![Create blob expression](media/logs-export-logic-app/create-blob.png)](media/logs-export-logic-app/create-blob.png#lightbox)
 
 
 ## Test the Logic App
