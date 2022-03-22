@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Administrative units in Azure Active Directory
 
-This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users and groups.
+This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users, groups, or devices.
 
 Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) role to regional support specialists, so they can manage users only in the region that they support.
 
@@ -32,7 +32,7 @@ A central administrator could:
 - Create a role with administrative permissions over only Azure AD users in the School of Business administrative unit.
 - Add the business school IT team to the role, along with its scope.
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
+![Screenshot of Devices and Administrative units page with Remove from administrative unit option.](./media/administrative-units/admin-unit-overview.png)
 
 ## License requirements
 
@@ -43,7 +43,7 @@ Using administrative units requires an Azure AD Premium P1 license for each admi
 You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](admin-units-members-dynamic.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
@@ -66,11 +66,13 @@ You can expect the creation of administrative units in the organization to go th
 As a Global Administrator or a Privileged Role Administrator, you can use the Azure portal to:
 
 - Create administrative units
-- Add users and groups members of administrative units
+- Add users, groups, or devices as members of administrative units
 - Manage users or devices for an administrative unit with dynamic membership rules (Preview)
 - Assign IT staff to administrative unit-scoped administrator roles.
 
 Administrative unit-scoped admins can use the Microsoft 365 admin center for basic management of users in their administrative units. A group administrator with administrative unit scope can manage groups by using PowerShell, Microsoft Graph, and the Microsoft 365 admin centers.
+
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
 
 >[!Note]
 >Only the features described in this section are available in the Microsoft 365 admin center. No organization-level features are available for an Azure AD role with administrative unit scope.
@@ -79,33 +81,42 @@ The following sections describe current support for administrative unit scenario
 
 ### Administrative unit management
 
-| Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
-| --- | --- | --- | --- |
-| Create or delete administrative units   |    Supported    |   Supported   |    Not supported |
-| Add or remove members individually    |   Supported    |   Supported   |    Not supported |
-| Add or remove members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support |
-| Assign administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported |
-| Add or remove users or devices dynamically based on rules (Preview) | Supported | Supported | Not supported |
-| Add or remove groups dynamically based on rules | Not supported | Not supported | Not supported |
+| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| --- | :---: | :---: | :---: |
+| Create or delete administrative units | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove members individually | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove members in bulk by using CSV files | :x: | :heavy_check_mark: | No plan to support |
+| Assign administrative unit-scoped administrators | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove users or devices dynamically based on rules (Preview) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove groups dynamically based on rules | :x: | :x: | :x: |
 
 ### User management
 
-| Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
-| --- | --- | --- | --- |
-| Administrative unit-scoped management of user properties, passwords   |    Supported     |  Supported   |   Supported |
-| Administrative unit-scoped management of user licenses | Supported | Not Supported | Supported |
-| Administrative unit-scoped blocking and unblocking of user sign-ins    |   Supported   |    Supported   |    Supported |
-| Administrative unit-scoped management of user multifactor authentication credentials   |    Supported   |   Supported   |   Not supported |
+| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| --- | :---: | :---: | :---: |
+| Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of user licenses | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Administrative unit-scoped blocking and unblocking of user sign-ins | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of user multifactor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ### Group management
 
-| Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
-| --- | --- | --- | --- |
-| Administrative unit-scoped management of group properties and membership     |  Supported   |    Supported    |  Not supported |
-| Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
+| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| --- | :---: | :---: | :---: |
+| Administrative unit-scoped management of group properties and membership | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Administrative unit-scoped management of group licensing | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 > [!NOTE]
 > Adding a group to an administrative unit does not grant scoped group administrators the ability to manage properties for individual members of that group. For example, a scoped group administrator can manage group membership, but they can't manage authentication methods of users who are members of the group added to an administrative unit. To manage authentication methods of users who are members of the group that is added to an administrative unit, the individual group members must be directly added as users of the administrative unit, and the group administrator must also be assigned a role that can manage user authentication methods.
+
+### Device management
+
+| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| --- | :---: | :---: | :---: |
+| Enable, disable, or delete devices | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Read Bitlocker recovery keys | :heavy_check_mark: | :heavy_check_mark: | :x: |
+
+Managing devices in Intune is *not* supported at this time.
 
 ## Constraints
 
@@ -119,6 +130,6 @@ Here are some of the constraints for administrative units.
 ## Next steps
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)

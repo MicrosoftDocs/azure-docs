@@ -35,7 +35,7 @@ sections:
       - question: |
           I just added (or removed) a member of the administrative unit. Why is the member not showing up (or still showing up) on the user interface?
         answer: |
-          Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in administrative units, see [List users or groups in an administrative unit](admin-units-members-list.md).
+          Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about members in administrative units, see [List users, groups, or devices in an administrative unit](admin-units-members-list.md).
           
       - question: |
           I am a delegated Password Administrator on an administrative unit. Why am I unable to reset a specific user's password?
@@ -57,7 +57,7 @@ sections:
           Adding a group to an administrative unit brings the group itself into the management scope of any *User Administrator* who is also scoped to that administrative unit. User administrators for the administrative unit can manage the name and membership of the group itself. It does not grant the *User Administrator* permissions to manage the users of the group (for example, to reset their passwords). To grant the *User Administrator* the ability to manage users, the users have to be direct members of the administrative unit.
 
       - question: |
-          Can a resource (user or group) be a member of more than one administrative unit?
+          Can a resource (user, group, or device) be a member of more than one administrative unit?
         answer: |
           Yes, a resource can be a member of more than one administrative unit. The resource can be managed by all organization-wide and administrative unit-scoped administrators who have permissions over the resource.
 
