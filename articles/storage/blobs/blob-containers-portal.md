@@ -95,13 +95,8 @@ To generate an SAS token using the Azure portal, follow these steps:
 1. In the Azure portal, navigate to the list of containers in your storage account.
 1. Select the checkbox next to the name of the container for which you will generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Generate SAS** to display the **Generate SAS** pane.
-
     :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
-
-  In the **Generate SAS** pane,  will display existing metadata key-value pairs. Existing data can be edited by selecting the existing key or value and overwriting the data. You can add additional metadata by and supplying data in the provided fields. Finally, select **Save** to commit your data.
-
-    :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to update container metadata in the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
-
+1. Within the **Generate SAS** pane, select the **Account key** value for the **Signing method** field.
 1. In the **Signing method** field, select **Account key**.
 1. In the **Signing key** field, select the desired key to be used to sign the SAS. 
 1. In the **Stored access policy** field, select **None**.
@@ -111,9 +106,8 @@ To generate an SAS token using the Azure portal, follow these steps:
 1. Optionally, you may specify the protocol permitted for requests made with the SAS in the **Allowed protocols** field. The default value is HTTPS.
 1. Review your settings for accuracy and then select **Generate SAS token and URL** to display the **Blob SAS token** and **Blob SAS URL** query strings.
 1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and cannot be retrieved after the window is closed.
-1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
-
     :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container in the Azure portal" lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
+1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
 
 ### Create a stored access policy
 
