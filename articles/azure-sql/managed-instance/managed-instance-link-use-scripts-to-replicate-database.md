@@ -398,11 +398,7 @@ Use the following script to list all available Availability Groups and Distribut
 ```sql
 -- Execute on SQL Server
 -- This will show that Availability Group and Distributed Availability Group have been created on SQL Server.
-SELECT
-    name, is_distributed, cluster_type_desc,
-    sequence_number, is_contained
-FROM
-    sys.availability_groups
+SELECT * FROM sys.availability_groups
 ```
 
 Alternatively, in SSMS object explorer, expand the “Always On High Availability”, then “Availability Groups” folder to show available Availability Groups and Distributed Availability Groups.
@@ -433,7 +429,7 @@ $DAGName = "<DAGName>"
 # Enter database name that was placed in Availability Group for replciation
 $DatabaseName = "<DatabaseName>"
 # Enter SQL Server address
-$ SQLServerAddress = "<SQLServerAddress>"
+$SQLServerAddress = "<SQLServerAddress>"
 
 # =============================================================================
 # INVOKING THE API CALL -- THIS PART IS NOT USER CONFIGURABLE
