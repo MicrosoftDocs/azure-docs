@@ -259,7 +259,27 @@ By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spend
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-The following example shows standard configuration options for enabling correlation, with scenario-specific notes below:
+Support for correlation requests requires the returned HTML page contain dynamic JavaScript which as part of the SDK initialization uses a callback function to populate the Server-Side Operation ID.
+
+Sample using Razor and a dynamic JS snippet:
+
+```C#
+<script>
+!function(T,l,y){<removed snippet code>,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+    onInit: function(appInsights) {
+        var serverId = "@this.Context.GetRequestTelemetry().Context.Operation.Id";
+        appInsights.context.telemetryContext.parentID = serverId;
+    },
+    cfg: { // Application Insights Configuration
+        instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    }});
+</script>
+```
+
+If not using a snippet a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+
+The following example shows standard configuration options for enabling correlation:
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
@@ -292,10 +312,12 @@ By default, this SDK will **not** handle state-based route changing that occurs 
 
 For Single Page Applications please reference their documentation for specific guidance:
 
-[React](javascript-react-plugin.md#enable-correlation)
-[React Native](javascript-react-native-plugin.md#enable-correlation)
-[Angular](javascript-angular-plugin.md#enable-correlation)
-[Click Analytics](javascript-click-analytics-plugin.md#enable-correlation)
+| Single Page Applications |
+|---------------|
+| [React](javascript-react-plugin.md#enable-correlation)|
+| [React Native](javascript-react-native-plugin.md#enable-correlation)|
+| [Angular](javascript-angular-plugin.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
 [WordPress]??
 
 ## Extensions
