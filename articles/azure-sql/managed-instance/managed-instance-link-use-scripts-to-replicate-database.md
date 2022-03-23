@@ -11,7 +11,7 @@ ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma, danil
-ms.date: 03/15/2022
+ms.date: 03/22/2022
 ---
 
 # Replicate a database by using a SQL Managed Instance link via T-SQL and PowerShell scripts
@@ -35,6 +35,13 @@ To replicate your databases to SQL Managed Instance, you need the following prer
 - Azure SQL Managed Instance. [Get started](instance-create-quickstart.md) if you don't have it. 
 - [SQL Server Management Studio v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - A properly [prepared environment](managed-instance-link-preparation.md).
+
+## Replicate database
+
+Use instructions below to manually setup the link between your instance of SQL Server and your instance of SQL Managed Instance. Once the link is created, your source database gets a read-only replica copy on your target Azure SQL Managed Instance. 
+
+> [!NOTE]
+> The link supports replication of user databases only. Replication of system databases is not supported. To replicate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 ## Terminology and naming conventions
 
@@ -134,7 +141,11 @@ $SubscriptionID = "<YourSubscriptionID>"
 # Enter your managed instance name – for example, "sqlmi1"
 $ManagedInstanceName = "<YourManagedInstanceName>"
 
-# Insert the certificate public key blob that you got from SQL Server
+# Enter the name for the server trust certificate – for example, "Cert_sqlserver1_endpoint"
+$certificateName = "<YourServerTrustCertificateName>"
+
+# Insert the certificate public key blob that you got from SQL Server – for example, "0x1234567..."
+
 $PublicKeyEncoded = "<PublicKeyEncoded>"
 
 # ===============================================================================
@@ -152,15 +163,12 @@ Select-AzSubscription -SubscriptionName $SubscriptionID
 # Build the URI for the API call.
 #
 $miRG = (Get-AzSqlInstance -InstanceName $ManagedInstanceName).ResourceGroupName
-$uriFull = "https://management.azure.com/subscriptions/" + $SubscriptionID + "/resourceGroups/" + $miRG+ "/providers/Microsoft.Sql/managedInstances/" + $ManagedInstanceName + "/hybridCertificate?api-version=2020-11-01-preview"
+$uriFull = "https://management.azure.com/subscriptions/" + $SubscriptionID + "/resourceGroups/" + $miRG+ "/providers/Microsoft.Sql/managedInstances/" + $ManagedInstanceName + "/serverTrustCertificates/" + $certificateName + "?api-version=2021-08-01-preview"
 echo $uriFull
 
 # Build the API request body.
 #
-$bodyFull = @"
-{
-    "properties":{ "PublicBlob":"$PublicKeyEncoded" }
-}"@
+$bodyFull = "{ `"properties`":{ `"PublicBlob`":`"$PublicKeyEncoded`" } }"
 
 echo $bodyFull 
 
@@ -176,7 +184,7 @@ $headers.Add("Authorization", "Bearer "+"$authToken")
 
 # Invoke API call
 #
-Invoke-WebRequest -Method POST -Headers $headers -Uri $uriFull -ContentType "application/json" -Body $bodyFull
+Invoke-WebRequest -Method PUT -Headers $headers -Uri $uriFull -ContentType "application/json" -Body $bodyFull
 ```
 
 The result of this operation will be a time stamp of the successful upload of the SQL Server certificate private key to SQL Managed Instance.
@@ -368,6 +376,41 @@ GO
 >
 > As a best practice, we recommend ensuring that collation on SQL Server and SQL Managed Instance is the same. The reason is that depending on collation settings, names of availability groups and distributed availability groups might be case sensitive. If there's a mismatch, you might not be able to successfully connect SQL Server to SQL Managed Instance.
 
+In the following code, replace:
+
+- `<DAGName>` with the name of your distributed availability group. When you're replicating several databases, you need one availability group and one distributed availability group for each database. Consider naming each item accordingly - for example, `DAG_<db_name>`. 
+- `<AGName>` with the name of the availability group that you created in the previous step. 
+- `<SQLServerIP>` with the IP address of SQL Server from the previous step. You can use a resolvable SQL Server host machine name as an alternative, but make sure that the name is resolvable from the SQL Managed Instance virtual network. 
+- `<ManagedInstanceName>` with the short name of your managed instance. 
+- `<ManagedInstnaceFQDN>` with the fully qualified domain name of your managed instance.
+
+```sql
+-- Run on SQL Server
+-- Create a distributed availability group for the availability group and database
+-- ManagedInstanceName example: 'sqlmi1'
+-- ManagedInstanceFQDN example: 'sqlmi1.73d19f36a420a.database.windows.net'
+USE MASTER
+CREATE AVAILABILITY GROUP [<DAGName>]
+  WITH (DISTRIBUTED) 
+  AVAILABILITY GROUP ON  
+  '<AGName>' WITH 
+  (
+    LISTENER_URL = 'TCP://<SQLServerIP>:5022',
+    AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,
+    FAILOVER_MODE = MANUAL,
+    SEEDING_MODE = AUTOMATIC,
+    SESSION_TIMEOUT = 20
+  ),
+  '<ManagedInstanceName>' WITH
+  (
+    LISTENER_URL = 'tcp://<ManagedInstanceFQDN>:5022;Server=[<ManagedInstanceName>]',
+    AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,
+    FAILOVER_MODE = MANUAL,
+    SEEDING_MODE = AUTOMATIC
+  );
+GO
+```
+
 ### Verify the availability group and distributed availability group
 
 Use the following script to list all availability groups and distributed availability groups on the SQL Server instance. At this point, the state of your availability group needs to be `connected`, and the state of your distributed availability groups needs to be `disconnected`. The state of the distributed availability group will move to `connected` only when it has been joined with SQL Managed Instance. 
@@ -375,11 +418,7 @@ Use the following script to list all availability groups and distributed availab
 ```sql
 -- Run on SQL Server
 -- This will show that the availability group and distributed availability group have been created on SQL Server.
-SELECT
-    name, is_distributed, cluster_type_desc,
-    sequence_number, is_contained
-FROM
-    sys.availability_groups
+SELECT * FROM sys.availability_groups
 ```
 
 Alternatively, you can use SSMS Object Explorer to find availability groups and distributed availability groups. Expand the **Always On High Availability** folder and then the **Availability Groups** folder.
@@ -415,7 +454,7 @@ $DAGName = "<DAGName>"
 # Enter the database name that was placed in the availability group for replication
 $DatabaseName = "<DatabaseName>"
 # Enter the SQL Server address
-$ SQLServerAddress = "<SQLServerAddress>"
+$SQLServerAddress = "<SQLServerAddress>"
 
 # =============================================================================
 # INVOKING THE API CALL -- THIS PART IS NOT USER CONFIGURABLE
