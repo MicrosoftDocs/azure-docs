@@ -55,7 +55,7 @@ az account list
 az account tenant list
 ```
 
-For more information, see [az login](/cli/azure/reference-index#az_login) command reference, [az account](/cli/azure/account) command reference, or [az account tenant](/cli/azure/account/tenant) command reference.
+For more information, see [az login](/cli/azure/reference-index#az-login) command reference, [az account](/cli/azure/account) command reference, or [az account tenant](/cli/azure/account/tenant) command reference.
 
 
 For Microsoft 365 CLI, use the cmdlet **tenant id** as shown in the following example:

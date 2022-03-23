@@ -124,7 +124,7 @@ az sql db create \
 
 # [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
-The Azure CLI code blocks in this section use the [az sql up](/cli/azure/sql#az_sql_up) command to simplify the database creation process.  With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores.
+The Azure CLI code blocks in this section use the [az sql up](/cli/azure/sql#az-sql-up) command to simplify the database creation process.  With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -141,11 +141,11 @@ Change the location as appropriate for your environment. Replace `0.0.0.0` with 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="SetParameterValues":::
 
 > [!NOTE]
-> [az sql up](/cli/azure/sql#az_sql_up) is currently in preview and does not currently support the serverless compute tier. Also, the use of non-alphabetic and non-numeric characters in the database name are not currently supported.
+> [az sql up](/cli/azure/sql#az-sql-up) is currently in preview and does not currently support the serverless compute tier. Also, the use of non-alphabetic and non-numeric characters in the database name are not currently supported.
 
 ### Create a database and resources
 
-Use the [az sql up](/cli/azure/sql#az_sql_up) command to create and configure a [logical server](logical-servers.md) for Azure SQL Database for immediate use. Make sure to record the generated resource group and server names, so you can manage these resources later.
+Use the [az sql up](/cli/azure/sql#az-sql-up) command to create and configure a [logical server](logical-servers.md) for Azure SQL Database for immediate use. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
 > [!NOTE]
 > When running the `az sql up` command for the first time, Azure CLI prompts you to install the `db-up` extension. This extension is currently in preview. Accept the installation to continue. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -311,7 +311,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az-vm-extension-set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

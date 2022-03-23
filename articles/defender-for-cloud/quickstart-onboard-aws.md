@@ -41,7 +41,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 |Pricing:|The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
 |Required roles and permissions:|**Contributor** permission for the relevant Azure subscription.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## Prerequisites
 
@@ -170,7 +170,7 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 
 ## Connect your AWS account
