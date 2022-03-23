@@ -49,8 +49,7 @@ var appInsights = new ApplicationInsights({
         enableCorsCorrelation: true,
         enableRequestHeaderTracking: true,
         enableResponseHeaderTracking: true,
-        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-        /* ...Other Configuration Options... */
+        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
         extensions: [RNPlugin]
     }
 });
