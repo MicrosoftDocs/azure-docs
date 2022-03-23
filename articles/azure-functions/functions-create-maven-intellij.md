@@ -1,7 +1,7 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create a simple HTTP-triggered Java function, which you then publish to run in a serverless environment in Azure.
-author: jialuogan
+author: karlerickson
 ms.topic: how-to
 ms.date: 03/22/2022
 ms.author: jialuogan
