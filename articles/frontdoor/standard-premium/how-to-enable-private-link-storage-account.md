@@ -12,7 +12,7 @@ ms.author: duau
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium SKU to connect to your storage account origin privately using the Azure Private Link service.
+This article will guide you through how to configure Azure Front Door Premium tier to connect to your storage account origin privately using the Azure Private Link service.
 
 ## Prerequisites
 
