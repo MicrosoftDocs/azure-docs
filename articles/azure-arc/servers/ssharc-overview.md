@@ -8,13 +8,13 @@ ms.topic: conceptual
 # SSH access to Azure Arc-enabled servers
 SSH for Arc-enabled servers enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports.
 This functionality can be used interactively, automated, or with existing SSH based tooling,
-allowing existing management tools to have a greater impact on hybrid servers.
+allowing existing management tools to have a greater impact on Azure Arc-enabled servers.
 
 ## Key benefits
 SSH access to Arc-enabled servers provides the following key benefits:
  - No public IP address or open SSH ports required
  - Access to Windows and Linux machines
- - Ability to log-in as a local user or an Azure user (Linux only)
+ - Ability to log-in as a local user or an [Azure user (Linux only)](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux)
  - Support for other OpenSSH based tooling with config file support
 
 ## Prerequisites
@@ -79,13 +79,6 @@ To add access to SSH connections, run the following:
 
 > [!NOTE]
 > If you are using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
-
-Restart the hybrid agent:
-- Linux: 
-    - ```sudo service himds restart```
-- Windows:
-    - ```Stop-Service himds```
-    - ```Start-Service himds```
 
 ## Examples
 To view examples of using the ```az ssh vm``` command, view the az CLI documentation page for (az ssh)[https://docs.microsoft.com/cli/azure/ssh?view=azure-cli-latest].
