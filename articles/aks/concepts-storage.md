@@ -30,23 +30,37 @@ This article introduces the core concepts that provide storage to your applicati
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
-Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use Azure Disks or Azure Files.
+Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types), [Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Azure Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/scalability-targets). 
 
 ### Azure Disks
 
-Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks can use:
-* Azure Premium storage, backed by high-performance SSDs, or 
-* Azure Standard storage, backed by regular HDDs. 
+Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types include: 
+* Azure UltraDisks
+* Azure Premium SSDs
+* Standard SSDs
+* Standard HDDs
 
 > [!TIP]
->For most production and development workloads, use Premium storage. 
+>For most production and development workloads, use Ultra Disks. 
 
 Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
 
 ### Azure Files
-Use *Azure Files* to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods and can use:
-* Azure Premium storage, backed by high-performance SSDs, or 
-* Azure Standard storage backed by regular HDDs.
+Use *Azure Files* to mount an SMB 3.1.1 share or NFS 4.1 share backed by an Azure storage accounts to pods. Files let you share data across multiple nodes and pods and can use:
+* Azure Premium storage
+* Azure Transaction Optimized 
+* Hot File Shares  
+* Cool File Shares 
+
+### Azure NetApp Files
+* Ultra Storage 
+* Premium Storage
+* Standard Storage 
+
+### Azure Blob Storage
+* Block Blobs 
+* Append Blobs
+* Page Blobs
 
 ### Volume types
 Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by the containers. 
@@ -92,16 +106,7 @@ To define different tiers of storage, such as Premium and Standard, you can crea
 
 The StorageClass also defines the *reclaimPolicy*. When you delete the pod and the persistent volume is no longer required, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or kept for use with a future pod.
 
-In AKS, four initial `StorageClasses` are created for cluster using the in-tree storage plugins:
-
-| Permission | Reason |
-|---|---|
-| `default` | Uses Azure StandardSSD storage to create a Managed Disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. |
-| `managed-premium` | Uses Azure Premium storage to create a Managed Disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. |
-| `azurefile` | Uses Azure Standard storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted. |
-| `azurefile-premium` | Uses Azure Premium storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted.|
-
-For clusters using the new Container Storage Interface (CSI) external plugins (preview) the following extra `StorageClasses` are created:
+For clusters using the Container Storage Interface (CSI) external plugins, the following extra `StorageClasses` are created:
 
 | Permission | Reason |
 |---|---|
@@ -115,15 +120,16 @@ Unless you specify a StorageClass for a persistent volume, the default StorageCl
 You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
 ```yaml
-kind: StorageClass
 apiVersion: storage.k8s.io/v1
+kind: StorageClass
 metadata:
   name: managed-premium-retain
-provisioner: kubernetes.io/azure-disk
-reclaimPolicy: Retain
+provisioner: disk.csi.azure.com
 parameters:
-  storageaccounttype: Premium_LRS
-  kind: Managed
+  skuName: Premium_LRS
+  reclaimPolicy: Retain
+  volumeBindingMode: WaitForFirstConsumer
+  allowVolumeExpansion: true
 ```
 
 > [!NOTE]
@@ -131,7 +137,7 @@ parameters:
 
 ## Persistent volume claims
 
-A PersistentVolumeClaim requests either Disk or File storage of a particular StorageClass, access mode, and size. The Kubernetes API server can dynamically provision the underlying Azure storage resource if no existing resource can fulfill the claim based on the defined StorageClass. 
+A PersistentVolumeClaim requests storage of a particular StorageClass, access mode, and size. The Kubernetes API server can dynamically provision the underlying Azure storage resource if no existing resource can fulfill the claim based on the defined StorageClass. 
 
 The pod definition includes the volume mount once the volume has been connected to the pod.
 
@@ -195,12 +201,11 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
-To see how to create dynamic and static volumes that use Azure Disks or Azure Files, see the following how-to articles:
+To see how to use CSI drivers, see the following how-to articles:
 
-- [Create a static volume using Azure Disks][aks-static-disks]
-- [Create a static volume using Azure Files][aks-static-files]
-- [Create a dynamic volume using Azure Disks][aks-dynamic-disks]
-- [Create a dynamic volume using Azure Files][aks-dynamic-files]
+- [Enable Container Storage Interface(CSI) drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
+- [Azure Disk CSI Drivers][azure-disk-csi]
+- [Create a dynamic volume using Azure Disks][azure-files-csi]
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -213,10 +218,9 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
-[aks-static-disks]: azure-disk-volume.md
-[aks-static-files]: azure-files-volume.md
-[aks-dynamic-disks]: azure-disks-dynamic-pv.md
-[aks-dynamic-files]: azure-files-dynamic-pv.md
+[Enable Container Storage Interface(CSI) drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
+[Azure Disk CSI Drivers][azure-disk-csi]
+[Create a dynamic volume using Azure Disks][azure-files-csi
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
