@@ -44,7 +44,7 @@ var appInsights = new ApplicationInsights({
         enableCorsCorrelation: true,
         enableRequestHeaderTracking: true,
         enableResponseHeaderTracking: true,
-        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
         extensions: [reactPlugin],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
