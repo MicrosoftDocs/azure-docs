@@ -56,6 +56,9 @@ For each contact, you'll provide a name, phone number, and email address (these 
 
 ## Add marketplace media
 
+> [!TIP]
+> Before you add your media, consider whether it is inclusive of people with accessibility needs.  For information on creating accessible media, see [Create accessible deliverables](https://www.microsoft.com/en-gb/accessibility/supplier-toolkit-resources).
+
 ### Store logos
 
 Under **Logos**, upload a **Large** logo in PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create **Small** (48 x 48) and **Medium** (90 x 90) logos, which you can replace later if you want.
