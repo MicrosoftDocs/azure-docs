@@ -89,7 +89,7 @@ Consider the following strategies:
 
 ## Create a webhook
 
-A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md). To follow along, edit your PowerShell runbook with the following code:
+1. Create PowerShell runbook with the following code:
 
 ```powershell
 param
@@ -122,10 +122,9 @@ else {
     Write-Output "Hello World!"
 }
 ```
+1. Create a webhook using the Azure portal, or PowerShell or REST API. A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md).
 
-Then save and publish the revised runbook. The examples below show to create a webhook using the Azure portal, PowerShell, and REST.
-
-### From the portal
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -162,7 +161,7 @@ Then save and publish the revised runbook. The examples below show to create a w
 
 1. From the **Add Webhook** page, select **Create**. The webhook is created and you're returned to the Runbook **Overview** page.
 
-### Using PowerShell
+# [PowerShell](#tab/powershell)
 
 1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
 
@@ -212,7 +211,7 @@ Then save and publish the revised runbook. The examples below show to create a w
         -Name $psWebhook
     ```
 
-### Using REST
+# [REST API](#tab/rest)
 
 The PUT command is documented at [Webhook - Create Or Update](/rest/api/automation/webhook/create-or-update). This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PUT request.
 
@@ -296,6 +295,7 @@ The PUT command is documented at [Webhook - Create Or Update](/rest/api/automati
     $response = Invoke-RestMethod -Uri $restURI -Method GET -Headers $authHeader
     $response | ConvertTo-Json
     ```
+---
 
 ## Use a webhook
 
