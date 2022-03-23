@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Obtain your principal ID
 
-The template requires a principal ID. You can obtain your principal ID my running the Azure CLI [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command, with the `--show-mine` flag:
+The template requires a principal ID. You can obtain your principal ID my running the Azure CLI [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) command, with the `--show-mine` flag:
 
 ```azurecli-interactive
 az ad sp list --show-mine -o table
