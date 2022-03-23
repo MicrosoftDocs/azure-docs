@@ -53,7 +53,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 ## Create an Azure Bastion host
 
-In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines, install IIS, and test the load balancer deployment.
+In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
 
 ### Create a bastion public IP address
@@ -64,7 +64,8 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
 az network public-ip create \
     --resource-group CreateIntLBQS-rg  \
     --name myBastionIP \
-    --sku Standard
+    --sku Standard \
+    --zone 1 2 3
 ```
 ### Create a bastion subnet
 
@@ -243,9 +244,9 @@ It can take a few minutes for the VMs to deploy.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-## Add virtual machines to the load balancer pool
+## Add virtual machines to the backend pool
 
-Add the virtual machines to the back-end pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
+Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
 
 ```azurecli
   array=(VM1 VM2)
@@ -270,20 +271,10 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
 
 ```azurecli
   az network public-ip create \
-    --resource-group CreatePubLBQS-rg \
+    --resource-group CreateIntLBQS-rg \
     --name myNATgatewayIP \
     --sku Standard \
     --zone 1 2 3
-```
-
-To create a zonal redundant public IP address in Zone 1:
-
-```azurecli
-  az network public-ip create \
-    --resource-group CreatePubLBQS-rg \
-    --name myNATgatewayIP \
-    --sku Standard \
-    --zone 1
 ```
 
 ### Create NAT gateway resource
@@ -292,7 +283,7 @@ Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gatewa
 
 ```azurecli
   az network nat gateway create \
-    --resource-group CreatePubLBQS-rg \
+    --resource-group CreateIntLBQS-rg \
     --name myNATgateway \
     --public-ip-addresses myNATgatewayIP \
     --idle-timeout 10
@@ -304,7 +295,7 @@ Configure the source subnet in virtual network to use a specific NAT gateway res
 
 ```azurecli
   az network vnet subnet update \
-    --resource-group CreatePubLBQS-rg \
+    --resource-group CreateIntLBQS-rg \
     --vnet-name myVNet \
     --name myBackendSubnet \
     --nat-gateway myNATgateway
@@ -340,7 +331,7 @@ You might need to wait a few minutes for the virtual machine to deploy.
 Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the backend virtual machines and set the default website to the computer name.
 
 ```azurecli
-  array=(myVM1 myVM2 myVM3)
+  array=(myVM1 myVM2)
     for vm in "${array[@]}"
     do
      az vm extension set \
@@ -373,7 +364,6 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
 8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown on the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of the IP address in the address bar of the browser." border="true":::
-   
 
 ## Clean up resources
 
