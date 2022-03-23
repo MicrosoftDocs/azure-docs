@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/15/2022
+ms.date: 03/22/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -12,25 +12,17 @@ ms.custom: devx-track-azurepowershell
 
 # Web Application Firewall exclusion lists
 
-The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes the configuration for WAF exclusion lists. These settings are located in the WAF Policy associated to your Application Gateway. To learn more about WAF Policies, see [Azure Web Application Firewall on Azure Application Gateway](ag-overview.md) and [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md)
+The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes the configuration for WAF exclusion lists. These settings are located in the WAF policy associated to your Application Gateway. To learn more about WAF policies, see [Azure Web Application Firewall on Azure Application Gateway](ag-overview.md) and [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
-Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
+Sometimes WAF might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
-For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
+For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that might trigger a false positive detection from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
 
 You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application.
 
-<!-- TODO
-## Configure excluson lists
-
-To set exclusion lists in the Azure portal, configure **Exclusions** in the WAF policy resource's **Policy settings** page:
-
-:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions.png" alt-text="Screenshot of the Azure portal that shows the exclusions configuration for the W A F policy.":::
--->
-
 ## Identify request attributes to exclude
 
-When you configure a WAF exclusion, you must specify the attributes of the request that should be excluded from the WAF evaluation. The values of the specified attributes aren't evaluated against WAF rules, but their names still are.
+When you configure a WAF exclusion, you must specify the attributes of the request that should be excluded from the WAF evaluation. The values of the specified attributes aren't evaluated against WAF rules, but their names are still evaluated.
 
 You can configure a WAF exclusion for the following request attributes:
 
@@ -40,7 +32,7 @@ You can configure a WAF exclusion for the following request attributes:
 * JSON entities
 * URL query string arguments
 
-You can specify an exact request header, body, cookie, or query string attribute match. Or, you can optionally specify partial matches. Use the following operators to configure the exclusion:
+You can specify an exact request header, body, cookie, or query string attribute match. Or, you can specify partial matches. Use the following operators to configure the exclusion:
 
 - **Equals**:  This operator is used for an exact match. As an example, for selecting a header named **bearerToken**, use the equals operator with the selector set as **bearerToken**.
 - **Starts with**: This operator matches all fields that start with the specified selector value.
@@ -64,15 +56,15 @@ Exclusions can be configured to apply to a specific set of WAF rules, or globall
 
 You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation.
 
-Per-rule exclusions are available when you use the OWASP (CRS) Ruleset version 3.2 or later.
+Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later.
 
 #### Example
 
-In this example, you want to exclude the `User-Agent` request header. The `User-Agent` header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/docs/Web/HTTP/Headers/User-Agent).
+Suppose you want the WAF to ignore the `User-Agent` request header. The `User-Agent` header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/docs/Web/HTTP/Headers/User-Agent).
 
-There can be any number of reasons to disable evaluating this header. There could be a string that the WAF sees and assumes it’s malicious. For example, the classic SQL attack “x=x” in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
+There can be any number of reasons to disable evaluating this header. There could be a string that the WAF detects and assumes it’s malicious. For example, the `User-Agent` header might include the classic SQL injection attack `x=x` in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
-You can use the folllowing code to exclude the `User-Agent` header from evaluation by all of the SQL injection rules:
+You can use the folllowing approaches to exclude the `User-Agent` header from evaluation by all of the SQL injection rules:
 
 # [Azure portal](#tab/portal)
 
@@ -104,7 +96,6 @@ $wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 
 # [Azure CLI](#tab/cli)
 
-<!-- TODO this doesn't seem to work -->
 ```azurecli
 az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --resource-group $resourceGroupName \
@@ -116,6 +107,9 @@ az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --selector-match-operator 'Equals' \
   --selector 'User-Agent'
 ```
+<!-- TODO this doesn't seem to work -->
+> [!CAUTION]
+> This Azure CLI command doesn't seem to work yet?
 
 # [Bicep](#tab/bicep)
 
@@ -201,7 +195,7 @@ You can configure an exclusion to apply across all WAF rules.
 
 #### Example
 
-This example excludes the value in the *user* parameter that is passed in the request via the URL. For example, say it’s common in your environment for the `user` query string argument to contain a string that the WAF views as malicious content, so it blocks it. You can exclude the `user` query string argument so that the WAF doesn't evaluate the field's value.
+Suppose you want to exclude the value in the *user* parameter that is passed in the request via the URL. For example, say it’s common in your environment for the `user` query string argument to contain a string that the WAF views as malicious content, so it blocks it. You can exclude all query string arguments where the name begins with the word `user`, so that the WAF doesn't evaluate the field's value.
 
 The following example shows how you can exclude the `user` query string argument from evaluation:
 
