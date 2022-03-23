@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 03/22/2022
+ms.date: 03/23/2022
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -246,6 +246,9 @@ The SAS authentication is generated with the time validity that you specified. Y
 
 :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Screenshot that shows an example of the U R I version of an S A S token.":::
 
+   > [!NOTE]
+   > Using SAS tokens created with permissions set through defining a [stored access policy](https://docs.microsoft.com/rest/api/storageservices/define-stored-access-policy.md) is not supported at this time. You will need to follow the instructions in this guide on manually specifying Read and List permissions for the SAS token.
+
 ### Copy parameters from the SAS token
 
 Before you use the SAS token to start LRS, you need to understand its structure. The URI of the generated SAS token consists of two parts separated with a question mark (`?`), as shown in this example:
@@ -420,6 +423,7 @@ Functional limitations of LRS are:
 - System-managed software patches are blocked for 36 hours once the LRS has been started. After this time window expires, the next software maintenance update will stop LRS. You will need to restart LRS from scratch.
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have Read and List permissions only. For example, if you grant Read, List and Write permissions, LRS will not be able to start because of the extra Write permission.
+- Using SAS tokens created with permissions set through defining a [stored access policy](https://docs.microsoft.com/rest/api/storageservices/define-stored-access-policy.md) is not supported at this time. You will need to follow the instructions in this guide on manually specifying Read and List permissions for the SAS token.
 - Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
 - Backup files for different databases must be placed in separate folders on Blob Storage in a flat-file structure. Nested folders inside individual database folders are not supported.
 - LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
