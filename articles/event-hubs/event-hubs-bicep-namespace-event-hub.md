@@ -51,7 +51,7 @@ The resources defined in the Bicep file include:
     ---
 
     > [!NOTE]
-    > Replace **\<project-name\>** with a project name. It will be used to generate the Event Hub name and the Namespace name.
+    > Replace **\<project-name\>** with a project name. It will be used to generate the Event Hubs name and the Namespace name.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
