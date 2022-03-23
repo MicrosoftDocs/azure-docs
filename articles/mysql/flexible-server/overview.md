@@ -22,18 +22,6 @@ Azure Database for MySQL powered by the MySQL community edition is available in 
 
 In this article, we'll provide an overview and introduction to core concepts of flexible server deployment model. For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](./../select-right-deployment-type.md).
 
-
-> [!VIDEO <iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" width="100%" height="100%" frameborder="0"; allowfullscreen="true"></iframe>]
-
-< />
-								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
-								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
-								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
-								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
-								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
-								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
-								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
-
 ## Overview
 
 Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provide better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that don’t need full-compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](overview.md#azure-regions).
