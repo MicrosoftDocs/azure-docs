@@ -430,7 +430,7 @@ The latest release of the Connector introduced certain default behavior changes 
     * "warning: there was one deprecation warning; for details, enable `:setting -deprecation' or`:replay -deprecation'"
   * Mitigation
     * This is related to the deprecated `sqlanalytics` signature.
-    * End users can safely ignore this. This does not effect use of `synapsesql` method.
+    * End users can safely ignore this warning. This does not effect use of `synapsesql` method.
   
 ## Things to Note
 
