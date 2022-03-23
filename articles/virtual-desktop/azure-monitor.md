@@ -134,7 +134,7 @@ To set up your remaining session hosts using the configuration workbook:
 2. Refresh the configuration workbook.
 
 >[!NOTE]
->For larger host pools (> 1000 session hosts), or if there are deployment issues, it is recommended to install the Log Analytics agent at [time of session host creation](../virtual-machines/extensions/oms-windows.md#extension-schema) through the use of am ARM template.
+>For larger host pools (> 1000 session hosts), or if there are deployment issues, it is recommended to install the Log Analytics agent at [time of session host creation](../virtual-machines/extensions/oms-windows.md#extension-schema) through the use of an ARM template.
 
 #### Workspace performance counters
 
