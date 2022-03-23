@@ -24,6 +24,18 @@ This article outlines how to register on-premises SQL server instances, and how 
 
 The supported SQL Server versions are 2005 and above. SQL Server Express LocalDB is not supported.
 
+When scanning on-premises SQL server, Azure Purview supports:
+
+- Extracting technical metadata including:
+
+    - Instance
+    - Databases
+    - Schemas
+    - Tables including the columns
+    - Views including the columns
+
+When setting up scan, you can choose to specify the database name to scan one database, and you can further scope the scan by selecting tables and views as needed. The whole SQL Server instance will be scanned if database name is not provided.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -40,17 +52,20 @@ This section describes how to register an on-premises SQL server instance in Azu
 
 ### Authentication for registration
 
-There is only one way to set up authentication for SQL server on-premises:
+There are two ways to set up authentication for SQL server on-premises:
 
 - SQL Authentication
+- Windows Authentication
 
-#### SQL Authentication to register
+#### Set up SQL server authentication
 
-Ensure the SQL Server deployment is configured to allow SQL Server and Windows Authentication.
+If SQL Authentication is applied, ensure the SQL Server deployment is configured to allow SQL Server and Windows Authentication.
 
 To enable this, within SQL Server Management Studio (SSMS), navigate to "Server Properties" and change from "Windows Authentication Mode" to "SQL Server and Windows Authentication mode".
 
 :::image type="content" source="media/register-scan-on-premises-sql-server/enable-sql-server-authentication.png" alt-text="The Server Properties window is open with the security page selected. Under Server authentication, S Q L Server and Windows Authentication mode is selected.":::
+
+If Windows Authentication is applied, configure the SQL Server deployment to use Windows Authentication mode.
 
 A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.
 
@@ -58,12 +73,12 @@ A change to the Server Authentication will require a restart of the SQL Server I
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
-The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
+The account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 > [!Note]
 > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
-1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. Make sure to select "SQL authentication".
+1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. If Windows Authentication is applied, select "Windows authentication". If SQL Authentication is applied, make sure to select "SQL authentication".
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
@@ -75,7 +90,7 @@ The SQL account must have access to the **master** database. This is because the
 
 1. Select OK to save.
 
-1. Navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
+1. If SQL Authentication is applied, navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
@@ -85,7 +100,7 @@ The SQL account must have access to the **master** database. This is because the
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
 1. Select **Create** to complete
 1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan.
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan. Make sure the right authentication method is selected when creating a new credential. If SQL Authentication is applied, select "SQL authentication" as the authentication method. If Windows Authentication is applied, then select "Windows authentication".
 
 ### Steps to register
 
@@ -119,9 +134,9 @@ To create and run a new scan, do the following:
 
 1. Select **New scan**
 
-1. Select the credential to connect to your data source.
+1. Select the credential to connect to your data source. The credentials are grouped and listed under different authentication methods.
 
-   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan-win-auth.png" alt-text="Set up scan":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 

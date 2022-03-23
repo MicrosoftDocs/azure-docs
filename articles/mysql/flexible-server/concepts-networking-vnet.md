@@ -74,6 +74,7 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
    > [!IMPORTANT]
    > Private DNS zone names must end with `mysql.database.azure.com`.
+   >If you are connecting to the Azure Database for MySQL - Flexible sever with SSL and are using an option to perform full verification (sslmode=VERTIFY_IDENTITY) with certificate subject name, use \<servername\>.mysql.database.azure.com in your connection string.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
