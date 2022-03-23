@@ -58,7 +58,7 @@ The [Prometheus](https://prometheus.io/docs/introduction/overview/) server is ho
 
 ### Does Azure Managed Instance for Apache Cassandra provide full backups?
 
-Yes, it provides full backups to Azure Storage and restores to a new cluster
+Yes, it provides full backups to Azure Storage and restores to a new cluster. For more information, see [here](management-operations.md#backup-and-restore).
 
 ### How can I migrate data from my existing Apache Cassandra cluster to Azure Managed Instance for Apache Cassandra?
 

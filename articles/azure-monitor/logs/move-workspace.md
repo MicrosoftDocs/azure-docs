@@ -2,7 +2,8 @@
 title: Move a Log Analytics workspace in Azure Monitor | Microsoft Docs
 description: Learn how to move your Log Analytics workspace to another subscription or resource group.
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.reviewer: yossi-y
+ms.date: 03/22/2022
 ms.custom: devx-track-azurepowershell
 
 ---

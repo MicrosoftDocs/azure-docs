@@ -192,7 +192,7 @@ To enable auto provisioning of the Log Analytics agent:
         |---------|---------|
         |Policy Add-on for Kubernetes                      |[Deploy Azure Policy Add-on to Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
         |Guest Configuration agent (preview)               |[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/64dcfa3033a3ff231ec4e73d2c1dad4db4e3b5dd/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json)|
-        |||
+
 
 1. Select **Save**. If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
 
