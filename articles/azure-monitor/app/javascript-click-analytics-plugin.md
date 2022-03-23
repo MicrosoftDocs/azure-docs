@@ -364,21 +364,21 @@ appInsights.loadAppInsights();
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-The following example shows standard configuration options for enabling correlation, with scenario-specific notes below:
+The following example shows standard configuration options for enabling correlation:
 
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    disableFetchTracking: false,
-    enableCorsCorrelation: true,
-    enableRequestHeaderTracking: true,
-    enableResponseHeaderTracking: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
+```js
+const configObj = {
+  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  disableFetchTracking: false,
+  enableCorsCorrelation: true,
+  enableRequestHeaderTracking: true,
+  enableResponseHeaderTracking: true,
+  correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
+  extensions: [clickPluginInstance],
+  extensionConfig: {
+    [clickPluginInstance.identifier]: clickPluginConfig
+  },
+};
 ``` 
 
 If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
