@@ -17,7 +17,7 @@ Features
 * Use a key in Key Vault for etcd encryption
 * Use a key in Key Vault protected by a Hardware Security Module (HSM)
 * Bring your own keys
-* Store secrets, keys, and certs in etcd, but manage them as part of Kubernetes
+* Provide encryption at rest of data stored in etcd like secrets, keys, and certs in etcd
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
