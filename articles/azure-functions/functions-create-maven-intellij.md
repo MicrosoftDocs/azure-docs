@@ -130,9 +130,6 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 1. Select one of your function apps using **Azure Explorer** in your IDEA, then right-click and select **Delete**. This command might take several minutes to run. When it's done, the status will refresh in **Azure Explorer**.
       
       ![Screenshot shows Delete selected from a context menu.](media/functions-create-first-java-intellij/delete-function.png)
-
-      
-
 ## Next steps
 
 You've created a Java project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
