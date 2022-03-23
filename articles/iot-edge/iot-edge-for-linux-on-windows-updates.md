@@ -28,7 +28,7 @@ The second component is the virtual machine base operating system. The EFLOW vir
 
 The third component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
 
-EFLOW updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates until the desired version. 
+EFLOW updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates up to the desired version. 
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
@@ -95,14 +95,14 @@ In some scenarios with restricted or limited internet connectivity, you may want
 
 As explained before, IoT Edge for Linux on Windows updates are serviced using Microsoft Update channel, so it's not possible to turn on/off EFLOW specific updates, without turning on/off Microsoft Updates. Listed below are some of the ways to automate turning on/off Microsoft updates.
 
-1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
+1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
 
 1. **Registry Keys** - By modifying the Windows Update AU registry key, following these steps:
-    1. Open the Run dialog box by pressing the Windows key and the R key together.
-    1. Type Regedit and hit the Enter key.
-    1. When the Registry Editor opens, navigate to the following location: HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU
+    1. Open the Run dialog (Windows key + R).
+    1. Type `regedit` and hit the Enter key.
+    1. When the Registry Editor opens, navigate to the following location: `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU`
     1. Right select on the right side panel and select on New > DWORD (32-bit) Value.
-    1. Set the name of this newly created DWORD as AllowMUUpdateService.
+    1. Set the name of this newly created DWORD as `AllowMUUpdateService`.
     1. Double select on the newly created DWORD and set its value as 1
     1. Select OK and close the registry editor.
 
