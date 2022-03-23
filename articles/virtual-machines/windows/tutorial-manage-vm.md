@@ -162,7 +162,7 @@ New-AzVm `
     -AsJob
 ```
 
-The `-AsJob` parameter creates the VM as a background task, so the PowerShell prompts return to you. You can view details of background jobs with the `Get-Job` cmdlet.
+The `-AsJob` parameter creates the VM as a background task, so the PowerShell prompts return to you. You can view details of background jobs with the [Get-Job](/powershell/module/microsoft.powershell.core/get-job) cmdlet.
 
 ## Understand VM sizes
 
