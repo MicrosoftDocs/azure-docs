@@ -53,7 +53,7 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
         
     * The Origin AS must be listed as 8075
     
-    * The validity end date needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
+    * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Note some RIRs don't present validity end date as an option and or choose the date for you.
     
     * The prefix length should exactly match the prefixes that can be advertised by Microsoft. For example, if you plan to bring 1.2.3.0/24 and 2.3.4.0/23 to Microsoft, they should both be named.
   
@@ -92,10 +92,10 @@ The following steps show the steps required to prepare sample customer range (1.
 3. To create the message that will be passed to Microsoft, first create a string that contains relevant information about your prefix and subscription and then sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
     Use the following command to create a signed message that will be passed to Microsoft for verification.  
-
+   
     > [!NOTE]
-    > If the Validity End date was not included in the original ROA, use a date 1-3 years in the future.
-    
+    > If the Validity End date was not included in the original ROA, pick a date that corresponds to the time you intend to have the prefix advertised by Azure.
+ 
     ```azurepowershell-interactive
     $byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"
     Set-Content -Path byoipauth.txt -Value $byoipauth -NoNewline
