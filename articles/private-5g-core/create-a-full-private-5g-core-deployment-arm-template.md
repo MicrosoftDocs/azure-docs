@@ -30,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
-- Collect all of the information listed in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). If you want to provision SIMs, you'll need to prepare a JSON file containing your SIM information, as described in [Provision SIM resources through the Azure portal using a JSON file](collect-required-information-for-private-mobile-network.md#provision-sim-resources-through-the-azure-portal-using-a-json-file).
+- Collect all of the information listed in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). If you want to provision SIMs, you'll need to prepare a JSON file containing your SIM information, as described in [Provision SIM resources using a JSON file](collect-required-information-for-private-mobile-network.md#provision-sim-resources-using-a-json-file).
 - Identify the names of the interfaces corresponding to ports 5 and 6 on the Azure Stack Edge Pro device in the site.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 
@@ -42,15 +42,15 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The following Azure resources are defined in the template.
 
-- [**Microsoft.MobileNetwork/mobileNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks): a resource representing the private mobile network as a whole.
 - [**Microsoft.MobileNetwork/mobileNetworks/dataNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/datanetworks): a resource representing a data network.
 - [**Microsoft.MobileNetwork/mobileNetworks/slices**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/slices): a resource representing a network slice.
+- [**Microsoft.MobileNetwork/mobileNetworks/services**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/services): a resource representing a service.
+- [**Microsoft.MobileNetwork/mobileNetworks/simPolicies**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/simPolicies): a resource representing a SIM policy.
 - [**Microsoft.MobileNetwork/mobileNetworks/sites**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/sites): a resource representing your site as a whole.
 - [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network, including the IP address for the N6 interface and data subnet configuration.
 - [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the N3 interface.
 - [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the N2 interface.
-- [**Microsoft.MobileNetwork/mobileNetworks/services**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/services): a resource representing a service.
-- [**Microsoft.MobileNetwork/mobileNetworks/simPolicies**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/simPolicies): a resource representing a SIM policy.
+- [**Microsoft.MobileNetwork/mobileNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks): a resource representing the private mobile network as a whole.
 - [**Microsoft.MobileNetwork/sims:**](/azure/templates/microsoft.mobilenetwork/sims) a resource representing a physical SIM or eSIM.
 
 ## Deploy the template
@@ -62,32 +62,35 @@ The following Azure resources are defined in the template.
 
 1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
-    - **Subscription:** select the Azure subscription you want to use to create your private mobile network.
-    - **Resource group:** create a new resource group.
-    - **Region:** select **East US**.
-    - **Location:** leave this field unchanged.
-    - **Mobile Network Name:** enter a name for the private mobile network.
-    - **Mobile Country Code:** enter the mobile country code for the private mobile network.
-    - **Mobile Network Code:** enter the mobile network code for the private mobile network.
-    - **Site Name:** enter a name for your site.
-    - **Service Name:** leave this field unchanged.
-    - **SIM resources:** paste in the contents of the JSON file containing your SIM information. 
-    - **Sim Policy Name:** leave this field unchanged.
-    - **Slice Name:** leave this field unchanged.
-    - **Control Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
-    - **Control Plane Access Ip Address:** enter the IP address for the packet core instance's N2 signaling interface.
-    - **User Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
-    - **User Plane Access Interface Ip Address:** enter the IP address for the packet core instance's N3 interface.
-    - **Access Subnet:** enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.
-    - **Access Gateway:** enter the access subnet default gateway.
-    - **User Plane Data Interface Name:** enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. 
-    - **User Plane Data Interface Ip Address:** enter the IP address for the packet core instance's N6 interface.
-    - **User Plane Data Interface Subnet:** enter the network address of the data subnet in CIDR notation. 
-    - **User Plane Data Interface Gateway:** enter the data subnet default gateway.
-    - **Ue Ip Pool Prefix:** enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. Note that the template does not include configuration for static IP addresses.
-    - **Core Network Technology:** leave this field unchanged.
-    - **Napt Enabled:** set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.
-    - **Custom Location:** enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.
+    
+    |Field  |Value  |
+    |---------|---------|
+    |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
+    |**Resource group**     | Create a new resource group.        |
+    |**Region**     | Select **East US**.        |
+    |**Location**     | Leave this field unchanged.        |
+    |**Mobile Network Name**     | Enter a name for the private mobile network.        |
+    |**Mobile Country Code**     | Enter the mobile country code for the private mobile network.        |
+    |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
+    |**Site Name**     | Enter a name for your site.        |
+    |**Service Name**     | Leave this field unchanged.        |
+    |**SIM Resources**     | Paste in the contents of the JSON file containing your SIM information.        |
+    |**Sim Policy Name**     | Leave this field unchanged.        |
+    |**Slice Name**     | Leave this field unchanged.        |
+    |**Control Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
+    |**Control Plane Access Ip Address**    | Enter the IP address for the packet core instance's N2 signaling interface.        |
+    |**User Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
+    |**User Plane Access Interface Ip Address**     | Enter the IP address for the packet core instance's N3 interface.        |
+    |**Access Subnet**     | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.         |
+    |**Access Gateway**     | Enter the access subnet default gateway.        |
+    |**User Plane Data Interface Name**  | Enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. |
+    |**User Plane Data Interface Ip Address**  | Enter the IP address for the packet core instance's N6 interface.  |
+    |**User Plane Data Interface Subnet**  | Enter the network address of the data subnet in CIDR notation. |
+    |**User Plane Data Interface Gateway**  | Enter the data subnet default gateway. |
+    |**Ue Ip Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. Note that the template does not include configuration for static IP addresses. |
+    |**Core Network Technology**  | Leave this field unchanged. |
+    |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
+    |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
