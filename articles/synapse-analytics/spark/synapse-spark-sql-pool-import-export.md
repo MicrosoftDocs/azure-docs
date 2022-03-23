@@ -35,7 +35,7 @@ At a high-level, the connector provides the following capabilities:
   * Support for column pruning.
 
 > [!NOTE]
-The latest release of the Connector introduced certain default behavior changes for the write path. Please refer to the section [Common Issues](#common-issues) for scenario description and relevant mitigation steps.
+> The latest release of the Connector introduced certain default behavior changes for the write path. Please refer to the section [Common Issues](#common-issues) for scenario description and relevant mitigation steps.
 
 ## Orchestration Approach
 
