@@ -39,7 +39,7 @@ Operational recommendations provide insights and suggestions to improve security
 | Low | Security twin configuration not optimal | Legacy Defender-IoT-micro-agent | Security twin configuration is not optimal. |
 | Low | Security twin configuration conflict | Legacy Defender-IoT-micro-agent | Conflicts were identified in the security twin configuration. |
 
-# Next steps
+## Next steps
 
 - Defender for IoT service [Overview](overview.md)
 - Learn how to [Access your security data](how-to-security-data-access.md)
