@@ -48,10 +48,6 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
 
-The following diagram shows the resources created in this quickstart:
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
-
 ## Configure virtual network - Standard
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
@@ -172,11 +168,10 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 
@@ -309,10 +304,6 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
 
-The following diagram shows the resources created in this quickstart:
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
-
 ## Configure virtual network - Basic
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
@@ -432,11 +423,10 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 

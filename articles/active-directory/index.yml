@@ -108,9 +108,9 @@ conceptualContent:
         - url: ./conditional-access/howto-conditional-access-policy-all-users-mfa.md
           itemType: how-to-guide
           text:  Require MFA for all users
-        - url: ./conditional-access/location-condition.md
+        - url: ./conditional-access/concept-conditional-access-policy-common.md
           itemType: concept
-          text:  Use location in Conditional Access policy
+          text:  Common Conditional Access policies
       footerLink:
         url: ./conditional-access/index.yml
         text: See more
@@ -120,12 +120,12 @@ conceptualContent:
         - url: ./devices/overview.md
           itemType: overview
           text:  What is a device identity?
-        - url: ./devices/hybrid-azuread-join-plan.md
-          itemType: how-to-guide
-          text:  Plan a hybrid Azure AD join
         - url: ./devices/azureadjoin-plan.md
           itemType: how-to-guide
           text:  Plan an Azure AD join implementation
+        - url: ./devices/hybrid-azuread-join-plan.md
+          itemType: how-to-guide
+          text:  Plan a hybrid Azure AD join
       footerLink:
         url: ./devices/index.yml
         text: See more
@@ -162,7 +162,7 @@ conceptualContent:
 
     - title: External Identities
       links:
-        - url: ./external-identities/compare-with-b2c.md
+        - url: ./external-identities/external-identities-overview.md
           itemType: overview
           text: What are External Identities in Azure AD?
         - url: ../active-directory-b2c/overview.md

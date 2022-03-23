@@ -7,7 +7,8 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: template-tutorial, ignite-fall-2021
+ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure CLI
@@ -247,6 +248,32 @@ Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_netw
     --name myFrontendIP \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIP \
+    --gateway-lb $feid
+
+```
+
+## Chain virtual machine to Gateway Load Balancer
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_az_network_lb_frontend_ip_show) to place the resource ID of your gateway load balancer frontend into a variable.
+
+Use [az network lb frontend-ip update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
+
+```azurecli-interactive
+ feid=$(az network lb frontend-ip show \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer-gw \
+    --name myFrontend \
+    --query id \
+    --output tsv)
+    
+  az network nic ip-config update \
+    --resource-group MyResourceGroup
+    --nic-name MyNIC 
+    --name MyIPconfig 
     --gateway-lb $feid
 
 ```

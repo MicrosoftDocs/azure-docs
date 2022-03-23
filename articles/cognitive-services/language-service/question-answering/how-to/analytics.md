@@ -7,7 +7,7 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

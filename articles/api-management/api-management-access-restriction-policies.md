@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 08/20/2021
+ms.date: 02/02/2022
 ms.author: danlep
 ---
 
@@ -287,8 +287,8 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds">
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number">
+        <operation name="operation name" id="operation id" calls="number" />
     </api>
 </quota>
 ```
@@ -322,7 +322,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite. | Yes                                                              | N/A     |
+| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.| Yes                                                              | N/A     |
 
 ### Usage
 
@@ -350,8 +350,8 @@ For more information and examples of this policy, see [Advanced request throttli
               bandwidth="kilobytes"
               renewal-period="seconds"
               increment-condition="condition"
-              counter-key="key value" />
-
+              counter-key="key value"
+              first-period-start="date-time" />
 ```
 
 ### Example
@@ -387,6 +387,7 @@ In the following example, the quota is keyed by the caller IP address.
 | counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
+| first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
 > [!NOTE]
 > The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.

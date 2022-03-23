@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
@@ -35,9 +35,12 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
+> [!IMPORTANT]
+> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is not beyond 10 GB and you could get data transfer speeds of around 1 GB per hour
+
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 
-5. Select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a python script is generated) to download the software used to copy files from the recovery point.
+5. Select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a Python script is generated) to download the software used to copy files from the recovery point.
 
     ![Download Executable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -54,7 +57,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine that meets the requirements**.  
 
 ### Dynamic disks
 
@@ -107,17 +110,12 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
 
-> [!NOTE]
-> We've found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
-> Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
->
-
 The script also requires Python and bash components to execute and connect securely to the recovery point.
 
 |Component | Version  |
 | --------------- | ---- |
 | bash | 4 and above |
-| python | 2.6.6 and above  |
+| Python | 2.6.6 and above  |
 | .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
@@ -141,11 +139,11 @@ If you run the script on a computer with restricted access, ensure there's acces
 > [!NOTE]
 >
 > In case, the backed up VM is Windows, then the geo-name will be mentioned in the password generated.<br><br>
-> For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+> For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <`https://pod01-rec2.wcus.backup.windowsazure.com`><br><br>
 >
 >
 > If the backed up VM is Linux, then the script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be: <`https://pod01-rec2.wcus.backup.windowsazure.com`><br><br>
 >
 
 
@@ -184,15 +182,15 @@ If the file recovery process hangs after you run the file-restore script (for ex
     ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200 secs.
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 2400 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 2400 secs.
 - HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 2400 secs.
 ```
 
 ### For Linux
 
-After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), generate a python script for Linux machines. See [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), generate a Python script for Linux machines. See [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the Python file with ```./<python file name>```.
 
 
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.

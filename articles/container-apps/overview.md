@@ -30,6 +30,8 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 
 Azure Container Apps enables executing application code packaged in any container and is unopinionated about runtime or programming model. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of managing cloud infrastructure and complex container orchestrators.
 
+## Features
+
 With Azure Container Apps, you can:
 
 - [**Run multiple container revisions**](application-lifecycle-management.md) and manage the container app's application lifecycle.
@@ -50,11 +52,15 @@ With Azure Container Apps, you can:
 
 - [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 
-- [**Securely manage secrets**](secure-app.md) directly in your application.
+- [**Securely manage secrets**](manage-secrets.md) directly in your application.
 
 - [**View application logs**](monitor.md) using Azure Log Analytics.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
+
+## Introductory video
+
+> [!VIDEO https://www.youtube.com/embed/b3dopSTnSRg]
 
 ### Next steps
 

@@ -125,7 +125,7 @@ Also, configure authentication to your backend using an appropriate method for y
 * See an [example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
 * Control access to an SAP backend using API Management policies. See policy snippets for [SAP principal propagation](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
 * For guidance to deploy, manage, and migrate APIs at scale, see:
-    * [Automated API deployments with APIOps](/architecture/example-scenario/devops/automated-api-deployments-apiops)
+    * [Automated API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops)
     * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

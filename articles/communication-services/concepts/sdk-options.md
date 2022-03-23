@@ -13,14 +13,11 @@ ms.service: azure-communication-services
 ---
 # SDKs and REST APIs
 
-Azure Communication Services APIs are organized into eight areas. Most areas have fully open-sourced SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
+Azure Communication Services capabilities are conceptually organized into discrete areas based on their functional area. Most areas have fully open-sourced SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
 
 In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS should not be directly accessed by end-user devices in low trust environments.
 
 Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
-
-## REST APIs
-Communication Services APIs are documented alongside other [Azure REST APIs in docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 ## SDKs
 | Assembly | Protocols| Environment | Capabilities|
@@ -33,7 +30,7 @@ Communication Services APIs are documented alongside other [Azure REST APIs in d
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
 | Calling Server | [REST](/rest/api/communication/callautomation/server-calls) | Service| Make and manage calls, play audio, and configure recording |
-| Network Traversal | [REST](/api/communication/communication-network-traversal)| Service| Access TURN servers for low-level data transport |
+| Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
 ### Languages and publishing locations
@@ -54,29 +51,14 @@ Publishing locations for individual SDK packages are detailed below.
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 | Reference Documentation | [docs](https://azure.github.io/azure-sdk-for-js/communication.html) | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)| -| [docs](http://azure.github.io/azure-sdk-for-java/communication.html) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| -|
 
-The mapping between friendly assembly names and namespaces is:
+### SDK platform support details
 
-| Assembly | Namespaces |
-|------------------------|--------------------------------------|
-| Azure Resource Manager | Azure.ResourceManager.Communication|
-| Common | Azure.Communication.Common |
-| Identity | Azure.Communication.Identity |
-| Phone numbers| Azure.Communication.PhoneNumbers |
-| SMS| Azure.Communication.SMS|
-| Chat | Azure.Communication.Chat |
-| Calling| Azure.Communication.Calling|
-| Calling Server | Azure.Communication.CallingServer|
-| Network Traversal| Azure.Communication.NetworkTraversal |
-| UI Library | Azure.Communication.Calling|
-
-## SDK platform support details
-
-### iOS and Android
+#### iOS and Android
 
 - Communication Services iOS SDKs target iOS version 13+, and Xcode 11+.
 - Android Java SDKs target Android API level 21+ and Android Studio 4.0+
 
-### .NET
+#### .NET
 
 Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
@@ -98,6 +80,18 @@ Support via .NET Core 2.0:
 The Calling package supports UWP apps build with .NET Native or C++/WinRT on:
 - Windows 10 10.0.17763
 - Windows Server 2019 10.0.17763
+
+## REST APIs
+Communication Services APIs are documented alongside other [Azure REST APIs in docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
+
+### REST API Throttles
+Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a`429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+| API| Throttle|
+|------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| [All Search Telephone Number Plan APIs](/rest/api/communication/phonenumbers) | 4 requests/day|
+| [Purchase Telephone Number Plan](/rest/api/communication/phonenumbers/purchasephonenumbers) | 1 purchase a month|
+| [Send SMS](/rest/api/communication/sms/send) | 200 requests/minute |
 
 ## API stability expectations
 

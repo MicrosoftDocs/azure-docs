@@ -54,9 +54,25 @@ conceptualContent:
   summary: Azure IoT offers you cloud and edge IoT platforms as well as fully-managed IoT solutions
   items:
     # Card
-    - title: Build your own IoT cloud solution
+    - title: Start with a solution development environment (aPaaS)
       links:
-        - url: ../iot-hub/about-iot-hub.md
+        - url: ../iot-central/core/overview-iot-central.md
+          itemType: overview
+          text: What is Azure IoT Central?
+        - url: ../iot-central/core/quick-deploy-iot-central.md
+          itemType: quickstart
+          text: Use your smartphone as a device to connect to IoT Central
+        - url: iot-solution-apaas-paas.md
+          itemType: concept
+          text: What's the difference between PaaS and aPaaS?
+      # footerLink
+      footerLink:
+        url: ../iot-central/index.yml
+        text: See more
+    # Card
+    - title: Build a custom IoT cloud solution (PaaS)
+      links:
+        - url: ../iot-hub/iot-concepts-and-iot-hub.md
           itemType: overview
           text: What is Azure IoT Hub?
         - url: ../iot-hub/quickstart-send-telemetry-cli.md
@@ -65,27 +81,8 @@ conceptualContent:
         - url: ../iot-hub/quickstart-control-device.md
           itemType: quickstart
           text: Control a device from the cloud
-        - url: /azure-stack/operator/iot-hub-rp-overview
-          itemType: overview
-          text: Explore IoT Hub on Azure Stack Hub
       footerLink:
         url: ../iot-hub/index.yml
-        text: See more
-    # Card
-    - title: Deploy a fully managed IoT solution
-      links:
-        - url: ../iot-central/core/overview-iot-central.md
-          itemType: overview
-          text: What is Azure IoT Central?
-        - url: ../iot-central/core/quick-deploy-iot-central.md
-          itemType: quickstart
-          text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-connect-device.md
-          itemType: tutorial
-          text: Connect a device
-      # footerLink
-      footerLink:
-        url: ../iot-central/index.yml
         text: See more
     # Card
     - title: Run cloud intelligence on edge devices
@@ -224,3 +221,7 @@ tools:
     - title: Azure IoT SDK for .NET reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
       url: /dotnet/api/overview/azure/iot
+    # Card
+    - title: Azure IoT Central REST API reference
+      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
+      url: /rest/api/iotcentral

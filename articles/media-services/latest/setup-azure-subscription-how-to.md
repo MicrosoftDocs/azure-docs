@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: portal
+ms.custom: portal, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 # Find your Azure subscription

@@ -79,6 +79,8 @@ You'll need the following items:
         
     # [Azure CLI](#tab/azure-cli)
     
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]   
+    
     To start a run of your experiment, use the following steps:
     
     1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
@@ -86,11 +88,12 @@ You'll need the following items:
         ```azurecli-interactive
         az login
         ```
-        
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]     
     
     1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
-    
+        
+
+
         ```azurecli-interactive
         az ml folder attach -w myworkspace -g myresourcegroup
         ```
@@ -154,6 +157,8 @@ You'll need the following items:
         ```
     
     # [Azure CLI](#tab/azure-cli)
+    
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
     
@@ -258,6 +263,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     ```
     
     # [Azure CLI](#tab/azure-cli)
+
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     > [!NOTE]
     > Using the CLI, you can only add or update tags.
@@ -290,6 +297,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     ```
     
     # [Azure CLI](#tab/azure-cli)
+
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
     
     The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
     
@@ -339,6 +348,8 @@ print(local_run.get_status())
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
@@ -466,7 +477,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
 ## Monitor the run status by email notification
 
-1. In the [Azure portal](https://ms.portal.azure.com/), in the left navigation bar, select the **Monitor** tab. 
+1. In the [Azure portal](https://portal.azure.com/), in the left navigation bar, select the **Monitor** tab. 
 
 1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 

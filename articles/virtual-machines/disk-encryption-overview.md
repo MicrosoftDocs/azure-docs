@@ -2,7 +2,7 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 06/05/2021
+ms.date: 02/14/2022
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
@@ -19,6 +19,8 @@ There are several types of encryption available for your managed disks, includin
 - **Server-Side Encryption** (also referred to as encryption-at-rest or Azure Storage encryption) automatically encrypts data stored on Azure managed disks (OS and data disks) when persisting on the Storage Clusters.  For full details, see [Server-side encryption of Azure Disk Storage](./disk-encryption.md).
 
 - **Encryption at host** ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters. For full details, see [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+
+Encryption is part of a layered approach to security and should be used with other recommendations to secure Virtual Machines and their disks. For full details, see [Security recommendations for virtual machines in Azure](security-recommendations.md) and [Restrict import/export access to managed disks](disks-enable-private-links-for-import-export-portal.md).
 
 ## Comparison
 

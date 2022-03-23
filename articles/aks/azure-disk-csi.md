@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 10/15/2021
+ms.date: 03/09/2022
 author: palma21
 
 ---
@@ -26,6 +26,7 @@ Besides original in-tree driver features, Azure Disk CSI driver already provides
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
+- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
 
 ## Use CSI persistent volumes with Azure disks
 
@@ -208,9 +209,9 @@ outfile
 test.txt
 ```
 
-## Resize a persistent volume
+## Resize a persistent volume without downtime
 
-You can instead request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
+You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
 > [!NOTE]
 > A new PV is never created to satisfy the claim. Instead, an existing volume is resized.
@@ -225,15 +226,9 @@ Filesystem      Size  Used Avail Use% Mounted on
 ```
 
 > [!IMPORTANT]
-> Currently, the Azure disk CSI driver only supports resizing PVCs with no pods associated (and the volume not mounted to a specific node).
-
-As such, let's delete the pod we created earlier:
-
-```console
-$ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
-
-pod "nginx-azuredisk" deleted
-```
+> Currently, Azure disk CSI driver supports resizing PVCs without downtime on specific regions.
+> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
+> If your cluster is not in the supported region list, you need to delete application first to detach disk on the node before expanding PVC.
 
 Let's expand the PVC by increasing the `spec.resources.requests.storage` field:
 
@@ -253,18 +248,7 @@ pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete     
 (...)
 ```
 
-> [!NOTE]
-> The PVC won't reflect the new size until it has a pod associated to it again.
-
-Let's create a new pod:
-
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
-
-pod/nginx-azuredisk created
-```
-
-And, finally, confirm the size of the PVC and inside the pod:
+And after a few minutes, confirm the size of the PVC and inside the pod:
 
 ```console
 $ kubectl get pvc pvc-azuredisk
@@ -410,6 +394,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
+[expand-an-azure-managed-disk]: ../virtual-machines/linux/expand-disks.md#expand-an-azure-managed-disk
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create

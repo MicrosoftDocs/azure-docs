@@ -63,11 +63,11 @@ pip install azure.confidentialledger
 
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
-## Create your python app
+## Create your Python app
 
 ### Initialization
 
-We can now start writing our python application.  First, we'll import the required packages.
+We can now start writing our Python application.  First, we'll import the required packages.
 
 ```python
 # Import the Azure authentication library
@@ -94,7 +94,7 @@ credential = DefaultAzureCredential()
 We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace \<your-unique-keyvault-name\> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
 
 ```python
 resource_group = "myResourceGroup"

@@ -21,9 +21,8 @@ This article describes the Azure Resource Manager template for the [Desired Stat
 (DSC) extension handler](dsc-overview.md). Many of the examples use **RegistrationURL** (provided
 as a String) and **RegistrationKey** (provided as a
 [PSCredential](/dotnet/api/system.management.automation.pscredential) to onboard with Azure
-Automation. For details about obtaining those values, see [Onboarding machines for management by
-Azure Automation State Configuration - Secure
-registration](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
+Automation. For details about obtaining those values, see
+[Use DSC metaconfiguration to register hybrid machines](../../automation/automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).

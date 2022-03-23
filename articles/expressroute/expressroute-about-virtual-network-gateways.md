@@ -58,17 +58,17 @@ The following table shows the gateway types and the estimated performance scale 
 ### Testing conditions
 ##### **Standard/ERGw1Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Traffic sent from on-premises: 1,000 Mega-Bits per second
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 4,000
 ##### **High Performance/ERGw2Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Traffic sent from on-premises: 2,000 Mega-Bits per second
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
 ##### **Ultra Performance/ErGw3Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Traffic sent from on-premises: 10,000 Mega-Bits per second
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
 

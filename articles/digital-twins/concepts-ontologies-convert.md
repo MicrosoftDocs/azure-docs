@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the process of converting industry-standard models into DTDL for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/12/2021
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Most [ontologies](concepts-ontologies.md) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
-To use a model with Azure Digital Twins, it must be in DTDL format. This article describes general design guidance in the form of a **conversion pattern** for converting RDF-based models to DTDL so that they can be used with Azure Digital Twins. 
+To use a model with Azure Digital Twins, it must be in DTDL format. This article describes general design guidance in the form of a conversion pattern for converting RDF-based models to DTDL so that they can be used with Azure Digital Twins. 
 
 The article also contains [sample converter code](#converter-samples) for RDF and OWL converters, which can be extended for other schemas in the building industry.
 

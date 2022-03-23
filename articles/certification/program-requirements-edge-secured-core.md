@@ -32,7 +32,7 @@ Overview content
 
 ## Windows IoT OS Support
 Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903 or greater
-* [Windows 10 IoT Enterprise Lifecycle](https://docs.microsoft.com/lifecycle/products/windows-10-iot-enterprise)
+* [Windows 10 IoT Enterprise Lifecycle](/lifecycle/products/windows-10-iot-enterprise)
 > [!Note]
 > The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 

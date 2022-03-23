@@ -164,7 +164,7 @@ Azure SQL Database offers the following three purchasing models:
 
   The DTU-based purchasing model offers a blend of compute, memory, and I/O resources in three service tiers, to support light and heavy database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources. It's best suited for customers who want simple, pre-configure resource options.
 
-  [Service Tiers](../../../azure-sql/database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers) in the DTU-based purchase model is differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period of backups, and fixed price.
+  [Service Tiers](../../../azure-sql/database/service-tiers-dtu.md#compare-service-tiers) in the DTU-based purchasing model is differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period of backups, and fixed price.
 
 - Serverless
 

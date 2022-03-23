@@ -6,9 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
-author: lobrien
-ms.author: laobri
-ms.reviewer: laobri
+author: nibaccam
+ms.author: nibaccam
 ms.date: 01/28/2022
 ms.custom: devx-track-python
 ---

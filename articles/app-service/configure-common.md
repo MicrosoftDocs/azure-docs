@@ -5,7 +5,8 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 01/13/2022
-ms.custom: "devx-track-csharp, seodec18"
+ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli" 
+ms.devlang: azurecli
 
 ---
 # Configure an App Service app
@@ -320,11 +321,11 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -Con
 
 -----
 
-### Edit app settings in bulk
+### Edit connection strings in bulk
 
 # [Azure portal](#tab/portal)
 
-Click the **Advanced edit** button. Edit the settings in the text area. When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
+Click the **Advanced edit** button. Edit the connection strings in the text area. When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
 
 Connection strings have the following JSON formatting:
 
@@ -351,13 +352,13 @@ Connection strings have the following JSON formatting:
 Run [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az_webapp_config_connection_string_set) with the name of the JSON file. 
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings "@fileName.json"
+az webapp config connection-string set --resource-group <group-name> --name <app-name> --settings "@fileName.json"
 ```
 
 > [!TIP] 
 > Wrapping the file name with quotes is only required in PowerShell.
 
-The file format needed is a JSON array of settings where the slot setting field is optional. For example:
+The file format needed is a JSON array of connection strings where the slot setting field is optional. For example:
 
 ```json
 [

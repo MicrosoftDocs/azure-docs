@@ -7,7 +7,8 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Deploy your first container app
@@ -81,6 +82,9 @@ az containerapp create `
 ```
 
 ---
+
+> [!NOTE]
+> Make sure the value for the `--image` parameter is in lower case.
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 

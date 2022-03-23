@@ -4,14 +4,13 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Get answers to frequently asked questions about the speech-to-text service.
   services: cognitive-services
-  author: PanosPeriorellis
+  author: eric-urban
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/01/2021
-  ms.author: panosper
-    
+  ms.author: eur
 title: Speech-to-text FAQ
 summary: |
   This article answers commonly asked questions about the speech-to-text service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).

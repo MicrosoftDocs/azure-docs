@@ -3595,6 +3595,11 @@
     "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-xamarin-dotnet.md",
     "redirect_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
     "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/advanced-threat-protection.md",
+    "redirect_url": "/azure/cosmos-db/sql/defender-for-cosmos-db",
+    "redirect_document_id": false
   }
     ]
 }

@@ -29,7 +29,7 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-If you have not already created a sever , refer to this [quickstart](quickstart-create-mysql-server-database-using-azure-cli.md) to create one.
+If you have not already created a server , refer to this [quickstart](quickstart-create-mysql-server-database-using-azure-cli.md) to create one.
 
 ## Scale compute and storage
 You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az mysql server overview](/cli/azure/mysql/server)

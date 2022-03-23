@@ -105,7 +105,7 @@ The following sequence diagram shows detailed steps for initiation of a Teams Vo
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
-2. Load users from Fabrikam's organization and their identifiers: Contoso client application utilizes Graph API to get a list of users from Fabrikam's tenant. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](https://docs.microsoft.com/graph/api/user-list).
+2. Load users from Fabrikam's organization and their identifiers: Contoso client application utilizes Graph API to get a list of users from Fabrikam's tenant. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](/graph/api/user-list).
 
 ```
 GET https://graph.microsoft.com/v1.0/users
@@ -231,7 +231,7 @@ The following sequence diagram shows detailed steps for joining a Teams meeting:
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
-2. Load Teams meetings and their identifiers: Contoso client application utilizes Graph API to get a list of Teams meetings for Fabrikam's users. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](https://docs.microsoft.com/graph/api/user-list-calendarview).
+2. Load Teams meetings and their identifiers: Contoso client application utilizes Graph API to get a list of Teams meetings for Fabrikam's users. Alice or her Admin needs to provide consent to Graph API to perform this action. You can learn more about [the Graph API command in the documentation](/graph/api/user-list-calendarview).
 
 ```
 GET https://graph.microsoft.com/v1.0/me/calendar/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}

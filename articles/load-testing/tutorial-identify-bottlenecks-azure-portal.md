@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 02/15/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---

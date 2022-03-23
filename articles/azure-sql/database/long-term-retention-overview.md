@@ -57,12 +57,14 @@ The following table illustrates the cadence and expiration of the long-term back
 W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear=20 (week after May 13)
 
    ![ltr example](./media/long-term-retention-overview/ltr-example.png)
-
+  
 
 If you modify the above policy and set W=0 (no weekly backups), Azure only retains the monthly and yearly backups. No weekly backups are stored under the LTR policy. The storage amount needed to keep these backups reduces accordingly.
 
 > [!IMPORTANT]
 > The timing of individual LTR backups is controlled by Azure. You cannot manually create an LTR backup or control the timing of the backup creation. After configuring an LTR policy, it  may take up to 7 days before the first LTR backup will show up on the list of available backups.  
+> 
+> If you delete a server or a managed instance, all databases on that server or managed instance are also deleted and can't be recovered. You can't restore a deleted server or managed instance. However, if you had configured LTR for a database or managed instance, LTR backups are not deleted, and they can be used to restore databases on a different server or managed instance in the same subscription, to a point in time when an LTR backup was taken.
 
 
 ## Geo-replication and long-term backup retention

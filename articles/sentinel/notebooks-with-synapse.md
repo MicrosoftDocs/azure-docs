@@ -48,7 +48,7 @@ To use Azure Synapse with Microsoft Sentinel notebooks, you must have the follow
 |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
 |**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace.<br>- A **Contributor** role on the Azure Synapse workspace to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio   <br><br>For more information, see [Understand the roles required to perform common tasks in Synapse](../synapse-analytics/security/synapse-workspace-understand-what-role-you-need.md).     |
 |**Azure Data Lake Storage Gen2**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake  <br><br>For more information, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal).|
-|     |         |
+
 
 ### Connect to Azure ML and Synapse workspaces
 

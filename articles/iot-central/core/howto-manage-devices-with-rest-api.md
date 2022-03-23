@@ -194,6 +194,43 @@ The response to this request looks like the following example:
 }
 ```
 
+### List device groups
+
+Use the following request to retrieve a list of device groups from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=1.1-preview
+```
+
+The response to this request looks like the following example: 
+
+```json
+{
+    "value": [
+        {
+            "id": "1dbb2610-04f5-47f8-81ca-ba38a24a6cf3",
+            "displayName": "Thermostat - All devices",
+            "organizations": [
+            "seattle"
+            ]
+        },
+        {
+            "id": "b37511ca-1beb-4781-ae09-c2d73c9104bf",
+            "displayName": "Cascade 500 - All devices",
+            "organizations": [
+            "redmond"
+            ]
+        },
+        {
+            "id": "788d08c6-2d11-4372-a994-71f63e108cef",
+            "displayName": "RS40 Occupancy Sensor - All devices"
+        }
+    ]
+}
+```
+
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
+
 ### Use ODATA filters
 
 You can use ODATA filters to filter the results returned by the list devices API.

@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 01/10/2022
-ms.author: memildin
+ms.author: elkrieger
 ---
 ## Remove the Defender profile
 
@@ -32,7 +32,7 @@ https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{R
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
 | ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
-|                |                                    |           |
+
 
 Request body:
  
@@ -55,14 +55,14 @@ Request body parameters:
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
 | location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
-|                                                                          |                                                                                          |           |
+
 
 
 ### [**Resource Manager**](#tab/aks-removeprofile-resource-manager)
 
 ### Use Azure Resource Manager to remove the Defender profile from AKS
 
-To use Azure Resource Manager to remove the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use Azure Resource Manager to remove the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../../azure-resource-manager/templates/overview.md)

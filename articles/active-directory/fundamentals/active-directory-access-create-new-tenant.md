@@ -83,6 +83,6 @@ If you're not going to continue to use this application, you can delete the tena
 
 - Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-- Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/best-practices.md) and [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
+- Learn about [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and [Conditional Access](../conditional-access/overview.md) to help manage your organization's application and resource access.
 
 - Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).

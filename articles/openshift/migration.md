@@ -100,7 +100,7 @@ If you're using external registries such as [Azure Container Registry](../contai
 
 ### Monitoring
 
-Azure Red Hat OpenShift includes a pre-configured, pre-installed, and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and includes a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. The cluster monitoring stack is only supported for monitoring Azure Red Hat OpenShift clusters. For more information, see [Cluster monitoring for Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html).
+Azure Red Hat OpenShift includes a pre-configured, pre-installed, and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and includes a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. The cluster monitoring stack is only supported for monitoring Azure Red Hat OpenShift clusters. For more information, see [Cluster monitoring for Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.5/monitoring/cluster_monitoring/about-cluster-monitoring.html).
 
 If you have been using [Azure Monitor for Containers for Azure Red Hat OpenShift 3.11](../azure-monitor/containers/container-insights-azure-redhat-setup.md), you can also enable Azure Monitor for Containers for [Azure Red Hat OpenShift 4 clusters](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) and continue using the same Log Analytics workspace.
 

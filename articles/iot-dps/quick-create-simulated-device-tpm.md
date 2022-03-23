@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
 description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 12/14/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -732,7 +732,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
+2. Using your Python IDE, edit the Python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"

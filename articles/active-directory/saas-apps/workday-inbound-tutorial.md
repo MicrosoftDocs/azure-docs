@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: cmmdesai

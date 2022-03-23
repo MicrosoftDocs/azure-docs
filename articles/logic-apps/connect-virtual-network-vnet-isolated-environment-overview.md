@@ -1,6 +1,6 @@
 ---
 title: Overview - Access to Azure virtual networks
-description: Learn about accessing Azure virtual networks (VNETs) from Azure Logic Apps using an integration service environment (ISE)
+description: Learn about accessing Azure virtual networks (VNETs) from Azure Logic Apps using an integration service environment (ISE).
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

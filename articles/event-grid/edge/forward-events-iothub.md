@@ -6,7 +6,7 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
@@ -16,6 +16,11 @@ This article walks through all the steps needed to forward Event Grid events to 
 
 * Continue to use any existing investments already in place with edgeHub's routing
 * Prefer to route all events from a device only via IoT Hub
+
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 To complete this tutorial, you need to understand the following concepts:
 
@@ -129,7 +134,7 @@ Subscribers can register for events published to a topic. To receive any event, 
 
 Update the edge hub's route to forward event subscription's events to be forwarded to IoTHub as follows:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Navigate to the **IoT Hub**.
 1. Select **IoT Edge** from the menu
 1. Select the ID of the target device from the list of devices.

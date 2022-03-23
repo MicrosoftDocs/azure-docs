@@ -49,15 +49,15 @@ For more information see the section [below](#using-label-selector-attachments).
 
 The following label selector attachments are available:
 
-**Static label selector -** Always attaches the given `LabelSelector`.
+**Static label selector -** Always attaches the given `LabelSelector` to the Job.
 
-**Conditional label selector -** Will evaluate a condition defined by a [rule](router-rule-concepts.md).  If it resolves to `true`, then the specified collection of selectors will be applied.
+**Conditional label selector -** Evaluates a condition defined by a [rule](router-rule-concepts.md).  If it resolves to `true`, then the specified collection of selectors will be attached to the Job.
 
-**Passthrough label selector -** Uses a key and `LabelOperator` to check for the existence of the key. This selector can be used in the `QueueLabelSelector` to match a Queue based on the set of labels. When used with the `WorkerSelectors`, the Job's key/value pair are attached to the `WorkerSelectors` of the Job.
+**Passthrough label selector -** Attaches a selector to the Job with the specified key and operator but gets the value from the Job label of the same key.
 
 **Rule label selector -** Sources a collection of selectors from one of many rule engines. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
-**Weighted allocation label selector -** Enables you to specify a percentage-based weighting and a collection of selectors to apply based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Vendor 1" and 70% of Jobs to go to "Vendor 2".
+**Weighted allocation label selector -** Enables you to specify a percentage-based weighting and a collection of selectors to attach based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Vendor 1" and 70% of Jobs to go to "Vendor 2".
 
 ## Reclassifying a job
 

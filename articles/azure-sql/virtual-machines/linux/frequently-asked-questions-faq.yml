@@ -8,12 +8,10 @@ metadata:
   tags: azure-service-management
   ms.service: virtual-machines-sql
   ms.subservice: service-overview
-  
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.workload: iaas-sql-server
   ms.date: 12/13/2017
   ms.author: mathoma
-    
 title: Frequently asked questions for SQL Server on Linux virtual machines
 summary: |
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 01/20/2022
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Translate text with a custom model | Preview
 
@@ -28,7 +28,7 @@ After you publish your custom model, you can access it with the Translator API b
 
    More information about the Translator Text API can be found on the [Translator API Reference](../../../reference/v3-0-translate.md) page.
 
-1. You may also want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
+1. You may also want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslation/releases).
 
 ## Next steps
 

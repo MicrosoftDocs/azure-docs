@@ -144,20 +144,29 @@ If you don't have a managed identity yet, you should go ahead and create one for
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
+
+Assign "Managed Identity Operator" role to the identity.
+
+```azurecli-interactive
+az role assignment create --assignee <id> --role "Managed Identity Operator" --scope <id>
+
+
 The result should look like:
 
 ```output
-{                                                                                                                                                                                 
-  "clientId": "<client-id>",
-  "clientSecretUrl": "<clientSecretUrl>",
-  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
-  "location": "westus2",
-  "name": "myIdentity",
+{
+  "canDelegate": null,
+  "condition": null,
+  "conditionVersion": null,
+  "description": null,
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+  "name": "myIdentity,
   "principalId": "<principalId>",
-  "resourceGroup": "myResourceGroup",                       
-  "tags": {},
-  "tenantId": "<tenant-id>",
-  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+  "principalType": "ServicePrincipal",
+  "resourceGroup": "myResourceGroup",
+  "roleDefinitionId": "/subscriptions/<subscriptionid>/providers/Microsoft.Authorization/roleDefinitions/<definitionid>",
+  "scope": "<resourceid>",
+  "type": "Microsoft.Authorization/roleAssignments"
 }
 ```
 
@@ -267,7 +276,7 @@ az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 
 ### Create a cluster using kubelet identity
 
-Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kublet-identity`:
+Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
 
 ```azurecli-interactive
 az aks create \

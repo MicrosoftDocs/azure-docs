@@ -1,8 +1,8 @@
 ---
 title: Move data to/from Azure Cosmos DB 
 description: Learn how move data to/from Azure Cosmos DB collection using Azure Data Factory
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
