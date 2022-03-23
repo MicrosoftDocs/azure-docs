@@ -72,7 +72,7 @@
       href: cli-samples.md
     - name: Create and manage Azure Cache for Redis
       href: scripts/create-manage-cache.md
-    - name: Create and managed premium Cache for Redis
+    - name: Create and managed premium Azure Cache for Redis
       href: scripts/create-manage-premium-cache-cluster.md
 - name: Concepts
   items:
