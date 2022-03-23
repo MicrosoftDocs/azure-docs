@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2022
+ms.date: 03/22/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -51,7 +51,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating an Azure-hosted connection. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
-| `ServiceProviders.Sql.QueryExecutionTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
+| `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 ||||
 
 <a name="manage-app-settings"></a>
