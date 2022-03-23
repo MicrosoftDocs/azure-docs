@@ -83,23 +83,26 @@ Service name requirements:
 
 ## Choose a region
 
-Azure Cognitive Search is available in most regions, as documented in the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search). 
+Azure Cognitive Search is available in most regions, as listed in the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search). 
 
-As a rule, if you're using multiple Azure services, put all of them in the same region. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
+As a rule, if you're using multiple Azure services, you should put all of them in the same region. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region). There are two notable exceptions that might lead to provisioning a search service in a separate region:
 
-+ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that *don't* provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates dual availability by showing two stacked check marks. An unavailable combination has a missing check mark. A clock icon indicates future availability.
-
-  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
-
-+ Semantic search is currently in preview in selected regions, such as "Australia East" in the above screenshot.
++ [Outbound connections from search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you are enabling a firewall.
 
 + Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
-Other features that have limited availability based on regions:
+Some features are subject to regional constraints or availability. Using any of the following features can impact your choice of search service region:
+
++ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that *don't* provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates dual availability by showing two stacked check marks. An unavailable combination has a missing check mark. The time piece icon indicates future availability.
+
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
+
++ Semantic search is [currently in preview in selected regions](https://azure.microsoft.com/global-infrastructure/services/?products=search), such as "Australia East" in the above screenshot. 
+
+Other features that have regional constraints:
 
 + ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones)
 + [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
-+ Custom Entity extraction
 
 ## Choose a pricing tier
 
