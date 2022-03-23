@@ -56,7 +56,7 @@ For each contact, you'll provide a name, phone number, and email address (these 
 
 ## Add marketplace media
 
-You can add logos, screenshots, and videos to your listing to help them stand out.
+You'll next add your logo. You can also add screenshots and videos to help your offer stand out.
 
 > [!IMPORTANT]
 > When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
