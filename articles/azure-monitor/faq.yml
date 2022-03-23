@@ -981,7 +981,7 @@ sections:
         answer: |
           Currently Container insights doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
           
-          For example, you can wrap your log as a JSON object as shown in the example below for a sample node.js application:
+          For example, you can wrap your log as a JSON object as shown in the example below for a sample Node.js application:
           
           ```
           console.log(json.stringify({ 
