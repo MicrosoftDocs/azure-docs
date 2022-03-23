@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Provision SIMs for Azure Private 5G Core Preview - Azure portal
 
-*SIM resources* represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network.
+*SIM resources* represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network. You can also choose to assign static IP addresses and a SIM policy to the SIMs you provision. 
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ In this step, you'll provision SIMs using a JSON file.
 
 In this step, you'll assign static IP addresses to your SIMs. You can skip this step if you don't want to assign any static IP addresses.
 
-1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
+1. Search for and select the **Mobile Network** resource representing the private mobile network containing your SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
@@ -160,7 +160,7 @@ In this step, you'll assign static IP addresses to your SIMs. You can skip this 
 
 In this step, you'll assign SIM policies to your SIMs. SIMs need an assigned SIM policy before they can use your private mobile network. You can skip this step and come back to it later if you don't want the SIMs to be able to access the private mobile network straight away. You can also skip this step for any SIMs to which you've assigned a static IP address, as these SIMs will already have an assigned SIM policy.
 
-1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
+1. Search for and select the **Mobile Network** resource representing the private mobile network containing your SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
