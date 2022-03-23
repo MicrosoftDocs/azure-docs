@@ -140,7 +140,7 @@ The Speech service works well with built-in models. However, you might want to f
 
 ## Sample code
 
-Sample code is available on GitHub for each of the Speech service features. These samples cover common scenarios, such as reading audio from a file or stream, continuous and at-start recognition, and working with custom models. To view SDK and REST samples, see:
+Sample code is available on GitHub for each of the Speech service features. These samples cover common scenarios, such as reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. To view SDK and REST samples, see:
 
 - [Speech-to-text and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)

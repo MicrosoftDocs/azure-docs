@@ -3,7 +3,7 @@ title: Troubleshoot common Azure deployment errors
 description: Describes common errors for Azure resources deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 01/13/2022
+ms.date: 02/23/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -74,6 +74,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | StorageAccountAlreadyExists <br> StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Resolve storage account name](error-storage-account-name.md)  |
 | StorageAccountNotFound | Check the subscription, resource group, and name of the storage account that you're trying to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Windows VM multiple NICs](../../virtual-machines/windows/multiple-nics.md) <br><br> [Linux VM multiple NICs](../../virtual-machines/linux/multiple-nics.md) |
+| SubnetIsFull | There aren't enough available addresses in the subnet to deploy resources. You can release addresses from the subnet, use a different subnet, or create a new subnet. | [Manage subnets](../../virtual-network/virtual-network-manage-subnet.md) and [Virtual network FAQ](../../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) <br><br> [Private IP addresses](../../virtual-network/ip-services/private-ip-addresses.md) |
 | SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using ARM template nested deployments to deploy across scopes, provide the subscription's GUID. | [ARM template deploy across scopes](../templates/deploy-to-resource-group.md) <br><br> [Bicep file deploy across scopes](../bicep/deploy-to-resource-group.md) |
 | SubscriptionNotRegistered | When deploying a resource, the resource provider must be registered for your subscription. When you use an Azure Resource Manager template for deployment, the resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |

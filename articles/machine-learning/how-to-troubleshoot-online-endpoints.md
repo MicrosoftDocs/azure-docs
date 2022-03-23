@@ -108,6 +108,7 @@ Below is a list of common resources that might run out of quota when using Azure
 
 * [CPU](#cpu-quota)
 * [Disk](#disk-quota)
+* [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
 * [Endpoints](#endpoint-quota)
 * [Kubernetes](#kubernetes-quota)
@@ -121,7 +122,12 @@ A possible mitigation is to check if there are unused deployments that can be de
 
 #### Disk quota
 
-This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try an SKU with more disk space.
+This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a SKU with more disk space.
+* Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more disk space
+* Try reducing image and model size
+
+#### Memory quota
+This issue happens when the memory footprint of the model is larger than the available memory. Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more memory.<br>
 
 #### Role assignment quota
 

@@ -4,8 +4,8 @@ description: Learn how to create a virtual machine (VM) offer from an approved b
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: krsh
+ms.author: edewebolton
+author: ebolton-cyber
 ms.date: 02/23/2022
 ---
 

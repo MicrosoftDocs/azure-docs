@@ -263,3 +263,5 @@ Now that you've created your scaling plan, here are some things you can do:
 
 - [Assign your scaling plan to new and existing host pools](autoscale-new-existing-host-pool.md)
 - [Enable diagnostics for your scaling plan](autoscale-diagnostics.md)
+
+If you'd like to learn more about terms used in this article, check out our [autoscale glossary](autoscale-glossary.md). You can also look at our [autoscale FAQ](autoscale-faq.yml) if you have additional questions.

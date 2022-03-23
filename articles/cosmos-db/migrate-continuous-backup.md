@@ -160,7 +160,7 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 When migrating from periodic mode to continuous mode, you cannot run any control plane operations that performs account level updates or deletes. For example, operations such as adding or removing regions, account failover, updating backup policy etc. can't be run while the migration is in progress. The time for migration depends on the size of data and the number of regions in your account. Restore action on the migrated accounts only succeeds from the time when migration successfully completes.
 
-You can restore your account after the migration completes. If the migration completes at 1:00 PM PST, you can do point in time restore starting from 1.00 PM PST.
+You can restore your account after the migration completes. If the migration completes at 1:00 PM PST, you can do point in time restore starting from 1:00 PM PST.
 
 ## Frequently asked questions
 

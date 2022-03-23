@@ -39,7 +39,7 @@ Each data source has a data source type. Each type defines a unique set of prope
 
 | Data source type | Description | 
 |:---|:---|
-| extension | VM extension-based data source |
+| extension | VM extension-based data source, used exclusively by Log Analytics solutions and Azure services ([View agent supported services and solutions](../agents/azure-monitor-agent-overview.md#supported-services-and-features)) |
 | performanceCounters | Performance counters for both Windows and Linux |
 | syslog | Syslog events on Linux |
 | windowsEventLogs | Windows event log |

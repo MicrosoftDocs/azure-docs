@@ -9,7 +9,7 @@ ms.date: 07/28/2021
 
 Resilience against disastrous outages of data processing resources is a requirement for many enterprises and in some cases even required by industry regulations. 
 
-Azure Service Bus already spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. If a Service Bus namespace has been created with the enabled option for [availability zones](../availability-zones/az-overview.md), the risk is outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of the entire facility. 
+Azure Service Bus already spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. If a Service Bus namespace has been created with the enabled option for [availability zones](../availability-zones/az-overview.md), the outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of the entire facility. 
 
 The all-active Azure Service Bus cluster model with availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
 
@@ -217,7 +217,7 @@ To learn more about Service Bus messaging, see the following articles:
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* [Rest API](/rest/api/servicebus/) 
+* [REST API](/rest/api/servicebus/)
 
 [1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png

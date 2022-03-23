@@ -373,7 +373,7 @@ Legacy table: requests
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-### AppSystemEvents
+### AppExceptions
 
 Legacy table: exceptions
 

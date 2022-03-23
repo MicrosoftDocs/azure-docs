@@ -144,7 +144,7 @@ keytool -list -v -keystore <path to keystore>
 
 - Inventory all Java Naming and Directory Interface (JNDI) resources. Some, such as Java Message Service (JMS) brokers, may require migration or reconfiguration.
 
-### InsideyYour application 
+### Inside your application 
 
 Inspect the WEB-INF/jboss-web.xml and/or WEB-INF/web.xml files.
 

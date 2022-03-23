@@ -25,6 +25,9 @@ There are four types of availability tests:
 
 You can create up to 100 availability tests per Application Insights resource.
 
+> [!NOTE]
+> Availability tests are stored encrypted, according to [Microsoft Azure Data Encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](troubleshoot-availability.md).

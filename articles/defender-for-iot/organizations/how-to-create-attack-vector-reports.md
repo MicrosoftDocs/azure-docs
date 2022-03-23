@@ -55,6 +55,6 @@ This section describes how to create Attack Vector reports.
    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report.":::
 
 
-## See also
+## Next steps
 
-[Attack vector reporting](how-to-create-attack-vector-reports.md)
+For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md).

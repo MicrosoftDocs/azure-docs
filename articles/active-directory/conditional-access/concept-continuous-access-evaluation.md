@@ -41,7 +41,7 @@ There are two scenarios that make up continuous access evaluation, critical even
 
 ### Critical event evaluation
 
-Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so is available in any tenant. The following events are currently evaluated:
+Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it is available in any tenant. The following events are currently evaluated:
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset

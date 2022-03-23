@@ -1,7 +1,6 @@
 ---
 title: Overview of ingestion-time transformations in Azure Monitor Logs
 description: This article describes ingestion-time transformations which allow you to filter and transform data before it's stored in a Log Analytics workspace in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 01/19/2022
 ---
@@ -39,7 +38,7 @@ See the following tutorials for a complete walkthrough of configuring ingestion-
 
 ## Limits
 
-- Transformation queries use a subset of KQL. See [Supported KSQL features](../essentials/data-collection-rule-transformations.md#supported-kql-features) for details.
+- Transformation queries use a subset of KQL. See [Supported KQL features](../essentials/data-collection-rule-transformations.md#supported-kql-features) for details.
 
 ## Next steps
 
