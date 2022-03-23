@@ -97,7 +97,7 @@ The following sections describe current support for administrative unit scenario
 | Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of user licenses | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Administrative unit-scoped blocking and unblocking of user sign-ins | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Administrative unit-scoped management of user multifactor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Administrative unit-scoped management of user multi-factor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ### Group management
 
