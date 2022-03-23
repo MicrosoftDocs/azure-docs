@@ -7,6 +7,10 @@ ms.date: 12/27/2021
 
 # Enterprise IoT network protection
 
+> [!NOTE]
+> THIS PAGE HAS BEEN INCORPORATED INTO [Welcome to Microsoft Defender for IoT for organizations](overview.md) and will be deleted before merging.
+>
+
 The Microsoft Defender for IoT team is responsible for securing IoT and operational technology (OT) devices end-to-end, whether they're connected to IT, OT, or dedicated IoT networks.  
 
 Enterprise IoT network protection extends agentless capabilities beyond operational environments and into enterprise environments. This protection provides coverage for the entire breadth of IoT devices in these environments, devices that include corporate printers, cameras, and purpose-built or proprietary devices.
