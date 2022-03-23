@@ -14,13 +14,10 @@
   items:
   - name: Overview
     href: nutanix-deployment-overview.md
-  - name: Registering Nutanix Clusters in Azure
-    href: registering-nutanix-clusters.md
+  - name: Deploying Nutanix Clusters in Azure
+    href: deploying-nutanix-clusters-in-azure.md
     items:
-    - name: Creating a My Nutanix Account 
-      href: creating-a-my-nutanix-account.md
-    - name: Onboarding Nutanix Clusters 
-      href: onboarding-nutanix-clusters.md
+
 - name: User VM (UVM) Network Management 
   href: uvm-network-management.md
   items: 
