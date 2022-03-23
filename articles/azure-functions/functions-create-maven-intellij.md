@@ -41,7 +41,7 @@ To create and publish Java functions to Azure using IntelliJ, install the follow
 2. To sign in to your Azure account, open sidebar **Azure Explorer**, and then click the **Azure Sign In** icon in the bar on top (or from IDEA menu **Tools/Azure/Azure Sign in**).
     ![The IntelliJ Azure Sign In command][intellij-azure-login]
 
-3. In the **Azure Sign In** window, select **OAuth 2.0**, and then click **Sign in**. For other sign-in options, see ([Sign-in instructions for the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. In the **Azure Sign In** window, select **OAuth 2.0**, and then click **Sign in**. For other sign-in options, see [Sign-in instructions for the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/sign-in-instructions).
 
    ![The Azure Sign In window with device login selected][intellij-azure-popup]
 
