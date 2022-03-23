@@ -8,9 +8,9 @@ ms.author: v-ssudhir
 ms.topic: quickstart
 ---
 
-# Quickstart: Assess and install updates on demand using the Azure portal
+# Quickstart: Assess and install updates using the Azure portal
 
-This quickstart details you how to assess and install updates on demand on a selected Azure virtual machine or Arc-enabled server in an on-premise or other cloud environments. 
+Using the Update management center (Preview) you can update automatically at scale with the help of built in policies and schedule updates on a recurring basis. You can also take control by checking and installing updates manually. This quickstart details you how to do manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server in an on-premise or other cloud environments.
 
 ## Prerequisites
 
@@ -34,10 +34,10 @@ This quickstart details you how to assess and install updates on demand on a sel
 
 ## Install updates 
 
-For the assessed machines that are reporting updates, you can initiate an update deployment that starts immediately or you can schedule the updates by defining the maintenance window. To do a one time update, perform the below steps:
+For the assessed machines that are reporting updates, you can initiate an update deployment that can start immediately or you can schedule the updates by defining the maintenance window. To manually update, follow these steps:
 
 1. Select one or more machines from the list.
-1. In **Manage updates** select **One time update** option from the drop-down menu
+1. In **Manage updates** select **One time update** option from the drop-down list.
 1. Select **Install Now** to proceed with installing updates.
 1. In **Machines**, verify the list of machines. You can further add or remove machines from the list and click **Next**.
 1. In **Updates**, from the following criteria, specify the updates that must be included:
