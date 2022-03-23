@@ -22,9 +22,15 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 
 Form Recognizer uses the following models to easily identify, extract, and analyze document data:
 
-* [**W-2 form model**](concept-w2.md) | Extract text and key information from US W2 tax forms.
+**Document analysis**
+
 * [**Read model**](concept-read.md) | Extract printed and handwritten text lines, words, locations, and detected languages from documents and images.
+* [**Layout model**](concept-layout) | Extract text, tables, selection marks, and structure information from documents (PDF and TIFF) and images (JPG, PNG, and BMP).
 * [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
+
+**Prebuilt**
+
+* [**W-2 form model**](concept-w2.md) | Extract text and key information from US W2 tax forms.
 * [**Invoice model**](concept-invoice.md) | Extract text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt model**](concept-receipt.md) | Extract text and key information from receipts.
 * [**ID document model**](concept-id-document.md) | Extract text and key information from driver licenses and international passports.
