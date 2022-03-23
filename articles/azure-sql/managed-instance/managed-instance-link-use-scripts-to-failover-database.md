@@ -80,12 +80,7 @@ echo $uriFull
 # Build API request body
 #
 
-$bodyFull = @"
-{
-    "properties":{
-        "ReplicationMode":"sync"
-    }
-}"@
+$bodyFull = "{`"properties`":{`"ReplicationMode`":`"sync`"}}"
 
 echo $bodyFull 
 
