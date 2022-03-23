@@ -276,4 +276,4 @@ To learn more about the script and get started, visit the [Azure SQL Tips wiki](
 - Read about [Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views](monitoring-with-dmvs.md)
 - Learn to [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
 - [Tune nonclustered indexes with missing index suggestions](/sql/relational-databases/indexes/tune-nonclustered-missing-index-suggestions)
-- Video: [Data Loading Best Practices on Azure SQL Database](shows/data-exposed/data-loading-best-practices-on-azure-sql-database?WT.mc_id=dataexposed-c9-niner)
+- Video: [Data Loading Best Practices on Azure SQL Database](/shows/data-exposed/data-loading-best-practices-on-azure-sql-database?WT.mc_id=dataexposed-c9-niner)
