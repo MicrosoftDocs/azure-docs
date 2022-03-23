@@ -58,4 +58,4 @@ After you connect to the virtual machine using the [Azure portal ](https://porta
  
 ## Next steps
 
-Read the [Bastion FAQ](bastion-faq.md).
+For more VM features, see [About VM connections and features](vm-about.md).

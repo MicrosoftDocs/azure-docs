@@ -14,6 +14,23 @@ ms.custom: template-concept
 
 Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
 
+## Accessing the distributed tracing web GUI
+
+To sign in to the distributed tracing web GUI:
+
+1. In your browser, enter https://*\<LocalMonitoringIP\>*/sas, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+
+    :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password.":::
+
+1. Sign in using your credentials. 
+
+    If you're accessing the distributed tracing web GUI for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+
+      - **Name**: *admin*
+      - **Password**: *packetCoreAdmin*
+
+Once you're signed in to the distributed tracing web GUI, you can use the top-level menu to sign out or change your credentials. Select **Logout** to end your current session, and **Change Password** to update your password.
+
 ## Searching for specific information
 
 The distributed tracing web GUI provides two search tabs to allow you to search for diagnostics.
@@ -36,15 +53,15 @@ Long search ranges result in slower searches, so it's recommended that you keep 
 > [!TIP] 
 > You can select the **cog icon** next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
 
-Once you’ve entered your chosen search parameters, select **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
+Once you’ve entered your chosen search parameters, select **Search**. The following image shows an example of the results returned for a search on a particular SUPI.
 
 :::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific S U P I in the distributed tracing web G U I. It shows matching Successful P D U Session Establishment records.":::
 
-You can view more information on any result by selecting it.
+You can select an entry in the search results to view detailed information for that call flow or error. 
 
 ## Viewing diagnostics details
 
-When you select on a specific result, the display shows the following tabs containing different categories of information.
+When you select a specific result, the display shows the following tabs containing different categories of information.
 
 > [!NOTE] 
 > In addition to the tabs described below, the distributed tracing web GUI also includes a **User Experience** tab. This tab is not used by Azure Private 5G Core Preview and will not display any information.
@@ -78,8 +95,8 @@ The **Call Flow** view shows the sequence of messages flowing between components
 
 The vertical lines in the diagram show the network components involved in the flow.
 
-- Black lines indicate packet core Network Functions that have logged sending or receiving messages for this flow.
-- Grey lines indicate other components that don't log messages.
+- **Black lines** indicate packet core Network Functions that have logged sending or receiving messages for this flow.
+- **Gray lines** indicate other components that don't log messages.
 
 You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select each column; the **+** (plus) sign remains next to the latest column that you selected.
 
@@ -119,4 +136,5 @@ To view help information, select the **Options** symbol in the upper-right corne
 
 ## Next steps
 
+- [Learn how to export, upload and share your traces for diagnostics](distributed-tracing-share-traces.md)
 - [Learn more about how you can monitor your deployment using the packet core dashboards](packet-core-dashboards.md)
