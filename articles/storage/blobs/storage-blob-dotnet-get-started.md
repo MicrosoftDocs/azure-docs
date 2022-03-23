@@ -218,19 +218,19 @@ The following guides show you how to use each of these classes to build your app
 
 | Guide | Description |
 |--|---|
-| [Create a container](storage-blob-container-create.md) | Learn how to create containers. |
-| [Delete and restore containers](storage-blob-container-delete.md) | Learn how to delete containers, and if soft-delete is enabled, restore deleted containers.  |
-| [List containers](storage-blob-containers-list.md) | Learn how to list containers in an account and the various options available to customize a listing. |
-| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Learn how to get and set properties and metadata for containers. |
-| [Create and manage leases](storage-blob-container-lease.md) | Learn how to establish and manage a lock on a container or the blobs in a container. |
+| [Create a container](storage-blob-container-create.md) | Create containers. |
+| [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [List containers](storage-blob-containers-list.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Get and set properties and metadata for containers. |
+| [Create and manage leases](storage-blob-container-lease.md) | Establish and manage a lock on a container or the blobs in a container. |
 | [Append data to blobs](storage-blob-append.md) | Learn how to create an append blob and then append data to that blob. |
 | [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Download blobs](storage-blob-download.md) | Learn how to download blobs by using strings, streams, and file paths. |
-| [Copy blobs](storage-blob-copy.md) | Learn how to copy a blob from one account to another account. |
-| [List blobs](storage-blobs-list.md) | Learn how to list blobs in different ways. |
-| [Delete and restore](storage-blob-delete.md) | Learn how to delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags.md) | Learn how to set and retrieve tags as well as use tags to find blobs. |
-| [Manage properties and metadata](storage-blob-properties-metadata.md) | Learn how to get and set properties and metadata for blobs. |
+| [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
+| [Copy blobs](storage-blob-copy.md) | Copy a blob from one account to another account. |
+| [List blobs](storage-blobs-list.md) | List blobs in different ways. |
+| [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags as well as use tags to find blobs. |
+| [Manage properties and metadata](storage-blob-properties-metadata.md) | Get and set properties and metadata for blobs. |
 
 ## See also
 
