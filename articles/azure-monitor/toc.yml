@@ -575,6 +575,12 @@ items:
       - name: Log Analytics Linux agent
         displayName: troubleshoot, troubleshooting
         href: agents/agent-linux-troubleshoot.md
+      - name: Azure Monitor Agent on Windows VM
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+      - name: Azure Monitor Agent on Linux VM
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+      - name: Azure Monitor Agent on Windows Arc-enabled server
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
   - name: Autoscale
     items:
     - name: Overview
