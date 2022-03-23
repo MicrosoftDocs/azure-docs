@@ -31,7 +31,7 @@ If you're using TLS and you have a high number of connections, consider scaling 
 
 You can scale your cache instances in the Azure portal or programatically using PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML).
 
-Either way, you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if
+Either way, when you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if
 `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically updated to 6 GB during scaling. When you scale down, the reverse happens.
 
 For more information on scaling and memory, see [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
