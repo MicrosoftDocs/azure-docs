@@ -111,10 +111,10 @@ az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --policy-name $wafPolicyName \
   --type OWASP \
   --version 3.2 \
-  --group-name REQUEST-942-APPLICATION-ATTACK-SQLI \
-  --match-variable RequestHeaderNames \
-  --selector-match-operator Equals \
-  --selector User-Agent
+  --group-name 'REQUEST-942-APPLICATION-ATTACK-SQLI' \
+  --match-variable 'RequestHeaderNames' \
+  --selector-match-operator 'Equals' \
+  --selector 'User-Agent'
 ```
 
 # [Bicep](#tab/bicep)
