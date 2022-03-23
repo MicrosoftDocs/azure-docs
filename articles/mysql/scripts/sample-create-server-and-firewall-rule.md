@@ -26,7 +26,7 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh" id="FullScript":::
 
 ## Clean up resources
 

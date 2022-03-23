@@ -131,11 +131,11 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | - | - | - |
 | Provisioned | No immediately recognizable issue. | N/A |
 | Registered | The device has not yet connected to IoT Central. | Check your device logs for connectivity issues. |
-| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Block devices](concepts-get-connected.md#device-status-values). |
-| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Approve devices](concepts-get-connected.md#device-registration) |
-| Unassociated | The device is not associated with a device template. | Associate the device with a device template so that IoT Central knows how to parse the data. |
+| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values). |
+| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
+| Unassigned | The device is not assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [device status codes](concepts-get-connected.md#device-status-values).
+Learn more about [Device status values](howto-manage-devices-individually.md#device-status-values).
 
 ### Error codes
 
@@ -166,8 +166,6 @@ If you are seeing issues related to your authentication flow:
 | 401 IoTHubUnauthorized | DEVICE_DISABLED | The device is disabled in this IoT hub and has moved to another IoT hub. Re-provision the device. |
 | 401 IoTHubUnauthorized | DEVICE_BLOCKED | An operator has blocked this device. |
 
-
-
 ### File upload error codes
 
 Here is a list of common error codes you might see when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file uploads](howto-configure-file-uploads.md) in your application.
@@ -176,18 +174,9 @@ Here is a list of common error codes you might see when a device tries to upload
 | - | - | - |
 | 403006  | You've exceeded the number of concurrent file upload operations. Each device client is limited to 10 concurrent file uploads. | Ensure the device promptly notifies IoT Central that the file upload operation has completed. If that doesn't work, try reducing the request timeout. |
 
-## Payload shape issues
+## Unmodeled data issues
 
 When you've established that your device is sending data to IoT Central, the next step is to ensure that your device is sending data in a valid format.
-
-There are two main categories of common issues that cause device data to not appear in IoT Central:
-
-- Device template to device data mismatch:
-  - Mismatch in naming such as typos or case-matching issues.
-  - Unmodeled properties where the schema isn't defined in the device template.
-  - Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
-  - The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
-- Data shape is invalid JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 To detect which categories your issue is in, run the most appropriate command for your scenario:
 
@@ -205,19 +194,51 @@ To detect which categories your issue is in, run the most appropriate command fo
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
-The following output shows example error and warning messages from the validate command:
+There are two main categories of common issues that cause device data to not appear in IoT Central:
+
+- Device template to device data mismatch.
+- Data shape is invalid JSON.
+
+### Device template to device data mismatch
+
+Mismatch in naming such as typos or case-matching issues.
+
+The following output shows example error and warning message where the device is sending a telemetry value called Temperature, when it should be temperature.
 
 ```output
 Validating telemetry.
-Filtering on device: v22upeoqx6.
+Filtering on device: sample-device-01.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
-[WARNING] [DeviceId: v22upeoqx6] No encoding found. Expected encoding 'utf-8' to be present in message header.
-
-[WARNING] [DeviceId: v22upeoqx6] Content type '' is not supported. Expected Content type is 'application/json'.
-
-[ERROR] [DeviceId: v22upeoqx6] [TemplateId: urn:krhsi_k0u:modelDefinition:w53jukkazs] Datatype of field 'humid' does not match the da
-tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
+[WARNING] [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['Temperature']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'. 
 ```
+
+Unmodeled properties where the schema isn't defined in the device template.
+
+The following output shows example error and warning message where the osVersion is not defined in the device template :
+
+```output
+Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+[WARNING]  [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['osVersion']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'.
+```
+
+
+Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
+
+The following output shows example error and warning messages where the device using a string value for a property that's defined as a double.
+
+```output
+Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Validating telemetry.
+Filtering on device: sample-device-01.
+Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
+[ERROR] [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg]  Datatype of telemetry field 'temperature' does not match the datatype double. Data sent by the device : curr_temp. For more information, see: https://aka.ms/iotcentral-payloads
+```
+
+The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
+
+### Invalid JSON
+
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
 
@@ -229,6 +250,6 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ## Next steps
 
-If you need more help, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
+If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
 For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).

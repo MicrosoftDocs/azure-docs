@@ -456,12 +456,7 @@ You can read account-level metric values of your storage account or the Blob sto
 
 ```powershell
    $resourceId = "<resource-ID>"
-   
-   
-   
-   
-   
-   $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
+   Get-AzMetric -ResourceId $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
 ```
 
 #### Reading metric values with dimensions

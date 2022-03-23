@@ -10,7 +10,7 @@ manager: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Database for MySQL
@@ -18,9 +18,9 @@ ms.date: 01/27/2022
 > [!IMPORTANT] 
 > MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no portal support.
 
-Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Database for MySQL and make it searchable in Azure Cognitive Search. The indexer will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure Cognitive Search.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -103,61 +103,111 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
 
 If the primary key in the source table matches the document key (in this case, "ID"), the indexer will import the primary key as the document key.
 
-## Configure the MySQL indexer
+<a name="TypeMapping"></a>
 
-Once the index and data source have been created, you're ready to create the indexer.
+### Mapping data types
 
-[Create or Update Indexer](/rest/api/searchservice/create-indexer) specifies the predefined data source and search index.
+The following table maps the MySQL database to Cognitive Search equivalents. See [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types) for more information.
 
-```http
-POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
+> [!NOTE]
+> The preview does not support geometry types and blobs. 
 
-{
-    "name" : "hotels-mysql-idxr",
-    "dataSourceName" : "hotels-mysql-ds",
-    "targetIndexName" : "hotels-mysql-ix",
-    "disabled": null,
-    "schedule": null,
-    "parameters": {
-    "batchSize": null,
-    "maxFailedItems": null,
-    "maxFailedItemsPerBatch": null,
-    "base64EncodeKeys": null,
-    "configuration": { }
-    },
-    "fieldMappings" : [ ],
-    "encryptionKey": null
-}
-```
+| MySQL data types |  Cognitive Search field types |
+| --------------- | -------------------------------- |
+| `bool`, `boolean` | Edm.Boolean, Edm.String |
+| `tinyint`, `smallint`, `mediumint`, `int`, `integer`, `year` | Edm.Int32, Edm.Int64, Edm.String |
+| `bigint` | Edm.Int64, Edm.String |
+| `float`, `double`, `real` | Edm.Double, Edm.String |
+| `date`, `datetime`, `timestamp` | Edm.DateTimeOffset, Edm.String |
+| `char`, `varchar`, `tinytext`, `mediumtext`, `text`, `longtext`, `enum`, `set`, `time` | Edm.String |
+| unsigned numerical data, serial, decimal, dec, bit, blob, binary, geometry | N/A |
 
-By default, the indexer runs when it's created on the search service. You can set "disabled" to true if you want to run the indexer manually.
+## Configure and run the MySQL indexer
 
-You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). 
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-To put the indexer on a schedule, set the "schedule" property when creating or updating the indexer. Here is an example of a schedule that runs every 15 minutes.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
-```http
-PUT https://[search service name].search.windows.net/indexers/hotels-mysql-idxr?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin-key]
-
-{
-    "dataSourceName" : "hotels-mysql-ds",
-    "targetIndexName" : "hotels-mysql-ix",
-    "schedule" : { 
-        "interval" : "PT15M", 
-        "startTime" : "2022-01-01T00:00:00Z"
+    ```http
+    POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
+    
+    {
+        "name" : "hotels-mysql-idxr",
+        "dataSourceName" : "hotels-mysql-ds",
+        "targetIndexName" : "hotels-mysql-ix",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": { }
+            },
+        "fieldMappings" : [ ],
+        "encryptionKey": null
     }
-}
+    ```
+
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
+
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+
+```http
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
-## Capture new, changed, and deleted rows
+The response includes status and the number of items processed. It should look similar to the following example:
 
-If your data source meets the requirements for change and deletion detection, the indexer can incrementally index the changes in your data source since the last indexer job, which means you can avoid having to re-index the entire table or view every time an indexer runs.
+```json
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        },
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null
+            },
+            ... earlier history items
+        ]
+    }
+```
+
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
 
 <a name="DataChangeDetectionPolicy"></a>
 
-### High Water Mark Change Detection policy
+## Indexing new and changed rows
+
+Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed rows in your database.
+
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
+
+For Azure Database for MySQL indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy). 
 
 An indexer's change detection policy relies on having a "high water mark" column that captures the row version, or the date and time when a row was last updated. It's often a DATE, DATETIME, or TIMESTAMP column at a granularity sufficient for meeting the requirements of a high water mark column. 
 
@@ -168,7 +218,7 @@ In your MySQL database, the high water mark column must meet the following requi
 + The value of this column increases with each insert or update.
 + Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
-To set a high water mark policy in your indexer data source, create or update your data source like this:
+The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
 POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
@@ -193,11 +243,11 @@ api-key: [admin key]
 
 <a name="DataDeletionDetectionPolicy"></a>
 
-### Soft Delete Column Deletion Detection policy
+## Indexing deleted rows
 
-When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
+When rows are deleted from the table or view, you normally want to delete those rows from the search index as well. However, if the rows are physically removed from the table, an indexer has no way to infer the presence of records that no longer exist. The solution is to use a "soft-delete" technique to logically delete rows without removing them from the table. You'll do this by adding a column to your table or view and mark rows as deleted using that column. 
 
-When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
+Given a column that provides deletion state, an indexer can be configured to remove any search documents for which deletion state is set to true. The configuration property that supports this behavior is a data deletion detection policy, which is specified in the [data source definition](#define-the-data-source) as follows:
 
 ```http
 {
@@ -210,30 +260,11 @@ When using the soft-delete technique, you can specify the soft delete policy as 
 }
 ```
 
-The "softDeleteMarkerValue" must be a string – use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`. If you have a BIT column where deleted rows are marked with the Boolean true value, use the string literal `True` or `true`, the case doesn't matter.
-
-<a name="TypeMapping"></a>
-
-## Mapping data types
-
-The following table maps the MySQL database to Cognitive Search equivalents. See [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types) for more information.
-
-> [!NOTE]
-> The preview does not support geometry types and blobs. 
-
-| MySQL data type |  Cognitive Search field type |
-| --------------- | -------------------------------- |
-| `bool`, `boolean` | Edm.Boolean, Edm.String |
-| `tinyint`, `smallint`, `mediumint`, `int`, `integer`, `year` | Edm.Int32, Edm.Int64, Edm.String |
-| `bigint` | Edm.Int64, Edm.String |
-| `float`, `double`, `real` | Edm.Double, Edm.String |
-| `date`, `datetime`, `timestamp` | Edm.DateTimeOffset, Edm.String |
-| `char`, `varchar`, `tinytext`, `mediumtext`, `text`, `longtext`, `enum`, `set`, `time` | Edm.String |
-| unsigned numerical data, serial, decimal, dec, bit, blob, binary, geometry | N/A |
+The "softDeleteMarkerValue" must be a string. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`. If you have a BIT column where deleted rows are marked with the Boolean true value, use the string literal `True` or `true` (the case doesn't matter).
 
 ## Next steps
 
-This article explained how to integrate Azure Database for MySQL with Azure Cognitive Search using an indexer. Now that you have a search index that contains your searchable content, run some full text queries using Search explorer in the Azure portal.
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure MySQL:
 
-> [!div class="nextstepaction"]
-> [Search explorer](search-explorer.md)
++ [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)

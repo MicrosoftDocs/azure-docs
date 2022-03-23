@@ -380,13 +380,15 @@ Outside of Azure Functions, there are multiple ways to achieve the expected resu
 
 A background task will operate once the data is inserted in the database via the standard ASA SQL outputs.
 
-For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATE or MERGE:
+For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA:
 
 ```SQL
 CREATE TRIGGER tr_devices_updated_upsert ON device_updated INSTEAD OF INSERT
 AS
 BEGIN
 	MERGE device_updated AS old
+	
+	-- In case of duplicates on the key below, use a subquery to make the key unique via aggregation or ranking functions
 	USING inserted AS new
 		ON new.DeviceId = old.DeviceId
 

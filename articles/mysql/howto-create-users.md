@@ -48,7 +48,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
    CREATE DATABASE testdb;
    ```
 
-## Create a non-dmin user 
+## Create a non-admin user 
  Now that the database is created , you can create with a non-admin user with the ``` CREATE USER``` MySQL statement. 
    ``` sql
    CREATE USER 'db_user'@'%' IDENTIFIED BY 'StrongPassword!';

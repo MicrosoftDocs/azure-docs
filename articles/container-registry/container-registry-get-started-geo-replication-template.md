@@ -6,7 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.date: 10/06/2020
 ms.topic: quickstart
-ms.service: azure-resource-manager
+ms.service: container-registry
 ms.custom: subject-armqs, mode-arm
 ---
 

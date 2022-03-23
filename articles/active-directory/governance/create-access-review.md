@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 02/18/2022
+ms.date: 03/22/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -128,10 +128,10 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Use the **At end of review, send notification to** option to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, choose **Select User(s) or Group(s)** and add another user or group for which you want to receive the status of completion.
 
-1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial.
+1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
 
    > [!NOTE]
-   > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant.
+   > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
 
    ![Screenshot that shows the Enable reviewer decision helpers option.](./media/create-access-review/helpers.png)
 
@@ -157,6 +157,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 ## Create a multi-stage access review (preview)
 
 A multi-stage review allows the administrator to define two or three sets of reviewers to complete a review one after another. In a single-stage review, all reviewers make a decision within the same period and the last reviewer to make a decision "wins". In a multi-stage review, two or three independent sets of reviewers make a decision within their own stage, and the next stage doesn't happen until a decision is made in the previous stage. Multi-stage reviews can be used to reduce the burden on later-stage reviewers, allow for escalation of reviewers, or have independent groups of reviewers agree on decisions.
+> [!WARNING]
+> Data of users included in multi-stage access reviews are a part of the audit record at the start of the review. Administrators may delete the data at any time by deleting the multi-stage access review series. For general information about GDPR and protecting user data, see the [GDPR section of the Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/gdpr-overview) and the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
 
@@ -196,6 +198,53 @@ A multi-stage review allows the administrator to define two or three sets of rev
     1.  **All**: everyone moves on to the next stage if you’d like all stages of reviewers to make a decision.  
 
 1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
+
+## Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)
+
+You can create access reviews for B2B direct connect users via shared channels in Microsoft Teams. As you collaborate externally, you can use Azure AD access reviews to make sure external access to shared channels stays current. To learn more about Teams Shared Channels and B2B direct connect users, read the [B2B direct connect](../external-identities/b2b-direct-connect-overview.md) article.
+
+When you create an access review on a Team with shared channels, your reviewers can review continued need for access of those external users and Teams in the shared channels. External users in the shared channels are called B2B direct connect users. You can review access of B2B connect users and other supported B2B collaboration users and non-B2B internal users in the same review.
+
+>[!NOTE]
+> Currently, B2B direct connect users and teams are only included in single-stage reviews. If multi-stage reviews are enabled, the direct connect users and teams won't be included in the access review.
+
+B2B direct connect users and teams are included in access reviews of the Teams-enabled Microsoft 365 group that the shared channels are a part of. To create the review, you must be a:
+- Global Administrator
+- User administrator 
+- Identity Governance Administrator
+
+Ue the following instructions to create an access review on a team with shared channels:
+
+1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
+  
+1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+
+1. On the left menu, select **Access reviews**.
+
+1. Select **+ New access review**.
+
+1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams are not included in reviews of **All Microsoft 365 groups with guest users**.
+ 
+1. Select a Team that has shared channels shared with 1 or more B2B direct connect users or Teams.  
+
+1. Set the **Scope**. 
+    
+    ![Screenshot that shows setting the review scope to for shared channels review.](./media/create-access-review/create-shared-channels-review.png)
+
+    - Choose **All users** to include:
+        - All internal users
+        - B2B collaboration users that are members of the Team
+        - B2B direct connect users
+        - Teams that access shared channels
+    - Or, choose **Guest users only** to only include B2B direct connect users and Teams and B2B collaboration users. 
+
+1. Continue on to the **Reviews** tab. Select a reviewer to complete the review, then specify the **Duration** and **Review recurrence**. 
+
+    > [!NOTE]
+    > - If you set **Select reviewers** to **Users review their own access** or **Managers of users**, B2B direct connect users and Teams won't be able to review their own access in your tenant. The owner of the Team under review will get an email that asks the owner to review the B2B direct connect user and Teams.
+    > - If you select **Managers of users**, a selected fallback reviewer will review any user without a manager in the home tenant. This includes B2B direct connect users and Teams without a manager.
+
+1. Go on to the **Settings** tab and configure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
 
 ## Allow group owners to create and manage access reviews of their groups (preview)
 

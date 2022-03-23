@@ -56,13 +56,13 @@ Microsoft Sentinel is a scalable, cloud-native, solution for both security infor
 
 Integrate Azure Purview with Microsoft Sentinel to gain visibility into where on your network sensitive information is stored, in a way that helps you prioritize at-risk data for protection, and understand the most critical incidents and threats to investigate in Microsoft Sentinel.
 
-1. Start by ingesting your Azure Purview logs into Microsoft Sentinel through a data connector.
+1. Start by ingesting your Azure Purview logs into Microsoft Sentinel through a data source.
 1. Then use a Microsoft Sentinel workbook to view data such as assets scanned, classifications found, and labels applied by Azure Purview.
 1. Use analytics rules to create alerts for changes within data sensitivity.
 
 Customize the Azure Purview workbook and analytics rules to best suit the needs of your organization, and combine Azure Purview logs with data ingested from other sources to create enriched insights within Microsoft Sentinel.
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](/azure/sentinel/purview-solution).
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](../sentinel/purview-solution.md).
 
 ## Next steps
 - [Experiences in Microsoft Defender for Cloud enriched using sensitivity from Azure Purview](../security-center/information-protection.md)

@@ -342,3 +342,5 @@ Your application needs to handle certain errors coming from Azure B2C service. L
 ## Next steps
 
 Set up a [force password reset](force-password-reset.md).
+
+[Sign-up and Sign-in with embedded password reset](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).

@@ -5,7 +5,7 @@ services: azure-fluid
 author: hickeys
 ms.author: hickeys
 ms.date: 08/19/2021
-ms.topic: how-to
+ms.topic: overview
 ms.service: azure-fluid
 ---
 

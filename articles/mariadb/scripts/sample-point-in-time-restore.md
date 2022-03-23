@@ -24,7 +24,7 @@ This sample CLI script restores a single Azure Database for MariaDB server to a 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/backup-restore-pitr/backup-restore.sh" range="6-39":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/backup-restore-pitr/backup-restore.sh" id="FullScript":::
 
 ## Clean up resources
 

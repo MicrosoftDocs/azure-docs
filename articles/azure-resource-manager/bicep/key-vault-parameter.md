@@ -132,6 +132,7 @@ The following procedure shows how to create a role with the minimum permission, 
     az role definition create --role-definition "<path-to-role-file>"
     az role assignment create \
       --role "Key Vault resource manager template deployment operator" \
+      --scope /subscriptions/<Subscription-id>/resourceGroups/<resource-group-name> \
       --assignee <user-principal-name> \
       --resource-group ExampleGroup
     ```

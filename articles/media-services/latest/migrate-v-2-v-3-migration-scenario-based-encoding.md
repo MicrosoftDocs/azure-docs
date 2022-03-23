@@ -123,17 +123,10 @@ For customers using the Indexer v1 processor in the v2 API, you need to create a
 - [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)
 - [Create a job input from a local file](job-input-from-local-file-how-to.md)
 - [Create a basic audio transform](transform-create-basic-audio-how-to.md)
-- With .NET
-  - [How to encode with a custom transform - .NET](transform-custom-presets-how-to.md)
-  - [How to create an overlay with Media Encoder Standard](transform-create-overlay-how-to.md)
-  - [How to generate thumbnails using Encoder Standard with .NET](transform-generate-thumbnails-dotnet-how-to.md)
-- With Azure CLI
-  - [How to encode with a custom transform - Azure CLI](transform-custom-preset-cli-how-to.md)
-- With REST
-  - [How to encode with a custom transform - REST](transform-custom-preset-rest-how-to.md)
-  - [How to generate thumbnails using Encoder Standard with REST](transform-generate-thumbnails-rest-how-to.md)
-- [Subclip a video when encoding with Media Services - .NET](transform-subclip-video-dotnet-how-to.md)
-- [Subclip a video when encoding with Media Services - REST](transform-subclip-video-rest-how-to.md)
+- [How to encode with a custom transform](transform-custom-transform-how-to.md)
+- [How to create an overlay with Media Encoder Standard](transform-create-overlay-how-to.md)
+- [How to generate thumbnails using Encoder Standard](transform-generate-thumbnails-dotnet-how-to.md)
+- [Subclip a video when encoding with Media Services - REST](transform-subclip-video-how-to.md)
 
 ## Samples
 

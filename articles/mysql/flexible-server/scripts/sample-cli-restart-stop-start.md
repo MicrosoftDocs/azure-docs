@@ -31,7 +31,7 @@ Also, see [stop/start limitations](../concepts-limitations.md#stopstart-operatio
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/manage-server/restart-start-stop.sh" range="4-44":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/manage-server/restart-start-stop.sh" id="FullScript":::
 
 ## Clean up resources
 
