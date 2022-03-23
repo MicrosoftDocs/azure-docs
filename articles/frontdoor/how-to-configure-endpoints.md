@@ -33,7 +33,7 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
     | Setting | Description |
     |--|--|
-    | Name | Enter a unique name for the new Azure Front Door endpoint. This name is used to access your cached resources at the domain `<endpointname>.az01.azurefd.net` |
+    | Name | Enter a unique name for the new Azure Front Door Standard/Premium endpoint. Azure Front Door will generate a unique Endpoint hostname based on the endpoint name in the form of `<endpointname>-hash.z01.azurefd.net`. The Endpoint hostname is a deterministic DNS name that helps prevent subdomain takeover. This name is used to access your cached resources at the domain `<endpointname>-hash.z01.azurefd.net`.  |
     | Status | Select the checkbox to enable this endpoint. |
 
 ### Add a route
