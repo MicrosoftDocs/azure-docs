@@ -72,14 +72,17 @@ In this example, you want to exclude the `User-Agent` request header. The `User-
 
 There can be any number of reasons to disable evaluating this header. There could be a string that the WAF sees and assumes it’s malicious. For example, the classic SQL attack “x=x” in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
-You can use the folllowing code to exclude the `User-Agent` header from evaluation by the SQL injection rules:
+You can use the folllowing code to exclude the `User-Agent` header from evaluation by all of the SQL injection rules:
+
+# [Azure portal](#tab/portal)
+
+TODO image
 
 # [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ruleGroupEntry = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleGroup `
-  -RuleGroupName 'REQUEST-942-APPLICATION-ATTACK-SQLI' `
-  -Rule $ruleOverrideEntry
+  -RuleGroupName 'REQUEST-942-APPLICATION-ATTACK-SQLI'
 
 $exclusionManagedRuleSet = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleSet `
   -RuleSetType 'OWASP' `
@@ -101,9 +104,17 @@ $wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 
 # [Azure CLI](#tab/cli)
 
-<!-- TODO -->
+<!-- TODO this doesn't seem to work -->
 ```azurecli
-
+az network application-gateway waf-policy managed-rule exclusion rule-set add \
+  --resource-group $resourceGroupName \
+  --policy-name $wafPolicyName \
+  --type OWASP \
+  --version 3.2 \
+  --group-name REQUEST-942-APPLICATION-ATTACK-SQLI \
+  --match-variable RequestHeaderNames \
+  --selector-match-operator Equals \
+  --selector User-Agent
 ```
 
 # [Bicep](#tab/bicep)
@@ -147,38 +158,38 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 
 ```json
 {
-   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-   "apiVersion": "2021-05-01",
-   "name": "[parameters('wafPolicyName')]",
-   "location": "[parameters('location')]",
-   "properties": {
-         "managedRules": {
-            "managedRuleSets": [
-               {
-                  "ruleSetType": "OWASP",
-                  "ruleSetVersion": "3.2"
-               }
-            ],
-            "exclusions": [
-               {
-                  "matchVariable": "RequestHeaderNames",
-                  "selectorMatchOperator": "Equals",
-                  "selector": "User-Agent",
-                  "exclusionManagedRuleSets": [
-                     {
-                        "ruleSetType":"OWASP",
-                        "ruleSetVersion": "3.2",
-                        "ruleGroups": [
-                           {
-                              "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
-                           }
-                        ]
-                     }
-                  ]
-               }
-            ]
-         }
-   }
+  "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+  "apiVersion": "2021-05-01",
+  "name": "[parameters('wafPolicyName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "managedRules": {
+      "managedRuleSets": [
+        {
+          "ruleSetType": "OWASP",
+          "ruleSetVersion": "3.2"
+        }
+      ],
+      "exclusions": [
+        {
+          "matchVariable": "RequestHeaderNames",
+          "selectorMatchOperator": "Equals",
+          "selector": "User-Agent",
+          "exclusionManagedRuleSets": [
+            {
+              "ruleSetType": "OWASP",
+              "ruleSetVersion": "3.2",
+              "ruleGroups": [
+                {
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -194,6 +205,10 @@ This example excludes the value in the *user* parameter that is passed in the re
 
 The following example shows how you can exclude the `user` query string argument from evaluation:
 
+# [Azure portal](#tab/portal)
+
+TODO image
+
 # [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell
@@ -205,43 +220,66 @@ $exclusion = New-AzApplicationGatewayFirewallExclusionConfig `
 
 # [Azure CLI](#tab/cli)
 
-<!-- TODO -->
 ```azurecli
-
+az network application-gateway waf-policy managed-rule exclusion add \
+  --resource-group $resourceGroupName \
+  --policy-name $wafPolicyName \
+  --match-variable 'RequestArgNames' \
+  --selector-match-operator 'StartsWith' \
+  --selector 'user'
 ```
 
 # [Bicep](#tab/bicep)
 
-<!-- TODO -->
 ```bicep
-
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-05-01' = {
+  name: wafPolicyName
+  location: location
+  properties: {
+    managedRules: {
+      managedRuleSets: [
+        {
+          ruleSetType: 'OWASP'
+          ruleSetVersion: '3.2'
+        }
+      ]
+      exclusions: [
+        {
+          matchVariable: 'RequestArgNames'
+          selectorMatchOperator: 'StartsWith'
+          selector: 'user'
+        }
+      ]
+    }
+  }
+}
 ```
 
 # [ARM template](#tab/armtemplate)
 
 ```json
 {
-   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-   "apiVersion": "2021-05-01",
-   "name": "[parameters('wafPolicyName')]",
-   "location": "[parameters('location')]",
-   "properties": {
-      "managedRules": {
-         "managedRuleSets": [
-            {
-                  "ruleSetType": "OWASP",
-                  "ruleSetVersion": "3.2"
-            }
-         ],
-         "exclusions": [
-            {
-                  "matchVariable": "RequestArgNames",
-                  "selectorMatchOperator": "StartsWith",
-                  "selector": "user"
-            }
-         ]
-      }
-   }
+  "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+  "apiVersion": "2021-05-01",
+  "name": "[parameters('wafPolicyName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "managedRules": {
+      "managedRuleSets": [
+        {
+          "ruleSetType": "OWASP",
+          "ruleSetVersion": "3.2"
+        }
+      ],
+      "exclusions": [
+        {
+          "matchVariable": "RequestArgNames",
+          "selectorMatchOperator": "StartsWith",
+          "selector": "user"
+        }
+      ]
+    }
+  }
 }
 ```
 
