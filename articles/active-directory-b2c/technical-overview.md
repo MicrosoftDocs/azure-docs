@@ -259,7 +259,7 @@ Sessions are modeled as encrypted data, with the decryption key known only to th
 
 ### Access to user data
 
-Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities. In contrast to enterprise Azure Active Directory, Azure AD B2C does not have the concept of being a corporate directory, and users are not able to look up the data of other users.
+Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities. 
 
 You can assign roles to control who can perform certain administrative actions in Azure AD B2C, including:
 
