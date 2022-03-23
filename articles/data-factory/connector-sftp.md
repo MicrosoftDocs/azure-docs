@@ -429,6 +429,11 @@ and you can write files to SFTP in the following formats:
 
 Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 
+> [!Note]
+> SSH host key validation is not supported in mapping data flow now.
+
+> [!Tip]
+> Mapping data flow supports on-premises SFTP with managed virtual network. To learn how to configure it, see this [document](tutorial-managed-virtual-network-on-premise-sql-server.md). The host name in on-premises SFTP linked service is FQDN. 
 
 ### Source transformation
 
