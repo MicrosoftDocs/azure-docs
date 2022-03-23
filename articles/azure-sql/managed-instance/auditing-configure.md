@@ -9,10 +9,10 @@ ms.devlang:
 ms.topic: how-to
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: DavidTrigano
-ms.author: datrigan
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
 ms.reviewer: vanto
-ms.date: 06/21/2021
 ---
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
