@@ -76,7 +76,7 @@ You can use the folllowing code to exclude the `User-Agent` header from evaluati
 
 # [Azure portal](#tab/portal)
 
-TODO image
+:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-rule-edit.png" alt-text="Screenshot of the Azure portal that shows the per-rule exclusion configuration for the W A F policy.":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -207,7 +207,7 @@ The following example shows how you can exclude the `user` query string argument
 
 # [Azure portal](#tab/portal)
 
-TODO image
+:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-global-edit.png" alt-text="Screenshot of the Azure portal that shows the global exclusion configuration for the W A F policy.":::
 
 # [Azure PowerShell](#tab/powershell)
 
