@@ -106,7 +106,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
+In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";

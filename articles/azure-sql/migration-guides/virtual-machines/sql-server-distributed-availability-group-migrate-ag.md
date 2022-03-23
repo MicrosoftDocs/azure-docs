@@ -84,7 +84,7 @@ To create the availability group on the source instances, run this script on the
 CREATE AVAILABILITY GROUP [OnPremAG]  
 WITH ( AUTOMATED_BACKUP_PREFERENCE = PRIMARY, 
     DB_FAILOVER = OFF,  
-    DTC_SUPPORT = NONE,  
+    DTC_SUPPORT = NONE ) 
 FOR DATABASE  [Adventureworks]  
 REPLICA ON  
     N'OnPremNode1' WITH (ENDPOINT_URL = N'TCP://OnPremNode1.contoso.com:5022',  
