@@ -9,7 +9,14 @@ ms.reviewer: Dale.Koetke
 ms.date: 03/11/2022
 ---
 # Azure Monitor cost and usage
-The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing (pay-as-you-go) where you pay for only what you use. The following table describes the different types of usage that are charged in Azure Monitor. Detailed costs are provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+Azure Monitor uses a cloud-friendly, consumption-based pricing (pay-as-you-go) billing model where you only pay for what you use. This article describes the different ways that Azure Monitor charges for usage, how to evaluate chargses on your Aure bi
+
+
+Several features of Azure Monitor are available at not cost.
+
+
+The following table describes the different types of usage that are charged in Azure Monitor. Detailed costs are provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
 
 | Type | Description |
 |:---|:---|
