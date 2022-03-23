@@ -1,13 +1,13 @@
 ---
 title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
-author: cynthn
-ms.author: cynthn
+author: lakmeedee
+ms.author: dejv
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 03/22/2022
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -156,7 +156,7 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ## Deploy a trusted launch VM from an Azure Compute Gallery image
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal2)
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
@@ -176,7 +176,7 @@ You can deploy trusted launch VMs using a quickstart template:
 16. At the bottom of the page, select **Review + Create**
 17. On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli2)
 
 Make sure you are running the latest version of Azure CLI 
 
@@ -219,7 +219,7 @@ az vm create --resource-group MyResourceGroup \
     --generate-ssh-keys
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell2)
 
 Create an image definition with `TrustedLaunch` security type
 
@@ -314,7 +314,7 @@ New-AzVM `
    -Location $location `
    -VM $vm
 ```
-
+---
 ## Verify or update your settings
 
 For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:

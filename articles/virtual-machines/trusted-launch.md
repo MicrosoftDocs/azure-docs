@@ -1,12 +1,12 @@
 ---
 title: Trusted launch for Azure VMs
 description: Learn about trusted launch for Azure virtual machines.
-author: cynthn
-ms.author: cynthn
+author: lakmeedee
+ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 03/22/2022
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
 ---
@@ -160,11 +160,11 @@ Trusted launch now allows images to be created and shared through the Azure Comp
 
 ### Does trusted launch support Azure Backup?
 
-Trusted launch now supports Azure Backup in preview. For more information, see https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support
+Trusted launch now supports Azure Backup in preview. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
 
 ### Does trusted launch support ephemeral OS disks?
 
-Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see https://aka.ms/ephemeral-os-disks-support-trusted-launch
+Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
 
 ### What is VM Guest State (VMGS)?  
 
