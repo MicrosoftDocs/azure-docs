@@ -57,7 +57,7 @@ The sample connector uses the functionality from the [Azure Functions capability
 
 ## Create your class library project
 
-To create the sample built-in Cosmos DB connector, complete the following the following tasks:
+To create the sample built-in Cosmos DB connector, complete the following tasks:
 
 1. In Visual Studio Code, create a .NET Core 3.1 class library project.
 
@@ -151,7 +151,7 @@ namespace ServiceProviders.CosmosDb.Extensions
 
 ### 3. Add a converter
 
-Azure Logic apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier, for example:
+Azure Logic Apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier, for example:
 
 ```csharp
 // Convert the Cosmos cocument list to a JObject array.
