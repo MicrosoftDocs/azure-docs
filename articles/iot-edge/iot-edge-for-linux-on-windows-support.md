@@ -13,7 +13,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether officially or in preview.
+This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether generally available or in preview. 
 
 ## Get support
 
@@ -21,12 +21,12 @@ If you experience problems while using Azure IoT Edge for Linux on Windows, ther
 
 **Reporting bugs** – Bugs can be reported on the [issues page](https://github.com/azure/iotedge-eflow/issues) of the project. Bugs related to Azure IoT Edge can be reported on the [IoT Edge issues page](https://github.com/azure/iotedge/issues). Fixes rapidly make their way from the projects in to product updates.
 
-**Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com).
 
 
 ## Container engines
 
-By default, Azure IoT Edge for Linux on Windows includes IoT Edge runtime as part of the virtual machine composition. The IoT Edge runtime provides a container engine, moby-engine, to run modules, which are implemented as containers. This container engine is based on the Moby open-source project. For more information about container engines support and IoT Edge, see [IoT Edge Platform support](./support.md).
+By default, Azure IoT Edge for Linux on Windows includes IoT Edge runtime as part of the virtual machine composition. The IoT Edge runtime provides moby-engine as the container engine, to run modules implemented as containers. This container engine is based on the Moby open-source project. For more information about container engines, support, and IoT Edge, see [IoT Edge Platform support](./support.md).
 
 
 ## Operating systems
@@ -51,7 +51,7 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
 
 
-## Virtual Machines
+## Virtual machines
 
 Azure IoT Edge for Linux on Windows can run in Windows virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. In order to run the EFLOW virtual machine inside a Windows VM, the host VM must support nested virtualization. There are two forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local VM or Azure VM. For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
 
