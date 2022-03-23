@@ -26,6 +26,8 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 Bringing an IP prefix to Azure is a three phase process -- validation, provisioning, and commissioning.
 
+:::image type="content" source="./media/custom-ip-address-prefix/byoip-onboarding-process.png" alt-text="Illustration of the Custom IP Prefix onboarding process" border="false":::
+
 ### Validation
 
 In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as ARIN or RIPE.  When bringing an IP range to use on Azure, it remains under your ownership, so you must authorize Microsoft to advertise it.  Your ownership of the range and associated with your Azure subscription must also be verified.  Note that some of these steps will be done outside of Azure.
