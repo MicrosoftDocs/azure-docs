@@ -21,17 +21,11 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2022-03-28
 
 ### Azure Machine Learning SDK for Python v1.40.0
-  + **azureml-automl-core**
-    + Code generation for automated ML now supports ForecastTCN models (experimental).
-    + Models created via code generation will now have all metrics calculated by default (except normalized mean absolute error, normalized median absolute error, normalized RMSE, and normalized RMSLE in the case of forecasting models). The list of metrics to be calculated can be changed by editing the return value of `get_metrics_names()`. Cross validation will now be used by default for forecasting models created via code generation..
   + **azureml-automl-dnn-nlp**
     + We're making the Long Range Text feature optional and only if the customers explicitly opt in for it, using the kwarg "enable_long_range_text"
     + Adding data validation layer for multi-class classification scenario which leverages the same base class as multilabel for common validations, and a derived class for additional task specific data validation checks.
   + **azureml-automl-dnn-vision**
-    + Bugfix for issue #1609084
-  + **azureml-automl-runtime**
-    + Models created via code generation will now have all metrics calculated by default (except normalized mean absolute error, normalized median absolute error, normalized RMSE, and normalized RMSLE in the case of forecasting models). The list of metrics to be calculated can be changed by editing the return value of `get_metrics_names()`. Cross validation will now be used by default for forecasting models created via code generation..
-    + Converting decimal type y-test into float to allow for metrics computation to proceed without errors.
+    + Fixing KeyError while computing class weights.
   + **azureml-contrib-reinforcementlearning**
     + SDK warning message for upcoming deprecation of RL service
   + **azureml-core**
@@ -49,10 +43,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-train-automl-runtime**
     + Code generation for automated ML now supports ForecastTCN models (experimental).
     + Models created via code generation will now have all metrics calculated by default (except normalized mean absolute error, normalized median absolute error, normalized RMSE, and normalized RMSLE in the case of forecasting models). The list of metrics to be calculated can be changed by editing the return value of `get_metrics_names()`. Cross validation will now be used by default for forecasting models created via code generation..
-  + **azureml-train-core**
-    + Added clarifying documentation
   + **azureml-training-tabular**
-    + Models created via code generation will now have all metrics calculated by default (except normalized mean absolute error, normalized median absolute error, normalized RMSE, and normalized RMSLE in the case of forecasting models). The list of metrics to be calculated can be changed by editing the return value of `get_metrics_names()`. Cross validation will now be used by default for forecasting models created via code generation..
+    + The list of metrics to be calculated can be changed by editing the return value of `get_metrics_names()`. Cross validation will now be used by default for forecasting models created via code generation.
     + Converting decimal type y-test into float to allow for metrics computation to proceed without errors.
 
 ## 2022-02-28
