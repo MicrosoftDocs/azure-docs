@@ -9,35 +9,31 @@ ms.custom: references_region
 
 ---
 
-# Troubleshooting guidance for Azure Monitor agent
-This document provides a deeper overview into the technical architecture of the new Azure Monitor agent, that will help understand how it works and thus better troubleshoot any issues that you may run into.  
-Follow the troubleshooting guidance listed below to proceed.
-
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
 
-## Basic troubleshooting steps 
+# Basic troubleshooting steps 
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Windows Arc-enabled server:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
 	1. Open Azure Portal > select your Arc-enabled server > Open **Settings** : **Extensions** blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Succeeded'  
-	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
+	2. If not, check if machine can reach Azure and find the extension to install using the command below:  
 		```azurecli
 		az vm extension image list-versions --location <machine-region> --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor
 		```  
-	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up as above, [uninstall and install the extension](./azure-monitor-agent-manage.md) again.   
-	4. Check if you see any errors in extension logs located at `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent` on your machine  
+	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up, [uninstall and install the extension](./azure-monitor-agent-manage.md) again and repeat the verification to see the extension show up. 
+	4. If not, check if you see any errors in extension logs located at `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent` on your machine  
 	5. If none of the above works, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.  
 	
 3. **Verify that the agent is running**:  
-	1. Open Task Manager and check if 'MonAgentCore.exe' process is running  
-	2. Check if the agent is emitting heartbeat logs to Log Analytics workspace, but running the query below (not applicable if 'Custom Metrics' is the only destination in the DCR):
+	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace, but running the query below (not applicable if 'Custom Metrics' is the only destination in the DCR):
 		```Kusto
 		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
 		```	
-	3. Check if you see any errors in core agent logs located at `C:\Resources\Directory\AMADataStore\Configuration` on your machine  
+	2. If not, open Task Manager and check if 'MonAgentCore.exe' process is running. If it is, wait for 5 minutes for heartbeat to show up.  
+	3. If not, check if you see any errors in core agent logs located at `C:\Resources\Directory\AMADataStore\Configuration` on your machine  
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension provisioned but not running' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.   
 	
 4. **Verify that the DCR exists and is associated with the Arc-enabled server:**  
@@ -51,7 +47,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	1. Check if you see the latest DCR downloaded at this location `C:\Resources\Directory\AMADataStore\mcs\configchunks` 
 	2. If not, [file a ticket](#file-a-ticket) with **Summary** as 'AMA unable to download DCR config' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.   
 
-### Issues collecting Performance counters
+## Issues collecting Performance counters
 1. Check that your DCR JSON contains a section for 'performanceCounters'. If not, fix your DCR. See [how to create DCR](./data-collection-rule-azure-monitor-agent.md) or [sample DCR](./data-collection-rule-sample-agent.md).
 2. Check that the file `C:\Resources\Directory\AMADataStore\mcs\mcsconfig.lkg.xml` exists. If it does not exist, [file a ticket](#file-a-ticket) with **Summary** as 'AMA did not run long enough to mark and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
 3. Open the file and check if it contains `CounterSet` nodes as shown in the example below:
@@ -69,7 +65,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 
 
 
-#### Using 'Custom Metrics' as destination
+### Using 'Custom Metrics' as destination
 1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).  
 2. Ensure that the associated DCR is correctly authored to collect performance counters and send them to azure monitor metrics. You should see this section in your DCR:
 	```json
@@ -91,7 +87,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	2. Open it and look for any Level 2 errors and try to fix those.
 7. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA unable to collect custom metrics' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
 
-### Issues collecting Windows event logs
+## Issues collecting Windows event logs
 1. Check that your DCR JSON contains a section for 'windowsEventLogs'. If not, fix your DCR. See [how to create DCR](./data-collection-rule-azure-monitor-agent.md) or [sample DCR](./data-collection-rule-sample-agent.md).
 2. Check that the file `C:\Resources\Directory\AMADataStore\mcs\mcsconfig.lkg.xml` exists. If it does not exist, [file a ticket](#file-a-ticket) with **Summary** as 'AMA did not run long enough to mark and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
 3. Open the file and check if it contains `Subscription` nodes as shown in the example below:

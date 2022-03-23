@@ -9,14 +9,10 @@ ms.custom: references_region
 
 ---
 
-# Troubleshooting guidance for Azure Monitor agent
-This document provides a deeper overview into the technical architecture of the new Azure Monitor agent, that will help understand how it works and thus better troubleshoot any issues that you may run into.  
-Follow the troubleshooting guidance listed below to proceed.
-
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
 
-## Basic troubleshooting steps 
+# Basic troubleshooting steps 
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Linux virtual machine:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
@@ -32,11 +28,11 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.  
 	
 3. **Verify that the agent is running**:  
-	1. Check if you see any errors in core agent logs located at `???` on your machine  
-	2. Check if the agent is emitting heartbeat logs to Log Analytics workspace, but running the query below (not applicable if 'Custom Metrics' is the only destination in the DCR):
+	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace, by running the query below (not applicable if 'Custom Metrics' is the only destination in the DCR):
 		```Kusto
 		Heartbeat | where Category == "Azure Monior Agent" and 'Computer' == "<computer-name>" | take 10
-		```	
+		```	 
+	2. Check if you see any errors in core agent logs located at `???` on your machine  
 	3. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension provisioned but not running' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.  
 	
 4. **Verify that the DCR exists and is associated with the virtual machine:**  
@@ -50,9 +46,9 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	2. If not, [file a ticket](#file-a-ticket) with **Summary** as 'AMA unable to download DCR config' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.  
 
 
-### Issues collecting Performance counters
+## Issues collecting Performance counters
 
-### Issues collecting Syslog
+## Issues collecting Syslog
 Here's how AMA collects sylog events:  
 
 - AMA installs an output configuration for the system syslog daemon during the installation process. The configuration file specifies the way events flow between the syslog daemon and AMA.
@@ -85,7 +81,7 @@ Here's how AMA collects sylog events:
 	MaODSRequest,https://e73fd5e3-ea2b-4637-8da0-5c8144b670c8_LogManagement,15,15,0,455067,476.467,0,7147,77,77
 	```  
 	
-#### Troubleshooting steps for syslog
+**Troubleshooting steps **
 1. Review the [generic Linux AMA troubleshooting steps](#basic-troubleshooting-steps) first. If agent is emitting heartbeats, proceed to step 2.
 2. The parsed configuration is stored at `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Check that Syslog collection is defined and the log destinations are the same as constructed in DCR UI / DCR JSON.
 	1. If yes, proceed to step 3. If not, the issue is in the configuration workflow. 

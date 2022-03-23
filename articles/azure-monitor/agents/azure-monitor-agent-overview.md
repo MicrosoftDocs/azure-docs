@@ -58,11 +58,13 @@ To start transitioning your VMs off the current agents to the new agent, conside
  
   Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported until the retirement date.
 
-## Coexistence with other agents
-The Azure Monitor agent can coexist (run side by side on the same machine) with the existing agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
+## Coexistence with Log Analytics agents
+The Azure Monitor agent can coexist (run side by side on the same machine) with the legacy Log Analytics agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
 - Be careful in collecting duplicate data because it could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data. As such, ensure you're not collecting the same data from both agents. If you are, ensure they're **collecting from different machines** or **going to separate destinations**.
 - Besides data duplication, this would also generate more charges for data ingestion and retention.
-- Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space and network bandwidth. 
+- Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space and network bandwidth.  
+> [!NOTE]
+> When using both agents during evaluation or migration, you can use the **'Category'** column of the [Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat) table in your Log Analytics workspace, and filter for 'Azure Monitor Agent'.
 
 ## Supported resource types
 Azure virtual machines, virtual machine scale sets, and Azure Arc-enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
