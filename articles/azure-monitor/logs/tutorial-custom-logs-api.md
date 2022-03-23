@@ -27,7 +27,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](/azure/azure-monitor/essentials/data-collection-rule-overview#permissions) in the workspace.
 
 ## Collect workspace details
 Start by gathering information that you'll need from your workspace.
@@ -37,7 +37,7 @@ Start by gathering information that you'll need from your workspace.
     :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 ## Configure application
-Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -340,6 +340,9 @@ Once the data collection rule has been created, the application needs to be give
 ## Send sample data
 The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. 
 
+> [!NOTE]
+> This tutorial uses commands that require PowerShell v7.0 or later. Please make sure your local installation of PowerShell is up to date, or execute this script using the Azure CloudShell.  
+
 1. Run the following PowerShell command which adds a required assembly for the script.
 
     ```powershell
@@ -409,13 +412,13 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
     $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableRawData?api-version=2021-11-01-preview"
 
-    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers -TransferEncoding "GZip"
+    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
 
     > [!NOTE]
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and executely. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
 
-2. After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
+2. After executing this script, you should see a `HTTP - 204` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
 
 ## Troubleshooting
 This section describes different error conditions you may receive and how to correct them.

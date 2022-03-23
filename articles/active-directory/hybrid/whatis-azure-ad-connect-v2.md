@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/22/2021
+ms.date: 03/22/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
@@ -119,5 +119,3 @@ This is a known issue. To resolve this, restart your PowerShell session after in
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
-
-This article describes the upgrade from older Windows Server versions to Windows Server 2019.
