@@ -57,7 +57,6 @@ export class AppComponent {
         enableRequestHeaderTracking: true,
         enableResponseHeaderTracking: true,
         correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
-        /* ...Other Configuration Options... */
         extensions: [angularPlugin],
         extensionConfig: {
             [angularPlugin.identifier]: { router: this.router }
