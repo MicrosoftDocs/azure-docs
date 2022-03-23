@@ -18,10 +18,10 @@ This is a troubleshooting guide for the Application Insights portal when encount
     
 ## Troubleshooting
 
-The source of the issue is likely browser plugins that interfere with the portal's connectivity. 
+The source of the issue is likely third-party browser plugins that interfere with the portal's connectivity. 
 
 To confirm that this is the source of the issue and to identify which plugin is interfering:
 
-1. Open the portal in an incognito browser and verify that the site functions correctly.
+1. Open the portal in an InPrivate or Incognito window and verify the site functions correctly.
 
 2. Attempt disabling plugins to identify the one that is causing the connectivity issue.
