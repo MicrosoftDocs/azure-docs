@@ -70,7 +70,7 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 
 You can scale your cache instances in the Azure portal. And, you can scale using PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML).
 
-When you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically updated to 6 GB during scaling. When you scale down, the reverse happens.
+When you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling. When you scale down, the reverse happens.
 
 > [!NOTE]
 > When you scale a cache up or down programmatically, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
