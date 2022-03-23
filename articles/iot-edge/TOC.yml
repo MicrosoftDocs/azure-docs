@@ -91,6 +91,8 @@
       href: iot-edge-for-linux-on-windows-updates.md
     - name: Security
       href: iot-edge-for-linux-on-windows-security.md
+    - name: Platform support
+      href: iot-edge-for-linux-on-windows-support.md
   - name: Development
     items:
     - name: Develop modules
