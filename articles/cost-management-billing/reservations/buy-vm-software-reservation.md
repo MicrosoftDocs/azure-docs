@@ -10,7 +10,7 @@ ms.date: 03/17/2022
 ms.author: banders
 ---
 
-# Prepay for Virtual machine software reservations
+# Prepay for Virtual machine software reservations (Azure Marketplace)
 
 When you prepay for your virtual machine software usage (available in the Azure Marketplace), you can save money over your pay-as-you-go costs. The discount is automatically applied to a deployed plan that matches the reservation, not on the virtual machine usage. You can buy reservations for virtual machines separately for more savings.
 
