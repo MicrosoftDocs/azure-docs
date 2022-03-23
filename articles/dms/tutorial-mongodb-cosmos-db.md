@@ -164,6 +164,9 @@ After you create the service, locate it within the Azure portal, and open it. Th
    You can also use the IP address for situations in which DNS name resolution isn't possible.
 
    ![Screenshot that shows specifying source details.](media/tutorial-mongodb-to-cosmosdb/dms-specify-source.png)
+   
+   > [!NOTE]
+   > The source version must be at least 3.0.0 and less than 4.1.0 when migrating MongoDB to Azure Cosmos DB's API for MongoDB using DMS.
 
 2. Select **Save**.
 
