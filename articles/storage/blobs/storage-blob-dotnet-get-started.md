@@ -52,11 +52,6 @@ using Azure.Storage.Blobs.Specialized;
 
 - [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
 
-The following image shows each namespace and some of the classes available in them.
-
-> [!div class="mx-imgBorder"]
-> ![.NET object namespaces](./media/storage-blob-dotnet-get-started/dotnet-object-namespaces.png)
-
 ## Connect to Blob Storage
 
 To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and it's containers. You can create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using an account access key, a shared access signature (SAS), or by using an Azure Active Directory (Azure AD) authorization token. 
@@ -219,22 +214,23 @@ Each type of resource is represented by one or more associated .NET classes. The
 | [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
 | [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
 
-The following guides show you how to use each of these classes to build your application
+The following guides show you how to use each of these classes to build your application.
 
 | Guide | Description |
 |--|---|
-| [Create a container](storage-blob-container-create.md) | Description |
-| [Delete and restore](storage-blob-container-delete.md) | Description |
-| [List containers](storage-blob-containers-list.md) | Description |
-| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Description |
-| [Create and manage leases](storage-blob-container-lease.md) | Description |
-| [Append data to blobs](storage-blob-append.md) | Description |
-| [Upload blobs](storage-blob-upload.md) | Description |
-| [Copy blobs](storage-blob-copy.md) | Description |
-| [List blobs](storage-blobs-list.md) | Description |
-| [Delete and restore](storage-blob-delete.md) | Description |
-| [Find blobs using tags](storage-blob-tags.md) | Description |
-| [Manage properties and metadata](storage-blob-properties-metadata.md) | Description |
+| [Create a container](storage-blob-container-create.md) | Learn how to create containers. |
+| [Delete and restore containers](storage-blob-container-delete.md) | Learn how to delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [List containers](storage-blob-containers-list.md) | Learn how to list containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Learn how to get and set properties and metadata for containers. |
+| [Create and manage leases](storage-blob-container-lease.md) | Learn how to establish and manage a lock on a container or the blobs in a container. |
+| [Append data to blobs](storage-blob-append.md) | Learn how to create an append blob and then append data to that blob. |
+| [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
+| [Download blobs](storage-blob-download.md) | Learn how to download blobs by using strings, streams, and file paths. |
+| [Copy blobs](storage-blob-copy.md) | Learn how to copy a blob from one account to another account. |
+| [List blobs](storage-blobs-list.md) | Learn how to list blobs in different ways. |
+| [Delete and restore](storage-blob-delete.md) | Learn how to delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Find blobs using tags](storage-blob-tags.md) | Learn how to set and retrieve tags as well as use tags to find blobs. |
+| [Manage properties and metadata](storage-blob-properties-metadata.md) | Learn how to get and set properties and metadata for blobs. |
 
 ## See also
 
