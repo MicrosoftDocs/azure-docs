@@ -127,7 +127,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
 ## Cleaning up functions
 
-1. Click to select on one of your function apps with *Azure Explorer* in your IDEA, and right click, select *Delete* to finish the following steps. This command might take several minutes to run. When it's done, the status will refresh in *Azure Explorer*.
+1. Select one of your function apps using **Azure Explorer** in your IDEA, then right-click and select **Delete**. This command might take several minutes to run. When it's done, the status will refresh in **Azure Explorer**.
       
       ![Screenshot shows Delete selected from a context menu.](media/functions-create-first-java-intellij/delete-function.png)
 
