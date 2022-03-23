@@ -40,7 +40,7 @@ Scale out and improve performance of your applications and content using Microso
 
 * Accelerate application performance by using Front Door’s [anycast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) network and [split TCP](front-door-traffic-acceleration.md#connect-to-the-front-door-edge-location-split-tcp) connections.
 
-* Terminate SSL offload at the edge and use integrated certificate management.
+* Terminate SSL offload at the edge and use integrated [certificate management](standard-premium/how-to-configure-https-custom-domain.md).
 
 * Natively support end-to-end IPv6 connectivity and the HTTP/2 protocol.
 
@@ -50,19 +50,19 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Integrate with DevOps friendly command line tools across SDKs of different languages, Bicep, ARM templates, CLI and PowerShell.
 
-* Define your own custom domain with flexible domain validation.
+* Define your own [custom domain](standard-premium/how-to-add-custom-domain.md) with flexible domain validation.
 
-* Load balance and route traffic across origins and use intelligent health probe monitoring across apps or content hosted in Azure or anywhere.
+* Load balance and route traffic across [origins](origin.md) and use intelligent [health probe](health-probes.md) monitoring across apps or content hosted in Azure or anywhere.
 
-* Deeply integrated with other Azure services such as DNS, Web Apps, Storage and many more for domain and origin management.
+* Integrate with other Azure services such as DNS, Web Apps, Storage and many more for domain and origin management.
 
-* Move your routing business logic to the edge with enhanced rules engine capabilities including regular expressions and server variables.
+* Move your routing business logic to the edge with [enhanced rules engine](front-door-rules-engine.md) capabilities including regular expressions and server variables.
 
-* Analyze built-in reports with an all-in-one dashboard for both Front Door and security patterns.
+* Analyze [built-in reports](standard-premium/how-to-reports.md) with an all-in-one dashboard for both Front Door and security patterns.
 
-* Monitoring your Front Door traffic in real time, and configure alerts that integrate with Azure Monitor.
+* [Monitoring your Front Door traffic in real time](standard-premium/how-to-monitor-metrics.md), and configure alerts that integrate with Azure Monitor.
 
-* Log each Front Door request and failed health probes.
+* [Log each Front Door request](standard-premium/how-to-logs.md) and failed health probes.
 
 ### Simple and cost-effective
 
@@ -72,22 +72,22 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Low entry fee and a simplified cost model that reduces billing complexity by having fewer meters needed to plan for.
 
-* Azure to Front Door integrated egress pricing that removes the separate egress charge from Azure regions to Azure Front Door. Refer to [Front Door Pricing](https://azure.microsoft.com/en-us/pricing/details/frontdoor/) for more details.
+* Azure to Front Door integrated egress pricing that removes the separate egress charge from Azure regions to Azure Front Door. Refer to [Azure Front Door pricing](https://azure.microsoft.com/en-us/pricing/details/frontdoor/) for more details.
 
 ### Intelligent secure internet perimeter
 
-* Secure applications with built-in layer 3-4 DDoS protection, seamlessly attached Web Application Firewall, and Azure DNS to protect your domains
+* Secure applications with built-in layer 3-4 DDoS protection, seamlessly attached [Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md), and [Azure DNS to protect your domains](how-to-configure-endpoints.md).
 
 * Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
 
-* Privately connect to your backend behind Front Door with Private Link and embrace a zero-trust access model.
+* Privately connect to your backend behind Azure Front Door with [Private Link](private-link.md) and embrace a zero-trust access model.
 
 * Provide a centralized security experience for your application via Azure Policy and Azure Advisor that ensures consistent security features across apps.
 
 
-## How to choose between tiers?
+## How to choose between Azure Front Door tiers?
 
-For tier comparison, see [Tier comparison](tier-comparison.md).
+For a comparison of supported features in Azure Front Door, see [Tier comparison](standard-premium/tier-comparison.md).
 
 ## Pricing
 
