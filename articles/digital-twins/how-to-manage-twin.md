@@ -146,7 +146,7 @@ You can read more about the serialization helper classes like `BasicDigitalTwin`
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin#az_dt_twin_query).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin#az-dt-twin-query).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 

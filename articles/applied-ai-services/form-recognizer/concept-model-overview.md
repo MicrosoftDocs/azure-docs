@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 03/16/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -22,10 +22,12 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 
 | **Model**   | **Description**   |
 | --- | --- |
-| 🆕[Read (preview)](#read-preview) | Extract text lines, words, their locations, detected languages, and handwritten style if detected.  |
+|**Document analysis**||
+| 🆕[Read (preview)](#read-preview) | Extract printed and handwritten text lines, words, locations, and detected languages.|
+| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.|
+| [Layout](#layout)  | Extract text and layout information from documents.|
+|**Prebuilt**||
 | 🆕[W-2 (preview)](#w-2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
-| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
-| [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
@@ -49,7 +51,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 
 [:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 
-The W-2 model analyzes and extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms (copy A, B, C, D, 1, 2) on one page. 
+The W-2 model analyzes and extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including single and multiple forms on one page.
 
 ***Sample W-2 document processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
@@ -81,7 +83,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
-***Sample form processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
+***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
 :::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
@@ -105,7 +107,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 [:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
+The receipt model analyzes and extracts key information from printed and handwritten receipts.
 
 ***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -118,7 +120,11 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 [:::image type="icon" source="media/studio/id-document.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
+ The ID document model analyzes and extracts key information from the following documents:
+
+* U.S. Driver's Licenses (all 50 states and District of Columbia)
+
+* Biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts
 
 ***Sample U.S. Driver's License processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
@@ -131,7 +137,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 [:::image type="icon" source="media/studio/business-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
 
-The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and extracts key information such as first name, last name, company name, email address, and phone number.
+The business card model analyzes and extracts key information from business card images.
 
 ***Sample business card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 

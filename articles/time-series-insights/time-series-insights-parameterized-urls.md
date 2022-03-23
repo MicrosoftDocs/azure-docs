@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Share a custom view using a parameterized URL
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 To share a custom view in Azure Time Series Insights Explorer, you can programmatically create a parameterized URL of the custom view.
 
 Azure Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user selects the customized URL, the interface provides a link directly to that asset in the Azure Time Series Insights portal. Data access policies apply.

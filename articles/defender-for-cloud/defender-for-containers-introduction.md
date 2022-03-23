@@ -2,6 +2,8 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.date: 03/15/2022
 ---
 
@@ -22,7 +24,7 @@ On this page, you'll learn how you can use Defender for Containers to improve, m
 | Pricing: | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Required roles and permissions: | • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md) |
 | Clouds: | **Azure**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National clouds (Azure Government, Azure China 21Vianet) (Except for preview features))<br><br>**Non Azure**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview) <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects (Preview) <br> :::image type="icon" source="./media/icons/yes-icon.png"::: On-prem/IaaS supported via Arc enabled Kubernetes (Preview). <br> <br>For more details, see the [availability section](supported-machines-endpoint-solutions-clouds-containers.md#defender-for-containers-feature-availability). |
-|  |  |
+
 
 ## What are the benefits of Microsoft Defender for Containers?
 
@@ -221,23 +223,7 @@ The following describes the components necessary in order to receive the full pr
 
 ## FAQ - Defender for Containers
 
-- [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
-- [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
-- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
 - [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
-
-### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?
-
-Subscriptions that already have one of these plans enabled can continue to benefit from it.
-
-If you haven't enabled them yet, or create a new subscription, these plans can no longer be enabled.
-
-### Is Defender for Containers a mandatory upgrade?
-
-No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for Containers Registries enabled doesn't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they’ll have an upgrade icon shown alongside them in the Azure portal. 
-
-### Does the new plan reflect a price increase?
-No. There’s no direct price increase. The new comprehensive Container security plan  combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. 
 
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 

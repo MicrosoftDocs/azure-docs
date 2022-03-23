@@ -95,7 +95,7 @@ Automation account and State Configuration availability in Japan West region. Fo
 
 **Type :** New feature
 
-You can use the new Azure Policy compliance rule to allow creation of jobs, webhooks, and job schedules to run only on Hybrid Worker groups. Read the details in [Use Azure Policy to enforce job execution on Hybrid Runbook Worker](/azure/automation/enforce-job-execution-hybrid-worker?tabs=azure-cli)
+You can use the new Azure Policy compliance rule to allow creation of jobs, webhooks, and job schedules to run only on Hybrid Worker groups. Read the details in [Use Azure Policy to enforce job execution on Hybrid Runbook Worker](./enforce-job-execution-hybrid-worker.md?tabs=azure-cli)
 
 ### Update Management availability in East US, France Central, and North Europe regions
 
