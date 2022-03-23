@@ -1,9 +1,11 @@
 ---
-title: Identify required appliances 
-description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
-ms.date: 11/09/2021
+title: Identify required appliances
+description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console.
+ms.date: 03/23/2022
 ms.topic: how-to
 ---
+
+
 
 # Identify required appliances
 
@@ -29,23 +31,72 @@ Defender for IoT supports both physical and virtual deployments.
 
 This section provides an overview of physical sensor models that are available. You can purchase sensors with pre-configured software or purchase sensors that are not pre-configured.
 
-| Deployment type | Corporate | Enterprise | SMB rack mount| SMB Ruggedized |
-|--|--|--|--|--|
-| Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="The SMB-ruggedized level model."::: |
-| Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
-| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | Up to 4 RJ45 | Up to 5 RJ45 |
-| Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
-| Maximum protected devices | 12,000 | 10,000 | 1,000 | 800 |
+- **Pre-configured sensors**: Microsoft has partnered with Arrow to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at the following address: <hardware.sales@arrow.com>
 
-See [Appliance specifications](#appliance-specifications) for vendor details.
+- **About bringing your own appliance**: Review the supported models described below. After you've acquired your appliance, go to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
 
-About preconfigured sensors: Microsoft has partnered with Arrow to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at the following address: <hardware.sales@arrow.com>
-
-About bringing your own appliance: Review the supported models described here. After you've acquired your appliance, go to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
+For more information, see [Appliance specifications](#appliance-specifications).
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
 
-<a id="anchortext">1</a> Bandwidth capacity can vary, depending on the distribution of protocols.
+> [!NOTE]
+> <a name="anchortext"></a>For each model, bandwidth capacity can vary, depending on the distribution of protocols.
+
+#### Corporate sensors
+
+:::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model.":::
+
+
+|Element  |Description  |
+|---------|---------|
+|**Model**     |  HPE ProLiant DL360       |
+|**Monitoring ports**     |  Up to 15 RJ45 or 8 OPT       |
+|**Maximum bandwidth**<sup>[1](#anchortext)</sup>     | 3 Gb/sec        |
+|**Maximum protected devices**     |  12,000       |
+
+#### Enterprise sensors
+
+:::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The enterprise-level model.":::
+
+|Element  |Description  |
+|---------|---------|
+|**Model**     |    HPE ProLiant DL20     |
+|**Monitoring ports**     |  Up to 8 RJ45 or 6 OPT       |
+|**Maximum bandwidth**<sup>[1](#anchortext)</sup>     |    1 Gb/sec     |
+|**Maximum protected devices**     |  10,000       |
+
+#### SMB rack mount
+
+:::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB-level model.":::
+
+|Element  |Description  |
+|---------|---------|
+|**Model**     |   HPE ProLiant DL20      |
+|**Monitoring ports**     | Up to 4 RJ45        |
+|**Maximum bandwidth**<sup>[1](#anchortext)</sup>    |  200 Mb/Sec       |
+|**Maximum protected devices**     |   1,000      |
+
+#### SMB ruggedized
+
+:::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="The SMB-ruggedized level model.":::
+
+|Element  |Description  |
+|---------|---------|
+|**Model**     |      HPE EL300   |
+|**Monitoring ports**     |     Up to 5 RJ45    |
+|**Maximum bandwidth**<sup>[1](#anchortext)</sup>     | 100 Mb/sec        |
+|**Maximum protected devices**     |   800      |
+
+####  Office Ruggedized
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Ruggedized Micro Appliance":::
+
+|Element  |Description  |
+|---------|---------|
+|**Model**     |      YS-techsystems YS-FIT2  |
+|**Monitoring ports**     |     Up to 2 RJ45     |
+|**Maximum bandwidth**<sup>[1](#anchortext)</sup>     | 10 Mb/sec        |
+|**Maximum protected devices**     |   100       |
 
 ### Virtual sensors
 
@@ -224,6 +275,27 @@ This section describes hardware specifications for the following appliances:
 | P08019-B21 optional | HPE Edgeline EL300 DIN Rail Mount Kit |
 | P08020-B21 optional | HPE Edgeline EL300 Wall Mount Kit |
 | P03456-B21 optional | HPE Edgeline 1GbE 4-port TSN FIO Daughter Card |
+
+## Office Rugged: YS-techsystems YS-FIT2
+
+| Component | Technical specifications |
+|--|--|
+| Construction | Aluminum, zinc die cast parts, Fanless & Dust-proof Design  |
+| Dimensions (height x width x depth) | 112mm (W) x 112mm (D) x 25mm (H) / 4.41in (W) x 4.41in (D) x 0.98 in (H) |
+| Weight | 	0.35kg (0.77 lbs) |
+| CPU | Intel Atom® x7-E3950 Processor |
+| Chipset | Intel® Q170 Platform Controller Hub |
+| Memory | 	8GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V) |
+| Storage | 128GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP |
+| Network controller | 2x 1GbE LAN Ports |
+| Device access  | 2 x USB 2.0, 2 X USB 3.0  |
+| Power Adapter | 7V-20V (Optional 9V-36V) DC / 5W-15W Power Adapter / Vehicle DC cable for fitlet2 (Optional) / UPS	fit-uptime Miniature 12V UPS for miniPCs (Optional) |
+| Mounting | VESA / wall or Din Rail mounting kit  |
+| Operating Temperature | 0°C ~ 70°C |
+| Humidity | 5%~95%, non-condensing  |
+| Vibration | 	IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15g , 6 directions)   |
+| Shock | 10G 10 ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail |
+| EMC | CE/FCC Class B |
 
 ## Virtual appliance specifications
 
