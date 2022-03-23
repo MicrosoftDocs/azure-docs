@@ -270,4 +270,4 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
 * [Source for sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
 
-* [Learn about Standard built-in connector operations in Azure Logic Apps](../connectors/built-in.md)
+* [Built-in Service Bus trigger: batching and session handling](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-running-anywhere-built-in-service-bus-trigger/ba-p/2079995)
