@@ -45,7 +45,8 @@ A public app is published in all regions so that a user with a supported predect
 
 When you first create our LUIS application, you are required to choose an [authoring region](#luis-authoring-regions). To use the application in runtime, you are required to create a resource in a publishing region.
 
-Your app can only be published to one of its corresponding authoring regions, which are listed in the tables below. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region to match the required publishing region.
+Every authoring region has corresponding prediction regions that you can publish your application to, which are listed in the tables below. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region to match the required publishing region.
+
 
 ## Single data residency
 

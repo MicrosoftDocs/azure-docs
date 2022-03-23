@@ -1,10 +1,11 @@
 ---
 title: Backup and restore - Azure Database for PostgreSQL - Single Server
 description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 11/08/2021
 ---
 

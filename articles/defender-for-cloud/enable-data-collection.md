@@ -2,6 +2,8 @@
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
+ms.author: benmansheim
+author: bmansheim
 ms.date: 01/17/2022
 ms.custom: mode-other
 ---
@@ -180,7 +182,6 @@ To enable auto provisioning of the Log Analytics agent:
 
 1. To enable automatic provisioning of an extension other than the Log Analytics agent: 
 
-    1. If you're enabling auto provisioning for the Microsoft Dependency agent, ensure the Log Analytics agent is set to auto deploy.
     1. Toggle the status to **On** for the relevant extension.
 
         :::image type="content" source="./media/enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Toggle to enable auto provisioning for K8s policy add-on.":::
@@ -190,10 +191,8 @@ To enable auto provisioning of the Log Analytics agent:
         |Extension  |Policy  |
         |---------|---------|
         |Policy Add-on for Kubernetes                      |[Deploy Azure Policy Add-on to Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
-        |Microsoft Dependency agent (preview) (Windows VMs)|[Deploy Dependency agent for Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
-        |Microsoft Dependency agent (preview) (Linux VMs)  |[Deploy Dependency agent for Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
         |Guest Configuration agent (preview)               |[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/64dcfa3033a3ff231ec4e73d2c1dad4db4e3b5dd/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json)|
-        |||
+
 
 1. Select **Save**. If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
 

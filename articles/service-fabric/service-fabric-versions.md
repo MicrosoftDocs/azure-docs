@@ -13,6 +13,7 @@ The tables in this article outline the Service Fabric and platform versions that
 
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to*|Compatible SDK or NuGet package version|Supported .NET runtimes** |OS Version |End of support |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.2 CU2.1<br>8.2.1571.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 8.2 CU2<br>8.2.1486.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 8.2 CU1<br>8.2.1363.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 8.2 RTO<br>8.2.1235.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
@@ -65,6 +66,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 
 | Service Fabric runtime | Can upgrade directly from |Can downgrade to*|Compatible SDK or NuGet package version | Supported .NET runtimes** | OS version | End of support |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.2 CU2.1<br>8.2.1397.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 8.2 CU2<br>8.2.1285.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 8.2 CU1<br>8.2.1204.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 8.2 RTO<br>8.2.1124.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
@@ -97,6 +99,7 @@ The following table lists the version names of Service Fabric and their correspo
 
 | Version name | Windows version number | Linux version number |
 | --- | --- | --- |
+| 8.2 CU2.1 | 8.2.1571.9590 | 8.2.1397.1 |
 | 8.2 CU2 | 8.2.1486.9590 | 8.2.1285.1 |
 | 8.2 CU1 | 8.2.1363.9590 | 8.2.1204.1 |
 | 8.2 RTO | 8.2.1235.9590 | 8.2.1124.1 |

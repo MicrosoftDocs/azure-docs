@@ -1,21 +1,22 @@
 ---
-title: Managed Identity
+title: Managed identity for storage accounts
 titleSuffix: Azure Cache for Redis
 description: Learn to Azure Cache for Redis
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 03/10/2022
 ms.author: franlanglois
+
 ---
 
-# Managed identity with Azure Cache for Redis (Preview)
+# Managed identity for storage (Preview)
 
 [Managed identities](../active-directory/managed-identities-azure-resources/overview.md) are a common tool used in Azure to help developers minimize the burden of managing secrets and login information. Managed identities are useful when Azure services connect to each other. Instead of managing authorization between each service, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) can be used to provide a managed identity that makes the authentication process more streamlined and secure.
 
-## Managed identity with storage accounts
+## Use managed identity with storage accounts
 
-Azure Cache for Redis can use a managed identity to connect with a storage account, useful in two scenarios:
+Presently, Azure Cache for Redis can use a managed identity to connect with a storage account, useful in two scenarios:
 
 - [Data Persistence](cache-how-to-premium-persistence.md)--scheduled backups of data in your cache through an RDB or AOF file.
 

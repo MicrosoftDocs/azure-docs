@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Edge development environment | Microsoft Docs 
 description: Learn about the supported systems and first-party development tools that will help you create IoT Edge modules
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
@@ -117,5 +117,4 @@ When you're ready to develop at-scale solutions for extensive production scenari
 For more information, guidance, and examples, see the following pages:
 
 * [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
-* [Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter](how-to-devops-starter.md)
 * [IoT Edge DevOps GitHub repo](https://github.com/toolboc/IoTEdge-DevOps)

@@ -29,7 +29,7 @@ This script sample creates and connects two virtual networks in the same region 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh" range="4-42":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh" id="FullScript":::
 
 ## Clean up deployment
 

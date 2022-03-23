@@ -130,10 +130,16 @@
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
+    - name: Risk analysis
+      href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
 - name: Recommendations
   items:
+    - name: Convert from per-user MFA to conditional access MFA
+      href: recommendation-convert-to-conditional-access-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator

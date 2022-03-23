@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 02/25/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -52,7 +52,7 @@ When setting up scan, you can choose to scan an entire Hive metastore database, 
 
 * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Download and install the Hive Metastore database's JDBC driver on the machine where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+* Download the Hive Metastore database's JDBC driver on the machine where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). If you scan Azure Databricks's Hive Metastore, download the MariaDB Connector/J version 2.7.5 from [here](https://dlm.mariadb.com/1965742/Connectors/java/connector-java-2.7.5/mariadb-java-client-2.7.5.jar); version 3.0.3 is not supported.
 
   > [!Note]
   > The driver should be accessible to all accounts in the machine. Don't install it in a user account.
@@ -119,10 +119,10 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
     1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location on your machine where the self-hosted integration runtime is running. This should be a valid path to the folder for JAR files.
 
-       If you're scanning Azure Databricks, refer to the information on Azure Databricks in the next step.
-
        > [!Note]
        > The driver should be accessible to all accounts in the machine. Don't install it in a user account.
+       >
+       > If you scan Azure Databricks's Hive Metastore, download the MariaDB Connector/J version 2.7.5 from [here](https://dlm.mariadb.com/1965742/Connectors/java/connector-java-2.7.5/mariadb-java-client-2.7.5.jar). Version 3.0.3 is not supported.
 
     1. **Metastore JDBC Driver Class**: Provide the class name for the connection driver. For example, enter **\com.microsoft.sqlserver.jdbc.SQLServerDriver**.
 
@@ -141,13 +141,15 @@ Use the following steps to scan Hive Metastore databases to automatically identi
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="Screenshot that shows an example connection U R L property." border="true":::
 
        > [!NOTE]
-       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your machine. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. 
        >
-       > When you enter local file system paths in the Azure Purview Studio scan configuration, remember to change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it's placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
+       > [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to the self-hosted integration runtime machine, then update the path to the SSL certificate's location on your machine in the URL. 
+       >
+       > When you enter local file paths in the scan configuration, change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example, if you place the SSL certificate at local file path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change the `serverSslCert` parameter value to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
 
        The **Metastore JDBC URL** value will look like this example:
-
-       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&useSSL=true&sslCA=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
+       
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organizationXXXXXXXXXXXXXXXX?useSSL=true&enabledSslProtocolSuites=TLSv1,TLSv1.1,TLSv1.2&serverSslCert=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
 
     1. **Metastore database name**: Provide the name of the Hive Metastore database.
 

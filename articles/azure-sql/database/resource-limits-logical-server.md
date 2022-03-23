@@ -48,7 +48,6 @@ vCore resource limits are listed in the following articles, please be sure to up
 | DTU / eDTU quota per logical server | 54,000 |
 | vCore quota per logical server | 540 |
 | Max elastic pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
-|||
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per logical server, the following can occur:
@@ -194,7 +193,7 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback control, availability group physical replication in Premium/Business Critical not keeping up |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback control, limiting rates to avoid an out of log space condition |
 | HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Geo-replication feedback control, limiting log rate to avoid high data latency and unavailability of geo-secondaries|
-|||
+
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
 
@@ -223,7 +222,7 @@ WHERE database_id = DB_ID();
 |`slo_name`|Service objective name, including hardware generation|
 |`user_data_directory_space_quota_mb`|**Maximum local storage**, in MB|
 |`user_data_directory_space_usage_mb`|Current local storage consumption by data files, transaction log files, and tempdb files, in MB. Updated every five minutes.|
-|||
+
 
 This query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
 

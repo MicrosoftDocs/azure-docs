@@ -16,6 +16,9 @@ In this article, you'll learn how to download the test results from Azure Load T
 
 The test results contain a comma-separated values (CSV) file with details of each application request. In addition, all files for running the Apache JMeter dashboard locally are included.
 
+> [!NOTE]
+> The Apache JMeter dashboard generation is temporarily disabled. You can download the CSV files with the test results.
+
 :::image type="content" source="media/how-to-export-test-results/apache-jmeter-dashboard.png" alt-text="Screenshot that shows the downloaded test results on the Apache JMeter dashboard.":::
 
 > [!IMPORTANT]

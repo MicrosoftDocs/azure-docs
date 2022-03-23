@@ -23,6 +23,8 @@ This topic shows how to create a Transform with two Transform Outputs. The first
 > [!TIP]
 > Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
 
+## [.NET](#tab/net/)
+
 ## Create a transform
 
 The following code shows how to create a transform that produces two outputs.
@@ -127,10 +129,5 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     return job;
 }
 ```
-## Job error codes
 
-See [Error codes](/rest/api/media/jobs/get#joberrorcode).
-
-## Next steps
-
-[Azure Media Services v3 samples using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 
+---

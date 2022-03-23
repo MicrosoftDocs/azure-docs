@@ -27,7 +27,7 @@ This script creates a virtual machine scale set running Ubuntu and uses host-bas
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/auto-scale-host-metrics/auto-scale-host-metrics.sh" range="4-46":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/auto-scale-host-metrics/auto-scale-host-metrics.sh" id="FullScript":::
 
 ## Clean up resources
 
