@@ -126,7 +126,7 @@ To set the Log Analytics workspace where you want to collect session host data:
 You'll need to install the Log Analytics agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
 
 >[!NOTE]
-> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters). Currently automated deployment is limited to 1000 session hosts or less.
+> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters). Currently automated deployment is limited to 1000 session hosts or fewer.
 
 To set up your remaining session hosts using the configuration workbook:
 
