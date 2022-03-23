@@ -5,7 +5,7 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 11/02/2021
+ms.date: 03/23/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ms.custom: ignite-fall-2021
@@ -16,6 +16,9 @@ ms.custom: ignite-fall-2021
 The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
+
+> [!NOTE]
+> The OPENROWSET function is not supported in dedicated SQL pool.
 
 ## Data source
 
