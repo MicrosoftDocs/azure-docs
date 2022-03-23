@@ -34,6 +34,9 @@ At a high-level, the connector provides the following capabilities:
   * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
   * Support for column pruning.
 
+> [!NOTE]
+> The latest release of the Connector introduced certain default behavior changes for the write path. Please refer to the section [Common Issues](#common-issues) for scenario description and relevant mitigation steps.
+
 ## Orchestration Approach
 
 ### Write
@@ -205,7 +208,7 @@ Benefits of this approach over printing the end state result to console (partial
 
 ## Connector API Documentation
 
-Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/utils/index.html).
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
 
 ## Code Templates
 
@@ -213,7 +216,7 @@ This section presents reference code templates to describe how to use and invoke
 
 ### Write Scenario
 
-#### `synapsesql` Write Method Signature
+#### Write Request - `synapsesql` Method Signature
 
 The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
 
@@ -222,7 +225,7 @@ The method signature for the Connector version built for Spark 2.4.8 has one les
 ```Scala
 synapsesql(tableName:String, 
            tableType:String = Constants.INTERNAL, 
-           location:Option[String] = None)
+           location:Option[String] = None):Unit
 ```
 
 * Spark Pool Version 3.1.2
@@ -231,7 +234,7 @@ synapsesql(tableName:String,
 synapsesql(tableName:String, 
            tableType:String = Constants.INTERNAL, 
            location:Option[String] = None,
-           callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit])
+           callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
 
 #### Write Code Template
@@ -285,7 +288,7 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get    
 ```
 
-#### SaveModes
+#### DataFrame SaveMode Support
 
 Following is a brief description of how the SaveMode setting by the User would translate into actions taken by the Connector:
 
@@ -352,7 +355,7 @@ Following is a sample JSON string with post-write metrics:
 
 ### Read Scenario
 
-#### `synapsesql` Read Method Signature
+#### Read Request - `synapsesql` Method Signature
 
 Following is the signature to leverage `synapsesql` (applies to both Spark 2.4.8 and Spark 3.1.2 Connector versions):
 
@@ -397,7 +400,39 @@ import org.apache.spark.sql.SqlAnalyticsConnector._
 
 ```
 
-### Things to Note
+## Common Issues
+
+The latest release of the Connector introduced certain default behavior changes for the write path. Following is the list of such common behaviors and necessary mitigation steps:
+
+* Error Handling (i.e., throwing exceptions from cells) when writing to Synapse Dedicated SQL Pool.
+  * Context
+    * Typically, when the code in a notebook cell contains an error, an error will be surfaced and notebook execution will stop.
+    * The current implementation of this connector is different, in that any errors will be written to the Driver Logs, but notebook cell execution will continue.
+  * Mitigation
+    * Handling and surfacing the error will allow the Cell execution to fail. Subsequent cell execution will not be attempted (i.e., cancelled).
+    * See section - Write [Code Template](#write-code-template) section for a sample code reference.
+
+* A write request returns a validation error message, as described below
+  * Detailed Error Message
+    `“java.lang.IllegalArgumentException: Valid SQL Server option - logical_server and a valid three-part table name are required to succesfully setup SQL Server connections`.
+  * Mitigation - Specify the write option parameter `Constants.SERVER`as shown below (also included in the [Write Code Template](#write-code-template))
+
+   ```Scala
+    df.write.
+    option(Constants.SERVER, "<sql_server_name-supporting-dedicated-pool>.sql.azuresynapse.net"). //required; can be fetched from Portal – Azure synapse workspace Overview pane - Dedicated SQL endpoint config.
+    option(Constants.TEMP_FOLDER, "abfss://<storage-container-name>@<storage-account-name>.dfs.core.windows.net/temp-tables"). //Defaults to workspace attached primary storage.
+    mode(SaveMode.Overwrite). //Defaults to ErrorIfExists SaveMode option.
+    synapsesql("<db_name>.<schema_name>.<table_name>", Constants.INTERNAL, None, Option(callBackHandle))
+   ```
+
+* Deprecation Warning
+  * Context - When using the `synapsesql` method to write to Synapse Dedicated SQL Pool table, following warning message is displayed below the respective cell:
+    * "warning: there was one deprecation warning; for details, enable `:setting -deprecation' or`:replay -deprecation'"
+  * Mitigation
+    * This is related to the deprecated `sqlanalytics` signature.
+    * End users can safely ignore this warning. This does not effect use of `synapsesql` method.
+  
+## Things to Note
 
 The Connector leverages the capabilities of dependent resources (Azure Storage and Synapse Dedicated SQL Pool) to achieve efficient data transfers. Following are few important aspects must be taken into consideration when tuning for optimized (note, doesn't necessarily mean speed; this also relates to predictable outcomes) performance:
 

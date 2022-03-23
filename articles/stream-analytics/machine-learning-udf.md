@@ -6,7 +6,7 @@ ms.author: sidram
 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 03/22/2022
 ms.custom: devx-track-js
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
@@ -19,11 +19,11 @@ Complete the following steps before you add a machine learning model as a functi
 
 1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-and-where.md).
 
-2. Your scoring script should have [sample inputs and outputs](../machine-learning/how-to-deploy-and-where.md) which is used by Azure Machine Learning to generate a schema specification. Stream Analytics uses the schema to understand the function signature of your web service. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) as a reference to ensure you have set it up correctly.
+2. Your machine learning endpoint must have an associated [swagger](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
-4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal. Models built using [Azure Machine Learning Designer](../machine-learning/concept-designer.md) are not yet supported in Stream Analytics.
+4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal.
 
 ## Add a machine learning model to your job
 
@@ -60,14 +60,14 @@ The following table describes each property of Azure Machine Learning Service fu
 |Function alias|Enter a name to invoke the function in your query.|
 |Subscription|Your Azure subscription..|
 |Azure Machine Learning workspace|The Azure Machine Learning workspace you used to deploy your model as a web service.|
-|Deployments|The web service hosting your model.|
+|Endpoint|The web service hosting your model.|
 |Function signature|The signature of your web service inferred from the API's schema specification. If your signature fails to load, check that you have provided sample input and output in your scoring script to automatically generate the schema.|
 |Number of parallel requests per partition|This is an advanced configuration to optimize high-scale throughput. This number represents the concurrent requests sent from each partition of your job to the web service. Jobs with six streaming units (SU) and lower have one partition. Jobs with 12 SUs have two partitions, 18 SUs have three partitions and so on.<br><br> For example, if your job has two partitions and you set this parameter to four, there will be eight concurrent requests from your job to your web service. At this time of public preview, this value defaults to 20 and cannot be updated.|
 |Max batch count|This is an advanced configuration for optimizing high-scale throughput. This number represents the maximum number of events be batched together in a single request sent to your web service.|
 
-## Supported input parameters
+## Calling machine learning endpoint from your query
 
-When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema. You have to provide a sample input and output in your scoring script to [automatically generate a schema](../machine-learning/how-to-deploy-and-where.md). The schema allows Stream Analytics to construct the JSON serialized request for any of the supported data types such as numpy, pandas and PySpark. Multiple input events can be batched together in a single request.
+When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema that Stream Analytics infers from the endpoint's swagger.
 
 The following Stream Analytics query is an example of how to invoke an Azure Machine Learning UDF:
 
@@ -75,9 +75,14 @@ The following Stream Analytics query is an example of how to invoke an Azure Mac
 SELECT udf.score(<model-specific-data-structure>)
 INTO output
 FROM input
+WHERE <model-specific-data-structure> is not null
 ```
 
-Stream Analytics only supports passing one parameter for Azure Machine Learning functions. You may need to prepare your data before passing it as an input to machine learning UDF. You must ensure the input to ML UDF is not null as null inputs will cause the job to fail.
+If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return a response with error code 400, which will cause your Stream Analytics job to go to a failed state. It is recommended that you [enable resource logs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#send-diagnostics-to-azure-monitor-logs) for your job, which will enable you to easily debug and troubleshoot such problems. Therefore, it is strongly recommended that you:
+
+- Validate input to your ML UDF is not null
+- Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
+
 
 ## Pass multiple input parameters to the UDF
 
@@ -116,10 +121,12 @@ The following JSON is an example request:
 
 ```JSON
 {
-    "data": [
+    "Inputs": {
+        "WebServiceInput0": [
         ["1","Mon","12","1","5.8"],
         ["2","Wed","10","2","10"]
-    ]
+        ]
+    }
 }
 ```
 
@@ -139,26 +146,30 @@ FROM input
 SELECT udf.score(Dataframe)
 INTO output
 FROM Dataframe
+WHERE Dataframe is not null
 ```
 
 The following JSON is an example request from the previous query:
 
 ```JSON
 {
-    "data": [{
+    "Inputs": {
+        "WebServiceInput0": [
+        {
             "vendorid": "1",
             "weekday": "Mon",
             "pickuphour": "12",
             "passenger": "1",
             "distance": "5.8"
-        }, {
+        },
+        {
             "vendorid": "2",
             "weekday": "Tue",
             "pickuphour": "10",
             "passenger": "2",
             "distance": "10"
-        }
-    ]
+        }]
+    }
 }
 ```
 
@@ -168,8 +179,8 @@ When you deploy your model to Azure Kubernetes Service, you can [profile your mo
 
 If you have a scenario with high event throughput, you may need to change the following parameters in Stream Analytics to achieve optimal performance with low end-to-end latencies:
 
-1. Max batch count.
-2. Number of parallel requests per partition.
+- Maximum batch count.
+- Number of parallel requests per partition.
 
 ### Determine the right batch size
 
@@ -179,9 +190,12 @@ After you have deployed your web service, you send sample request with varying b
 
 At optimal scaling, your Stream Analytics job should be able to send multiple parallel requests to your web service and get a response within few milliseconds. The latency of the web service's response can directly impact the latency and performance of your Stream Analytics job. If the call from your job to the web service takes a long time, you will likely see an increase in watermark delay and may also see an increase in the number of backlogged input events.
 
-To prevent such latency, ensure that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md#using-the-cli). It's critical that your web service is highly available and returns successful responses. If your job receives a service unavailable response (503) from your web service, it will continuously retry with exponential back off. Any response other than success (200) and service unavailable (503) will cause your job to go to a failed state.
+You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
+* Bad Request (400)
+* Conflict (409)
+* Not Found (404)
+* Unauthorized (401)
 
 ## Next steps
 
 * [Tutorial: Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)
-* [Scale your Stream Analytics job with Azure Machine Learning Studio (classic) function](stream-analytics-scale-with-machine-learning-functions.md)
