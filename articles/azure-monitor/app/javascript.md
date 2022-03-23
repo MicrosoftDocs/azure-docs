@@ -310,15 +310,7 @@ By default, this SDK will **not** handle state-based route changing that occurs 
 
 ## Single Page Applications
 
-For Single Page Applications please reference their documentation for specific guidance:
-
-| Single Page Applications |
-|---------------|
-| [React](javascript-react-plugin.md#enable-correlation)|
-| [React Native](javascript-react-native-plugin.md#enable-correlation)|
-| [Angular](javascript-angular-plugin.md#enable-correlation)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
-[WordPress]??
+For Single Page Applications please reference [plugin documentation](#extensions) for plugin specific guidance.
 
 ## Extensions
 
