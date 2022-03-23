@@ -25,6 +25,8 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 > [!NOTE] 
 > Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues)
 
+   ![Create managed identity](./media/common/create-managed-identity.png)
+   
 1.	Sign in to the Azure portal by using an account associated with the Azure subscription to create the user-assigned managed identity.
 2.	In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 3.	Select **Add**, and enter values in the following boxes in the **Create User Assigned Managed Identity** pane:
@@ -32,9 +34,6 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     * **Resource group**: Choose a resource group to create the user-assigned managed identity in, or select **Create new** to create a new resource group.
     * **Region**: Choose a region to deploy the user-assigned managed identity, for example, **West US**.
     * **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
-
-   ![Create managed identity](./media/common/create-managed-identity.png)
-
 4. Select **Review + create** to review changes
 5. Select **Create**
 
@@ -58,7 +57,7 @@ After creating your user-assigned identity and configuring your input and output
 > [!NOTE] 
 > After switching to a user-assigned identity for the job, you may have to re-grant access to the inputs and outputs associated with the stream analytics job to use the user-assigned identity for your job to run
 
-1.	Select **Endpoint Management** and grant access to each input and output under connection.
+1.	Select **Endpoint management** and grant access to each input and output under connection.
 2.	Under **connection status** click on **try regranting access** to switch from system-assigned to user-assigned. 
 3.	Wait for a few minutes for the input/output to be granted access to the job.
 
