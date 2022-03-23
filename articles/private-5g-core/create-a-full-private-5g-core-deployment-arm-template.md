@@ -18,7 +18,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - Your private mobile network.
 - A site.
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-and-sim-policy.md)).
-- One or more SIMs.
+- Optionally, one or more SIMs.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -74,7 +74,7 @@ The following Azure resources are defined in the template.
     |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
     |**Site Name**     | Enter a name for your site.        |
     |**Service Name**     | Leave this field unchanged.        |
-    |**SIM Resources**     | Paste in the contents of the JSON file containing your SIM information.        |
+    |**SIM Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field blank.       |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
     |**Control Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
