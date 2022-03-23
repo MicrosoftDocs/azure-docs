@@ -44,8 +44,13 @@ When you work with Rule Set actions, specify server variables by using the follo
 
 * `{variable}`: Include the entire server variable. For example, if the client IP address is `111.222.333.444` then the `{client_ip}` token would evaluate to `111.222.333.444`.
 * `{variable:offset}`: Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:3}` token would evaluate to `.222.333.444`.
-* `{variable:offset:length}`: Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:4:3}` token would evaluate to `222`.
-
+* `{variable:offset:length}`: Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, For example, when the variable var is 'AppId=01f592979c584d0f9d679db3e66a3e5e', 
+    * Offsets within range, no lengths: `{var:0}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:6}` = `01f592979c584d0f9d679db3e66a3e5e`, `{var:-8}` = `e66a3e5e`
+    * Offsets out of range, no lengths: `{var:-128}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:128}` = null
+    * Offsets and lengths within range: `{var:0:5}` = `AppId`, `{var:7:7}` = `1f59297`, `{var:7:-7}` = `1f592979c584d0f9d679db3e`
+    * Zero lengths: `{var:0:0}` = null,  `{var:4:0}` = null 
+    * Offsets within range and lengths out of range: `{var:0:100}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:5:100}` = `=01f592979c584d0f9d679db3e66a3e5e`,  `{var:0:-48}` = null,  `{var:4:-48}` = null
+     
 ## Supported rule set actions
 
 Server variables are supported on the following Rule Set actions:
