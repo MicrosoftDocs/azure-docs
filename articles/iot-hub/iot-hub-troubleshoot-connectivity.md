@@ -1,5 +1,5 @@
 ---
-title: Monitor and troubleshoot device connectivity with Azure IoT Hub
+title: Monitor and troubleshoot device connectivity to Azure IoT Hub
 description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub 
 author: kgremban
 manager: briz
@@ -129,7 +129,7 @@ The query returns both error and informational events for your target device. Th
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/device-connect-event.png" alt-text="Screenshot of deviceConnect event in logs.":::
 
-The `parse_json` function can be time-consuming. In this case, you can try the following query, making sure to replace *test-device* with your device:
+The `parse_json` function can be compute resource-intensive. In this case, you can try the following query, making sure to replace *test-device* with your device:
 
 ```kusto
 AzureDiagnostics
