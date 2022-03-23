@@ -69,7 +69,7 @@ In this section, you'll create a topic in the custom location you created in the
     az eventgrid topic create -g $resourcegroupname --name $topicname --kind azurearc --extended-location-name $customlocationid --extended-location-type customlocation --input-schema CloudEventSchemaV1_0 --location $region    
     ```
 
-    For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+    For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az-eventgrid-topic-create).
 
 ## Create a message endpoint
 
@@ -97,7 +97,7 @@ az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> --source
 ```
 
 
-For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
+For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 ## Send events to the topic
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 

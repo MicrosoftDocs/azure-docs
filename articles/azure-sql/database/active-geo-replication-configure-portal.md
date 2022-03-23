@@ -93,7 +93,7 @@ Select the database you want to set up for geo-replication. You'll need the foll
 
 You can select any region for your secondary server, but we recommend the [paired region](../../availability-zones/cross-region-replication-azure.md).
 
-Run the [az sql db replica create](/cli/azure/sql/db/replica#az_sql_db_replica_create) command.
+Run the [az sql db replica create](/cli/azure/sql/db/replica#az-sql-db-replica-create) command.
 
 ```azurecli
 az sql db replica create --resource-group ContosoHotel --server contosoeast --name guestlist --partner-server contosowest --family Gen5 --capacity 2 --secondary-type Geo
@@ -103,7 +103,7 @@ Optionally, you can add a secondary database to an elastic pool. To create the s
 
 The secondary database is created and the deployment process begins.
 
-When the deployment is complete, you can check the status of the secondary database by running the [az sql db replica list-links](/cli/azure/sql/db/replica#az_sql_db_replica_list-links) command:
+When the deployment is complete, you can check the status of the secondary database by running the [az sql db replica list-links](/cli/azure/sql/db/replica#az-sql-db-replica-list-links) command:
     
 ```azurecli
 az sql db replica list-links --name guestlist --resource-group ContosoHotel --server contosowest
@@ -126,7 +126,7 @@ The secondary database can be switched to become the primary.
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the [az sql db replica set-primary](/cli/azure/sql/db/replica#az_sql_db_replica_set-primary) command.
+Run the [az sql db replica set-primary](/cli/azure/sql/db/replica#az-sql-db-replica-set-primary) command.
 
 ```azurecli
 az sql db replica set-primary --name guestlist --resource-group ContosoHotel --server contosowest
@@ -156,7 +156,7 @@ This operation permanently stops the replication to the secondary database, and 
  
 # [Azure CLI](#tab/azure-cli)
 
-Run the [az sql db replica delete-link](/cli/azure/sql/db/replica#az_sql_db_replica_delete-link) command.
+Run the [az sql db replica delete-link](/cli/azure/sql/db/replica#az-sql-db-replica-delete-link) command.
 
 ```azurecli
 az sql db replica delete-link --name guestlist --resource-group ContosoHotel --server contosoeast --partner-server contosowest

@@ -142,15 +142,15 @@ The Azure CLI 2.26.0 (or higher) is required to run these commands with UMI.
 
 #### Azure SQL Database
 
-- To provision a new server with UMI, use the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
-- To obtain the UMI server information, use the [az sql server show](/cli/azure/sql/server#az_sql_server_show) command. 
-- To update the UMI server setting, use the [az sql server update](/cli/azure/sql/server#az_sql_server_update) command.
+- To provision a new server with UMI, use the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command.
+- To obtain the UMI server information, use the [az sql server show](/cli/azure/sql/server#az-sql-server-show) command. 
+- To update the UMI server setting, use the [az sql server update](/cli/azure/sql/server#az-sql-server-update) command.
 
 #### Azure SQL Managed Instance
 
-- To provision a new managed instance with UMI, use the [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) command.
-- To obtain the UMI managed instance information, use the [az sql server show](/cli/azure/sql/mi#az_sql_mi_show) command.
-- To update the UMI managed instance setting, use the [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) command.
+- To provision a new managed instance with UMI, use the [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create) command.
+- To obtain the UMI managed instance information, use the [az sql server show](/cli/azure/sql/mi#az-sql-mi-show) command.
+- To update the UMI managed instance setting, use the [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) command.
 
 ### Create or set a managed identity using PowerShell
 

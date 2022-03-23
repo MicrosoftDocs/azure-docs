@@ -178,7 +178,7 @@ You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 
    ```
 
-4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create) create command. Provide the name of your JSON document by using the `--policy` parameter.
+4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az-storage-account-blob-inventory-policy-create) create command. Provide the name of your JSON document by using the `--policy` parameter.
 
    ```azurecli
    az storage account blob-inventory-policy create -g myresourcegroup --account-name mystorageaccount --policy @policy.json

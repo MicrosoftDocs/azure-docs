@@ -92,7 +92,7 @@ You can interact directly with version sets by using the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) command:
+To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az-apim-api-versionset-list) command:
 
 ```azurecli
 az apim api versionset list --resource-group apim-hello-world-resource-group \
@@ -101,7 +101,7 @@ az apim api versionset list --resource-group apim-hello-world-resource-group \
 
 When the Azure portal creates a version set for you, it assigns an alphanumeric name, which appears in the **Name** column of the list. Use this name in other Azure CLI commands.
 
-To see details about a version set, run the [az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) command:
+To see details about a version set, run the [az apim api versionset show](/cli/azure/apim/api/versionset#az-apim-api-versionset-show) command:
 
 ```azurecli
 az apim api versionset show --resource-group apim-hello-world-resource-group \
