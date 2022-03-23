@@ -39,4 +39,4 @@ The **Alerts** page summarizes all your alert instances across Azure. You can mo
  
 Selecting any alert instance opens the **Alert Details** page, allowing you to see more details about that specific alert instance.   
 
-:::image type="content" source="media/alerts-managing-alert-instances/alert-details.jpg" alt-text="Screenshot of alerts page.":::
+:::image type="content" source="media/alerts-managing-alert-instances/alert-details.jpg" alt-text="Screenshot of alerts details page.":::
