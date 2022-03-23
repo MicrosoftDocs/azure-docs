@@ -123,7 +123,10 @@ node/aks-nodepool1-31721111-vmss000002 cordoned
 ## Drain the existing nodes
 
 > [!IMPORTANT]
-> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher.
+> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher. For more information, see:
+> * [Plan for availability using a pod disruption budget][pod-disruption-budget]
+> * [Specifying a Disruption Budget for your Application][specify-disruption-budget]
+> * [Disruptions][disruptions]
 
 Draining nodes will cause pods running on them to be evicted and recreated on the other, schedulable nodes.
 
@@ -184,10 +187,7 @@ You may see an error like the following:
 By default, your cluster has AKS_managed pod disruption budgets (such as `coredns-pdb` or `konnectivity-agent`) with a `MinAvailable` of 1. If, for example, there are two `coredns` pods running, while one of them is getting recreated and is unavailable, the other is unable to be affected due to the pod disruption budget. This resolves itself after the initial `coredns` pod is scheduled and running, allowing the second pod to be properly evicted and recreated.
 
 > [!TIP]
-> Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. For more information, see:
-> * [Plan for availability using a pod disruption budget][pod-disruption-budget]
-> * [Specifying a Disruption Budget for your Application][specify-disruption-budget]
-> * [Disruptions][disruptions]
+> Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. 
 
 ## Remove the existing node pool
 
