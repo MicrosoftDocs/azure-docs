@@ -30,6 +30,35 @@ A role has one or more privileges. Roles are assigned to users (zero or more) to
 ### Diagnostic log auditing
 An additional column called "userId" has been added to the MongoRequests table in the Azure Portal Diagnostics feature. This column will identify which user performed which data plan operation. The value is in this column is empyty when RBAC is not enabled. 
 
+## Available Privileges
+#### Query and Write
+* find
+* insert
+* remove
+* update
+
+#### Change Streams
+* changeStream
+
+#### Database Management
+* createCollection
+* createIndex 
+* dropCollection
+* killCursors
+* killAnyCursor
+
+#### Server Administration 
+* dropDatabase
+* dropIndex
+* reIndex
+
+#### Diagnostics
+* collStats
+* dbStats
+* listDatabases
+* listCollections
+* listIndexes
+
 ## RBAC Commands
 
 ### CLI - Create Role Definition
@@ -198,10 +227,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 ## Limitations
 
-- You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
-- You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
-- Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
-- The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
+- The number of users + roles you can create must equal less than 10,000. 
 - listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
 
 ## Frequently asked questions
