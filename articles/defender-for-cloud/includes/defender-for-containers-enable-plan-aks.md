@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 01/10/2022
-ms.author: memildin
+ms.author: elkrieger
 ---
 ## Enable the plan
 
@@ -89,7 +89,7 @@ Request query parameters:
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
 | ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
-|                |                                    |           |
+
  
 Request Body:
  
@@ -114,7 +114,7 @@ Request body parameters:
 | location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
 | properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
-|                                                                          |                                                                                          |           |
+
 
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
