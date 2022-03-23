@@ -93,6 +93,77 @@ az network bastion create \
 
 It can take a few minutes for the Azure Bastion host to deploy.
 
+## Create the load balancer
+
+This section details how you can create and configure the following components of the load balancer:
+  
+* A frontend IP pool that receives the incoming network traffic on the load balancer
+
+* A backend IP pool where the frontend pool sends the load balanced network traffic
+
+* A health probe that determines health of the backend VM instances
+
+* A load balancer rule that defines how traffic is distributed to the VMs
+
+### Create the load balancer resource
+
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group CreateIntLBQS-rg \
+    --name myLoadBalancer \
+    --sku Standard \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool
+```
+
+### Create the health probe
+
+A health probe checks all virtual machine instances to ensure they can send network traffic. 
+
+A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
+
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create).
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group CreateIntLBQS-rg \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80
+```
+
+### Create a load balancer rule
+
+A load balancer rule defines:
+
+* Frontend IP configuration for the incoming traffic
+
+* The backend IP pool to receive the traffic
+
+* The required source and destination port
+
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create).
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group CreateIntLBQS-rg \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
+```
+
 ## Create a network security group
 
 For a standard load balancer, the VMs in the backend pool are required to have network interfaces that belong to a network security group. 
@@ -171,78 +242,6 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
 It can take a few minutes for the VMs to deploy.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-
-## Create the load balancer
-
-This section details how you can create and configure the following components of the load balancer:
-  
-* A frontend IP pool that receives the incoming network traffic on the load balancer
-
-* A backend IP pool where the frontend pool sends the load balanced network traffic
-
-* A health probe that determines health of the backend VM instances
-
-* A load balancer rule that defines how traffic is distributed to the VMs
-
-### Create the load balancer resource
-
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create).
-
-```azurecli-interactive
-  az network lb create \
-    --resource-group CreateIntLBQS-rg \
-    --name myLoadBalancer \
-    --sku Standard \
-    --vnet-name myVNet \
-    --subnet myBackendSubnet \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool
-```
-
-### Create the health probe
-
-A health probe checks all virtual machine instances to ensure they can send network traffic. 
-
-A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
-
-Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create).
-
-```azurecli-interactive
-  az network lb probe create \
-    --resource-group CreateIntLBQS-rg \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80
-```
-
-### Create a load balancer rule
-
-A load balancer rule defines:
-
-* Frontend IP configuration for the incoming traffic
-
-* The backend IP pool to receive the traffic
-
-* The required source and destination port
-
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create).
-
-```azurecli-interactive
-  az network lb rule create \
-    --resource-group CreateIntLBQS-rg \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
-    --idle-timeout 15 \
-    --enable-tcp-reset true
-```
 
 ## Add virtual machines to the load balancer pool
 
