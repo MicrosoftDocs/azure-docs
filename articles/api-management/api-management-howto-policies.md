@@ -1,13 +1,13 @@
 ---
 title: Policies in Azure API Management | Microsoft Docs
-description: Learn how to create, edit, and configure policies in API Management. See code examples and other available resources.
+description: Learn about policies in API Management, a way for API publishers to change API behavior through configuration. Policies are statements that run sequentially on the request or response of an API.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/01/2022
+ms.date: 03/23/2022
 ms.author: danlep
 
 ---
@@ -25,9 +25,12 @@ Policies are applied inside the gateway between the API consumer and the managed
 
 ## <a name="sections"> </a>Understanding policy configuration
 
-Policy definitions are simple XML documents that describe a sequence of inbound and outbound statements. The policy editor in the Azure portal provides a guided experience to design and manage policy definitions, and you can also edit the XML directly. 
-* For more information about configuring policies, see [Set or edit policies](set-edit-policies.md).
-* For policy XML examples, see [API Management policy samples](./policies/index.md). 
+Policy definitions are simple XML documents that describe a sequence of statements to apply to requests and responses. To help you configure policy definitions, the portal provides these options:
+
+* A guided, form-based editor to simplify configuring popular policies without coding XML 
+* A code editor where you can insert XML snippets or edit XML directly 
+
+For more information about configuring policies, see [Set or edit policies](set-edit-policies.md).
 
 The policy XML configuration is divided into `inbound`, `backend`, `outbound`, and `on-error` sections. This series of specified policy statements is executed in order for a request and a response.
 
@@ -48,6 +51,8 @@ The policy XML configuration is divided into `inbound`, `backend`, `outbound`, a
   </on-error>
 </policies> 
 ```
+
+For policy XML examples, see [API Management policy samples](./policies/index.md). 
 
 ### Error handling
 
