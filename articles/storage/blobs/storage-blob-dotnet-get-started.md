@@ -17,7 +17,7 @@ ms.custom: template-how-to
 
 This article shows you to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
-[Object model overview](storage-blob-dotnet-object-model.md) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+[Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## Prerequisites
 
@@ -33,13 +33,15 @@ This article shows you to connect to Azure Blob Storage by using the Azure Blob 
 The Azure Blob Storage client library v12 for .NET is organized into the three namespaces:
 
 - [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
+
 - [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
+
 - [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
 
 The following image shows each namespace and some of the classes available in them.
 
 > [!div class="mx-imgBorder"]
-> ![.NET object namespaces](./media/storage-blob-dotnet-object-model/dotnet-object-namespaces.png)
+> ![.NET object namespaces](./media/storage-blob-dotnet-get-started/dotnet-object-namespaces.png)
 
 To use the classes in these namespaces, you'll have to add the `Azure.Storage.Blobs` package to your project and then add using statements to the top of your code files. 
 
@@ -73,15 +75,17 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
-Each type of resource is represented by one or more associated .NET classes.
+Each type of resource is represented by one or more associated .NET classes. These are the basic classes:
 
-These are the basic classes:
+- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): Represents the Blob Storage endpoint for your storage account. 
 
-- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The BlobServiceClient class represents the Blob Storage endpoint for your storage account. You can use it to manage service properties, create and delete blob containers, get geo-replication stats, and generate a shared access signature for the account.
-- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient): The `AppendBlobClient` class allows you to perform operations specific to append blobs such as periodically appending log data.
-- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient): The `BlockBlobClient` class allows you to perform operations specific to block blobs such as staging and then committing blocks of data.
+- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): Allows you to manipulate Azure Storage containers and their blobs.
+
+- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): Allows you to manipulate Azure Storage blobs.
+
+- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient): Allows you to perform operations specific to append blobs such as periodically appending log data.
+
+- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient): The `BlockBlobClient` Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.
 
 ## Connect to Blob Storage
 
@@ -227,13 +231,7 @@ When you're ready to build your application, see any of these guides. Each guide
 
 | Containers | Blobs |
 |---|----|
-|[Create a container](storage-blob-container-create.md)|[Upload a blobs](storage-blob-upload.md)|
-|[Delete and restore](storage-blob-container-delete.md)|[Append data to blobs](storage-blob-append.md)|
-|[List containers](storage-blob-containers-list.md)|[Copy blobs](storage-blob-copy.md)|
-|[Manage properties and metadata](storage-blob-container-properties-metadata.md)|[List blobs](storage-blobs-list.md)|
-|[Create and manage leases (blobs & containers)](storage-blob-container-lease.md)|[Delete and restore](storage-blob-delete.md)|
-||[Find blobs using tags](storage-blob-tags.md)|
-||[Manage properties and metadata](storage-blob-properties-metadata.md)|
+|<li>[Create a container](storage-blob-container-create.md)<li>[Delete and restore](storage-blob-container-delete.md)<li>[List containers](storage-blob-containers-list.md)<li>[Manage properties and metadata](storage-blob-container-properties-metadata.md)<li>[Create and manage leases](storage-blob-container-lease.md)|<li>[Append data to blobs](storage-blob-append.md)<li>[Upload a blobs](storage-blob-upload.md)<li>[Copy blobs](storage-blob-copy.md)<li>[List blobs](storage-blobs-list.md)<li>[Delete and restore](storage-blob-delete.md)<li>[Find blobs using tags](storage-blob-tags.md)<li>[Manage properties and metadata](storage-blob-properties-metadata.md)|
 
 ## See also
 
