@@ -29,13 +29,13 @@ Azure Data Factory is the platform that solves such data scenarios. It is the *c
 
 Additionally, you can publish your transformed data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume. Ultimately, through Azure Data Factory, raw data can be organized into meaningful data stores and data lakes for better business decisions.
 
-:::image type="content" source="media/data-flow/overview.png" alt-text="Top-level view of Data Factory":::
-
 ## How does it work?
 
 Data Factory contains a series of interconnected systems that provide a complete end-to-end platform for data engineers.
 
-This visual guide provides a high-level overview of the Data Factory architecture:
+:::image type="content" source="media/data-flow/overview.png" alt-text="Shows a top-level architecture diagram of Azure Data Factory.":::
+
+This visual guide provides a detailed overview of the complete Data Factory architecture:
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="A detailed visual guide to the complete system architecture for Azure Data Factory, presented in a single high resolution image." lightbox="media\introduction\data-factory-visual-guide.png":::
 
