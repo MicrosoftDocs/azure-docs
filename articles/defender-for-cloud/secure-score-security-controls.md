@@ -30,7 +30,7 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
     :::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-mobile.png" alt-text="Overall secure score as shown in the Azure mobile app.":::
 
-To increase your security, review Defender for Cloud's recommendations page and remediate the recommendation by implementating the remediation instructions for each issue. Recommendations are grouped into **security controls**. Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. Your score only improves when you remediate *all* of the recommendations for a single resource within a control. To see how well your organization is securing each individual attack surface, review the scores for each security control.
+To increase your security, review Defender for Cloud's recommendations page and remediate the recommendation by implementing the remediation instructions for each issue. Recommendations are grouped into **security controls**. Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. Your score only improves when you remediate *all* of the recommendations for a single resource within a control. To see how well your organization is securing each individual attack surface, review the scores for each security control.
 
 For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
@@ -90,7 +90,7 @@ The table below lists the security controls in Microsoft Defender for Cloud. For
 
 The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations. 
  
-We recommend every organization carefully review their assigned Azure Policy initiatives.
+We recommend every organization carefully reviews their assigned Azure Policy initiatives.
 
 > [!TIP]
 > For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
