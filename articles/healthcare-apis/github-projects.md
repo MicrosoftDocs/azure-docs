@@ -60,7 +60,7 @@ The FHIR to CDM Pipeline Generator is a tool to generate an ADF pipeline for mov
 
 This solution enables you to transform the data into tabular format as it gets written to CDM folder. You should consider this solution if you want to transform FHIR data into a custom schema as it is extracted from the FHIR server.
 
-## IoT connector
+## MedTech service
 
 #### Integration with IoT Hub and IoT Central
 

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.author: jasteppe
 ---
 
@@ -16,7 +16,7 @@ In this article, you'll learn how to display MedTech service metrics in the Azur
 
 ## Display metrics
 
-1. Within your Azure Health Data Services Workspace, select **MedTech service**. 
+1. Within your Azure Health Data Services workspace, select **MedTech service**. 
 
    :::image type="content" source="media\iot-metrics\iot-workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service button." lightbox="media\iot-metrics\iot-connectors-button.png"::: 
 
@@ -74,7 +74,7 @@ In this article, you'll learn how to display MedTech service metrics in the Azur
 
 ## Next steps
 
-To learn how to export Iot connector metrics, see
+To learn how to export MedTech service metrics, see
 
 >[!div class="nextstepaction"]
 >[Configure diagnostic setting for MedTech service metrics exporting](./iot-metrics-diagnostics-export.md)
