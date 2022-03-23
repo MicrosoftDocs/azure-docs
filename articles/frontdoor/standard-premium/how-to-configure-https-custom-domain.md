@@ -113,9 +113,9 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 1. Follow the on-screen steps to validate the certificate. Then associate the newly created custom domain to an endpoint as outlined in [creating a custom domain](how-to-add-custom-domain.md) guide.
 
-#### Certificate renewal and changing certificate types
+## Certificate renewal and changing certificate types
 
-##### Azure managed certificate
+### Azure managed certificate
 
 Azure managed certificate will be automatically rotated when your custom domain has the CNAME record to an Azure Front Door standard or premium endpoint. The auto rotation won't happen for the two scenarios below 
 
@@ -125,7 +125,7 @@ Azure managed certificate will be automatically rotated when your custom domain 
 
 The domain validation state will become ‘Pending Revalidation’ 45 days before managed certificate expiry or ‘Rejected’ if the managed certificate issuance is rejected by the certificate authority.  Refer to Add a custom domain for actions for different domain state. 
 
-##### Use your own certificate 
+### Use your own certificate 
 
 In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be automatically deployed.  
 
