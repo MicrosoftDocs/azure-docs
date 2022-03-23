@@ -17,7 +17,7 @@ This article shows you how to create an endpoint for an existing Azure Front Doo
 
 Before you can create an Azure Front Door endpoint with Front Door manager, you must have an Azure Front Door profile created. The profile must have at least one or more endpoints. To organize your Azure Front Door endpoints by internet domains, web applications, or other criteria, you can use multiple profiles. 
 
-To create an Azure Front Door profile, see [Create a Azure Front Door](create-front-door-portal.md).
+To create an Azure Front Door profile, see [create a Azure Front Door](create-front-door-portal.md).
 
 ## Create a new Azure Front Door endpoint
 
@@ -27,7 +27,7 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
    
     :::image type="content" source="./media/how-to-configure-endpoints/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Front Door manager." lightbox="./media/how-to-configure-endpoints/select-create-endpoint-expanded.png":::
 
-1. On the **Add an endpoint** page, enter, and select the following settings.
+1. On the **Add an endpoint** page, enter a unique name for the endpoint.
     
     :::image type="content" source="./media/how-to-configure-endpoints/create-endpoint-page.png" alt-text="Screenshot of add an endpoint page.":::
 
@@ -38,7 +38,7 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
 ### Add a route
 
-1. To add a **Route**, first expand an **Endpoint** from the list of endpoints on the Front Door manager page.
+1. To add a **Route**, first expand an endpoint from the list of endpoints in the Front Door manager.
 
     :::image type="content" source="./media/how-to-configure-endpoints/select-endpoint.png" alt-text="Screenshot of list of endpoints in Front Door manager." lightbox="./media/how-to-configure-endpoints/select-endpoint-expanded.png":::
 
@@ -93,7 +93,7 @@ To create an Azure Front Door profile, see [Create a Azure Front Door](create-fr
 
 ## Clean up resources
 
-First, remove any security policies associated with the endpoint. Then select **Delete endpoint** to remove the endpoint from the Azure Front Door profile.
+In order to remove an endpoint, you first have to remove any security policies associated with the endpoint. Then select **Delete endpoint** to remove the endpoint from the Azure Front Door profile.
 
 :::image type="content" source="./media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of the delete endpoint button from inside an endpoint." lightbox="./media/how-to-configure-endpoints/delete-endpoint-expanded.png":::
 
