@@ -51,6 +51,8 @@ The workflow for exchanging an external token for an access token is the same, h
 1. When the checks are satisfied, Microsoft identity platform issues an access token to the external workload.
 1. The external workload accesses Azure AD protected resources using the access token from Microsoft identity platform. A GitHub Actions workflow, for example, uses the access token to publish a web app to Azure App Service.
 
+Please note that when downloading signing keys from the external IdP's OIDC endpoint, Microsoft identity platform will store only the first 10 keys. If the external IdP exposes more than 10 signing keys, you may experience errors when using Workload Identity Federation.
+
 ## Next steps
 Learn more about how workload identity federation works:
 - How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
