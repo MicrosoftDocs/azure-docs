@@ -13,12 +13,12 @@ ms.custom: devdivchpfy22
 > [!NOTE]
 > If you're using a version of Azure Lab Services prior to the [January 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery in Azure Lab Services (deprecated)](how-to-attach-detach-shared-image-gallery-1.md).
 
-This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
+This article shows you how to attach or detach an Azure compute gallery to a lab plan.
 
 > [!IMPORTANT]
 > Lab plan administrators must manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the compute gallery. An Azure compute gallery image must be replicated to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
 
-Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure compute gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
+Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure compute gallery pricing, see [Azure compute gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
 
 ## Scenarios
 
@@ -39,7 +39,7 @@ A lab creator can create a template VM based on both generalized and specialized
 > [!IMPORTANT]
 > Your user account must have permission to create a new Azure compute gallery.
 
-1. Open your lab plan in the [Azure portal](https://portal.azure.com.).
+1. Open your lab plan in the [Azure portal](https://portal.azure.com).
 1. Select **Azure compute gallery** on the menu.
 1. Select the **Create Azure compute gallery** button.  
 
@@ -59,7 +59,7 @@ In the bottom pane, you see images in the compute gallery. There are no images i
 
 The following procedure shows you how to attach an existing compute gallery to a lab plan.
 
-1. Open your lab plan in the [Azure portal](https://portal.azure.com.).
+1. Open your lab plan in the [Azure portal](https://portal.azure.com).
 1. Select **Azure compute gallery** on the menu.
 1. Select the **Attach existing gallery** button.  
 
@@ -94,7 +94,7 @@ To disable selected images:
 
 To detach a compute gallery from your lab, select **Detach** on the toolbar. Confirm the detach operation.  
 
-Only one Azure Compute Gallery can be attached to a lab. If you would like to attach another compute gallery, select **Change gallery** on the toolbar. Confirm the change operation. On the **Attach an existing compute gallery** page, select your compute gallery. And then, select the **Select** button.
+Only one Azure compute gallery can be attached to a lab. If you would like to attach another compute gallery, select **Change gallery** on the toolbar. Confirm the change operation. On the **Attach an existing compute gallery** page, select your compute gallery. And then, select the **Select** button.
 
 :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-detach.png" alt-text="Detach the compute gallery from the lab plan":::
 
