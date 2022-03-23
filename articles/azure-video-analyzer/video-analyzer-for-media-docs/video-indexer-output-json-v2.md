@@ -61,8 +61,8 @@ To get insights produced by the API:
 |`isEditable`|Indicates whether the current user is authorized to edit the playlist.|
 |`isBase`|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |`durationInSeconds`|The total duration of the playlist.|
-|`summarizedInsights`|Contains one [summarizedInsights](#summarizedinsights).
-|`videos`|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
+|`summarizedInsights`|Contains one [summarized insight](#summarizedinsights).
+|`videos`|A list of [videos](#videos) that construct the playlist.<br/>If this playlist is constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
 {
@@ -83,27 +83,27 @@ To get insights produced by the API:
 }
 ```
 
-## summarizedInsights
+## Summarized insights
 
 This section shows the summary of the insights.
 
 |Attribute | Description|
 |---|---|
-|`name`|The name of the video. For example, Azure Monitor.|
-|`id`|The ID of the video. For example, 63c6d532ff.|
-|`privacyMode`|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
-|`duration`|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
+|`name`|The name of the video. For example, `Azure Monitor`.|
+|`id`|The ID of the video. For example, `63c6d532ff`.|
+|`privacyMode`|Your breakdown can have one of the following modes: A `Public` video is visible to everyone in your account and anyone who has a link to the video. A `Private` video is visible to everyone in your account.|
+|`duration`|The time when an insight occurred, in seconds.|
 |`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.
-|`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
-|`faces/animatedCharacters`|May contain zero or more faces. For more detailed information, see [faces/animatedCharacters](#facesanimatedcharacters).|
-|`keywords`|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
-|`sentiments`|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
-|`audioEffects`| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects-preview).|
-|`labels`| May contain zero or more labels. For detailed more information, see [labels](#labels).|
-|`brands`| May contain zero or more brands. For more detailed information, see [brands](#brands).|
-|`statistics` | For more detailed information, see [statistics](#statistics).|
-|`emotions`| May contain zero or more emotions. For More detailed information, see [emotions](#emotions).|
-|`topics`|May contain zero or more topics. The [topics](#topics) insight.|
+|`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it `thumbnailVideoId` and `thumbnailId`.|
+|`faces/animatedCharacters`|Contains zero or more faces. For more information, see [faces/animatedCharacters](#facesanimatedcharacters).|
+|`keywords`|Contains zero or more keywords. For more information, see [keywords](#keywords).|
+|`sentiments`|Contains zero or more sentiments. For more information, see [sentiments](#sentiments).|
+|`audioEffects`| Contains zero or more audio effects. For more information, see [audioEffects](#audioeffects-preview).|
+|`labels`| Contains zero or more labels. For more information, see [labels](#labels).|
+|`brands`| Contains zero or more brands. For more information, see [brands](#brands).|
+|`statistics` | For more information, see [statistics](#statistics).|
+|`emotions`| Contains zero or more emotions. For more information, see [emotions](#emotions).|
+|`topics`|Contains zero or more topics. For more information, see [topics](#topics).|
 
 ## videos
 
@@ -112,24 +112,24 @@ This section shows the summary of the insights.
 |`accountId`|The video's VI account ID.|
 |`id`|The video's ID.|
 |`name`|The video's name.
-|`state`|The video's state (uploaded, processing, processed, failed, or quarantined).|
+|`state`|The video's state (`Uploaded`, `Processing`, `Processed`, `Failed`, or `Quarantined`.|
 |`processingProgress`|The progress during processing (for example, `20%`).|
-|`failureCode`|The failure code if failed to process (for example, 'UnsupportedFileType').|
-|`failureMessage`|The failure message if failed to process.|
-|`externalId`|The video's external ID (if specified by the user).|
-|`externalUrl`|The video's external url (if specified by the user).|
-|`metadata`|The video's external metadata (if specified by the user).|
+|`failureCode`|The failure code if the video failed to process (for example, `UnsupportedFileType`).|
+|`failureMessage`|The failure message if the video failed to process.|
+|`externalId`|The video's external ID (if the user specifies one).|
+|`externalUrl`|The video's external URL (if the user specifies one).|
+|`metadata`|The video's external metadata (if the user specifies one).|
 |`isAdult`|Indicates whether the video was manually reviewed and identified as an adult video.|
 |`insights`|The insights object. For more information, see [insights](#insights).|
-|`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
-|`publishedUrl`|A url to stream the video.|
-|`publishedUrlProxy`|A url to stream the video from (for Apple devices).|
-|`viewToken`|A short lived view token for streaming the video.|
+|`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it the video ID and thumbnail ID.|
+|`publishedUrl`|A URL to stream the video.|
+|`publishedUrlProxy`|A URL to stream the video on Apple devices.|
+|`viewToken`|A short-lived view token for streaming the video.|
 |`sourceLanguage`|The video's source language.|
 |`language`|The video's actual language (translation).|
 |`indexingPreset`|The preset used to index the video.|
 |`streamingPreset`|The preset used to publish the video.|
-|`linguisticModelId`|The CRIS model used to transcribe the video.|
+|`linguisticModelId`|The transcript customization (CRIS) model used to transcribe the video.|
 |`statistics` | For more information, see [statistics](#statistics).|
 
 ```json
@@ -159,18 +159,18 @@ This section shows the summary of the insights.
 ```
 ### insights
 
-Each insight (for example, transcript lines, faces, brands, etc.), contains a list of unique elements (for example, face1, face2, face3), and each element has its own metadata and a list of its instances (which are time ranges with additional optional metadata).
+Each insight (for example, transcript lines, faces, or brands), contains a list of unique elements (for example, face1, face2, face3). Each element has its own metadata and a list of its instances (which are time ranges with additional metadata).
 
-A face might  have an ID, a name, a thumbnail, other metadata, and a list of its temporal instances (for example: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 and 00:41:21 – 00:41:49.) Each temporal instance can have additional metadata. For example, the face's rectangle coordinates (20,230,60,60).
+A face might have an ID, a name, a thumbnail, other metadata, and a list of its temporal instances (for example, 00:00:05 – 00:00:10, 00:01:00 - 00:02:30, and 00:41:21 – 00:41:49). Each temporal instance can have additional metadata. For example, the metadata can include the face's rectangle coordinates (20,230,60,60).
 
 |Version|The code version|
 |---|---|
-|`sourceLanguage`|The video's source language (assuming one master language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
-|`language`|The insights language (translated from the source language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
+|`sourceLanguage`|The video's source language (assuming one master language), in the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
+|`language`|The insights language (translated from the source language), in the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |`transcript`|The [transcript](#transcript) insight.|
 |`ocr`|The [OCR](#ocr) insight.|
 |`keywords`|The [keywords](#keywords) insight.|
-|`blocks`|May contain one or more [blocks](#blocks)|
+|`blocks`|Might contain one or more [blocks](#blocks).|
 |`faces/animatedCharacters`|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |`labels`|The [labels](#labels) insight.|
 |`shots`|The [shots](#shots) insight.|
@@ -209,7 +209,7 @@ Example:
 Attribute | Description
 ---|---
 `id`|ID of the block.|
-instances|A list of time ranges of this block.|
+instances|A list of time ranges for this block.|
 
 #### transcript
 
@@ -217,10 +217,10 @@ instances|A list of time ranges of this block.|
 |---|---|
 |`id`|The line ID.|
 |`text`|The transcript itself.|
-|`confidence`|The transcript accuracy confidence.|
+|`confidence`|The confidence level for transcript accuracy.|
 |`speakerId`|The ID of the speaker.|
-|`language`|The transcript language. Intended to support transcript where each line can have a different language.|
-|`instances`|A list of time ranges where this line appeared. If the instance is transcript, it will have only one instance.|
+|`language`|The transcript language. Intended to support transcripts where each line can have a different language.|
+|`instances`|A list of time ranges where this line appeared. If the instance is in a transcript, it will have only one instance.|
 
 Example:
 
@@ -266,12 +266,12 @@ Example:
 |`text`|The OCR text.|
 |`confidence`|The recognition confidence.|
 |`language`|The OCR language.|
-|`instances`|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
+|`instances`|A list of time ranges where this OCR appeared. (The same OCR can appear multiple times.)|
 |`height`|The height of the OCR rectangle.|
-|`top`|The top location in px.|
-|`left`|The left location in px.|
+|`top`|The top location, in pixels.|
+|`left`|The left location, in pixels.|
 |`width`|The width of the OCR rectangle.|
-|`angle`|The angle of the OCR rectangle, from -180 to 180. 0 means left to right horizontal, 90 means top to bottom vertical, 180 means right to left horizontal, and -90 means bottom to top vertical. 30 means from top left to bottom right. |
+|`angle`|The angle of the OCR rectangle, from `-180` to `180`. `0` means left to right horizontal, `90` means top to bottom vertical, `180` means right to left horizontal, and `-90` means bottom to top vertical. `30` means from top left to bottom right. |
 
 ```json
 "ocr": [
@@ -303,7 +303,7 @@ Example:
 |`text`|The keyword text.|
 |`confidence`|The keyword's recognition confidence.|
 |`language`|The keyword language (when translated).|
-|`instances`|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
+|`instances`|A list of time ranges where this keyword appeared. (A keyword can appear multiple times.)|
 
 ```json
 {
@@ -328,23 +328,23 @@ Example:
 
 #### faces/animatedCharacters
 
-`animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Analyzer for Media runs it on keyframes.
+The `animatedCharacters` element replaces `faces` if the video was indexed with an animated characters model. This indexing is done through a custom model in Custom Vision. Video Analyzer for Media runs it on keyframes.
 
-If faces (not animated characters) are present, Video Analyzer for Media uses Face API on all the video's frames to detect faces and celebrities.
+If faces (not animated characters) are present, Video Analyzer for Media uses the Face API on all the video's frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
 |`id`|The face ID.|
-|`name`|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
-|`confidence`|The face identification confidence.|
+|`name`|The name of the face. It can be `Unknown #0`, an identified celebrity, or a customer-trained person.|
+|`confidence`|The level of confidence in face identification.|
 |`description`|A description of the celebrity. |
 |`thumbnailId`|The ID of the thumbnail of that face.|
-|`knownPersonId`|If it is a known person, its internal ID.|
-|`referenceId`|If it is a Bing celebrity, its Bing ID.|
+|`knownPersonId`|If it's a known person, the internal ID.|
+|`referenceId`|If it's a Bing celebrity, the Bing ID.|
 |`referenceType`|Currently, just Bing.|
-|`title`|If it is a celebrity, its title (for example "Microsoft's CEO").|
-|`imageUrl`|If it is a celebrity, its image url.|
-|`instances`|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
+|`title`|If it's a celebrity, the person's title (for example, `Microsoft's CEO`).|
+|`imageUrl`|If it's a celebrity, the image URL.|
+|`instances`|Instances of where the face appeared in the time range. Each instance also has a `thumbnailsIds` value. |
 
 ```json
 "faces": [{
@@ -380,9 +380,9 @@ If faces (not animated characters) are present, Video Analyzer for Media uses Fa
 |Name|Description|
 |---|---|
 |`id`|The label ID.|
-|`name`|The label name (for example, 'Computer', 'TV').|
-|`language`|The label name language (when translated). BCP-47|
-|`instances`|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
+|`name`|The label name (for example, `Computer` or `TV`).|
+|`language`|The label name's language (when translated), in the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
+|`instances`|A list of time ranges where this label appeared. (A label can appear multiple times.) Each instance has a confidence field. |
 
 
 ```json
@@ -439,7 +439,7 @@ If faces (not animated characters) are present, Video Analyzer for Media uses Fa
 |Name|Description|
 |---|---|
 |`id`|The scene ID.|
-|`instances`|A list of time ranges of this scene (a scene can only have 1 instance).|
+|`instances`|A list of time ranges for this scene. (A scene can have only one instance.)|
 
 ```json
 "scenes":[  
@@ -472,8 +472,8 @@ If faces (not animated characters) are present, Video Analyzer for Media uses Fa
 |Name|Description|
 |---|---|
 |`id`|The shot ID.|
-|`keyFrames`|A list of keyFrames within the shot (each has an ID and a list of instances time ranges). Each keyFrame instance has a thumbnailId field, which holds the keyFrame's thumbnail ID.|
-|`instances`|A list of time ranges of this shot (a shot can only have 1 instance).|
+|`keyFrames`|A list of keyframes within the shot. (Each has an ID and a list of instance time ranges.) Each keyframe instance has a `thumbnailId` field, which holds the keyframe's thumbnail ID.|
+|`instances`|A list of time ranges for this shot. (A shot can have only one instance.)|
 
 ```json
 "shots":[  
@@ -517,18 +517,18 @@ If faces (not animated characters) are present, Video Analyzer for Media uses Fa
 
 #### brands
 
-Business and product brand names detected in the speech to text transcript and/or Video OCR. This does not include visual recognition of brands or logo detection.
+Business and product brand names detected in the speech-to-text transcript and/or video OCR. This information does not include visual recognition of brands or logo detection.
 
 |Name|Description|
 |---|---|
 |`id`|The brand ID.|
-|`name`|The brands name.|
-|`referenceId` | The suffix of the brand wikipedia url. For example, "Target_Corporation" is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|`referenceUrl` | The brand's Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|`description`|The brands description.|
+|`name`|The brand's name.|
+|`referenceId` | The suffix of the brand's Wikipedia URL. For example, `Target_Corporation` is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|`referenceUrl` | The brand's Wikipedia URL, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|`description`|The brand's description.|
 |`tags`|A list of predefined tags that were associated with this brand.|
-|`confidence`|The confidence value of the Video Analyzer for Media brand detector (0-1).|
-|`instances`|A list of time ranges of this brand. Each instance has a brandType, which indicates whether this brand appeared in the transcript or in OCR.|
+|`confidence`|The confidence value of the Video Analyzer for Media brand detector (`0`-`1`).|
+|`instances`|A list of time ranges for this brand. Each instance has a `brandType` value, which indicates whether this brand appeared in the transcript or in an OCR.|
 
 ```json
 "brands": [
