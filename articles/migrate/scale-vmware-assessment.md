@@ -50,7 +50,7 @@ Use the limits summarized in this table for planning.
 
 With these limits in mind, here are some example deployments:
 
-**vCenter server** | **Servers to be discovered** | **Recommendation** | **Action**
+**vCenter server** | **Servers to be discovered** | **Recommendation** | **Action**|
 ---|---|---|---|
 One | < 10,000 | One Azure Migrate project.<br/> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br/> One vCenter account for discovery. | Set up an appliance to discover servers from up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. <br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance.
 One | > 10,000 | One Azure Migrate project.<br/> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br/> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to connect up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. You need to deploy additional appliances for every 10,000 servers. If the number of servers is greater than 10,000, set up additional appliances with the vCenter Server accounts scoped accordingly. <br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance.<br/> <br/> Ensure there is no overlap among the servers on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a server is discovered by more than one appliance, this results in a duplicates in discovery and in issues while enabling replication for the server using the Azure portal in Server Migration.
