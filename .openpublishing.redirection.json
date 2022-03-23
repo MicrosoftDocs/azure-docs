@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/confidential-ledger/register-ledger-service-principal.md",
+      "redirect_url": "/azure/confidential-ledger/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
       "redirect_document_id": false
