@@ -45,6 +45,12 @@ var RNPlugin = new ReactNativePlugin();
 var appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        disableFetchTracking: false,
+        enableCorsCorrelation: true,
+        enableRequestHeaderTracking: true,
+        enableResponseHeaderTracking: true,
+        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+        /* ...Other Configuration Options... */
         extensions: [RNPlugin]
     }
 });
@@ -52,26 +58,9 @@ appInsights.loadAppInsights();
 
 ```
 
-## Enable Correlation
-
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-The following example shows standard configuration options for enabling correlation, with scenario-specific notes below:
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    disableFetchTracking: false,
-    enableCorsCorrelation: true,
-    enableRequestHeaderTracking: true,
-    enableResponseHeaderTracking: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-``` 
+The above example shows standard configuration options for enabling correlation.
 
 If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
 
@@ -82,10 +71,10 @@ Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
 > [!NOTE]
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
-The React Plugin accomplishes route change tracking for you, and collects other React specific telemetry.
+Currently, we offer a desktop client [React plugin](javascript-react-plugin.md), which you can initialize with the JS SDK. It sets up route change tracking, and collects other React specific telemetry.
 
 > [!NOTE]
-> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+> Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
 
 ## Next steps
 
