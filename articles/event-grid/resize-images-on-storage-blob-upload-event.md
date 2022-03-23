@@ -168,7 +168,9 @@ blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName -n $b
 
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString FUNCTIONS_WORKER_RUNTIME=node WEBSITE_NODE_DEFAULT_VERSION=~10
+outputFileName="resized-image.png"
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString OUT_BLOB_NAME=$outputFileName FUNCTIONS_WORKER_RUNTIME=node WEBSITE_NODE_DEFAULT_VERSION=~10
 ```
 
 ---
@@ -189,12 +191,12 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 # [Node.js v10 SDK](#tab/nodejsv10)
 
-The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
+The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10-v10
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
 ```
 
 ---
@@ -211,7 +213,7 @@ To learn more about this function, see the [function.json and run.csx files](htt
 
 # [Node.js v10 SDK](#tab/nodejsv10)
 
-To learn more about this function, see the [function.json and index.js files](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
+To learn more about this function, see the [function.json and index.js files](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail).
 
 ---
 
