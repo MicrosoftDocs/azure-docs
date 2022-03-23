@@ -44,7 +44,7 @@ When failures occur, they often fall into one of these three areas, and it's imp
 
 The Azure Cosmos service has a [comprehensive set of availability SLAs](../high-availability.md#slas), but none of them are 100%. The network components that connect your application to the Azure Cosmos service can have transient hardware issues and lose packets. Even the compute environment where your application runs could have a CPU spike affecting operations. These failure conditions can affect the operations of the Azure Cosmos SDKs and normally surface as errors with particular codes.
 
-Your application should be resilient to a [certain degree](#when-to-file-customer-support-tickets) of potential failures across these components by implementing [retry policies](#should-my-application-retry-on-errors) over the responses provided by the Azure Cosmos SDKs.
+Your application should be resilient to a [certain degree](#when-to-contact-customer-support) of potential failures across these components by implementing [retry policies](#should-my-application-retry-on-errors) over the responses provided by the Azure Cosmos SDKs.
 
 ## Should my application retry on errors?
 
