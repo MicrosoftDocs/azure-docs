@@ -390,19 +390,10 @@ Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
 > [!NOTE]
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
-## Single Page Applications
-
-For Single Page Applications please reference their documentation for specific guidance:
-
-[React]
-[React Native]
-[Angular]
-[Click Analytics]
-[WordPress]
-
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
-Currently, we offer a separate [React plugin](javascript-react-plugin.md), which you can initialize with this SDK. It will also accomplish route change tracking for you, and collect other React specific telemetry.
+Currently, we offer a separate [React plugin](javascript-react-plugin.md), which you can initialize with the SDK. It will also accomplish route change tracking for you, and collect other React specific telemetry.
+
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
 
