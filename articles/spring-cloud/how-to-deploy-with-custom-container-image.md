@@ -156,7 +156,7 @@ We recommend use Microsoft Defender for Cloud with ACR to keep your images from 
 ### How to switch from JAR deployment to container deployment or vice versa? 
 The deployment type can be switched directly by redeploying:
 ```
-az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup
+az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image contoso/your-app:v1
 ```
 
 Also it's supported to create another deployment with a existing JAR deployment.
