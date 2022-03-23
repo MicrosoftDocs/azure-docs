@@ -324,7 +324,7 @@ The results should show the outflow numbers changing over time.
 
 :::image type="content"  source="media/how-to-use-data-history/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-use-data-history/data-history-run-query-2.png":::
 
-To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
+To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
 For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md) and [blog](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987).
 
