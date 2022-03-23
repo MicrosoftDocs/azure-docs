@@ -1,5 +1,5 @@
 ---
-title: User-Assigned Managed Identities for Azure Stream Analytics
+title: User-assigned managed identities for Azure Stream Analytics
 description: This article describes configuring user-assigned managed identities for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/22/2022
 ---
 
-# User-Assigned Managed Identities for Azure Stream Analytics
+# User-assigned managed identities for Azure Stream Analytics
 
 Azure Stream Analytics currently allows you to use user-assigned managed identities to authenticate to your job's inputs and outputs.
 
@@ -22,7 +22,8 @@ In this article, you learn how to create a user-assigned managed identity for yo
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) assignment.
 
-
+> [!NOTE] 
+> Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues)
 
 1.	Sign in to the Azure portal by using an account associated with the Azure subscription to create the user-assigned managed identity.
 2.	In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
@@ -32,19 +33,15 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     * **Region**: Choose a region to deploy the user-assigned managed identity, for example, **West US**.
     * **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
 
-
-> [!NOTE] 
-> Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues).
-
    ![Create managed identity](./media/common/create-managed-identity.png)
 
-   1. Select **Review + create** to review changes
-   2. Select **Create**
+4. Select **Review + create** to review changes
+5. Select **Create**
 
 For more information on how to manager user-assigned managed identities please visit the [Managed user-assigned managed identities page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
 
 
-## Switching to User-Assigned Managed Identity
+## Switching to user-assigned managed identity
 If you have an existing job, you can switch to a user-assigned identity by following the instructions below:
 
 After creating your user-assigned identity and configuring your input and output, you can switch to user-assigned identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
@@ -57,7 +54,7 @@ After creating your user-assigned identity and configuring your input and output
 4.	Review and **save**
 
 
-## Endpoint Management
+## Endpoint management
 > [!NOTE] 
 > After switching to a user-assigned identity for the job, you may have to re-grant access to the inputs and outputs associated with the stream analytics job to use the user-assigned identity for your job to run
 
