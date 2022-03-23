@@ -62,7 +62,7 @@ You can view and configure the following settings using the **Resource Menu**. T
 
 ## Overview
 
-**Overview*- provides you with basic information about your cache, such as name, ports, pricing tier, and selected cache metrics.
+**Overview** provides you with basic information about your cache, such as name, ports, pricing tier, and selected cache metrics.
 
 ### Activity log
 
