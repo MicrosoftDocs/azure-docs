@@ -3,7 +3,7 @@ title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
 services: container-service
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 03/30/2022
 
 ---
 
@@ -30,27 +30,25 @@ This article introduces the core concepts that provide storage to your applicati
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
-Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types), [Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning), [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels), or [Azure Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/scalability-targets). 
+Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disks][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview]. 
 
 ### Azure Disks
 
 Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types include: 
-* Azure UltraDisks
-* Azure Premium SSDs
+* Ultra Disks
+* Premium SSDs
 * Standard SSDs
 * Standard HDDs
 
 > [!TIP]
->For most production and development workloads, use Ultra Disks. 
+>For most production and development workloads, use Premium SSD. 
 
 Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
 
 ### Azure Files
 Use *Azure Files* to mount an SMB 3.1.1 share or NFS 4.1 share backed by an Azure storage accounts to pods. Files let you share data across multiple nodes and pods and can use:
-* Azure Premium storage
-* Azure Transaction Optimized 
-* Hot File Shares  
-* Cool File Shares 
+* Azure Premium storage backed by high-performance SSDs
+* Azure Standard storage backed by regular HDDs
 
 ### Azure NetApp Files
 * Ultra Storage 
@@ -59,8 +57,6 @@ Use *Azure Files* to mount an SMB 3.1.1 share or NFS 4.1 share backed by an Azur
 
 ### Azure Blob Storage
 * Block Blobs 
-* Append Blobs
-* Page Blobs
 
 ### Volume types
 Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by the containers. 
@@ -127,9 +123,9 @@ metadata:
 provisioner: disk.csi.azure.com
 parameters:
   skuName: Premium_LRS
-  reclaimPolicy: Retain
-  volumeBindingMode: WaitForFirstConsumer
-  allowVolumeExpansion: true
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
 ```
 
 > [!NOTE]
@@ -155,7 +151,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: managed-premium
+  storageClassName: managed-premium-retain
   resources:
     requests:
       storage: 5Gi
@@ -203,9 +199,10 @@ For associated best practices, see [Best practices for storage and backups in AK
 
 To see how to use CSI drivers, see the following how-to articles:
 
-- [Enable Container Storage Interface(CSI) drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
-- [Azure Disk CSI Drivers][azure-disk-csi]
-- [Create a dynamic volume using Azure Disks][azure-files-csi]
+- [Enable Container Storage Interface(CSI) drivers for Azure disks and Azure Files on Azure Kubernetes Service(AKS)][csi-storage-drivers]
+- [Use Azure disk Container Storage Interface(CSI) drivers in Azure Kubernetes Service(AKS)][azure-disk-csi]
+- [Use Azure Files Container Storage Interface(CSI) drivers in Azure Kubernetes Service(AKS)][azure-files-csi]
+- [Integrate Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files] 
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -218,9 +215,14 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
-[Enable Container Storage Interface(CSI) drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
-[Azure Disk CSI Drivers][azure-disk-csi]
-[Create a dynamic volume using Azure Disks][azure-files-csi
+[disks-types]: ../virtual-machines/disks-types.md
+[storage-files-planning]: ../storage/files/storage-files-planning.md
+[azure-netapp-files-service-levels]: ../azure-netapp-files/azure-netapp-files-service-levels.md
+[storage-account-overview]: ../storage/common/storage-account-overview.md
+[csi-storage-drivers]: csi-storage-drivers.md
+[azure-disk-csi]: azure-disk-csi.md
+[azure-netapp-files]: azure-netapp-files.md
+[azure-files-csi]: azure-files-csi.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
