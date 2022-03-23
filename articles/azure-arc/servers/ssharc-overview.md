@@ -21,10 +21,6 @@ SSH access to Arc-enabled servers provides the following key benefits:
 To leverage this functionality please ensure the following: 
  - Ensure the Arc-enabled server has a hybrid agent version of "1.13.21320.014" or higher.
  - Ensure the Arc-enabled server has the "sshd" service enabled.
- - 
-TODO
-- extension version
-- role assignment
 
 ### Availability
 SSH access to Arc-enabled servers is currently supported in the following regions:
