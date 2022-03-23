@@ -33,19 +33,18 @@ This section provides an overview of physical sensor models that are available. 
 
 - **Pre-configured sensors**: Microsoft has partnered with Arrow to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at the following address: <hardware.sales@arrow.com>
 
-- **About bringing your own appliance**: Review the supported models described below. After you've acquired your appliance, go to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
+- **About bringing your own appliance**: Review the supported models described below. After you've acquired your appliance, go to **Defender for IoT** > **Getting started** > **Sensor**. Under **Purchase an appliance and install software**, select **Download**.
 
-For more information, see [Appliance specifications](#appliance-specifications).
+    :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
 
-:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
+    > [!NOTE]
+    > <a name="anchortext"></a>For each model, bandwidth capacity can vary, depending on the distribution of protocols.
 
-> [!NOTE]
-> <a name="anchortext"></a>For each model, bandwidth capacity can vary, depending on the distribution of protocols.
+For more information about each model, see [Appliance specifications](#appliance-specifications).
 
 #### Corporate sensors
 
 :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model.":::
-
 
 |Element  |Description  |
 |---------|---------|
@@ -122,15 +121,7 @@ After you acquire an on-premises management console, go to **Defender for IoT** 
 
 ## Appliance specifications
 
-This section describes hardware specifications for the following appliances:
-
-- Corporate deployment: HPE ProLiant DL360
-
-- Enterprise deployment: HPE ProLiant DL20
-
-- SMB deployment: HPE ProLiant DL20
-
-- Virtual appliance specifications
+This section describes hardware specifications for supported models.
 
 ## Corporate deployment: HPE ProLiant DL360
 
