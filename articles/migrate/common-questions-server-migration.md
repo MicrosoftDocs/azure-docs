@@ -1,7 +1,7 @@
 ---
 title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
-author: piyushdhore-ms
+author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
