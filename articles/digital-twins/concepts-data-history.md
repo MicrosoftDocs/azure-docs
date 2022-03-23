@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 08/23/2021
+ms.date: 03/23/2022
 ms.topic: conceptual
 ms.service: digital-twins
 

@@ -1,16 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "how-to-use-data-history-portal.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-data-history",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "how-to-use-data-history-cli.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-data-history",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "troubleshoot-alerts.md",
       "redirect_url": "/azure/digital-twins/how-to-monitor-alerts",
       "redirect_document_id": true
