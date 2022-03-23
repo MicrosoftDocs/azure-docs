@@ -134,7 +134,7 @@ You can view the permissions granted to the Azure VMware Solution CloudAdmin rol
 1. Log into the NSX-T Manager.
 1. Navigate to **Systems** and locate **Users and Roles**.
 1. Select and expand the **CloudAdmin** role, found under **Roles**.
-1. Select a category like, Networking, Security, etc. to view the specific permissions.
+1. Select a category like, Networking or Security, to view the specific permissions.
 
 > [!NOTE]
 > **Private clouds created before April 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
