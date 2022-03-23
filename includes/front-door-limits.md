@@ -70,11 +70,10 @@
 * Front Door has an idle TCP connection timeout of 61 seconds.
 
 ##### Front Door to application back-end
-* If the response is a chunked response, a 200 is returned if or when the first chunk is received.
-* After the HTTP request is forwarded to the back end, Front Door waits for 30 seconds for the first packet from the back end. Then it returns a 503 error to the client. This value is configurable via the field sendRecvTimeoutSeconds in the API.
-    * If a request is cached and it takes more than 30 seconds for the first packet from Front Door or from the backend, then a 504 error is returned to the client. 
-* After the first packet is received from the back end, Front Door waits for 30 seconds in an idle timeout. Then it returns a 503 error to the client. This timeout value is not configurable.
-* Front Door to the back-end TCP session timeout is 90 seconds.
+* After the HTTP request is forwarded to the back end, Front Door waits for 60 seconds (Standard and Premium) or 30 seconds (classic) for the first packet from the back end. Then it returns a 503 error to the client, or 504 for a cache request. This value is configurable via the field originResponseTimeoutSeconds in Front Door Standard and Premium API, or sendRecvTimeoutSeconds in the Front Door (classic) API.
+* After the first packet is received from the back end, if the origin pauses for some reason in the middle of the response body beyond the originResponseTimeoutSeconds or sendRecvTimeoutSeconds, the response will be cancelled.
+* Front Door takes advantage of HTTP keepalive to keep connections open for reuse from previous requests. These connections have an idle timeout of 90 seconds. Front Door would disconnect idle connections after reaching the 90 second idle timeout. This timeout is not configurable.
+
 
 #### Upload and download data limit
 
