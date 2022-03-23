@@ -24,7 +24,7 @@ This article explains how to:
 
 * Deprovision/delete a custom IP prefix
 
-For information on provisioning a IP address, [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md) or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
+For information on provisioning a IP address, please refer to [Create a custom IP address prefix - Azure portal](create-custom-ip-address-prefix-portal.md), [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md), or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
 ## Create a public IP prefix from a custom IP prefix
 
