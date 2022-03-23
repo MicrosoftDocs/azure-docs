@@ -6,10 +6,10 @@ ms.author: sidram
 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 03/23/2022
 ms.custom: devx-track-js
 ---
-# Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
+# Integrate Azure Stream Analytics with Azure Machine Learning
 
 You can implement machine learning models as a user-defined function (UDF) in your Azure Stream Analytics jobs to do real-time scoring and predictions on your streaming input data. [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) allows you to use any popular open-source tool, such as TensorFlow, scikit-learn, or PyTorch, to prep, train, and deploy models.
 
@@ -62,7 +62,7 @@ The following table describes each property of Azure Machine Learning Service fu
 |Azure Machine Learning workspace|The Azure Machine Learning workspace you used to deploy your model as a web service.|
 |Endpoint|The web service hosting your model.|
 |Function signature|The signature of your web service inferred from the API's schema specification. If your signature fails to load, check that you have provided sample input and output in your scoring script to automatically generate the schema.|
-|Number of parallel requests per partition|This is an advanced configuration to optimize high-scale throughput. This number represents the concurrent requests sent from each partition of your job to the web service. Jobs with six streaming units (SU) and lower have one partition. Jobs with 12 SUs have two partitions, 18 SUs have three partitions and so on.<br><br> For example, if your job has two partitions and you set this parameter to four, there will be eight concurrent requests from your job to your web service. At this time of public preview, this value defaults to 20 and cannot be updated.|
+|Number of parallel requests per partition|This is an advanced configuration to optimize high-scale throughput. This number represents the concurrent requests sent from each partition of your job to the web service. Jobs with six streaming units (SU) and lower have one partition. Jobs with 12 SUs have two partitions, 18 SUs have three partitions and so on.<br><br> For example, if your job has two partitions and you set this parameter to four, there will be eight concurrent requests from your job to your web service.|
 |Max batch count|This is an advanced configuration for optimizing high-scale throughput. This number represents the maximum number of events be batched together in a single request sent to your web service.|
 
 ## Calling machine learning endpoint from your query

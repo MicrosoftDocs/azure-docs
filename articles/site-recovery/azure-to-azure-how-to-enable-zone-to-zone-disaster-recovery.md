@@ -1,12 +1,12 @@
 ---
 title: Enable Zone to Zone Disaster Recovery for Azure Virtual Machines
 description: This article describes when and how to use Zone to Zone Disaster Recovery for Azure virtual machines.
-author: sideeksh
-manager: gaggupta
+author: rishjai
+manager: aravindang
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
-ms.author: sideeksh
+ms.date: 03/23/2022
+ms.author: rishjai
 
 ---
 
@@ -16,7 +16,7 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 
 >[!NOTE]
 >
->- Support for Zone to Zone disaster recovery is currently limited to the following regions: Southeast Asia, East Asia, Japan East, Korea Central, Australia East, India Central, UK South, West Europe, North Europe, Norway East, France Central, Sweden Central (Managed Access), Canada Central, Central US, South Central US, East US, East US 2, West US 2, Brazil South and West US 3.  
+>- Support for Zone to Zone disaster recovery is currently limited to the following regions: Southeast Asia, East Asia, Japan East, Korea Central, Australia East, India Central, China North 3, UK South, West Europe, North Europe, Norway East, France Central, Switzerland North, Sweden Central (Managed Access), South Africa North, Canada Central, US Gov Virginia, Central US, South Central US, East US, East US 2, West US 2, Brazil South and West US 3.
 >- Site Recovery does not move or store customer data out of the region in which it is deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 >- Zone to Zone disaster recovery is not supported for VMs having ZRS managed disks.
 
