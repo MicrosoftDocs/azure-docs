@@ -16,21 +16,28 @@ Learn how to diagnose and troubleshoot errors while running a load test with Azu
 
 When you start a load test, the Azure Load Testing test engines run your Apache JMeter script. Errors can occur at different levels. For example, during the execution of the JMeter script, while connecting to the application endpoint, or in the test engine instance.
 
-There are several load test error indicators available:
-
-- The test run **Status** information is **Failed**.
-- The test run statistics shows a non-zero **Error percentage** value.
-- The **Errors** graph in the client-side metrics shows errors.
-
 You can use different sources of information to diagnose these errors:
 
 - [Download the Apache JMeter worker logs](#download-apache-jmeter-worker-logs) to investigate issues with JMeter and the test script execution.
-- [Export the load test result](./how-to-export-test-results.md) and analyze the response code and message for each HTTP request.
+- [Export the load test result](./how-to-export-test-results.md) and analyze the response code and response message of each HTTP request.
 
 There might also be problems with the application endpoint itself. If you host the application on Azure, you can [configure server-side monitoring](./how-to-monitor-server-side-metrics.md) to get detailed insights about the application components.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Load test error indicators
+
+After running a load test, there are multiple error indicators available:
+
+- The test run **Status** information is **Failed**.
+
+    :::image type="content" source="media/how-to-find-download-logs/dashboard-test-failed.png" alt-text="Screenshot that shows the load test dashboard, highlighting status information for a failed test.":::
+
+- The test run statistics shows a non-zero **Error percentage** value.
+- The **Errors** graph in the client-side metrics shows errors.
+
+    :::image type="content" source="media/how-to-find-download-logs/dashboard-errors.png" alt-text="Screenshot that shows the load test dashboard, highlighting the error information.":::
 
 ## Prerequisites  
 
