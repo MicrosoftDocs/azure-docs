@@ -18,7 +18,7 @@ SSH access to Arc-enabled servers provides the following key benefits:
  - Support for other OpenSSH based tooling with config file support
 
 ## Prerequisites
-To leverage this functionality please ensure the following: 
+To leverage this functionality, please ensure the following: 
  - Ensure the Arc-enabled server has a hybrid agent version of "1.13.21320.014" or higher.
  - Ensure the Arc-enabled server has the "sshd" service enabled.
 
@@ -62,7 +62,7 @@ If you already have the extension installed, it can be updated by running:
 ```az extension update --name ssh```
 
 ### Enable functionality on your Arc-enabled server
-In order to leverage the SSH connect feature, you must enable connections on the hybrid agent.
+In order to use the SSH connect feature, you must enable connections on the hybrid agent.
 
 > [!NOTE]
 > The following actions must be completed in an elevated terminal session.
@@ -88,4 +88,4 @@ Restart the hybrid agent:
     - ```Start-Service himds```
 
 ## Examples
-To view examples of using the ```az ssh vm``` command, please view the az CLI documentation page for (az ssh)[https://docs.microsoft.com/cli/azure/ssh?view=azure-cli-latest].
+To view examples of using the ```az ssh vm``` command, view the az CLI documentation page for (az ssh)[https://docs.microsoft.com/cli/azure/ssh?view=azure-cli-latest].

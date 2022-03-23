@@ -25,7 +25,7 @@ Resolution:
  - Run ```az account set -s <AzureSubscriptionId>``` where "AzureSubscriptionId" corresponds to the subscription that contains the target resource.
 
 ### Unable to locate client binaries
-This occurs when the client side SSH binaries required to connect cannot be found.
+This issue occurs when the client side SSH binaries required to connect cannot be found.
 Error:
  - "Could not find <command>.exe
 
@@ -34,7 +34,7 @@ Resolution:
 
 ## Server-side issues
 ### SSH traffic is not allowed on the server
-This occurs when SSHD is not running on the server, or SSH traffic is not allowed on the server.
+This issue occurs when SSHD is not running on the server, or SSH traffic is not allowed on the server.
 Possible errors:
  - {"level":"fatal","msg":"sshproxy: error copying information from the connection: read tcp 192.168.1.180:60887-\u003e40.122.115.96:443: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2022-02-24T13:50:40-05:00"}
 
@@ -45,7 +45,7 @@ Resolution:
 ## Azure permissions issues
 
 ### Incorrect role assignments
-This occurs when the current user does not have the proper role assignment on the target resource, specifically a lack of "read" permissions.
+This issue occurs when the current user does not have the proper role assignment on the target resource, specifically a lack of "read" permissions.
 Possible errors:
  - "Unable to determine the target machine type as Azure VM or Arc Server"
  - "Unable to determine that the target machine is an Arc Server"
@@ -57,7 +57,7 @@ Resolution:
  - If using AAD login, ensure you have the "Virtual Machine User Login" or the "Virtual Machine Aministrator Login" roles
 
 ### HybridConnectiviry RP was not registered
-This occurs when the HybridConnectivity RP has not been registered for the subscription.
+This issue occurs when the HybridConnectivity RP has not been registered for the subscription.
 Error:
  - Request for Azure Relay Information Failed: (NoRegisteredProviderFound) Code: NoRegisteredProviderFound
 
