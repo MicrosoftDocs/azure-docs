@@ -21,7 +21,10 @@ This article describes how the Scheduled Agent Updates feature works and how to 
 Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature. 
 
 >[!IMPORTANT]
-> The preview version of this feature currently only works in the Azure public cloud.
+>The preview version of this feature currently has the following limitations:
+>
+> - You can only use the Scheduled Agent Updates feature in the Azure public cloud.
+> - You can only configure the Scheduled Agent Updates feature with the Azure portal or REST API.
 
 ## Configure the Scheduled Agent Updates feature using the Azure portal
 
@@ -41,41 +44,6 @@ To use the Azure portal to configure Scheduled Agent Updates:
 
 7. Select **Apply** to apply your settings.
 
-## Configure the Scheduled Agent Updates feature using PowerShell
-
-To configure this feature with PowerShell, you need to make sure you have the name of the resource group and host pool you want to configure. You'll also need to install [the Azure PowerShell module (version 3.3.5 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/3.1.0).
-
-To configure Scheduled Agent Updates using PowerShell:
-
-1. Open a PowerShell command window.
-
-2. Run the following cmdlet to enable and configure Scheduled Agent Updates:
-
-    ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime -AgentUpdateTimeZone <timeZoneName> -AgentUpdateMaintenanceWindow @(@{Hour=Hour; DayOfWeek="Day"}, @{Hour=Hour; DayOfWeek="Day"})
-    ```
-
-    For example, if you want to update agent components on Saturdays and Sundays between 9:00 PM and 11:00 PM in the local time zone for each session host, run the following PowerShell cmdlet:
-
-    ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime -AgentUpdateMaintenanceWindow @(@{Hour=21; DayOfWeek="Saturday"}, @{Hour=21; DayOfWeek="Sunday"})        
-    ```
-
-    To configure Scheduled Agent Updates to update agent components on Saturdays between 9:00 AM and 11:00 AM Pacific Standard Time, run the following PowerShell cmdlet:
-        
-    ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateMaintenanceWindow @{Hour=; DayOfWeek="Saturday"}
-    ```
-
->[!NOTE]
-The maintenance window hour must be specified according to the 24-hour clock. For example, specifying 21 as the hour here would be translated as 9:00 PM.
-
-3. Run the following cmdlet to disable Scheduled Agent Updates:
-
-    ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Default"
-    ```
-
 ## Additional information
 
 ### How the feature works
@@ -87,8 +55,6 @@ The Scheduled Agent Updates feature updates the Azure Virtual Desktop agent, sid
 - You must specify at least one maintenance window. Configuring the second maintenance window is optional. Creating two maintenance windows gives the agent components additional opportunities to update if the first update during one of the windows is unsuccessful.
 
 - All maintenance windows are two hours long to account for situations where all three agent components must be updated at the same time. For example, if your maintenance window is Saturday at 9:00 AM PST, the updates will happen between 9:00 AM PST and 11:00 AM PST.
-
-- If you want to apply the same time zone and maintenance window settings to multiple host pools, run the [PowerShell cmdlet](#configure-the-scheduled-agent-updates-feature-using-powershell) in a loop.
 
 - The **Use session host local time** parameter is not selected by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
 
