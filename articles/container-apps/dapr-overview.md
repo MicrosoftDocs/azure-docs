@@ -10,11 +10,11 @@ ms.date: 03/21/2022
 
 # Dapr integration with Azure Container Apps (preview)
 
-Distributed Application Runtime ([Dapr][dapr-concepts]) is a portable, efficient, event-driven runtime that consists of open, independent HTTP or gRPC APIs. Dapr exposes these APIs as a sidecar, running as a separate process alongside your application.
+Distributed Application Runtime ([Dapr][dapr-concepts]) is an event-driven runtime that consists of open, independent HTTP or gRPC APIs. Dapr exposes these APIs as a sidecar, running as a separate process alongside your application.
 
-When building a microservices or distributed application with Container Apps, you can use Dapr APIs to accomplish typical patterns or challenges. For example, you can implement Dapr's service-to-service invocation or pub/sub messaging APIs to allow intercommunication in your distributed application, without modifying your application code.  
+When building a microservices or distributed application with Container Apps, you can use Dapr APIs to accomplish common patterns you find in a distributed application. For example, you can implement Dapr's service-to-service invocation or pub/sub messaging APIs to allow intercommunication in your distributed application, without modifying your application code.  
 
-Thanks to Dapr's portability, you don't have to be an expert in implementing Dapr SDKs or libraries with your container app. Dapr abstracts away those complexities and performs the heavy lifting for you, while adhering to industry best practices.
+Thanks to Dapr abstraction, you don't have to be an expert in implementing Dapr SDKs or libraries with your container app. Dapr abstracts away those complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
 ## Current supported Dapr version
 
@@ -49,10 +49,7 @@ Dapr is an incrementally adoptable set of APIs, or building blocks, that makes i
 
 #### Dapr components
 
-Dapr components are scoped to the environment level. You can define component types like state stores, name resolutions, pub/sub brokers, secrets, scopes, and more based on your needs. Building blocks can use any combination of components.
-
-> [!NOTE]
-> We expose the ability for customers to use Dapr components but don't currently expose Dapr configuration CRD.
+Dapr components allow Dapr to communicate with your container apps using building blocks. Based on your needs, you can "plug in" certain Dapr component types like state stores, service invocation, pub/sub brokers, and more. 
 
 # [YAML](#tab/yaml)
 
@@ -70,13 +67,17 @@ ARM
 
 #### Dapr scopes
 
-By default, the Dapr component will make itself available to all container apps in your environment. To maintain application speed and efficiency, we recommend adding application scopes to the Dapr component. Enable Dapr on your container apps by scoping to the `app-id` of the application you'd like the Dapr component to access. 
+By default, the Dapr component will make itself available to all container apps in your environment. To maintain application speed and efficiency, we recommend adding application scopes to the Dapr component. 
+
+Scope the Dapr component to a particular container app by adding the `scope` array to your component definition. 
 
 #### Dapr configuration
 
-Dapr configurations are settings and policies that live at the container app level. Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings and components. You'll trigger an automatic restart of all container app revisions will take place to align with changes if:
-- Multi-revision mode is enabled for your container apps.
-- Changes are made to Dapr settings. 
+A container app has its own Dapr configuration, including:
+- Enabling Dapr on the app.
+- Scoping the `app-id`, the `app-protocol`, and the `app-port` to the app.
+
+Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
 
 > [!NOTE]
 > Setting ACL policies on the Dapr sidecar configuration is currently not supported.
@@ -101,7 +102,12 @@ Since Dapr components and settings aren't revisionable, all running instances of
 
 ## Limitations
 
+**Secrets**
 While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism][aca-secrets]. 
+
+**Configuration CRD**
+We expose the ability for customers to use Dapr components but don't currently expose Dapr configuration CRD.
+
 
 ## Next Steps
 
