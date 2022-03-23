@@ -88,7 +88,17 @@ If a subdomain is added for a wildcard domain that already has a certificate ass
 
 ## WAF policies
 
+::: zone pivot="front-door-standard-premium"
+
+WAF policies can be attached to wildcard domains, similar to other domains. A different WAF policy can be applied to a subdomain of a wildcard domain. Subdomains will automatically inherit the WAF policy from the wildcard domain if there is no explicit WAF policy associated to the subdomain. However, if the subdomain is added to a different profile from the wildcard domain profile, the subdomain cannot inherit the WAF policy associated with the wildcard domain.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 WAF policies can be attached to wildcard domains, similar to other domains. A different WAF policy can be applied to a subdomain of a wildcard domain. For the subdomains, you must specify the WAF policy to be used even if it's the same policy as the wildcard domain. Subdomains *don't* automatically inherit the WAF policy from the wildcard domain.
+
+::: zone-end
 
 If you don't want a WAF policy to run for a subdomain, you can create an empty WAF policy with no managed or custom rulesets.
 
