@@ -90,9 +90,9 @@ This version of the client library defaults to the 2021-09-30-preview version of
 ### [Option 2: Visual Studio](#tab/vs)
 --->
 
-1. Start Visual Studio.
+1. Open Visual Studio.
 
-1. On the start page, choose Create a new project.
+1. On the start page, choose **Create a new project**.
 
     :::image type="content" source="../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
 
