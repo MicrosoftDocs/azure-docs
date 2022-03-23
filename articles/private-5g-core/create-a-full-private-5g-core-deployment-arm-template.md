@@ -1,0 +1,129 @@
+---
+title: Create a full Azure Private 5G Core Preview deployment - ARM template
+description: Learn how to create a full Azure Private 5G Core private deployment using an Azure Resource Manager template (ARM template).
+services: azure-resource-manager 
+author: djrmetaswitch
+ms.author: drichards
+ms.service: azure-resource-manager
+ms.topic: quickstart
+ms-custom: subject-armqs
+ms.date: 03/23/2022
+ms.custom: template-how-to 
+---
+
+# Quickstart: Create a full Azure Private 5G Core Preview deployment - ARM template
+
+Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy the following.
+
+- Your private mobile network.
+- A site.
+- The default service and SIM policy (as described in [Default service and SIM policy](default-service-and-sim-policy.md)).
+- One or more SIMs.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-full-5gc-deployment%2Fazuredeploy.json)
+
+## Prerequisites
+
+- Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
+- Collect all of the information listed in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). If you want to provision SIMs, you'll need to prepare a JSON file containing your SIM information, as described in [Provision SIM resources through the Azure portal using a JSON file](collect-required-information-for-private-mobile-network.md#provision-sim-resources-through-the-azure-portal-using-a-json-file).
+- Identify the names of the interfaces corresponding to ports 5 and 6 on the Azure Stack Edge Pro device in the site.
+- Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
+
+## Review the template
+
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-full-5gc-deployment).
+
+:::code language="json" source="~/quickstart-templates/mobilenetwork-create-full-5gc-deployment/azuredeploy.json":::
+
+The following Azure resources are defined in the template.
+
+- [**Microsoft.MobileNetwork/mobileNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks): a resource representing the private mobile network as a whole.
+- [**Microsoft.MobileNetwork/mobileNetworks/dataNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/datanetworks): a resource representing a data network.
+- [**Microsoft.MobileNetwork/mobileNetworks/slices**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/slices): a resource representing a network slice.
+- [**Microsoft.MobileNetwork/mobileNetworks/sites**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/sites): a resource representing your site as a whole.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network, including the IP address for the N6 interface and data subnet configuration.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the N3 interface.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the N2 interface.
+- [**Microsoft.MobileNetwork/mobileNetworks/services**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/services): a resource representing a service.
+- [**Microsoft.MobileNetwork/mobileNetworks/simPolicies**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/simPolicies): a resource representing a SIM policy.
+- [**Microsoft.MobileNetwork/sims:**](/azure/templates/microsoft.mobilenetwork/sims) a resource representing a physical SIM or eSIM.
+
+## Deploy the template
+
+1. Select the following link to sign in to Azure and open a template.
+
+    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-full-5gc-deployment%2Fazuredeploy.json)
+
+
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+
+    - **Subscription:** select the Azure subscription you want to use to create your private mobile network.
+    - **Resource group:** create a new resource group.
+    - **Region:** select **East US**.
+    - **Location:** leave this field unchanged.
+    - **Mobile Network Name:** enter a name for the private mobile network.
+    - **Mobile Country Code:** enter the mobile country code for the private mobile network.
+    - **Mobile Network Code:** enter the mobile network code for the private mobile network.
+    - **Site Name:** enter a name for your site.
+    - **Service Name:** leave this field unchanged.
+    - **SIM resources:** paste in the contents of the JSON file containing your SIM information. 
+    - **Sim Policy Name:** leave this field unchanged.
+    - **Slice Name:** leave this field unchanged.
+    - **Control Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
+    - **Control Plane Access Ip Address:** enter the IP address for the packet core instance's N2 signaling interface.
+    - **User Plane Access Interface Name:** enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.
+    - **User Plane Access Interface Ip Address:** enter the IP address for the packet core instance's N3 interface.
+    - **Access Subnet:** enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.
+    - **Access Gateway:** enter the access subnet default gateway.
+    - **User Plane Data Interface Name:** enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. 
+    - **User Plane Data Interface Ip Address:** enter the IP address for the packet core instance's N6 interface.
+    - **User Plane Data Interface Subnet:** enter the network address of the data subnet in CIDR notation. 
+    - **User Plane Data Interface Gateway:** enter the data subnet default gateway.
+    - **Ue Ip Pool Prefix:** enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. Note that the template does not include configuration for static IP addresses.
+    - **Core Network Technology:** leave this field unchanged.
+    - **Napt Enabled:** set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.
+    - **Custom Location:** enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.
+
+1. Select **Review + create**.
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+
+     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
+
+1. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
+
+## Review deployed resources
+
+1. On the confirmation screen, select **Go to resource group**.
+
+    :::image type="content" source="media/template-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing a deployment confirmation for the ARM template.":::
+
+1. Confirm that the following resources have been created in the resource group.
+
+    - A **Mobile Network** resource representing the private mobile network as a whole.
+    - A **Slice** resource representing a network slice.
+    - A **Data Network** resource representing the data network.
+    - A **Mobile Network Site** resource representing the site as a whole.
+    - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
+    - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
+    - An **Attached Data Network** resource representing the site's view of the data network.
+    - A **Service** resource representing the default service. 
+    - A **SIM Policy** resource representing the default SIM policy.
+    - One or more **SIM** resources representing physical SIMs or eSIMs. 
+
+    :::image type="content" source="media/create-a-full-private-5g-core-deployment-arm-template\full-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing newly provisioned SIMs." lightbox="media/create-a-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png":::
+
+## Clean up resources
+
+If you do not want to keep your deployment, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
+
+## Next steps
+
+You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can add more sites to your private mobile network.
+
+- [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+- [Collect the required information for a site](collect-required-information-for-a-site.md)
