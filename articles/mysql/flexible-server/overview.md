@@ -11,7 +11,7 @@ ms.date: 08/10/2021
 
 # Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 <iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" width="640" height="370" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
 
