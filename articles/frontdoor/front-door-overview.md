@@ -72,7 +72,7 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Low entry fee and a simplified cost model that reduces billing complexity by having fewer meters needed to plan for.
 
-* Azure to Front Door integrated egress pricing that removes the separate egress charge from Azure regions to Azure Front Door. Refer to [Azure Front Door pricing](https://azure.microsoft.com/en-us/pricing/details/frontdoor/) for more details.
+* Azure to Front Door integrated egress pricing that removes the separate egress charge from Azure regions to Azure Front Door. Refer to [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) for more details.
 
 ### Intelligent secure internet perimeter
 
