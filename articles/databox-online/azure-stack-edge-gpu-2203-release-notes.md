@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2022
+ms.date: 03/23/2022
 ms.author: alkohli
 ---
 
@@ -25,19 +25,9 @@ This article applies to the **Azure Stack Edge 2203** release, which maps to sof
 
 The 2203 release has the following features and enhancements:
 
-- **Enhancement 1** - 
+- **Kubernetes version update** - This release contains a Kubernetes version update from 1.20.9 to 1.21.7. 
+- **VM improvements** - A new VM size F12_HPN was added in this release.
 
-
-
-
-## Issues fixed in 2203 release
-
-The following table lists the issues that were release noted in previous releases and fixed in the current release.
-
-| No. | Feature | Issue | 
-| --- | --- | --- |
-|**1.**|Wi-Fi |Wi-Fi does not work on Azure Stack Edge Pro 2 in this release. | This functionality may be available in a future release.   |
-|**2.**|VPN |VPN feature shows up in the local web UI but this feature is not supported for this device. | This issue will be addressed in a future release. |
 
 
 ## Known issues in 2203 release
@@ -80,6 +70,7 @@ The following table provides a summary of known issues carried over from the pre
 |**23.**|Custom script VM extension |There is a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <br> - Connect to the Windows VM using remote desktop protocol (RDP). <br> - Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. <br> - If the `waappagent.exe` is not running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.<br> - While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. <br> - After you kill the process, the process starts running again with the newer version. <br> - Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.<br> - [Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md). </li><ol> |
 |**24.**|GPU VMs |Prior to this release, GPU VM lifecycle was not managed in the update flow. Hence, when updating to 2103 release, GPU VMs are not stopped automatically during the update. You will need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
 |**25.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
+|**26.**|Wi-Fi |Wi-Fi does not work on Azure Stack Edge Pro 2 in this release. | This functionality may be available in a future release.   |
 
 
 ## Next steps
