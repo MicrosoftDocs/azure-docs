@@ -1,5 +1,5 @@
 ---
-title: Sunset for SHA-1 OCSP signing
+title: Sunset for SHA-1 Online Certificate Standard Protocol signing
 description: Important information regarding changes to the OCSP service. 
 
 services: azure
@@ -13,11 +13,11 @@ author: shlipsey3
 manager: rachelkarlin
 ms.reviewer: quentinb
 ---
-# Sunset for SHA-1 OCSP signing
+# Sunset for SHA-1 Online Certificate Standard Protocol signing
 
 Microsoft is updating the Online Certificate Standard Protocol (OCSP) service to comply with a recent change to the [Certificate Authority / Browser Forum (CA/B Forum)](https://cabforum.org/) Baseline Requirements. This change requires that all publicly-trusted Public Key Infrastructures (PKIs) end usage of the SHA-1 hash algorithms for OCSP responses by May 31, 2022.
 
-Microsoft leverages certificates from multiple PKIs to secure its services. Many of those certificates already uses OCSP responses that use the SHA-256 hash algorithm. This change brings all remaining PKIs used by Microsoft into compliance with this new requirement.
+Microsoft leverages certificates from multiple PKIs to secure its services. Many of those certificates already use OCSP responses that use the SHA-256 hash algorithm. This change brings all remaining PKIs used by Microsoft into compliance with this new requirement.
 
 ## When will this change happen?
 
