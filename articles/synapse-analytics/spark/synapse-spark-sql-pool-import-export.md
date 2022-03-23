@@ -406,10 +406,11 @@ The latest release of the Connector introduced certain default behavior changes 
 
 * Error Handling (i.e., throwing exceptions from cells) when writing to Synapse Dedicated SQL Pool.
   * Context
-    * A typical behavior when code inside a certain cell fails, it will also cancel subsequent cells in the notebook.
-    * In the new release, the cell would gracefully exit by printing the error in the application logs, instead of failing the cell.
+    * Typically, when the code in a notebook cell contains an error, an error will be surfaced and notebook execution will stop.
+    * The current implementation of this connector is different, in that any errors will be written to the Driver Logs, but notebook cell execution will continue.
   * Mitigation
-    * Code sample referenced in the section - [Code Template](#write-code-template) provides a mitigation approach, where the error from the request is captured and thrown. This will fail the respective cell where this error has occurred. It will also cancel execution of subsequent cells in the notebook.
+    * Handling and surfacing the error will allow the Cell execution to fail. Subsequent cell execution will not be attempted (i.e., cancelled). 
+    * See section - Write [Code Template](#write-code-template) section for a sample code reference.
 
 * A write request returns a validation error message, as described below
   * Detailed Error Message
