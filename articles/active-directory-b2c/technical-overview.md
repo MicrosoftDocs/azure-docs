@@ -226,7 +226,7 @@ Azure AD B2C evaluates each sign-in event and ensures that all policy requiremen
 
 ## Password complexity
 
-During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use when you are using local accounts.
+During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use when they use local accounts.
 
 ![Screenshot of password complexity user experience](media/technical-overview/password-complexity.png)
 
