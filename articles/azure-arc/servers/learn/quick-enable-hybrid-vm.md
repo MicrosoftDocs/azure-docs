@@ -8,50 +8,25 @@ ms.custom: mode-other
 
 # Quickstart: Connect hybrid machines with Azure Arc-enabled servers
 
-Get started with [Azure Arc-enabled servers](../overview.md) to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Azure Connected Machine agent on a Windows or Linux machine hosted outside of Azure, so that it can be managed through Azure Arc-enabled servers.
+Get started with [Azure Arc-enabled servers](../overview.md) to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments.
+
+In this quickstart, you'll deploy and configure the Azure Connected Machine agent on a Windows or Linux machine hosted outside of Azure, so that it can be managed through Azure Arc-enabled servers.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
-* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. You can [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers) or while completing the steps in this quickstart.
-* Before you get started, be sure to review the agent [prerequisites](../prerequisites.md) and verify the following:
+* Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux this is done by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
+* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. You can [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers), or while completing the steps in this quickstart.
+* Before you get started, be sure to review the [agent prerequisites](../prerequisites.md) and verify the following:
   * Your target machine is running a supported [operating system](../prerequisites.md#supported-operating-systems).
-  * Your account is granted assignment to the [required Azure roles](../prerequisites.md#required-permissions).
-  * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../network-requirements.md#urls) are not blocked.
+  * Your account has the [required Azure built-in roles](../prerequisites.md#required-permissions).
   * Ensure the machine is in a [supported region](../overview.md#supported-regions).
   * Confirm that the Linux hostname or Windows computer name doesn't use a [reserved word or trademark](../../../azure-resource-manager/templates/error-reserved-resource-name.md).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
-
-## Register Azure resource providers
-
-Azure Arc-enabled servers requires the following [Azure resource providers](../../../azure-resource-manager/management/resource-providers-and-types.md) to be registered in your subscription:
-
-* Microsoft.HybridCompute
-* Microsoft.GuestConfiguration
-* Microsoft.HybridConnectivity
-
-Register them using the following commands:
-
-```azurepowershell-interactive
-Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridConnectivity
-```
-
-```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
-az provider register --namespace 'Microsoft.HybridConnectivity'
-```
+  * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../network-requirements.md#urls) are not blocked.
 
 ## Generate installation script
 
-The script to automate the download, installation, and establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
+Use the Azure portal to create a script that automates the agent download and installation, and establishes the connection with Azure Arc.
 
 1. Launch the Azure Arc service in the Azure portal by searching for and selecting **Servers - Azure Arc**.
 
@@ -68,18 +43,20 @@ The script to automate the download, installation, and establish the connection 
    1. Select the subscription and resource group where you want the machine to be managed within Azure.
    1. For **Region**, choose the Azure region in which the server's metadata will be stored.
    1. For **Operating system**, select the operating system of the server you want to connect.
-   1. For **Connectivity method**, choose how the Azure Connected Machine agent should connect to the internet. For this quickstart, we recommend choosing **Public endpoint**. If the machine is communicating through a proxy server, select that and specify the proxy server IP address or the name and port number that the machine will use in the format `http://<proxyURL>:<proxyport>`.
+   1. For **Connectivity method**, choose how the Azure Connected Machine agent should connect to the internet. If you select **Proxy server**, enter the proxy server IP address or the name and port number that the machine will use in the format `http://<proxyURL>:<proxyport>`.
    1. Select **Next**.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards. Then select **Next**.
 
-1. On the **Download and run script** page, select the **Register** button to register the required resource providers in your subscription if you haven't already done so.
+1. On the **Download and run script** page, select the **Register** button to register the required resource providers in your subscription, if you haven't already done so.
 
-1. In the **Download or copy the following script** section, review the script and then select Download. If you need to make any changes to the script, use the **Previous** button to go back and update your selections.
+1. In the **Download or copy the following script** section, review the script. If you want to make any changes, use the **Previous** button to go back and update your selections. Otherwise, select **Download** to save the script file.
 
 ## Install the agent using the script
 
-Next, you'll run the script that you just generated on the server you want to onboard to Azure Arc. The script will download the Connected Machine agent from the Microsoft Download Center, install the agent on the server, create the Azure Arc-enabled server resource, and associate it with the agent. Follow the steps below based on the operating system of your server.
+Now that you've generated the script, the next step is to run it on the server that you want to onboard to Azure Arc. The script will download the Connected Machine agent from the Microsoft Download Center, install the agent on the server, create the Azure Arc-enabled server resource, and associate it with the agent.
+
+Follow the steps below for the operating system of your server.
 
 ### Windows agent
 
@@ -87,7 +64,7 @@ Next, you'll run the script that you just generated on the server you want to on
 
 1. Open an elevated 64-bit PowerShell command prompt.
 
-1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
+1. Change to the folder or share that you copied the script to, then execute it on the server by running the `./OnboardingScript.ps1` script.
 
 ### Linux agent
 
@@ -97,11 +74,11 @@ Next, you'll run the script that you just generated on the server you want to on
     bash ~/Install_linux_azcmagent.sh
     ```
 
-    * If the target machine communicates through a proxy server, run the following command:
+1. Alternately, if the target machine communicates through a proxy server, run the following command:
 
-        ```bash
-        bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-        ```
+    ```bash
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
 
 ## Verify the connection with Azure Arc
 
@@ -110,7 +87,7 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
 
 > [!TIP]
-> You can repeat these steps as needed to onboard additional machines. There are also other options for deploying the agent, including several methods designed to onboard at scale. For more information, see [Azure Connected Machine agent deployment options](../deployment-options.md).
+> You can repeat these steps as needed to onboard additional machines. We also provide a variety of other options for deploying the agent, including several methods designed to onboard machines at scale. For more information, see [Azure Connected Machine agent deployment options](../deployment-options.md).
 
 ## Next steps
 
