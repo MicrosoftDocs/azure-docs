@@ -17,7 +17,7 @@ Through the Azure Dev Tools for Teaching program, students who have a current an
 
 Have your students follow this procedure to download the software developer tools:
 
-1. Open a browser and go to the [Azure Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
+1. Open a browser and go to the [Azure Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
 1. Sign in with your Azure for Students subscription credentials.
 1. Select any of the software developer tools in the Education Hub to open the download pane.
 1. Read the software information to make sure that the software is compatible with your computer system.

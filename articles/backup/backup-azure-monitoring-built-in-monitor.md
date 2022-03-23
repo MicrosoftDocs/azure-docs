@@ -58,7 +58,7 @@ The following scenarios are defined by service as alertable scenarios.
 - Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
 - Soft-delete functionality disabled for vault
-- [Unsupported backup type for database workloads](/azure/backup/backup-sql-server-azure-troubleshoot#backup-type-unsupported)
+- [Unsupported backup type for database workloads](./backup-sql-server-azure-troubleshoot.md#backup-type-unsupported)
 
 ### Alerts from the following Azure Backup solutions are shown here
 

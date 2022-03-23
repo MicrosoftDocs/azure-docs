@@ -29,7 +29,7 @@ This section shows you how to pass meta data information from trigger to pipelin
 
 1. Go to the **Authoring Canvas** and edit a pipeline
 
-1. Click on the blank canvas to bring up pipeline settings. Do not select any activity. You may need to pull up the setting panel from the bottom of the canvas, as it may have been collapsed
+1. Select on the blank canvas to bring up pipeline settings. Don’t select any activity. You may need to pull up the setting panel from the bottom of the canvas, as it may have been collapsed
 
 1. Select **Parameters** section and select **+ New** to add parameters
 
@@ -37,7 +37,7 @@ This section shows you how to pass meta data information from trigger to pipelin
 
 1. Add triggers to pipeline, by clicking on **+ Trigger**.
 
-1. Create or attach a trigger to the pipeline, and click **OK**
+1. Create or attach a trigger to the pipeline, and select **OK**
 
 1. In the following page, fill in trigger meta data for each parameter. Use format defined in [System Variable](control-flow-system-variables.md) to retrieve trigger information. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values. For instance, here we assign trigger run start time to *parameter_1*.
 
@@ -143,4 +143,4 @@ To use the values in pipeline, utilize parameters _@pipeline().parameters.parame
 
 ## Next steps
 
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).

@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using Azure CLI'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 02/26/2021
+ms.date: 01/18/2022
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -27,6 +27,19 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 
 - This article requires version 2.0.64 or greater of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](concepts-identity.md).
+- Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
+
+    ```azurecli
+    az provider show -n Microsoft.OperationsManagement -o table
+    az provider show -n Microsoft.OperationalInsights -o table
+    ```
+     
+    If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
+     
+    ```azurecli
+    az provider register --namespace Microsoft.OperationsManagement
+    az provider register --namespace Microsoft.OperationalInsights
+    ```
 
 > [!NOTE]
 > Run the commands as administrator if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
@@ -59,27 +72,11 @@ Output for successfully created resource group:
   },
   "tags": null
 }
-```
-
-## Enable cluster monitoring
-
-Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
-
-```azurecli
-az provider show -n Microsoft.OperationsManagement -o table
-az provider show -n Microsoft.OperationalInsights -o table
-```
- 
-If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
- 
-```azurecli
-az provider register --namespace Microsoft.OperationsManagement
-az provider register --namespace Microsoft.OperationalInsights
-```
+```    
 
 ## Create AKS cluster
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the *--enable-addons monitoring* parameter to enable [Azure Monitor for containers][azure-monitor-containers]. The following example creates a cluster named *myAKSCluster* with one node: 
+Create an AKS cluster using the [az aks create][az-aks-create] command with the *--enable-addons monitoring* parameter to enable [Azure Monitor container insights][azure-monitor-containers]. The following example creates a cluster named *myAKSCluster* with one node: 
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -268,7 +265,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
-View the cluster nodes' and pods' health metrics captured by [Azure Monitor for containers][azure-monitor-containers] in the Azure portal. 
+View the cluster nodes' and pods' health metrics captured by [Azure Monitor container insights][azure-monitor-containers] in the Azure portal. 
 
 ## Delete the cluster
 
@@ -279,9 +276,9 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> If the AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 > 
-> If you used a managed identity, the identity is managed by the platform and does not require removal.
+> If the AKS cluster was created with service principal as the identity option instead, then when you delete the cluster, the service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
 
 ## Get the code
 
@@ -307,12 +304,12 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks#az_aks_browse
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-aks-browse]: /cli/azure/aks#az-aks-browse
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install_azure_cli
 [azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

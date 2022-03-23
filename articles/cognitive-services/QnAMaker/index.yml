@@ -36,7 +36,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Build a bot in minutes
-            url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+            url: /Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
   - title: Create and edit knowledge base
     linkLists:
       - linkListType: get-started

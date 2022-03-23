@@ -1,7 +1,7 @@
 ---
 title: Create attack vector reports
 description: Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices.
-ms.date: 11/09/2021
+ms.date: 02/03/2022
 ms.topic: how-to
 ---
 
@@ -13,18 +13,17 @@ Attack vector reports provide a graphical representation of a vulnerability chai
 
 Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can then determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
 
-:::image type="content" source="media/how-to-generate-reports/control-center.png" alt-text="View your alerts in the control center.":::
-
 > [!NOTE]
 > Administrators and security analysts can perform the procedures described in this section.
 
 ## Create an attack vector report
 
-To create an attack vector simulation:
+This section describes how to create Attack Vector reports.
 
-1. Select :::image type="content" source="media/how-to-generate-reports/plus.png" alt-text="Plus sign":::on the side menu to add a Simulation.
+**To create an attack vector simulation:**
 
- :::image type="content" source="media/how-to-generate-reports/vector.png" alt-text="The attack vector simulation.":::
+1. Select **Attack vector** from the sensor side menu. 
+1. Select **Add simulation**.
 
 2. Enter simulation properties:
 
@@ -32,7 +31,7 @@ To create an attack vector simulation:
 
    - **Maximum vectors**: The maximum number of vectors in a single simulation.
 
-   - **Show in Device map**: Show the attack vector as a filter on the device map.
+   - **Show in Device map**: Show the attack vector as a group in the Device map.
 
    - **All Source devices**: The attack vector will consider all devices as an attack source.
 
@@ -46,20 +45,16 @@ To create an attack vector simulation:
 
    - **Exclude Subnets**: Specified subnets will be excluded from the attack vector simulation.
 
-3. Select **Add Simulation**. The simulation will be added to the simulations list.
+3. Select **Save**.
+1. Select the report that is saved from the Attack vector page and review:
+    - network attack paths and insights
+    - a risk score
+    - source and target devices
+    -  a graphical representation of attack vectors
 
-   :::image type="content" source="media/how-to-generate-reports/new-simulation.png" alt-text="Add a new simulation.":::
+   :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report.":::
 
-4. Select :::image type="icon" source="media/how-to-generate-reports/edit-a-simulation-icon.png" border="false"::: if you want to edit the simulation.
 
-   Select :::image type="icon" source="media/how-to-generate-reports/delete-simulation-icon.png" border="false"::: if you want to delete the simulation.
+## Next steps
 
-   Select :::image type="icon" source="media/how-to-generate-reports/make-a-favorite-icon.png" border="false"::: if you want to mark the simulation as a favorite.
-
-5. A list of attack vectors appears and includes vector score (out of 100), attack source device, and attack target device. Select a specific attack for graphical depiction of attack vectors.
-
-   :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Attack vectors.":::
-
-## See also
-
-[Attack vector reporting](how-to-create-attack-vector-reports.md)
+For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md).

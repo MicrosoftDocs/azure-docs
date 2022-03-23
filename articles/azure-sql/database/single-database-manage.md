@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
-ms.devlang: 
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle

@@ -15,7 +15,7 @@ ms.date: 12/27/2021
 
 1. Add a workspace configuration file using either of these methods:
 
-    * In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace. 
+    * In the [Azure portal](https://portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace. 
 
     ![Download config.json](./media/aml-dsvm-server/download-config.png)
 

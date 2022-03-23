@@ -61,15 +61,15 @@ If your SQL database is on a [serverless compute tier](../azure-sql/database/ser
 
 If the database is paused, the first login from your search service will auto-resume the database, but it will also return an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 
-## SharePoint Online Conditional Access policies
+## SharePoint Conditional Access policies
 
-When creating a SharePoint Online indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
+When creating a SharePoint indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
 
 To update the policy to allow the indexer access to the document library, follow the below steps:
 
 1. Open the Azure portal and search **Azure AD Conditional Access**, then select **Policies** on the left menu. If you don't have access to view this page you will need to either find someone who has access or get access.
 
-1. Determine which policy is blocking the SharePoint Online indexer from accessing the document library. The policy that might be blocking the indexer will include the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
+1. Determine which policy is blocking the SharePoint indexer from accessing the document library. The policy that might be blocking the indexer will include the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
     * Restrict **Windows** platforms.
     * Restrict **Mobile apps and desktop clients**.
     * Have **Device state** configured to **Yes**.

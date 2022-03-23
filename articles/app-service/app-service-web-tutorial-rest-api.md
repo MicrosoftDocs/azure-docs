@@ -79,7 +79,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
 
 ## Deploy app to Azure
 
-In this step, you deploy your SQL Database-connected .NET Core application to App Service.
+In this step, you deploy your .NET Core application to App Service.
 
 ### Configure local git deployment
 

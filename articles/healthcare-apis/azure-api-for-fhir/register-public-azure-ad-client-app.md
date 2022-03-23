@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 02/15/2022
 ms.author: cavoeg
 ---
 
@@ -19,13 +19,13 @@ The quickstart provides general information about how to [register an applicatio
 
 ## App registrations in Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
 
-2. In the **Azure Active Directory** blade, click **App registrations**:
+2. In the **Azure Active Directory** blade, select **App registrations**:
 
     ![Azure portal. New App Registration.](media/add-azure-active-directory/portal-aad-new-app-registration.png)
 
-3. Click the **New registration**.
+3. Select **New registration**.
 
 ## Application registration overview
 
@@ -55,13 +55,13 @@ Permissions for Azure API for FHIR are managed through RBAC. For more details, v
 >Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 ## Validate FHIR server authority
-If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
+If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you're good to proceed to the next steps.
 
-If you configure your client application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to ``https://login.microsoftonline.com/\<TENANT-ID>`.
+If you configure your client application in a different Azure AD tenant from your FHIR server, you'll need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to ``https://login.microsoftonline.com/\<TENANT-ID>`.
 
 ## Next steps
 
 In this article, you've learned how to register a public client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access the FHIR service using Postman](./../use-postman.md)
+>[Access the FHIR service using Postman](./../fhir/use-postman.md)

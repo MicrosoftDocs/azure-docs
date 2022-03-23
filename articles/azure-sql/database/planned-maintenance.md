@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: kendralittle, mathoma
-ms.date: 3/23/2021
+ms.date: 03/07/2022
 ---
 
 # Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance
@@ -46,7 +46,8 @@ If your database is experiencing log-on failures, check the [Resource Health](..
 
 ## Maintenance window feature
 
-The maintenance Window feature allows for the configuration of predictable maintenance window schedules for eligible Azure SQL databases and SQL managed instances. See [Maintenance window](maintenance-window.md) for more information.
+The [maintenance window feature](maintenance-window.md) allows for the configuration of predictable maintenance window schedules for eligible Azure SQL databases and SQL managed instances. [Maintenance window advance notifications](../database/advance-notifications.md) are available for databases configured to use a non-default [maintenance window](maintenance-window.md). Maintenance windows and advance notifications for maintenance windows are generally available for Azure SQL Database. For Azure SQL Managed Instance, maintenance windows are generally available but advance notifications are in public preview.
+
 
 ## Next steps
 

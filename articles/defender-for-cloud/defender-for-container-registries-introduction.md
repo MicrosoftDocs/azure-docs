@@ -3,6 +3,8 @@ title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
 ms.date: 12/08/2021
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 # Introduction to Microsoft Defender for container registries (deprecated)
 
@@ -33,7 +35,7 @@ To protect the Azure Resource Manager based registries in your subscription, ena
 |Unsupported registries and images:|Windows images<br>'Private' registries (unless access is granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br>Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
 |Required roles and permissions:|**Security reader** and [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## What are the benefits of Microsoft Defender for container registries?
 
@@ -80,7 +82,7 @@ Defender for Cloud pulls the image from the registry and runs it in an isolated 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
 ### Can I get the scan results via REST API?
-Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
+Yes. The results are under [Sub-Assessments REST API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
 For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](#availability).

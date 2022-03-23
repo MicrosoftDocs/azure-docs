@@ -145,7 +145,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
 Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
@@ -158,6 +158,10 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. SSH into every master node of the cluster and take the following steps:
 
+    **If your `kube-apiserver` is a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/):**
+
+    1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
+
     1. Open the `apiserver` manifest in edit mode:
         
         ```console
@@ -165,10 +169,35 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         ```
 
     1. Add the following specification under `volumes`:
-        
+    
         ```yml
         - name: azure-rbac
-          secret:
+            hostPath:
+            path: /etc/guard
+            type: Directory
+        ```
+
+    1. Add the following specification under `volumeMounts`:
+
+        ```yml
+        - mountPath: /etc/guard
+            name: azure-rbac
+            readOnly: true
+        ```
+
+    **If your `kube-apiserver` is a not a static pod:**
+
+    1. Open the `apiserver` manifest in edit mode:
+        
+        ```console
+        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+        ```
+
+    1. Add the following specification under `volumes`:
+    
+        ```yml
+        - name: azure-rbac
+            secret:
             secretName: azure-arc-guard-manifests
         ```
 
@@ -176,28 +205,28 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
         ```yml
         - mountPath: /etc/guard
-          name: azure-rbac
-          readOnly: true
+            name: azure-rbac
+            readOnly: true
         ```
 
-    1. Add the following `apiserver` arguments:
+1. Add the following `apiserver` arguments:
 
-        ```yml
-        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
-        - --authentication-token-webhook-cache-ttl=5m0s
-        - --authorization-webhook-cache-authorized-ttl=5m0s
-        - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
-        - --authorization-webhook-version=v1
-        - --authorization-mode=Node,Webhook,RBAC
-        ```
-    
-        If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
+    ```yml
+    - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+    - --authentication-token-webhook-cache-ttl=5m0s
+    - --authorization-webhook-cache-authorized-ttl=5m0s
+    - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
+    - --authorization-webhook-version=v1
+    - --authorization-mode=Node,RBAC,Webhook
+    ```
 
-        ```yml
-        - --authentication-token-webhook-version=v1
-        ```
+    If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
 
-    1. Save and close the editor to update the `apiserver` pod.
+    ```yml
+    - --authentication-token-webhook-version=v1
+    ```
+
+1. Save and close the editor to update the `apiserver` pod.
 
 
 ### Cluster created by using Cluster API
@@ -256,7 +285,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         authentication-token-webhook-cache-ttl: 5m0s
         authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
         authentication-token-webhook-version: v1
-        authorization-mode: Node,Webhook,RBAC
+        authorization-mode: Node,RBAC,Webhook
         authorization-webhook-cache-authorized-ttl: 5m0s
         authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
         authorization-webhook-version: v1
@@ -321,13 +350,13 @@ Copy the following JSON object into a file called *custom-role.json*. Replace th
 
 1. Create the role definition by running the following command from the folder where you saved *custom-role.json*:
 
-    ```bash
+    ```azurecli
     az role definition create --role-definition @custom-role.json
     ```
 
 1. Create a role assignment by using this custom role definition:
 
-    ```bash
+    ```azurecli
     az role assignment create --role "Arc Deployment Viewer" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
     ```
 
@@ -342,7 +371,7 @@ There are two ways to get the *kubeconfig* file that you need to access the clus
 
 Run the following command to start the proxy process:
 
-```console
+```azurecli
 az connectedk8s proxy -n <clusterName> -g <resourceGroupName>
 ```
 

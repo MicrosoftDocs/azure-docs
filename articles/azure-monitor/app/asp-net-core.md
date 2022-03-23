@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 10/12/2021
-
 ---
 
 # Application Insights for ASP.NET Core applications
@@ -16,6 +15,8 @@ The example we'll use here is an [MVC application](/aspnet/core/tutorials/first-
 
 > [!NOTE]
 > A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Supported scenarios
 

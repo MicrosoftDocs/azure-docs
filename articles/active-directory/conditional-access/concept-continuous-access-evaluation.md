@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 02/08/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: tunag
+ms.reviewer: vmahtani
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
 ---
@@ -27,6 +27,8 @@ The initial implementation of continuous access evaluation focuses on Exchange, 
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
+Continuous access evaluation isn't currently available in Azure Government GCC High tenants.
+
 ### Key benefits
 
 - User termination or password change/reset: User session revocation will be enforced in near real time.
@@ -39,7 +41,7 @@ There are two scenarios that make up continuous access evaluation, critical even
 
 ### Critical event evaluation
 
-Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so is available in any tenant. The following events are currently evaluated:
+Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it is available in any tenant. The following events are currently evaluated:
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
@@ -59,7 +61,7 @@ Exchange Online, SharePoint Online, Teams, and MS Graph can synchronize key Cond
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all client app and resource provider combinations are supported. See table below. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
+> Not all client app and resource provider combinations are supported. See the following tables. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -68,7 +70,7 @@ This process enables the scenario where users lose access to organizational file
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported \* | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
@@ -77,9 +79,11 @@ This process enables the scenario where users lose access to organizational file
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Teams Service** | Supported | Supported | Supported | Supported | Supported |
-| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
-| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
+| **Teams Service** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+| **SharePoint Online** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+| **Exchange Online** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+
+> \* Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Access policy is set.
 
 ## Client Capabilities
 
@@ -110,7 +114,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there's any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
@@ -124,7 +128,7 @@ In the following example, a Conditional Access administrator has configured a lo
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. Azure AD evaluates all Conditional Access policies to see whether the user and client meet the conditions.
 1. An access token is returned along with other artifacts to the client.
-1. User moves out of an allowed IP range
+1. User moves out of an allowed IP range.
 1. The client presents an access token to the resource provider from outside of an allowed IP range.
 1. The resource provider evaluates the validity of the token and checks the location policy synced from Azure AD.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client. The client is challenged because it isn't coming from an allowed IP range.
@@ -151,8 +155,8 @@ The following table describes the migration experience of each customer group ba
 | --- | --- | --- | --- |
 | New tenants that didn't configure anything in the old experience. | No | Yes | Old CAE setting will be hidden given these customers likely didn't see the experience before general availability. |
 | Tenants that explicitly enabled for all users with the old experience. | No | Yes | Old CAE setting will be greyed out. Since these customers explicitly enabled this setting for all users, they don't need to migrate. |
-| Tenants that explicitly enabled some users in their tenants with the old experience.| Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new conditional access policy wizard, which includes **All users**, while excluding users and groups copied from CAE. It also sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
-| Tenants that explicitly disabled the preview. | Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new conditional access policy wizard, which includes **All users**, and sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+| Tenants that explicitly enabled some users in their tenants with the old experience.| Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new Conditional Access policy wizard, which includes **All users**, while excluding users and groups copied from CAE. It also sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+| Tenants that explicitly disabled the preview. | Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new Conditional Access policy wizard, which includes **All users**, and sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
 
@@ -164,7 +168,7 @@ Changes made to Conditional Access policies and group membership made by adminis
 
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
-- Run the [revoke-azureaduserallrefreshtoken PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to revoke all refresh tokens of a specified user.
+- Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign) to revoke all refresh tokens of a specified user.
 - Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies will be applied immediately.
 
 ### IP address variation
@@ -176,8 +180,7 @@ Your identity provider and resource providers may see different IP addresses. Th
  
 Examples:
 
-- Your identity provider sees one IP address from the client.
-- Your resource provider sees a different IP address from the client after passing through a proxy.
+- Your identity provider sees one IP address from the client while your resource provider sees a different IP address from the client after passing through a proxy.
 - The IP address your identity provider sees is part of an allowed IP range in policy but the IP address from the resource provider isn't.
 
 To avoid infinite loops because of these scenarios, Azure AD issues a one hour CAE token and won't enforce client location change. In this case, security is improved compared to traditional one hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
@@ -200,13 +203,13 @@ For an explanation of the office update channels, see [Overview of update channe
 
 ### Coauthoring in Office apps
 
-When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after: 
+When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on policy change events. In this case, the user loses access completely after:
 
 - Closing the document
 - Closing the Office app
-- After a period of 10 hours
+- After 1 hour when a Conditional Access IP policy is set
 
-To reduce this time a SharePoint Administrator can reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
+To further reduce this time, a SharePoint Administrator can reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
 
 ### Enable after a user is disabled
 

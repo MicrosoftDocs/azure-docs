@@ -1,15 +1,15 @@
 ---
-title: FHIR Rest API capabilities for Azure API for FHIR
+title: FHIR REST API capabilities for Azure API for FHIR
 description: This article describes the RESTful interactions and capabilities for Azure API for FHIR.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 02/15/2022
 ms.author: cavoeg
 ---
 
-# FHIR Rest API capabilities for Azure API for FHIR
+# FHIR REST API capabilities for Azure API for FHIR
 
 In this article, we'll cover some of the nuances of the RESTful interactions of Azure API for FHIR.
 
@@ -20,7 +20,7 @@ Azure API for FHIR supports create, conditional create, update, and conditional 
 
 ## Delete and Conditional Delete
 
-Azure API for FHIR offers two delete types. There is [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
+Azure API for FHIR offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
 
 ### Delete (Hard + Soft Delete)
 
@@ -55,7 +55,7 @@ If the ID of the resource that was deleted is known, use the following URL patte
 
 For example: `https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/123456789/_history`
  
-If the ID of the resource is not known, do a history search on the entire resource type:
+If the ID of the resource isn't known, do a history search on the entire resource type:
 
 `<FHIR_URL>/<resource-type>/_history`
 
@@ -68,14 +68,14 @@ After you've found the record you want to restore, use the `PUT` operation to re
 
 ## Patch and Conditional Patch
 
-Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using Patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three types of ways to Patch resources in FHIR: JSON Patch, XML Patch, and FHIR Path Patch. Azure API for FHIR supports JSON Patch and Conditional JSON Patch (which allows you to Patch a resource based on a search criteria instead of an ID). To walk through some examples of using JSON Patch, refer to the sample [REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PatchRequests.http).
+Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using Patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three types of ways to Patch resources in FHIR: JSON Patch, XML Patch, and FHIR Path Patch. Azure API for FHIR supports JSON Patch and Conditional JSON Patch (which allows you to Patch a resource based on a search criteria instead of an ID). To walk through some examples of using JSON Patch, refer to the sample [REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http).
 
 > [!NOTE]
 > When using `PATCH` against STU3, and if you are requesting a History bundle, the patched resource's `Bundle.entry.request.method` is mapped to `PUT`. This is because STU3 doesn't contain a definition for the `PATCH` verb in the [HTTPVerb value set](http://hl7.org/fhir/STU3/valueset-http-verb.html).
 
 ### Testing Patch
 
-Within Patch, there is a test operation that allows you to validate that a condition is true before doing the patch. For example, if you wanted to set a patient deceased, only if they were not already marked as deceased, you could use the example below: 
+Within Patch, there's a test operation that allows you to validate that a condition is true before doing the patch. For example, if you wanted to set a patient deceased, only if they weren't already marked as deceased, you could use the example below: 
 
 PATCH `http://{FHIR-SERVICE-NAME}/Patient/{PatientID}`
 Content-type: `application/json-patch+json`
@@ -98,9 +98,9 @@ Content-type: `application/json-patch+json`
 
 ### Patch in Bundles
 
-By default, JSON Patch is not supported in Bundle resources. This is because a Bundle only supports with FHIR resources and JSON Patch is not a FHIR resource. To work around this, we'll treat Binary resources with a content-type of `"application/json-patch+json"`as base64 encoding of JSON string when a Bundle is executed. For information about this workaround, log in to [Zulip](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/Transaction.20with.20PATCH.20request). 
+By default, JSON Patch isn't supported in Bundle resources. This is because a Bundle only supports with FHIR resources and JSON Patch isn't a FHIR resource. To work around this, we'll treat Binary resources with a content-type of `"application/json-patch+json"`as base64 encoding of JSON string when a Bundle is executed. For information about this workaround, log in to [Zulip](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/Transaction.20with.20PATCH.20request). 
 
-In the example below, we want to change the gender on the patient to female. We have taken the JSON patch `[{"op":"replace","path":"/gender","value":"female"}]` and encoded it to base64.
+In the example below, we want to change the gender on the patient to female. We've taken the JSON patch `[{"op":"replace","path":"/gender","value":"female"}]` and encoded it to base64.
 
 POST `https://{FHIR-SERVICE-NAME}/`
 content-type: `application/json`

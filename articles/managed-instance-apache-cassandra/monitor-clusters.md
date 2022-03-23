@@ -132,6 +132,39 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 }
 ```
 
+## Audit whitelist
+
+> ![NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
+By default, audit logging creates a record for every login attempt and CQL query. The result can be rather overwhelming and increase overhead. You can use the audit whitelist feature in Cassandra 3.11 to set what operations *don't* create an audit record. The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md). 
+
+Examples:
+
+* To filter out all **select and modification** operations for the user **bob** from the audit log, execute the following statements:
+
+  ```
+  cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR SELECT' : 'data' };
+  cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR MODIFY' : 'data' };
+  ```
+  
+* To filter out all **select** operations on the **decisions** table in the **design** keyspace for user **jim** from the audit log, execute the following statement:
+
+  ```
+  cassandra@cqlsh> ALTER ROLE jim WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR SELECT' : 'data/design/decisions' };
+  ```
+
+* To revoke the whitelist for user **bob** on all the user's **select** operations, execute the following statement:
+
+  ```
+  cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'REVOKE AUDIT WHITELIST FOR SELECT' : 'data' };
+  ```
+
+* To view current whitelists, execute the following statement:
+
+  ```
+  cassandra@cqlsh> LIST ROLES;
+  ```
 
 ## Next steps
 

@@ -29,7 +29,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator
-            url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
+            url: /Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
 
   - title: Analyze image content
     linkLists:
@@ -110,7 +110,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator
-            url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
+            url: /Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
 
   - title: Reference
     linkLists:

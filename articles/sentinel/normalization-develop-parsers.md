@@ -1,17 +1,17 @@
 ---
-title: Develop Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
-description: This article explains how to develop, test, and deploy Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers.
+title: Develop Microsoft Sentinel Advanced Security Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to develop, test, and deploy Microsoft Sentinel Advanced Security Information Model (ASIM) parsers.
 author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# Develop Advanced SIEM Information Model (ASIM) parsers (Public preview)
+# Develop Advanced Security Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
+Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 
 Microsoft Sentinel provides built-in, source-specific parsers for many data sources. You may want to modify, or *develop*, these source-specific parsers in the following situations:
 
@@ -83,6 +83,32 @@ Filtering in KQL is done using the `where` operator. For example, **Sysmon event
 Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
 
+#### Filtering by source type using a Watchlist
+
+In some cases, the event itself does not contain information that would allow filtering for specific source types.
+
+For example, Infoblox DNS events are sent as Syslog messages, and are hard to distinguish from Syslog messages sent from other sources. In such cases, the parser relies on a list of sources that defines the relevant events. This list is maintained in the **ASimSourceType** watchlist.
+
+**To use the ASimSourceType watchlist in your parsers**:
+
+1. Include the following line at the beginning of your parser:
+
+```KQL
+  let Sources_by_SourceType=(sourcetype:string){_GetWatchlist('ASimSourceType') | where SearchKey == tostring(sourcetype) | extend Source=column_ifexists('Source','') | where isnotempty(Source)| distinct Source };
+```
+
+2. Add a filter that uses the watchlist in the parser filtering section. For example, the Infoblox DNS parser includes the following in the filtering section:
+
+```KQL
+  | where Computer in (Sources_by_SourceType('InfobloxNIOS'))
+```
+
+To use this sample in your parser:
+
+ * Replace `Computer` with the name of the field that includes the source information for your source. You can keep this as `Computer` for any parsers based on Syslog.
+
+ * Replace the `InfobloxNIOS` token with a value of your choice for your parser. Inform parser users that they must update the `ASimSourceType` watchlist using your selected value, as well as the list of sources that send events of this type.
+
 #### Filtering based on parser parameters
 
 When developing [filtering parsers](normalization-about-parsers.md#optimized-parsers), make sure that your parser accepts the filtering parameters for the relevant schema, as documented in the reference article for that schema. Using an existing parser as a starting point ensures that your parser includes the correct function signature. In most cases, the actual filtering code is also similar for filtering parsers for the same schema.
@@ -137,7 +163,7 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 |[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
 |[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
 |[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-| | |
+
 
 In addition to parsing string, the parsing phase may require more processing of the original values, including:
 
@@ -184,7 +210,7 @@ The following KQL operators are used to prepare fields in your results set:
 |**project-rename**     | Renames fields.        |     If a field exists in the actual event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
 |**project**     |  Selects fields that existed before, or were created as part of the statement, and removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
-| | | |
+
 
 ### Handle parsing variants
 
@@ -199,7 +225,7 @@ When handling variants, use the following guidelines:
 |The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers.      |
 |The different variants represent the *same* event type but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping. <br><br>Example: [Infoblox DNS parser](https://aka.ms/AzSentinelInfobloxParser)    |
 |`union` is unavoidable     |  When you must use `union`, make sure to use the following guidelines:<br><br>-  Pre-filter using built-in fields in each one of the subqueries. <br>- Ensure that the filters are mutually exclusive. <br>- Consider not parsing less critical information, reducing the number of subqueries.       |
-| | |
+
 
 
 ## Deploy parsers
@@ -212,9 +238,11 @@ To deploy a large number of parsers, we recommend using parser ARM templates, as
 
 1. Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
 
-1. Deploy your template using the [Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) or [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell).
+1. If deploying an update, delete older versions of the functions using the portal or the [function delete PowerShell tool](https://aka.ms/ASimDelFunctionScript). 
 
-You can also combine multiple templates to a single deploy process using [linked templates](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template)
+1. Deploy your template using the [Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) or [PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+
+You can also combine multiple templates to a single deploy process using [linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#linked-template)
 
 > [!TIP]
 > ARM templates can combine different resources, so parsers can be deployed alongside connectors, analytic rules, or watchlists, to name a few useful options. For example, your parser can reference a watchlist deployed alongside it.
@@ -222,19 +250,70 @@ You can also combine multiple templates to a single deploy process using [linked
 
 ## Test parsers
 
-### Mandatory tests
+### Install ASIM testing tools
 
-The following tests are mandatory. A parser that fails will prevent queries using the schema unifying parsers it is part of from working correctly:
+To test ASIM, [deploy the ASIM testing tool](https://aka.ms/ASimTestingTools) to a Microsoft Sentinel workspace where:
+- Your parser is deployed.
+- The source table used by the parser is available.
+- The source table used by the parser is populated with a varied collection of relevant events.
 
-- Make sure that the parser produces all mandatory fields. 
+### Validate the output schema
 
-- Make sure that all normalized fields have the correct type.
+To make sure that your parser produces a valid schema, use the ASIM schema tester by running the following query in the Microsoft Sentinel **Logs** page:
 
-- Make sure that fields with logical types are populated only with permitted values. For example, an IP address field is always populated with a valid IP address, and that an enumerated field always gets permitted values.
+  ```KQL
+  <parser name> | getschema | invoke ASimSchemaTester('<schema>')
+  ```
 
-The ASIM parser testing tool tests for mandatory fields and correct field types. 
+Handle the results as follows:
 
-### Optional tests
+| Message | Action |
+| ------- | ------ |
+| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>]** | This error accompanies a similar error for the aliased field. Correct the aliased field error and add this alias to your parser. |
+| **(0) Error: Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: Missing optional alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
+| **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
+| **(1) Warning: Missing recommended alias [\<Field\>] aliasing non-existent column [\<Field\>]** | If you add the aliased field to the parser, make sure to add this alias as well. |
+| **(1) Warning: Missing optional alias [\<Field\>] aliasing non-existent column [\<Field\>]** | If you add the aliased field to the parser, make sure to add this alias as well. |
+| **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
+| **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
+
+
+> [!NOTE]
+> Errors will prevent content using the parser from working correctly. Warnings will not prevent content from working, but may reduce the quality of the results.
+>
+
+### Validate the output values
+
+To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
+
+  ```KQL
+  <parser name> | limit <X> | invoke ASimDataTester('<schema>')
+  ```
+
+This test is resource intensive and may not work on your entire data set. Set X to the largest number for which the query will not timeout, or set the time range for the query using the time range picker.
+
+Handle the results as follows:
+
+| Message | Action |
+| ------- | ------ |
+| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`.  |
+| **(0) Error: Invalid value(s) (up to 10 listed) for field [\<Field\>] of type [\<Logical Type\>]** | Make sure that the parser maps the correct source field to the output field. If mapped correctly, update the parser to transform the source value to the correct type, value or format. Refer to the [list of logical types](normalization-about-schemas.md#logical-types) for more information on the correct values and formats for each logical type. <br><br>Note that the testing tool lists only a sample of 10 invalid values.   |
+| **(0) Error: Empty value in mandatory field [\<Field\>]** | Mandatory fields should be populated, not just defined. Check whether the field can be populated from other sources for records for which the current source is empty. |
+| **(1) Error: Empty value in recommended field [\<Field\>]** | Recommended fields should usually be populated. Check whether the field can be populated from other sources for records for which the current source is empty. |
+| **(1) Error: Empty value in alias [\<Field\>]** | Check whether the aliased field is mandatory or recommended, and if so, whether it can be populated from other sources. |
+
+
+
+> [!NOTE]
+> Errors will prevent content using the parser from working correctly. Warnings will not prevent content from working, but may reduce the quality of the results.
+>
+
+
+### Check for incomplete parsing
 
 Check that fields are populated:
 - A field that is rarely or never populated may indicate incorrect parsing. 
@@ -256,31 +335,6 @@ You can use the following query to test how sparsely populated each field is.
 
 Set the time period to the longest that performance will allow.
 
-### Using the ASIM parser testing tool
-
-Test the parser using the ASIM parser testing tool to find missing mandatory or recommended fields and fields with an incorrect type:
-
-1. [Deploy the ASIM testing tool]() to a Microsoft Sentinel workspace where your parser is deployed and works.
-
-1. Run the following query in the Microsoft Sentinel **Logs** page:
-
-  ```KQL
-  <parser name> | getschema | invoke ASimSchemaTester('<schema>')
-  ```
-
-Handle the results as follows:
-
-| Message | Action |
-| ------- | ------ |
-| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
-| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
-| **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
-| **(1) Warning: Missing alias [\<Field\>]** | Check if the field the alias refers to exists and if so, add the alias. |
-| **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
-| **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
-|||
-
-
 ## <a name="next-steps"></a>Next steps
 
 This article discusses developing ASIM parsers.
@@ -294,6 +348,6 @@ Learn more about ASIM parsers:
 Learn more about the ASIM in general: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

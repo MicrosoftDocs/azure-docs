@@ -1,9 +1,8 @@
 ---
 title: Authorize access with Azure Active Directory for Azure SignalR Service
 description: This article provides information on authorizing access to Azure SignalR Service resources using Azure Active Directory. 
-author: terencefan
-
-ms.author: tefa
+author: vicancy
+ms.author: lianwei
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual
@@ -68,7 +67,7 @@ You can scope access to Azure SignalR resources at the following levels, beginni
 
 ## Azure built-in roles for SignalR resources
 
-- [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
+- [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)
 
 	Access to Websocket connection creation API and Auth APIs.
 	

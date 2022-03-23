@@ -28,16 +28,16 @@ A report has incorrect information because of upstream data issues from an exter
 
 Data producers want to know who will be impacted upon making a change to their dataset. Using lineage, a data producer can easily understand the impact of the downstream internal or external partners who are consuming data using Azure Data Share.
 
-## Azure Data Share and Purview connected experience
+## Azure Data Share and Azure Purview connected experience
 
 To connect your Azure Data Share and Azure Purview account, do the following:
 
-1. Create a Purview account. All the Data Share lineage information will be collected by a Purview account. You can use an existing one or create a new Purview account.
+1. Create an Azure Purview account. All the Data Share lineage information will be collected by an Azure Purview account. You can use an existing one or create a new Azure Purview account.
 
-1. Connect your Azure Data Share to your Purview account.
+1. Connect your Azure Data Share to your Azure Purview account.
 
-    1. In the Purview portal, you can go to **Management Center** and connect your Azure Data Share under the **External connections** section.
-    1. Select **+ New** on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. Run a snapshot job after connecting your Data Share to Purview account, so that the Data Share assets and lineage information is visible in Purview.
+    1. In the Azure Purview portal, you can go to **Management Center** and connect your Azure Data Share under the **External connections** section.
+    1. Select **+ New** on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. Run a snapshot job after connecting your Data Share to Azure Purview account, so that the Data Share assets and lineage information is visible in Azure Purview.
 
        :::image type="content" source="media/how-to-link-azure-data-share/connect-to-data-share.png" alt-text="Management center to link Azure Data Share":::
 
@@ -45,20 +45,20 @@ To connect your Azure Data Share and Azure Purview account, do the following:
 
     - Once the Azure Data share connection is established with Azure Purview, you can execute a snapshot for your existing shares. 
     - If you don’t have any existing shares, go to the Azure Data Share portal to [share your data](../data-share/share-your-data.md) [and subscribe to a data share](../data-share/subscribe-to-data-share.md).
-    - Once the share snapshot is complete, you can view associated Data Share assets and lineage in Purview.
+    - Once the share snapshot is complete, you can view associated Data Share assets and lineage in Azure Purview.
 
-1. Discover Data Share accounts and share information in your Purview account.
+1. Discover Data Share accounts and share information in your Azure Purview account.
 
-    - In the home page of Purview account, select **Browse by asset type** and select the **Azure Data Share** tile. You can search for an account name, share name, share snapshot, or partner organization. Otherwise apply filters on the Search result page for account name, share type (sent vs received shares).
+    - In the home page of Azure Purview account, select **Browse by asset type** and select the **Azure Data Share** tile. You can search for an account name, share name, share snapshot, or partner organization. Otherwise apply filters on the Search result page for account name, share type (sent vs received shares).
 
        :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-search-result-page.png" alt-text="Azure Data share in Search result page":::
 
     >[!Important]
-    >For Data Share assets to show in Purview, a snapshot job must be run after you connect your Data Share to Purview.
+    >For Data Share assets to show in Azure Purview, a snapshot job must be run after you connect your Data Share to Azure Purview.
 
 1. Track lineage of datasets shared with Azure Data Share.
 
-    - From the Purview search result page, choose the Data share snapshot (received/sent) and select the **Lineage** tab, to see a lineage graph with upstream and downstream dependencies.
+    - From the Azure Purview search result page, choose the Data share snapshot (received/sent) and select the **Lineage** tab, to see a lineage graph with upstream and downstream dependencies.
 
     :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-lineage.png" alt-text="Lineage of Datasets shared using Azure Data Share":::
 

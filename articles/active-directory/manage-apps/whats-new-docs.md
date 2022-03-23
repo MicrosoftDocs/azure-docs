@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 01/07/2022
+ms.date: 03/09/2022
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,6 +15,71 @@ reviewer: napuri
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## February 2022
+
+### New articles
+
+- [Tutorial: Manage application access and security](tutorial-manage-access-security.md)
+- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
+- [Tutorial: Govern and monitor applications](tutorial-govern-monitor.md)
+- [Properties of an enterprise application](application-properties.md)
+
+### Updated articles
+
+- [Tutorial: Manage application access and security](tutorial-manage-access-security.md)
+- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE](f5-big-ip-oracle-jde-easy-button.md)
+- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5’s BIG-IP Easy Button for header-based SSO](f5-big-ip-headers-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO](f5-big-ip-ldap-header-easybutton.md)
+- [Configure sign-in behavior using Home Realm Discovery](configure-authentication-for-federated-users-portal.md)
+- [Home Realm Discovery for an application](home-realm-discovery-policy.md)
+- [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md)
+- [Configure enterprise application properties](add-application-portal-configure.md)
+- [What is application management in Azure Active Directory?](what-is-application-management.md)
+- [Overview of enterprise application ownership in Azure Active Directory](overview-assign-app-owners.md)
+- [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
+- [Configure F5 BIG-IP Access Policy Manager for form-based SSO](f5-big-ip-forms-advanced.md)
+- [Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO](f5-big-ip-header-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
+
+## January 2022
+
+### New articles
+
+- [Tutorial: Configure F5’s BIG-IP Easy Button for header-based SSO](f5-big-ip-headers-easy-button.md)
+- [Your sign-in was blocked](troubleshoot-app-publishing.md)
+- [Publish your application in the Azure Active Directory application gallery](v2-howto-app-gallery-listing.md)
+
+### Updated articles
+
+- [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
+- [Configure F5 BIG-IP Access Policy Manager for form-based SSO](f5-big-ip-forms-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO](f5-big-ip-header-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5’s BIG-IP Easy Button for header-based SSO](f5-big-ip-headers-easy-button.md)
+- [Assign users and groups to an application](assign-user-or-group-access-portal.md)
+- [What is single sign-on in Azure Active Directory?](what-is-single-sign-on.md)
+- [Restrict access to a tenant](tenant-restrictions.md)
+- [Configure how users consent to applications](configure-user-consent.md)
+- [Troubleshoot password-based single sign-on](troubleshoot-password-based-sso.md)
+- [Understand how users are assigned to apps](ways-users-get-assigned-to-applications.md)
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO](f5-big-ip-ldap-header-easybutton.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Quickstart: Add an enterprise application](add-application-portal.md)
+- [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
+- [Configure risk-based step-up consent using PowerShell](configure-risk-based-step-up-consent.md)
+- [An app page shows an error message after the user signs in](application-sign-in-problem-application-error.md)
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+- [Disable how a user signs in for an application](disable-user-sign-in-portal.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
+- [Manage access to an application](what-is-access-management.md)
+
 
 ## December 2021
 

@@ -1,12 +1,12 @@
 ---
 title: Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect
 description: Learn how to ingest data from Kafka to Azure Cosmos DB Cassandra API using DataStax Apache Kafka Connector
-author: abhirockzz
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.author: abhishgu
+ms.author: jroth
 ms.reviewer: abhishgu
 ---
 

@@ -81,6 +81,9 @@ If the `ProvisioningState` shows `Stopping` that means your cluster hasn't fully
 
 ## Start an AKS Cluster
 
+> [!CAUTION]
+> It is important that you don't repeatedly start/stop your cluster. Repeatedly starting/stopping your cluster may result in errors. Once your cluster is stopped, you should wait 15-30 minutes before starting it up again. 
+
 ### [Azure CLI](#tab/azure-cli)
 
 You can use the `az aks start` command to start a stopped AKS cluster's nodes and control plane. The cluster is restarted with the previous control plane state and number of agent nodes.

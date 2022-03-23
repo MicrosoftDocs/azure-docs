@@ -43,7 +43,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Guidance for developers
-            url: ../develop/v2-howto-app-gallery-listing.md
+            url: ../manage-apps/v2-howto-app-gallery-listing.md
           - text: Understand the platform
             url: ../develop/v2-overview.md
   - title: New in docs

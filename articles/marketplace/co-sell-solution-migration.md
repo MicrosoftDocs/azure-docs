@@ -31,7 +31,7 @@ Ensure you have an active Microsoft Partner Network membership and are enrolled 
 
 ## Publishing updates for attaining co-sell-ready status
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be a Co-sell incentive, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). For a Microsoft seller to be a Co-sell incentive, your solution must meet the [incentive-eligible requirements](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
@@ -112,7 +112,7 @@ If you do not have an offer already in the commercial marketplace to merge a sol
     > [!TIP]
     > We recommend that you *do not fill out* the data in the **Co-sell with Microsoft** tab. To save you time we will take care of populating this data for you with your existing collateral in OCP GTM during the merge process.
 
-    After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md).
+    After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](/partner-center/co-sell-configure?context=/azure/marketplace/context/context).
 1. When complete, select **Review and publish**.
 
     [ ![Co-Sell with Microsoft page is displayed with options highlighted.](media/co-sell-migrate/co-sell-with-ms-workspaces.png) ](media/co-sell-migrate/co-sell-with-ms-workspaces.png#lightbox)
@@ -176,5 +176,5 @@ Select this option when a solution in OCP GTM solutions is no longer relevant. Y
 ## Next steps
 
 - [Resell through CSP Partners](cloud-solution-providers.md)
-- [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md)
+- [Configure co-sell for a commercial marketplace offer](/partner-center/co-sell-configure?context=/azure/marketplace/context/context)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

@@ -227,7 +227,7 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 > [!IMPORTANT]
 > Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
 > 
-> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
+> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://portal.azure.com/).
 
 To attach Azure Databricks as a compute target, provide the following information:
 
@@ -355,7 +355,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#clean-up-resources).
 
 ## Notebook examples
 

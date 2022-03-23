@@ -30,7 +30,7 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 | Feature | Support for moves across resource groups | Standard Load Balancer and Standard Public IP support for [resource group moves](https://azure.microsoft.com/updates/standard-resource-group-move/). | October 2020 |
 | Feature | [Cross-region load balancing with Global tier on Standard LB](https://azure.microsoft.com/updates/preview-azure-load-balancer-now-supports-crossregion-load-balancing/) | Azure Load Balancer supports Cross Region Load Balancing. Previously, Standard Load Balancer had a regional scope. With this release, you can load balance across multiple Azure regions via a single, static, global anycast Public IP address. | September 2020 |
 | Feature| Azure Load Balancer Insights using Azure Monitor | Built as part of Azure Monitor for Networks, customers now have topological maps for all their Load Balancer configurations and health dashboards for their Standard Load Balancers preconfigured with metrics in the Azure portal. [Get started and learn more](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | June 2020 |
-| Validation | Addition of validation for HA ports | A validation was added to ensure that HA port rules and non HA port rules are only configurable when Floating IP is enabled. Previously, the this configuration would go through, but not work as intended. No change to functionality was made. You can learn more [here](load-balancer-ha-ports-overview.md#limitations)| June 2020 |
+| Validation | Addition of validation for HA ports | A validation was added to ensure that HA port rules and non HA port rules are only configurable when Floating IP is enabled. Previously, this configuration would go through, but not work as intended. No change to functionality was made. You can learn more [here](load-balancer-ha-ports-overview.md#limitations)| June 2020 |
 | Feature| IPv6 support for Azure Load Balancer (generally available) | You can have IPv6 addresses as your frontend for your Azure Load Balancers. Learn how to [create a dual stack application here](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |April 2020|
 | Feature| TCP Resets on Idle Timeout (generally available)| Use TCP resets to create a more predictable application behavior. [Learn more](load-balancer-tcp-reset.md)| February 2020 |
 
@@ -40,7 +40,8 @@ The product group is actively working on resolutions for the following known iss
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
-| IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound when no outbound rules are configured | In order to prevent outbound access from this IP, please leverage Outbound rules or a NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
+| IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, please leverage NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
+| numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, is not respected. Load Balancer health probes will probe up/down immediately after 1 probe regardless of the property's configured value | To reflect the current behavior, please set the value of numberOfProbes ("Unhealthy threshold" in Portal) as 1 |
 
   
 

@@ -1,8 +1,8 @@
 ---
 title: Rebalance shards - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Distribute shards evenly across servers for better performance
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -57,8 +57,7 @@ it will again say **Rebalancing is not recommended at this time**.
 
 ## Next steps
 
-- Learn more about server group [performance
-  options](concepts-configuration-options.md).
+- Learn more about server group [performance options](resources-compute.md).
 - [Scale a server group](howto-scale-grow.md) up or out
 - See the
   [rebalance_table_shards](reference-functions.md#rebalance_table_shards)

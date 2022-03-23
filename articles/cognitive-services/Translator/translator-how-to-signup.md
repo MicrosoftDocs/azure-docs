@@ -1,7 +1,7 @@
 ---
 title: Create a Translator resource
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to create an Azure Cognitive Services Translator resource and get a subscription key and endpoint URL.
+description: This article will show you how to create an Azure Cognitive Services Translator resource and get a key and endpoint URL.
 services: cognitive-services
 author: laujan
 ms.author: lajanuar
@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/24/2022
 ---
 
 # Create a Translator resource
 
-In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
+In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
 
 ## Prerequisites
 
@@ -33,14 +33,14 @@ The Translator service can be accessed through two different resource types:
 
 ## Create your resource
 
-* Navigate directly to the [**Create Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
+* Navigate directly to the [**Create Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
 
-* Navigate directly to the [**Create Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
+* Navigate directly to the [**Create Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
 
 >[!TIP]
 >If you prefer, you can start on the Azure Portal home page to begin the **Create** process as follows:
 >
-> 1. Navigate to the [**Azure Portal**](https://ms.portal.azure.com/#home) home page.
+> 1. Navigate to the [**Azure Portal**](https://portal.azure.com/#home) home page.
 > 1. Select ➕**Create a resource**  from the Azure services menu.
 >1. In the **Search the Marketplace** search box, enter and select **Translator** (single-service resource) or **Cognitive Services** (multi-service resource).  *See* [Choose your resource type](#create-your-resource), above.
 > 1. Select **Create** and you will be taken to the project details page.
@@ -50,22 +50,23 @@ The Translator service can be accessed through two different resource types:
 
 1. **Subscription**. Select one of your available Azure subscriptions.
 
-1. **Resource Group**. The Azure resource group that you choose serve as a virtual container for your new resource. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
+1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. Translator is a non-regional service—there is no dependency on a specific Azure region. *See* [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).
+1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using the Document Translation feature with managed identity authentication, choose a non-global region.
 
 1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
-> [!NOTE]
-> If you are using a Translator feature that requires a custom domain endpoint, the value that you enter in the Name field will be the custom domain name parameter for the endpoint.
+   > [!NOTE]
+   > If you are using a Translator feature that requires a custom domain endpoint, such as Document Translation, the value that you enter in the Name field will be the custom domain name parameter for the endpoint.
 
-5. **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
+1. **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
 
    * Each subscription has a free tier.
    * The free tier has the same features and functionalities as paid plans and doesn't expire.
-   * Only have one free subscription per account is allowed.</li></ul>
+   * Only have one free subscription per account is allowed.
+   * Document Translation isn't supported in the free tier. Select Standard S1 to try that feature.
 
-1. If you have created a multi-service resource, you will need to confirm additional usage details via the check boxes.
+1. If you've created a multi-service resource, you'll need to confirm additional usage details via the check boxes.
 
 1. Select **Review + Create**.
 
@@ -79,13 +80,13 @@ All Cognitive Services API requests require an endpoint URL and a read-only key 
 
 * **Authentication keys**. Your key is a unique string that is passed on every request to the Translation service. You can pass your key through a query-string parameter or by specifying it in the HTTP request header.
 
-* **Endpoint URL**. Use the Global endpoint in your API request unless you need a specific Azure region. *See* [Base URLs](reference/v3-0-reference.md#base-urls). The Global endpoint URL is `api.cognitive.microsofttranslator.com`.
+* **Endpoint URL**. Use the Global endpoint in your API request unless you need a specific Azure region or custom endpoint. *See* [Base URLs](reference/v3-0-reference.md#base-urls). The Global endpoint URL is `api.cognitive.microsofttranslator.com`.
 
 ## Get your authentication keys and endpoint
 
 1. After your new resource deploys, select **Go to resource** or navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
-1. Copy and paste your subscription keys and endpoint URL in a convenient location, such as *Microsoft Notepad*.
+1. Copy and paste your keys and endpoint URL in a convenient location, such as *Microsoft Notepad*.
 
 :::image type="content" source="../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
 

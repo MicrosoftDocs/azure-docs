@@ -95,7 +95,7 @@ Similar to pre-triggers, post-triggers, are also associated with an operation on
 
 ## <a id="jsqueryapi"></a>JavaScript language-integrated query API
 
-In addition to issuing queries using SQL API query syntax, the [server-side SDK](https://azure.github.io/azure-cosmosdb-js-server) allows you to perform queries by using a JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into sequence of function calls. Queries are parsed by the JavaScript runtime and are executed efficiently within Azure Cosmos DB. To learn about JavaScript query API support, see [Working with JavaScript language integrated query API](javascript-query-api.md) article. For examples, see [How to write stored procedures and triggers using Javascript Query API](how-to-write-javascript-query-api.md) article.
+In addition to issuing queries using SQL API query syntax, the [server-side SDK](https://azure.github.io/azure-cosmosdb-js-server) allows you to perform queries by using a JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into sequence of function calls. Queries are parsed by the JavaScript runtime and are executed efficiently within Azure Cosmos DB. To learn about JavaScript query API support, see [Working with JavaScript language integrated query API](javascript-query-api.md) article. For examples, see [How to write stored procedures and triggers using JavaScript Query API](how-to-write-javascript-query-api.md) article.
 
 ## Next steps
 

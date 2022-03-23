@@ -40,7 +40,7 @@ For more information about incident integration and advanced hunting event colle
 
 - You must have a valid license for Microsoft 365 Defender, as described in [Microsoft 365 Defender prerequisites](/microsoft-365/security/mtp/prerequisites). 
 
-- Your user must be assigned the [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) roles on the tenant you want to stream the logs from.
+- Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
 
 - Your user must have read and write permissions on your Microsoft Sentinel workspace.
 

@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 >
 > The Microsoft Sentinel **Repositories** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Microsoft Sentinel *content* is Security Information and Event Management (SIEM) that assists customers with ingesting, monitoring, alerting, hunting, and more in Microsoft Sentinel. For example, Microsoft Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+Microsoft Sentinel *content* is Security Information and Event Management (SIEM) or Security Orchestration, Automation, and Response (SOAR) resources that assist customers with ingesting, monitoring, alerting, hunting, automating response, and more in Microsoft Sentinel. For example, Microsoft Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
 You can use the out-of-the-box (built-in) content provided in the Microsoft Sentinel Content hub and customize it for your own needs, or create your own custom content from scratch.
 
@@ -32,7 +32,7 @@ Before connecting your Microsoft Sentinel workspace to an external source contro
 
     Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. The **Owner** role is required to create the connection between Microsoft Sentinel and your source control repository.
+- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. The **Owner** role is required to create the connection between Microsoft Sentinel and your source control repository. If you are using Azure Lighthouse in your environment, you can instead have the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 ### Maximum connections and deployments
 
@@ -288,7 +288,7 @@ For more information, see:
 
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced SIEM Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

@@ -1,8 +1,8 @@
 ---
 title: Initial server group size - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Pick the right initial size for your use case
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -29,10 +29,9 @@ in total equals that of the original instance. In such scenarios we have seen
 allowing smaller indices etc.
 
 The vCore count is actually the only decision. RAM allocation is currently
-determined based on vCore count, as described in the [Hyperscale (Citus)
-configuration options](concepts-configuration-options.md) page.
-The coordinator node doesn't require as much RAM as workers, but there's
-no way to choose RAM and vCores independently.
+determined based on vCore count, as described in the [compute and
+storage](resources-compute.md) page.  The coordinator node doesn't require as
+much RAM as workers, but there's no way to choose RAM and vCores independently.
 
 ### Real-time analytics
 
@@ -43,12 +42,11 @@ the current latency for queries in your single-node database and the required
 latency in Hyperscale (Citus). Divide current latency by desired latency, and
 round the result.
 
-Worker RAM: the best case would be providing enough memory that most
-the working set fits in memory. The type of queries your application uses
-affect memory requirements. You can run EXPLAIN ANALYZE on a query to determine
-how much memory it requires. Remember that vCores and RAM are scaled together
-as described in the [Hyperscale (Citus) configuration
-options](concepts-configuration-options.md) article.
+Worker RAM: the best case would be providing enough memory that most the
+working set fits in memory. The type of queries your application uses affect
+memory requirements. You can run EXPLAIN ANALYZE on a query to determine how
+much memory it requires. Remember that vCores and RAM are scaled together as
+described in the [compute and storage](resources-compute.md) article.
 
 ## Choosing a Hyperscale (Citus) tier
 

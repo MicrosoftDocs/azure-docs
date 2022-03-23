@@ -29,7 +29,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
 
-+ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
++ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
@@ -45,7 +45,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Choose a directory location for your project workspace and choose **Select**.
+1. Choose a directory location for your project workspace and choose **Select**. It is recommended that you create a new folder or choose an empty folder as the project workspace.
 
     > [!NOTE]
     > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.

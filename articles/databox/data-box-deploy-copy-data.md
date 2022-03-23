@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/10/2021
+ms.date: 01/20/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
@@ -128,7 +128,7 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 After you connect to the SMB share, begin the data copy. You can use any SMB-compatible file copy tool, such as Robocopy, to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
 
 ```console
-robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /B /Log+:<LogFile>
 ```
 
 The attributes are described in the following table.
@@ -144,7 +144,7 @@ The attributes are described in the following table.
 |/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
 |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
 |/fft     | Use to reduce the time stamp granularity for any file system.        |
-|/b     | Copies files in Backup mode.        |
+|/B     | Copies files in Backup mode.        |
 |/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
 | /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |

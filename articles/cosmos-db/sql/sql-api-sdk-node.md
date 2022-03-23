@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: javascript
 ms.topic: reference
 ms.date: 12/09/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: devx-track-js
 
 ---
@@ -197,7 +197,7 @@ While it was possible to use the v2 SDK in the browser, it was not an ideal expe
 Not always the most visible changes, but they help our team ship better code, faster.
 
 * Use rollup for production builds (#104)
-* Update to Typescript 3.5 (#327)
+* Update to TypeScript 3.5 (#327)
 * Convert to TS project references. Extract test folder (#270)
 * Enable noUnusedLocals and noUnusedParameters (#275)
 * Azure Pipelines YAML for CI builds (#298)
