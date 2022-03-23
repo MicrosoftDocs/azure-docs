@@ -5,17 +5,17 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 03/17/2022
+ ms.date: 03/23/2022
  ms.author: duau
  ms.custom: include file
 ---
 
-* In addition to the limits below, there is a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+* In addition to the limits below, there's a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Classic tier limit |
 | --- | --- |
 | Azure Front Door resources per subscription | 100 |
-| Front-end hosts, which includes custom domains per resource | 500 |
+| Front-end hosts, which include custom domains per resource | 500 |
 | Routing rules per resource | 500 |
 | Back-end pools per resource | 50 |
 | Back ends per back-end pool | 100 |
@@ -37,7 +37,7 @@
 ### Azure Front Door Standard and Premium tier service limits
 
 * Maximum **500** total Standard and Premium profiles per subscription.
-* In addition to the limits below, there is a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+* In addition to the limits below, there's a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Standard tier limit | Premium tier limit |
 | --- | --- | --- |
@@ -70,10 +70,12 @@
 * Front Door has an idle TCP connection timeout of 61 seconds.
 
 ##### Front Door to application back-end
-* After the HTTP request is forwarded to the back end, Front Door waits for 60 seconds (Standard and Premium) or 30 seconds (classic) for the first packet from the back end. Then it returns a 503 error to the client, or 504 for a cache request. This value is configurable via the field originResponseTimeoutSeconds in Front Door Standard and Premium API, or sendRecvTimeoutSeconds in the Front Door (classic) API.
-* After the first packet is received from the back end, if the origin pauses for some reason in the middle of the response body beyond the originResponseTimeoutSeconds or sendRecvTimeoutSeconds, the response will be cancelled.
-* Front Door takes advantage of HTTP keepalive to keep connections open for reuse from previous requests. These connections have an idle timeout of 90 seconds. Front Door would disconnect idle connections after reaching the 90 second idle timeout. This timeout is not configurable.
 
+* After the HTTP request gets forwarded to the back end, Azure Front Door waits for 60 seconds (Standard and Premium) or 30 seconds (classic) for the first packet from the back end. Then it returns a 503 error to the client, or 504 for a cached request. You can configure this value using the *originResponseTimeoutSeconds* field in Azure Front Door Standard and Premium API, or the sendRecvTimeoutSeconds field in the Azure Front Door (classic) API.
+
+* After the back end receives the first packet, if the origin pauses for any reason in the middle of the response body beyond the originResponseTimeoutSeconds or sendRecvTimeoutSeconds, the response will be canceled.
+
+* Front Door takes advantage of HTTP keep-alive to keep connections open for reuse from previous requests. These connections have an idle timeout of 90 seconds. Azure Front Door would disconnect idle connections after reaching the 90-second idle timeout. This timeout value can't be configured.
 
 #### Upload and download data limit
 
