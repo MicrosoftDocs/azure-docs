@@ -4,7 +4,7 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/15/2022
+ms.date: 03/22/2022
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -123,7 +123,7 @@ By default, non-TLS/SSL access is disabled for new caches. To enable the non-TLS
 
 #### Memory policies
 
-Use **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings from **Advanced settings** on the left to configure the memory policies for the cache. When you create a cache, the values `maxmemory-reserved` and `maxfragmentationmemory-reserved` default to 10% of `maxmemory`, which is the new cache size.
+Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings from **Advanced settings** from the Resource menu on the left to configure the memory policies for the cache. When you create a cache, the values `maxmemory-reserved` and `maxfragmentationmemory-reserved` default to 10% of `maxmemory`, which is the cache size.
 
 :::image type="content" source="media/cache-configure/redis-cache-maxmemory-policy.png" alt-text="Azure Cache for Redis Maxmemory Policy":::
 
@@ -388,9 +388,9 @@ New Azure Cache for Redis instances are configured with the following default Re
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
 | `maxclients` |Depends on the pricing tier<sup>2</sup> |This value is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-reserved` | 10% of `maxmemory` | The allowed range for `maxmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set it too low, the value is set  10%. If you try to set it too high, the value is set 60%. |
-| `maxfragmentationmemory-reserved` | 10% of `maxmemory`  | The allowed range for `maxfragmentationmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set it too low, the value is set 10%. If you try to set it too high, the value is set 60%. |
-| `maxmemory-policy` |`volatile-lru` | Maxmemory policy is the setting used by Redis to select what to remove when `maxmemory` (the size of the cache that you selected when you created the cache) is reached. With Azure Cache for Redis the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
+| `maxmemory-reserved` | 10% of `maxmemory` | The allowed range for `maxmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set it too low, the value is calculated using 10%. If you try to set it too high, the value is calculated using 60%. The values are rendered in megabytes. |
+| `maxfragmentationmemory-reserved` | 10% of `maxmemory`  | The allowed range for `maxfragmentationmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set it too low, the value is calculated using 10%. If you try to set it too high, the value is calculated using 60%. The values are rendered in megabytes. |
+| `maxmemory-policy` |`volatile-lru` | Maxmemory policy is the setting used by the Redis server to select what to remove when `maxmemory` (the size of the cache that you selected when you created the cache) is reached. With Azure Cache for Redis, the default setting is `volatile-lru`. This seetting removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
@@ -413,6 +413,7 @@ New Azure Cache for Redis instances are configured with the following default Re
   - P2 (13 GB - 130 GB) - up to 32 databases
   - P3 (26 GB - 260 GB) - up to 48 databases
   - P4 (53 GB - 530 GB) - up to 64 databases
+  - P5 (120 GB - 1200 GB) - up to 64 databases
   - All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command isn't allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 For more information about databases, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-)
@@ -439,6 +440,7 @@ For more information about databases, see [What are Redis databases?](cache-deve
   - P2 (13 GB - 130 GB) - up to 15,000 connections
   - P3 (26 GB - 260 GB) - up to 30,000 connections
   - P4 (53 GB - 530 GB) - up to 40,000 connections
+  - P5: (120 GB - 1200 GB) - up to 40,000 connections
 
 > [!NOTE]
 > While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
