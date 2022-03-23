@@ -415,45 +415,45 @@ Checking available base model for en-us
 #### Display model download on the custom speech-to-text container
 Starting in v3.1.0 of the custom-speech-to-text container, you can get the available display models information and choose to download those models into your speech-to-text container to get highly improved final display output. 
 
-You can query or download any or all of these display model types: Rescoring (`Rescore`), Punctuation (`Punct`), resegmentation (`Resegment`), and wfstitn (`Wfstitn`). Otherwise, you can use the `FullDisplay` option (and omit the other types) to query or download all types of display models. 
+You can query or download any or all of these display model types: Rescoring (`Rescore`), Punctuation (`Punct`), resegmentation (`Resegment`), and wfstitn (`Wfstitn`). Otherwise, you can use the `FullDisplay` option (with or without the other types) to query or download all types of display models. 
 
-Set the `BaseModelLocale` to query the latest available display model on the target locale. If you include multiple display model types, the command will return the latest available display model for each type. For example:
+Set the `BaseModelLocale` to query the latest available display model on the target locale. If you include multiple display model types, the command will return the latest available display models for each type. For example:
 
 ```bash
 docker run --rm -it \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
-FullDisplay Punct Rescore Resegment Wfstitn \   # Space separated list of display model types
+Punct Rescore Resegment Wfstitn \   # Specify `FullDisplay` or a space-separated subset of display models
 BaseModelLocale={LOCALE} \           
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Set the `DisplayLocale` to download the latest available display model on the target locale. When you set `DisplayLocale`, you must also include a space separated list of one or more display model types. If you include multiple display model types, the command will return the latest available display model for each type. For example:
+Set the `DisplayLocale` to download the latest available display model on the target locale. When you set `DisplayLocale`, you must also specify `FullDisplay` or a space-separated subset of display models. The command will download the latest available display model for each specified type. For example:
 
 ```bash
 docker run --rm -it \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
-FullDisplay Punct Rescore Resegment Wfstitn \   # Space separated list of display model types
+Punct Rescore Resegment Wfstitn \   # Specify `FullDisplay` or a space-separated subset of display models
 DisplayLocale={LOCALE} \           
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Set the `ModelId` to download a specific display model. This is the same as how you would download a base model. For example:
+Set one model ID parameter to download a specific display model: Rescoring (`RescoreId`), Punctuation (`PunctId`), resegmentation (`ResegmentId`), or wfstitn (`WfstitnId`). This is similar to how you would download a base model via the `ModelId` parameter. For example, to download a rescoring display model, you can use the following command with the `RescoreId` parameter:
 
 ```bash
 docker run --rm -it \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
-ModelId={MODEL_ID} \         
+RescoreId={RESCORE_MODEL_ID} \         
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
 > [!NOTE]
-> If you set more than one query or download parameter, the command will prioritize in this order: `BaseModelLocale`, `ModelId`, and `DisplayLocale` (only applicable for display models).
+> If you set more than one query or download parameter, the command will prioritize in this order: `BaseModelLocale`, model ID, and then `DisplayLocale` (only applicable for display models).
 
 #### Custom pronunciation on the custom speech-to-text container
 
