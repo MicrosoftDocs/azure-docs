@@ -12,7 +12,7 @@ ms.date: 03/22/2022
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md). In this quickstart, you create an event hub by using [Bicep](../azure-resource-manager/bicep/overview.md). You deploy a Bicep file to create a namespace of type [Event Hubs](./event-hubs-about.md), with one event hub.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -28,8 +28,6 @@ The resources defined in the Bicep file include:
 
 - [**Microsoft.EventHub/namespaces**](/azure/templates/microsoft.eventhub/namespaces)
 - [**Microsoft.EventHub/namespaces/eventhubs**](/azure/templates/microsoft.eventhub/namespaces/eventhubs)
-
-To find template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
 ## Deploy the Bicep file
 
@@ -53,7 +51,7 @@ To find template samples, see [Azure Quickstart Templates](https://azure.microso
     ---
 
     > [!NOTE]
-    > Replace **\<project-name\>** with a project name. It will be used to generate the Event Hub and the Namespace name.
+    > Replace **\<project-name\>** with a project name. It will be used to generate the Event Hub name and the Namespace name.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -105,13 +103,10 @@ In this article, you created an Event Hubs namespace and an event hub in the nam
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
-
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png
 [5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
 [Understand the structure and syntax of Bicep files]: ../azure-resource-manager/bicep/file.md
-[Azure Quickstart Templates]:  https://azure.microsoft.com/resources/templates/?term=event+hubs
 [Deploy resources with Bicep and Azure PowerShell]: ../azure-resource-manager/bicep/deploy-powershell.md
 [Deploy resource with Bicep and Azure CLI]: ../azure-resource-manager/bicep/deploy-cli.md
-[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.eventhub/event-hubs-create-event-hub-and-consumer-group/
