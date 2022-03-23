@@ -415,9 +415,6 @@ To remove all identities in an ARM template:
 
 ## REST endpoint reference
 
-> [!NOTE]
-> An older version of this endpoint, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. `MSI_ENDPOINT` can be used as an alias for `IDENTITY_ENDPOINT`, and `MSI_SECRET` can be used as an alias for `IDENTITY_HEADER`. This version of the protocol is currently required for Linux Consumption hosting plans.
-
 An app with a managed identity makes this endpoint available by defining two environment variables:
 
 - IDENTITY_ENDPOINT - the URL to the local token service.
