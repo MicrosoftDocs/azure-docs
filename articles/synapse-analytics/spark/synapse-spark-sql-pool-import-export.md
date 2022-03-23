@@ -208,7 +208,7 @@ Benefits of this approach over printing the end state result to console (partial
 
 ## Connector API Documentation
 
-Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/utils/index.html).
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
 
 ## Code Templates
 
@@ -406,11 +406,10 @@ The latest release of the Connector introduced certain default behavior changes 
 
 * Error Handling (i.e., throwing exceptions from cells) when writing to Synapse Dedicated SQL Pool.
   * Context
-    * Typical behavior you would have is when any one of the Cell code throws exception i.e., fails with an error, it will cancel the remaining cell execution in the notebook.
-    * With the new release, ability to gracefully handle the errors is enabled to the users invoking the `synapsesql`. With this, the cell gracefully concludes its execution with the errors (if any) logged to the Driver logs.
+    * A typical behavior when code inside a certain cell fails, it will also cancel subsequent cells in the notebook.
+    * In the new release, the cell would gracefully exit by printing the error in the application logs, instead of failing the cell.
   * Mitigation
-    * Please refer to the approach demonstrated in the Write path [Code Template](#write-code-template).
-    * Handling and throwing an error as the last statement will allow the Cell execution to fail when there is a write failure.
+    * Code sample referenced in the section - [Code Template](#write-code-template) provides a mitigation approach, where the error from the request is captured and thrown. This will fail the respective cell where this error has occurred. It will also cancel execution of subsequent cells in the notebook.
 
 * A write request returns a validation error message, as described below
   * Detailed Error Message
