@@ -19,7 +19,7 @@ Possible errors:
  - "Unable to determine the target machine type as Azure VM or Arc Server"
  - "Unable to determine that the target machine is an Arc Server"
  - "Unable to determine that the target machine is an Azure VM"
- - "The resource <name> in the resource group <resource group> was not found"
+ - "The resource \<name\> in the resource group \<resource group\> was not found"
 
 Resolution:
  - Run ```az account set -s <AzureSubscriptionId>``` where "AzureSubscriptionId" corresponds to the subscription that contains the target resource.
@@ -27,7 +27,7 @@ Resolution:
 ### Unable to locate client binaries
 This issue occurs when the client side SSH binaries required to connect cannot be found.
 Error:
- - "Could not find <command>.exe
+ - "Could not find \<command\>.exe
 
 Resolution:
  - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
