@@ -28,23 +28,6 @@ This article shows you to connect to Azure Blob Storage by using the Azure Blob 
 - Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 
-## How the library is organized
-
-The Azure Blob Storage client library v12 for .NET is organized into the three namespaces:
-
-- [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
-
-- [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
-
-- [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
-
-The following image shows each namespace and some of the classes available in them.
-
-> [!div class="mx-imgBorder"]
-> ![.NET object namespaces](./media/storage-blob-dotnet-get-started/dotnet-object-namespaces.png)
-
-To use the classes in these namespaces, you'll have to add the `Azure.Storage.Blobs` package to your project and then add using statements to the top of your code files. 
-
 ## Set up your project
 
 Open a command prompt and change directory (`cd`) into your project folder. Then, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command. 
@@ -63,29 +46,16 @@ using Azure.Storage.Blobs.Specialized;
 
 ```
 
-## The basic building blocks
+- [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
 
-Blob storage offers three types of resources:
+- [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
 
-- The storage account, which is the unique top-level namespace for your Azure Storage data.
-- Containers, which organize the blob data in your storage account.
-- Blobs, which store unstructured data like text and binary data.
+- [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
 
-The following diagram shows the relationship between these resources.
+The following image shows each namespace and some of the classes available in them.
 
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Each type of resource is represented by one or more associated .NET classes. These are the basic classes:
-
-- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): Represents the Blob Storage endpoint for your storage account. 
-
-- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): Allows you to manipulate Azure Storage containers and their blobs.
-
-- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): Allows you to manipulate Azure Storage blobs.
-
-- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient): Allows you to perform operations specific to append blobs such as periodically appending log data.
-
-- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient): The `BlockBlobClient` Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.
+> [!div class="mx-imgBorder"]
+> ![.NET object namespaces](./media/storage-blob-dotnet-get-started/dotnet-object-namespaces.png)
 
 ## Connect to Blob Storage
 
@@ -227,11 +197,44 @@ public static void ListBlobsAnonymously()
 
 ## Build your application
 
-When you're ready to build your application, see any of these guides. Each guide contains example snippets.<br><br>
+As you build your application, your code will primarily interact with three types of resources:
 
-| Containers | Blobs |
-|---|----|
-|<li>[Create a container](storage-blob-container-create.md)<li>[Delete and restore](storage-blob-container-delete.md)<li>[List containers](storage-blob-containers-list.md)<li>[Manage properties and metadata](storage-blob-container-properties-metadata.md)<li>[Create and manage leases](storage-blob-container-lease.md)|<li>[Append data to blobs](storage-blob-append.md)<li>[Upload a blobs](storage-blob-upload.md)<li>[Copy blobs](storage-blob-copy.md)<li>[List blobs](storage-blobs-list.md)<li>[Delete and restore](storage-blob-delete.md)<li>[Find blobs using tags](storage-blob-tags.md)<li>[Manage properties and metadata](storage-blob-properties-metadata.md)|
+- The storage account, which is the unique top-level namespace for your Azure Storage data.
+
+- Containers, which organize the blob data in your storage account.
+
+- Blobs, which store unstructured data like text and binary data.
+
+The following diagram shows the relationship between these resources.
+
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+
+Each type of resource is represented by one or more associated .NET classes. These are the basic classes:
+
+| Class | Description |
+|---|---|
+| [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
+| [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
+| [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | Allows you to manipulate Azure Storage blobs.|
+| [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
+| [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
+
+The following guides show you how to use each of these classes to build your application
+
+| Guide | Description |
+|--|---|
+| [Create a container](storage-blob-container-create.md) | Description |
+| [Delete and restore](storage-blob-container-delete.md) | Description |
+| [List containers](storage-blob-containers-list.md) | Description |
+| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Description |
+| [Create and manage leases](storage-blob-container-lease.md) | Description |
+| [Append data to blobs](storage-blob-append.md) | Description |
+| [Upload blobs](storage-blob-upload.md) | Description |
+| [Copy blobs](storage-blob-copy.md) | Description |
+| [List blobs](storage-blobs-list.md) | Description |
+| [Delete and restore](storage-blob-delete.md) | Description |
+| [Find blobs using tags](storage-blob-tags.md) | Description |
+| [Manage properties and metadata](storage-blob-properties-metadata.md) | Description |
 
 ## See also
 
