@@ -136,11 +136,11 @@ Consider the following strategies:
 
     1. Select **Add webhook** to open the **Add Webhook** page.
 
-    :::image type="content" source="media/automation-webhooks/add-webhook-icon.png" alt-text="Runbook overview page with Add webhook highlighted.":::
+        :::image type="content" source="media/automation-webhooks/add-webhook-icon.png" alt-text="Runbook overview page with Add webhook highlighted.":::
 
     1. On the **Add Webhook** page, select **Create new webhook**.
 
-    :::image type="content" source="media/automation-webhooks/add-webhook-page-create.png" alt-text="Add webhook page with create highlighted.":::
+        :::image type="content" source="media/automation-webhooks/add-webhook-page-create.png" alt-text="Add webhook page with create highlighted.":::
 
     1. Enter in the **Name** for the webhook. The expiration date for the field **Expires** defaults to one year from the current date.
 
@@ -155,7 +155,7 @@ Consider the following strategies:
 
     1. From the **Add Webhook** page, select **Configure parameters and run settings** to open the **Parameters** page.
 
-    :::image type="content" source="media/automation-webhooks/add-webhook-page-parameters.png" alt-text="Add webhook page with parameters highlighted.":::
+        :::image type="content" source="media/automation-webhooks/add-webhook-page-parameters.png" alt-text="Add webhook page with parameters highlighted.":::
 
     1. Review the **Parameters** page. For the example runbook used in this article, no changes are needed. Select **OK** to return to the **Add Webhook** page.
 
@@ -200,7 +200,7 @@ Consider the following strategies:
         $uri
         ```
 
-    The output will be a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
+       The output will be a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
 
     1. You can also verify the webhook with the PowerShell cmdlet [Get-AzAutomationWebhook](/powershell/module/az.automation/get-azautomationwebhook).
 
@@ -230,7 +230,7 @@ Consider the following strategies:
         }
         ```
 
-    Before running, modify the value for the **runbook:name** property with the actual name of your runbook. Review [Webhook properties](#webhook-properties) for more information about these properties.
+       Before running, modify the value for the **runbook:name** property with the actual name of your runbook. Review [Webhook properties](#webhook-properties) for more information about these properties.
 
     1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
 
@@ -263,7 +263,7 @@ Consider the following strategies:
         $restURI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount/webhooks/$restWebhook`?api-version=2015-10-31"
         ```
 
-    1. Run the following script to obtain an access token. If your access token expired, you need to rerun the script.
+    1. Run the following script to obtain an access token. If your access token expired, you need  to rerun the script.
 
         ```powershell
         # Obtain access token
@@ -287,7 +287,7 @@ Consider the following strategies:
         $webhookURI
         ```
 
-    The output is a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
+       The output is a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
 
     1. You can also use [Webhook - Get](/rest/api/automation/webhook/get) to retrieve the webhook identified by its name. You can run the following PowerShell commands:
 
