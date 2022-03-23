@@ -141,6 +141,4 @@ You've created a Java project with an HTTP triggered function, run it on your lo
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png
 [intellij-azure-login]: media/functions-create-first-java-intellij/intellij-azure-login.png
 [intellij-azure-popup]: media/functions-create-first-java-intellij/intellij-azure-login-popup.png
-
-
 [intellij-azure-login-select-subs]: media/functions-create-first-java-intellij/intellij-azure-login-selectsubs.png
