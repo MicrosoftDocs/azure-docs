@@ -121,6 +121,9 @@ As part of the step that copies the storage content, any folder that is named re
 ### How to flush the local cache logs after a site management operation?
 To flush the local cache logs, stop and restart the app. This action clears the old cache. 
 
+### Why does App Service starts showing previously deployed files after a restart when Local Cache is enabled?
+In case App Service starts showing previously deployed files on a restart, check for the precense of the App Setting - '[WEBSITE_DISABLE_SCM_SEPARATION=true](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site)'.  After adding this setting any deployments via KUDU start writing to the local VM instead of the persistent storage. Best practices mentioned above in this article should be leveraged, wherein the deployments should always be done to the staging slot which does not have Local Cache enabled.
+
 ## More resources
 
 [Environment variables and app settings reference](reference-app-settings.md)

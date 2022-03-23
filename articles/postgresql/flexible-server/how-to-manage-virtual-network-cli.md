@@ -65,7 +65,8 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
-    > The virtual network and subnet should be in the same region and subscription as your flexible server.
+    > - The virtual network and subnet should be in the same region and subscription as your flexible server.
+    > - The virtual network should not have any resource lock set at the VNET or subnet level. Make sure to remove any lock (**Delete** or **Read only**) from your VNET and all subnets before creating the server in a virtual network, and you can set it back after server creation.
 
     > [!IMPORTANT]
     > The names including `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` and `GatewaySubnet` are reserved names within Azure. Please do not use these as your subnet name.

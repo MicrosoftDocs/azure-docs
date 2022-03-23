@@ -12,6 +12,10 @@ manager: femila
 ---
 # Autoscale (preview) glossary
 
+> [!IMPORTANT]
+> The autoscale feature is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 This article is a list of definitions for key terms and concepts related to the autoscale (preview) feature for Azure Virtual Desktop.
 
 ## Autoscale
@@ -30,7 +34,7 @@ A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that de
 
 Schedules are sub-resources of [scaling plans](#scaling-plan) that specify the start time, capacity threshold, minimum percentage of hosts, load-balancing algorithm, and other configuration settings for the different phases of the day.
 
-## Ramp up
+## Ramp-up
 
 The ramp-up phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is usually at the beginning of the work day, when users start to sign in and start their sessions. In this phase, the number of [active user sessions](#active-user-session) usually increases at a rapid pace without reaching the maximum number of active sessions for the day yet.
 
@@ -38,7 +42,7 @@ The ramp-up phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is us
 
 The peak phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is when your host pool reaches the maximum number of [active user sessions](#active-user-session) for the day. In this phase, the number of active sessions usually holds steady until the peak phase ends. New active user sessions can be established during this phase, but usually at a slower rate than the ramp-up phase.
 
-## Ramp down
+## Ramp-down
 
 The ramp-down phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is usually at the end of the work day, when users start to sign out and end their sessions for the evening. In this phase, the number of [active user sessions](#active-user-session) usually decreases rapidly.
 
@@ -102,4 +106,5 @@ An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag n
 ## Next steps
 
 - For more information about the autoscale feature, see the [autoscale feature document](autoscale-scaling-plan.md).
+- For examples of how the autoscale feature works, see [Autoscale example scenarios](autoscale-scenarios.md).
 - For more information about the scaling script, see the [scaling script document](set-up-scaling-script.md).
