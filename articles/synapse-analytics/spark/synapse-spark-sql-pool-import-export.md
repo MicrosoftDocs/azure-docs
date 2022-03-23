@@ -409,7 +409,7 @@ The latest release of the Connector introduced certain default behavior changes 
     * Typically, when the code in a notebook cell contains an error, an error will be surfaced and notebook execution will stop.
     * The current implementation of this connector is different, in that any errors will be written to the Driver Logs, but notebook cell execution will continue.
   * Mitigation
-    * Handling and surfacing the error will allow the Cell execution to fail. Subsequent cell execution will not be attempted (i.e., cancelled). 
+    * Handling and surfacing the error will allow the Cell execution to fail. Subsequent cell execution will not be attempted (i.e., cancelled).
     * See section - Write [Code Template](#write-code-template) section for a sample code reference.
 
 * A write request returns a validation error message, as described below
@@ -426,7 +426,7 @@ The latest release of the Connector introduced certain default behavior changes 
    ```
 
 * Deprecation Warning
-  * Context - Users would see following deprecation warning statement printed to the console output below the Cell:
+  * Context - When using the `synapsesql` method to write to Synapse Dedicated SQL Pool table, following warning message is displayed below the respective cell:
     * "warning: there was one deprecation warning; for details, enable `:setting -deprecation' or`:replay -deprecation'"
   * Mitigation
     * This is related to the deprecated `sqlanalytics` signature.
