@@ -69,7 +69,7 @@ You can create a new IoT Hub for this purpose with Azure Digital Twins, or conne
 
 You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-### Output to Azure Data Explorer, Time Series Insights, storage, and analytics
+### Output data for storage and analytics
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 

@@ -137,6 +137,8 @@ Currently the point in time restore functionality has the following limitations:
 
 * Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account or migrate an account from periodic to continuous mode.
 
+* Continuous mode restore may not restore throughput setting valid as of restore point. 
+
 ## Next steps
 
 * Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).

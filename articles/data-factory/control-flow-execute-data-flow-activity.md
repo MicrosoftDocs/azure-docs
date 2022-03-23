@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 09/09/2021
+ms.date: 03/22/2022
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -100,6 +100,10 @@ A minimum compute type of General Purpose with an 8+8 (16 total v-cores) configu
 ### PolyBase
 
 If you're using an Azure Synapse Analytics as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
+
+## Checkpoint key
+
+When using the change capture option for data flow sources, ADF will maintain and manage the checkpoint for you automatically. The default checkpoint key is a hash of the data flow name and the pipeline name. If you are using a dynamic pattern for your source tables or folders, you may wish to override this hash and set your own checkpoint key value here.
 
 ## Logging level
 

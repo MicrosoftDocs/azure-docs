@@ -116,7 +116,7 @@ During a push installation of the Mobility service, the following steps are perf
 - Run this command to install the agent.
 
   ```cmd
-  UnifiedAgent.exe /Role "Agent" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
 
 - Run these commands to register the agent with the configuration server.
