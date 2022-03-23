@@ -3,7 +3,7 @@ title: Microsoft 365 Defender integration with Microsoft Sentinel | Microsoft Do
 description: Learn how using Microsoft 365 Defender together with Microsoft Sentinel lets you use Microsoft Sentinel as your universal incidents queue while seamlessly applying Microsoft 365 Defender's strengths to help investigate Microsoft 365 security incidents. Also, learn how to ingest Defender components' advanced hunting data into Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/23/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -17,24 +17,20 @@ ms.custom: ignite-fall-2021
 
 > [!IMPORTANT]
 >
-> **Microsoft 365 Defender** was formerly known as **Microsoft Threat Protection** or **MTP**.
->
-> **Microsoft Defender for Endpoint** was formerly known as **Microsoft Defender Advanced Threat Protection** or **MDATP**.
->
-> **Microsoft Defender for Office 365** was formerly known as **Office 365 Advanced Threat Protection**.
+> **Microsoft Defender for Cloud Apps** was formerly known as **Microsoft Cloud App Security** or **MCAS**.
 >
 > You may see the old names still in use for a period of time.
 
 ## Incident integration
 
-Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all Microsoft 365 Defender incidents into Microsoft Sentinel and keep them synchronized between both portals. Incidents from Microsoft 365 Defender (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Sentinel, Incidents will remain bi-directionally synced with Microsoft 365 Defender, allowing you to take advantage of the benefits of both portals in your incident investigation.
+Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all Microsoft 365 Defender incidents into Microsoft Sentinel and keep them synchronized between both portals. Incidents from Microsoft 365 Defender (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Sentinel, incidents will remain bi-directionally synced with Microsoft 365 Defender, allowing you to take advantage of the benefits of both portals in your incident investigation.
 
 This integration gives Microsoft 365 security incidents the visibility to be managed from within Microsoft Sentinel, as part of the primary incident queue across the entire organization, so you can see – and correlate – Microsoft 365 incidents together with those from all of your other cloud and on-premises systems. At the same time, it allows you to take advantage of the unique strengths and capabilities of Microsoft 365 Defender for in-depth investigations and a Microsoft 365-specific experience across the Microsoft 365 ecosystem. Microsoft 365 Defender enriches and groups alerts from multiple Microsoft 365 products, both reducing the size of the SOC’s incident queue and shortening the time to resolve. The component services that are part of the Microsoft 365 Defender stack are:
 
 - **Microsoft Defender for Endpoint** (formerly Microsoft Defender ATP)
 - **Microsoft Defender for Identity** (formerly Azure ATP)
 - **Microsoft Defender for Office 365** (formerly Office 365 ATP)
-- **Microsoft Defender for Cloud Apps**
+- **Microsoft Defender for Cloud Apps** (formerly Microsoft Cloud App Security)
 
 In addition to collecting alerts from these components, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
@@ -85,13 +81,13 @@ In Microsoft 365 Defender, all alerts from one incident can be transferred to an
 
 ## Advanced hunting event collection
 
-The Microsoft 365 Defender connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft 365 Defender and its component services into Microsoft Sentinel. You can currently collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from Microsoft Defender for Endpoint and *(from October 2021)* from Microsoft Defender for Office 365, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
+The Microsoft 365 Defender connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft 365 Defender and its component services into Microsoft Sentinel. You can now *(as of April 2022)* collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from *all* Microsoft 365 Defender components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
 
-- Easily copy your existing Microsoft Defender for Endpoint/Office 365 advanced hunting queries into Microsoft Sentinel.
+- Easily copy your existing Microsoft Defender for Endpoint/Office 365/Identity/Cloud Apps advanced hunting queries into Microsoft Sentinel.
 
 - Use the raw event logs to provide further insights for your alerts, hunting, and investigation, and correlate these events with events from other data sources in Microsoft Sentinel.
 
-- Store the logs with increased retention, beyond Microsoft Defender for Endpoint's/Office 365's or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
+- Store the logs with increased retention, beyond Microsoft 365 Defender’s or its components' default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
 
 ## Next steps
 
