@@ -10,7 +10,7 @@ ms.date: 09/15/2021
 This article provides the properties and schema for Service Bus events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 >[!NOTE]
-> Only Service Bus namespace of **Premium** tier supports event integration. **Basic** and **Standard** tiers do *not* support integration with Event Grid.
+> Only Premium tier Service Bus namespace supports event integration. Basic and Standard tiers do not support integration with Event Grid.
 
 [!INCLUDE [event-grid-service-bus.md](../service-bus-messaging/includes/event-grid-service-bus.md)]
 
