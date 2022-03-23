@@ -327,6 +327,9 @@ performanceCounters
 | render timechart
 ```
 
+> [!NOTE]
+> [Performance counters](https://docs.microsoft.com/en-us/azure/azure-monitor/app/performance-counters) collect process utilization across CPU cores. This results in measures greater than 100 percent, for example, CPU utilization metrics on a 4-core VM range from 0 to 400 percent. Since these results can be confusing normalized metrics were created. Normalized metrics display the standard percentage values of 0 through 100. These metrics format the non-normalized value by dividing it by the number of CPU cores.
+
 ### Process IO rate (performanceCounters/processIOBytesPerSecond)
 
 |Unit of measure|Supported aggregations|Supported dimensions|
