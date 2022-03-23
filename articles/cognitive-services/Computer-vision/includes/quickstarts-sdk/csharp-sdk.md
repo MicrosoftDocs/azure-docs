@@ -91,6 +91,13 @@ Go to the Azure portal. If the Computer Vision resource you created in the **Pre
    > [!IMPORTANT]
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
+1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model-version=`2022-01-30-preview` parameter, edit the ReadAsync call as shown:
+
+   ```csharp
+     // Read text from URL with a specific model version
+     var textHeaders = await client.ReadAsync(urlFile,null,null,"2022-01-30-preview");
+   ```
+
 1. Run the application.
 
    #### [Visual Studio IDE](#tab/visual-studio)

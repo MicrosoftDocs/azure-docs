@@ -1,12 +1,12 @@
 ---
 title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment 
 description: Learn how to discover on-premises servers on Hyper-V with the Azure Migrate Discovery and assessment tool.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 11/12/2021
-ms.custom: mvc
+ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
@@ -38,38 +38,45 @@ Before you start this tutorial, check you have these prerequisites in place.
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which servers are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.
 **Appliance deployment** | Hyper-V host needs resources to allocate a server for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance, directly or via a proxy.
-**Servers** | Servers can be running any Windows or Linux operating system.
+**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless).<br /><br /> For discovery of installed applications and for agentless dependency analysis, Windows servers must have PowerShell version 2.0 or later installed.
 
 ## Prepare an Azure user account
 
 To create a project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory(AAD) apps.
+- Permissions to register Azure Active Directory apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
 1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
 
-    ![Search box to search for the Azure subscription](./media/tutorial-discover-hyper-v/search-subscription.png)
+    ![Screenshot of Search box to search for the Azure subscription.](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create a project.
-3. In the subscription, select **Access control (IAM)** > **Check access**.
-4. In **Check access**, search for the relevant user account.
-5. In **Add a role assignment**, click **Add**.
+1. In the **Subscriptions** page, select the subscription in which you want to create a project.
 
-    ![Search for a user account to check access and assign a role](./media/tutorial-discover-hyper-v/azure-account-access.png)
+1. Select **Access control (IAM)**.
 
-6. In **Add role assignment**, select the Contributor or Owner role, and select the account (azmigrateuser in our example). Then click **Save**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-    ![Opens the Add Role assignment page to assign a role to the account](./media/tutorial-discover-hyper-v/assign-role.png)
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor or Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
+
+1. In the Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
-    ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-hyper-v/register-apps.png)
+    ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare Hyper-V hosts
 
@@ -108,6 +115,16 @@ Hash value is:
 --- | ---
 SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
+### Create an account to access servers
+
+The user account on your servers must have the required permissions to initiate discovery of installed applications and enable agentless dependency analysis. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
+
+* For Windows servers, create an account (local or domain) that has administrator permissions on the servers.
+* For Linux servers, provide the root user account details or create an account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files.
+
+> [!NOTE]
+>  You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications and enable agentless dependency analysis. You can add multiple domain, Windows (non-domain) or Linux (non-domain)credentials. Learn how to [add server credentials](add-server-credentials.md).
+
 ## Set up a project
 
 Set up a new project.
@@ -118,12 +135,12 @@ Set up a new project.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
-   ![Boxes for project name and region](./media/tutorial-discover-hyper-v/new-project.png)
+   ![Screenshot of project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
-![Page showing Azure Migrate: Discovery and assessment tool added by default](./media/tutorial-discover-hyper-v/added-tool.png)
+![Page showing Azure Migrate: Discovery and assessment tool added by default.](./media/tutorial-discover-hyper-v/added-tool.png)
 
 > [!NOTE]
 > If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
@@ -178,7 +195,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 ### 3. Create an appliance
 
@@ -198,7 +215,7 @@ Import the downloaded file, and create an appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+Make sure that the appliance can connect to Azure URLs [public](migrate-support-matrix.md#public-cloud) and [government](migrate-support-matrix.md#azure-government) clouds.
 
 ### 4. Configure the appliance
 
@@ -227,7 +244,7 @@ Set up the appliance for the first time.
 1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
-    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+    ![Modal showing the device code.](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign-in by using your Azure username and password.
@@ -258,6 +275,8 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
 
 Connect from the appliance to Hyper-V hosts or clusters, and start server discovery.
 
+### Provide Hyper-V host/cluster details
+
 1. In **Step 1: Provide Hyper-V host credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for a Hyper-V host/cluster that the appliance will use to discover servers. Click on **Save**.
 1. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers in Hyper-V environment.
 1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
@@ -274,9 +293,50 @@ Connect from the appliance to Hyper-V hosts or clusters, and start server discov
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 1. You can **revalidate** the connectivity to hosts/clusters anytime before starting the discovery.
-1. Click on **Start discovery**, to kick off server discovery from the successfully validated hosts/clusters. After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
-This starts discovery. It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
+### Provide server credentials
+
+In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can disable the slider and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
+
+:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
+
+If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
+
+To add server credentials:
+
+1. Select **Add Credentials**.
+1. In the dropdown menu, select **Credentials type**.
+    
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain) credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+1. For each type of credentials, enter:
+    * A friendly name.
+    * A username.
+    * A password.
+    Select **Save**.
+
+    If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
+1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications and agentless dependency analysis.
+1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
+    When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as during discovery, the appliance iterates to map credentials to respective servers.
+
+To check validation of the domain credentials:
+
+In the configuration manager, in the credentials table, see the **Validation status** for domain credentials. Only domain credentials are validated.
+
+If validation fails, you can select the **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
+
+:::image type="content" source="./media/tutorial-discover-hyper-v/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+
+### Start discovery
+
+Click on **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
+
+## How discovery works
+
+* It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
+* If you have provided server credentials, [software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers running on Hyper-V host(s)/cluster(s) is finished.
+* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
+* During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 
 ## Verify servers in the portal
 
@@ -288,4 +348,4 @@ After discovery finishes, you can verify that the servers appear in the portal.
 ## Next steps
 
 - [Assess servers on Hyper-V environment](tutorial-assess-hyper-v.md) for migration to Azure VMs.
-- [Review the data](migrate-appliance.md#collected-data---hyper-v) that the appliance collects during discovery.
+- [Review the data](discovered-metadata.md#collected-metadata-for-hyper-v-servers) that the appliance collects during discovery.

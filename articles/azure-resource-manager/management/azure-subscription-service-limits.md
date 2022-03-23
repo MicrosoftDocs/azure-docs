@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 03/17/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -127,9 +127,9 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
-## Azure Healthcare APIs
+## Azure Health Data Services
 
-### Healthcare APIs service limits
+### Azure Health Data Services limits
 
 [!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
 

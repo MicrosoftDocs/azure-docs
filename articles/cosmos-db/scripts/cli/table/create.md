@@ -27,7 +27,7 @@ The script in this article demonstrates creating a Table API table.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/create.sh" range="4-26":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/create.sh" id="FullScript":::
 
 ## Clean up resources
 

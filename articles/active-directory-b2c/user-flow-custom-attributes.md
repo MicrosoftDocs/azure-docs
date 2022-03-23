@@ -177,19 +177,20 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 ::: zone-end
 
-## Using custom attribute with MS Graph API
+## Manage extension attributes through Microsoft Graph
 
-[Microsoft Graph API][ms-graph-api] supports creating and updating a user with extension attributes. Extension attributes in the Microsoft Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` [application](#azure-ad-b2c-extensions-app). Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example, the Microsoft Graph API identifies an extension attribute `loyaltyId` in Azure AD B2C as `extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId`. 
+You can use the Microsoft Graph API to create and manage extension attributes then set the values for a user.
 
-Learn how to [interact with resources in your Azure AD B2C tenant](microsoft-graph-operations.md#user-management) using Microsoft Graph API. 
- 
+Extension attributes in the Microsoft Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is equivalent to the **appId** but without the hyphens. For example, if the **appId** of the `b2c-extensions-app` application is `25883231-668a-43a7-80b2-5685c3f874bc` and the **attributename** is `loyaltyId`, then the extension attribute will be named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
+
+Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft-graph-operations.md#application-extension-properties) using the Microsoft Graph API. 
 
 ## Remove extension attribute
 
 Unlike built-in attributes, extension/custom attributes can be removed. The extension attributes' values can also be removed. 
 
 > [!Important]
-> Before you remove the extension/custom attribute, for each account in the directory, set the extension attribute value to null.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Extension/custom attribute is queryable using MS Graph API. 
+> Before you remove the extension/custom attribute, for each account in the directory, set the extension attribute value to `null`.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Extension/custom attribute is queryable using MS Graph API. 
 
 ::: zone pivot="b2c-user-flow"
 
@@ -207,7 +208,7 @@ Use the following steps to remove extension/custom attribute from a user flow in
 
 ::: zone pivot="b2c-custom-policy"
 
-To remove a custom attribute, use [MS Graph API](microsoft-graph-operations.md), and use the [Delete](/graph/api/application-delete-extensionproperty) command.
+Use the [Microsoft Graph API](microsoft-graph-operations.md#application-extension-properties) to delete the extension attribute from the application or to delete the extension attribute from the user.
 
 ::: zone-end
 

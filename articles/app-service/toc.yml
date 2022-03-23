@@ -96,6 +96,8 @@
             items: 
               - name: .NET
                 href: tutorial-connect-msi-key-vault.md
+              - name: JavaScript
+                href: tutorial-connect-msi-key-vault-javascript.md    
               - name: PHP
                 href: tutorial-connect-msi-key-vault-php.md              
     - name: Securely connect to Azure resources on behalf of user
@@ -413,7 +415,7 @@
         - name: Migrate ASP.NET
           href: app-service-asp-net-migration.md
         - name: Migrate containerized ASP.NET
-          href: /azure/migrate/tutorial-app-containerization-aspnet-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+          href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fapp-service%2ftoc.json
         - name: Migrate Java
           href: app-service-java-migration.md
         - name: Migrate Spring Boot
@@ -446,18 +448,6 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
-    - name: FAQ
-      items:
-      - name: Availability, performance, and application FAQ
-        href: faq-availability-performance-application-issues.yml
-      - name: Deployment FAQ
-        href: faq-deployment.yml
-      - name: Open-source technologies FAQ
-        href: faq-open-source-technologies.yml
-      - name: Configuration and management FAQ
-        href: faq-configuration-and-management.yml
-      - name: App Service on Linux
-        href: faq-app-service-linux.yml
     - name: IP address change
       items:
       - name: Inbound IP address

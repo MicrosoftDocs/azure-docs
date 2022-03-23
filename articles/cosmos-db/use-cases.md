@@ -6,10 +6,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
 ms.date: 05/21/2019
+ms.custom: cosmos-db-video
 ---
 
 # Common Azure Cosmos DB use cases
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+📺 <B><a href="https://aka.ms/cosmos-db-video-top-cosmos-db-use-cases" target="_blank">Video: Top Azure Cosmos DB use cases</a></b>
 
 This article provides an overview of several common use cases for Azure Cosmos DB.  The recommendations in this article serve as a starting point as you develop your application with Cosmos DB.
 
@@ -22,7 +25,7 @@ After reading this article, you'll be able to answer the following questions:
 
 ## Introduction
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft’s fast NoSQL database with open APIs for any scale. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency.
+[Azure Cosmos DB](../cosmos-db/introduction.md) is the Azure solution for a fast NoSQL database, with open APIs for any scale. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency.
 
 Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any [serverless](https://azure.com/serverless) application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-introduction.md), [SQL API](./introduction.md), [Gremlin API](graph-introduction.md), and [Tables API](table/introduction.md) natively, and in an extensible manner. 
 

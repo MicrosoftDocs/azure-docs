@@ -35,7 +35,7 @@ The following table describes the recommended sizing for your virtual machine, d
 |**Minimum specification**, such as for a lab environment     |   A *Standard_B2s* VM      |
 |**Standard connector** (default)     |   A *DS2_v2* VM, with: <br>- 2 cores<br>- 8-GB memory      |
 |**Multiple connectors**     |A *Standard_B4ms* VM, with: <br>- 4 cores<br>- 16-GB memory         |
-|     |         |
+
 
 Also, make sure that you have enough disk space for the Docker container runtime environment so that you'll have enough space for your operation agent logs. We recommend that you have 200 GB available. 
 
@@ -62,7 +62,7 @@ If you have an SAP Basis version of 7.50 or lower, install the following SAP not
 |- 750 SP01 to SP12<br>- 751 SP01 to SP06<br>- 752 SP01 to SP03     |  2641084: Standardized read access for the Security Audit log data       |
 |- 700 to 702<br>- 710 to 711, 730, 731, 740, and 750     | 2173545: CD: CHANGEDOCUMENT_READ_ALL        |
 |- 700 to 702<br>- 710 to 711, 730, 731, and 740<br>- 750 to 752     | 2502336: CD (Change Document): RSSCD100 - read only from archive, not from database        |
-|     |         |
+
 
 Access the SAP notes from the [SAP support Launchpad site](https://support.sap.com/en/index.html).
 ## Requires SAP ports access:
@@ -138,7 +138,7 @@ Required authorizations are listed by log type. You only need the authorizations
 | S_RFC | FUGR | /MSFTSEN/_WF |
 | **User Data** | | |
 | S_RFC | FUNC | RFC_READ_TABLE |
-| | |
+
 
 ## Next steps
 
