@@ -88,7 +88,10 @@ Shared access signature (SAS) tokens permit secure, delegated access to resource
 
 Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with blob storage service.
 
-When you create a SAS, you may choose to set access limitations based on permission level, IP address or range, or start and expiry date and time. You may also associate a stored access policy, which allows you to group shared access signatures. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../azure/storage/common/storage-sas-overview.md).
+When you create a SAS, you may choose to set access limitations based on permission level, IP address or range, or start and expiry date and time. You may also associate a stored access policy, which allows you to group shared access signatures. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../../azure/storage/common/storage-sas-overview.md).
+
+> [!CAUTION]
+> Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
 
 To generate an SAS token using the Azure portal, follow these steps:
 
@@ -111,9 +114,9 @@ To generate an SAS token using the Azure portal, follow these steps:
 
 ### Create a stored access policy
 
-See the REST API for details (/rest/api/storageservices/define-stored-access-policy)
+See the [REST API](/rest/api/storageservices/define-stored-access-policy) for details
 
-i.	Immutability policies are configured in the same pane. See /azure/storage/blobs/immutable-policy-configure-version-scope?tabs=azure-portal and /azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal
+i.	Immutability policies are configured in the same pane. See [here](/azure/storage/blobs/immutable-policy-configure-version-scope?tabs=azure-portal) and [here](/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal).
 
 ## Delete a container
 
@@ -149,14 +152,7 @@ Point-in-time restore (which is different from soft delete): /azure/storage/blob
 
 ## Acquire lease/break lease
 
-See REST API for details (/rest/api/storageservices/lease-container)
-
-
-
-
-
-
-
+See [REST API](/rest/api/storageservices/lease-container) for details 
 
 
 
