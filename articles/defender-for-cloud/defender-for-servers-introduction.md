@@ -28,7 +28,7 @@ The threat detection and protection capabilities provided with Microsoft Defende
     When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Defender for Cloud. From Defender for Cloud, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. For more information, see [Protect your endpoints](integration-defender-for-endpoint.md).
 
     > [!IMPORTANT]
-    > Defender for servers Plan 1 includes just support for Defender for Endpoint to give you a economical way to 
+    > Defender for servers Plan 1 includes just support for Defender for Endpoint.
 
 - **Vulnerability assessment tools for machines** - Microsoft Defender for servers includes a choice of  vulnerability discovery and management tools for your machines. From Defender for Cloud's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
 
@@ -77,7 +77,7 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
 ## Defender for servers Plan 1 for Microsoft Defender for Endpoint
 
-The default plan for Defender for servers (Plan 2) includes comprehensive server protection with all of the features available for each platform. If you just need Microsoft Defender for Endpoint management, you can enable Defender for servers and configure it to Plan 1. This lets you take advantage of the benefits of managing Microsoft Defender for Endpoint through Microsoft Defender for Cloud at a lower cost.
+The default plan for Defender for servers (Plan 2) includes comprehensive server protection with all of the features available for each platform. If you just need Microsoft Defender for Endpoint, you can enable Defender for servers and configure it to Plan 1. This lets you take advantage of the benefits of licensing, deploying and integrating Microsoft Defender for Endpoint through Microsoft Defender for Cloud in a pricing model optimized for dynamic consumption.
 
 Learn more about the [comparison between Plan 1 and Plan 2](defender-for-servers-plans-compare.md).
 
