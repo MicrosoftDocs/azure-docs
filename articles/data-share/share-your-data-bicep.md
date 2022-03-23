@@ -62,20 +62,20 @@ It's because the deployment is trying to create the dataset before the Azure rol
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters projectName=<project-name> invitationEmail=<invitation-email>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -projectName "<project-name>" -invitationEmail "<invitation-email>"
     ```
 
     ---
 
     > [!NOTE]
-    > You'll be prompted to enter **projectName** and **invitationEmail**.
+    > Replace **\<project-name\>** with a project name. The project name will be used to generate resource names. Replace **\<invitation-email\>** with an email address for receiving data share invitations.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
