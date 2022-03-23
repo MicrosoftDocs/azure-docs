@@ -3,6 +3,8 @@ title: Microsoft Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for SQL.
 ms.date: 01/06/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.custom: references_regions
 ---
 
@@ -20,7 +22,7 @@ Microsoft Defender for SQL includes two Microsoft Defender plans that extend Mic
 |Pricing:|The two plans that form **Microsoft Defender for SQL** are billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Protected SQL versions:|[SQL on Azure virtual machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br>On-premises SQL servers on Windows machines without Azure Arc<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
-|||
+
 
 ## What does Microsoft Defender for SQL protect?
 

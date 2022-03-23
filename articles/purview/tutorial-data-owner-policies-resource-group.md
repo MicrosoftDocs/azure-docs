@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 2/3/2022
+ms.date: 3/14/2022
 ms.custom:
 ---
 
@@ -41,9 +41,7 @@ Enable the resource group or the subscription for access policies in Azure Purvi
 
 ![Image shows how to register a resource group or subscription for policy.](./media/tutorial-data-owner-policies-resource-group/register-resource-group-for-policy.png)
 
-[!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
-
-More here on [registering a data source for Data use governance](./how-to-enable-data-use-governance.md)
+Follow this link for more information and best practices related to [registering a data resource for Data use governance](./how-to-enable-data-use-governance.md)
 
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*:
@@ -62,6 +60,7 @@ The limit for Azure Purview policies that can be enforced by Storage accounts is
 ## Next steps
 Check blog, demo and related tutorials
 
+* [Concepts for Azure Purview data owner policies](./concept-data-owner-policies.md)
+* [Data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
 * [Demo of data owner access policies for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
-* [Fine-grain data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)

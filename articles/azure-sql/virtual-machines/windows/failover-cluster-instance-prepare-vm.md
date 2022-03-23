@@ -212,7 +212,7 @@ To assign additional secondary IPs to the VMs, follow these steps:
     | **Name** |windows-cluster-ip | FCI-network-name |
     | **Allocation** | Static | Static |
     | **IP address** | 10.38.2.10 | 10.38.2.11 | 
-    |  |  |  |
+
 
 
 
