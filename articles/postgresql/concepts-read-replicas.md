@@ -1,10 +1,11 @@
 ---
 title: Read replicas - Azure Database for PostgreSQL - Single Server
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Single Server.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 05/29/2021
 ---
 
