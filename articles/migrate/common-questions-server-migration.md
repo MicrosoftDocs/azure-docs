@@ -71,7 +71,7 @@ Test migration provides a way to test and validate migrations prior to the actua
 
 The applications can continue to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
     
-    :::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot shows the difference in test migration and actual migration.":::
+:::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot shows the difference in test migration and actual migration.":::
 
 ### Is there a Rollback option for Azure Migrate?
 
