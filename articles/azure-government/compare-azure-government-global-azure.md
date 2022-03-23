@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 03/07/2022
+ms.date: 03/22/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -27,7 +27,7 @@ Azure Government services operate the same way as the corresponding services in 
 
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
 
-- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
+- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az-cloud-show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
 
   ```azurecli
   az cloud show --name AzureUSGovernment
@@ -207,7 +207,7 @@ The following Azure Database for MySQL **features are not currently available** 
 
 The following Azure Database for PostgreSQL **features are not currently available** in Azure Government:
 
-- Hyperscale (Citus) and Flexible server deployment options
+- Hyperscale (Citus) deployment option
 - The following features of the Single server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
@@ -261,8 +261,8 @@ The following Azure Advisor recommendation **features are not currently availabl
   - (Preview) Consider App Service stamp fee reserved capacity to save over your on-demand costs.
   - (Preview) Consider Azure Data Explorer reserved capacity to save over your pay-as-you-go costs.
   - (Preview) Consider Azure Synapse Analytics (formerly SQL DW) reserved capacity to save over your pay-as-you-go costs.
-  - (Preview) Consider Blob storage reserved capacity to save on Blob v2 and and Data Lake Storage Gen2 costs.
-  - (Preview) Consider Blob storage reserved instance to save on Blob v2 and and Data Lake Storage Gen2 costs.
+  - (Preview) Consider Blob storage reserved capacity to save on Blob v2 and Data Lake Storage Gen2 costs.
+  - (Preview) Consider Blob storage reserved instance to save on Blob v2 and Data Lake Storage Gen2 costs.
   - (Preview) Consider Cache for Redis reserved capacity to save over your pay-as-you-go costs.
   - (Preview) Consider Cosmos DB reserved capacity to save over your pay-as-you-go costs.
   - (Preview) Consider Database for MariaDB reserved capacity to save over your pay-as-you-go costs.
@@ -328,12 +328,6 @@ The calculation for recommending that you should right-size or shut down underut
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
-### [Azure Cost Management and Billing](../cost-management-billing/index.yml)
-
-The following Azure Cost Management + Billing **features are not currently available** in Azure Government:
-
-- Cost Management + Billing for cloud solution providers (CSPs)
-
 ### [Azure Lighthouse](../lighthouse/index.yml)
 
 The following Azure Lighthouse **features are not currently available** in Azure Government:
@@ -380,6 +374,12 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |Purpose|URL|IP address|Ports|
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
+
+### [Cost Management and Billing](../cost-management-billing/index.yml)
+
+The following Azure Cost Management + Billing **features are not currently available** in Azure Government:
+
+- Cost Management + Billing for cloud solution providers (CSPs)
 
 ## Media
 

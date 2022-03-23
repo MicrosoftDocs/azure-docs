@@ -71,7 +71,7 @@ In this article you learn how to enable the following workspaces resources in a 
 * If you plan to use Azure Machine Learning studio and the storage account is also in the VNet, there are extra validation requirements:
 
     * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
+    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ### Azure Container Registry
 
