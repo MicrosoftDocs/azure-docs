@@ -156,7 +156,7 @@ However, there are key differences:
 * You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
 * If you have a long range text dataset, more than 128 characters, please add the enable_long_range_text=True parameter to your `AutoMLConfig`. 
-   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series)  series.
+   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
 
 
 ```python
