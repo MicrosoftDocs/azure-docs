@@ -31,11 +31,12 @@ Administrators will have the opportunity to monitor user sign-ins where CAE is a
 
 From here, admins will be presented with information about their user’s sign-in events. Select any sign-in to see details about the session, like which Conditional Access policies were applied and is CAE enabled. 
 
-There are multiple sign-in requests for each authentication. Some will be shown on the interactive tab, while others will be shown on the non-interactive tab. CAE will only be displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. Admins need to check both tabs to confirm whether the user's authentication is CAE enabled or not. 
+There are multiple sign-in requests for each authentication.
+Some will be shown on the interactive tab, while others will be shown on the non-interactive tab. CAE will only be displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. Admins need to check both tabs to confirm whether the user's authentication is CAE enabled or not. 
 
 ### Searching for specific sign-in attempts
 
-Use filters to narrow your search. For example, if a user signed in to Teams, use the Application filter and set it to Teams. Admins may need to check the sign-ins from both interactive and non-interactive tabs to locate the specific sign-in. To further narrow the search, admins may apply multiple filters.
+Sign in logs contain information on Success as well as failure events.Use filters to narrow your search. For example, if a user signed in to Teams, use the Application filter and set it to Teams. Admins may need to check the sign-ins from both interactive and non-interactive tabs to locate the specific sign-in. To further narrow the search, admins may apply multiple filters.
 
 ## Continuous access evaluation workbooks
 
