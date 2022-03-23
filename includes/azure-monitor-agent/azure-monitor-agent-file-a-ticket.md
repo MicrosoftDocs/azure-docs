@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 3/22/2022
 ---
 
-# File a ticket
+## File a ticket
 1. Open a data collection rule and select **New Support Request** from left menu OR simply open the ['Help + support' blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and select **Create a support request**
 2. Select 
 	- Issue Type: Technical

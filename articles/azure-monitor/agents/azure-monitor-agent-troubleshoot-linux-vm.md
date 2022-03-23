@@ -9,10 +9,11 @@ ms.custom: references_region
 
 ---
 
+# Troubleshooting guidance for the Azure Monitor agent on Linux virtual machines and scale sets
+
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
-
-# Basic troubleshooting steps 
+## Basic troubleshooting steps 
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Linux virtual machine:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  

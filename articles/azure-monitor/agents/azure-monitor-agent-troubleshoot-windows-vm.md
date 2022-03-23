@@ -9,10 +9,11 @@ ms.custom: references_region
 
 ---
 
+# Troubleshooting guidance for the Azure Monitor agent on Windows virtual machines and scale sets
+
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
-
-# Basic troubleshooting steps 
+## Basic troubleshooting steps
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Windows virtual machine:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
@@ -68,7 +69,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 
 
 
-### Using 'Custom Metrics' as destination
+### Issues using 'Custom Metrics' as destination
 1. Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).  
 2. Ensure that the associated DCR is correctly authored to collect performance counters and send them to azure monitor metrics. You should see this section in your DCR:
 	```json

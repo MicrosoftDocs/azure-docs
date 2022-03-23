@@ -321,7 +321,7 @@ sections:
       - question: |
           Can the Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
         answer: |
-          Yes they can, but with certain considerations. If they both send data, from the same data source to an Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur. Read more [here](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
+          Yes they can, but with certain considerations. If they both send data, from the same data source to an Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur. Read more [here](agents/azure-monitor-agent-overview.md#coexistence-with-log-analytics-agents).
           
       - question: |
           Will I duplicate events if I use the Azure Monitor agent and the Log Analytics agent on the same machine? 
