@@ -93,7 +93,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Deploy project to Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. If you don't have any Function App yet, click `+` in the *Function* line. Type in the function app name and choose proper platform, here we can simply accept default. Click *OK* and the new function app you just created will be automatically selected. Click *Run* to deploy your functions.
+1. If you don't have any Function App yet, click **+** in the *Function* line. Type in the function app name and choose proper platform, here we can simply accept default. Click *OK* and the new function app you just created will be automatically selected. Click *Run* to deploy your functions.
 
     ![Create function app in Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
 
