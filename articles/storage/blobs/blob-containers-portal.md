@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/22/2022
 ms.author: shaas
 ms.subservice: blobs
 ---
@@ -51,24 +51,24 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 To display the properties of a container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-1. Click the checkbox next to the name of the container whose properties you want to view.
+1. Select the checkbox next to the name of the container whose properties you want to view.
 1. Select the container's **More** button (**...**), and select **Container properties** to display the container's **Properties** page.
 
     :::image type="content" source="media/blob-containers-portal/select-container-properties-sml.png" alt-text="Screenshot showing how to display container properties in the Azure portal" lightbox="media/blob-containers-portal/select-container-properties-lrg.png":::
 
 ### Read and write container metadata
 
-Users that have large numbers of objects within their storage account can quickly locate specific containers based on their metadata. To manage a container's metadata, follow these steps:
+Users that have large numbers of objects within their storage account can locate containers based on their metadata. To manage a container's metadata, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-1. Click the checkbox next to the name of the container whose properties you want to view.
+1. Select the checkbox next to the name of the container whose properties you want to view.
 1. Select the container's **More** button (**...**), and select **Edit metadata** to display the **Container metadata** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-metadata-sml.png" alt-text="Screenshot showing how to display container properties in the Azure portal" lightbox="media/blob-containers-portal/select-container-metadata-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-metadata-sml.png" alt-text="Screenshot showing how to access container metadata in the Azure portal" lightbox="media/blob-containers-portal/select-container-metadata-lrg.png":::
 
 1. The **Container metadata** pane will display existing metadata key-value pairs. Existing data can be edited by selecting the existing key or value and overwriting the data. You can add additional metadata by and supplying data in the provided fields. Finally, select **Save** to commit your data.
 
-    :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to display container properties in the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to update container metadata in the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
 
 ## Manage container and blob access
 
@@ -81,17 +81,45 @@ Azure role-based access control (Azure RBAC) is the authorization system you use
 ### Enable anonymous public read access
 
 Although anonymous read access for containers is supported, it is disabled by default. All access requests must require authorization until anonymous access is explicitly enabled. After anonymous access is enabled, any client will be able to read data within that container without authorizing the request. Read about enabling public access level at [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal)
- 
-###	Generate container SAS
 
-Service SAS
+### Generate container SAS tokens
 
-User delegation SAS
+Shared access signature (SAS) tokens permit secure, delegated access to resources in your Azure storage account. The token itself is a series of HTTP query string values that specify the conditions for access to a resource. The token is appended to the storage resource Uniform Resource Identifier (URI) when a request is made.
 
-###	Create a stored access policy
+Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with blob storage service.
 
-See the REST API for details (https://docs.microsoft.com/en-us/rest/api/storageservices/define-stored-access-policy)
-i.	Immutability policies are configured in the same pane. See https://docs.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-version-scope?tabs=azure-portal and https://docs.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal
+When you create a SAS, you may choose to set access limitations based on permission level, IP address or range, or start and expiry date and time. You may also associate a stored access policy, which allows you to group shared access signatures. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../azure/storage/common/storage-sas-overview.md).
+
+To generate an SAS token using the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the list of containers in your storage account.
+1. Select the checkbox next to the name of the container for which you will generate an SAS token.
+1. Select the container's **More** button (**...**), and select **Generate SAS** to display the **Generate SAS** pane.
+
+    :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
+
+  In the **Generate SAS** pane,  will display existing metadata key-value pairs. Existing data can be edited by selecting the existing key or value and overwriting the data. You can add additional metadata by and supplying data in the provided fields. Finally, select **Save** to commit your data.
+
+    :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to update container metadata in the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
+
+1. In the **Signing method** field, select **Account key**.
+1. In the **Signing key** field, select the desired key to be used to sign the SAS. 
+1. In the **Stored access policy** field, select **None**.
+1. In the **Permissions** field, select check boxes corresponding to the desired permissions.
+1. In the **Start and expiry date/time** section, specify the desired **Start** and **Expiry** date, time, and time zone values.
+1. Optionally, you may specify an IP address or a range of IP addresses from which to accept requests in the **Allowed IP addresses** field. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
+1. Optionally, you may specify the protocol permitted for requests made with the SAS in the **Allowed protocols** field. The default value is HTTPS.
+1. Review your settings for accuracy and then select **Generate SAS token and URL** to display the **Blob SAS token** and **Blob SAS URL** query strings.
+1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and cannot be retrieved after the window is closed.
+1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage resource.
+
+    :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container in the Azure portal" lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
+
+### Create a stored access policy
+
+See the REST API for details (/rest/api/storageservices/define-stored-access-policy)
+
+i.	Immutability policies are configured in the same pane. See /azure/storage/blobs/immutable-policy-configure-version-scope?tabs=azure-portal and /azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal
 
 ## Delete a container
 
@@ -110,7 +138,7 @@ To delete a container in the Azure portal, follow these steps:
 
 1. In the **Delete container(s)** dialog, confirm that you want to delete the container.
 
-View deleted containers: https://docs.microsoft.com/en-us/azure/storage/blobs/soft-delete-container-enable?tabs=azure-portal#view-soft-deleted-containers.
+View deleted containers: /azure/storage/blobs/soft-delete-container-enable?tabs=azure-portal#view-soft-deleted-containers.
 
 > [!WARNING]
 > Running the following examples may permanently delete containers and blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-container-overview.md).
@@ -123,11 +151,11 @@ To learn more about the soft delete data protection option, refer to the [Soft d
 
 ## Restore a container
 
-Point-in-time restore (which is different from soft delete): https://docs.microsoft.com/en-us/azure/storage/blobs/point-in-time-restore-manage?tabs=portal
+Point-in-time restore (which is different from soft delete): /azure/storage/blobs/point-in-time-restore-manage?tabs=portal
 
 ## Acquire lease/break lease
 
-See REST API for details (https://docs.microsoft.com/en-us/rest/api/storageservices/lease-container)
+See REST API for details (/rest/api/storageservices/lease-container)
 
 
 
