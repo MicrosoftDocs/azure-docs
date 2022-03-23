@@ -83,13 +83,13 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{model name}:analyze?a
 | **Feature**   | **{model name}**   | **{your-document-url}** |
 | --- | --- |
 | General Document | prebuilt-document | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| Read | prebuilt-read | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| Layout | prebuilt-layout | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| W-2  | prebuilt-tax.us.w2 | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| Invoices  | prebuilt-invoice | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| Receipts  | prebuilt-receipt | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| ID Documents  | prebuilt-idDocument | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| Business Cards  | prebuilt-businessCard | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
+| Read | prebuilt-read | [Sample form]() |
+| Layout | prebuilt-layout | [Sample form]() |
+| W-2  | prebuilt-tax.us.w2 | [Sample form]) |
+| Invoices  | prebuilt-invoice | [Sample form]() |
+| Receipts  | prebuilt-receipt | [Sample form]) |
+| ID Documents  | prebuilt-idDocument | [Sample form]() |
+| Business Cards  | prebuilt-businessCard | [Sample form]() |
 
 #### Operation-Location
 
@@ -118,6 +118,14 @@ curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeRes
 #### Examine the response
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+
+#### Sample response for general documents
+
+In case you want to check out what the downloaded JSON output looks like, here's the [link]() to the results for the general documents feature using our sample document.
+
+#### Supported document fields
+
+The prebuilt models extract a pre-defined set of document fields. Navigate to the supported document fields section of the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult) to find out more about the extracted field name, type, description and examples.
 
 ## Next steps
 
