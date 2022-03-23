@@ -10,7 +10,7 @@ ms.date: 11/09/2021
 > [!NOTE]
 > The Microsoft Defender for IoT legacy agent has been replaced by our newer micro-agent experience. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 >
-> As of March 31, 2022, the legacy agent is sunset and no new features are being developed. The legacy agent will be fully retired on March 31, 2023, at which point we will no longer provide bug fixes or other support for the legacy agent.
+> As of **March 31, 2022**, the legacy agent is sunset and no new features are being developed. The legacy agent will be fully retired on **March 31, 2023**, at which point we will no longer provide bug fixes or other support for the legacy agent.
 >
 
 
