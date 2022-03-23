@@ -4,7 +4,7 @@ description: In this quickstart, you will set up the body tracking SDK for Azure
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/15/2022
 ms.topic: quickstart
 keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, onnx, directml, cuda, trt, nvidia
 ms.custom: mode-other
