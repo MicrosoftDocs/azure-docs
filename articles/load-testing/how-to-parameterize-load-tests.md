@@ -33,7 +33,7 @@ The Azure Load Testing service supports two types of parameters:
 
 In this section, you learn how to pass secrets to your load test script in Azure Load Testing. For example, you might use a secret to pass the API key to a web service endpoint that you're load testing. Instead of storing the API key in configuration or hard-coding it in the script, you can save it in a secret store to tightly control access to the secret.
 
-Azure Load Testing enables you to store secrets in Azure Key Vault. Alternatively, when you run your load test in a CI/CD pipeline, you can use the secret store that's associated with your CI/CD technology, such as Azure Pipelines or GitHub Actions.
+Azure Load Testing enables you to store secrets in Azure Key Vault. Alternatively, when you run your load test in a CI/CD pipeline, you can also use the secret store that's associated with your CI/CD technology, such as Azure Pipelines or GitHub Actions.
 
 To use secrets with Azure Load Testing, you perform the following steps:
 
@@ -74,7 +74,7 @@ You'll also need to grant Azure Load Testing access to your Azure key vault to r
     
       :::image type="content" source="media/how-to-parameterize-load-tests/test-creation-secrets.png" alt-text="Screenshot that shows where to add secret details to a load test in the Azure portal.":::
 
-    * Alternatively, you can specify a secret in the YAML configuration file by using the `secrets` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
+    * If you're configuring a CI/CD workflow and use Azure Key Vault, you can specify a secret in the YAML configuration file by using the `secrets` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
 1. Specify the identity that Azure Load Testing uses to access your secrets in Azure Key Vault.
 
@@ -86,7 +86,7 @@ You'll also need to grant Azure Load Testing access to your Azure key vault to r
 
     :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how to select key vault reference identity.":::
 
-    * Alternatively, you can specify the reference identity in the YAML configuration file by using the `keyVaultReferenceIdentity` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
+    * If you're configuring a CI/CD workflow and use Azure Key Vault, you can specify the reference identity in the YAML configuration file by using the `keyVaultReferenceIdentity` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
 You've now specified a secret in Azure Key Vault and configured your Azure Load Testing resource to retrieve its value. You can now move to [Use secrets in Apache JMeter](#jmeter_secrets).
 
