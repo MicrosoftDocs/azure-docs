@@ -27,7 +27,7 @@
     - name: Setup your Account
       href: setup-an-account.md
   - name: Setup networking infrastructure in Azure
-    href: setup-networking-infrastruture-in-Azure 
+    href: setup-networking-infrastruture-in-azure 
 - name: User VM (UVM) Network Management 
   href: uvm-network-management.md
   items: 
