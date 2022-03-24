@@ -1,96 +1,94 @@
 ---
-title: 'Quickstart: Getting started'
-description: In this quickstart, learn how to get started with understanding the basic workflow for Defender for IoT deployment.
+title: Get started with Microsoft Defender for IoT
+description: In this quickstart, set up a trial for Microsoft Defender for IoT and understand next steps required to configure your network sensors.
 ms.topic: quickstart
-ms.date: 12/02/2021
-ms.custom: mode-other
+ms.date: 03/24/2022
 ---
 
 # Quickstart: Get started with Defender for IoT
 
-This article provides an overview of the steps you'll take to set up Microsoft Defender for IoT. The process requires that you:
+This quickstart takes you through the initial steps of setting up a trial for Microsoft Defender for IoT, including:
 
-- Register your subscription and sensors on Defender for IoT in the Azure portal.
-- Install the sensor and on-premises management console software.
-- Perform initial activation of the sensor and management console.
+- Add an Azure subscription to Defender for IoT
+- Identify and plan solution architecture
 
 ## Prerequisites
 
-Here's what you need to get started with Defender for IoT.
+Before you start, make sure that you have access to an Azure subscription with the **Subscription Contributor** role.
 
-- Network switches that support traffic monitoring via SPAN port.
-- Hardware appliances for NTA sensors.
-- The Azure Subscription Contributor role. It's required only during onboarding for defining committed devices and connection to Microsoft Sentinel.
+If you are using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
-If you are using a Defender for IoT sensor version lower than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
-
-### Supported service regions
-
-Defender for IoT routes all traffic from all European regions to the West Europe regional datacenter. It routes traffic from all remaining regions to the Central US regional datacenter. 
-
-If you are connecting your sensors using an IoT Hub (legacy), see also the [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
-
-
-### Permissions: Sensors and on-premises management consoles
-
-Some of the setup steps require specific user permissions.
-
-Administrative user permissions are required to activate the sensor and management console, upload SSL/TLS certificates, and generate new passwords.
-
-### Permissions: Defender for IoT in the Azure portal
-
-The following table describes user access permissions to Azure portal tools:
+Later on, you'll need the following permissions to use Defender for IoT:
 
 | Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
-| View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
-| Onboard sensors  |  |  ✓ | ✓ | ✓ |
 | Onboard subscriptions and update committed devices  |  | ✓ | ✓ | ✓ |
+| Onboard sensors  |  |  ✓ | ✓ | ✓ |
+| View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
 | Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
 
-## Identify the solution infrastructure
+### Supported service regions
 
-**Clarify your network setup needs**
+Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *Central US* regional datacenter.
 
-Research your:
+If you are using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for you. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-- Network architecture
-- Monitored bandwidth
-- Requirements for creating certificates
-- Other network details.
+## Identify and plan your solution architecture
 
-For more information, see [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md).
+Before start working with Defender for IoT, especially if you plan to start with a trial subscription, we recommend identifying your system requirements and planning your system architecture.
 
-**Clarify which sensor appliances are required to handle the network load**
+- To deploy Defender for IoT, you'll need network switches that support traffic monitoring via a SPAN port and hardware appliances for NTA sensors.
 
-Microsoft Defender for IoT supports both physical and virtual deployments. For the physical deployments, you can purchase various certified appliances. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+   For on-premises machines, including network sensors and on-premises management consoles for air-gapped environments, you'll need administrative user permissions for activities such as activation, managing SSL/TLS certificates, managing passwords, and so on.
 
-We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000, for example 1000, 2000, 3000. The numbers of monitored devices are called *committed devices*.
+- Research your own network architecture and monitor bandwidth. Check requirements for creating certificates and other network details, and clarify the sensor appliances you'll need for your own network load.
 
-If you are using a Defender for IoT sensor version lower than 22.1.x, you must also clarify your appliances for the on-premises management console.
-## Register with Microsoft Defender for IoT
+   Calculate the approximate number of devices you'll be monitoring. Devices can be added in intervals of **1,000**, such as **1000**, **2000**, **3000**. The numbers of monitored devices are called *committed devices*.
 
-Registration includes:
+Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified appliances with software pre-installed, or download software to install yourself.
 
-- Onboarding your Azure subscriptions to Defender for IoT.
-- Defining committed devices.
-- Downloading an activation file for the on-premises management console.
+For more information, see [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md) and [Identify required appliances](how-to-identify-required-appliances.md).
 
-You can also use a trial subscription to monitor 1000 devices for free  for 30 days. See [Onboard a trial subscription](how-to-manage-subscriptions.md#onboard-a-trial-subscription) for more information.
+## Add a subscription to Defender for IoT
 
-**To register**:
+This procedure describes how to add a new Azure subscription to Defender for IoT.
 
-1. Go to the [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
+**To add your subscription**
 
-1. Select **Onboard subscription**.
+1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
 
-1. On the **Pricing** page, select a subscription or create a new one, and add the number of committed devices.
+1. Select **Add** to add a new subscription, and then define the following values:
 
-1. Select the **Download the on-premises management console** tab and save the downloaded activation file. This file contains the aggregate committed devices that you defined. The file will be uploaded to the management console after initial sign-in.
+   - **Purchase method**. Select a monthly or annual commitment, or a trial. Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
 
-For information on how to offboard a subscription, see [Offboard a subscription](how-to-manage-subscriptions.md#offboard-a-subscription).
+        For more information, see the **Microsoft Defender for IoT** section of the [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/).
 
-## Install and set up the on-premises management console
+   - **Subscription**. Select a subscription where you have a **Subscription Contributor** role.
+
+   - **Committed devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section does not appear as you have a default of 1000 devices.
+
+1. Select the **I accept the terms** option, and then select **Save**.
+
+Your subscription is shown in the **Pricing** grid. For example:
+
+:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Pricing page in Defender for IoT.":::
+
+For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
+
+## Next steps
+
+Continue with one of the following tutorials, depending on whether you're setting up a network for OT system security or Enterprise IoT system security:
+
+- [Tutorial: Get started with OT network security](tutorial-onboarding.md)
+- [Tutorial: Get started with Enterprise IoT network security](tutorial-getting-started-eiot-sensor.md)
+
+For more information, see:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Microsoft Defender for IoT architecture](architecture.md)
+
+## MOVE ALL BELOW THIS LINE TO SOMEWHERE ELSE
+### Install and set up the on-premises management console
 
 This section is required only when you are using a Defender for IoT sensor version lower than 22.1.x.
 
@@ -112,7 +110,7 @@ After you acquire your on-premises management console appliance:
 
 1. Activate and set up the management console. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
-## Onboard a sensor
+### Onboard a sensor
 
 Onboard a sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file:
 
@@ -132,7 +130,7 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
 For details about onboarding, see [Onboard and manage sensors with Defender for IoT](how-to-manage-sensors-on-the-cloud.md).
 
-## Install and set up the sensor
+### Install and set up the sensor
 
 Download the ISO package from the Azure portal, install the software, and set up the sensor.
 
@@ -146,7 +144,7 @@ Download the ISO package from the Azure portal, install the software, and set up
 
 1. Activate and set up your sensor. For more information, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
 
-## Connect sensors to Defender for IoT
+### Connect sensors to Defender for IoT
 
 This section is required only when you are using a Defender for IoT sensor version 22.1.x or higher.
 
@@ -155,7 +153,7 @@ Connect your sensors to Defender for IoT to ensure that sensors send alert and d
 For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
 .
 
-## Connect sensors to an on-premises management console
+### Connect sensors to an on-premises management console
 
 Connect sensors to the management console to ensure that:
 
@@ -168,8 +166,3 @@ We recommend that you group multiple sensors monitoring the same networks in one
 For more information, see [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
 
-## Next steps ##
-
-[Welcome to Microsoft Defender for IoT](overview.md)
-
-[Microsoft Defender for IoT architecture](architecture.md)
