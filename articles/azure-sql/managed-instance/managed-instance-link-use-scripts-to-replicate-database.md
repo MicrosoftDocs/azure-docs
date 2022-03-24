@@ -368,7 +368,6 @@ WITH (CLUSTER_TYPE = NONE)
 GO
 ```
 
-> [!NOTE]
 > One database per availability group is the current product limitation for replication to SQL Managed Instance through the link feature.
 >
 > If you get Error 1475, you'll have to create a full backup without the `COPY ONLY` option. That will start a new backup chain.
