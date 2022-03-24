@@ -328,7 +328,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 If you accidentally delete the computer account on your AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes.
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**
+<!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/<file name>"::: -->
 1. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
+<!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This acction is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed.." lightbox="../media/azure-netapp-files/<file name>"::: -->
 
 ## Next steps  
 
