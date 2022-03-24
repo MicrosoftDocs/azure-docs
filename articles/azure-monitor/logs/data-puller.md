@@ -1,27 +1,27 @@
 ---
 title: Ingest custom logs from files using Data Collection Rules (DCR)
-description: Learn how to ingest custom logs from files using DCR.
+description: Learn how to ingest data from files into a Log Analytics workspace from files using DCR.
 author: osalzberg
 services: azure-monitor
 ms.topic: how-to
 ms.date: 03/21/2022
 ms.author: guywi-ms
 ms.reviewer: osalzberg
-# Customer intent: As a DevOps specialist, I want to ingest custom logs from a file and store them in a defined place and structure in Azure.  
+# Customer intent: As a DevOps specialist, I want to ingest external data from a file into a workspace.  
 ---
-# Ingest custom logs from files using Data Collection Rules (DCR) (Preview)
+# Ingest data from files into a workspace using Data Collection Rules (DCR) (Preview)
 
-You can define how Azure Monitor transforms and stores logs ingested into your workspace by setting [Data Collection Rules (DCR)](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview). Using DCRs lets you ingest data quickly from different log formats.
+You can define how Azure Monitor transforms and stores data ingested into your workspace by setting [Data Collection Rules (DCR)](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview). Using DCR lets you ingest data quickly from different log formats.
 
-This article describes how to ingest custom logs from files using DCR.
+This article describes how to ingest data from files into a Log Analytics workspace from files using DCR.
 
 ## Prerequisites
 
-To use file-based custom log ingestion, you need a Log Analytics workspace with logs.
+To ingest data from files, you need a Log Analytics workspace with logs.
 
 For more information, see: 
-- [Create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
-- [Send Logs to Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
+- [Create a Log Analytics Workspace](quick-create-workspace.md)
+- [Send Logs to Log Analytics Workspace](/articles/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
 
 ## Create a file-based custom log
 
