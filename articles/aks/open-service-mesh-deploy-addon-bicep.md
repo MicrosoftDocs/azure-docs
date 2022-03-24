@@ -30,7 +30,7 @@ For deployment of a new AKS cluster, you enable the OSM add-on at cluster creati
 
 ### Create a resource group
 
-In Azure, you can associate related resources by using a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *my-osm-bicep-aks-cluster-rg* in a specified Azure location (region):
+In Azure, you can associate related resources by using a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *my-osm-bicep-aks-cluster-rg* in a specified Azure location (region):
 
 ```azurecli-interactive
 az group create --name <my-osm-bicep-aks-cluster-rg> --location <azure-region>

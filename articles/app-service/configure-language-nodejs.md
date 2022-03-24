@@ -382,7 +382,7 @@ If you deploy your files by using Git, or by using ZIP deployment [with build au
 
 The generated *web.config* is tailored to the detected start script. For other deployment methods, add this *web.config* manually. Make sure the file is formatted properly.
 
-If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az_webapp_up) uses ZIP deployment with build automation enabled.
+If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
 
 ::: zone-end
 
