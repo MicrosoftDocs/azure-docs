@@ -161,10 +161,8 @@ items:
       href: usage-estimated-costs.md
     - name: Logs pricing details
       href: logs/cost-logs.md
-    - name: Set a daily cap
-      href: logs/daily-cap.md
-    - name: Analyze usage and cost
-      href: logs/analyze-usage.md    
+    - name: Optimize costs
+      href: best-practices-cost.md
   - name: Data security
     items:
     - name: Roles permissions and security
@@ -302,7 +300,11 @@ items:
         href: logs/search-jobs.md
       - name: Restore logs
         href: logs/restore.md
-    - name: Log Analytics
+      - name: Set a daily cap
+        href: logs/daily-cap.md
+      - name: Analyze usage and cost
+        href: logs/analyze-usage.md    
+      - name: Log Analytics
       items:
       - name: Overview
         displayName: Log Analytics, log query, log queries, query, queries
