@@ -39,7 +39,7 @@ When you receive this error while doing a management task, check the values you 
 - Resource group name
 - Subscription
 
-If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
+If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az-account-set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
 
 If you can't verify the properties, sign in to the [Microsoft Azure portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 

@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 01/12/2021
+ms.date: 03/7/2022
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -365,7 +365,7 @@ az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --pub
 
 When the previous command has succeeded, save the firewall frontend IP address for configuration later.
 
-```bash
+```azurecli
 # Capture Firewall IP Address for Later Use
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
@@ -392,6 +392,10 @@ az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route
 See [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
 
 ### Adding firewall rules
+
+> [!NOTE]
+> For applications outside of the kube-system or gatekeeper-system namespaces that needs to talk to the API server, an additional network rule to allow TCP communication to port 443 for the API server IP in addition to adding application rule for fqdn-tag AzureKubernetesService is required.
+
 
 Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP (if you're deploying to Azure China 21Vianet, you might require [more](#azure-china-21vianet-required-network-rules)). Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
 Finally, we'll add a third network rule opening port 123 to `ntp.ubuntu.com` FQDN via UDP (adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options).

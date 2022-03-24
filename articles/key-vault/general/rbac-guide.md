@@ -15,6 +15,10 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > [!NOTE]
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
+> [!NOTE]
+> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+
+
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
 
 Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. 
@@ -275,7 +279,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 
 ### Creating custom roles 
 
-[az role definition create command](/cli/azure/role/definition#az_role_definition_create)
+[az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

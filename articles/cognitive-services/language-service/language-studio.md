@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.date: 11/02/2021
-ms.topic: conceptual
+ms.topic: quickstart
 ms.custom: ignite-fall-2021
 ---
 

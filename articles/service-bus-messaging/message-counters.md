@@ -3,7 +3,8 @@ title: Azure Service Bus - message count
 description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 ms.topic: article
 ms.date: 09/20/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Get message counters
@@ -33,7 +34,7 @@ Navigate to your namespace, select the topic, and then select the subscription f
 :::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="Message counters on the subscription overview page":::
 
 ## Using Azure CLI
-Use the [`az servicebus queue show`](/cli/azure/servicebus/queue#az_servicebus_queue_show) command to get the message count details for a queue as shown in the following example. 
+Use the [`az servicebus queue show`](/cli/azure/servicebus/queue#az-servicebus-queue-show) command to get the message count details for a queue as shown in the following example. 
 
 ```azurecli-interactive
 az servicebus queue show --resource-group myresourcegroup \
@@ -50,7 +51,7 @@ ActiveMessageCount    DeadLetterMessageCount    ScheduledMessageCount    Transfe
 0                     0                         0                        0                       0
 ```
 
-Use the [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show) command to get the message count details for a subscription as shown in the following example. 
+Use the [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) command to get the message count details for a subscription as shown in the following example. 
 
 ```azurecli-interactive
 az servicebus topic subscription show --resource-group myresourcegroup \

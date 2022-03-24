@@ -11,7 +11,8 @@ ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Assign an Azure role for access to table data (preview)
@@ -51,7 +52,7 @@ For information about assigning roles with PowerShell at the subscription, resou
 
 # [Azure CLI](#tab/azure-cli)
 
-To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
+To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
 
 To assign a role scoped to a table, specify a string containing the scope of the table for the `--scope` parameter. The scope for a table is in the form:
 

@@ -1,10 +1,11 @@
 ---
 title: Configure server parameters - Azure portal - Azure Database for PostgreSQL - Single Server
 description: This article describes how to configure the Postgres parameters in Azure Database for PostgreSQL through the Azure portal.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal
 ms.date: 02/28/2018
 ---
 

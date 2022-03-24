@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Create an app registration (CLI)
+title: Create an app registration with Azure Digital Twins access (CLI)
 titleSuffix: Azure Digital Twins
-description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
+description: Use the CLI to create an Azure AD app registration that can access Azure Digital Twins resources.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/24/2022
+ms.date: 2/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -19,20 +20,14 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-This article describes how to create an app registration to use with Azure Digital Twins using the CLI. It includes instructions for creating a manifest file containing service information, creating the app registration, verifying success, collecting important values, and other possible steps that your organization may require.
+This article describes how to use the Azure CLI to create an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins.
 
-When working with an Azure Digital Twins instance, it's common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with Azure Digital Twins, it's common to interact with your instance through client applications. Those applications need to authenticate with Azure Digital Twins, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an app registration.
 
-The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli). It also covers how to [collect important values](#collect-important-values) that you'll need to use the app registration to authenticate.
-
-## Azure AD app registrations
-
-[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service. Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
-
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](concepts-apis-sdks.md). Later, client apps can authenticate against the app registration using the registration's **client and tenant ID values**, and as a result be granted the configured access permissions to the APIs.
+The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up and grant it permissions to the Azure Digital Twins APIs. It also covers how to collect important values that you'll need to use the app registration when authenticating.
 
 >[!TIP]
-> You may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
+> You may prefer to set up a new app registration every time you need one, or to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -40,7 +35,7 @@ This app registration is where you configure access permissions to the [Azure Di
 
 First, create a file containing certain service information that your app registration will need to access the Azure Digital Twins APIs. Later, you'll pass in this file when creating the app registration, to set up the Azure Digital Twins permissions.
 
-Create a new .json file on your computer called **manifest.json**. Copy this text into the file:
+Create a new .json file on your computer called *manifest.json*. Copy this text into the file:
 
 ```json
 [
@@ -68,7 +63,7 @@ To upload the file, go to the Cloud Shell window in your browser. Select the "Up
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
 
-Navigate to the **manifest.json** file on your machine and select "Open." Doing so will upload the file to the root of your Cloud Shell storage.
+Navigate to the *manifest.json* file on your machine and select **Open**. Doing so will upload the file to the root of your Cloud Shell storage.
 
 ## Create the registration
 
@@ -97,12 +92,12 @@ You can also verify the app registration was successfully created with the neces
 ## Collect important values
 
 Next, collect some important values about the app registration that you'll need to use the app registration to authenticate a client application. These values include:
-* **resource name**
-* **client ID**
-* **tenant ID**
-* **client secret**
+* resource name
+* client ID
+* tenant ID
+* client secret
 
-To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
+To work with Azure Digital Twins, the resource name is `http://digitaltwins.azure.net`.
 
 The following sections describe how to find the other values.
 
@@ -122,13 +117,13 @@ Directory (tenant) ID:
 
 ### Collect client secret
 
-To create a **client secret** for your app registration, you'll need your app registration's client ID value from the previous section. Use the value in the following CLI command to create a new secret:
+To create a client secret for your app registration, you'll need your app registration's client ID value from the previous section. Use the value in the following CLI command to create a new secret:
 
 ```azurecli-interactive
 az ad app credential reset --id <client-ID> --append
 ```
 
-You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az_ad_app_credential_reset).
+You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az-ad-app-credential-reset).
 
 The output of this command is information about the client secret that you've created. Copy the value for `password` to use when you need the client secret for authentication.
 

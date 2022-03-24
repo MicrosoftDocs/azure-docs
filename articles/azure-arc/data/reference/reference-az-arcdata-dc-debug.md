@@ -19,7 +19,7 @@ ms.subservice: azure-arc-data
 [az arcdata dc debug dump](#az-arcdata-dc-debug-dump) | Trigger memory dump.
 ## az arcdata dc debug copy-logs
 Copy the debug logs from the data controller - Kubernetes configuration is required on your system.
-```bash
+```azurecli
 az arcdata dc debug copy-logs 
 ```
 ### Global Arguments
@@ -35,7 +35,7 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc debug dump
 Trigger memory dump and copy it out from container - Kubernetes configuration is required on your system.
-```bash
+```azurecli
 az arcdata dc debug dump 
 ```
 ### Global Arguments

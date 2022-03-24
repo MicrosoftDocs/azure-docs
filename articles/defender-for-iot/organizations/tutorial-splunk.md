@@ -1,8 +1,6 @@
 ---
 title: Integrate Splunk with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate Splunk with Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 02/07/2022
 ms.custom: template-tutorial

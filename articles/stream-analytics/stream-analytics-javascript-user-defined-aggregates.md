@@ -77,7 +77,7 @@ Function alias is the UDA identifier. When called in Stream Analytics query, alw
 
 ### Function type
 
-For UDA, the function type should be **Javascript UDA**.
+For UDA, the function type should be **JavaScript UDA**.
 
 ### Output type
 

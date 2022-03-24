@@ -10,7 +10,7 @@ ms.date: 04/14/2021
 
 In this article, we'll look at how to provision your BareMetal Infrastructure instances for Oracle workloads. 
 
-The first step to provision your BareMetal instances is to work with your Microsoft CSA. They'll help you based on your specific workload needs and the architecture you're deploying, whether single instance, One Node RAC, or RAC. For more information on these topologies, see [Architecture of BareMetal Infrastructure for Oracle](oracle-baremetal-architecture.md).
+The first step to provision your BareMetal instances is to work with your Microsoft CSA. They'll help you based on your specific workload needs and the architecture you're deploying. For more information on these topologies, see [Architecture of BareMetal Infrastructure for Oracle](oracle-baremetal-architecture.md).
 
 ## Prerequisites
 

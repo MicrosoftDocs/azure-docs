@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/20/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Digital twins and their twin graph
 
-This article describes what **digital twins** are in the context of Azure Digital Twins, and how relationships between them can form a **twin graph**. In an Azure Digital Twins solution, the entities in your environment are represented by **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
+This article describes what digital twins are in the context of Azure Digital Twins, and how relationships between them can form a twin graph. In an Azure Digital Twins solution, the entities in your environment are represented by *digital twins*. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via *relationships* to form a *twin graph*: this twin graph is the representation of your entire environment.
 
 > [!TIP]
 > "Azure Digital Twins" refers to this Azure service as a whole. "Digital twin(s)" or just "twin(s)" refers to individual twin nodes inside your instance of the service.
@@ -34,7 +34,7 @@ After creating and uploading a model, your client app can create an instance of 
 
 Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
 
-For example, the model Floor might define a *contains* relationship that targets twins of type Room. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any Floor twin to any Room twin (including twins that are of Room subtypes). 
+For example, the model Floor might define a `contains` relationship that targets twins of type Room. With this definition, Azure Digital Twins will allow you to create `contains` relationships from any Floor twin to any Room twin (including twins that are of Room subtypes). 
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
@@ -54,10 +54,10 @@ You can initialize the properties of a twin when it's created, or set them later
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see the [Create a digital twin](how-to-manage-twin.md#create-a-digital-twin) section of *How-to: Manage digital twins*.
+You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see [Create a digital twin](how-to-manage-twin.md#create-a-digital-twin).
 
 >[!NOTE]
->While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
+>While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
 
 ### Create relationships
 

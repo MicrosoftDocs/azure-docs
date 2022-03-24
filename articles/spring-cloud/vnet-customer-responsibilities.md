@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Customer responsibilities for running Azure Spring Cloud in VNET
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article includes specifications for the use of Azure Spring Cloud in a virtual network.
 
 When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). Azure Spring Cloud requires these endpoints to communicate with the management plane and to download and install core Kubernetes cluster components and security updates.
@@ -38,7 +40,7 @@ The following list shows the resource requirements for Azure Spring Cloud servic
 | \*:123 *or* ntp.ubuntu.com:123                                | UDP:123          | NTP time synchronization on Linux nodes.  |                                                              |
 | \*.azure.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | \*.core.windows.net:443 and \*.core.windows.net:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                        | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-| \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hub.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hubs.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 
 ## Azure Spring Cloud FQDN requirements/application rules
 
@@ -61,7 +63,6 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 
 <sup>1</sup> Please note that these FQDNs aren't included in the FQDN tag.
 
-
 ## Azure Spring Cloud optional FQDN for third-party application performance management
 
 Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
@@ -74,7 +75,7 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                    |
 | <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges). |
 
-## See also
+## Next steps
 
-* [Access your application in a private network](access-app-virtual-network.md)
-* [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)
+- [Access your application in a private network](access-app-virtual-network.md)
+- [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md)

@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 02/17/2022
 ms.author: inhenkel
 
 ---
@@ -106,6 +106,9 @@ If the source frame rate on input is >30 fps, the frame rate will be reduced to 
 ### Output Audio Stream for Default720p and Default1080p
 
 For both *Default720p* and *Default1080p* presets, audio is encoded to stereo AAC-LC at 128 kbps. The sampling rate follows that of the audio track in the contribution feed.
+
+> [!NOTE]
+> If the sampling rate is low, such as 8khz, the encoded output will be lower than 128kbps.
 
 ## Implicit properties of the live encoder
 

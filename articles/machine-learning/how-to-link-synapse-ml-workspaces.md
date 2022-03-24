@@ -45,7 +45,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 ## Link workspaces with the Python SDK
 
 > [!IMPORTANT]
-> To link to the Synapse workspace successfully, you must be granted the **Owner** role of the Synapse workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
+> To link to the Synapse workspace successfully, you must be granted the **Owner** role of the Synapse workspace. Check your access in the [Azure portal](https://portal.azure.com/).
 >
 > If you are not an **Owner** and are only a **Contributor** to the Synapse workspace, you can only use existing linked services. See how to [Retrieve and use an existing linked service](#get-an-existing-linked-service).
 

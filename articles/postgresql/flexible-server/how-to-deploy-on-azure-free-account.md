@@ -4,6 +4,7 @@ description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexib
 author: shreyaaithal 
 ms.author: shaithal
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to 
 ms.date: 11/30/2021
 ms.custom: template-how-to 

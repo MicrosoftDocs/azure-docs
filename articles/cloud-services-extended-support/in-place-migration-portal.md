@@ -34,7 +34,7 @@ If you're not able to add a co-administrator, contact a service administrator or
 
 ## Migrate your Cloud Service resources
 
-1. Go to [Cloud Services (classic) portal blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.classicCompute%2FdomainNames). 
+1. Go to [Cloud Services (classic) portal blade](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.classicCompute%2FdomainNames). 
 2. Select the Cloud Service you want to migrate.
 3. Select the **Migrate to ARM** blade.
 

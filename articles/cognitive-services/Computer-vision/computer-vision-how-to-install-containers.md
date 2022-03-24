@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
@@ -218,15 +218,9 @@ The container provides REST-based query prediction endpoint APIs.
 
 For the latest preview:
 
-Use the same Swagger path as 3.2 but a different port  if you have already deployed 3.2 at the 5000 port.
+Use the same Swagger path as 3.2 but a different port if you have already deployed 3.2 at the 5000 port.
 
-# [Version 3.2](#tab/version-3-2)
-
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-read/swagger.json`.
-
-# [Version 2.0-preview](#tab/version-2)
-
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json`.
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/`.
 
 ---
 

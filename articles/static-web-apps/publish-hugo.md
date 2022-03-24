@@ -140,7 +140,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 #### Custom Hugo version
 
-When you generate a Static Web App, a [workflow file](./build-configuration.md) is generated which contains the publishing configuration settings for the application. You can designate a specific Hugo version in the workflow file by providing a value for `HUGO_VERSION` in the `env` section. The following example configuration demonstrates how to set set Hugo to a specific version.
+When you generate a Static Web App, a [workflow file](./build-configuration.md) is generated which contains the publishing configuration settings for the application. You can designate a specific Hugo version in the workflow file by providing a value for `HUGO_VERSION` in the `env` section. The following example configuration demonstrates how to set Hugo to a specific version.
 
 ```yaml
 jobs:
@@ -168,6 +168,21 @@ jobs:
         env:
           HUGO_VERSION: 0.58.0
 ```
+
+#### Use the Git Info feature in your Hugo application
+
+If your Hugo application uses the [Git Info feature](https://gohugo.io/variables/git/), the default [workflow file](./build-configuration.md) created for the Static Web App uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. In this scenario, Hugo sees all your content files as coming from a _single commit_, so they have the same author, last modification timestamp, and other `.GitInfo` variables.
+
+Update your workflow file to [fetch your full Git history](https://github.com/actions/checkout/blob/main/README.md#fetch-all-history-for-all-tags-and-branches) by adding a new parameter under the `actions/checkout` step to set the `fetch-depth` to `0` (no limit):
+
+```yaml
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+```
+
+Fetching the full history increases the build time of your GitHub Actions workflow, but your `.Lastmod` and `.GitInfo` variables will be accurate and available for each of your content files.
 
 ## Clean up resources
 

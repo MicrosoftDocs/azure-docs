@@ -1,9 +1,9 @@
 ---
-author: wolfma61
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2018
-ms.author: wolfma
+ms.date: 02/14/2022
+ms.author: eur
 ---
 
 | Path | Description |
@@ -11,7 +11,7 @@ ms.author: wolfma
 | `license.md` | License
 | `ThirdPartyNotices.md` | Third-party notices
 | `REDIST.txt` | Redistribution notice
-| `include` | Required header files for C and C++
+| `include` | Required header files for C++
 | `lib/arm32` | Native library for ARM32 required to link your application
 | `lib/arm64` | Native library for ARM64 required to link your application
 | `lib/x64` | Native library for x64 required to link your application

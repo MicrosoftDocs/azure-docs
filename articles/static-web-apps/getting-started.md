@@ -94,6 +94,14 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Application build output location: Angular":::
 
+    # [Blazor](#tab/blazor)
+
+    :::image type="content" source="media/getting-started/extension-presets-blazor.png" alt-text="A screenshot showing the application presets for Blazor":::
+
+    Enter **Client** as the location for the application files, since this is the root folder of the Blazor project.
+
+    Enter **wwwroot** as the build output location.
+
     # [React](#tab/react)
 
     :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Application presets: React":::
@@ -132,7 +140,7 @@ If you're not going to continue to use this application, you can delete the Azur
 
 In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **my-first-static-web-app** and select **Delete**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="A screenshot showing how to delete the app"::: 
 
 ## Next steps
 

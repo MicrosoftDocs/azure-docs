@@ -78,7 +78,7 @@ The Office 365 suite makes it possible to target these services all at once. We 
 
 Targeting this group of applications helps to avoid issues that may arise because of inconsistent policies and dependencies. For example: The Exchange Online app is tied to traditional Exchange Online data like mail, calendar, and contact information. Related metadata may be exposed through different resources like search. To ensure that all metadata is protected by as intended, administrators should assign policies to the Office 365 app.
 
-Administrators can exclude specific apps from policy if they wish, including the Office 365 suite and excluding the specific apps in policy.
+Administrators can exclude the entire Office 365 suite or specific Office 365 client apps from the Conditional Access policy.
 
 The following key applications are included in the Office 365 client app:
 
@@ -89,22 +89,21 @@ The following key applications are included in the Office 365 client app:
 - Microsoft Stream
 - Microsoft Teams
 - Microsoft To-Do
-- Microsoft Flow
-- Microsoft Office 365 Portal
-- Microsoft Office client application
-- Microsoft Stream 
-- Microsoft To-Do WebApp
-- Microsoft Whiteboard Services
+- Microsoft Flow
+- Microsoft Office 365 Portal
+- Microsoft Office client application
+- Microsoft Stream 
+- Microsoft To-Do WebApp
+- Microsoft Whiteboard Services
 - Office Delve
 - Office Online
-- Office.com
 - OneDrive
 - Power Apps
 - Power Automate
-- Security & Compliance Center
+- Security & Compliance Center
 - SharePoint Online
 - Skype for Business Online
-- Skype and Teams Tenant Admin API
+- Skype and Teams Tenant Admin API
 - Sway
 - Yammer
 

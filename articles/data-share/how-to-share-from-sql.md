@@ -13,10 +13,7 @@ ms.date: 02/02/2022
 
 [Azure Data Share](overview.md) allows you to securely share data snapshots from your Azure SQL Database and Azure Synapse Analytics resources, to other Azure subscriptions. Including Azure subscriptions outside your tenant.
 
-This article describes sharing data from **Azure SQL Database** and **Azure Synapse Analytics**, but Azure Data Share also allows sharing from these other kinds of resources:
-
-- [Azure Storage](how-to-share-from-storage.md)
-- [Azure Data Explorer](/data-explorer/data-share)
+This article describes sharing data from **Azure SQL Database** and **Azure Synapse Analytics**.
 
 This article will guide you through:
 

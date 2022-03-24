@@ -44,6 +44,7 @@ Resource Health receives signals for your managed cluster to determine the clust
 
 - **Degraded**: When there is a health issue requiring your action, Resource Health reports your cluster as *Degraded*.
 
+Note that the Resource Health for an AKS cluster is different than the Resource Health of its individual resources (*Virtual Machines, ScaleSet Instances, Load Balancer, etc...*).
 For additional details on what each health status indicates, visit [Resource Health overview](../service-health/resource-health-overview.md#health-status).
 
 ### View historical data

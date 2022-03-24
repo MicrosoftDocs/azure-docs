@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
@@ -84,7 +83,7 @@ $publicCfgJsonString = '
           "machineFilter": ".*",
           "virtualPathFilter": ".*",
           "instrumentationSettings" : {
-            "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+            "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       ]
@@ -137,9 +136,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "virtualPathFilter": ".*",
-          "instrumentationSettings" : {
-            "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter"= ".*";
+          "instrumentationSettings" = @{
+            "connectionString"= "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )
@@ -197,6 +196,12 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWi
 ```
 
 ## Release notes
+
+### 2.8.44
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enabled SQL query collection.
+- Enabled support for Azure Active Directory (AAD) authentication.
 
 ### 2.8.42
 

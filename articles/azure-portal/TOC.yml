@@ -25,8 +25,6 @@
   items:
   - name: Manage Azure portal settings and preferences
     href: set-preferences.md
-  - name: Manage Azure portal settings (older version)
-    href: original-preferences.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
   - name: View and filter resource information
@@ -50,8 +48,10 @@
       href: supportability/how-to-create-azure-support-request.md
     - name: Manage an Azure support request
       href: supportability/how-to-manage-azure-support-request.md
-  - name: Request quota increases
+  - name: View and increase quotas
     items:
+    - name: View quotas
+      href: supportability/view-quotas.md
     - name: Increase vCPU quotas
       items:
       - name: Increase VM-family vCPU quotas

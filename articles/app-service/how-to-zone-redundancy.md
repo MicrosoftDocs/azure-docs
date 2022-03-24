@@ -103,6 +103,10 @@ The Azure Resource Manager template snippet below shows the new ***zoneRedundant
 ]
 ```
 
+## Pricing
+
+There's no additional cost associated with enabling the zone redundancy feature. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable zone redundancy but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

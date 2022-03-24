@@ -65,7 +65,7 @@ of the data set instead.
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
@@ -87,14 +87,17 @@ consumer if there are more records not returned in the response. This condition 
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
-**resultTruncated** is **true** when either paging is disabled or not possible because no `id`
-column or when there are less resources available than a query is requesting. When
-**resultTruncated** is **true**, the **$skipToken** property isn't set.
+**resultTruncated** is **true** when there are less resources available than a query is requesting or when paging is disabled or when paging is not possible because:
+
+- The query contains a `limit` or `sample`/`take` operator.
+- **All** output columns are either `dynamic` or `null` type.
+
+When **resultTruncated** is **true**, the **$skipToken** property isn't set.
 
 The following examples show how to **skip** the first 3,000 records and return the **first** 1,000
 records after those records skipped with Azure CLI and Azure PowerShell:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
@@ -103,8 +106,9 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 ```
 
 > [!IMPORTANT]
-> The query must **project** the **id** field in order for pagination to work. If it's missing from
-> the query, the response won't include the **$skipToken**.
+> The response won't include the **$skipToken** if:
+> - The query contains a `limit` or `sample`/`take` operator.
+> - **All** output columns are either `dynamic` or `null` type.
 
 For an example, see
 [Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)

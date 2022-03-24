@@ -1,12 +1,12 @@
 ---
 title: Azure CLI Script Sample - Create a SignalR Service
 description: Learn by following the sample script to create a new Azure SignalR Service in a new resource group, with a random name.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/08/2021
-ms.author: zhshang
+ms.author: lianwei
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -64,9 +64,9 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/signalr#az_signalr_create) | Creates an Azure SignalR Service resource. |
-| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
 
 
 ## Next steps

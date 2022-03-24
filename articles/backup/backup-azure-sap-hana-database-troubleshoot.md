@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 02/01/2022
+ms.date: 02/23/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -172,6 +172,20 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 --------- | -------
 **Possible causes** | System databases restore failed as the **&lt;sid&gt;adm** user environment couldn't find the **HDBsettings.sh** file to trigger restore.
 **Recommended action** | Work with the SAP HANA team to fix this issue.<br><br>If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
+
+### CloudDosAbsoluteLimitReached
+
+**Error message** | `Operation is blocked as you have reached the limit on number of operations permitted in 24 hours.` |
+------ | -----------
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. <br><br> For example: If you've hit the limit for the number of configure backup jobs that can be triggered per day, and you try to configure backup on a new item, you'll see this error.
+**Recommended action** | Typically, retrying the operation after 24 hours resolves this issue. However, if the issue persists, you can contact Microsoft support for help.
+
+### CloudDosAbsoluteLimitReachedWithRetry
+
+**Error message** | `Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours.`
+------ | -----------
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you've a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
+**Recommended action** | Azure Backup service will automatically retry this operation after 24 hours.
 
 ## Restore checks
 

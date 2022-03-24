@@ -1,8 +1,8 @@
 ---
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -179,7 +179,7 @@ DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub]
 
 IoT Central applications use an internal DPS instance to manage device connections. To learn more, see:
 
-* [Get connected to Azure IoT Central](../iot-central/core/concepts-get-connected.md)
+* [How devices connect to IoT Central](../iot-central/core/overview-iot-central-developer.md)
 * [Tutorial: Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md)
 
 ## Next steps

@@ -7,7 +7,8 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: duau 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to protect DNS zones and records
@@ -177,7 +178,7 @@ It can also be created via the Azure CLI:
 
 ```azurecli-interactive
 # Create new role definition based on input file
-az role defination create --role-definition <file path>
+az role definition create --role-definition <file path>
 ```
 
 The role can then be assigned in the same way as built-in roles, as described earlier in this article.
@@ -212,7 +213,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az_lock_create):
+The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az-lock-create):
 
 ```azurecli-interactive
 # Lock a DNS zone

@@ -151,7 +151,9 @@
     items:
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
-    - name: Configure ADDS LDAP over TLS
+    - name: Modify Active Directory connections
+      href: modify-active-directory-connections.md
+    - name: Enable ADDS LDAP authentication for NFS volumes
       href: configure-ldap-over-tls.md
   - name: Manage capacity pools
     items:

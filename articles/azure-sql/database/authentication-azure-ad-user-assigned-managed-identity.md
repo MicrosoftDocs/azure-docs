@@ -1,6 +1,6 @@
 ---
 title: User-assigned managed identity in Azure AD for Azure SQL
-description: This article provides information on user-assigned managed identities in Azure Active Directory (AD) with Azure SQL Database and Azure SQL Managed Instance
+description: User-assigned managed identities (UMI) in Azure AD (AD) for Azure SQL Database, SQL Managed Instance, and dedicated SQL pools in Azure Synapse Analytics. 
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
@@ -8,24 +8,22 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 12/15/2021
+ms.date: 03/09/2022
 ---
 
 # User-assigned managed identity in Azure AD for Azure SQL
 
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa-dedicated-only](../includes/appliesto-sqldb-sqlmi-asa-dedicated-only.md)]
 
 > [!NOTE]
 > User-assigned managed identity for Azure SQL is in **public preview**. 
 
 Azure Active Directory (AD) supports two types of managed identities: System-assigned managed identity (SMI) and user-assigned managed identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
-When using Azure AD authentication with Azure SQL Managed Instance, a managed identity must be assigned to the server identity. Previously, only a system-assigned managed identity could be assigned to the Managed Instance or SQL Database server identity. With support for user-assigned managed identity, the UMI can be assigned to Azure SQL Managed Instance or Azure SQL Database as the instance or server identity. This feature is now supported for SQL Database. 
+A system-assigned managed identity is automatically assigned to a managed instance when it is created. When using Azure AD authentication with Azure SQL Managed Instance, a managed identity must be assigned to the server identity. Previously, only a system-assigned managed identity could be assigned to the Managed Instance or SQL Database server identity. With support for user-assigned managed identity, the UMI can be assigned to Azure SQL Managed Instance or Azure SQL Database as the instance or server identity. This feature is now supported for SQL Database. 
 
 > [!NOTE]
-> A system-assigned managed identity is automatically assigned to a managed instance when it is created.
->
-> User-assigned managed identity is not supported for Azure Synapse Analytics.
+> This article applies only to dedicated SQL pools (formerly SQL DW) in standalone Azure SQL servers. For more information on user-assigned managed identities for dedicated pools in Azure Synapse workspaces, see [Using a user-assigned managed identity](../../synapse-analytics/security/workspaces-encryption.md#using-a-user-assigned-managed-identity).
 
 ## Benefits of using user-assigned managed identities
 
@@ -55,9 +53,12 @@ Once the UMI is created, some permissions are needed to allow the UMI to read fr
 - [**GroupMember.Read.All**](/graph/permissions-reference#group-permissions) – allows access to Azure AD group information
 - [**Application.Read.ALL**](/graph/permissions-reference#application-resource-permissions) – allows access to Azure AD service principal (applications) information
 
-### Granting permissions
+### Grant permissions
 
-The following is a sample PowerShell script that will grant the necessary permissions for UMI or SMI.
+The following is a sample PowerShell script that will grant the necessary permissions for UMI or SMI. This sample will assign permissions to the UMI `umiservertest`. To execute the script, you must sign in as a user with a "Global Administrator" or "Privileged Role Administrator" role, and have the following [Microsoft Graph permissions](/graph/auth/auth-concepts#microsoft-graph-permissions): 
+- User.Read.All
+- GroupMember.Read.All
+- Application.Read.ALL
 
 ```powershell
 # Script to assign permissions to the UMI "umiservertest"
@@ -108,6 +109,8 @@ $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "Application.Read.A
 New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
 ```
 
+In the final steps of the script, if you have more UMIs with similar names, you have to use the proper `$MSI[ ]array` number, for example, `$AAD_SP.ObjectId[0]`.
+
 ### Check permissions for user-assigned manage identity
 
 To check permissions for a UMI, go to the [Azure portal](https://portal.azure.com). In the **Azure Active Directory** resource, go to **Enterprise applications**. Select **All Applications** for the **Application type**, and search for the UMI that was created.
@@ -139,15 +142,15 @@ The Azure CLI 2.26.0 (or higher) is required to run these commands with UMI.
 
 #### Azure SQL Database
 
-- To provision a new server with UMI, use the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
-- To obtain the UMI server information, use the [az sql server show](/cli/azure/sql/server#az_sql_server_show) command. 
-- To update the UMI server setting, use the [az sql server update](/cli/azure/sql/server#az_sql_server_update) command.
+- To provision a new server with UMI, use the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command.
+- To obtain the UMI server information, use the [az sql server show](/cli/azure/sql/server#az-sql-server-show) command. 
+- To update the UMI server setting, use the [az sql server update](/cli/azure/sql/server#az-sql-server-update) command.
 
 #### Azure SQL Managed Instance
 
-- To provision a new managed instance with UMI, use the [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) command.
-- To obtain the UMI managed instance information, use the [az sql server show](/cli/azure/sql/mi#az_sql_mi_show) command.
-- To update the UMI managed instance setting, use the [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) command.
+- To provision a new managed instance with UMI, use the [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create) command.
+- To obtain the UMI managed instance information, use the [az sql server show](/cli/azure/sql/mi#az-sql-mi-show) command.
+- To update the UMI managed instance setting, use the [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) command.
 
 ### Create or set a managed identity using PowerShell
 
@@ -178,7 +181,6 @@ The ARM template used in [Creating an Azure SQL logical server using a user-assi
 
 ## Limitations and known issues
 
-- This feature isn't supported for Azure Synapse Analytics.
 - After a Managed Instance is created, the **Active Directory admin** blade in the Azure portal shows a warning: `Managed Instance needs permissions to access Azure Active Directory. Click here to grant "Read" permissions to your Managed Instance.` If the user-assigned managed identity was given the appropriate permissions discussed in the above [Permissions](#permissions) section, this warning can be ignored.
 - If a system-assigned or user-assigned managed identity is used as the server or instance identity, deleting the identity will result in the server or instance inability to access Microsoft Graph. Azure AD authentication and other functions will fail. To restore Azure AD functionality, a new SMI or UMI must be assigned to the server with appropriate permissions.
 - Permissions to access Microsoft Graph using UMI or SMI can only be granted using PowerShell. These permissions can't be granted using the Azure portal.
@@ -190,3 +192,6 @@ The ARM template used in [Creating an Azure SQL logical server using a user-assi
 
 > [!div class="nextstepaction"]
 > [Create an Azure SQL Managed Instance with a user-assigned managed identity](../managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md)
+
+> [!div class="nextstepaction"]
+> [Using a user-assigned managed identity in Azure Synapse workspaces](../../synapse-analytics/security/workspaces-encryption.md#using-a-user-assigned-managed-identity)

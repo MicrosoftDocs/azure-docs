@@ -48,7 +48,7 @@ For Windows Server nodes, Windows Update does not automatically run and apply th
 
 ### Are there additional security threats relevant to AKS that customers should be aware of?
 
-Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Containers](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
 
 * [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
 
@@ -135,7 +135,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla]. 
+AKS provides SLA guarantees as an optional feature with [Uptime SLA][uptime-sla]. 
 
 The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, application overwhelming the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
 
@@ -209,7 +209,7 @@ The feature to enable storing customer data in a single region is currently only
 
 ## Are AKS images required to run as root?
 
-Except for the following two images, AKS images aren't required to run as root:
+The following images have functional requirements to "Run as Root" and exceptions must be filed for any policies:
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
@@ -297,7 +297,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/aks
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

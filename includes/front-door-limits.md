@@ -5,10 +5,12 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 09/09/2021
+ ms.date: 02/25/2022
  ms.author: duau
  ms.custom: include file
 ---
+
+* In addition to the limits below, there is a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Limit |
 | --- | --- |
@@ -30,11 +32,12 @@
 | Web application firewall cookie name length | 256 |
 | Web application firewall exclusion limit | 100 |
 | Web application firewall HTTP request body size inspected | 128 KB |
-| Web application firewall custom response body length | 2 KB |
+| Web application firewall custom response body length | 32 KB |
 
 ### Azure Front Door Standard/Premium (Preview) Service Limits
 
-*** *Maximum **500** total Standard and Premium profiles per subscription.*
+* Maximum **500** total Standard and Premium profiles per subscription.
+* In addition to the limits below, there is a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Standard SKU Limit | Premium SKU Limit |
 | --- | --- | --- |
@@ -57,7 +60,7 @@
 | Web application firewall HTTP header name length | 256 | 256 |
 | Web application firewall cookie name length | 256 | 256|
 | Web application firewall HTTP request body size inspected | 128 KB | 128 KB |
-| Web application firewall custom response body length | 2 KB | 2 KB |
+| Web application firewall custom response body length | 32 KB | 32 KB |
 
 #### Timeout values
 ##### Client to Front Door
@@ -84,5 +87,6 @@
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
 * Maximum ETag header size: 128 bytes
+* Maximum endhpoint name for Standard and Premium: 46 characters.
 
 For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)

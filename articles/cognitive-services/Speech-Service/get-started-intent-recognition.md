@@ -1,7 +1,7 @@
 ---
 title: "Intent recognition quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you use intent recognition to interactively recognize intents from audio data captured from a microphone.
+description: In this quickstart, you recognize intents from audio data with the Speech service and LUIS.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-speech-services
 keywords: intent recognition
 ---
 
-# Get started with intent recognition
+# Quickstart: Recognize intents with the Speech service and LUIS
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/intent-recognition/csharp.md)]

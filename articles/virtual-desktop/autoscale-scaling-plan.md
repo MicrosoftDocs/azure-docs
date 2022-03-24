@@ -41,12 +41,13 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 Before you create your first scaling plan, make sure you follow these guidelines:
 
 - You can currently only configure autoscale with pooled existing host pools.
-- All host pools you autoscale must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0&preserve-view=true) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0&preserve-view=true) cmdlets in PowerShell.
+- You must create the scaling plan in the same region as the host pool you assign it to. You cannot assign a scaling plan in one region to a host pool in another region.
+- All host pools you use the autoscale feature for must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0&preserve-view=true) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0&preserve-view=true) cmdlets in PowerShell.
 - You must grant Azure Virtual Desktop access to manage power on your VM Compute resources.
 
 ## Create a custom RBAC role in your subscription
 
-To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. Creating this RBAC role at any level lower than your subscription, like at the host pool or VM level, will prevent the autoscale feature from working properly.
+To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Azure Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. Creating this RBAC role at any level lower than your subscription, like at the host pool or VM level, will prevent the autoscale feature from working properly.
 
 To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md) while using the following JSON template. This template already includes any permissions you need. For more detailed instructions, see [Assign custom roles with the Azure portal](#assign-custom-roles-with-the-azure-portal).
 ```json
@@ -262,3 +263,5 @@ Now that you've created your scaling plan, here are some things you can do:
 
 - [Assign your scaling plan to new and existing host pools](autoscale-new-existing-host-pool.md)
 - [Enable diagnostics for your scaling plan](autoscale-diagnostics.md)
+
+If you'd like to learn more about terms used in this article, check out our [autoscale glossary](autoscale-glossary.md). For examples of how the autoscale feature works, see [Autoscale example scenarios](autoscale-scenarios.md). You can also look at our [autoscale FAQ](autoscale-faq.yml) if you have additional questions.

@@ -3,7 +3,6 @@ title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
 ms.date: 07/30/2021
-
 ---
 
 # Usage analysis with Application Insights
@@ -37,8 +36,9 @@ The best experience is obtained by installing Application Insights both in your 
     }});
     </script>
     ```
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
+To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
 
@@ -87,7 +87,7 @@ With specific business events, you can chart your users' progress through your s
 Events can be logged from the client side of the app:
 
 ```JavaScript
-    appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
+      appInsights.trackEvent({name: "incrementCount"});
 ```
 
 Or from the server side:

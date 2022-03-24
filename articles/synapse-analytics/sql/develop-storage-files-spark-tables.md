@@ -5,9 +5,9 @@ services: synapse-analytics
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: sql
-ms.date: 10/05/2021
-author: jasonwhowell
-ms.author: jasonh
+ms.date: 02/15/2022
+author: juluczni
+ms.author: juluczni
 ms.reviewer: sngun, wiassaf
 ---
 

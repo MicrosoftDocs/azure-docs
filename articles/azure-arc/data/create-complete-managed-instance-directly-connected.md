@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Azure Arc-enable data services - directly connected mode - Azure portal
+title: Quickstart - Deploy Azure Arc-enabled data services - directly connected mode - Azure portal
 description: Demonstrates how to deploy Azure Arc-enabled data services from beginning, including a Kubernetes cluster. Finishes with an instance of Azure SQL Managed Instance.
 author: MikeRayMSFT
 ms.author: mikeray
@@ -10,11 +10,11 @@ ms.date: 12/09/2021
 ms.custom: template-quickstart 
 ---
 
-# Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal
+# Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal
 
 This article demonstrates how to deploy Azure Arc-enabled data services in directly connected mode from the Azure portal.
 
-To deploy in indirectly connected mode, see [Quickstart: Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI](create-complete-managed-instance-indirectly-connected.md).
+To deploy in indirectly connected mode, see [Quickstart: Deploy Azure Arc-enabled data services - indirectly connected mode - Azure CLI](create-complete-managed-instance-indirectly-connected.md).
 
 When you complete the steps in this article, you will have:
 
@@ -42,25 +42,26 @@ In addition, you need the following additional extensions to connect the cluster
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
 To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
 
-1. Log in to [Azure portal](https://ms.portal.azure.com).
+1. Log in to [Azure portal](https://portal.azure.com).
 1. In the search resources field at the top of the portal, type **Kubernetes**, and select **Kubernetes services**.
    Azure takes you to Kubernetes services.
 1. Select **Create** > **Create Kubernetes cluster**.
 1. Under **Basics**,
     1. Specify your **Subscription**.
     1. Create a resource group, or specify an existing resource group.
-    1. Specify a cluster name
-    1. Specify a region
-    1. Under **Availability zones**, remove all selected zones. You should not specify any zones.
-    1. Verify the Kubernetes version. For minimum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
-    1. Under **Node size**, select a node size for your cluster based on the [Sizing guidance](sizing-guidance.md).
-    1. For **Scale method**, select **Manual**.
+    2. For **Cluster preset configuration**, review the available options and select for your workload. For a development/test proof of concept, use **Dev/Test**. Select a configuration with at least 4 vCPUs. 
+    3. Specify a cluster name.
+    4. Specify a region.
+    5. Under **Availability zones**, remove all selected zones. You should not specify any zones.
+    6. Verify the Kubernetes version. For minimum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
+    7. Under **Node size**, select a node size for your cluster based on the [Sizing guidance](sizing-guidance.md).
+    8. For **Scale method**, select **Manual**.
 1. Click **Review + create**.
 1. Click **Create**.
 

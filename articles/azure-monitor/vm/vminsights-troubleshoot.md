@@ -61,7 +61,7 @@ Check the [capacity reservations and the pricing for data ingestion](https://azu
 
 Open Log Analytics from **Logs** in the Azure Monitor menu in the Azure portal. Run the following query for your computer:
 
-```kuso
+```kusto
 Heartbeat
 | where Computer == "my-computer"
 | sort by TimeGenerated desc 

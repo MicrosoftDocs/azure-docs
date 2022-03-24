@@ -10,6 +10,8 @@ ms.date: 07/10/2020
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Cloud app
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to invoke Http triggered Functions.
 
 Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By leveraging this built-in authentication capability along with Managed Identities for Azure Spring Cloud, we can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
@@ -23,7 +25,7 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az_group_create):
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +33,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a Function App
 
-To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az-storage-account-create):
 
 > [!Important]
 > Each Function app and Storage Account must have a unique name. Replace *\<your-functionapp-name>* with the name of your Function app and *\<your-storageaccount-name>* with the name of your Storage Account in the following examples.

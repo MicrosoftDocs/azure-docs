@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 03/01/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -69,7 +69,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
+To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob copy start \
@@ -126,7 +126,7 @@ $blob.BlobClient.SetAccessTier("Hot", $null, "Standard")
 
 ### [Azure CLI](#tab/azure-cli)
 
-To change a blob's tier from Archive to Hot or Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+To change a blob's tier from Archive to Hot or Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob set-tier \
@@ -172,7 +172,7 @@ $rehydratingBlob.BlobProperties.RehydratePriority
 
 ### [Azure CLI](#tab/azure-cli)
 
-To check the status and priority of a pending rehydration operation with Azure CLI, call the [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) command, and check the **rehydrationStatus** and **rehydratePriority** properties of the destination blob. Remember to replace placeholders in angle brackets with your own values:
+To check the status and priority of a pending rehydration operation with Azure CLI, call the [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) command, and check the **rehydrationStatus** and **rehydratePriority** properties of the destination blob. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob show \
@@ -238,7 +238,7 @@ if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 
 To change the rehydration priority for a pending operation with Azure CLI, first make sure that you have installed the Azure CLI, version 2.29.2 or later. For more information about installing the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
+Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 # Update the rehydration priority for a blob moving to the Hot tier.
@@ -328,7 +328,7 @@ az storage blob show \
     --auth-mode login
 ```
 
-Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
+Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command with the `--rehydrate-priority` parameter set to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
 
 ---
 

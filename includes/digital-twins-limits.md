@@ -17,7 +17,7 @@ The following table lists the functional limits of Azure Digital Twins.
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
-| Digital twins | Number of twins in an Azure Digital Twins instance | 500,000 | Yes |
+| Digital twins | Number of twins in an Azure Digital Twins instance | 1,000,000 | Yes |
 | Digital twins | Number of incoming relationships to a single twin | 5,000 | No |
 | Digital twins | Number of outgoing relationships from a single twin | 5,000 | No |
 | Digital twins | Maximum size (of JSON body in a PUT or PATCH request) of a single twin | 32 KB | No |
@@ -45,8 +45,8 @@ The following table reflects the rate limits of different APIs.
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of read requests per second | 1,000 | Yes |
 | Digital Twins API | Number of patch requests per second | 1,000 | Yes |
-| Digital Twins API | Number of create/delete operations per second across **all twins and relationships** | 50 | Yes |
-| Digital Twins API | Number of create/update/delete operations per second on a **single twin** or its relationships | 10 | No |
+| Digital Twins API | Number of create/delete operations per second across all twins and relationships | 50 | Yes |
+| Digital Twins API | Number of create/update/delete operations per second on a single twin or its incoming/outgoing relationships | 10 | No |
 | Query API | Number of requests per second | 500 | Yes |
 | Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |

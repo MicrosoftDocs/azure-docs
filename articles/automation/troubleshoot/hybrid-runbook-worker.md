@@ -142,7 +142,7 @@ You might also need to update the date or time zone of your computer. If you sel
 
 ##### Log Analytics gateway not configured
 
-Follow the steps mentioned [here](/azure/azure-monitor/agents/gateway#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
 
 
 ### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
@@ -346,11 +346,11 @@ To resolve this issue, remove the following registry key, restart `HealthService
 
 #### Issue
 
-You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script:
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python script:
 
 `Failed to deregister worker. [response_status=404]`
 

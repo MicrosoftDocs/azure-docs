@@ -13,7 +13,7 @@ ms.author: aahi
 
 ## Create an Azure Container Instance resource using the Azure portal
 
-1. Go to the [Create](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) page for Container Instances.
+1. Go to the [Create](https://portal.azure.com/#create/Microsoft.ContainerInstances) page for Container Instances.
 
 2. On the **Basics** tab, enter the following details:
 

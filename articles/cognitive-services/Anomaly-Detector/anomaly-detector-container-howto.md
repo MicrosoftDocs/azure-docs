@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2021
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020

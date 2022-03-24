@@ -307,9 +307,6 @@ In the code above:
 
 You can find more details about how Microsoft.Identity.Web enables you to create web apps in <https://aka.ms/ms-id-web/webapp>
 
-> [!WARNING]
-> Currently, Microsoft.Identity.Web does not support the scenario of **Individual User Accounts** (storing user accounts in-app) when using Azure AD as and external login provider. For details, see: [AzureAD/microsoft-identity-web#133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
-
 # [ASP.NET](#tab/aspnet)
 
 The code related to authentication in an ASP.NET web app and web APIs is located in the [App_Start/Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) file.

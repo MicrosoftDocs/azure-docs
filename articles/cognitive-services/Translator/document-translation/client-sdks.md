@@ -23,9 +23,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
@@ -106,11 +106,11 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
+In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
-private static readonly string subscriptionKey = "<your subscription key>";
+private static readonly string key = "<your key>";
 ```
 
 ### Translate a document or batch files
@@ -129,7 +129,7 @@ public void StartTranslation() {
   Uri sourceUri = new Uri("<sourceUrl>");
   Uri targetUri = new Uri("<targetUrl>");
 
-  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
+  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
   DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "es")
 
@@ -204,11 +204,11 @@ Create a new Python application in your preferred editor or IDE. Then import the
     from azure.ai.translation.document import DocumentTranslationClient
 ```
 
-Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
+Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
+more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
 
 ```python
- subscriptionKey = "<your-subscription-key>"
+ key = "<your-key>"
  endpoint = "<your-custom-endpoint>"
  sourceUrl = "<your-container-sourceUrl>"
  targetUrl = "<your-container-targetUrl>"
@@ -217,7 +217,7 @@ more information, *see*  [Custom domain name and subscription key](get-started-w
 ### Translate a document or batch files
 
 ```python
-client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey))
+client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
     poller = client.begin_translation(sourceUrl, targetUrl, "fr")
     result = poller.result()

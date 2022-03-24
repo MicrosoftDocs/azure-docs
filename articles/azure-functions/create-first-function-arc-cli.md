@@ -3,7 +3,8 @@ title: 'Quickstart: Create a function app on Azure Arc'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create your first function on Azure Arc (preview)
@@ -115,7 +116,7 @@ Before you can deploy your function code to your new App Service Kubernetes envi
 
 ### Create Storage account
 
-Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a general-purpose storage account in your resource group and region:
+Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a general-purpose storage account in your resource group and region:
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -128,7 +129,7 @@ In the previous example, replace `<STORAGE_NAME>` with a name that is appropriat
 
 ### Create the function app
 
-Run the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command to create a new function app in the environment.
+Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command to create a new function app in the environment.
 
 # [C\#](#tab/csharp)  
 ```azurecli

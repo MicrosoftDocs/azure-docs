@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This article explains how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 
@@ -34,7 +36,7 @@ To configure diagnostics settings, use the following steps:
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.
-> If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Cloud instance. Otherwise, if you provision a new Azure Spring Cloud instance with the same resource ID as the deleted one, or if you move the Azure Spring Cloud instance back, the previous diagnostics settings resources will continue to extend it.
+> If the Azure Spring Cloud instance is deleted or moved, the operation won't cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Cloud instance. Otherwise, if you provision a new Azure Spring Cloud instance with the same resource ID as the deleted one, or if you move the Azure Spring Cloud instance back, the previous diagnostics settings resources will continue to extend it.
 
 ## Analyze the logs with Elastic
 

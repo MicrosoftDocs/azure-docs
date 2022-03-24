@@ -216,7 +216,7 @@ You can explore the REST API using the general pattern of:
 | subscriptions/YOUR-SUBSCRIPTION-ID/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
 | resourceGroups/YOUR-RESOURCE-GROUP/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
-| provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
+| provider-resource-path/ | workspaces/MyWorkspace/experiments/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
 
 

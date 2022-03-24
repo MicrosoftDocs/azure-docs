@@ -8,7 +8,8 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurepowershell
+ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 

@@ -17,7 +17,7 @@ The easiest way to enable application monitoring for Node.js applications runnin
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
 
 > [!NOTE]
-> If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
+> If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
 
 ### Auto-instrumentation through Azure portal
 
@@ -56,7 +56,7 @@ In order to enable telemetry collection with Application Insights, only the foll
 | App setting name | Definition | Value |
 |------------------|------------|------:|
 | ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` in Windows or `~3` in Linux. |
-| XDT_MicrosoftApplicationInsights_NodeJS | Flag to control if node.js agent is included. | 0 or 1 (only applicable in Windows). |
+| XDT_MicrosoftApplicationInsights_NodeJS | Flag to control if Node.js agent is included. | 0 or 1 (only applicable in Windows). |
 
 > [!NOTE]
 > Profiler and snapshot debugger are not available for Node.js applications

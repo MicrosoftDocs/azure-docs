@@ -39,7 +39,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 # [Azure CLI](#tab/cli)
 
-Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
+Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
 
 The following example pushes a ZIP package to your site. Specify the path to your local ZIP package for `--src-path`.
 
@@ -113,7 +113,7 @@ The deployment process places the package on the shared file drive correctly (se
 
 # [Azure CLI](#tab/cli)
 
-Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. Specify the path to your local Java package for `--src-path`.
+Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command. Specify the path to your local Java package for `--src-path`.
 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<package-name>.war
@@ -165,7 +165,7 @@ The Kudu UI does not support deploying JAR, WAR, or EAR applications. Please use
 
 # [Azure CLI](#tab/cli)
 
-Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command with the `--type` parameter.
+Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command with the `--type` parameter.
 
 If you deploy a startup script this way, App Service automatically uses your script to start your app.
 
@@ -173,19 +173,19 @@ The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to depl
 
 ### Deploy a startup script
 
-```bash
+```azurecli
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path scripts/startup.sh --type=startup
 ```
 
 ### Deploy a library file
 
-```bash
+```azurecli
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path driver.jar --type=lib
 ```
 
 ### Deploy a static file
 
-```bash
+```azurecli
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path config.json --type=static
 ```
 

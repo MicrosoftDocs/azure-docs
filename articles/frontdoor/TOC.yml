@@ -44,6 +44,8 @@
       href: front-door-route-matching.md
     - name: Backend selection
       href: front-door-routing-methods.md
+    - name: Routing limits
+      href: front-door-routing-limits.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Health probes
@@ -71,19 +73,7 @@
     - name: End-to-end TLS encryption
       href: concept-end-to-end-tls.md
     - name: Web Application Firewall
-      items:
-      - name: Tuning
-        href: ../web-application-firewall/afds/waf-front-door-tuning.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-      - name: Managed rules
-        href: ../web-application-firewall/afds/waf-front-door-drs.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-      - name: Custom rules
-        href: ../web-application-firewall/afds/waf-front-door-custom-rules.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-      - name: Exclusion lists
-        href: ../web-application-firewall/afds/waf-front-door-exclusion.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-      - name: Policy settings
-        href: ../web-application-firewall/afds/waf-front-door-policy-settings.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-      - name: Geo-filtering
-        href: front-door-geo-filtering.md
+      href: web-application-firewall.md
   - name: Protocol
     items:
     - name: HTTP/2
@@ -111,7 +101,7 @@
     - name: Configure a security policy
       href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Configure geo-filtering
-      href: front-door-tutorial-geo-filtering.md
+      href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Configure rate limits
       href: ../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Configure IP restriction

@@ -1,18 +1,17 @@
 ---
-title: Use Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
+title: Use Advanced Security Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to use KQL functions as query-time parsers to implement the Advanced Security Information Model (ASIM)
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 --- 
 
-# Use Advanced SIEM Information Model (ASIM) parsers (Public preview)
+# Use Advanced Security Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Use Advanced SIEM Information Model (ASIM) parsers instead of table names in your Microsoft Sentinel queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
+Use Advanced Security Information Model (ASIM) parsers instead of table names in your Microsoft Sentinel queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -51,7 +50,7 @@ The following table lists unifying parsers available:
 | Process Event | | | | - imProcess<br> - imProcessCreate<br> - imProcessTerminate |
 | Registry Event | | | | imRegistry |
 | Web Session | _Im_WebSession | _ASim_WebSession | imWebSession | ASimWebSession | 
-| | | | | 
+
 
 
 ## Source-specific parsers
@@ -83,7 +82,7 @@ Each schema has a standard set of filtering parameters documented in the relevan
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Advanced SIEM Information Model (ASIM) parsers. To learn how to develop your own parsers, see [Develop ASIM parsers](normalization-develop-parsers.md).
+This article discusses the Advanced Security Information Model (ASIM) parsers. To learn how to develop your own parsers, see [Develop ASIM parsers](normalization-develop-parsers.md).
 
 Learn more about ASIM parsers:
 
@@ -94,6 +93,6 @@ Learn more about ASIM parsers:
 Learn more about the ASIM in general: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)
