@@ -46,13 +46,13 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 >[!IMPORTANT]
 >It's recommended that you use the same resource group for all resources created in this article. This will make clean up easier after you are finished.
 
-1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az_group_create) command:
+1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli-interactive
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Create an IoT hub in the *eastus* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
+2. Create an IoT hub in the *eastus* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command(replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive
     az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location eastus --sku S1
@@ -60,7 +60,7 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
     This command may take a few minutes to complete.
 
-3. Now, create an IoT hub in the *westus2* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
+3. Now, create an IoT hub in the *westus2* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command(replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive
     az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location westus2 --sku S1

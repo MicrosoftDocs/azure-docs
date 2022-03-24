@@ -201,7 +201,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -210,7 +210,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    > [!NOTE]
    > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
 
-4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
    ```azurecli
    az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage

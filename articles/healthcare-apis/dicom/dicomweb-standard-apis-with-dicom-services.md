@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 03/01/2022
+ms.date: 03/22/2022
 ms.author: aersoy
 ---
 
@@ -81,7 +81,7 @@ This tutorial provided an overview of the APIs supported by DICOM service. Get s
 - [Using DICOMweb™ Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
 - [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md)
 - [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md)
-- [Use DICOM Web Standard APIs with Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
+- [Use DICOMWeb™ Standard APIs with Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
 ### Next Steps
 

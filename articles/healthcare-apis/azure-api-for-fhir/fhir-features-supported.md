@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/21/2022
 ms.author: cavoeg
 ---
 
@@ -24,7 +24,7 @@ Previous versions also currently supported include: `3.0.2`
 
 Below is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](fhir-rest-api-capabilities.md).
 
-| API    | Azure API for FHIR | FHIR service in Healthcare APIs | Comment |
+| API    | Azure API for FHIR | FHIR service in Azure Health Data Services | Comment |
 |--------|--------------------|---------------------------------|---------|
 | read   | Yes                | Yes                             |         |
 | vread  | Yes                | Yes                             |         |
@@ -51,7 +51,7 @@ Below is a summary of the supported RESTful capabilities. For more information o
 
 All the operations that are supported that extend the REST API.
 
-| Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
+| Search parameter type | Azure API for FHIR | FHIR service in Azure Health Data Services| Comment |
 |------------------------|-----------|-----------|---------|
 | [$export](../../healthcare-apis/data-transformation/export-data.md) | Yes       | Yes       | Supports system, group, and patient.   |
 | [$convert-data](convert-data.md)          | Yes       | Yes       |         |
@@ -82,7 +82,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 * **Data size** - Data/Documents must each be slightly less than 2 MB.
 
-* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR server instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
+* **Subscription limit** - By default, each subscription is limited to a maximum of 10 FHIR server instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
 
 ## Next steps
 
