@@ -46,9 +46,17 @@
       href: create-a-cluster.md
     - name: Log into a Cluster Using the Prism Element Web Console
       href: log-into-a-cluster-using-the-prism-element-web-console.md
-- name: User VM (UVM) Network Management 
-  href: uvm-network-management.md
-  items: 
+  - name: User VM (UVM) Network Management 
+    href: uvm-network-management.md
+    items:
+    - name: Create a Virtual Private Cloud
+      href: create-a-virtual-private-cloud.md
+    - name: Create a UVM subnet
+      href: create-a-uvm-subnet.md
+    - name: Upload a VM image
+      href: upload-a-vm-image.md
+    - name: Create a VM
+      href: create-a-vm.md
 - name: Cluster Management
   href: cluster-management.md
   items:
