@@ -6324,28 +6324,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/cache-keys-ports.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/redis-cache/scripts/cache-keys-ports.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/cache-keys-ports",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-premium-cache-cluster.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-premium-cache-cluster.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/delete-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/delete-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
@@ -15001,11 +15026,6 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-qradar.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-qradar",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-devops-starter.md",
-      "redirect_url": "/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic/",
       "redirect_document_id": false
     },
     {
@@ -28296,6 +28316,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link.md",
       "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-tutorial-geo-filtering.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -43765,7 +43790,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
       "redirect_document_id": false
     },
     {

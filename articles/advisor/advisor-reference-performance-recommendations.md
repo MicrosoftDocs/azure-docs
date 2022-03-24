@@ -138,7 +138,7 @@ Learn more about [Communication service - UpgradeTurnSdk (Use recommended versio
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
-We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD.
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Azure Virtual Desktop. This may lead to prolonged connection response times and will impact overall user experience on Azure Virtual Desktop.
 
 Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 
@@ -542,7 +542,7 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSq
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
-We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience.
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Azure Virtual Desktop. This may lead to prolonged connection response times and will impact overall user experience on Azure Virtual Desktop. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
 
 Learn more about [Host Pool - RegionProximityHostPools (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 
