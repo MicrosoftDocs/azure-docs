@@ -29,7 +29,7 @@ You can go to the alerts page in any of the following ways:
 
      ![Screenshot of resource group Monitoring Alerts](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-## Find alert instances
+## The alerts page
 
 The **Alerts** page summarizes all your alert instances across Azure. You can modify the results by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more.
 > [!NOTE]
@@ -37,6 +37,8 @@ The **Alerts** page summarizes all your alert instances across Azure. You can mo
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot of alerts page.":::
  
-Selecting any alert instance opens the **Alert Details** page, allowing you to see more details about that specific alert instance.   
+Select an alert instance to open the **Alert Details** page and see more details about the specific alert instance.   
 
-:::image type="content" source="media/alerts-managing-alert-instances/alert-details.jpg" alt-text="Screenshot of alerts details page.":::
+:::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::
+
+Select **Change user response** to change the user response to the alert. You can see all closed alerts in the **History** tab. 

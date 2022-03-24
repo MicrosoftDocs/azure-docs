@@ -84,8 +84,8 @@ You can narrow down the list by selecting values from any of these filters at th
 | Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. |
 | Resource | Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. |
 | Severity | Select an alert severity, or select **All** to include alerts of all severities. |
-| Alert condition | Select a monitor condition, or select **All** to include alerts of all conditions. |
-| User response | Select an alert state, or select **All** to include alerts of all states. |
+| Alert condition | Select an alert condition, or select **All** to include alerts of all conditions. |
+| User response | Select a user response, or select **All** to include alerts of all user responses. |
 | Monitor service | Select a service, or select **All** to include all services. Only alerts created by rules that use service as a target are included. |
 | Time range | Only alerts fired within the selected time range are included in the view. Supported values are the past hour, the past 24 hours, the past seven days, and the past 30 days. |
 
@@ -101,24 +101,21 @@ The Alert details page includes the following sections:
 | Section | Description |
 |:---|:---|
 | Summary | Displays the properties and other significant information about the alert. |
-| History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
+| History | Lists each action taken by the alert and any changes made to the alert. Currently limited to user response changes. |
 | Diagnostics | Information about the smart group in which the alert is included. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days, whatever of the time filter in the alerts list page. Select an alert to view its detail. |
 ## Manage alerts
 
-You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
+You can set the user response of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All user response changes are stored in the history of the alert.
 
 The following user responses are supported.
 
-| State | Description |
+| User Response | Description |
 |:---|:---|
 | New | The issue has been detected and hasn't yet been reviewed. |
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
-| Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
+| Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another user response. |
 
-The *user response* is different and independent of the *monitor condition*. The response is set by the user, while the monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to *'resolved'*. 
-
-The user response isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
-
+The *user response* is different and independent of the *alert condition*. The response is set by the user, while the alert condition is set by the system. When an alert fires, the alert's alert condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the alert condition is set to *'resolved'*. 
 ## Manage alert rules
 
 To show the **Rules** page, select **Manage alert rules**. The Rules page is a single place for managing all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. You can also edit, enable, or disable alert rules from this page.  
