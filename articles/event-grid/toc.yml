@@ -65,7 +65,7 @@
   - name: Stream data from Event Hubs
     href: event-grid-event-hubs-integration.md
   - name: Route Media Services events
-    href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    href: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
   - name: Route to Hybrid Connection
     href: custom-event-to-hybrid-connection.md
 - name: Samples
