@@ -25,7 +25,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace. 
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 
 ## Overview of tutorial

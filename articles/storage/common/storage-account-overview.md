@@ -39,7 +39,7 @@ The following table describes the types of storage accounts recommended by Micro
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
-You can’t change a storage account to a different type after it's' created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
+You can’t change a storage account to a different type after it's created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
 
 ## Storage account endpoints
 

@@ -1,6 +1,6 @@
 ---
 title: Regulatory Compliance details for New Zealand ISM Restricted
-description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+description: New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
 ms.date: 03/10/2022
 ms.topic: sample
 ms.custom: generated
@@ -20,9 +20,6 @@ are implemented with an [Azure Policy](../overview.md) initiative definition. To
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
 Then, find and select the **New Zealand ISM Restricted** Regulatory Compliance built-in
 initiative definition.
-
-This built-in initiative is deployed as part of the
-[New Zealand ISM Restricted blueprint sample](../../blueprints/samples/new-zealand-ism.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
