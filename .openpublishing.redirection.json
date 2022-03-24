@@ -28320,7 +28320,7 @@
     },
     {
       "source_path_from_root": "/articles/frontdoor/front-door-tutorial-geo-filtering.md",
-      "redirect_url": "/azure/frontdoor/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
       "redirect_document_id": false
     },
     {
