@@ -133,9 +133,10 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Disable device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) |  |
-> | Enable device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) |  |
-> | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
+> | Delete device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) | [Intune Administrator](../roles/permissions-reference#intune-administrator)<br/>[Windows 365 Administrator](../roles/permissions-reference#windows-365-administrator) |
+> | Disable device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) |[Windows 365 Administrator](../roles/permissions-reference#windows-365-administrator)  |
+> | Enable device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) |[Windows 365 Administrator](../roles/permissions-reference#windows-365-administrator)  |
+> | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) ||
 > | Read BitLocker keys | [Security Reader](../roles/permissions-reference.md#security-reader) | [Password Administrator](../roles/permissions-reference.md#password-administrator)<br/>[Security Administrator](../roles/permissions-reference.md#security-administrator) |
 
 ## Enterprise applications
