@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/02/2022
+ms.date: 03/21/2022
 ms.author: ranku
 ---
 
@@ -138,7 +138,7 @@ Browse to the **Artifacts** blade under **Data transformation** in your Azure AP
 #### Registering the ACR server using CLI
 You can register up to 20 ACR servers in the Azure API for FHIR.
 
-Install the Healthcare APIs CLI from Azure PowerShell if needed:
+Install Azure Health Data Services CLI from Azure PowerShell if needed:
 
 ```powershell
 az extension add -n healthcareapis
