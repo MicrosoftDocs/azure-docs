@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Create an internal load balancer - Azure CLI'
+title: 'Quickstart: Create an internal basic load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer by using the Azure CLI.
+description: This quickstart shows how to create an internal basic load balancer by using the Azure CLI.
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/23/2022
+ms.date: 03/24/2022
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
-# Quickstart: Create an internal load balancer to load balance VMs by using the Azure CLI
+# Quickstart: Create an internal basic load balancer to load balance VMs by using the Azure CLI
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)] 
 
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -114,7 +114,7 @@ Create an internal load balancer with [az network lb create](/cli/azure/network/
   az network lb create \
     --resource-group CreateIntLBQS-rg \
     --name myLoadBalancer \
-    --sku Standard \
+    --sku Basic \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
     --frontend-ip-name myFrontEnd \
@@ -161,8 +161,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --idle-timeout 15 \
-    --enable-tcp-reset true
+    --idle-timeout 15
 ```
 
 ## Create a network security group
@@ -221,6 +220,17 @@ Create two network interfaces with [az network nic create](/cli/azure/network/ni
   done
 ```
 
+### Create the availability set for the virtual machines
+
+Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create).
+
+```azurecli
+  az vm availability-set create \
+    --name myAvailabilitySet \
+    --resource-group CreateIntLBQS-rg \
+    --location westus3  
+```
+
 ### Create the virtual machines
 
 Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
@@ -235,14 +245,14 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
     --nics myNicVM$n \
     --image win2019datacenter \
     --admin-username azureuser \
-    --zone $n \
+    --availability-set myAvailabilitySet \
     --no-wait
   done
 ```
 
 It can take a few minutes for the VMs to deploy.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Add virtual machines to the backend pool
 
@@ -260,45 +270,6 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --lb-name myLoadBalancer
   done
 
-```
-## Create NAT gateway
-
-To provide outbound internet access for resources in the backend pool, create a NAT gateway.  
-
-### Create public IP
-
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a single IP for the outbound connectivity.  
-
-```azurecli
-  az network public-ip create \
-    --resource-group CreateIntLBQS-rg \
-    --name myNATgatewayIP \
-    --sku Standard \
-    --zone 1 2 3
-```
-
-### Create NAT gateway resource
-
-Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create the NAT gateway resource. The public IP created in the previous step is associated with the NAT gateway.
-
-```azurecli
-  az network nat gateway create \
-    --resource-group CreateIntLBQS-rg \
-    --name myNATgateway \
-    --public-ip-addresses myNATgatewayIP \
-    --idle-timeout 10
-```
-
-### Associate NAT gateway with subnet
-
-Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
-
-```azurecli
-  az network vnet subnet update \
-    --resource-group CreateIntLBQS-rg \
-    --vnet-name myVNet \
-    --name myBackendSubnet \
-    --nat-gateway myNATgateway
 ```
 
 ## Create test virtual machine
@@ -361,9 +332,7 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
 
 7. On **myTestVM**, open **Internet Explorer**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown on the browser.
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of the IP address in the address bar of the browser." border="true":::
+8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown in the browser.
 
 ## Clean up resources
 
@@ -378,7 +347,7 @@ When your resources are no longer needed, use the [az group delete](/cli/azure/g
 
 In this quickstart:
 
-* You created an internal load balancer
+* You created an internal basic load balancer
 
 * Attached two virtual machines
 
@@ -388,4 +357,4 @@ In this quickstart:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
