@@ -14,11 +14,15 @@ Perform the following procedure to subscribe to a free trial of Nutanix Clusters
 1.	Log on to https://my.nutanix.com by using your My Nutanix credentials. 
 2.	On the My Nutanix dashboard, scroll down to Xi Cloud Services, and under Nutanix Clusters, click Launch. 
 
-:::image type="content" source="/media/onboarding-nutanix-clusters/registration-1.png" alt-text="Registration":::
- 
+
+[![Deployment](media/onboarding-nutanix-clusters/registration-1.png)](media/onboarding-nutanix-clusters/registration-1.png#lightbox)
+
+
+
+
 3.	In the Nutanix Clusters in a Public Cloud page, under Try Nutanix Clusters for 30 days, click Start your 30 day free trial. 
  
-:::image type="content" source="/media/onboarding-nutanix-clusters/registration-2.png" alt-text="Registration":::
+[![Deployment](media/onboarding-nutanix-clusters/registration-2.png)](media/onboarding-nutanix-clusters/registration-2.png#lightbox)
  
 The Nutanix Clusters console opens in a new tab. You can now start using Nutanix 
 
