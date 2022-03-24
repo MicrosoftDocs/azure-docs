@@ -101,7 +101,7 @@
     - name: Configure a security policy
       href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Configure geo-filtering
-      href: front-door-tutorial-geo-filtering.md
+      href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Configure rate limits
       href: ../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=%2fazure%2ffrontdoor%2ftoc.json
     - name: Configure IP restriction

@@ -6,7 +6,7 @@ ms.author: sidram
 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 03/24/2022
 ms.custom: devx-track-js
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
@@ -28,6 +28,8 @@ Complete the following steps before you add a machine learning model as a functi
 ## Add a machine learning model to your job
 
 You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4RMir]
 
 ### Azure portal
 
