@@ -51,15 +51,18 @@ For each of the following networks, allocate a subnet and then identify the list
 
 Azure Private 5G Core supports the following IP address allocation methods for UEs.
 
-- Dynamic. Dynamic IP address allocation assigns a new IP address to a UE each time it connects to the private mobile network. 
+- Dynamic. Dynamic IP address allocation automatically assigns a new IP address to a UE each time it connects to the private mobile network. 
 
-- Static. Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you will not need to reconfigure the video analysis application with new IP addresses each time the cameras restart. 
+- Static. Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you will not need to reconfigure the video analysis application with new IP addresses each time the cameras restart. You'll allocate static IP addresses to a UE as part of [provisioning its SIM](provision-sims-azure-portal.md).
 
-You can choose to support one or both of these methods. 
+You can choose to support one or both of these methods for each site in your private mobile network. 
 
-For each method you want to support, allocate an IP address pool from which IP addresses can be assigned to UEs. You'll need to provide these IP address pools in CIDR notation. 
+For each site you're deploying, do the following:
 
-If you decide to support both methods, ensure that the IP address pools are the same size. 
+- Decide which IP address allocation methods you want to support.
+- For each method you want to support, identify an IP address pool from which IP addresses can be allocated to UEs. You'll need to provide each IP address pool in CIDR notation. 
+
+    If you decide to support both methods for a particular site, ensure that the IP address pools are of the same size and do not overlap. 
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
