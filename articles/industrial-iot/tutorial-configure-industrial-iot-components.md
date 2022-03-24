@@ -48,25 +48,21 @@ output of deployment script or reset the password
 * IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher (for standalone OPC Publisher operation only)
 
 
-## Configuration options
+## OPC Publisher Configuration options
 
 |Configuration Option (shorthand/full name)    |    Description   |
 |----------------------------------------------|------------------|
 pf/publishfile |The filename to configure the nodes to publish. If this option is specified, it puts OPC Publisher into standalone mode.
+s/site |The site OPC Publisher is assigned to.
 lf/logfile |The filename of the logfile to use.
 ll/loglevel |The log level to use (allowed: fatal, error, warn, info, debug, verbose).
-me/messageencoding |The messaging encoding for outgoing messages allowed values: Json, Uadp
-mm/messagingmode |The messaging mode for outgoing messages allowed values: PubSub, Samples
-fm/fullfeaturedmessage |The full featured mode for messages (all fields filled in). Default is 'true', for legacy compatibility use 'false'
 aa/autoaccept |The publisher trusted all servers it's a connection to
 bs/batchsize |The number of OPC UA data-change messages to be cached for batching.
 si/iothubsendinterval |The trigger batching interval in seconds.
 ms/iothubmessagesize |The maximum size of the (IoT D2C) message.
 om/maxoutgressmessages |The maximum size of the (IoT D2C) message egress buffer.
-di/diagnosticsinterval |Shows publisher diagnostic info at the specified interval in seconds (need log level info). -1 disables remote diagnostic log and diagnostic output
 lt/logflugtimespan |The timespan in seconds when the logfile should be flushed.
 ih/iothubprotocol |Protocol to use for communication with the hub. Allowed values: AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Amqp, Mqtt, Tcp, Websocket, Any
-hb/heartbeatinterval |The publisher is using this as default value in seconds for the heartbeat interval setting of nodes without a heartbeat interval setting.
 ot/operationtimeout |The operation timeout of the publisher OPC UA client in ms.
 ol/opcmaxstringlen |The max length of a string opc can transmit/receive.
 oi/opcsamplinginterval |Default value in milliseconds to request the servers to sample values
@@ -75,6 +71,14 @@ ct/createsessiontimeout |The interval the publisher is sending keep alive messag
 kt/keepalivethresholt |Specify the number of keep alive packets a server can miss, before the session is disconnected.
 tm/trustmyself |The publisher certificate is put into the trusted store automatically.
 at/appcertstoretype |The own application cert store type (allowed: Directory, X509Store).
+an/appname |OPC UA Client Application Config - Application name as per OPC UA definition. This is used for authentication during communication init handshake and as part of own certificate validation.
+ki/keepaliveinterval |OPC UA Client Application Config - Keep alive interval as per OPC UA definition.
+kt/keepalivethreshold |OPC UA Client Application Config - Maximum count of keep alive events as per OPC UA definition.
+ap/appcertstorepath |OPC UA Client Security Config - application's own certificate store path.
+sn/appcertsubjectname |OPC UA Client Security Config - the subject name in the application's own certificate.
+ip/issuercertstorepath |OPC UA Client Security Config - trusted certificate issuer store path.
+tp/trustedcertstorepath |OPC UA Client Security Config - trusted peer certificates store path.
+rp/rejectedcertstorepath |OPC UA Client Security Config - rejected certificates store path.
 
 
 ## Next steps
