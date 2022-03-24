@@ -82,7 +82,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | ---- | --------------------- | ---------------- |
 > | Passthrough authentication | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
 > | Read all configuration | [Global Reader](../roles/permissions-reference.md#global-reader) | [Global Administrator](../roles/permissions-reference.md#global-administrator) |
-> | Seamless single sign-on | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
+> | Seamless single sign-on | [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) |  |
 
 ## Cloud Provisioning
 
