@@ -23,9 +23,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 
 - Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
-[!IMPORTANT]
->
-> Manual changes to softawre pacakges may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+**Important**: Manual changes to software pacakges may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
 
 Current versions of the sensor and on-premises management console softare include:
 
