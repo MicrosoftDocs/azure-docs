@@ -1,5 +1,5 @@
 ---
-title: Replicate a database by using the link feature in SSMS
+title: Replicate a database by using the link in SSMS
 titleSuffix: Azure SQL Managed Instance
 description: Learn how to use an Azure SQL Managed Instance link in SQL Server Management Studio (SSMS) to replicate a database from SQL Server to SQL Managed Instance.
 services: sql-database
