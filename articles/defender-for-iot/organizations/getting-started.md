@@ -7,14 +7,20 @@ ms.date: 03/24/2022
 
 # Quickstart: Get started with Defender for IoT
 
-This quickstart takes you through the initial steps of setting up a trial for Microsoft Defender for IoT, including:
+This quickstart takes you through the initial steps of setting up Defender for IoT, including:
 
 - Add an Azure subscription to Defender for IoT
 - Identify and plan solution architecture
 
+You can use this procedure to set up a Defender for IoT trial. The trial provides 30-day support for 1000 devices and a virtual sensor, which iyou can use to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities and more.
+
 ## Prerequisites
 
-Before you start, make sure that you have access to an Azure subscription with the **Subscription Contributor** role.
+Before you start, make sure that you have:
+
+- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+
+- Access to an Azure subscription with the **Subscription Contributor** role.
 
 If you are using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
