@@ -69,7 +69,7 @@ if ($cloudTieringDesired) {
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [`az storagesync sync-group server-endpoint`](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) command to create a new server endpoint.
+Use the [`az storagesync sync-group server-endpoint`](/cli/azure/storagesync/sync-group/server-endpoint#az-storagesync-sync-group-server-endpoint-create) command to create a new server endpoint.
 
 ```azurecli
 # Create a new sync group server endpoint 

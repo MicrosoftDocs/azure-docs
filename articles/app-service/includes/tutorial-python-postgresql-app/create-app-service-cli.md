@@ -36,7 +36,7 @@ az group create `
 * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
 * *name* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `msdocs-python-postgres-webapp-rg`)
 
-**Step 2.** Create an *App Service plan* using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
+**Step 2.** Create an *App Service plan* using the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -69,7 +69,7 @@ az appservice plan create `
 * *sku* &rarr; Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * *is-linux* &rarr; Selects Linux as the host operating system.
 
-**Step 3.** Create the *App Service web app* using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.
+**Step 3.** Create the *App Service web app* using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
 #### [bash](#tab/terminal-bash)
 
