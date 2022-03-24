@@ -149,9 +149,11 @@ From the Bash shell, enter `uname -r` and confirm that the kernel version is one
 
 * **Ubuntu 16.04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 3.10.0-693
+* **RHEL**: 3.10.0-693, 2.6.32-573*
 * **CentOS**: 3.10.0-693
 
+> [!NOTE]
+> Other kernel versions may be supported. For the most up to date list, reference the compatibility tables for each distrubution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows) and confirm that SR-IOV is supported. Additional details can be found in the release notes for the [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). * RHEL 6.7-6.10 are supported if the Mellanox VF version 4.5+ is installed before Linux Integration Services 4.3+.
 
 Confirm that the Mellanox VF device is exposed to the VM with the `lspci` command. The returned output is similar to the following output:
 
