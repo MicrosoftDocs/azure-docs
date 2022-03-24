@@ -33,11 +33,9 @@ The root-cause for the above symptoms is a setup that overrides the hostname as 
 
 ## Sample configuration
 
-In case you have either:
-- HTTP settings: **Pick Hostname from Backend Address** enabled
-- or have **Override with specific domain name** set to a value different from what the browser will use
-
-your setup is subject to the instructions in this article.
+In case your configuration matches one of below two situations, your setup is subject to the instructions in this article:
+- you have HTTP settings: **Pick Hostname from Backend Address** enabled
+- you have **Override with specific domain name** set to a value different from what the browser will use
 
 ## Cause
 
