@@ -266,7 +266,7 @@ A new mirroring endpoint was created with certificate authentication and AES enc
 > [!NOTE]
 > Skip this step if you've just created a new mirroring endpoint. Use this step only if you're using existing availability groups with an existing database mirroring endpoint.
 
-If you're using existing availability groups for the SQL Managed Instance link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the link:
+If you're using existing availability groups for the link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the link:
 
 - Type must be `DATABASE_MIRRORING`.
 - Connection authentication must be `CERTIFICATE`.
