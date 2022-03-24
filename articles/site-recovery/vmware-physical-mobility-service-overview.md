@@ -84,7 +84,7 @@ During a push installation of the Mobility service, the following steps are perf
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Screenshot that shows the progress of the installation and the active Proceed to Configuration button when the installation is finished.":::
 
-1. In **Configuration Server Details**, specify the IP address and passphrase that you configured.
+1. In **Configuration Server Details**, specify the IP address and passphrase that you configured. To generate the passphrase, follow the steps mentioned [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-mobility-install-configuration-mgr#prepare-the-installation-files).
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Mobility service registration page.":::
 
@@ -116,7 +116,7 @@ During a push installation of the Mobility service, the following steps are perf
 - Run this command to install the agent.
 
   ```cmd
-  UnifiedAgent.exe /Role "Agent" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
 
 - Run these commands to register the agent with the configuration server.

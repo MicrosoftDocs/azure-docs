@@ -26,7 +26,7 @@ The advantages of just-in-time packaging are the following:
 * You can store all your files in standard MP4 file format
 * You do not need to store multiple copies of static packaged HLS and DASH formats in blob storage, reducing the amount of video content stored and lowering your overall costs of storage
 * You can instantly take advantage of new protocol updates and changes to the specifications as they evolve over time without need of re-packaging the static content in your catalog
-* You can deliver content with our without encryption and DRM using the same MP4 files in storage
+* You can deliver content with or without encryption and DRM using the same MP4 files in storage
 * You can dynamically filter or alter the manifests with simple asset-level or global filters to remove specific tracks, resolutions, languages, or provide shorter highlight clips from the same MP4 files without re-encoding or re-rendering the content. 
 
 ## To prepare your source files for delivery
@@ -135,7 +135,7 @@ The following articles show examples of [how to encode a video with Media Servic
 * [Use content aware encoding](encode-content-aware-concept.md).
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](transform-custom-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](transform-custom-transform-how-to.md).
 * [Code samples for encoding with Standard Encoder using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding)
 
 See the list of supported Standard Encoder input [formats and codecs](encode-media-encoder-standard-formats-reference.md).

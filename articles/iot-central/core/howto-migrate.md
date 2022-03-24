@@ -24,7 +24,7 @@ The steps to migrate an application from V2 to V3 are:
 
 1. Create a new V3 application from the V2 application.
 1. Configure the V3 application.
-1. Delete to V2 application.
+1. Delete the V2 application.
 
 ## Create a new V3 application
 

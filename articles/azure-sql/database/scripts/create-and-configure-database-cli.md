@@ -13,7 +13,7 @@ ms.reviewer: kendralittle, mathoma
 ms.date: 01/26/2022 
 ---
 
-# Use Azure CLI to create a single database and configure a firewall rule
+# Create a single database and configure a firewall rule using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI script example creates a single database in Azure SQL Database an
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-33":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -45,9 +45,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Description |
 |---|---|
-| [az sql server](/cli/azure/sql/server#az_sql_server_create) | Server commands |
-| [az sql server firewall](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Server firewall commands. |
-| [az sql db](/cli/azure/sql/db#az_sql_db_create) | Database commands. |
+| [az sql server](/cli/azure/sql/server#az-sql-server-create) | Server commands |
+| [az sql server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Server firewall commands. |
+| [az sql db](/cli/azure/sql/db#az-sql-db-create) | Database commands. |
 
 ## Next steps
 

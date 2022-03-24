@@ -803,7 +803,7 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://, s3://. |
+| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://. |
 | `--bucket-name` | String | Name of the `bucket` to sync. |
 | `--bucket-access-key` | String | Access Key ID used to authenticate with the `bucket`. |
 | `--bucket-secret-key` | String | Secret Key used to authenticate with the `bucket`. |
@@ -964,7 +964,7 @@ For usage details, see the following documents:
 * [Flux Kustomize controller](https://fluxcd.io/docs/components/kustomize/)
 * [Kustomize reference documents](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [The kustomization file](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
-* [Kustomize project](https://kubernetes-sigs.github.io/kustomize/)
+* [Kustomize project](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [Kustomize guides](https://kubectl.docs.kubernetes.io/guides/config_management/)
 
 ## Manage Helm chart releases by using the Flux Helm controller
