@@ -14,15 +14,11 @@ ms.reviewer: vgorbenko
 This is a troubleshooting guide for the Application Insights portal when encountering connectivity errors similar to `Error retrieving data` or `Missing localization resource`.
 
 ![image Portal connectivity error](./media/troubleshoot-portal-connectivity/troubleshoot-portal-connectivity.png)
-    
-## Troubleshooting
 
 The source of the issue is likely third-party browser plugins that interfere with the portal's connectivity. 
 
-## Next Steps
-
 To confirm that this is the source of the issue and to identify which plugin is interfering:
 
-1. Open the portal in an InPrivate or Incognito window and verify the site functions correctly.
+- Open the portal in an InPrivate or Incognito window and verify the site functions correctly.
 
-2. Attempt disabling plugins to identify the one that is causing the connectivity issue.
+- Attempt disabling plugins to identify the one that is causing the connectivity issue.
