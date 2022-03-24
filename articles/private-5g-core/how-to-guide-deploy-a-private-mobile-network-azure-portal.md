@@ -69,7 +69,8 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 ## Next steps
 
-You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network.
+You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network. If you provisioned SIMs, you may also want to assign static IP addresses to them.  
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
+- [Assign static IP addresses to SIMs](provision-sims-azure-portal.md#assign-static-ip-addresses)
