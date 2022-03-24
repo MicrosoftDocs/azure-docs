@@ -155,7 +155,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is BareMetal Infrastructure for Nutanix? 
-            url: workloads/nutanix-public-preview/nutanix-baremetal-overview
+            url: workloads/nutanix-public-preview/nutanix-baremetal-overview.md
       - linkListType: reference
         links:
           - text: High availability and disaster recovery

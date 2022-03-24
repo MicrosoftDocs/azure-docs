@@ -1,15 +1,14 @@
 ---
-title: Create a virtual network and subnet in Azure
+title: Create an organization in the Nutanix Clusters Console
 description: Public Preview documentation
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# Create a virtual network and subnet in Azure
+# Create an organization in the Nutanix Clusters Console
 
-> [!NOTE]
-> Ensure that you add the tags *fastpathenabled: True** while creating the VNets, and not 
+Note: Ensure that you add the tags fastpathenabled: True while creating the VNets, and not 
 after the VNets are created.
 1. Sign into the Azure portal with your Azure account created for Private Preview and then 
 navigate to Subscriptions.
