@@ -200,7 +200,7 @@ Verify once again that your workload is stopped on SQL Server. Check that LSNs o
 
 ## Start database failover and migration to Azure
 
-You accomplish SQL Managed Instance link database failover and migration to Azure by invoking a REST API call. This call closes the link and completes the replication on SQL Managed Instance. The replicated database will become read/write on SQL Managed Instance.
+Invoke a REST API call to fail over your database over the link and finalize your migration to Azure. The REST API call breaks the link and ends replication to SQL Managed Instance. The replicated database becomes read/write on the managed instance.
 
 Use the following API to start database failover to Azure. Replace:
 
