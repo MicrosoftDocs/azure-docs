@@ -248,11 +248,11 @@ AzureDiagnostics
 ```
 
 ## Sample Azure Automation Audit log queries
-You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. 
+You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure the alerts for audit log conditions as part of your security monitoring requirements. 
 
 ### Send an email when a runbook job fails or suspends
 
-The following steps explain on how to set up email alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
+The following steps explain how to set up email alerts in Azure Monitor to notify when something goes wrong with a runbook job.
 
 To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Querying the logs](#querying-the-logs). Click the **+New alert rule** to configure the alert rule.
 
