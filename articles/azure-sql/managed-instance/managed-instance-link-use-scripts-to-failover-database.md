@@ -146,7 +146,7 @@ Now that you've switched both SQL Managed Instance and SQL Server to sync mode, 
 
 ## Check LSN values on both SQL Server and SQL Managed Instance
 
-To complete the migration, you need to ensure that the replication has finished. For this, you need to ensure that log sequence numbers (LSNs) indicating the log records written for both SQL Server and SQL Managed Instance are the same. 
+To complete the migration, confirm that replication has finished. For this, ensure that the log sequence numbers (LSNs) indicating the log records written for both SQL Server and SQL Managed Instance are the same. 
 
 Initially, it's expected that the SQL Server LSN will be higher than the SQL Managed Instance LSN. Network latency might be causing SQL Managed Instance to lag somewhat behind the primary SQL Server instance. After some time, LSNs on SQL Managed Instance and SQL Server should match and stop changing, because the workload on SQL Server should be stopped.
 
