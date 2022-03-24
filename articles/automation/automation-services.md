@@ -57,7 +57,7 @@ ARM provides a language to develop repeatable and consistent deployment template
 
 ### Bicep
 
-We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
+We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview).
 
 The following table describes the scenarios and users for ARM and Bicep:
 
@@ -68,7 +68,7 @@ The following table describes the scenarios and users for ARM and Bicep:
 
 ### Azure Blueprints (Preview)
 
-[Azure Blueprints (Preview)](/azure/governance/blueprints/overview) define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts such as, Role assignments, Policy assignments, ARM templates and Resource groups.
+ Azure Blueprints (Preview) define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts such as, Role assignments, Policy assignments, ARM templates and Resource groups. [Learn more](/azure/governance/blueprints/overview).
 
   **Scenarios** | **Users**
   --- | ---
@@ -101,12 +101,12 @@ You can configure desired the state of your machines to discover and correct con
 
 Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady-state of VM is equal to hands-free management. [Learn more](/azure/automanage/automanage-virtual-machines).
 
-**Linux and Windows support** 
-- You can intelligently onboard virtual machines to select best practices Azure services
-- It allows you to configure each service per Azure best practices automatically.
-- It supports customization of best practice services through VM Best practices template for Dev\Test and Production workload.
-- You can monitor for drift and correct it when detected
-- It provides a simple experience (point, click, set, and forget) 
+  **Linux and Windows support** 
+  - You can intelligently onboard virtual machines to select best practices Azure services.
+  - It allows you to configure each service per Azure best practices automatically.
+  - It supports customization of best practice services through VM Best practices template for Dev\Test and Production workload.
+  - You can monitor for drift and correct it when detected.
+  - It provides a simple experience (point, click, set, and forget). 
 
   **Scenarios** | **Users**
   --- | ---
@@ -118,7 +118,9 @@ Replaces repetitive, day-to-day operational tasks with an exception-only managem
 ### Azure Policy based Guest Configuration
 
 Azure Policy based Guest configuration is the next iteration of Azure Automation State configuration. [Learn more](/azure/governance/policy/concepts/guest-configuration-policy-effects). 
-You can check on what is installed in:
+
+  You can check on what is installed in:
+
   - The next iteration of [Azure Automation State Configuration](/azure/automation/automation-dsc-overview).
   - For known-bad apps, protocols certificates, administrator privileges, and health of agents.
   - For customer-authored content. 
@@ -130,9 +132,10 @@ You can check on what is installed in:
 
 ### Azure Automation - Process Automation
 
-Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment.
-- It provides persistent shared assets, including variables, connections, objects, that allows orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-types?).
-- You can invoke a runbook on the basis of [Azure Monitor alert](/azure/automation/automation-create-alert-triggered-runbook) or through a [webhook](/azure/automation/automation-webhooks). 
+Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. [Learn more](/azure/automation/automation-runbook-types?). 
+
+  - It provides persistent shared assets, including variables, connections, objects, that allows orchestration of complex jobs. 
+  - You can invoke a runbook on the basis of [Azure Monitor alert](/azure/automation/automation-create-alert-triggered-runbook) or through a [webhook](/azure/automation/automation-webhooks). 
 
   **Scenarios** | **Users**
   --- | ---
@@ -141,9 +144,10 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 
 ### Azure functions
 
-Provides a serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform. 
-- You can use a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
-- It allows you to orchestrate complex workflows through durable functions. [Learn more](/azure/azure-functions/functions-overview)
+Provides a serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform. [Learn more](/azure/azure-functions/functions-overview).
+
+  - You can use a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
+  - It allows you to orchestrate complex workflows through durable functions. 
 
   **Scenarios** | **Users**
   --- | ---
@@ -155,6 +159,7 @@ Provides a serverless automation platform that allows you to write code to react
 ### Azure logic apps
 
 Logic Apps is a platform for creating and running complex orchestration workflows that integrate your apps, data, services, and systems. [Learn more](/azure/logic-apps/logic-apps-overview).
+
   - Allows you to build smart integrations between 1st party and 3rd party apps, services and systems running across on-premises, hybrid and cloud native.
   - Allows you to use managed connectors from a 450+ and growing Azure connectors ecosystem to use in your workflows.
   - Provides a first-class support for enterprise integration and B2B scenarios.
@@ -179,8 +184,9 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 ### Azure functions
 
 A serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform.[Learn more](/azure/azure-functions/functions-overview).
-- It provides a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
-- You can orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
+
+  - It provides a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
+  - You can orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
 
   **Scenarios** | **Users**
   --- | ---
