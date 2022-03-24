@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Use labels in an Azure Kubernetes Service (AKS) cluster
 
-If you have multiple node pools, you may want to add a label during node pool creation. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes. You can add labels to a node pool anytime, and they will be set on all nodes in the node pool.
+If you have multiple node pools, you may want to add a label during node pool creation. [These labels][kubernetes-labels] are visible in Kubernetes for handling scheduling rules for nodes. You can add labels to a node pool anytime, and they'll be set on all nodes in the node pool.
 
 In this how-to guide, you'll learn how to use labels in an AKS cluster.
 
@@ -109,7 +109,7 @@ kubectl get nodes --show-labels | grep -e "costcenter=6000" -e "dept=ACCT"
 
 Since the [2021-08-19 AKS release][aks-release-2021-gh], Azure Kubernetes Service (AKS) has stopped the ability to make changes to AKS reserved labels. Attempting to change these labels will result in an error message.
 
-The following lists of labels are reserved for use by AKS. *Virtual node usage* specifies if these labels could be a supported system feature on virtual nodes. 
+The following labels are reserved for use by AKS. *Virtual node usage* specifies if these labels could be a supported system feature on virtual nodes. 
 
 Some properties that these system features change aren't available on the virtual nodes, because they require modifying the host.
 
@@ -147,16 +147,14 @@ Some properties that these system features change aren't available on the virtua
 
 The following list of prefixes are reserved for usage by AKS and can't be used for any node. 
 
-| Prefix |
-| --- |
-| kubernetes.azure.com/ |
-| kubernetes.io/ |
+* kubernetes.azure.com/
+* kubernetes.io/
 
-For additional reserved prefixes, see [Kubernetes well-known labels, annotations, and taints][kubernetes-well-known-labels]
+For additional reserved prefixes, see [Kubernetes well-known labels, annotations, and taints][kubernetes-well-known-labels].
 
 ### Deprecated labels
 
-The following lists of labels are planned for deprecated with the release of [Kubernetes v1.24][aks-release-calendar]. Customers should change any label references to the recommended substitute. 
+The following labels are planned for deprecation with the release of [Kubernetes v1.24][aks-release-calendar]. Customers should change any label references to the recommended substitute. 
 
 | Label | Recommended substitute | Maintainer |
 | --- | --- | --- |
@@ -185,7 +183,6 @@ Learn more about Kubernetes labels at the [Kubernetes labels documentation][kube
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 [kubernetes-well-known-labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/
 [virtual-kubelet-release]: https://github.com/virtual-kubelet/azure-aci/releases
-
 
 <!-- LINKS - internal -->
 [aks-release-calendar]: ./supported-kubernetes-versions.md#aks-kubernetes-release-calendar
