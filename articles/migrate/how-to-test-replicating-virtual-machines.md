@@ -59,7 +59,7 @@ The test environment boundaries would  depend on the network setting of the VNet
 
  Select the VNet and subnet for test migration from the Target settings tab. These settings can be overridden later in Compute and Network tab of the replicating VM or while starting test migration of the replicating VM.
 
-:::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-during-start-replication-flow.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
+:::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-during-start-replication-flow.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
 
 ## Changing test migration   virtual network and subnet of a replicating machine (Agentless VMware migration)
 
@@ -67,23 +67,23 @@ You can change the VNet and subnet of a replicating machine by following the ste
 
 1. Select  the virtual machine from the list of currently replicating virtual machines
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-step1.png" alt-text="Screenshot shows the contents of replicating machine screen. It contains a list of replicating machine":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-1.png" alt-text="Screenshot shows the contents of replicating machine screen. It contains a list of replicating machine.":::
 
 2. Select on the Compute and Network option under the general heading.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-step2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine.":::
 
 3. Select the virtual network  under the Test migration column. It's important to select the VNet in this drop down for test migration to be able to select subnet for each Network Interface Card (NIC) in the following steps.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-step3.png" alt-text="Screenshot shows where to select VNet in replicating machine's network and compute options":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-3.png" alt-text="Screenshot shows where to select VNet in replicating machine's network and compute options.":::
 
 4. Select on the Network Interface Card's name to check its settings. You can select the subnet for each of the Network Interface Card (NIC) of the VM.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-step4.png" alt-text="Screenshot shows how to select a subnet for each Network Interface Card of replicating machine in the network and compute options of replicating machine.":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-4.png" alt-text="Screenshot shows how to select a subnet for each Network Interface Card of replicating machine in the network and compute options of replicating machine.":::
 
 5. To change the settings, select on the pencil  icon. Change the setting for the Network Interface Card (NIC) in the new form. Select OK. 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-step5.png" alt-text="Screenshot shows the content of the Network Interface Card page after clicking the pencil icon next to Network Interface Card's name in the network and compute screen.":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after clicking the pencil icon next to Network Interface Card's name in the network and compute screen.":::
 
 6. Select save. Changes aren't saved until you can see the colored square next to Network Interface Card's (NIC) name.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/tmss-step6.png" alt-text="Screenshot shows the network and compute options screen of replicating machine and highlights the save button.":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-6.png" alt-text="Screenshot shows the network and compute options screen of replicating machine and highlights the save button.":::

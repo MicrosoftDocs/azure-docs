@@ -70,7 +70,7 @@ We do not recommend using the recovery services vault created by Azure Migrate f
 Test migration provides a way to test and validate migrations prior to the actual migration. Test migration works by letting you use a sandbox environment in Azure to test the virtual machines before actual migration. The sandbox environment is demarcated by a test virtual network you specify. The test migration operation is non-disruptive, provided the test VNet is sufficiently isolated. Isolated VNet here means the inbound and outbound connection rules are designed to avoid unwanted connections. For example – connection to On-premise machines is restricted.  
 
 The applications can continue to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
-    
+
 :::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot shows the difference in test migration and actual migration.":::
 
 ### Is there a Rollback option for Azure Migrate?
