@@ -41,7 +41,7 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.2.1 is now available
+          - text: CycleCloud 8.2.2 is now available
             url: release-notes.md
           - text: CycleCloud 7.9.10 is now available
             url: release-notes-previous.md
@@ -69,6 +69,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Plan your CycleCloud Deployment
+            url: how-to/plan-prod-deployment.md 
           - text: Use Cluster Templates
             url: how-to/cluster-templates.md
           - text: Add Disks

@@ -116,6 +116,7 @@ You should now have a running CycleCloud application that allows you to create a
 
 ## Further Reading
 
+* [Plan your Production Deployment](../how-to/plan-prod-deployment.md)
 * [Install CycleCloud manually](./how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
 * [Use Managed Identities for account](./how-to/managed-identities.md)

@@ -82,3 +82,58 @@ the following:
    3. Copied to the VM from Azure Storage and installed directly by a Cyclecloud project
 3. All Cluster nodes must be able to access Azure Storage accounts. The recommended way
 to provide private access to this service and any other supported Azure service is to enable a [Virtual Network Service Endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage.
+
+
+## Project Updates from GitHub
+
+Cyclecloud will download cluster projects from GitHub during the "Staging" orchestration
+phase. This download will occur after initial installation, after upgrading Cyclecloud, or
+when starting a cluster of a certain type for the first time. In a locked down environment, HTTPS
+outbound traffic to [github.com](https://www.github.com) may be blocked. In such a case, node
+creation during the staging resources phase will fail.
+
+If access to GitHub can be opened temporarily during the creation of the first node
+then CycleCloud will prepare the local files for all subsequent nodes. If temporary 
+access is not possible then the necessary files can be downloaded
+from another machine and copied to CycleCloud. 
+
+First determine which project and
+version your cluster will need, e.g. Slurm 2.5.0. It's normally the highest version
+number in the database for a given project.
+
+```shell
+/opt/cycle_server/cycle_server execute 'select * from cloud.project where name == "slurm"'
+
+AdType = "Cloud.Project"
+Version = "2.5.0"
+ProjectType = "scheduler"
+Url = "https://github.com/Azure/cyclecloud-slurm/releases/2.5.0"
+AutoUpgrade = false
+Name = "slurm"
+```
+
+This project version and all dependencies are found in the [release tag]
+(https://github.com/Azure/cyclecloud-slurm/releases/tag/2.5.0).
+All artifacts for a release must be downloaded. First download the code artifact
+and create a blobs directory for the additional dependencies.
+
+```bash
+wget https://github.com/Azure/cyclecloud-slurm/archive/refs/tags/2.5.0.tar.gz
+tar -xf 2.5.0.tar.gz 
+cd cyclecloud-slurm-2.5.0 && mkdir blobs 
+#... download all other release artifacts to the /blobs directory with wget ...
+wget -P "blobs/" https://github.com/Azure/cyclecloud-slurm/releases/download/2.6.1/cyclecloud_api-8.1.0-py2.py3-none-any.whl
+#... copy all the files to the Cyclecloud server
+#... then on the Cyclecloud server:
+cyclecloud project build
+mkdir -p /opt/cycle_server/work/staging/projects/slurm/2.5.0
+mkdir -p /opt/cycle_server/work/staging/projects/slurm/blobs
+cp build/slurm/* /opt/cycle_server/work/staging/projects/slurm/2.5.0/
+cp blobs/* /opt/cycle_server/work/staging/projects/slurm/blobs/
+chown -R cycle_server:cycle_server /opt/cycle_server/work/staging
+```
+
+Once these files have been staged locally Cyclecloud will detect them and
+won't try to download them from GitHub.
+
+
