@@ -426,8 +426,8 @@ Format specific settings are located in the documentation for that format. For m
 > [!Note]
 > SSH host key validation is not supported in mapping data flow now.
 
-> [!Tip]
-> Mapping data flow supports to access on-premises SFTP from managed virtual network. To learn the configuration, refer to this article on [How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
+> [!Note]
+> To access on premise SFTP sever, you need to use Azure Data Factory or Synapse workspace [Managed Virtual Network](managed-virtual-network-private-endpoint.md) using a private endpoint. Refer to this [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md) for detailed steps. 
 
 ### Source transformation
 
