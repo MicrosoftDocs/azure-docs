@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The **tabs** below show the features of Microsoft Defender for Cloud that are available by environments.
+The **tabs** below show the features of Microsoft Defender for Cloud that are available by environment.
 
 ## Supported features by environment 
 
