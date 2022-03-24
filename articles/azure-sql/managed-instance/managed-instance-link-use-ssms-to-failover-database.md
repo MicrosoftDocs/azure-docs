@@ -56,7 +56,7 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-login-to-azure.png" alt-text="Screenshot that shows the page for signing in to Azure.":::
 
-4. On the **Failover Type** page, choose the type of failover you're performing. Select the box to confirm that you've stopped the workload for a planned failover, or you understand that you might lose data for a forced failover. Select **Next**. 
+4. On the **Failover Type** page, choose the type of failover you're performing. Select the box to confirm that you've stopped the workload for a planned failover, or you understand that you might lose data if using a forced failover. Select **Next**. 
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-failover-type.png" alt-text="Screenshot that shows the Failover Type page.":::
 
