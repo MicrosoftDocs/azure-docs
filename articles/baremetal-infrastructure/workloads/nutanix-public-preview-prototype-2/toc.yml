@@ -25,7 +25,7 @@
     href: azure-portal-workflow.md
     items:
     - name: Setup your Account
-    href: setup-an-account.md
+      href: setup-an-account.md
 - name: User VM (UVM) Network Management 
   href: uvm-network-management.md
   items: 
