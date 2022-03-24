@@ -44,12 +44,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group in which all resources are stored|
-|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|Creates a Flexible Server that hosts the databases.|
-|[az mysql flexible-server restore](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_restore)|Restore a Flexible Server from backup.|
-|[az mysql flexible-server show](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_show)|Get details of a Flexible Server.|
-|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
-|[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group in which all resources are stored|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create)|Creates a Flexible Server that hosts the databases.|
+|[az mysql flexible-server restore](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-restore)|Restore a Flexible Server from backup.|
+|[az mysql flexible-server show](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-show)|Get details of a Flexible Server.|
+|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-delete)|Deletes a Flexible Server.|
+|[az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources.|
 
 ## Next steps
 
