@@ -526,7 +526,8 @@ FROM
 After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring**. The initial seeding is in progress with moving the full backup of the database, followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
 
 > [!IMPORTANT]
-> The link will not work unless network connectivity exists between SQL Server and Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
+> - The link will not work unless network connectivity exists between SQL Server and SQL Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
+- Take regular backups of the log file on SQL Server. If the used log space reaches 100 percent, replication to SQL Managed Instance stops until space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
 
 > [!IMPORTANT]
 > Make regular backups of the log file on SQL Server. If the used log space reaches 100 percent, the replication to SQL Managed Instance will stop until this space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
