@@ -163,7 +163,7 @@ If the name is already taken, then you'll see the following response:
 ```
 ## Turn on a custom domain name
 
-To use a custom domain name with the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
+To use a custom domain name with the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-update) command.
 
 (If your Azure account has only one active subscription, you can skip this step.) Select the Azure subscription that contains the Speech resource. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
 ```azurecli-interactive

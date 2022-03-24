@@ -1,18 +1,18 @@
 ---
-title: Disable Events and delete Workspaces - Azure Health Data Services
-description: This article provides resources on how to disable Events and delete Workspaces.
+title: Disable Events and delete workspaces - Azure Health Data Services
+description: This article provides resources on how to disable Events and delete workspaces.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/22/2022
 ms.author: jasteppe
 ---
 
-# Disable Events and delete Workspaces
+# Disable Events and delete workspaces
 
-In this article, you'll learn how to disable Events and delete Workspaces in Azure Health Data Services.
+In this article, you'll learn how to disable Events and delete workspaces in Azure Health Data Services.
 
 ## Disable Events
 
@@ -34,15 +34,15 @@ To disable Events from sending event messages for a single Event Subscription, t
 >
 > The Fast Healthcare Interoperability Resources (FHIR&#174;) service will automatically go into an **Updating** status to disable the Events extension when a full delete of Event Subscriptions is executed. The FHIR service will remain online while the operation is completing.
 
-## Delete Workspaces
+## Delete workspaces
 
-To successfully delete a Workspace, delete all associated child resources first (for example: DICOM services, FHIR services and MedTech services), delete all Event Subscriptions, and then delete the Workspace. Not deleting the child resources and Event Subscriptions first will cause an error when attempting to delete a Workspace with child resources.
+To successfully delete a workspace, delete all associated child resources first (for example: DICOM services, FHIR services and MedTech services), delete all Event Subscriptions, and then delete the workspace. Not deleting the child resources and Event Subscriptions first will cause an error when attempting to delete a workspace with child resources.
 
 As an example:
 
- 1. Delete all Workspace associated child resources - for example: DICOM service(s), FHIR service(s), and MedTech service(s).
- 2. Delete all Workspace associated Event Subscriptions.
- 3. Delete Workspace.
+ 1. Delete all workspaces associated child resources - for example: DICOM service(s), FHIR service(s), and MedTech service(s).
+ 2. Delete all workspaces associated Event Subscriptions.
+ 3. Delete workspace.
 
 ## Next steps
 

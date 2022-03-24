@@ -39,20 +39,6 @@ You can add Azure Machine Learning functions to your Stream Analytics job direct
 
    ![Configure Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-### Visual Studio Code
-
-1. Open your Stream Analytics project in Visual Studio Code and right-click the **Functions** folder. Then, choose **Add Function**. Select **Machine Learning UDF** from the dropdown list.
-
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Add UDF in VS Code":::
-
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Add Azure Machine Learning UDF in VS Code":::
-
-2. Enter the function name and and fill in the settings in the configuration file by using **Select from your subscriptions** in CodeLens.
-
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Select Azure Machine Learning UDF in VS Code":::
-
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Configure Azure Machine Learning UDF in VS Code":::
-
 The following table describes each property of Azure Machine Learning Service functions in Stream Analytics.
 
 |Property|Description|
@@ -82,7 +68,6 @@ If your input data sent to the ML UDF is inconsistent with the schema that is ex
 
 - Validate input to your ML UDF is not null
 - Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
-
 
 ## Pass multiple input parameters to the UDF
 
