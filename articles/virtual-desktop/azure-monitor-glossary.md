@@ -198,11 +198,11 @@ The flowchart shows the following four components:
 
 - Stack connected: the time that passes from when the service resolves a target session host for the user to when the service establishes a connection between the session host and the user’s remote client. Like user routing, the network load, server load, or unique network traffic routing can affect connection time. For this component, you'll also need to pay attention to your network routing. To reduce connection time, make sure you've appropriately configured all proxy configurations on both the client and session hosts, and that routing to the service is optimal.
 
-- Logon: the time that passes from when the connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high connection times. You can check Logon stages in Insights to see if there are unexpected peaks in average times.
+- Logon: the time that passes from when the connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high connection times. You can view data for the "logon" stage in Insights to see if there are unexpected peaks in average times.
 
   The "logon" process is divided into four stages:
 
-  - Profiles: The time it takes to load a user’s profile for new sessions. This time will largely relate to profile sizes or user profile solutions in use (e.g., User Experience Virtualization). For solutions making use of a network stored profile excess latency may also lead to longer profile loading times.
+  - Profiles: The time it takes to load a user’s profile for new sessions. How long loading takes depends on user profile size or the user profile solutions you're using (such as User Experience Virtualization). If you're using a solution that depends on network-stored profiles, excess latency can also lead to longer profile loading times.
 
   - Group Policy (GPOs): Time it takes to apply group policies to new sessions. A spike in this time bucket indicates that you have too many group policies, the policies take too long to apply, or the session host is experiencing resource issues. As a further note, the Domain Controller (DC) needs to be close to session hosts for optimal GPO processing times.
 
