@@ -218,7 +218,7 @@ New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbo
 
 ## Test bidirectional network connectivity
 
-Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the SQL Managed Instance link feature to work. After you open ports on the SQL Server side and configure an NSG rule on the SQL Managed Instance side, test connectivity. 
+Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the link to work. After you open ports on the SQL Server side and configure an NSG rule on the SQL Managed Instance side, test connectivity. 
 
 ### Test the connection from SQL Server to SQL Managed Instance 
 
