@@ -175,7 +175,7 @@ GO
 
 ## Configure network connectivity
 
-For the SQL Managed Instance link to work, you must have network connectivity between SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server instance resides - whether it's on-premises or on a virtual machine (VM). 
+For the link to work, you must have network connectivity between SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server instance resides - whether it's on-premises or on a virtual machine (VM). 
 
 ### Set up network connectivity for SQL Server on an Azure VM 
 
