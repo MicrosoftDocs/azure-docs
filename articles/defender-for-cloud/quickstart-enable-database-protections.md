@@ -42,9 +42,9 @@ You can enable database protection on your subscription, or exclude specific dat
 
 1. Select the relevant subscription.
 
-1. If you want to enable specific plans, set the plans toggle to **On**.
+1. To protect all database types toggle the Databases plan to **On**.
 
-1. (Optional) Use **Select types** to enable protections for specific resource types.
+1. (Optional) Use **Select types** to enable protections for specific database types.
 
     :::image type="content" source="media/quickstart-enable-database-protections/select-type.png" alt-text="Screenshot showing the toggles to enable specific resource types.":::
 
@@ -54,6 +54,7 @@ You can enable database protection on your subscription, or exclude specific dat
 
     1. Select **Continue**.
 
+1. Select :::image type="icon" source="media/quickstart-enable-database-protections/save-icon.png" border="false":::.
 ## Next steps
 
 In this article, you learned how to enable Microsoft Defender for Cloud for all database types on your subscription. Next, read more about each of the resource types.

@@ -6,7 +6,7 @@ author: zxue
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
-ms.date: 02/15/2022
+ms.date: 03/21/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
@@ -27,7 +27,7 @@ Open the [Azure portal](https://portal.azure.com) and select **Create a resource
 
 You can find Azure API for FHIR by typing "FHIR" into the search box:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
+:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Azure Health Data Services":::
 
 ## Create Azure API for FHIR account
 

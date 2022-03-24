@@ -53,7 +53,7 @@ ws = Workspace.from_config()
 
 ### Prepare scripts
 
-In this tutorial, the training script **train_iris.py** is already provided for you [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
+In this tutorial, the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
 Notes:
 - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
@@ -64,7 +64,8 @@ Notes:
 To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to define your own environment. For more info, see [here](resource-curated-environments.md).
+Optionally, Azure ML provides prebuilt, [curated environments](resource-curated-environments.md) if you don't want to define your own environment. 
+
 If you want to use a curated environment, you can run the following command instead:
 
 ```python
