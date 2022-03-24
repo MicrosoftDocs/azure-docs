@@ -12,11 +12,11 @@ Perform the following steps to set up your Azure account and subscription:
  
 1.	Set up an Azure account. 
 > [!NOTE]
-> In this Azure account, you must have permissions to register an app. 
-
+> In this Azure account, you must have permissions to register an app.  
 > [!NOTE]
-> Record your Azure subscription ID (GUID), a unique 32-digit GUID > associated with your subscription. 
-For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F). 
+> Record your Azure subscription ID (GUID), a unique 32-digit GUID associated with your subscription.  
+For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).  
+
 2.	Configure an Azure Active Directory (Azure AD) tenant with groups and users. To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant. 
 For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at Quickstart: Set up a tenant. 
 3.	Set up a new Azure subscription. Work with Nutanix to get your subscription allowlisted. 
