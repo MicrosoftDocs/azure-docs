@@ -40,11 +40,6 @@ var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        disableFetchTracking: false,
-        enableCorsCorrelation: true,
-        enableRequestHeaderTracking: true,
-        enableResponseHeaderTracking: true,
-        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
         extensions: [reactPlugin],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
@@ -53,24 +48,6 @@ var appInsights = new ApplicationInsights({
 });
 appInsights.loadAppInsights();
 ```
-
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
-
-The above example shows configuration options for enabling correlation.
-
-If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
-
-The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
-
-Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
-
-> [!NOTE]
-> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
-
-The React Plugin accomplishes route change tracking for you, and collects other React specific telemetry.
-
-> [!NOTE]
-> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
 
 Wrap your component with the higher-order component function to enable Application Insights on it:
 
@@ -259,6 +236,43 @@ const App = () => {
 ```
 
 The `AppInsightsErrorBoundary` requires two props to be passed to it, the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the Error Boundary and the `onError` component is displayed.
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+The following example shows standard configuration options for enabling correlation:
+
+```js
+const configObj = {
+  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  disableFetchTracking: false,
+  enableCorsCorrelation: true,
+  enableRequestHeaderTracking: true,
+  enableResponseHeaderTracking: true,
+  correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
+  extensions: [clickPluginInstance],
+  extensionConfig: {
+    [clickPluginInstance.identifier]: clickPluginConfig
+  },
+};
+``` 
+
+If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
+
+Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
+
+> [!NOTE]
+> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+ 
+The React Plugin automatically tracks route changes and collects other React specific telemetry. 
+
+> [!NOTE]
+> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+
+For `react-router v6` or other scenarios where router history is not exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
 
 ## Sample app
 
