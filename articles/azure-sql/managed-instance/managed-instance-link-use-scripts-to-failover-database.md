@@ -257,7 +257,7 @@ Invoke-WebRequest -Method DELETE -Headers $headers -Uri $uriFull -ContentType "a
 
 ## Clean up availability groups
 
-After you break the link and migrate a database to Azure SQL Managed Instance, consider cleaning up the availability group and distributed availability group on SQL Server if they aren't used otherwise on SQL Server.
+After you break the link and migrate a database to Azure SQL Managed Instance, consider cleaning up the availability group and distributed availability group resources from SQL Server if they're no longer necessary. 
 
 In the following code, replace:
 
