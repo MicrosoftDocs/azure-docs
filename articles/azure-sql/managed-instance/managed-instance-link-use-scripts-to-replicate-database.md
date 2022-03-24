@@ -502,7 +502,7 @@ $response = Invoke-WebRequest -Method PUT -Headers $headers -Uri $uriFull -Conte
 echo $response
 ```
 
-The result of this operation will be a time stamp of the successful execution of the request to create a SQL Managed Instance link.
+The result of this operation will be a time stamp of the successful execution of the request to create a link.
 
 ## Verifying a created SQL Managed Instance link
 
