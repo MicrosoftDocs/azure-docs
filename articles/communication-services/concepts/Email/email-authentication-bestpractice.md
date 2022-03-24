@@ -10,11 +10,12 @@ ms.author: bashan
 ms.date: 02/15/2022
 ms.topic: overview
 ms.service: azure-communication-services
+ms.custom: private_preview
 ---
-
+> [!IMPORTANT]
+> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
+> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 # Email Authentication Best Practices
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ## Email Authentication
 Sending an email requires several steps which includes verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc..Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
@@ -63,7 +64,6 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 - 
 - ## Next steps
 
-> [!div class="nextstepaction"]
 > [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
 
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
