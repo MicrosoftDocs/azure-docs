@@ -24,3 +24,6 @@ and can be provided by user and not the same as physical timing
 
 Correlating client-side telemetry on a map.
 Information for properly configuring this is missing from our documentation.
+
+
+[PageView](./data-model-pageview-telemetry.md)
