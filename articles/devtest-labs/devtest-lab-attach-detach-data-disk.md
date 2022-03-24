@@ -49,7 +49,7 @@ Follow these steps to attach an existing available data disk to a running VM.
  
 1. On the **Disks** page, select **Attach existing**.
 
-   :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png" alt-text="Screenshot of Attach existing on the V M's Disk page."":::
+   :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png" alt-text="Screenshot of Attach existing on the V M's Disk page.":::
 
 1. On the **Attach existing disk** page, select a disk, and then select **OK**.
 
