@@ -50,7 +50,7 @@ Key features include:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+
 > [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
 
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
