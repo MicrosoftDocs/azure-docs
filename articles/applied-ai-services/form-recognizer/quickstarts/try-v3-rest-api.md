@@ -83,13 +83,13 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{model name}:analyze?a
 | **Feature**   | **{model name}**   | **{your-document-url}** |
 | --- | --- |
 | General Document | prebuilt-document | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-| Read | prebuilt-read | [Sample form]() |
-| Layout | prebuilt-layout | [Sample form]() |
-| W-2  | prebuilt-tax.us.w2 | [Sample form]) |
-| Invoices  | prebuilt-invoice | [Sample form]() |
-| Receipts  | prebuilt-receipt | [Sample form]) |
-| ID Documents  | prebuilt-idDocument | [Sample form]() |
-| Business Cards  | prebuilt-businessCard | [Sample form]() |
+| Read | prebuilt-read | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
+| Layout | prebuilt-layout | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
+| W-2  | prebuilt-tax.us.w2 | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png) |
+| Invoices  | prebuilt-invoice | [Sample form](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
+| Receipts  | prebuilt-receipt | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
+| ID Documents  | prebuilt-idDocument | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
+| Business Cards  | prebuilt-businessCard | [Sample form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
 #### Operation-Location
 
@@ -121,7 +121,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 #### Sample response for general documents
 
-In case you want to check out what the downloaded JSON output looks like, here's the [link]() to the results for the general documents feature using our sample document.
+In case you want to check out what the downloaded JSON output looks like, here's the [link](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/rest-api/general_documents_sample_response.json) to the results for the general documents feature using our sample document.
 
 #### Supported document fields
 
