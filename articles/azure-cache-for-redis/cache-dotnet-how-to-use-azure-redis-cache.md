@@ -7,7 +7,7 @@ ms.service: cache
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other
-ms.date: 02/28/2022
+ms.date: 03/25/2022
 
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework
@@ -16,7 +16,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a .NET Framework 
 
 ## Skip to the code on GitHub
 
-Download the sample from [.NET Framework quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
+Clone the repo from [(https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
 
 ## Prerequisites
 
@@ -30,19 +30,21 @@ Download the sample from [.NET Framework quickstart](https://github.com/Azure-Sa
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Create a file on your computer named *CacheSecrets.config* and place it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located here, *C:\AppSecrets\CacheSecrets.config*.
+1. Create a file on your computer named *CacheSecrets.config* and place it *C:\AppSecrets\CacheSecrets.config*. 
 
-Edit the *CacheSecrets.config* file and add the following contents:
+1. Edit the *CacheSecrets.config* file and add the following contents:
 
-```xml
-<appSettings>
-    <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
-</appSettings>
-```
+    ```xml
+    <appSettings>
+        <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
+    </appSettings>
+    ```
 
-Replace `<host-name>` with your cache host name.
+1. Replace `<host-name>` with your cache host name.
 
-Replace `<access-key>` with the primary key for your cache.
+1. Replace `<access-key>` with the primary key for your cache.
+
+1. Save the file.
 
 ## Configure the cache client
 
@@ -83,18 +85,20 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 
 ```
-
 The value of the *CacheConnection* appSetting is used to reference the cache connection string from the Azure portal as the password parameter.
 
-You must add the `StackExchange.Redis` namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
+<!-- Is this right Philo -->
+The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
-:::code language="csharp" source="~/samples-cache/quickstart/dotnet/Redistest/RedisConnection.cs":::
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+
+<!-- :::code language="csharp" source="~/samples-cache/quickstart/dotnet/Redistest/RedisConnection.cs"::: -->
 
 ## Executing cache commands
 
@@ -122,9 +126,9 @@ Add the following code for the `Main` procedure of the `Program` class for your 
 
 Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
-Cache items can be stored and retrieved by using the `StringSet` and `StringGet` methods.
+Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
 
-Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
+The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
 Press **Ctrl+F5** to build and run the console app.
 
@@ -136,21 +140,17 @@ In the example below, you can see the `Message` key previously had a cached valu
 
 Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
-One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. In this section, you will add a .NET object to the cache.
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in `System.text.Json`.
+
+In this section, you  add a .NET object to the cache.
 
 In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
 ```powershell
-Install-Package Newtonsoft.Json
+Install-Package system.text.json
 ```
 
-Add the following `using` statement to the top of *Program.cs*:
-
-```csharp
-using Newtonsoft.Json;
-```
-
-Add the following `Employee` class definition to *Program.cs*:
+See the following `Employee` class definition to *Program.cs*:
 
 ```csharp
 class Employee
@@ -168,7 +168,7 @@ class Employee
 }
 ```
 
-At the bottom of `Main()` procedure in *Program.cs*, and before the call to `CloseConnection()`, see the following lines of code to cache and retrieve a serialized .NET object:
+At the bottom of `Main()` procedure in *Program.cs*, see the following lines of code to cache and retrieve a serialized .NET object:
 
 ```csharp
     // Store serialized object to cache
@@ -191,7 +191,7 @@ Press **Ctrl+F5** to build and run the console app to test serialization of .NET
 
 ## Clean up resources
 
-If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+If you continuing to the use this quickstart, you can keep the resources created and reuse them.
 
 Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
@@ -211,10 +211,5 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a .NET application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
-
-- [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-Want to optimize and save on your cloud spending?
-
-- [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Connection resilience](cache-best-practices-connection.md)
+- [Best Practices Development](cache-best-practices-development.md)

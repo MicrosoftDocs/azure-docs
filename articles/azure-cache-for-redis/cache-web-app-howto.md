@@ -4,17 +4,19 @@ description: In this quickstart, you learn how to create an ASP.NET web app with
 author: flang-msft
 ms.service: cache
 ms.topic: quickstart
-ms.date: 02/28/2022
+ms.date: 03/35/2022
 ms.author: franlanglois
 ms.custom: devx-track-csharp, mvc, mode-other
+
 ---
+
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app
 
 In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
 ## Skip to the code on GitHub
 
-Download the sample from [ASP.NET quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) on GitHub.
+Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) on GitHub.
 
 ## Prerequisites
 
@@ -61,7 +63,7 @@ In this section, you update the application to support a new view that displays 
 
 ### Update the web.config file with an app setting for the cache
 
-When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Cache for Redis instance. Later you deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file.
+When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Cache for Redis instance. Later, you deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file.
 
 Because the file *CacheSecrets.config* isn't deployed to Azure with your application, you only use it while testing the application locally. Keep this information as secure as possible to prevent malicious access to your cache data.
 
@@ -71,10 +73,9 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 
   :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
 
-1. In the *web.config* file, find the `<appSetting>` element. Then add the following `file` attribute. If you used a different file name or location, substitute those values for the ones that are shown in the example.
+1. In the *web.config* file, you see the `<appSetting>` element.
 
-- Before: `<appSettings>`
-- After:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+    `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 
@@ -90,7 +91,7 @@ Your solution needs the `StackExchange.Redis` package to run. Install it, with t
     Install-Package StackExchange.Redis
     ```
 
-1. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the StackExchange.Azure Cache for Redis client.
+1. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the `StackExchange.Redis` client.
 
 <!--
 
@@ -109,15 +110,16 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter.
 
-You must add the StackExchange.Redis namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
+The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-:::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs ":::
+<!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs "::: -->
 
 ### Layout views in the sample
 
@@ -133,7 +135,7 @@ The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstrac
 
 1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
 
-1. You should this code in the *RedisCache.cshtml* file.
+1. You should see this code in the *RedisCache.cshtml* file.
 
     ```csharp
     @{
@@ -208,7 +210,6 @@ After you successfully test the app locally, you can deploy the app to Azure and
     | **Resource group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
     | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
-    <!-- ![App Service dialog box](./media/cache-web-app-howto/cache-create-app-service-dialog.png) -->
     :::image type="content" source="media/cache-web-app-howto/cache-create-app-service-dialog.png" alt-text="App Service dialog box":::
 
 1. After you configure the App Service hosting settings, select **Create**.
@@ -233,15 +234,15 @@ After the new app has been published, add a new app setting. This setting is use
 
 ### Run the app in Azure
 
-In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.
+1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.
 
-Select **Azure Cache for Redis Test** on the navigation bar to test cache access.
+1. Select **Azure Cache for Redis Test** on the navigation bar to test cache access.
 
 :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-azure.png" alt-text="Simple test completed Azure":::
 
 ## Clean up resources
 
-If you're continuing to the next tutorial, you can keep the resources that you created in this quickstart and reuse them.
+If you continue to use this quickstart, you can keep the resources you created and reuse them.
 
 Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges.
 
@@ -256,12 +257,10 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
     :::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
 
-You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
+1. You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
 
 After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps
-
-In the next tutorial, you use Azure Cache for Redis in a more realistic scenario to improve performance of an app. You update this application to cache leaderboard results using the cache-aside pattern with ASP.NET and a database.
-
-> [Create a cache-aside leaderboard on ASP.NET](cache-web-app-cache-aside-leaderboard.md)
+- [Connection resilience](cache-best-practices-connection.md)
+- [Best Practices Development](cache-best-practices-development.md)

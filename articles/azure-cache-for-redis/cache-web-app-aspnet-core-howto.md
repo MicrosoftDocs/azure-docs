@@ -7,16 +7,17 @@ ms.service: cache
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
-ms.date: 03/31/2021
-#Customer intent: As an ASP.NET Core developer, new to Azure Cache for Redis, I want to create a new ASP.NET Core web app that uses Azure Cache for Redis.
+ms.date: 03/25/2022
+
 ---
+
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
 
 In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and retrieve data from the cache.
 
 ## Skip to the code on GitHub
 
-Go straight to the code by downloading the [ASP.NET Core quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
+Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
 
 ## Prerequisites
 
@@ -29,9 +30,9 @@ Go straight to the code by downloading the [ASP.NET Core quickstart](https://git
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Make a note of the **HOST NAME** and the **Primary** access key. You will use these values later to construct the *CacheConnection* secret.
+Make a note of the **HOST NAME** and the **Primary** access key. You use these values later to construct the *CacheConnection* secret.
 
-## Create an ASP.NET Core web app
+## Add a local secret for the connection string
 
 In your command window, execute the following command to store a new secret named *CacheConnection*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
@@ -41,23 +42,24 @@ dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,ab
 
 ## Connect to the cache with RedisConnection
 
-The connection to your cache is managed by the `RedisConnection` class. The connection is made in this statement in `HomeController.cs`:
+The connection to your cache is managed by the `RedisConnection` class. The connection is made in this statement in `HomeController.cs` in the *Controllers* folder:
 
 ```csharp
 _redisConnection = await _redisConnectionFactory;
 ```
 
-You must add the StackExchange.Redis namespace with the `using` keyword in your code as seen in `RedisConnection.cs` before you use the `RedisConnection` class. This references the `StackExchange.Redis` namespace from package that you previously installed.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code in the sample to see our implementation.
+<!-- Is this right Philo -->
+The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
-For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-:::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
+<!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs"::: -->
 
 ## Layout views in the sample
 
@@ -89,11 +91,11 @@ Select **Azure Cache for Redis Test** in the navigation bar of the web page to t
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Simple test completed local](./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png)
+:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Simple test completed local":::
 
 ## Clean up resources
 
-If you're continuing to the next tutorial, you can keep the resources that you created in this quickstart and reuse them.
+If you continue to use this quickstart, you can keep the resources you created and reuse them.
 
 Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges.
 
@@ -104,28 +106,14 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
 
-2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
+1. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
 
    :::image type="content" source="media/cache-web-app-howto/cache-delete-resource-group.png" alt-text="Delete":::
 
-You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
+1. You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
 
 After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps
-
-For information on deploying to Azure, see:
-
-- [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md)
-
-For information about storing the cache connection secret in Azure Key Vault, see:
-
-- [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration)
-
-Want to scale your cache from a lower tier to a higher tier?
-
-- [How to Scale Azure Cache for Redis](./cache-how-to-scale.md)
-
-Want to optimize and save on your cloud spending?
-
-- [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Connection resilience](cache-best-practices-connection.md)
+- [Best Practices Development](cache-best-practices-development.md)
