@@ -13,6 +13,46 @@ title: Frequently Asked Questions about changing offer prices in the commercial 
 summary: Use the following questions and answers to better understand the price change feature in the commercial marketplace.
 
 sections:
+  - name: Dates
+    questions:
+      - question: |
+          Can I specify an effective date for the price change?
+        answer: |
+          No. Price changes are scheduled based on the type of price change:
+          - Price decreases are scheduled for the first of the next month.
+          - Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.
+
+      - question: |
+          Can a price increase be scheduled for less than 90 days in the future?
+        answer: |
+          No. The 90-day policy, standard for all price increases, protects customers from last-minute price increases, as well as gives them time to react to a price increase.
+
+  - name: General
+    questions:
+      - question: |
+          How do current exchange rates apply when a price change is made?
+        answer: |
+          If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
+
+          To specify the price in a specific currency, export the prices from the pricing and availability page, update the respective market and currency, save, and import the file.
+
+      - question: |
+          Can I change a free or $0 offer to a paid offer?
+        answer: |
+          No. To make an offer billable, publish a new paid plan and move customers to the new plan.
+
+  - name: Private and hidden plans
+    questions:
+      - question: |
+          Can I change the price of a private plan?
+        answer: |
+          Yes, private plans are supported and are scheduled the same way public plans are.
+
+      - question: |
+          Can I change the price of a hidden plan?
+        answer: |
+          No.. To make a price change to a hidden plan, move customers to a new plan with the new price.
+
   - name: General
     questions:
       - question: |
@@ -29,40 +69,6 @@ sections:
           Is changing a price of an offer supported via APIs?
         answer: |
           Not currently. The price change must be made in Partner Center. |
-
-      - question: |
-          Can I specify an effective date for the price change?
-        answer: |
-          No. Price changes are scheduled based on the type of price change:
-          - Price decreases are scheduled for the first of the next month.
-          - Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.
-
-      - question: |
-          Can a price increase be scheduled for less than 90 days in the future?
-        answer: |
-          No. The 90-day policy, standard for all price increases, protects customers from last-minute price increases, as well as gives them time to react to a price increase.
-
-      - question: |
-          How do current exchange rates apply when a price change is made?
-        answer: |
-          If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
-          To specify the price in a specific currency, export the prices from the pricing and availability page, update the respective market and currency, save, and import the file.
-
-      - question: |
-          Can I change a free or $0 offer to a paid offer?
-        answer: |
-          No. To make an offer billable, publish a new paid plan and move customers to the new plan.
-
-      - question: |
-          Can I change the price of a private plan?
-        answer: |
-          Yes, private plans are supported and are scheduled the same way public plans are.
-
-      - question: |
-          Can I change the price of a hidden plan?
-        answer: |
-          No.. To make a price change to a hidden plan, move customers to a new plan with the new price.
 
       - question: |
           Can I customize the email notification sent to customers?
