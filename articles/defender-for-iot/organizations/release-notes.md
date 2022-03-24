@@ -23,7 +23,9 @@ Listed below are the support, breaking change policies for Microsoft Defender fo
 
 Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console is supported for nine months after release. Fixes and new functionality will be applied to the current GA version that is currently supported and won't be applied to older GA versions.
 
-The Defender for IoT sensor and on-premises management console update packages includes new functionality and security patches. Urgent, high-risk security updates will be applied to minor releases occurring during the quarter.
+The Defender for IoT sensor and on-premises management console update packages includes new functionality and security patches. Urgent, high-risk security updates will be applied to minor releases occurring during the quarter. Read more about the Microsoft Security Development Lifecycle practices [here](https://www.microsoft.com/en-us/securityengineering/sdl/).
+
+Describing the SDL practices Microsoft follows, such as training, compliance, threat modeling, design requirements, tools (such as Microsoft Component Governance), pen testing and more.
 
 *Making changes to packages manually might have detrimental effects on the sensor and on-premises management console. In such cases, Microsoft is unable to provide support for your deployment.*
 
