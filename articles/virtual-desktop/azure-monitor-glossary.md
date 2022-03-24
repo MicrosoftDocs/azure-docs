@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/24/2022
 ms.author: helohr
 manager: femila
 ---
@@ -198,19 +198,19 @@ The flowchart shows the following four components:
 
 - Stack connected: the time that passes from when the service resolves a target session host for the user to when the service establishes a connection between the session host and the user’s remote client. Like user routing, the network load, server load, or unique network traffic routing can affect connection time. For this component, you'll also need to pay attention to your network routing. To reduce connection time, make sure you've appropriately configured all proxy configurations on both the client and session hosts, and that routing to the service is optimal.
 
-- Logon: the time that passes from when the connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high connection times. You can view data for the "logon" stage in Insights to see if there are unexpected peaks in average times.
+- Logon: the time it takes between when a connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high connection times. You can view data for the "logon" stage in Insights to see if there are unexpected peaks in average times.
 
   The "logon" process is divided into four stages:
 
-  - Profiles: The time it takes to load a user’s profile for new sessions. How long loading takes depends on user profile size or the user profile solutions you're using (such as User Experience Virtualization). If you're using a solution that depends on network-stored profiles, excess latency can also lead to longer profile loading times.
+  - Profiles: the time it takes to load a user’s profile for new sessions. How long loading takes depends on user profile size or the user profile solutions you're using (such as User Experience Virtualization). If you're using a solution that depends on network-stored profiles, excess latency can also lead to longer profile loading times.
 
-  - Group Policy (GPOs): Time it takes to apply group policies to new sessions. A spike in this time bucket indicates that you have too many group policies, the policies take too long to apply, or the session host is experiencing resource issues. As a further note, the Domain Controller (DC) needs to be close to session hosts for optimal GPO processing times.
+  - Group Policy Objects (GPOs): the time it takes to apply group policies to new sessions. A spike in this area of the data is a sign that you have too many group policies, the policies take too long to apply, or the session host is experiencing resource issues. One thing you can do to optimize processing times is make sure the domain controller is close to session hosts as possible.
 
-  - Shell Start: The time it takes to launch the shell (usually explorer.exe).
+  - Shell Start: the time it takes to launch the shell (usually explorer.exe).
 
-  - FSLogix (Frxsvc): Time it takes to launch FSLogix in new sessions. If this time is slow, it may indicate issues with the shares used to host the FSLogix user profiles; ensure the shares are collocated with the session hosts and appropriately scaled for the user volume logging into hosts. Additionally, larger profile sizes could contribute to slowness.
+  - FSLogix (Frxsvc): the time it takes to launch FSLogix in new sessions. A long launch time may indicate issues with the shares used to host the FSLogix user profiles. To troubleshoot these issues, make sure the shares are collocated with the session hosts and appropriately scaled for the average number of users signing in to the hosts. Another area you should look at is profile size. Large profile sizes can slow down launch times.
 
-- Shell start to shell ready: Time from when the shell starts to load to when it is fully loaded and ready for use. The most likely sources of delays in this phase include session host overload (high CPU, memory, or disk activity) or configuration issues.
+- Shell start to shell ready: the time from when the shell starts to load to when it's fully loaded and ready for use. Delays in this phase can be caused by session host overload (high CPU, memory, or disk activity) or configuration issues.
 
 ## User report
 
