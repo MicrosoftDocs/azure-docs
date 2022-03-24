@@ -54,7 +54,7 @@ As you run scripts from this user guide, it's important not to mistake SQL Serve
 | SQL Managed Instance FQDN | Fully qualified domain name of your SQL Managed Instance name. For example: *managedinstance1.6d710bcf372b.database.windows.net*. | See the host name on the SQL Managed Instance overview page in the Azure portal. |
 | Resolvable domain name | DNS name that can be resolved to an IP address. For example, running *nslookup sqlserver1.domain.com* should return an IP address such as 10.0.1.100. | Use nslookup from the command prompt. |
 
-## Trust between SQL Server and SQL Managed Instance
+## Establish trust between instances
 
 The first step in setting up a link is to establish trust between the two instances and secure the endpoints that are used to communicate and encrypt data across the network. Distributed availability groups use the existing availability group database mirroring endpoint, rather than having their own dedicated endpoint.  They don't have their own database mirroring endpoints. This is why security and trust need to be configured between the two entities through the availability group database mirroring endpoint.
 
