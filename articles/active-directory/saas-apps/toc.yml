@@ -1086,6 +1086,8 @@
         href: inforretailinformationmanagement-tutorial.md
       - name: InformaCast
         href: informacast-tutorial.md
+      - name: Informatica Platform
+        href: informatica-platform-tutorial.md  
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -2781,6 +2783,8 @@
         href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: Palo Alto Networks SCIM Connector
+        href: palo-alto-networks-scim-connector-provisioning-tutorial.md
       - name: PaperCut Cloud Print Management
         href: papercut-cloud-print-management-provisioning-tutorial.md 
       - name: Parsable

@@ -696,6 +696,8 @@ items:
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
+    - name: Intelligent Cache
+      href: ./spark/apache-spark-intelligent-cache-concept.md
     - name: Azure Synapse runtimes
       items:
         - name: Runtime overview
