@@ -1,6 +1,6 @@
 ---
-title: Create a lab in Azure DevTest Labs by using Bicep
-description: Use a Bicep to create a lab that has a virtual machine in Azure DevTest Labs.
+title: Create a lab in Azure DevTest Labs using Bicep
+description: Use Bicep to create a lab that has a virtual machine in Azure DevTest Labs.
 author: schaffererin
 ms.topic: quickstart
 ms.author: v-eschaffer
@@ -46,17 +46,20 @@ The Bicep file defines the following resource types:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters labName=<lab-name> vmName=<vm-name> userName=<user-name>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -labName "<lab-name>" -vmName "<vm-name>" -userName "<user-name>"
     ```
 
     ---
+
+    > [!NOTE]
+    > Replace **\<lab-name\>** with the name of the new lab instance. Replace **\<vm-name\>** with the name of the new VM. Replace **\<user-name\>** with username of the local account that will be created on the new VM. You'll also be prompted to enter a secure **password** for the local account.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
