@@ -52,11 +52,6 @@ export class AppComponent {
         var angularPlugin = new AngularPlugin();
         const appInsights = new ApplicationInsights({ config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        disableFetchTracking: false,
-        enableCorsCorrelation: true,
-        enableRequestHeaderTracking: true,
-        enableResponseHeaderTracking: true,
-        correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
         extensions: [angularPlugin],
         extensionConfig: {
             [angularPlugin.identifier]: { router: this.router }
@@ -85,9 +80,26 @@ import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applica
 export class AppModule { }
 ```
 
+## Enable Correlation
+
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-The example above shows standard configuration options for enabling correlation.
+The following example shows standard configuration options for enabling correlation:
+
+```js
+const configObj = {
+  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  disableFetchTracking: false,
+  enableCorsCorrelation: true,
+  enableRequestHeaderTracking: true,
+  enableResponseHeaderTracking: true,
+  correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
+  extensions: [clickPluginInstance],
+  extensionConfig: {
+    [clickPluginInstance.identifier]: clickPluginConfig
+  },
+};
+``` 
 
 If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
 
@@ -98,7 +110,7 @@ Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
 > [!NOTE]
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
-The Angular Plugin accomplishes route change tracking for you, and collects other Angular specific telemetry.
+The Angular Plugin automatically tracks route changes and collects other Angular specific telemetry. 
 
 > [!NOTE]
 > `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
