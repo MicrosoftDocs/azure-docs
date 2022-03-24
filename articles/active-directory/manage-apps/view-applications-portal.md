@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/07/2021
+ms.date: 03/24/2022
 ms.author: davidmu
 ms.reviewer: arvinh
 ms.custom: mode-other
