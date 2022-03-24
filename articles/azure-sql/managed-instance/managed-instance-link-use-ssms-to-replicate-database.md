@@ -63,7 +63,7 @@ In the following steps, you use the **New Managed Instance link** wizard in SSMS
 
 1. On the **Introduction** page of the wizard, select **Next**. 
 
-    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-introduction.png" alt-text="Screenshot that shows the Introduction page of the wizard for creating a new SQL Managed Instance link.":::
+    :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-introduction.png" alt-text="Screenshot that shows the Introduction page of the wizard for creating a new Managed Instance link.":::
 
 1. On the **SQL Server requirements** page, the wizard validates requirements to establish a link to SQL Managed Instance. Select **Next** after all the requirements are validated. 
 
