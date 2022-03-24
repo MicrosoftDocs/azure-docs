@@ -39,11 +39,11 @@ landingContent:
             url: ./learn/quick-enable-hybrid-vm.md
       - linkListType: deploy
         links:
-          - text: Connect machines to Azure Arc using a deployment script
+          - text: Use a deployment script
             url: onboard-portal.md
-          - text: Connect machines at scale using a service principal
+          - text: Onboard at scale using a service principal
             url: onboard-service-principal.md
-          - text: Connect machines to Azure with Windows Admin Center
+          - text: Deploy with Windows Admin Center
             url: onboard-windows-admin-center.md
           - text: All deployment options
             url: deployment-options.md
