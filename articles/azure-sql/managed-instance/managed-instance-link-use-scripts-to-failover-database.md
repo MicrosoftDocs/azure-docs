@@ -174,7 +174,7 @@ WHERE
 
 Use the following T-SQL query on SQL Managed Instance to read the last hardened LSN for your database. Replace `<DatabaseName>` with your database name.
 
-This query will work on a General Purpose managed instance. For a Business Critical managed instance, you need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter will make sure that only primary replica details are read.
+This query will work on a General Purpose managed instance. For a Business Critical managed instance, you need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter ensures that only primary replica details are read.
 
 ```sql
 -- Run on a managed instance
