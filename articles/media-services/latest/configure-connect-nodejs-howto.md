@@ -20,7 +20,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign-in method. You will work with files in the *media-services-v3-node-tutorials* samples repository. The *HelloWorld-ListAssets* sample contains the code for connecting then list Assets in the account.
+This article shows you how to connect to the Azure Media Services v3 Node.js SDK using the service principal sign-in method. You will work with files in the *media-services-v3-node-tutorials* samples repository. The *HelloWorld-ListAssets* sample contains the code for connecting then list Assets in the account.
 
 ## Prerequisites
 
@@ -207,4 +207,4 @@ Many more samples are available in the [repository](https://github.com/Azure-Sam
 
 ## Next steps
 
-Explore the Media Services [Node.js ref](/javascript/api/overview/azure/arm-mediaservices-readme) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+Explore the Media Services [Node.js ref](/javascript/api/overview/azure/arm-mediaservices-readme) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with Node.js.
