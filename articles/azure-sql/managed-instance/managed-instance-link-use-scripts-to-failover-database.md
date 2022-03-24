@@ -255,7 +255,7 @@ $headers.Add("Authorization", "Bearer "+"$authToken")
 Invoke-WebRequest -Method DELETE -Headers $headers -Uri $uriFull -ContentType "application/json"
 ```
 
-## Clean up the availability group and distributed availability group on SQL Server
+## Clean up availability groups
 
 After you break the link and migrate a database to Azure SQL Managed Instance, consider cleaning up the availability group and distributed availability group on SQL Server if they aren't used otherwise on SQL Server.
 
