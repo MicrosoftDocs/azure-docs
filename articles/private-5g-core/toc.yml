@@ -18,7 +18,7 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
-  - name: Monitoring Azure Private 5G Core Preview using Log Analytics
+  - name: Monitoring Azure Private 5G Core using Log Analytics
     href: monitoring-private-5g-core-with-log-analytics.md  
   - name: Local monitoring tools
     items:
