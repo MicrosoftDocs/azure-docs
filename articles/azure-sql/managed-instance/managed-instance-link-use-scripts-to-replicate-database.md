@@ -24,7 +24,6 @@ This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts 
 > - The link is a feature of Azure SQL Managed Instance and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-replicate-database.md) to set up the link to replicate your database. 
 > - The PowerShell scripts in this article call SQL Managed Instance REST APIs.
 
-> For configuration on the Azure side, PowerShell scripts call the SQL Managed Instance REST API. We're planning to release support for Azure PowerShell and the Azure CLI. At that point, this article will be updated with the simplified PowerShell scripts.
 
 ## Prerequisites 
 
