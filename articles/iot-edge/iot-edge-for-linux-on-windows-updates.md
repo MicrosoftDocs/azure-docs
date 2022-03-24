@@ -93,7 +93,7 @@ In some scenarios with restricted or limited internet connectivity, you may want
 
 ## Managing Microsoft Updates
 
-As explained before, IoT Edge for Linux on Windows updates are serviced using Microsoft Update channel, so it's not possible to turn on/off EFLOW specific updates, without turning on/off Microsoft Updates. Listed below are some of the ways to automate turning on/off Microsoft updates.
+As explained before, IoT Edge for Linux on Windows updates are serviced using Microsoft Update channel, so it's not possible to turn on/off EFLOW specific updates, without turning on/off Microsoft Updates. Listed below are some of the ways to automate turning on/off Microsoft updates. For more information about managing OS updates, see [OS Updates](/windows/iot/iot-enterprise/os-features/updates#completely-turn-off-windows-updates).
 
 1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
 
