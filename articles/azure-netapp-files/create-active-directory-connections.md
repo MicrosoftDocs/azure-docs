@@ -90,7 +90,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 
-* Azure NetApp Files supports [LDAP signing](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), which enables secure transmission of LDAP traffic between the Azure NetApp Files service and the targeted [Active Directory domain controllers](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you are following the guidance of Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) for LDAP signing, then you should enable the LDAP signing feature in Azure NetApp Files by checking the **LDAP Signing** box in the [Join Active Directory](#create-an-active-directory-connection) window. 
+* Azure NetApp Files supports [LDAP signing](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), which enables secure transmission of LDAP traffic between the Azure NetApp Files service and the targeted [Active Directory domain controllers](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you are following the guidance of Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190023) for LDAP signing, then you should enable the LDAP signing feature in Azure NetApp Files by checking the **LDAP Signing** box in the [Join Active Directory](#create-an-active-directory-connection) window. 
 
     [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
 
@@ -195,7 +195,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
     * **LDAP Signing**   
-        Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+        Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190023).  
 
         ![Active Directory LDAP signing](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
@@ -325,7 +325,25 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Reset Active Directory 
 
-If you accidentally delete the computer account on your AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes.
+If you accidentally delete the computer account on your AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
+
+### Register the feature
+
+The reset Active Directory feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
+
+1. Register the **reset Active Directory** feature:   
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
+    ```
+1.   Check the status of the feature registration: 
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
+
+### Steps
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**
 <!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/<file name>"::: -->
