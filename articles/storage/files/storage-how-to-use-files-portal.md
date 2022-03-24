@@ -160,7 +160,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm#az_storage_share_rm_create) command. This example creates an Azure file share named **myshare**: 
+Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates an Azure file share named **myshare**: 
 
 ```azurecli-interactive
 shareName="myshare"
