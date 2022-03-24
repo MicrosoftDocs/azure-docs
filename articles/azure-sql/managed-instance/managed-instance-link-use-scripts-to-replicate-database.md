@@ -421,7 +421,7 @@ Alternatively, you can use SSMS Object Explorer to find availability groups and 
 
 ## Create a link
 
-The final step of the setup process is to create the SQL Managed Instance link. At this time, you accomplish this by making a REST API call. The replacement of direct API calls with PowerShell and CLI clients is planned for a future release.
+The final step of the setup process is to create the link. At this time, you accomplish this by making a REST API call. 
 
 You can invoke direct API calls to Azure by using various API clients. For simplicity of the process, sign in to the Azure portal and run the following PowerShell script from Azure Cloud Shell. Replace: 
 
