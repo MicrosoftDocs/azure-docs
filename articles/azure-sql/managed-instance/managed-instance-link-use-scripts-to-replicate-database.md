@@ -506,7 +506,7 @@ The result of this operation will be a time stamp of the successful execution of
 
 ## Verify the link
 
-To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. Have in mind that connection will not be instantaneous after you make the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
+To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. The connection will not be instantaneous after you make the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
 
 ```sql
 -- Run on SQL Server
