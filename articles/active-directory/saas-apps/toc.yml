@@ -2609,6 +2609,8 @@
         href: directprint-io-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
+      - name: embed signage
+        href: embed-signage-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
       - name: Eletive
