@@ -112,7 +112,7 @@ sections:
       - question: |
           How do I cancel or modify a scheduled price change?
         answer: |
-          If the price change has not yet taken effect, contact [support](/partner-center/report-problems-with-partner-center) to cancel the price. After the price change is cancelled, schedule a new price change with needed modifications.
+          If the price change has not yet taken effect, contact [support](/partner-center/report-problems-with-partner-center) to cancel the change. After the change is cancelled, schedule a new price change with needed modifications.
 
       - question: |
           If there is already a price change scheduled, can I make additional price changes?
@@ -130,7 +130,7 @@ sections:
           Yes. Expect the same experience for CSPs as customers, including email notification and automatic billing of the new price.
 
       - question: |
-          Can I change the price of an offer that is still in preview and hasn’t gone live?
+          Can I change the price of an offer that is still in preview and hasn’t gone live yet?
         answer: |
           Yes. This is not considered a price change.
 
