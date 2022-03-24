@@ -250,7 +250,7 @@ data factory from the resources list.
 
 ## Create a linked service and test the connection
 
-1. Go to the **Manage** tab and then go to the **Managed private endpoints** section.
+1. Go to the **Manage** tab and then go to the **Linked services** section.
 2. Select + **New** under **Linked Service**.
 3. Select the **SQL Server** tile from the list and select **Continue**.    
 
