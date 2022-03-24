@@ -301,6 +301,8 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |
 
+> [!NOTE]
+> This connector was designed to import only those alerts whose status is "open." Alerts that have been closed in Azure AD Identity Protection will not be imported to Microsoft Sentinel.
 
 ## Azure Activity
 

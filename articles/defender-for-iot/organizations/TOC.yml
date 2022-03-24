@@ -181,6 +181,8 @@
     href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Create reports
     items:
+    - name: View and create Azure Monitor workbooks
+      href: workbooks.md
     - name: Create risk assessment reports
       href: how-to-create-risk-assessment-reports.md
       displayName: vulnerability, security score, score, CVE

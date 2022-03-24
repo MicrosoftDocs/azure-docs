@@ -226,6 +226,8 @@
           href: kubernetes-portal.md
         - name: Use tags
           href: use-tags.md
+        - name: Use labels
+          href: use-labels.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -447,8 +449,8 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Configure Azure Monitor
-          href: open-service-mesh-azure-monitor.md
+        - name: Open Service Mesh integrations
+          href: open-service-mesh-integrations.md
         - name: Troubleshoot Open Service Mesh
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on

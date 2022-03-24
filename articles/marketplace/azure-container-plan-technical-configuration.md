@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/21/2021
+ms.date: 03/24/2022
 ---
 
 # Set plan technical configuration for an Azure Container offer
@@ -42,7 +42,7 @@ Customers must be able to automatically get updates from Azure Marketplace when 
 Select **Add Image version** to include an **Image tag** that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`, and `1.0.1-windows-arm32`, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your Azure Container technical assets](azure-container-technical-assets.md).
 
 > [!TIP]
-> Add a test tag to your image so you can identify the image during testing.
+> Only the image with the “latest” tag is shown in preview. After the offer is published live, all tags are shown.
 
 <!-- possible future restore
 
