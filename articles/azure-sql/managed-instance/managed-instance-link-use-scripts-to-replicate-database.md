@@ -419,7 +419,7 @@ SELECT * FROM sys.availability_groups
 
 Alternatively, you can use SSMS Object Explorer to find availability groups and distributed availability groups. Expand the **Always On High Availability** folder and then the **Availability Groups** folder.
 
-## Creating a SQL Managed Instance link
+## Create a link
 
 The final step of the setup process is to create the SQL Managed Instance link. At this time, you accomplish this by making a REST API call. The replacement of direct API calls with PowerShell and CLI clients is planned for a future release.
 
