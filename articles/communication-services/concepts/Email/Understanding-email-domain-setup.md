@@ -35,6 +35,13 @@ You can choose the experience that works best for your business. You can start t
 ## Email Authentication for Domains
 
 Email authentication (also known as email validation) is a group of standards that tries to stop spoofing (email messages from forged senders). Our email pipeline uses these standards to verify the emails that are sent. Trust in email begins with Authentication and Azure communication Services Email helps senders to properly configure the following email authentication protocols to set proper authentication for the emails.
+
+### SPF (Sender Policy Framework)
+SPF RFC 7208 is a mechanism that allows domain owners to publish and maintain, via a standard DNS TXT record, a list of systems authorized to send email on their behalf. Azure Commnication Services allows you to configure the required SPF records that needs to be added to your DNS via Portal experience or through Control Plane operations for your custom domains.
+
+### DKIM (Domain Keys Identified Mail)
+DKIM RFC 6376(https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient. Azure Commnication Services allows you to configure the required DKIM records that needs to be added to your DNS via Portal experience or through Control Plane operations for your custom domains.
+
 To Learn more on Email Authentication Best Practices click [here](./email-authentication-bestpractice.md)  
 
 ## How to connect a Domain to Send email
