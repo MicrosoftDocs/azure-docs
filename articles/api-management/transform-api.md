@@ -105,7 +105,7 @@ In this example, you use the policy code editor to add the policy XML snippet di
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Outbound processing** section, select the code editor (**</>**) icon.
 
-   :::image type="content" source="media/transform-api/outbound-policy-code.png" alt-text="Navigate to outbound policy code editor" border="false":::
+   :::image type="content" source="media/transform-api/outbound-policy-code.png" alt-text="Navigate to outbound policy code editor":::
 
 1. Position the cursor inside the **`<outbound>`** element on a blank line. Then select **Show snippets** at the top-right corner of the screen.
 
