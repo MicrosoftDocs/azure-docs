@@ -174,7 +174,7 @@ Follow these steps to use the Bot Framework Emulator to test your echo bot runni
 
 ## Deploy your bot to Azure App Service
 
-The next step is to deploy the echo bot to Azure. There are a few ways to deploy a bot, including the [Azure CLI](/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot). This tutorial focuses on publishing directly from Visual Studio.
+The next step is to deploy the echo bot to Azure. There are a few ways to deploy a bot, including the [Azure CLI](/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/13.core-bot). This tutorial focuses on publishing directly from Visual Studio.
 
 > [!NOTE]
 > If **Publish** doesn't appear as you perform the following steps, use Visual Studio Installer to add the **ASP.NET and web development** workload.
