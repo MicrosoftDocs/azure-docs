@@ -23,10 +23,9 @@ Domain is a unique name that appears after the @ sign in email addresses. It typ
 Email Communication Services allows you configure email with two types of domains : **Azure Managed Domains** and **Custom Domains**. 
 
 ### Azure Managed Domains
-You can add a free Azure Subdomain to your email communication resource and you will able to send emails leveraging mail from domains like donotreply@someguid.azurecomm.net. 
+Getting Azure manged Domains is one click setup. You can add a free Azure Subdomain to your email communication resource and you will able to send emails leveraging mail from domains like donotreply@someguid.azurecomm.net. Your Azure Managed domain will be preconfigured with required sender authentication support.
 ### Custom Domains
-In this options you are adding a domain that you already own.You have to add your domain and verify the ownership to send email and then configure for required Authentication Support. 
-
+In this options you are adding a domain that you already own.You have to add your domain and verify the ownership to send email and then configure for required authentication support. 
 
 ## Email Authentication for Domains
 
@@ -53,7 +52,6 @@ Email Communication Service resources are designed to enable domain validation s
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
 
 > [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
-
 
 The following documents may be interesting to you:
 
