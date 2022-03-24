@@ -85,7 +85,7 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 
 Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway.  While this configuration can be useful in some cases, overriding the hostname to be different between the client and application gateway and application gateway to backend target, should be done with care.  
 
-In a typical production-grade configuration, one will typically want to keep the host name used by the client towards Application Gateway the same as the hostname as used by Application Gateway towards the backend.  This avoid potential issues with absolute URLs, redirect URLs and host-bound cookies.
+In production, it is recommended to keep the hostname used by the client towards the application gateway as the same hostname used by the application gateway to the backend target. This avoids potential issues with absolute URLs, redirect URLs, and host-bound cookies.
 
 Before setting up Application Gateway that deviates from this, please review the implications of such configuration as discussed in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
 
