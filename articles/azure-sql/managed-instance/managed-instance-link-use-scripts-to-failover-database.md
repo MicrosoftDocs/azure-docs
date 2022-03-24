@@ -14,7 +14,7 @@ ms.reviewer: mathoma, danil
 ms.date: 03/15/2022
 ---
 
-# Fail over (migrate) a database by using a SQL Managed Instance link via T-SQL and PowerShell scripts
+# Fail over (migrate) database with link via T-SQL and PowerShell scripts - Azure SQL Managed Instance 
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
