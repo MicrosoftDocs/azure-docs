@@ -122,21 +122,13 @@ There may be situations when you want to use Azure Monitor to see connectivity e
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
 | where Category == "Connections"
-| where parse_json(properties_s).deviceId == "test-device"
+| extend DeviceId = tostring(parse_json(properties_s).deviceId)
+| where DeviceId == "test-device"
 ```
 
 The query returns both error and informational events for your target device. The following example output shows an informational **deviceConnect** event:
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/device-connect-event.png" alt-text="Screenshot of deviceConnect event in logs.":::
-
-The `parse_json` function can be compute resource-intensive. In this case, you can try the following query, making sure to replace *test-device* with your device:
-
-```kusto
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where Category == "Connections"
-| where properties_s has "\"deviceId\":\"test-device\""
-```
 
 ## MQTT device disconnect behavior with Azure IoT SDKs
 
