@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
+ms.date: 03/24/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
@@ -34,19 +34,166 @@ We then define variables for resources with the keyword *var*. Also, we define v
 It's important to note that one Bicep function and environment(s) are required to specify the log in URL, `https://login.microsoftonline.com`. For more information on Bicep functions, see [Deployment functions for Bicep](../azure-resource-manager/bicep/bicep-functions-deployment.md#environment).
 
 ```
+//Define parameters
 param workspaceName string
 param fhirName string
 param dicomName string
-param iotName string
+param medtechName string
 param tenantId string
+param location string
 
+//Define variables
 var fhirservicename = '${workspaceName}/${fhirName}'
 var dicomservicename = '${workspaceName}/${dicomName}'
-var iotconnectorname = '${workspaceName}/${iotName}'
-var iotdestinationname = '${iotconnectorname}/output1'
+var medtechservicename = '${workspaceName}/${medtechName}'
+var medtechdestinationname = '${medtechservicename}/output1'
 var loginURL = environment().authentication.loginEndpoint
 var authority = '${loginURL}${tenantId}'
 var audience = 'https://${workspaceName}-${fhirName}.fhir.azurehealthcareapis.com'
+
+//output stringOutput1 string = authority
+//output stringOutput2 string = audience
+
+//Create a workspace
+resource exampleWorkspace 'Microsoft.HealthcareApis/workspaces@2021-11-01' = {
+  name: workspaceName
+  location: location
+}
+
+//Use an existing workspace
+// resource exampleExistingWorkspace 'Microsoft.HealthcareApis/workspaces@2021-11-01' existing = {
+//   name: workspaceName
+// }
+
+resource exampleFHIR 'Microsoft.HealthcareApis/workspaces/fhirservices@2021-11-01' = {
+  name: fhirservicename
+  location: location
+  kind: 'fhir-R4'
+  identity: {
+    type: 'SystemAssigned'
+  }
+  dependsOn: [
+    exampleWorkspace  //exampleExistingWorkspace
+  ]
+  properties: {
+    accessPolicies: []
+    authenticationConfiguration: {
+      authority: authority
+      audience: audience
+      smartProxyEnabled: false
+    }
+    }
+}
+
+//Use an existing FHIR service
+// resource exampleExistingFHIR 'Microsoft.HealthcareApis/workspaces/fhirservices@2021-11-01' existing = {
+//   name: fhirservicename
+// }
+
+//Create DICOM service
+resource exampleDICOM 'Microsoft.HealthcareApis/workspaces/dicomservices@2021-11-01' = {
+  name: dicomservicename
+  location: location
+  dependsOn: [
+    exampleWorkspace
+  ]
+  properties: {}
+}
+
+//Use an existing DICOM service
+// resource exampleExistingDICOM 'Microsoft.HealthcareApis/workspaces/fhirservices@2021-11-01' existing = {
+//   name: dicomservicename
+// }
+
+//Create IoT connector
+resource exampleIoT 'Microsoft.HealthcareApis/workspaces/iotconnectors@2021-11-01' = {
+  name: medtechservicename
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  dependsOn: [
+    exampleWorkspace
+    //exampleExistingWorkspace
+  ]
+  properties: {
+    ingestionEndpointConfiguration: {
+      eventHubName: 'xxx'
+      consumerGroup: 'xxx'
+      fullyQualifiedEventHubNamespace: 'xxx.servicebus.windows.net'
+            }
+    deviceMapping: {
+    content: {
+    templateType: 'CollectionContent'
+        template: [
+                    {
+                      templateType: 'JsonPathContent'
+                      template: {
+                              typeName: 'heartrate'
+                              typeMatchExpression: '$..[?(@heartrate)]'
+                              deviceIdExpression: '$.deviceid'
+                              timestampExpression: '$.measurementdatetime'
+                              values: [
+                                {
+                                      required: 'true'
+                                      valueExpression: '$.heartrate'
+                                      valueName: 'Heart rate'
+                                      }
+                                      ]
+                                }
+                    }
+                  ]
+            }
+          }
+      }
+    }
+
+
+//Use an existing IoT 
+// resource exampleExistingIoT 'Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations@2021-11-01' existing = {
+//   name: iotconnectorname
+// }
+
+//Create IoT destination
+resource exampleIoTDestination 'Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations@2021-11-01'  = {
+  name:   medtechdestinationname
+  location: location
+  dependsOn: [
+    exampleIoT
+    //exampleExistingIoT
+  ]
+  properties: {
+    resourceIdentityResolutionType: 'Create'
+    fhirServiceResourceId: exampleFHIR.id //exampleExistingFHIR.id
+    fhirMapping: {
+                content: {
+                    templateType: 'CollectionFhirTemplate'
+                    template: [
+                        {
+                            templateType: 'CodeValueFhir'
+                            template: {
+                                codes: [
+                                    {
+                                        code: '8867-4'
+                                        system: 'http://loinc.org'
+                                        display: 'Heart rate'
+                                    }
+                                ]
+                                periodInterval: 60
+                                typeName: 'heartrate'
+                                value: {
+                                    defaultPeriod: 5000
+                                    unit: 'count/min'
+                                    valueName: 'hr'
+                                    valueType: 'SampledData'
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+}
 ```
 
 ## Create a workspace template
@@ -245,19 +392,19 @@ You can use the `az deployment group create` command to deploy individual Bicep 
 For the Azure subscription and tenant, you can specify the values, or use CLI commands to obtain them from the current sign-in session.
 
 ```
-resourcegroupname=xxx
-location=e.g. eastus2
-workspacename=xxx
-fhirname=xxx
-dicomname=xxx
-iotname=xxx
-bicepfilename=xxx.bicep
-#tenantid=xxx
-#subscriptionid=xxx
+deploymentname=xxx
+resourcegroupname=rg-$deploymentname
+location=centralus
+workspacename=ws$deploymentname
+fhirname=fhir$deploymentname
+dicomname=dicom$deploymentname
+medtechname=medtech$deploymentname
+bicepfilename=ahds.bicep
 subscriptionid=$(az account show --query id --output tsv)
 tenantid=$(az account show --subscription $subscriptionid --query tenantId --output tsv)
 
-az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
+az group create --name $resourcegroupname --location $location
+az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname medtechName=$medtechname tenantId=$tenantid location=$location
 ```
 
 Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
