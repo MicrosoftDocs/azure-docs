@@ -76,9 +76,9 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you are a Global administrator, an Identity Governance administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator, an Identity Governance administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**. 
 
-    The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
+    The access package you are creating and any resources included in it will be added to the new catalog. You can also add additional catalog owners later and add attributes to the resources you put in the catalog. Read [Add resource attributes in the catalog](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
 
 1. Click **Next**.
 
