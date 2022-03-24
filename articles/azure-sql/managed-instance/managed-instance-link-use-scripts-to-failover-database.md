@@ -24,7 +24,6 @@ This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts 
 > - The link is a feature of Azure SQL Managed Instance and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-failover-database.md) to fail over a database with the link. 
 > - The PowerShell scripts in this article make REST API calls on the SQL Managed Instance side. 
 
-> [!NOTE]
 
 Database failover from SQL Server to SQL Managed Instance breaks the link between the two databases. Failover stops replication and leaves both databases in an independent state, ready for individual read/write workloads. 
 
