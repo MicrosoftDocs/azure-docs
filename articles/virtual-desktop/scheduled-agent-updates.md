@@ -38,11 +38,17 @@ To use the Azure portal to configure Scheduled Agent Updates:
 
 4. In the host pool, select **Scheduled Agent Updates**. Scheduled Agent Updates is disabled by default. This means that, unless you enable this setting, the agent can get updated at any time by the agent update flighting service. Select the **Scheduled agent updates** checkbox to enable the feature.
 
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot showing the Scheduled Agent Updates options in the host pool table of contents and the checkbox for enabling Scheduled Agent Updates. Both are selected and highlighted with a red border.](media/agent-update-1.png)
+
 5. Enter your preferred time zone setting. If you select **Use local session host time zone**, Scheduled Agent Updates will automatically use the VM's local time zone. If you don't select **Use local session host time zone**, you'll need to specify a time zone.
 
 6. Select a day and time for the **Maintenance window**. If you'd like to make an optional second maintenance window, you can also select a date and time for it here. Since Scheduled Agent Updates is a host pool setting, the time zone setting and maintenance windows you configure will be applied to all session hosts in the host pool.
 
 7. Select **Apply** to apply your settings.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot showing the Scheduled Agent Updates schedule options.](media/agent-update-2.png)
 
 ## Additional information
 
