@@ -53,8 +53,8 @@ The price change feature does not support the following scenarios:
 
 1. Price changes on hidden plans.
 2. Price changes on plans available in Azure Government cloud.
-3. Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#_planning_for_a).
-4. Cancelling and modifying a price change through Partner Center. To cancel a price update, contact support.
+3. Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#plan_a_price_change).
+4. Cancelling and modifying a price change through Partner Center. To cancel a price update, contact [support](/partner-center/report-problems-with-partner-center).
 5. Changing prices from free or $0 to paid.
 6. Changing prices via APIs.
 
@@ -98,7 +98,7 @@ To update the monthly or yearly price of a SaaS or Azure app offer:
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
 11. When you're ready to publish your updated offer pricing, select **Review and publish** from any page.
-12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer#validation-and-publishing-steps.md).
+12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 13. Review the offer preview once it's available and select **Go-live** to publish the new prices.
 
 Once publishing is complete, you will receive an email with the effective date of the new price.
@@ -131,7 +131,7 @@ To update the per user monthly or yearly fee of a SaaS offer:
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
 11. When you're ready to publish your updated offer pricing, select **Review and publish** from any page.
-12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer#validation-and-publishing-steps.md).
+12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 13. Review the offer preview once it's available and select **Go-live** to publish the new prices.
 
 Once publishing is complete, you will receive an email with the effective date of the new price.
@@ -167,7 +167,7 @@ To update the price per unit of a meter dimension of a SaaS or Azure app offer:
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
 11. When you're ready to publish your updated offer pricing, select **Review and publish** from any page.
-12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer#validation-and-publishing-steps.md).
+12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 13. Review the offer preview once it's available and select **Go-live** to publish the new prices.
 
 Once publishing is complete, you will receive an email with the effective date of the new price.
@@ -208,7 +208,7 @@ To update the price per core or per core size of a VM offer.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
 11. When you're ready to publish your updated offer pricing, select **Review and publish** from any page.
-12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer#validation-and-publishing-steps.md).
+12. Select **Publish** to submit the updated offer. Your offer will go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 13. Review the offer preview once it's available and select **Go-live** to publish the new prices.
 
 Once publishing is complete, you will receive an email with the effective date of the new price.
@@ -221,9 +221,9 @@ Customers are billed the new price for consumption of the resource that happens 
 
 To modify an already scheduled price change, request the cancellation by submitting a request through the private preview Teams channel that includes the Plan ID, price, and the market (if the change was market-specific).
 
-If the price change was an increase, we will send a second email to customers to inform them the price increase has been cancelled.
+If the price change was an increase, we will email customers a second time to inform them the price increase has been cancelled.
 
-After the price change is cancelled, follow the steps in the appropriate part of this document to schedule a new price change with the modifications you need.
+After the price change is cancelled, follow the steps in the appropriate part of this document to schedule a new price change with the needed modifications.
 
 ## Next steps
 
