@@ -37,7 +37,7 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 * vault.azure.com
 * azure.com
 
-You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net).
+You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).
 
 The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
 
