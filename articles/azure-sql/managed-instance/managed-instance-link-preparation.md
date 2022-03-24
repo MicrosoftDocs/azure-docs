@@ -20,7 +20,7 @@ ms.date: 03/22/2022
 This article teaches you how to prepare your environment for a [Managed Instance link](link-feature.md) so that you can replicate databases from SQL Server to SQL Managed Instance.
 
 > [!NOTE]
-> A SQL Managed Instance link is a feature of SQL Server and is currently in preview. 
+> The link is a feature of Azure SQL Managed Instance and is currently in preview. 
 
 ## Prerequisites 
 
