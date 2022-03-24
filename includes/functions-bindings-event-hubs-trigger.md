@@ -18,7 +18,7 @@ The following example shows a [C# function](../articles/azure-functions/function
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
+public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
 {
     log.LogInformation($"C# function triggered to process a message: {myEventHubMessage}");
 }
@@ -28,7 +28,7 @@ To get access to [event metadata](#event-metadata) in function code, bind to an 
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run(
+public void Run(
     [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage,
     DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
@@ -54,7 +54,7 @@ To receive events in a batch, make `string` or `EventData` an array.
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, ILogger log)
+public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, ILogger log)
 {
     foreach (var message in eventHubMessages)
     {
@@ -106,7 +106,7 @@ using System;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.Azure.EventHubs;
 
-public static void Run(EventData myEventHubMessage,
+public void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
     string offset,
