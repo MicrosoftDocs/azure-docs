@@ -364,7 +364,7 @@ The following example shows how your Azure Bicep file should look when configure
 The Bicep file defines three Azure resources:
 
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/virtualNetworks/providers/roleAssignments](/azure/templates/microsoft.network/virtualnetworks/providers/roleassignments)
+* [Microsoft.Network/virtualNetworks/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [Microsoft.RedHatOpenShift/OpenShiftClusters](/azure/templates/microsoft.redhatopenshift/openshiftclusters)
 
 More Azure Red Hat OpenShift templates can be found on the [Red Hat OpenShift web site](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-user-infra.html).
