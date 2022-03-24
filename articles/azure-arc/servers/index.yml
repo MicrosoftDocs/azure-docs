@@ -4,23 +4,39 @@ summary: Azure Arc-enabled servers
 
 metadata:
   title: Azure Arc-enabled servers
-  description: Learn about how to manage on-premises machines in Azure
+  description: Learn how to connect and manage on-premises machines in Azure.
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 09/21/2021
+  ms.date: 03/24/2022
 
 landingContent:
  # Card
-  - title: Connect machines to Azure using Azure Arc-enabled servers
+  - title: About Azure Arc-enabled servers
     linkLists: 
       - linkListType: overview
         links:
           - text: What is Azure Arc-enabled servers?
             url: overview.md
+          - text: Azure Connected Machine agent overview
+            url: agent-overview.md
+      - linkListType: architecture
+        links:
+          - text: Manage configurations for hybrid servers 
+            url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+ 
+ # Card
+  - title: Connect machines to Azure
+    linkLists: 
       - linkListType: deploy
         links:
           - text: Plan for deployment
             url: plan-at-scale-deployment.md
+          - text: Prerequisites
+            url: prerequisites.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy Arc-enabled servers agent
+            url: ./learn/quick-enable-hybrid-vm.md
       - linkListType: get-started
         links:
           - text: Connect machines to Azure Arc using a deployment script
@@ -29,13 +45,8 @@ landingContent:
             url: onboard-service-principal.md
           - text: Connect machines to Azure with Windows Admin Center
             url: onboard-windows-admin-center.md
- # Card
-  - title: 10-minute quickstarts
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Deploy Arc-enabled servers agent
-            url: ./learn/quick-enable-hybrid-vm.md
+          - text: All deployment options
+            url: deployment-options.md
  
  # Card
   - title: Training
@@ -56,10 +67,21 @@ landingContent:
        links:
           - text: Test Arc-enabled servers using an Azure VM
             url: plan-evaluate-on-azure-virtual-machine.md
+
  # Card
-  - title: Reference architecture
+  - title: Reference
     linkLists:
-      - linkListType: architecture
+      - linkListType: reference
         links:
-          - text: Manage configurations for hybrid servers 
-            url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+          - text: Azure CLI
+            url: /cli/azure/connectedmachine
+          - text: Azure PowerShell
+            url: /powershell/module/az.connectedmachine/
+          - text: .NET
+            url: /dotnet/api/overview/azure/hybridcompute/management
+          - text: REST
+            url: /rest/api/hybridcompute/
+          - text: Java
+            url: /java/api/overview/azure/compute/resourcemanagement
+          - text: JavaScript
+            url: /javascript/api/@azure/arm-hybridcompute/
