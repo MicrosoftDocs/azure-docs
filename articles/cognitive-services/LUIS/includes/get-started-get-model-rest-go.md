@@ -15,7 +15,7 @@ ms.date: 06/03/2020
 
 ## Prerequisites
 
-* [Go](https://golang.org/) programming language
+* [Go](https://go.dev/) programming language
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file

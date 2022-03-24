@@ -137,7 +137,7 @@
   - name: Python
     href: /python/api/overview/azure/identity-readme
   - name: Go
-    href: https://golang.org/doc/
+    href: https://go.dev/doc/
 - name: Resources
   items:
   - name: Frequently asked questions

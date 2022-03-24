@@ -21,7 +21,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * A [`go get` tool](https://github.com/golang/go/wiki/GoGetTools).
-* [Go](https://golang.org/dl/).
+* [Go](https://go.dev/dl/).
 
 ## SDK installation
 
