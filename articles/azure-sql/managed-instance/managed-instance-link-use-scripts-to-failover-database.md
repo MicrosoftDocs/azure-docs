@@ -196,7 +196,7 @@ WHERE
     -- AND drs.is_primary_replica = 1
 ```
 
-Verify once again that your workload is stopped on SQL Server. Check that LSNs on both SQL Server and SQL Managed Instance match, and that they remain matched and unchanged for some time. Stable LSNs on both ends indicate that the tail log has been replicated to SQL Managed Instance and the workload is effectively stopped.
+Verify once again that your workload is stopped on SQL Server. Check that LSNs on both SQL Server and SQL Managed Instance match, and that they remain matched and unchanged for some time. Stable LSNs on both instances indicate that the tail log has been replicated to SQL Managed Instance and the workload is effectively stopped.
 
 ## Start database failover and migration to Azure
 
