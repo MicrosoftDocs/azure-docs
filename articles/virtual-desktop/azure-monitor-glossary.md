@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 03/25/2022
 ms.author: helohr
 manager: femila
 ---
@@ -174,23 +174,9 @@ When troubleshooting a high time to connect, Azure Monitor will break down total
 >[!NOTE]
 >The components in this section only show the primary connection stages. These components can run in parallel, which means they won't add up to equal the total time to connect. The total time to connect is a measurement that Azure Monitor determines in a separate process.
 
-The following Mermaid flowchart shows the four stages of the sign-in process:
+The following flowchart shows the four stages of the sign-in process:
  
-```mermaid
-flowchart LR
-    id0{{User Initiates Connection}}
-    id1[User Route]
-    id2[Stack Connect]
-    id3[Logon]
-    id4[Shell Start]
-    id5{{Session is Ready}}
-    id0 --> id1
-    id1 --> id2
-    id2 --> id3
-    id2 --> id4
-    id3 --> id5
-    id4 --> id5
-```
+:::image type="content" source="media/time-to-connect.png" alt-text="A flowchart showing the four stages of the sign-in process: User Route, Stack Connected, Logon, and Shell Start to Shell Ready.":::
 
 The flowchart shows the following four components:
 
