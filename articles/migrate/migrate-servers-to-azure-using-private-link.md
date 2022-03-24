@@ -173,7 +173,7 @@ For migrating Hyper-V VMs, Azure Migrate: Server Migration installs software pro
 
     - The key is valid for five days after you generate it. 
 
-    ![Screenshot of discover machines screen.](./media/how-to-use-azure-migrate-with-private-endpoints/discover-machines-hyperv.png)
+    ![Screenshot of discover machines screen.](./media/how-to-use-azure-migrate-with-private-endpoints/discover-machines-hyper-v.png)
 1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
 > [!Note]
 >Before you register the replication provider, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication provider. Additional DNS configuration may be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution) 

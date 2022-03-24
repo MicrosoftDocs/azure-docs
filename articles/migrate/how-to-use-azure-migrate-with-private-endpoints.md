@@ -54,7 +54,7 @@ To enable public network access for the Azure Migrate project, sign in to the Az
 **Virtual network requirements** | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You might need about 15 IP addresses in the virtual network.
 
 
-This three-part article series illustrates how to: 
+## Next steps
 
 - [Discover and assess servers for migration using Private Link](discover-and-assess-using-private-endpoints.md)
 - [Migrate servers to Azure using Private Link](migrate-servers-to-azure-using-private-link.md)  
