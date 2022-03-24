@@ -36,6 +36,9 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 1. Select **External Identities** > **External collaboration settings**.
 
 1. Under **Guest user access**, choose the level of access you want guest users to have:
+
+    ![guest-user-access-restrictions](https://user-images.githubusercontent.com/41442105/160011819-2c1df4fe-972a-450a-804a-b691e09116da.png)
+
   
    - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
 
