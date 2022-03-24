@@ -196,7 +196,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
 # [JavaScript](#tab/javascript)
 
-We'll use [express.js](https://expressjs.com/), a popular web framework for node.js to achieve this job.
+We'll use [express.js](https://expressjs.com/), a popular web framework for Node.js to achieve this job.
 
 First create an empty express app.
 

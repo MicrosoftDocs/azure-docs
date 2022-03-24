@@ -53,6 +53,12 @@
     items:
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Networking
+    items:
+    - name: Content Delivery Network
+      href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: DNS
+      href: ../../dns/dns-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Web
     items:
     - name: API Management

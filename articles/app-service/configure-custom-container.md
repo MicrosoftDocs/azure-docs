@@ -142,7 +142,7 @@ If the app changes compute instances for any reason, such as scaling up and down
 
 ## Configure port number
 
-By default, App Service assumes your custom container is listening on port 80. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_PORT=8000
