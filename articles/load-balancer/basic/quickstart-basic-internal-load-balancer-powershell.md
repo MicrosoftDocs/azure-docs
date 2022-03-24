@@ -15,6 +15,9 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 Get started with Azure Load Balancer by using Azure PowerShell to create an internal load balancer and two virtual machines.
 
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -292,7 +295,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
@@ -423,8 +426,6 @@ New-AzVM @vm
 7. Open **Internet Explorer** on **myTestVM**.
 
 8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Create a standard internal load balancer" border="true":::
    
 To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
@@ -450,4 +451,4 @@ In this quickstart:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
