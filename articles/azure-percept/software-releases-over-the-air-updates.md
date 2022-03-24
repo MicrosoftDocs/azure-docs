@@ -59,7 +59,7 @@ Microsoft would service each dev kit release with OTA packages. However, as ther
 ## Identify the OTA package(s) to be deployed
 
 >[!IMPORTANT]
->If the current version of you dev kit isn't included in any of the releases below, it's NOT supported for OTA update. Please do a USB cable update to get to the latest version.
+>If the current version of your dev kit isn't included in any of the releases below, it's NOT supported for OTA update. Please do a USB cable update to get to the latest version.
 
 >[!CAUTION]
 >Make sure you are using the **old version** of the Device Update for IoT Hub. To do that, navigate to **Device management > Updates** in your IoT Hub, select the **switch to the older version** link in the banner. For more information, please refer to [Update Azure Percept DK over-the-air](./how-to-update-over-the-air.md).
