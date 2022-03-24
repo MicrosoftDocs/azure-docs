@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 03/24/2022
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -55,6 +55,7 @@ With Maintenance Configurations, you can now take more control over when to appl
 
 On the details page of the maintenance configuration, click Machines and then click **Add Machine**. 
 
+[!div class="mx-imgBorder"]
 ![Screenshot showing how to assign a resource](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
 Select the resources that you want the maintenance configuration assigned to and click **Ok**. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
@@ -69,9 +70,9 @@ You can verify that the configuration was applied correctly or check to see any 
 
 ![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-host-type.png)
 
-You can also check the configuration for a specific virtual machine on its properties page. Click **Maintenance** to see the configuration assigned to that virtual machine.
+<!-- You can also check the configuration for a specific virtual machine on its properties page. Click **Maintenance** to see the configuration assigned to that virtual machine.
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-check-config.png)
+![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-check-config.png) -->
 
 ## Check for pending updates
 
