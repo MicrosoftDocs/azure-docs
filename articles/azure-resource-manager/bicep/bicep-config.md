@@ -17,7 +17,7 @@ When working with [modules](modules.md), you can add aliases for module paths. T
 
 The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations, you can override the default settings for the Bicep file validation by modifying `bicepconfig.json`. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
 
-You can also configure the credential precedence for authenticating to Azure from Bicep CLI and VSCode. The credentials are used to publish modules to registries, restore external modules to the local cache and when using the insert resource function. 
+You can also configure the credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function. 
 
 ## Credential precedence
 
