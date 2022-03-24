@@ -100,7 +100,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Enable Log Analytics for Azure Private 5G Core
-            url: enable-log-analytics-for-private-5g-core.md       
+            url: enable-log-analytics-for-private-5g-core.md
+          - text: Create an overview Log Analytics dashboard
+            url: create-overview-dashboard.md       
           - text: Export, upload and share traces for diagnostics
             url: distributed-tracing-share-traces.md
             
