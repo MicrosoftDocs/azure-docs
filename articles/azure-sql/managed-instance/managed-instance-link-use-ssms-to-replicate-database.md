@@ -33,7 +33,6 @@ To replicate your databases to SQL Managed Instance through the link feature, yo
 - A properly [prepared environment](managed-instance-link-preparation.md).
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 ## Replicate a database
 
