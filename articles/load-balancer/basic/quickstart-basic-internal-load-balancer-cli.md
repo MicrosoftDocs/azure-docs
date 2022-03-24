@@ -14,9 +14,9 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)] 
 
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -241,7 +241,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
 
 It can take a few minutes for the VMs to deploy.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Add virtual machines to the backend pool
 
@@ -385,4 +385,4 @@ In this quickstart:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
