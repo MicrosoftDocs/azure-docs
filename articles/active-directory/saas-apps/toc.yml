@@ -1086,6 +1086,8 @@
         href: inforretailinformationmanagement-tutorial.md
       - name: InformaCast
         href: informacast-tutorial.md
+      - name: Informatica Platform
+        href: informatica-platform-tutorial.md  
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -2609,6 +2611,8 @@
         href: directprint-io-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
+      - name: embed signage
+        href: embed-signage-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
       - name: Eletive
@@ -2781,6 +2785,8 @@
         href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: Palo Alto Networks SCIM Connector
+        href: palo-alto-networks-scim-connector-provisioning-tutorial.md
       - name: PaperCut Cloud Print Management
         href: papercut-cloud-print-management-provisioning-tutorial.md 
       - name: Parsable
@@ -2949,6 +2955,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Yellowbox
+        href: yellowbox-provisioning-tutorial.md
       - name: Zapier
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk

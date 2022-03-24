@@ -27,7 +27,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Add a condition
 
-To add a role assignment condition, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create). The [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command includes the following parameters related to conditions.
+To add a role assignment condition, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). The [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command includes the following parameters related to conditions.
 
 | Parameter | Type | Description |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ The following shows an example of the output:
 
 ## Edit a condition
 
-To edit an existing role assignment condition, use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) and a JSON file as input. The following shows an example JSON file where condition and description are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify all the properties to update the role assignment condition.
+To edit an existing role assignment condition, use [az role assignment update](/cli/azure/role/assignment#az-role-assignment-update) and a JSON file as input. The following shows an example JSON file where condition and description are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify all the properties to update the role assignment condition.
 
 ```json
 {
@@ -83,7 +83,7 @@ To edit an existing role assignment condition, use [az role assignment update](/
 }
 ```
 
-Use [az role assignment update](/cli/azure/role/assignment#az_role_assignment_update) to update the condition for the role assignment.
+Use [az role assignment update](/cli/azure/role/assignment#az-role-assignment-update) to update the condition for the role assignment.
 
 ```azurecli
 az role assignment update --role-assignment "./path/roleassignment.json"
@@ -110,13 +110,13 @@ The following shows an example of the output:
 
 ## List a condition
 
-To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.md).
+To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.md).
 
 ## Delete a condition
 
 To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `condition-version` properties to either an empty string (`""`) or `null`.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 ## Next steps
 
