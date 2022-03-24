@@ -224,12 +224,11 @@ Create two network interfaces with [az network nic create](/cli/azure/network/ni
 
 Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create).
 
-```azurecli-interactive
+```azurecli
   az vm availability-set create \
     --name myAvailabilitySet \
     --resource-group CreateIntLBQS-rg \
-    --location westus3 
-    
+    --location westus3  
 ```
 
 ### Create the virtual machines
@@ -271,45 +270,6 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
    --lb-name myLoadBalancer
   done
 
-```
-## Create NAT gateway
-
-To provide outbound internet access for resources in the backend pool, create a NAT gateway.  
-
-### Create public IP
-
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a single IP for the outbound connectivity.  
-
-```azurecli
-  az network public-ip create \
-    --resource-group CreateIntLBQS-rg \
-    --name myNATgatewayIP \
-    --sku Standard \
-    --zone 1 2 3
-```
-
-### Create NAT gateway resource
-
-Use [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create the NAT gateway resource. The public IP created in the previous step is associated with the NAT gateway.
-
-```azurecli
-  az network nat gateway create \
-    --resource-group CreateIntLBQS-rg \
-    --name myNATgateway \
-    --public-ip-addresses myNATgatewayIP \
-    --idle-timeout 10
-```
-
-### Associate NAT gateway with subnet
-
-Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
-
-```azurecli
-  az network vnet subnet update \
-    --resource-group CreateIntLBQS-rg \
-    --vnet-name myVNet \
-    --name myBackendSubnet \
-    --nat-gateway myNATgateway
 ```
 
 ## Create test virtual machine
