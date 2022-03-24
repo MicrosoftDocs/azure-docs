@@ -60,8 +60,16 @@
 - name: Cluster Management
   href: cluster-management.md
   items:
-  - name: Storage
-    href: nutanix-baremetal-storage.md
+    - name: Nutanix Clusters Management Console
+      href: nutanix-clusters-management-console.md
+    - name: Nutanix Clusters Dashboard
+      href: nutanix-clusters-dashboard.md
+    - name: Update the Cluster Capacity
+      href: update-the-cluster-capacity.md
+    - name: Manually Condemn a Node
+      href: manually-condemn-a-node.md
+    - name: Delete a Cluster
+      href: delete-a-cluster.md
 - name: Cluster Administration
   href: cluster-administration.md
   items:

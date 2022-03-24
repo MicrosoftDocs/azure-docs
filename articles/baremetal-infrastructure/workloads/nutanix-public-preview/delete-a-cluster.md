@@ -1,12 +1,12 @@
 ---
-title: Create a Virtual Machine
+title: Delete a cluster
 description: Public Preview documentation
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# Create a Virtual Machine
+# Delete a cluster
 
 Note: Ensure that you add the tags fastpathenabled: True while creating the VNets, and not 
 after the VNets are created.
