@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Prebuilt Neural TTS Voice
 
-* Released 2 new styles for public preview on fr-FR Denise: Cheerful and Sad. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Added support in public preview for the `Cheerful` and `Sad` styles with `fr-FR-DeniseNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
 * Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
 
 #### Custom Neural Voice
