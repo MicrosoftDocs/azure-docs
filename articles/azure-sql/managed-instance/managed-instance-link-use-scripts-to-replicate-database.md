@@ -190,7 +190,7 @@ The result of this operation will be a time stamp of the successful upload of th
 
 ### Get the certificate public key from SQL Managed Instance and import it to SQL Server
 
-The certificate for securing the endpoint for a SQL Managed Instance link is automatically generated. This section describes how to get the certificate public key from SQL Managed Instance, and how to import it to SQL Server.
+The certificate for securing the endpoint for a link is automatically generated. This section describes how to get the certificate public key from SQL Managed Instance, and how to import it to SQL Server.
 
 Use SSMS to connect to SQL Managed Instance. Run the stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key:
 
