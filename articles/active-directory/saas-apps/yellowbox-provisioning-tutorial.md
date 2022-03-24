@@ -47,7 +47,7 @@ Contact [Yellowbox Help desk](https://dashboard.yellowbox.app/#/help-desk) to ob
 
 ## Step 3. Add Yellowbox from the Azure AD application gallery
 
-Add Yellowbox from the Azure AD application gallery to start managing provisioning to Yellowbox. If you have previously setup Yellowbox for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Yellowbox from the Azure AD application gallery to start managing provisioning to Yellowbox. If you have previously setup Yellowbox for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -78,7 +78,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Provisioning tab automatic](common/provisioning-automatic.png)
 
 1. In the **Admin Credentials** section, input your Yellowbox Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Yellowbox. If the connection fails, ensure your Yellowbox account has Admin permissions and try again.
 
