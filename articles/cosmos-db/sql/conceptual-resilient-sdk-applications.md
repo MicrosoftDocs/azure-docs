@@ -70,7 +70,7 @@ In the table above, all the status codes marked with **Yes** should have some de
 
 ### HTTP 403
 
-The Azure Cosmos SDKs do not retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you are trying to write based on some business role. While not the most common scenarios, it is worth mentioning.
+The Azure Cosmos SDKs don't retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you're trying to write based on some business role.
 
 ### HTTP 429
 
