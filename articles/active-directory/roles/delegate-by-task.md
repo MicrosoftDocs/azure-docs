@@ -80,7 +80,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Passthrough authentication | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
+> | Passthrough authentication | [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) |  |
 > | Read all configuration | [Global Reader](../roles/permissions-reference.md#global-reader) | [Global Administrator](../roles/permissions-reference.md#global-administrator) |
 > | Seamless single sign-on | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
 
