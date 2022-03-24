@@ -261,7 +261,7 @@ FROM
 
 A new mirroring endpoint was created with certificate authentication and AES encryption enabled.
 
-### Altering an existing database mirroring endpoint
+### Alter an existing endpoint
 
 > [!NOTE]
 > Skip this step if you've just created a new mirroring endpoint. Use this step only if you're using existing availability groups with an existing database mirroring endpoint.
