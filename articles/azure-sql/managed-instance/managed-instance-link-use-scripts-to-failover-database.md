@@ -30,7 +30,7 @@ Database failover from SQL Server to SQL Managed Instance breaks the link betwee
 
 To start migrating your database to SQL Managed Instance, first stop the application workload to SQL Server during your maintenance hours. This step enables SQL Managed Instance to catch up with the database replication and make the migration to Azure without any data loss.
 
-While the database is a part of an Always On availability group, you can't set it to read-only mode. You need to ensure that your applications aren't committing transactions to SQL Server.
+While the primary database is a part of an Always On availability group, you can't set it to read-only mode. You need to ensure that your applications aren't committing transactions to SQL Server.
 
 ## Switch the replication mode from asynchronous to synchronous
 
