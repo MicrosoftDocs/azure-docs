@@ -68,13 +68,36 @@ After installing corresponding extension, create an Azure Spring Cloud instance 
 az extension add --name spring-cloud
 az spring-cloud create -n "myspringcloud" -g "myResourceGroup"
 ```
+# [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
-The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
+The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--system-assigned` parameter.
 
 ```azurecli
-az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --assign-endpoint true --assign-identity
+az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --assign-endpoint true --system-assigned
 export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
+
+# [User-assigned managed identity](#tab/user-assigned-managed-identity)
+
+- First create a user-assigned managed identity in advance with iis resource ID `$UserIdentityResourceId`.
+![Create a user-assigned managed identity](./media/enterprise/msi/app-user-mi-keyvault.jpg)
+
+    ```azurecli
+    export SERVICE_IDENTITY={principal ID of user-assigned managed identity}
+    ```
+
+- The following example creates an app named `springapp` with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
+
+    ```azurecli
+    az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --assign-endpoint true --user-assigned $UserIdentityResourceId
+    az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup"
+    ```
+
+---
+
+
+
+
 
 Make a note of the returned `url`, which will be in the format `https://<your-app-name>.azuremicroservices.io`. It will be used in the following step.
 
@@ -87,7 +110,7 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENT
 ```
 
 > [!NOTE]
-> Use `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
+> For system-assigned managed identity case, use `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
@@ -111,6 +134,11 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
     ```properties
     azure.keyvault.enabled=true
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
+    ```
+
+    For user-assigned managed identity, add one more properties:
+    ```properties
+    azure.keyvault.client-id={Client ID}
     ```
 
     > [!Note]
