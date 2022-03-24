@@ -57,7 +57,7 @@ As you run scripts from this user guide, it's important not to mistake SQL Serve
 
 ## Trust between SQL Server and SQL Managed Instance
 
-The first step in creating a SQL Managed Instance link is to establish trust between the two entities and secure the endpoints that are used for communication and encryption of data across the network. The SQL Server technology for distributed availability groups doesn't have its own database mirroring endpoint. Instead, it uses the existing database mirroring endpoint for the availability group. This is why the security and trust between the two entities need to be configured for an availability group's database mirroring endpoint.
+The first step in setting up a link is to establish trust between the two instances and secure the endpoints that are used to communicate and encrypt data across the network. Distributed availability groups use the existing availability group database mirroring endpoint, rather than having their own dedicated endpoint.  They don't have their own database mirroring endpoints. This is why security and trust need to be configured between the two entities through the availability group database mirroring endpoint.
 
 Certificate-based trust is the only supported way to secure database mirroring endpoints on SQL Server and SQL Managed Instance. If you have existing availability groups that use Windows authentication, you need to add certificate-based trust to the existing mirroring endpoint as a secondary authentication option. You can do this by using the `ALTER ENDPOINT` statement.
 
