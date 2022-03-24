@@ -199,7 +199,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 > [!NOTE] 
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-8.	To configure standard load balancer, follow these configuration steps:
+8.	To set up standard load balancer, follow these configuration steps:
 	1.	First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP configuration**, and select **Add**.
 		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
@@ -227,7 +227,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Select **OK**.
 
 
-9. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps:
+9. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
 	1.	Configure the load balancer. First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP Configuration**, and select **Add**.
 		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
