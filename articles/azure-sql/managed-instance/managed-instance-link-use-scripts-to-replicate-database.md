@@ -120,7 +120,7 @@ SELECT @PUBLICKEYENC AS PublicKeyEncoded;
 
 Save the value of `PublicKeyEncoded` from the output, because you'll need it for the next step.
 
-For the next step, use PowerShell with the installed Az.Sql module, version 3.5.1 or later. Or use Azure Cloud Shell online to run the commands, because it's always updated with the latest module versions.
+For the next step, use PowerShell with the installed [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql/3.7.1), version 3.5.1 or later. Or use Azure Cloud Shell online to run the commands, because it's always updated with the latest module versions.
   
 Run the following PowerShell script. (If you use Cloud Shell, fill out necessary user information, copy it, paste it into Cloud Shell, and then run the script.) Replace:
 
