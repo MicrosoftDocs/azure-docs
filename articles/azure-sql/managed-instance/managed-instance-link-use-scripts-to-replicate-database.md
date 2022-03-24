@@ -329,7 +329,7 @@ You've successfully modified your database mirroring endpoint for a SQL Managed 
 
 ## Availability group on SQL Server
 
-If you don't have an existing availability group, the next step is to create one on SQL Server. Create an availability group with the following parameters for a SQL Managed Instance link:
+If you don't have an existing availability group, the next step is to create one on SQL Server. Create an availability group with the following parameters for a link:
 
 -	SQL Server name
 -	Database name
