@@ -220,7 +220,7 @@ SELECT * FROM sys.certificates
 
 ## Mirroring endpoint on SQL Server
 
-If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section, "Altering an existing database mirroring endpoint."
+If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section, [Alter an existing endpoint](#alter-an-existing-endpoint)."
 
 To verify that you don't have an existing database mirroring endpoint created, use the following script:
 
