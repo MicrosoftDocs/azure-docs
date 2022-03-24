@@ -25,7 +25,6 @@ This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts 
 > - The PowerShell scripts in this article make REST API calls on the SQL Managed Instance side. 
 
 > [!NOTE]
-> For configuration on the Azure side, PowerShell scripts call the SQL Managed Instance REST API. We're planning to release support for Azure PowerShell and the Azure CLI. At that point, this article will be updated with the simplified PowerShell scripts.
 
 Database failover from SQL Server to SQL Managed Instance breaks the link between the two databases. Failover stops replication and leaves both databases in an independent state, ready for individual read/write workloads. 
 
