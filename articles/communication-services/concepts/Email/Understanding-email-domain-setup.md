@@ -10,11 +10,12 @@ ms.author: bashan
 ms.date: 02/15/2022
 ms.topic: overview
 ms.service: azure-communication-services
+ms.custom: private_preview
 ---
+> [!IMPORTANT]
+> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
+> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 # Email Domains in Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
  
 ## Email Domains 
 Domain is a unique name that appears after the @ sign in email addresses. It typically takes the form of your organization's name and brand that is recognized in public. Using your domains in email helps build credibility and reputation for email that you send. If you prefer to off board the managing domains  Azure Communication Services offers email domain that can be used to send emails on behalf if your applications.
