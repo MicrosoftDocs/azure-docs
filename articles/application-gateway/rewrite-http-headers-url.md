@@ -189,10 +189,12 @@ Application Gateway inserts an X-Forwarded-For header into all requests before i
 
 #### Modify a redirection URL
 
-The need to modify a redirection URL sometimes comes up in the context of a setup whereby Application Gateway is configured to override the hostname towards the backend.  The hostname as seen by the backend is in that case different from the hostname as seen by the browser.  In this situation, the redirect would not use the correct hostname.  This configuration is not recommended.
+Modification of a redirect URL can under certain circumstances be useful.  For example: when previously clients were redirected to a path like "/blog" but now you want to redirect them to "/updates" because of a change in content structure.  
 
 > [!WARNING]
-> The limitations and implications of such a configuration are described in [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).  The recommended setup for App Service is to follow the instructions for **"Custom Domain (recommended)"** in [Configure App Service with Application Gateway](configure-web-app.md).  Rewriting the location header on the response as described here should be considered a workaround and does not address the root cause.
+> The need to modify a redirection URL sometimes comes up in the context of a configuration whereby Application Gateway is configured to override the hostname towards the backend.  The hostname as seen by the backend is in that case different from the hostname as seen by the browser.  In this situation, the redirect would not use the correct hostname.  This configuration is not recommended.
+>
+> The limitations and implications of such a configuration are described in [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).  The recommended setup for App Service is to follow the instructions for **"Custom Domain (recommended)"** in [Configure App Service with Application Gateway](configure-web-app.md).  Rewriting the location header on the response as described in the below example should be considered a workaround and does not address the root cause.
 
 When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
