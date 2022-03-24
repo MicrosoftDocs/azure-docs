@@ -18,16 +18,10 @@ Perform the following steps to set up your Azure account and subscription:
 For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).  
 
 2.	Configure an Azure Active Directory (Azure AD) tenant with groups and users.  
-To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant. 
-
+To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant.  
 For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant. full](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant). 
 
-For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant, relative 1](~/active-directory/develop/quickstart-create-new-tenant.md). 
-
-For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant, relative 2](~/azure/active-directory/develop/quickstart-create-new-tenant.md). 
-
-
-3. Set up a new Azure subscription. Work with Nutanix to get your subscription allowlisted. 
+3. Set up a new Azure subscription. Work with Nutanix to get your subscription allowlisted.
 > [!NOTE]
 > Ensure that you set up a new Azure subscription well in advance _SN_ and that the subscription is pinned to the public preview.  
 Do not create any resource or resource group in the subscription until the subscription is pinned. 
