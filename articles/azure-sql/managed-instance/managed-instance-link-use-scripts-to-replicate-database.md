@@ -370,7 +370,6 @@ GO
 
 > One database per availability group is the current product limitation for replication to SQL Managed Instance through the link feature.
 >
-> If you get Error 1475, you'll have to create a full backup without the `COPY ONLY` option. That will start a new backup chain.
 >
 > As a best practice, we recommend ensuring that collation on SQL Server and SQL Managed Instance is the same. The reason is that depending on collation settings, names of availability groups and distributed availability groups might be case sensitive. If there's a mismatch, you might not be able to successfully connect SQL Server to SQL Managed Instance.
 
