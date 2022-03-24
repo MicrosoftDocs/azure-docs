@@ -202,6 +202,9 @@ subjects:
   name: groupObjectId
 ```
 
+> [!TIP]
+> If you want to create the RoleBinding for a single user, specify *kind: User* and replace *groupObjectId* with the user principal name (UPN) in the above sample.
+
 Create the RoleBinding using the [kubectl apply][kubectl-apply] command and specify the filename of your YAML manifest:
 
 ```console
