@@ -27,7 +27,7 @@ For each of the following networks, allocate a subnet and then identify the list
 ### Management network
 
 - Network address in Classless Inter-Domain Routing (CIDR) notation. 
--  Default gateway. 
+- Default gateway. 
 - One IP address for the Azure Stack Edge Pro device's management port. 
 - Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
 - One IP address for accessing local monitoring tools for the packet core instance.
@@ -47,13 +47,26 @@ For each of the following networks, allocate a subnet and then identify the list
 - One IP address for port 6 on the Azure Stack Edge Pro device.
 - One IP address for the packet core instance's N6 interface.
 
-### User Equipment (UE) IP address pool
+## Allocate user equipment (UE) IP address pools
 
-- IP address pool in CIDR notation. This should contain IP addresses for each UE that will be served by the private mobile network.
+Azure Private 5G Core supports the following IP address allocation methods for UEs.
+
+- Dynamic. Dynamic IP address allocation automatically assigns a new IP address to a UE each time it connects to the private mobile network. 
+
+- Static. Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you will not need to reconfigure the video analysis application with new IP addresses each time the cameras restart. You'll allocate static IP addresses to a UE as part of [provisioning its SIM](provision-sims-azure-portal.md).
+
+You can choose to support one or both of these methods for each site in your private mobile network. 
+
+For each site you're deploying, do the following:
+
+- Decide which IP address allocation methods you want to support.
+- For each method you want to support, identify an IP address pool from which IP addresses can be allocated to UEs. You'll need to provide each IP address pool in CIDR notation. 
+
+    If you decide to support both methods for a particular site, ensure that the IP address pools are of the same size and do not overlap. 
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
-You must do the following for each site you want to add to your private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
+Do the following for each site you want to add to your private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
 
 | Step No. | Description | Detailed instructions |
 |--|--|--|
