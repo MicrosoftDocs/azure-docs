@@ -38,6 +38,8 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Health probes
+      href: health-probes.md
 - name: How-to guides
   items:
     - name: Scale an app
