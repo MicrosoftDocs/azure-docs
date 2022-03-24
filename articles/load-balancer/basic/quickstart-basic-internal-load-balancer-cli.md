@@ -360,9 +360,7 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
 
 7. On **myTestVM**, open **Internet Explorer**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown on the browser.
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of the IP address in the address bar of the browser." border="true":::
+8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown in the browser.
 
 ## Clean up resources
 
