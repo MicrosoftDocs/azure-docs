@@ -21,6 +21,8 @@
       href: creating-a-my-nutanix-account.md
     - name: Onboarding Nutanix Clusters 
       href: onboarding-nutanix-clusters.md
+  - name: Azure Portal Workflow
+    href: azure-portal-workflow
 - name: User VM (UVM) Network Management 
   href: uvm-network-management.md
   items: 
