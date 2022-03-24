@@ -44,7 +44,7 @@ Use the following PowerShell script to call a REST API that changes the replicat
 
 - `<YourSubscriptionID>` with your subscription ID. 
 - `<ManagedInstanceName>` with the name of your managed instance. 
-- `<DAGName>` with the name of the distributed availability group link for which you want to get the status.
+- `<DAGName>` with the name of the distributed availability group you want to get the status for. 
 
 ```powershell
 # Run in Azure Cloud Shell
