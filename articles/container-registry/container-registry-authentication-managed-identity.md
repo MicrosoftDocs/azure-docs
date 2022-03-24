@@ -90,7 +90,7 @@ Exit the SSH session.
 
 ### Create an identity
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId

@@ -250,4 +250,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Build a node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)
+> [Build a Node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)
