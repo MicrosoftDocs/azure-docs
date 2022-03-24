@@ -123,7 +123,7 @@ AVAILABILITY GROUP ON
     (AVAILABILITY_MODE = SYNCHRONOUS_COMMIT);
 ```
 
-To validate the change of the link replication, execute the following dynamic management view. Results indicate the `SYNCHRONOUS_COMIT` state.
+To confirm you've changed the link's replication mode successfully, use the following dynamic management view. Results indicate the `SYNCHRONOUS_COMIT` state.
 
 ```sql
 -- Run on SQL Server
