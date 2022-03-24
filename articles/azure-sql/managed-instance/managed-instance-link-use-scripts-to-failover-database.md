@@ -1,5 +1,5 @@
 ---
-title: Fail over a database by using the link feature via T-SQL and PowerShell scripts
+title: Fail over database with the link via T-SQL & PowerShell scripts
 titleSuffix: Azure SQL Managed Instance
 description: Learn how to use an Azure SQL Managed Instance link with scripts to fail over a database from SQL Server to SQL Managed Instance.
 services: sql-database
