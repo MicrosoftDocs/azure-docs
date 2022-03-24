@@ -55,8 +55,9 @@ Note that:
         | **Auth Type** | Select MD5 or SHA-1. |
         | **Encryption** | Select DES (56 bit key size)[^1] or AES (AES 128 bits supported)[^2]. |
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
-        
+
 [^1] RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3)
+
 [^2] RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model
 
 5. Select **Save**.
