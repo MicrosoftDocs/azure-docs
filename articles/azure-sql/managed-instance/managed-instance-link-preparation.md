@@ -160,7 +160,7 @@ Your SQL Server version should be 15.0.4198.2 or later, the Always On availabili
 
 ### Set up database recovery and backup
 
-All databases that will be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup. Run the following code on SQL Server:
+All databases that will be replicated via the link must be in full recovery mode and have at least one backup. Run the following code on SQL Server:
 
 ```sql
 -- Run on SQL Server
