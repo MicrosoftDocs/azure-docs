@@ -20,7 +20,7 @@ ms.author: eur
 
 #### Audio Content Creation tool
 
-* Updated the file size and concurrency limit for free-tier (F0) users to make the experience consistent with SDK/Rest APIs. See [speech service quotas and limits](../../speech-services-quotas-and-limits.md#audio-content-creation-tool).
+* Updated the file size and concurrency limit for free-tier (F0) resources to make the experience consistent with the Speech SDK and APIs. See [speech service quotas and limits](../../speech-services-quotas-and-limits.md#audio-content-creation-tool).
  
 ### 2022-February release
 
