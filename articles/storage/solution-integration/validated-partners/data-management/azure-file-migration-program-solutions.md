@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: partner
 ---
 
-# Comparison matrix in Azure File Migration Program
+# Comparison Matrix for Azure File Migration Program participants
 
 The following comparison matrix shows basic functionality, and comparison of migration tools that participate in [Azure File Migration Program](https://azure.microsoft.com/blog/migrating-your-files-to-azure-has-never-been-easier/).
 
