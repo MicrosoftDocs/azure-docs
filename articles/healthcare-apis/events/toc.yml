@@ -19,9 +19,9 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Configure Diagnostic settings for Events diagnostic logs
+  - name: Configure Events diagnostic settings
     href: events-export-logs-metrics.md
-  - name: Disable Events and delete Workspaces
+  - name: Disable Events and delete workspaces
     href: events-disable-delete-workspace.md   
 - name: Concepts
   expanded: true

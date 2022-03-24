@@ -331,6 +331,19 @@ The following script is available to perform basic health check steps when troub
 
 [MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
+### How to fix the error "Service principal was not found" while running `AzureMfaNpsExtnConfigSetup.ps1` script? 
+
+If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant , it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
+
+```powershell
+import-module MSOnline
+Connect-MsolService
+New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
+```
+Once done , go to https://aad.portal.azure.com > "Enterprise Applications" > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+
+Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
+
 ### How do I verify that the client cert is installed as expected?
 
 Look for the self-signed certificate created by the installer in the cert store, and check that the private key has permissions granted to user *NETWORK SERVICE*. The cert has a subject name of **CN \<tenantid\>, OU = Microsoft NPS Extension**
