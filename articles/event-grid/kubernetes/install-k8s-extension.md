@@ -198,13 +198,13 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
         --cluster-type connectedClusters \
         --cluster-name <connected_cluster_name> \
         --resource-group <resource_group_of_connected_cluster> \
-        --name <event_grid_extension_name> 
-        --extension-type Microsoft.EventGrid 
-        --scope cluster 
-        --auto-upgrade-minor-version true 
-        --release-train Stable 
-        --release-namespace <namespace_name> 
-        --configuration-protected-settings-file protected-settings-extension.json 
+        --name <event_grid_extension_name> \
+        --extension-type Microsoft.EventGrid \
+        --scope cluster \
+        --auto-upgrade-minor-version true \
+        --release-train Stable \
+        --release-namespace <namespace_name> \
+        --configuration-protected-settings-file protected-settings-extension.json \
         --configuration-settings-file settings-extension.json    
     ```
 
