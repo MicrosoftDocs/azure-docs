@@ -25,6 +25,7 @@ This article outlines how to copy data from and to the secure FTP (SFTP) server.
 The SFTP connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Delete activity](delete-activity.md)
@@ -410,7 +411,8 @@ This table describes the behavior that results from using a file list path in th
 
 ## Mapping data flow properties
 
-When you're transforming data in mapping data flows, you can read files from SFTP in the following formats:
+When you're transforming data in mapping data flows, you can read and write files from SFTP in the following formats:
+
 - [Avro](format-avro.md#mapping-data-flow-properties)
 - [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
 - [Excel](format-excel.md#mapping-data-flow-properties)
@@ -419,21 +421,13 @@ When you're transforming data in mapping data flows, you can read files from SFT
 - [Parquet](format-parquet.md#mapping-data-flow-properties)
 - [XML](format-xml.md#mapping-data-flow-properties)
 
-and you can write files to SFTP in the following formats:
-
-- [Avro](format-avro.md#mapping-data-flow-properties)
-- [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
-- [JSON](format-json.md#mapping-data-flow-properties)
-- [ORC](format-orc.md#mapping-data-flow-properties)
-- [Parquet](format-parquet.md#mapping-data-flow-properties)
-
 Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 
 > [!Note]
 > SSH host key validation is not supported in mapping data flow now.
 
 > [!Tip]
-> Mapping data flow supports on-premises SFTP with managed virtual network. To learn how to configure it, see this [document](tutorial-managed-virtual-network-on-premise-sql-server.md). The host name in on-premises SFTP linked service is FQDN. 
+> Mapping data flow supports to access on-premises SFTP from managed virtual network. To learn the configuration, refer to this article on [How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 ### Source transformation
 
