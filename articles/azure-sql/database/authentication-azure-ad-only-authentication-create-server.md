@@ -102,7 +102,7 @@ Replace the following values in the example:
 az sql server create --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <ServerName>
 ```
 
-For more information, see [az sql server create](/cli/azure/sql/server#az_sql_server_create).
+For more information, see [az sql server create](/cli/azure/sql/server#az-sql-server-create).
 
 To check the server status after creation, see the following command:
 
@@ -343,7 +343,7 @@ Replace the following values in the example:
 az sql mi create --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <managedinstancename> --subnet /subscriptions/<Subscription ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>
 ```
 
-For more information, see [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create).
+For more information, see [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create).
 
 # [PowerShell](#tab/azure-powershell)
 
