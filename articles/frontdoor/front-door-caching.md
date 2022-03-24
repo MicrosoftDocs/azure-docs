@@ -171,6 +171,8 @@ The following request headers won't be forwarded to a backend when using caching
 
 ## Cache behavior and duration
 
+::: zone pivot="front-door-standard-premium"
+
 Cache behavior and duration can be configured in Rules Engine. Rules Engine caching configuration will always override the route configuration.
 
 * When *caching* is **disabled**, Azure Front Door doesn’t cache the response contents, irrespective of origin response directives.
@@ -183,6 +185,25 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 > [!NOTE]
 > * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your backends are offline.
 > * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. In these circumstances, Front Door will never cache the content and this action will have no effect.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+Cache behavior and duration can be configured in both the Front Door designer routing rule and in Rules Engine. Rules Engine caching configuration will always override the Front Door designer routing rule configuration.
+
+* When *caching* is **disabled**, Azure Front Door (classic) doesn’t cache the response contents, irrespective of origin response directives.
+
+* When *caching* is **enabled**, the cache behavior is different for different values of *Use cache default duration*.
+    * When *Use cache default duration* is set to **Yes**, Azure Front Door (classic) will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days.
+    * When *Use cache default duration* is set to **No**, Azure Front Door (classic) will always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
+
+> [!NOTE]
+> * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the backend has a greater TTL than the override value.
+> * Azure Front Door (classic) makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Azure Front Door (classic) might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your backends are offline.
+> 
+
+::: zone-end
 
 ## Next steps
 

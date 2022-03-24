@@ -97,7 +97,6 @@ The following key applications are included in the Office 365 client app:
 - Microsoft Whiteboard Services
 - Office Delve
 - Office Online
-- Office.com
 - OneDrive
 - Power Apps
 - Power Automate
