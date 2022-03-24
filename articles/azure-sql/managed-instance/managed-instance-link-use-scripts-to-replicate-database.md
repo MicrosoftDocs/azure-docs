@@ -14,7 +14,7 @@ ms.reviewer: mathoma, danil
 ms.date: 03/22/2022
 ---
 
-# Replicate a database by using a SQL Managed Instance link via T-SQL and PowerShell scripts
+# Replicate database with the link via T-SQL & PowerShell scripts - Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
