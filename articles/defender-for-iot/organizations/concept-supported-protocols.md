@@ -25,10 +25,11 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Emerson Fischer**     |  ROC       |
 |**Eurocontrol**     |      ASTERIX   |
 |**GE**     | Bentley Nevada (System 1)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
+|**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
 |**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA     |
 |**IEC**     |     Codesys V3<br> ICCP TASE.2/IEC-60870<br> IEC60870-5 (IEC104/101)<br> IEC60870-5-103 (encapsulated serial)<br> IEC61850 GOOSE<br> IEC61850 MMS<br> IEC61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
 |**IEEE**     |     LLC<br> STP<br> VLAN    |
-|**IETF**     |  ARP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
+|**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
 |**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
 |**Medical**     |ASTM<br> HL7         |
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
