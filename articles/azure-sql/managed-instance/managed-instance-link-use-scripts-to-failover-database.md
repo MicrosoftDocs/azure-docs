@@ -100,7 +100,7 @@ echo "Invoking API call switch Async-Sync replication mode on Managed Instance"
 Invoke-WebRequest -Method PATCH -Headers $headers -Uri $uriFull -ContentType "application/json" -Body $bodyFull
 ```
 
-### Switch the replication mode on SQL Server
+### Switch replication mode (SQL Server)
 
 Use the following T-SQL script on SQL Server to change the replication mode of the distributed availability group on SQL Server from async to sync. Replace:
 
