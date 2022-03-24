@@ -97,6 +97,7 @@ When you select an alert, this alert details pane provides details of the alert 
 :::image type="content" source="media/alerts-overview/alert-detail-pane.png" alt-text="Screenshot of alert details pane.":::
 
 The Alert details pane includes:
+
 | Section | Description |
 |:---|:---|
 | Summary | Displays the properties and other significant information about the alert. |
