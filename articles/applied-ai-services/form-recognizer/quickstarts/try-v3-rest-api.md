@@ -29,7 +29,7 @@ To learn more about Form Recognizer features and development options, visit our 
 **Document Analysis**
 * 🆕 Read—Analyze and extract printed and handwritten text lines, words, locations, and detected languages.  
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
-* * Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
+* Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
 
 **Prebuilt Models**
 * 🆕 W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
