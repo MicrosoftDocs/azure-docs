@@ -22,10 +22,12 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 
 | **Model**   | **Description**   |
 | --- | --- |
+|**Document analysis**||
 | 🆕[Read (preview)](#read-preview) | Extract printed and handwritten text lines, words, locations, and detected languages.|
+| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.|
+| [Layout](#layout)  | Extract text and layout information from documents.|
+|**Prebuilt**||
 | 🆕[W-2 (preview)](#w-2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
-| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
-| [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |

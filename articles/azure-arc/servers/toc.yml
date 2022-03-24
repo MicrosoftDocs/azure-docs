@@ -10,7 +10,7 @@
     href: agent-release-notes-archive.md
 - name: Quickstarts
   items:
-  - name: Enable Arc-enabled servers agent
+  - name: Connect a machine to Arc-enabled servers
     href: ./learn/quick-enable-hybrid-vm.md
 - name: Tutorials
   items:

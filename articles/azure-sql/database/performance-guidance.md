@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/18/2022
+ms.date: 03/22/2022
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ Once you have identified a performance issue that you are facing with Azure SQL 
 - Tune your application and apply some best practices that can improve performance.
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
-This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](database-advisor-implement-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](automatic-tuning-overview.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
+This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](database-advisor-implement-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](automatic-tuning-overview.md), if applicable. It also assumes that you have reviewed the [overview of monitoring and tuning](monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
 
 ## Tune your application
 
@@ -263,16 +263,17 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Get configuration and design tips
 
-If you use Azure SQL Database, you can execute an open-source T-SQL [script](https://aka.ms/sqldbtips) to analyze your database on demand and provide tips to improve database performance and health. Some tips suggest configuration and operational changes based on best practices, while other tips recommend design changes suitable for your workload, such as enabling advanced database engine features.
+If you use Azure SQL Database, you can execute an open-source T-SQL [script for improving database configuration and design in Azure SQL DB](https://aka.ms/sqldbtips). The script will analyze your database on demand and provide tips to improve database performance and health. Some tips suggest configuration and operational changes based on best practices, while other tips recommend design changes suitable for your workload, such as enabling advanced database engine features.
 
-To learn more about the script and get started, visit the [wiki](https://aka.ms/sqldbtipswiki) page.
+To learn more about the script and get started, visit the [Azure SQL Tips wiki](https://aka.ms/sqldbtipswiki) page.
 
 ## Next steps
 
-- Learn about the [DTU-based purchasing model](service-tiers-dtu.md).
-- Learn more about the [vCore-based purchasing model](service-tiers-vcore.md).
+- Learn about the [DTU-based purchasing model](service-tiers-dtu.md)
+- Learn more about the [vCore-based purchasing model](service-tiers-vcore.md)
 - Read [What is an Azure elastic pool?](elastic-pool-overview.md)
 - Discover [When to consider an elastic pool](elastic-pool-overview.md)
 - Read about [Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views](monitoring-with-dmvs.md)
 - Learn to [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
 - [Tune nonclustered indexes with missing index suggestions](/sql/relational-databases/indexes/tune-nonclustered-missing-index-suggestions)
+- Video: [Data Loading Best Practices on Azure SQL Database](/shows/data-exposed/data-loading-best-practices-on-azure-sql-database?WT.mc_id=dataexposed-c9-niner)
