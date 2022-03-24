@@ -196,7 +196,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 ## Next Steps
 
-The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
+The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with Node.js, follow these links to learn more about how you can extend these capabilities further.
 
 - See the MSDN Reference for [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)).
 - Visit the [Azure SDK for Node] repository on GitHub for more samples and implementation details.

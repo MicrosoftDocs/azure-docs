@@ -58,6 +58,8 @@ landingContent:
             url: .\validated-partners\data-management\partner-overview.md
           - text: Migration tools comparison
             url: ./validated-partners/data-management/migration-tools-comparison.md
+          - text: Azure File Migration Program Solutions
+            url: ./validated-partners/data-management/azure-file-migration-program-solutions.md
       - linkListType: get-started
         links:
           - text: DobiMigrate getting started guide
