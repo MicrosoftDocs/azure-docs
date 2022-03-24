@@ -79,7 +79,7 @@ The following table describes the scenarios and users for ARM and Bicep:
 ### [Azure Automation](/azure/automation/overview)
 
 Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. 
-It provides a persistent shared assets including variables, connections, objects that allows orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery)
+It provides a persistent shared assets including variables, connections, objects that allows orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
 
   **Scenarios** | **Users**
   --- | ---
@@ -178,12 +178,12 @@ Orchestrates repetitive processes using graphical, PowerShell, and Python runboo
 
   **Scenarios** | **Users**
   --- | ---
-  | Azure resource life-cycle management and governance which includes Resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on through runbooks that are triggered from ITSM alerts. </br>Use hybrid worker as a bridge from cloud to on-premises enabling resource\user management on-premise. </br> Execute complex disaster recovery workflows through Automation runbooks. </br> Execute automation runbooks as part of Logic apps workflow through Azure Automation Connector. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure Administrators managing on-premises infrastructure using scripts or executing long running jobs such as month-end operations on servers running on-premises.
+  | Azure resource life-cycle management and governance which includes Resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on through runbooks that are triggered from ITSM alerts. </br></br> Use hybrid worker as a bridge from cloud to on-premises enabling resource\user management on-premise. </br></br> Execute complex disaster recovery workflows through Automation runbooks. </br></br> Execute automation runbooks as part of Logic apps workflow through Azure Automation Connector. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure Administrators managing on-premises infrastructure using scripts or executing long running jobs such as month-end operations on servers running on-premises.
 
 
 ### Azure functions
 
-A serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform.[Learn more](/azure/azure-functions/functions-overview).
+A serverless automation platform that allows you to write code to react to critical events without worrying about the underlying platform. [Learn more](/azure/azure-functions/functions-overview).
 
   - It provides a variety of languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific pieces of code.
   - You can orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
@@ -193,4 +193,4 @@ A serverless automation platform that allows you to write code to react to criti
   | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as M365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
 
 ## Next steps
-- To learn on how to securely execute the automation jobs, see [Best practices for security in Azure Automation](/azure/automation/automation-security-guidelines).
+- To learn on how to securely execute the automation jobs, see [best practices for security in Azure Automation](/azure/automation/automation-security-guidelines).
