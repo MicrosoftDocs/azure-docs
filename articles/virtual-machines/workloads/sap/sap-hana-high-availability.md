@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/11/2022
+ms.date: 03/24/2022
 ms.author: radeltch
 
 ---
@@ -79,12 +79,10 @@ To achieve high availability, SAP HANA is installed on two virtual machines. The
 
 ![SAP HANA high availability overview](./media/sap-hana-high-availability/ha-suse-hana.png)
 
-SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+SAP HANA System Replication setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-* Front-end configuration: IP address 10.0.0.13 for hn1-db
-* Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-* Probe Port: Port 62503
-* Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP
+* Front-end IP address: 10.0.0.13 for hn1-db
+* Probe Port: 62503
 
 ## Deploy for Linux
 

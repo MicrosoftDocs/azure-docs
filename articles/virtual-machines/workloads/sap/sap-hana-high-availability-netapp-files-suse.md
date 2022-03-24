@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/23/2021
+ms.date: 03/24/2021
 ms.author: ampatel
 
 ---
@@ -88,12 +88,10 @@ Mounted on node2 (**hanadb2**)
 > [!NOTE]
 > File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.
 
-SAP high availability HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+SAP high availability HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-- Front-end configuration: IP address 10.3.0.50 for hn1-db
-- Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-- Probe Port: Port 62503
-- Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (if using Basic Azure Load balancer)  
+- Front-end configuration IP address: 10.3.0.50 for hn1-db
+- Probe Port: 62503 
 
 ## Set up the Azure NetApp File infrastructure
 
