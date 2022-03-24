@@ -23,12 +23,6 @@ This set of articles explains how to work with [Azure SQL](../azure-sql/index.ym
 >
 > This binding requires connectivity to an Azure SQL or SQL Server database.
 
-To learn more, see the following video:
-
->
-> [!VIDEO https://docs.microsoft.com/shows/data-exposed/introduction-to-azure-sql-bindings-for-azure-functions/player?WT.mc_id=dataexposed-c9-niner]
-
-
 ## Add to your Functions app
 
 ### Functions
