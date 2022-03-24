@@ -20,8 +20,8 @@ This article describes how to ingest custom logs from files using DCR.
 To use file-based custom log ingestion, you need a Log Analytics workspace with logs.
 
 For more information, see: 
-> [Create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
-> [Send Logs to Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
+- [Create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
+- [Send Logs to Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
 
 ## Create a file-based custom log
 
@@ -70,16 +70,16 @@ For more information, see [Defining a custom log](/articles/azure-monitor/agents
 
 1. Set the Data Collection Rule to be the default on the workspace. Use the following API command:
   
-  ```json
-    PUT https://management.azure.com/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>?api-version=2015-11-01-preview
-    {
-      "properties": {
-        "defaultDataCollectionRuleResourceId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.Insights/dataCollectionRules/<DCRName>"
-      },
-      "location": "eastus2euap",
-      "type": "Microsoft.OperationalInsights/workspaces"
-    }    
-    ```
+    ```json
+      PUT https://management.azure.com/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>?api-version=2015-11-01-preview
+      {
+        "properties": {
+          "defaultDataCollectionRuleResourceId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.Insights/dataCollectionRules/<DCRName>"
+        },
+        "location": "eastus2euap",
+        "type": "Microsoft.OperationalInsights/workspaces"
+      }    
+      ```
 
 1. Set the table as file-based custom log ingestion via DCR eligible, use the Custom log definition API.
 
