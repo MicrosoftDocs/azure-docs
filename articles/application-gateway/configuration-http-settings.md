@@ -103,7 +103,7 @@ An example case is multi-tenant services as the back end. An app service is a mu
 
 By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you can override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
-For a custom domain whose existing custom DNS name is mapped to the app service, you don't have to enable this setting.  As described earlier, this is usually the preferred way of working.
+For a custom domain whose existing custom DNS name is mapped to the app service, the recommended configuration is not to enable the **pick host name from backend address**.
 
 > [!NOTE]
 > This setting is not required for App Service Environment, which is a dedicated deployment.
