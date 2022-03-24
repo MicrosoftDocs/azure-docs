@@ -22,7 +22,7 @@ This article teaches you how to fail over a database from SQL Server to Azure SQ
 Failing over your database from SQL Server to SQL Managed Instance breaks the link between the two databases. It stops replication and leaves both databases in an independent state, ready for individual read/write workloads. 
 
 > [!NOTE]
-> A SQL Managed Instance link is a feature of SQL Server and is currently in preview. 
+> The link is a feature of Azure SQL Managed Instance and is currently in preview. 
 
 ## Prerequisites 
 
