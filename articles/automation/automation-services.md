@@ -50,13 +50,15 @@ Multiple Azure services can fulfil the above requirements. Each service has its 
 
 ## Deploy and manage Automation services
 
-### Azure Resource Manager template
+### Azure Resource Manager (ARM) template
 
-Azure Resource Manager provides a language to develop repeatable and consistent deployment templates for Azure resources. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. It uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. [Learn more](/azure/azure-resource-manager/templates/overview).
+ARM provides a language to develop repeatable and consistent deployment templates for Azure resources. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. It uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. [Learn more](/azure/azure-resource-manager/templates/overview).
 
 ### Bicep
 
-We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview).
+We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
+
+The following table describes the scenarios and users for ARM and Bicep.
 
   **Scenarios** | **Users**
   --- | ---
