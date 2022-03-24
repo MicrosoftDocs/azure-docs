@@ -4,13 +4,14 @@ titleSuffix: Azure Cognitive Search
 description: Migrate code to the Azure Search .NET SDK version 3 from older versions. Learn what's new and which code changes are required.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/16/2021
 ms.custom: devx-track-csharp
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Upgrade to Azure Search .NET SDK version 3

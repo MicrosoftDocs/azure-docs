@@ -100,7 +100,7 @@ You should first unpublish (remove all Streaming Locators) on the Asset via the 
 
 ### How to guides
 
-- [Get a signing key from the existing policy](drm-get-content-key-policy-dotnet-how-to.md)
+- [Get a signing key from the existing policy](drm-get-content-key-policy-how-to.md)
 - [Offline FairPlay Streaming for iOS with Media Services v3](drm-offline-fairplay-for-ios-concept.md)
 - [Offline Widevine streaming for Android with Media Services v3](drm-offline-widevine-for-android.md)
 - [Offline PlayReady Streaming for Windows 10 with Media Services v3](drm-offline-playready-streaming-for-windows-10.md)

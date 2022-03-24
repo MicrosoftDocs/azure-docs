@@ -2,7 +2,7 @@
 title: Configure data collection for the Azure Monitor agent
 description: Describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 ms.topic: conceptual
-ms.date: 03/1/2022
+ms.date: 03/16/2022
 
 ---
 
@@ -48,7 +48,7 @@ Additionally, choose the appropriate **Platform Type** which specifies the type 
 
 In the **Resources** tab, add the resources (virtual machines, virtual machine scale sets, Arc for servers) that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on resources that don't already have it installed, and will enable Azure Managed Identity as well.
 
-### Private link configuration using data collection endpoints (preview)
+### Private link configuration using data collection endpoints
 If you need network isolation using private links for collecting data using agents from your resources, simply select existing endpoints (or create a new endpoint) from the same region for the respective resource(s) as shown below. See [how to create data collection endpoint](../essentials/data-collection-endpoint-overview.md).
 
 [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
@@ -76,12 +76,16 @@ Since you're charged for any data collected in a Log Analytics workspace, you sh
 
 To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. XPath entries are written in the form `LogName!XPathQuery`. For example, you may want to return only events from the Application event log with an event ID of 1035. The XPathQuery for these events would be `*[System[EventID=1035]]`. Since you want to retrieve the events from the Application event log, the XPath would be `Application!*[System[EventID=1035]]`
 
+### Extracting XPath queries from Windows Event Viewer
+One of the ways to create XPath quries is to use Windows Event Viewer to extract XPath queries as shown below.  
+*In step 5 when pasting over the 'Select Path' parameter value, you must append the log type category followed by '!' and then paste the copied value.
+
+[![Extract XPath](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
+
 See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations) for a list of limitations in the XPath supported by Windows event log.
 
 > [!TIP]
-> Use this **shortcut** to create syntactically correct XPath queries: [Extract XPath queries from Windows Event Viewer](https://azurecloudai.blog/2021/08/10/shortcut-way-to-create-your-xpath-queries-for-azure-sentinel-dcrs/)  
-> 
-> Alternatively you can use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPathQuery. The following script shows an example.
+> You can use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPathQuery locally on your machine first. The following script shows an example.
 > 
 > ```powershell
 > $XPath = '*[System[EventID=1035]]'

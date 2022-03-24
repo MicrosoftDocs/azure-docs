@@ -140,6 +140,8 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
       ```bash
       sudo update-ca-certificates
       ```
+      This command should output that one certificate was added to /etc/ssl/certs.
+
 
     * **IoT Edge for Linux on Windows (EFLOW)**
       ```bash
@@ -148,8 +150,6 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
       For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
   
   
-    This command should output that one certificate was added to /etc/ssl/certs.
-
 1. Open the IoT Edge configuration file.
 
    ```bash
@@ -576,13 +576,13 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Open a terminal on the leaf device.
 
-1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/var/defender_iot_micro_agent/connection_string.txt`:
+1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/etc/defender_iot_micro_agent/connection_string.txt`:
 
     ```bash
-    sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
+    sudo bash -c 'echo "<connection string>" > /etc/defender_iot_micro_agent/connection_string.txt'
     ```
 
-    The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+    The `connection_string.txt` should now be located in the following path location `/etc/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 

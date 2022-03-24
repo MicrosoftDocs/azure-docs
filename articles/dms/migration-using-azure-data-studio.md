@@ -48,7 +48,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 * [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
-    - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
+    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
@@ -105,7 +105,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
     - SSIS packages
     - Server roles
     - Server audit
-- When migrating to SQL Server on Azure Virtual Machines, SQL Server 2014 and below are not supported.
+- When migrating to SQL Server on Azure Virtual Machines, SQL Server 2014 and below as target versions are not supported currently.
 - Migrating to Azure SQL Database isn't supported.
 - Azure storage accounts secured by specific firewall rules or configured with a private endpoint are not supported for migrations.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL Migration extension in Azure Data Studio and can be reused for further database migrations.

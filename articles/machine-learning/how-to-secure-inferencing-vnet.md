@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/02/2022
+ms.date: 03/07/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -241,30 +241,13 @@ az ml computetarget update aks \
 ```
 
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az-ml-computetarget-update-aks) reference.
 
 ---
 
-When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer. For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
+When __attaching an existing cluster__ to your workspace, use the `load_balancer_type` and `load_balancer_subnet` parameters of [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.aks.akscompute#azureml-core-compute-aks-akscompute-attach-configuration) to configure the load balancer.
 
-After attaching the existing cluster, you can then update the cluster to use an internal load balancer/private IP:
-
-```python
-import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
-from azureml.core.compute import AksCompute
-
-# ws = workspace object. Creation not shown in this snippet
-aks_target = AksCompute(ws,"myaks")
-
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
-# Update AKS configuration to use an internal load balancer
-update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-aks_target.update(update_config)
-# Wait for the operation to complete
-aks_target.wait_for_completion(show_output = True)
-```
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
 
 ## Enable Azure Container Instances (ACI)
 
