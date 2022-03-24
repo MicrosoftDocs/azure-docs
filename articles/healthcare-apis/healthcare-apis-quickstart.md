@@ -5,14 +5,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
 
 # Deploy Azure Health Data Services workspace using Azure portal
 
-In this article, you’ll learn how to create a workspace by deploying Azure Health Data Services through the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
+In this article, you’ll learn how to create a workspace by deploying Azure Health Data Services through the Azure portal. The workspace is a centralized logical container for all your Azure Health Data services such as FHIR services, DICOM® services, and MedTech services. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
 
 
 ## Prerequisite
@@ -66,7 +66,7 @@ Now that the workspace is created, you can:
 
 * Deploy FHIR service
 * Deploy DICOM service
-* Deploy an IoT Connector and ingest data to your FHIR service
+* Deploy a MedTech service and ingest data to your FHIR service
 * Transform your data into different formats and secondary use through our conversion and de-identification APIs
 
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article provides information on certified Defender for IoT sensor appliances. Defender for IoT can be deployed on physical and virtual appliances.
 
-This includes certified *pre-configured* appliances, on which software is already installed, and non-configured certified appliances on which you can download and install required software.
+This includes certified *pre-configured* appliances, on which software is already installed, and non-configured certified appliances, on which you can download and install required software.
 
 The article also provides specifications for an on-premises management console appliance. The on-premises management console is not available as a pre-configured appliance.
 

@@ -17,6 +17,9 @@
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: event-hubs-bicep-namespace-event-hub.md
         - name: ARM template
           displayName: Resource Manager
           href: event-hubs-resource-manager-namespace-event-hub.md
