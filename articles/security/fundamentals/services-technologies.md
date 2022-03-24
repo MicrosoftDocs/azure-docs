@@ -44,7 +44,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Storage Shared Access Signatures](../../storage/common/storage-sas-overview.md)|A shared access signature provides delegated access to resources in your storage account.  |
 |[Azure Storage Account Keys](../../storage/common/storage-account-create.md)| An access control method for Azure storage that is used for authentication when the storage account is accessed. |
 |[Azure File shares with SMB 3.0 Encryption](../../storage/files/storage-files-introduction.md)|A network security technology that enables automatic network encryption for the Server Message Block (SMB) file sharing protocol. |
-|[Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics)| A logging and metrics-generating technology for data in your storage account. |
+|[Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics)| A logging antestd metrics-generating technology for data in your storage account. |
 
 <!------>
 
