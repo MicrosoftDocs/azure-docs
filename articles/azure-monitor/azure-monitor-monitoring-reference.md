@@ -72,18 +72,15 @@ For additional reference, see a list of [all resource logs category types suppor
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor and available for query by Log Analytics. 
 
-
 |Resource Type | Notes |
 |-------|-----|
 | [Autoscale for VMs and AppService](/azure/azure-monitor/autoscale/autoscale-overview) | [Autoscale Tables](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-monitor-autoscale-settings) | |
-
 
 
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
 
 For a partial list of entires that the Azure Monitor services writes to the activity log, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#monitor).  There may be other entires not listed here.
-
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
@@ -93,46 +90,46 @@ The following schemas are in use by Azure Monitor.
 
 ### Action Groups
 
-The following schemas are in use for action groups.
+The following schemas are in use for action groups. Sme 
 
 Create Action Group
 ```json
 {
     "authorization": {
         "action": "microsoft.insights/actionGroups/write",
-        "scope": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc"
+        "scope": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc"
     },
-    "caller": "duke.kamstra@ieee.org",
+    "caller": "test.cam@ieee.org",
     "channels": "Operation",
     "claims": {
         "aud": "https://management.core.windows.net/",
-        "iss": "https://sts.windows.net/04ebb17f-c9d2-426e-881f-8fd503332aac/",
+        "iss": "https://sts.windows.net/04ebb17f-c9d2-bbbb-881f-8fd503332aac/",
         "iat": "1627074914",
         "nbf": "1627074914",
         "exp": "1627078814",
         "http://schemas.microsoft.com/claims/authnclassreference": "1",
-        "aio": "AUQAu/8TAAAAyZJhgackCVdLETN5UafFt95J8/bC1SP+tBFMusYZ3Z4PBQRZUZ4SmEkWlDevT4p7Wtr4e/R+uksbfixGGQumxw==",
+        "aio": "AUQAu/8TbbbbyZJhgackCVdLETN5UafFt95J8/bC1SP+tBFMusYZ3Z4PBQRZUZ4SmEkWlDevT4p7Wtr4e/R+uksbfixGGQumxw==",
         "altsecid": "1:live.com:00037FFE809E290F",
         "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-        "appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+        "appid": "c44b4083-3bb0-49c1-bbbb-974e53cbdf3c",
         "appidacr": "2",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "duke.kamstra@ieee.org",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Kamstra",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Duke",
-        "groups": "d734c6d5-b506-4b39-8992-88fd979076eb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "test.cam@ieee.org",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "cam",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "test",
+        "groups": "d734c6d5-bbbb-4b39-8992-88fd979076eb",
         "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
-        "ipaddr": "73.254.142.52",
-        "name": "Duke Kamstra",
+        "ipaddr": "73.254.xxx.xx",
+        "name": "test cam",
         "http://schemas.microsoft.com/identity/claims/objectidentifier": "f19e58c4-5bfa-4ac6-8e75-9823bbb1ea0a",
         "puid": "1003000086500F96",
         "rh": "0.AVgAf7HrBNLJbkKIH4_VAzMqrINAS8SwO8FJtH2XTlPL3zxYAFQ.",
         "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "SzEgbtESOKM8YsOx9t49Ds-L2yCyUR-hpIDinBsS-hk",
-        "http://schemas.microsoft.com/identity/claims/tenantid": "04ebb17f-c9d2-426e-881f-8fd503332aac",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#duke.kamstra@ieee.org",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "04ebb17f-c9d2-bbbb-881f-8fd503332aac",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#test.cam@ieee.org",
         "uti": "KuRF5PX4qkyvxJQOXwZ2AA",
         "ver": "1.0",
-        "wids": "62e90394-69f5-4237-9190-012177145e10",
+        "wids": "62e90394-bbbb-4237-9190-012177145e10",
         "xms_tcdt": "1373393473"
     },
     "correlationId": "74d253d8-bd5a-4e8d-a38e-5a52b173b7bd",
@@ -147,14 +144,14 @@ Create Action Group
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2021-07-23T21:21:22.9871449Z",
-    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/0e9bc114-dcdb-4d2d-b1ea-d3f45a4d32ea/ticks/637626720829871449",
+    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/0e9bc114-dcdb-4d2d-b1ea-d3f45a4d32ea/ticks/637626720829871449",
     "level": "Informational",
     "operationId": "74d253d8-bd5a-4e8d-a38e-5a52b173b7bd",
     "operationName": {
         "value": "microsoft.insights/actionGroups/write",
         "localizedValue": "Create or update action group"
     },
-    "resourceGroupName": "DUKEK-TEST",
+    "resourceGroupName": "testK-TEST",
     "resourceProviderName": {
         "value": "microsoft.insights",
         "localizedValue": "Microsoft Insights"
@@ -163,7 +160,7 @@ Create Action Group
         "value": "microsoft.insights/actionGroups",
         "localizedValue": "microsoft.insights/actionGroups"
     },
-    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
+    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -174,12 +171,12 @@ Create Action Group
     },
     "submissionTimestamp": "2021-07-23T21:22:22.1634251Z",
     "subscriptionId": "52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a",
-    "tenantId": "04ebb17f-c9d2-426e-881f-8fd503332aac",
+    "tenantId": "04ebb17f-c9d2-bbbb-881f-8fd503332aac",
     "properties": {
         "statusCode": "Created",
         "serviceRequestId": "33658bb5-fc62-4e40-92e8-8b1f16f649bb",
         "eventCategory": "Administrative",
-        "entity": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
+        "entity": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
         "message": "microsoft.insights/actionGroups/write",
         "hierarchy": "52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a"
     },
@@ -192,39 +189,39 @@ Delete Action Group
 {
     "authorization": {
         "action": "microsoft.insights/actionGroups/delete",
-        "scope": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/dukek-test/providers/microsoft.insights/actionGroups/TestingLogginc"
+        "scope": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testk-test/providers/microsoft.insights/actionGroups/TestingLogginc"
     },
-    "caller": "duke.kamstra@ieee.org",
+    "caller": "test.cam@ieee.org",
     "channels": "Operation",
     "claims": {
         "aud": "https://management.core.windows.net/",
-        "iss": "https://sts.windows.net/04ebb17f-c9d2-426e-881f-8fd503332aac/",
+        "iss": "https://sts.windows.net/04ebb17f-c9d2-bbbb-881f-8fd503332aac/",
         "iat": "1627076795",
         "nbf": "1627076795",
         "exp": "1627080695",
         "http://schemas.microsoft.com/claims/authnclassreference": "1",
-        "aio": "AUQAu/8TAAAATkWb9O23RavxIzqfHvA2fJUU/OjdhtHPNAjv0W4pyNnoZ3ShUOEzDut700WhNXth6ZYpd7al4XyJPACEfmtr9g==",
+        "aio": "AUQAu/8TbbbbTkWb9O23RavxIzqfHvA2fJUU/OjdhtHPNAjv0W4pyNnoZ3ShUOEzDut700WhNXth6ZYpd7al4XyJPACEfmtr9g==",
         "altsecid": "1:live.com:00037FFE809E290F",
         "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-        "appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+        "appid": "c44b4083-3bb0-49c1-bbbb-974e53cbdf3c",
         "appidacr": "2",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "duke.kamstra@ieee.org",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Kamstra",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Duke",
-        "groups": "d734c6d5-b506-4b39-8992-88fd979076eb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "test.cam@ieee.org",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "cam",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "test",
+        "groups": "d734c6d5-bbbb-4b39-8992-88fd979076eb",
         "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
-        "ipaddr": "73.254.142.52",
-        "name": "Duke Kamstra",
+        "ipaddr": "73.254.xxx.xx",
+        "name": "test cam",
         "http://schemas.microsoft.com/identity/claims/objectidentifier": "f19e58c4-5bfa-4ac6-8e75-9823bbb1ea0a",
         "puid": "1003000086500F96",
         "rh": "0.AVgAf7HrBNLJbkKIH4_VAzMqrINAS8SwO8FJtH2XTlPL3zxYAFQ.",
         "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "SzEgbtESOKM8YsOx9t49Ds-L2yCyUR-hpIDinBsS-hk",
-        "http://schemas.microsoft.com/identity/claims/tenantid": "04ebb17f-c9d2-426e-881f-8fd503332aac",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#duke.kamstra@ieee.org",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "04ebb17f-c9d2-bbbb-881f-8fd503332aac",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#test.cam@ieee.org",
         "uti": "E1BRdcfDzk64rg0eFx8vAA",
         "ver": "1.0",
-        "wids": "62e90394-69f5-4237-9190-012177145e10",
+        "wids": "62e90394-bbbb-4237-9190-012177145e10",
         "xms_tcdt": "1373393473"
     },
     "correlationId": "a0bd5f9f-d87f-4073-8650-83f03cf11733",
@@ -239,14 +236,14 @@ Delete Action Group
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2021-07-23T21:52:07.2708782Z",
-    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/dukek-test/providers/microsoft.insights/actionGroups/TestingLogginc/events/8c7c920e-6a50-47fe-b264-d762e60cc788/ticks/637626739272708782",
+    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testk-test/providers/microsoft.insights/actionGroups/TestingLogginc/events/8c7c920e-6a50-47fe-b264-d762e60cc788/ticks/637626739272708782",
     "level": "Informational",
     "operationId": "f7cb83ba-36fa-47dd-8ec4-bcac40879241",
     "operationName": {
         "value": "microsoft.insights/actionGroups/delete",
         "localizedValue": "Delete action group"
     },
-    "resourceGroupName": "dukek-test",
+    "resourceGroupName": "testk-test",
     "resourceProviderName": {
         "value": "microsoft.insights",
         "localizedValue": "Microsoft Insights"
@@ -255,7 +252,7 @@ Delete Action Group
         "value": "microsoft.insights/actionGroups",
         "localizedValue": "microsoft.insights/actionGroups"
     },
-    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/dukek-test/providers/microsoft.insights/actionGroups/TestingLogginc",
+    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testk-test/providers/microsoft.insights/actionGroups/TestingLogginc",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -266,12 +263,12 @@ Delete Action Group
     },
     "submissionTimestamp": "2021-07-23T21:54:00.1811815Z",
     "subscriptionId": "52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a",
-    "tenantId": "04ebb17f-c9d2-426e-881f-8fd503332aac",
+    "tenantId": "04ebb17f-c9d2-bbbb-881f-8fd503332aac",
     "properties": {
         "statusCode": "OK",
         "serviceRequestId": "88fe5ac8-ee1a-4b97-9d5b-8a3754e256ad",
         "eventCategory": "Administrative",
-        "entity": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/dukek-test/providers/microsoft.insights/actionGroups/TestingLogginc",
+        "entity": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testk-test/providers/microsoft.insights/actionGroups/TestingLogginc",
         "message": "microsoft.insights/actionGroups/delete",
         "hierarchy": "52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a"
     },
@@ -282,7 +279,7 @@ Delete Action Group
 Unsubscribe using Email
 ```json
 {
-    "caller": "duke.kamstra@ieee.org",
+    "caller": "test.cam@ieee.org",
     "channels": "Operation",
     "claims": {
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "",
@@ -292,7 +289,7 @@ Unsubscribe using Email
         "http://schemas.microsoft.com/identity/claims/objectidentifier": ""
     },
     "correlationId": "8f936022-18d0-475f-9704-5151c75e81e4",
-    "description": "User with email address:person@contoso.com has unsubscribed from action group:TestingLogginc, Action:DukeEmail_-EmailAction-",
+    "description": "User with email address:person@contoso.com has unsubscribed from action group:TestingLogginc, Action:testEmail_-EmailAction-",
     "eventDataId": "9b4b7b3f-79a2-4a6a-b1ed-30a1b8907765",
     "eventName": {
         "value": "",
@@ -303,14 +300,14 @@ Unsubscribe using Email
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2021-07-23T21:38:35.1687458Z",
-    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/9b4b7b3f-79a2-4a6a-b1ed-30a1b8907765/ticks/637626731151687458",
+    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/9b4b7b3f-79a2-4a6a-b1ed-30a1b8907765/ticks/637626731151687458",
     "level": "Informational",
     "operationId": "",
     "operationName": {
         "value": "microsoft.insights/actiongroups/write",
         "localizedValue": "Create or update action group"
     },
-    "resourceGroupName": "DUKEK-TEST",
+    "resourceGroupName": "testK-TEST",
     "resourceProviderName": {
         "value": "microsoft.insights",
         "localizedValue": "Microsoft Insights"
@@ -319,7 +316,7 @@ Unsubscribe using Email
         "value": "microsoft.insights/actiongroups",
         "localizedValue": "microsoft.insights/actiongroups"
     },
-    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
+    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -349,7 +346,7 @@ Unsubscribe using SMS
         "http://schemas.microsoft.com/identity/claims/objectidentifier": ""
     },
     "correlationId": "e039f06d-c0d1-47ac-b594-89239101c4d0",
-    "description": "User with phone number:4252137109 has unsubscribed from action group:TestingLogginc, Action:DukePhone_-SMSAction-",
+    "description": "User with phone number:4252137109 has unsubscribed from action group:TestingLogginc, Action:testPhone_-SMSAction-",
     "eventDataId": "789d0b03-2a2f-40cf-b223-d228abb5d2ed",
     "eventName": {
         "value": "",
@@ -360,14 +357,14 @@ Unsubscribe using SMS
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2021-07-23T21:31:47.1537759Z",
-    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/789d0b03-2a2f-40cf-b223-d228abb5d2ed/ticks/637626727071537759",
+    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/789d0b03-2a2f-40cf-b223-d228abb5d2ed/ticks/637626727071537759",
     "level": "Informational",
     "operationId": "",
     "operationName": {
         "value": "microsoft.insights/actiongroups/write",
         "localizedValue": "Create or update action group"
     },
-    "resourceGroupName": "DUKEK-TEST",
+    "resourceGroupName": "testK-TEST",
     "resourceProviderName": {
         "value": "microsoft.insights",
         "localizedValue": "Microsoft Insights"
@@ -376,7 +373,7 @@ Unsubscribe using SMS
         "value": "microsoft.insights/actiongroups",
         "localizedValue": "microsoft.insights/actiongroups"
     },
-    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
+    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -398,39 +395,39 @@ Update Action Group
 {
     "authorization": {
         "action": "microsoft.insights/actionGroups/write",
-        "scope": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc"
+        "scope": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc"
     },
-    "caller": "duke.kamstra@ieee.org",
+    "caller": "test.cam@ieee.org",
     "channels": "Operation",
     "claims": {
         "aud": "https://management.core.windows.net/",
-        "iss": "https://sts.windows.net/04ebb17f-c9d2-426e-881f-8fd503332aac/",
+        "iss": "https://sts.windows.net/04ebb17f-c9d2-bbbb-881f-8fd503332aac/",
         "iat": "1627074914",
         "nbf": "1627074914",
         "exp": "1627078814",
         "http://schemas.microsoft.com/claims/authnclassreference": "1",
-        "aio": "AUQAu/8TAAAAyZJhgackCVdLETN5UafFt95J8/bC1SP+tBFMusYZ3Z4PBQRZUZ4SmEkWlDevT4p7Wtr4e/R+uksbfixGGQumxw==",
+        "aio": "AUQAu/8TbbbbyZJhgackCVdLETN5UafFt95J8/bC1SP+tBFMusYZ3Z4PBQRZUZ4SmEkWlDevT4p7Wtr4e/R+uksbfixGGQumxw==",
         "altsecid": "1:live.com:00037FFE809E290F",
         "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-        "appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+        "appid": "c44b4083-3bb0-49c1-bbbb-974e53cbdf3c",
         "appidacr": "2",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "duke.kamstra@ieee.org",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Kamstra",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Duke",
-        "groups": "d734c6d5-b506-4b39-8992-88fd979076eb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "test.cam@ieee.org",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "cam",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "test",
+        "groups": "d734c6d5-bbbb-4b39-8992-88fd979076eb",
         "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
-        "ipaddr": "73.254.142.52",
-        "name": "Duke Kamstra",
+        "ipaddr": "73.254.xxx.xx",
+        "name": "test cam",
         "http://schemas.microsoft.com/identity/claims/objectidentifier": "f19e58c4-5bfa-4ac6-8e75-9823bbb1ea0a",
         "puid": "1003000086500F96",
         "rh": "0.AVgAf7HrBNLJbkKIH4_VAzMqrINAS8SwO8FJtH2XTlPL3zxYAFQ.",
         "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "SzEgbtESOKM8YsOx9t49Ds-L2yCyUR-hpIDinBsS-hk",
-        "http://schemas.microsoft.com/identity/claims/tenantid": "04ebb17f-c9d2-426e-881f-8fd503332aac",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#duke.kamstra@ieee.org",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "04ebb17f-c9d2-bbbb-881f-8fd503332aac",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#test.cam@ieee.org",
         "uti": "KuRF5PX4qkyvxJQOXwZ2AA",
         "ver": "1.0",
-        "wids": "62e90394-69f5-4237-9190-012177145e10",
+        "wids": "62e90394-bbbb-4237-9190-012177145e10",
         "xms_tcdt": "1373393473"
     },
     "correlationId": "5a239734-3fbb-4ff7-b029-b0ebf22d3a19",
@@ -445,14 +442,14 @@ Update Action Group
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2021-07-23T21:24:34.9424246Z",
-    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/62c3ebd8-cfc9-435f-956f-86c45eecbeae/ticks/637626722749424246",
+    "id": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc/events/62c3ebd8-cfc9-435f-956f-86c45eecbeae/ticks/637626722749424246",
     "level": "Informational",
     "operationId": "5a239734-3fbb-4ff7-b029-b0ebf22d3a19",
     "operationName": {
         "value": "microsoft.insights/actionGroups/write",
         "localizedValue": "Create or update action group"
     },
-    "resourceGroupName": "DUKEK-TEST",
+    "resourceGroupName": "testK-TEST",
     "resourceProviderName": {
         "value": "microsoft.insights",
         "localizedValue": "Microsoft Insights"
@@ -461,7 +458,7 @@ Update Action Group
         "value": "microsoft.insights/actionGroups",
         "localizedValue": "microsoft.insights/actionGroups"
     },
-    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
+    "resourceId": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
     "status": {
         "value": "Started",
         "localizedValue": "Started"
@@ -472,10 +469,10 @@ Update Action Group
     },
     "submissionTimestamp": "2021-07-23T21:25:22.1522025Z",
     "subscriptionId": "52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a",
-    "tenantId": "04ebb17f-c9d2-426e-881f-8fd503332aac",
+    "tenantId": "04ebb17f-c9d2-bbbb-881f-8fd503332aac",
     "properties": {
         "eventCategory": "Administrative",
-        "entity": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/DUKEK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
+        "entity": "/subscriptions/52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a/resourceGroups/testK-TEST/providers/microsoft.insights/actionGroups/TestingLogginc",
         "message": "microsoft.insights/actionGroups/write",
         "hierarchy": "52c65f65-bbbb-bbbb-bbbb-7dbbfc68c57a"
     },
