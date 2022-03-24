@@ -3,7 +3,7 @@
   items:
 - name: Overview
   items:
-  - name: About Defender for IoT (combine OT and IoT and key concepts)
+  - name: About Defender for IoT
     href: overview.md
   - name: What's new?
     href: release-notes.md
