@@ -115,7 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Azure AD SAML Toolkit SSO
 
-1. Open a new web browser window, if you have not registered in the Azure AD SAML Toolkit website, first register by clicking on the **Register**. If you have registered already, sign into your Azure AD SAML Toolkit company site using the registered sign in credentials.
+1. Open a new web browser window, if you have not registered in the Azure AD SAML Toolkit website, first register by clicking on the **Register**. If you have registered already, sign into your Azure AD SAML Toolkit company site using the registered sign-in credentials.
 
 	![Azure AD SAML Toolkit Register](./media/saml-toolkit-tutorial/register.png)
 
