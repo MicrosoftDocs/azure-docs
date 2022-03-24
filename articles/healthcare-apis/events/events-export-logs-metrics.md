@@ -1,18 +1,18 @@
 ---
-title: Configure Events Diagnostic settings for diagnostic logs and metrics export - Azure Health Data Services
+title: Configure Events diagnostic settings for diagnostic logs and metrics export - Azure Health Data Services
 description: This article provides resources on how to configure Events Diagnostic settings for diagnostic logs and metrics exporting.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 03/22/2022
 ms.author: jasteppe
 ---
 
-# Configure Diagnostic settings for Events diagnostics logs and metrics exporting
+# Configure Events diagnostic settings
 
-In this article, you'll be provided resources to configure the Events Diagnostic settings for Azure Event Grid system topics. 
+In this article, you'll be provided resources to configure the Events diagnostic settings for Azure Event Grid system topics. 
 
 After they're configured, Event Grid system topics diagnostic logs and metrics will be exported for audit, analysis, troubleshooting, or backup.
 

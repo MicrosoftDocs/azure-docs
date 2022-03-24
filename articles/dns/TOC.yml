@@ -17,6 +17,9 @@
       href: dns-getstarted-powershell.md
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
+    - name: Create a public zone - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: dns-get-started-bicep.md
     - name: Create a public zone - ARM Template
       displayName: Resource Manager
       href: dns-get-started-template.md
