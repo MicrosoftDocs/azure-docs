@@ -159,9 +159,9 @@ When monitoring time to connect, keep in mind the following things:
 
 - Time to connect is measured with the following checkpoints from Azure Virtual Desktop service data:
 
-  - Begins: [WVDConnection](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdconnections) state = started
+  - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
-  - Ends: [WVDCheckpoints](https://docs.microsoft.com/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
+  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
 
   For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe).
 
