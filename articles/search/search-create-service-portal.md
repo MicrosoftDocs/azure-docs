@@ -45,7 +45,7 @@ Paid (or billable) search becomes effective when you choose a billable tier (Bas
 
 1. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
 
-:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Create a resource in the portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Create a resource in the portal" border="true":::
 
 ## Choose a subscription
 
@@ -57,11 +57,11 @@ A resource group is a container that holds related resources for your Azure solu
 
 If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Cognitive Search resource. 
 
-:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Create a new resource group" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Create a new resource group" border="true":::
 
 Over time, you can track current and projected costs all-up or you can view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see when you combine multiple resources into one group.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Manage costs at the resource group level" border="false":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Manage costs at the resource group level" border="true":::
 
 > [!TIP]
 > Resource groups simplify cleanup because deleting a group deletes all of the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
@@ -120,11 +120,11 @@ Remember, a pricing tier cannot be changed once the service is created. If you n
 
 After you've provided the necessary inputs, go ahead and create the service. 
 
-:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Review and create the service" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Review and create the service" border="true":::
 
 Your service is deployed within minutes. You can monitor progress through Azure notifications. Consider pinning the service to your dashboard for easy access in the future.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitor and pin the service" border="false":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitor and pin the service" border="true":::
 
 ## Get a key and URL endpoint
 
@@ -155,7 +155,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 1. In the left-navigation pane, select **Settings** > **Scale**.
 1. Use the slidebar to add resources of either type.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Add capacity through replicas and partitions" border="false":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Add capacity through replicas and partitions" border="true":::
 
 ## When to add a second service
 
