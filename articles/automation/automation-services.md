@@ -18,7 +18,7 @@ Using these services, you can shift effort from manually performing operational 
 - Standardize operations
 
 ## Categories in Automation operations
-Automation is mainly required in three broad categories of operations.
+Automation is mainly required in three broad categories of operations:
 
 - **Deployment and management of resources** — create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules are created using an Azure Resource Manager template or an automation script.
 
@@ -57,7 +57,7 @@ ARM provides a language to develop repeatable and consistent deployment template
 
 ### Bicep
 
-We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview).
+We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
 
 The following table describes the scenarios and users for ARM and Bicep:
 
