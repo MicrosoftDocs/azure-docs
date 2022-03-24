@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 03/25/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -93,7 +93,7 @@ try {
     
                 $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
                 $content = [System.Text.Encoding]::UTF8.GetBytes($policycontent)
-                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $content -Headers $headers
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $content -Headers $headers -ContentType "application/xml; charset=utf-8"
     
                 Write-Host "Policy" $PolicyId "uploaded successfully."
             }
