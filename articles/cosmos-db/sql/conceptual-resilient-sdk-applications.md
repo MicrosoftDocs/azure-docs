@@ -11,7 +11,7 @@ ms.topic: conceptual
 # Designing resilient applications with Azure Cosmos SDKs
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-When authoring client applications that interact with Azure Cosmos through any of the Azure Cosmos SDKs, it's important to understand a few key fundamentals. This article's is a design guide to help you understand these fundamentals and design resilient applications.
+When authoring client applications that interact with Azure Cosmos through any of the Azure Cosmos SDKs, it's important to understand a few key fundamentals. This article is a design guide to help you understand these fundamentals and design resilient applications.
 
 ## Overview
 
