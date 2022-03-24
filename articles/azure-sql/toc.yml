@@ -30,16 +30,6 @@
       href: database/features-comparison.md
     - name: Multi-model features
       href: multi-model-features.md
-    - name: Scheduled maintenance
-      items:
-      - name: Maintenance window
-        href: database/maintenance-window.md
-      - name: Configure maintenance window
-        href: database/maintenance-window-configure.md
-      - name: Maintenance window FAQ
-        href: database/maintenance-window-faq.yml
-      - name: Advance notifications
-        href: database/advance-notifications.md
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
     - name: Temporal tables
@@ -50,6 +40,16 @@
       href: database/read-scale-out.md
     - name: Distributed transactions
       href: database/elastic-transactions-overview.md
+    - name: Scheduled maintenance
+      items:
+      - name: Maintenance window
+        href: database/maintenance-window.md
+      - name: Configure maintenance window
+        href: database/maintenance-window-configure.md
+      - name: Maintenance window FAQ
+        href: database/maintenance-window-faq.yml
+      - name: Advance notifications
+        href: database/advance-notifications.md
     - name: Security
       items:
       - name: Overview
@@ -159,10 +159,6 @@
 
   - name: Shared how-to's
     items:
-    - name: Job automation with elastic jobs
-      href: database/job-automation-overview.md
-    - name: Job automation with SQL Agent 
-      href: managed-instance/job-automation-managed-instance.md
     - name: Connect and query from apps
       items:
       - name: .NET with Visual Studio
@@ -228,10 +224,6 @@
         href: database/performance-guidance.md
       - name: Use DMVs to monitor performance
         href: database/monitoring-with-dmvs.md
-      - name: Understand and resolve blocking
-        href: database/understand-resolve-blocking.md
-      - name: Configure the max degree of parallelism (MAXDOP)
-        href: database/configure-max-degree-of-parallelism.md
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: In-memory OLTP
@@ -292,42 +284,8 @@
       href: database/sql-database-paas-overview.md
     - name: What's new?
       href: database/doc-changes-updates-release-notes-whats-new.md
-    - name: Try SQL Database for free
+    - name: Try for free
       href: database/free-sql-db-free-account-how-to-deploy.md
-    - name: Single databases
-      href: database/single-database-overview.md
-    - name: Elastic pools
-      href: database/elastic-pool-overview.md
-    - name: Logical servers
-      href: database/logical-servers.md
-    - name: Purchasing models
-      items: 
-      - name: Overview
-        href: database/purchasing-models.md
-      - name: vCore model
-        displayName: provisioned compute tier
-        href: database/service-tiers-sql-database-vcore.md
-      - name: DTU model 
-        href: database/service-tiers-dtu.md
-    - name: Service tiers
-      items: 
-      - name: Serverless
-        href: database/serverless-tier-overview.md
-      - name: Hyperscale
-        items: 
-        - name: Overview
-          href: database/service-tier-hyperscale.md
-        - name: FAQ
-          displayName: Frequently asked questions
-          href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
-        - name: Replicas
-          href: database/service-tier-hyperscale-replicas.md
-        - name: Replicas FAQ
-          displayName: Frequently asked questions
-          href: database/service-tier-hyperscale-named-replicas-faq.yml
-
-    - name: Plan and manage costs 
-      href: database/cost-management.md
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md
@@ -397,85 +355,45 @@
       - name: Configure security for named replicas
         href: database/hyperscale-named-replica-security-configure.md
 
-  - name: Migration guides
-    items: 
-    - name: From Access
-      href: migration-guides/database/access-to-sql-database-guide.md
-    - name: From Db2
-      href: migration-guides/database/db2-to-sql-database-guide.md
-    - name: From Oracle
-      href: migration-guides/database/oracle-to-sql-database-guide.md
-    - name: From MySQL
-      href: migration-guides/database/mysql-to-sql-database-guide.md
-    - name: From SAP ASE 
-      href: migration-guides/database/sap-ase-to-sql-database.md
-    - name: From SQL Server
-      items: 
-      - name: Overview
-        href: migration-guides/database/sql-server-to-sql-database-overview.md
-      - name: Migrate
-        href: migration-guides/database/sql-server-to-sql-database-guide.md
-      - name: Assessment rules 
-        href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
-
-
-
   - name: Concepts
     items:
-    - name: Connectivity architecture
-      href: database/connectivity-architecture.md
-    - name: Connectivity settings
-      href: database/connectivity-settings.md
-    - name: T-SQL differences
-      href: database/transact-sql-tsql-differences-sql-server.md
-    - name: Azure Automation
-      href: database/automation-manage.md
-    - name: Elastic queries
-      href: database/elastic-query-overview.md
-    - name: Elastic transactions
-      href: database/elastic-transactions-overview.md
-
-    - name: Resource management 
+    - name: Single databases
+      href: database/single-database-overview.md
+    - name: Elastic pools
+      href: database/elastic-pool-overview.md
+    - name: Logical servers
+      href: database/logical-servers.md
+    - name: Serverless
+      href: database/serverless-tier-overview.md
+    - name: Hyperscale
       items: 
-      - name: Single database resources
-        items:
-        - name: vCore resource limits
-          href: database/resource-limits-vcore-single-databases.md
-        - name: DTU resource limits
-          href: database/resource-limits-dtu-single-databases.md
-
-      - name: Elastic pool resources
-        items:
-        - name: vCore resource limits
-          href: database/resource-limits-vcore-elastic-pools.md
-        - name: DTU resource limits
-          href: database/resource-limits-dtu-elastic-pools.md
-      - name: Logical SQL server resources
-        items:
-        - name: Database resource limits
-          href: database/resource-limits-logical-server.md
-
-    - name: Business continuity
-      items: 
-      - name: Active geo-replication
-        href: database/active-geo-replication-overview.md
-      - name: Auto-failover groups
-        href: database/auto-failover-group-sql-db.md
-      - name: Outage recovery guidance
-        href: database/disaster-recovery-guidance.md
-      - name: Recovery drills
-        href: database/disaster-recovery-drills.md
-
-    - name: SQL Data Sync
-      items:
       - name: Overview
-        href: database/sql-data-sync-data-sql-server-sql-database.md
-      - name: Data Sync Agent
-        href: database/sql-data-sync-agent-overview.md
-      - name: Best practices for Data Sync
-        href: database/sql-data-sync-best-practices.md
-      - name: Troubleshoot Data Sync
-        href: database/sql-data-sync-troubleshoot.md
+        href: database/service-tier-hyperscale.md
+      - name: FAQ
+        displayName: Frequently asked questions
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+      - name: Replicas
+        href: database/service-tier-hyperscale-replicas.md
+      - name: Replicas FAQ
+        displayName: Frequently asked questions
+        href: database/service-tier-hyperscale-named-replicas-faq.yml
+
+    - name: Purchasing models
+      items: 
+      - name: Overview
+        href: database/purchasing-models.md
+      - name: vCore model
+        displayName: provisioned compute tier
+        href: database/service-tiers-sql-database-vcore.md
+      - name: DTU model 
+        href: database/service-tiers-dtu.md
+
+    - name: Connectivity
+      items: 
+      - name: Connectivity architecture
+        href: database/connectivity-architecture.md
+      - name: Connectivity settings
+        href: database/connectivity-settings.md
 
     - name: Security
       items:
@@ -527,12 +445,38 @@
         - name: Server roles
           href: database/security-server-roles.md
 
+
+    - name: Business continuity
+      items: 
+      - name: Active geo-replication
+        href: database/active-geo-replication-overview.md
+      - name: Auto-failover groups
+        href: database/auto-failover-group-sql-db.md
+      - name: Outage recovery guidance
+        href: database/disaster-recovery-guidance.md
+      - name: Recovery drills
+        href: database/disaster-recovery-drills.md
+
+    - name: SQL Data Sync
+      items:
+      - name: Overview
+        href: database/sql-data-sync-data-sql-server-sql-database.md
+      - name: Data Sync Agent
+        href: database/sql-data-sync-agent-overview.md
+      - name: Best practices for Data Sync
+        href: database/sql-data-sync-best-practices.md
+      - name: Troubleshoot Data Sync
+        href: database/sql-data-sync-troubleshoot.md
+
+
     - name: Database sharding
       items:
       - name: Database sharding
         href: database/elastic-scale-introduction.md
-      - name: Glossary
-        href: database/elastic-scale-glossary.md
+      - name: Elastic transactions
+        href: database/elastic-transactions-overview.md
+      - name: Elastic queries
+        href: database/elastic-query-overview.md
       - name: Elastic client library
         href: database/elastic-database-client-library.md
       - name: Shard maps
@@ -545,10 +489,55 @@
         href: database/elastic-scale-overview-split-and-merge.md
       - name: Elastic tools FAQ
         href: database/elastic-scale-faq.yml
+      - name: Glossary
+        href: database/elastic-scale-glossary.md
+
+    - name: Resource limits 
+      items: 
+      - name: Logical server limits
+        href: database/resource-limits-logical-server.md
+      - name: Single database resources
+        items:        
+        - name: vCore resource limits
+          href: database/resource-limits-vcore-single-databases.md
+        - name: DTU resource limits
+          href: database/resource-limits-dtu-single-databases.md
+      - name: Elastic pool resources
+        items:
+        - name: vCore resource limits
+          href: database/resource-limits-vcore-elastic-pools.md
+        - name: DTU resource limits
+          href: database/resource-limits-dtu-elastic-pools.md
+
+  - name: Migration guides
+    items: 
+    - name: From Access
+      href: migration-guides/database/access-to-sql-database-guide.md
+    - name: From Db2
+      href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From Oracle
+      href: migration-guides/database/oracle-to-sql-database-guide.md
+    - name: From MySQL
+      href: migration-guides/database/mysql-to-sql-database-guide.md
+    - name: From SAP ASE 
+      href: migration-guides/database/sap-ase-to-sql-database.md
+    - name: From SQL Server
+      items: 
+      - name: Overview
+        href: migration-guides/database/sql-server-to-sql-database-overview.md
+      - name: Migrate
+        href: migration-guides/database/sql-server-to-sql-database-guide.md
+      - name: Assessment rules 
+        href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
 
   - name: How to
     href: database/how-to-content-reference-guide.md
     items:
+    - name: T-SQL differences
+      href: database/transact-sql-tsql-differences-sql-server.md
+
+    - name: Plan and manage costs 
+      href: database/cost-management.md
     - name: Connect and query
       href: database/connect-query-content-reference-guide.md
       items:
@@ -576,7 +565,7 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 
     - name: Manage
-      items:         
+      items:
       - name: Management API reference
         href: database/single-database-manage.md
       - name: DNS alias PowerShell
@@ -599,6 +588,22 @@
         href: database/hyperscale-performance-diagnostics.md
       - name: Block T-SQL CRUD
         href: database/block-crud-tsql.md
+      - name: Azure Automation
+        href: database/automation-manage.md
+      - name: Elastic jobs (preview)
+        items:
+        - name: Job automation with elastic jobs
+          href: database/job-automation-overview.md
+        - name: Configure jobs
+          href: database/elastic-jobs-overview.md
+        - name: Create and manage (PowerShell)
+          href: database/elastic-jobs-powershell-create.md
+        - name: Create and manage (T-SQL)
+          href: database/elastic-jobs-tsql-create-manage.md
+        - name: Migrate (from old Elastic jobs)
+          href: database/elastic-jobs-migrate.md
+
+
     - name: Secure 
       items: 
       - name: Audit to storage account behind VNet or firewall
@@ -654,7 +659,10 @@
         href: database/stream-data-stream-analytics-integration.md
       - name: Diagnose and troubleshoot high CPU
         href: database/high-cpu-diagnose-troubleshoot.md
-
+      - name: Understand and resolve blocking
+        href: database/understand-resolve-blocking.md
+      - name: Configure the max degree of parallelism (MAXDOP)
+        href: database/configure-max-degree-of-parallelism.md
 
     - name: Load and move data 
       items: 
@@ -710,16 +718,7 @@
         href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs (preview)
-      items:
-      - name: Configure jobs
-        href: database/elastic-jobs-overview.md
-      - name: Create and manage (PowerShell)
-        href: database/elastic-jobs-powershell-create.md
-      - name: Create and manage (T-SQL)
-        href: database/elastic-jobs-tsql-create-manage.md
-      - name: Migrate (from old Elastic jobs)
-        href: database/elastic-jobs-migrate.md
+
 
     - name: Design data applications
       items:
@@ -1185,9 +1184,11 @@
   - name: How to
     items:
     - name: How-to documentation
-      href: managed-instance/how-to-content-reference-guide.md
+      href: managed-instance/how-to-content-reference-guide.md      
     - name: Connect applications
       href: managed-instance/connect-application-instance.md
+    - name: Job automation with SQL Agent 
+      href: managed-instance/job-automation-managed-instance.md
     - name: Configure settings
       items: 
       - name: Customize time zone

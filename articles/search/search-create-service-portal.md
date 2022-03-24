@@ -172,18 +172,27 @@ A second service is not required for high availability. High availability for qu
 
 Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
 
-1. Sign in to the Azure portal, and find your search service.
+1. Sign in to the Azure portal and find your search service.
+
 1. On the left-navigation pane, scroll down and select **New Support Request.**
-1. For **issue type**, choose **Service and subscription limits (quotas).**
+
+1. In **Issue type**, choose **Service and subscription limits (quotas).**
+
 1. Select the subscription that needs more quota.
-1. Under **Quota type**, select **Search**. Then select **Next**.
+
+1. Under **Quota type**, select **Search** and then select **Next**.
+
 1. In the **Problem details** section, select **Enter details**.
-1. Follow the prompts to select location and tier.
-1. Add the new limit you would like on the subscription. The value must not be empty and must between 0 to 100.
-   For example: The maximum number of S2 services is 8 and you would like to have 12 services, then request to add 4 of S2 services."
+
+1. Follow the prompts to select the location and tier for which you want to increase the limit.
+
+1. Add the number of new services you would like to add to your quota. The value must not be empty and must between 0 to 100. For example, the maximum number of S2 services is 8. If you want 12 services, you would request 4 of S2 services.
+
 1. When you're finished, select **Save and continue** to continue creating your support request.
-1. Complete the rest of the additional information requested, and then select **Next**.
-1. On the **review + create** screen, review the details that you'll send to support, and then select **Create**. 
+
+1. Provide the additional information required to file the request, and then select **Next**.
+
+1. On **Review + create**, review the details that you'll send to support, and then select **Create**. 
 
 ## Next steps
 

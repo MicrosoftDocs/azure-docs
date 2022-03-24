@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
 
-### March 08, 2022
+## March 08, 2022
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
@@ -27,7 +27,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |Arc enabled Kubernetes helm chart extension version|1.1.18911000|
 |Arc Data extension for Azure Data Studio|1.0|
 
-### February 25, 2022
+## February 25, 2022
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
@@ -38,7 +38,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |Arc enabled Kubernetes helm chart extension version|1.1.18791000|
 |Arc Data extension for Azure Data Studio|1.0|
 
-### January 27, 2022
+## January 27, 2022
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
@@ -49,7 +49,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |Arc enabled Kubernetes helm chart extension version|1.1.18501004|
 |Arc Data extension for Azure Data Studio|1.0|
 
-### December 16, 2021
+## December 16, 2021
 
 The following table describes the components in this release.
 
