@@ -194,9 +194,9 @@ flowchart LR
 
 The flowchart shows the following four components:
 
-- User route: the time that passes from when the user selects the Azure Virtual Desktop icon to launch a session to when the service identifies a host to connect to. High network load, high service load, or unique network traffic routing can lead to high routing times. To troubleshoot user route issues, look at your network paths.
+- User route: the time it takes from when the user selects the Azure Virtual Desktop icon to launch a session to when the service identifies a host to connect to. High network load, high service load, or unique network traffic routing can lead to high routing times. To troubleshoot user route issues, look at your network paths.
 
-- Stack connected: the time that passes from when the service resolves a target session host for the user to when the service establishes a connection between the session host and the user’s remote client. Like user routing, the network load, server load, or unique network traffic routing can affect connection time. For this component, you'll also need to pay attention to your network routing. To reduce connection time, make sure you've appropriately configured all proxy configurations on both the client and session hosts, and that routing to the service is optimal.
+- Stack connected: the time it takes from when the service resolves a target session host for the user to when the service establishes a connection between the session host and the user’s remote client. Like user routing, the network load, server load, or unique network traffic routing can affect connection time. For this component, you'll also need to pay attention to your network routing. To reduce connection time, make sure you've appropriately configured all proxy configurations on both the client and session hosts, and that routing to the service is optimal.
 
 - Logon: the time it takes between when a connection to a host is established to when the shell starts to load. Logon time includes several processes that can contribute to high connection times. You can view data for the "logon" stage in Insights to see if there are unexpected peaks in average times.
 
