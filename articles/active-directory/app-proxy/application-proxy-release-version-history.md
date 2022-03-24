@@ -34,10 +34,10 @@ March 22, 2022: Released for download. This version is only available for instal
 
 ### New features and improvements
 
-- Number of HTTP headers supported on a HTTP requests increased from 41 to 60.
-- Improved error handling of SSL failures from the connector towards Azure Services.
-- Default connection limit set to 200 for connector traffic when going through outbound proxy. See [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md#use-the-outbound-proxy-server) for more details.
-- Deprecated use of ADAL and implemented MSAL as part of connector installation flow.
+- Increased the number of HTTP headers supported on HTTP requests from 41 to 60.
+- Improved error handling of SSL failures between the connector and Azure services.
+- Updated the default connection limit to 200 for connector traffic when going through outbound proxy. To learn more about outbound proxy, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md#use-the-outbound-proxy-server).
+- Deprecated the use of ADAL and implemented MSAL as part of the connector installation flow.
 
 ### Fixed issues
 - Return original error code and response instead of a 400 Bad Request code for failing websocket connect attempts.
