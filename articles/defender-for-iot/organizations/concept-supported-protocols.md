@@ -16,7 +16,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 
 |Brand  |Protocols  |
 |---------|---------|
-|**ABB**     |   IEC61850 MMS (including ABB extension)      |
+|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)      |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
@@ -24,7 +24,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Emerson**     |   DeltaV<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
 |**Eurocontrol**     |      ASTERIX   |
-|**GE**     | Bentley Nevada (System 1)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
+|**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
 |**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA     |
 |**IEC**     |     Codesys V3<br> ICCP TASE.2/IEC-60870<br> IEC60870-5 (IEC104/101)<br> IEC60870-5-103 (encapsulated serial)<br> IEC61850 GOOSE<br> IEC61850 MMS<br> IEC61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
 |**IEEE**     |     LLC<br> STP<br> VLAN    |
@@ -40,7 +40,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
-|**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
+|**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> Vnet/IP      |
 
