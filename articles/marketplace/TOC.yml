@@ -430,7 +430,9 @@
   - name: Update existing offer
     href: update-existing-offer.md   
   - name: Update offer pricing
-    href: price-changes.md   
+    href: price-changes.md
+  - name: Update offer pricing FAQ
+    href: price-changes-faq.yml
 - name: Sell and market your offer
   items: 
   - name: Marketing best practices
