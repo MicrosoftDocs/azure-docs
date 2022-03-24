@@ -15,9 +15,9 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance control lets you decide when to apply updates to your isolated VMs and Azure Dedicated Hosts. This topic covers the Azure portal options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+With Maintenance Configurations, you can now take more control over when to apply updates to your isolated VMs and Azure Dedicated Hosts. This topic covers the Azure portal options for creating Maintenance Configurations. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
-## Create a maintenance configuration
+## Create a Maintenance Configuration
 
 1. Sign in to the Azure portal.
 
@@ -25,22 +25,22 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
     
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-search-bar.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
 
-1. Click **Add**.
+1. Click **Create**.
 
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-2.png" alt-text="Screenshot showing how to add a maintenance configuration":::
 
-1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select *Host* for the scope. Click **Next**.
+1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the scopes we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
     
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
-1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window you no longer have to apply the updates manually. Click **Next**. 
+1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence if your resource requires it. Once you create a scheduled window you no longer have to apply the updates manually. Click **Next**. 
 
     > [!IMPORTANT]
-    > Maintenance window **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to repeat at least once in 35-days. 
+    > Maintenance window **duration** must be *2 hours* or longer. 
 
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-schedule-tab.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
 
-1. In the Assignment tab, assign resources now or skip this step and assign resources later after maintenance configuration deployment. Click **Next**.
+1. In the Machines tab, assign resources now or skip this step and assign resources later after maintenance configuration deployment. Click **Next**.
 
 1. Add tags and values. Click **Next**.
     
@@ -53,11 +53,11 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 
 ## Assign the configuration
 
-On the details page of the maintenance configuration, click Assignments and then click **Assign resource**. 
+On the details page of the maintenance configuration, click Machines and then click **Add Machine**. 
 
 ![Screenshot showing how to assign a resource](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Select the resources that you want the maintenance configuration assigned to and click **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure Dedicated Host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
+Select the resources that you want the maintenance configuration assigned to and click **Ok**. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
 
 <!---Shantanu to add details about the error case--->
 
@@ -65,7 +65,7 @@ Select the resources that you want the maintenance configuration assigned to and
 
 ## Check configuration
 
-You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**. The **Type** column shows whether the configuration is assigned to an isolated VM or Azure Dedicated Host. 
+You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**.
 
 ![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-host-type.png)
 
@@ -75,15 +75,15 @@ You can also check the configuration for a specific virtual machine on its prope
 
 ## Check for pending updates
 
-There are also two ways to check if updates are pending for a maintenance configuration. In **Maintenance Configurations**, on the details for the configuration, click **Assignments** and check **Maintenance status**.
+You can check if there are any updates pending for a maintenance configuration. In **Maintenance Configurations**, on the details for the configuration, click **Machines** and check **Maintenance status**.
 
 ![Screenshot showing how to check pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending.png)
 
-You can also check a specific host using **Virtual Machines** or properties of the dedicated host. 
+<!-- You can also check a specific host using **Virtual Machines** or properties of the dedicated host. 
 
-![Screenshot that shows the highlighted maintenance state.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Screenshot that shows the highlighted maintenance state.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png) -->
 
-## Apply updates
+<!-- ## Apply updates
 
 You can apply pending updates on demand. On the VM or Azure Dedicated Host details, click **Maintenance** and click **Apply maintenance now**. Apply update calls can take upto 2 hours to complete.
 
@@ -93,7 +93,7 @@ You can apply pending updates on demand. On the VM or Azure Dedicated Host detai
 
 You can check on the progress of the updates for a configuration in **Maintenance Configurations** or using **Virtual Machines**. On the VM details, click **Maintenance**. In the following example, the **Maintenance state** shows an update is **Pending**.
 
-![Screenshot showing how to check status of pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-status.png)
+![Screenshot showing how to check status of pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-status.png) -->
 
 ## Delete a maintenance configuration
 

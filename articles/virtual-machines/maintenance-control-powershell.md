@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance control lets you decide when to apply platform updates to the host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+Maintenance Control lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
 If you are looking for information about Maintenance Control for scale sets, see [Maintenance Control for virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
  
@@ -85,7 +85,7 @@ $config = New-AzMaintenanceConfiguration `
    -RecurEvery "Month Fourth Monday"
 ```
 > [!IMPORTANT]
-> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
+> Maintenance **duration** must be *2 hours* or longer.
 
 Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
  - **daily**- RecurEvery "Day" **or** "3Days" 
