@@ -180,7 +180,7 @@ A managed identity must be paired with an Azure role that determines permissions
 
 + Data reader permissions are needed for indexer data connections and for accessing a customer-managed key in Azure Key Vault.
 
-+ Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting session data, caching, and long-term content storage. These features include: enrichment cache amd knowledge store.
++ Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting session data, caching, and long-term content storage. These features include: enrichment cache and knowledge store.
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps are similar.
 
