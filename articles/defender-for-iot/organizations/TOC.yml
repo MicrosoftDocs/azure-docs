@@ -23,12 +23,12 @@
     href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:
+    - name: System architecture
+      href: architecture.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: OT security system architecture
       items:
-      - name: Agentless solution architecture
-        href: architecture.md
       - name: OT sensor connection methods
         href: architecture-connections.md
       - name: OT system requirements
