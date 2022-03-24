@@ -1,23 +1,25 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
+description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
 author: dlepow
-ms.topic: article
-ms.date: 07/19/2021
+ms.topic: reference
+ms.date: 03/07/2022
 ms.service: api-management
 ms.author: danlep
 ---
 
 # API Management advanced policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for advanced API Management policies, such as those that are based on policy expressions. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## <a name="AdvancedPolicies"></a> Advanced policies
 
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
--   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
+-   [Log to event hub](#log-to-eventhub) - Sends messages in the specified format to an event hub defined by a Logger entity.
 -   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
@@ -34,6 +36,8 @@ This topic provides a reference for the following API Management policies. For i
 ## <a name="choose"></a> Control flow
 
 The `choose` policy applies enclosed policy statements based on the outcome of evaluation of Boolean expressions, similar to an if-then-else or a switch construct in a programming language.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### <a name="ChoosePolicyStatement"></a> Policy statement
 
@@ -143,6 +147,8 @@ The `forward-request` policy forwards the incoming request to the backend servic
 > [!NOTE]
 > Removing this policy results in the request not being forwarded to the backend service and the policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -193,7 +199,7 @@ This operation level policy uses the `base` element to inherit the backend polic
 
 #### Example
 
-This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with a error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
+This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with an error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
 
 ```xml
 <!-- operation level -->
@@ -257,7 +263,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="LimitConcurrency"></a> Limit concurrency
 
-The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with the `429` Too Many Requests status code.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### <a name="LimitConcurrencyStatement"></a> Policy statement
 
@@ -306,12 +314,15 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy scopes:** all scopes
 
-## <a name="log-to-eventhub"></a> Log to Event Hub
+## <a name="log-to-eventhub"></a> Log to event hub
 
-The `log-to-eventhub` policy sends messages in the specified format to an Event Hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
+The `log-to-eventhub` policy sends messages in the specified format to an event hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
 
 > [!NOTE]
 > For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](./api-management-howto-log-event-hubs.md).
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -367,6 +378,8 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 > [!NOTE]
 > * Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
 > * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -438,6 +451,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `mock-response`, as the name implies, is used to mock APIs and operations. It aborts normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, whenever available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -481,6 +497,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="Retry"></a> Retry
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -550,6 +569,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `return-response` policy aborts pipeline execution and returns either a default or custom response to the caller. Default response is `200 OK` with no body. Custom response can be specified via a context variable or policy statements. When both are provided, the response contained within the context variable is modified by the policy statements before being returned to the caller.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -599,6 +621,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="SendOneWayRequest"></a> Send one way request
 
 The `send-one-way-request` policy sends the provided request to the specified URL without waiting for a response.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -673,6 +698,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="SendRequest"></a> Send request
 
 The `send-request` policy sends the provided request to the specified URL, waiting no longer than the set timeout value.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -761,6 +789,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -802,6 +833,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="SetRequestMethod"></a> Set request method
 
 The `set-method` policy allows you to change the HTTP request method for a request.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -858,6 +892,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `set-status` policy sets the HTTP status code to the specified value.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -906,6 +943,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="set-variable"></a> Set variable
 
 The `set-variable` policy declares a [context](api-management-policy-expressions.md#ContextVariables) variable and assigns it a value specified via an [expression](api-management-policy-expressions.md) or a string literal. if the expression contains a literal it will be converted to a string and the type of the value will be `System.String`.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### <a name="set-variablePolicyStatement"></a> Policy statement
 
@@ -985,6 +1025,9 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 -   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -1033,6 +1076,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="Wait"></a> Wait
 
 The `wait` policy executes its immediate child policies in parallel, and waits for either all or one of its immediate child policies to complete before it completes. The wait policy can have as its immediate child policies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), and [Control flow](api-management-advanced-policies.md#choose) policies.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -1099,11 +1145,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound, outbound, backend
 -   **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Policy expressions](api-management-policy-expressions.md)
--   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

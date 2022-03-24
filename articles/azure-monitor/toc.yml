@@ -760,6 +760,10 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
+    - name: Troubleshooting
+      items:
+      - name: Error retrieving data in Portal
+        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items: 
       - name: Overview

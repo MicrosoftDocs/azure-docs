@@ -141,7 +141,7 @@ Command group 'iot central device' is in preview and under development. Referenc
 }
 ```
 
-To learn more about the CLI command, see [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover).
+To learn more about the CLI command, see [az iot central device manual-failover](/cli/azure/iot/central/device#az-iot-central-device-manual-failover).
 
 You can now check that telemetry from the device still reaches your IoT Central application.
 
