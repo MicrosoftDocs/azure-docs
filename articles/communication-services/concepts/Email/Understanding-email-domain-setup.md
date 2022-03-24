@@ -27,10 +27,6 @@ You can add a free Azure Subdomain to your email communication resource and you 
 ### Custom Domains
 In this options you are adding a domain that you already own.You have to add your domain and verify the ownership to send email and then configure for required Authentication Support. 
 
-Please follow the steps [here](../../quickstarts/Email/setup-email-authentication.md) to configure email authentication for your domain.
-
-### Choosing the Domain type
-You can choose the experience that works best for your business. You can start to use the Azure managed domain option for now and switch to a custom domain later.
 
 ## Email Authentication for Domains
 
@@ -42,7 +38,10 @@ SPF RFC 7208 is a mechanism that allows domain owners to publish and maintain, v
 ### DKIM (Domain Keys Identified Mail)
 DKIM RFC 6376(https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient. Azure Commnication Services allows you to configure the required DKIM records that needs to be added to your DNS via Portal experience or through Control Plane operations for your custom domains.
 
-To Learn more on Email Authentication Best Practices click [here](./email-authentication-bestpractice.md)  
+Please follow the steps [here](../../quickstarts/Email/setup-email-authentication.md) to configure email authentication for your domain.
+
+## Choosing the Domain type
+You can choose the experience that works best for your business. You can start to use the Azure managed domain option for now and switch to a custom domain later.
 
 ## How to connect a Domain to Send email
 Email Communication Service resources are designed to enable domain validation steps as decoupled as possible from  application integration. Application Integration linked with Azure Communication Service and each communication service will be allowed to be linked with one of verified domains from Email Communication Services. Please follow the steps [here](../../quickstarts/Email/connect-email-communication-acs-resource.md) to connect your verified domains. To switch from one verified domain to other you need to follow the steps [here](../../quickstarts/Email/connect-email-communication-acs-resource.md) to disconnect the domain and connect a different domain.  
