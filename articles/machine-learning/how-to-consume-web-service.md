@@ -78,7 +78,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
-If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az_ml_service_show) command:
+If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az-ml-service-show) command:
 
 ```azurecli
 az ml service show -n <service-name>
