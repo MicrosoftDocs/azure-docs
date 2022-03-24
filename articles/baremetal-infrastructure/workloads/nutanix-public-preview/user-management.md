@@ -1,12 +1,12 @@
 ---
-title: Create a virtual network and subnet in Azure
+title: User Management
 description: Public Preview documentation
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# Create a virtual network and subnet in Azure
+# User Management
 
 Note: Ensure that you add the tags fastpathenabled: True while creating the VNets, and not 
 after the VNets are created.

@@ -1,12 +1,12 @@
 ---
-title: Azure Portal Workflow 
+title: Cluster administration 
 description: Public Preview
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# Azure Portal Workflow  
+# Cluster administration 
 
 The articles in this section identify tasks you must perform in the Azure portal.
 This section assumes prior knowledge of the Azure subscriptions, resource groups, and Azure 
