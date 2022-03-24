@@ -27,7 +27,7 @@ High availability and named replicas share the same storage components, so no da
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
-:::image type="content" source="./media/service-tier-Hyperscale/Hyperscale-architecture.png" alt-text="Hyperscale's compute tier consists of a primary compute note and secondary compute nodes, each with RBPEX data cache. The log service communicates both with compute notes and page servers. Page servers exist in their own tier, and also have RBPEX data cache." lightbox="./media/service-tier-Hyperscale/Hyperscale-architecture.png":::
+:::image type="content" source="./media/service-tier-Hyperscale/Hyperscale-architecture.png" alt-text="Diagram that shows that Hyperscale's compute tier consists of a primary compute note and secondary compute nodes, each with RBPEX data cache. The log service communicates both with compute notes and page servers. Page servers exist in their own tier, and also have RBPEX data cache." lightbox="./media/service-tier-Hyperscale/Hyperscale-architecture.png":::
 
 A Hyperscale database contains the following types of components: compute nodes, page servers, the log service, and Azure storage.
 

@@ -31,7 +31,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
 
-    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-resource.png" alt-text="The Azure SQL page in the Azure portal. The page offers the ability to select a deployment option including creating SQL databases, SQL managed instances, and SQL virtual machines." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-resource.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-resource.png" alt-text="Screenshot of the Azure SQL page in the Azure portal. The page offers the ability to select a deployment option including creating SQL databases, SQL managed instances, and SQL virtual machines." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-resource.png":::
 
 1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
 1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
@@ -47,7 +47,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Under **Compute + storage**, select **Configure database**.
 1. This quickstart creates a Hyperscale database. For **Service tier**, select **Hyperscale**.
 
-    :::image type="content" source="media/hyperscale-database-create-quickstart/create-database-select-hyperscale-service-tier.png" alt-text="The service and compute tier configuration page for a new database in Azure SQL Database. The Hyperscale service tier has been selected." lightbox="media/hyperscale-database-create-quickstart/create-database-select-hyperscale-service-tier.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/create-database-select-hyperscale-service-tier.png" alt-text="Screenshot of the service and compute tier configuration page for a new database in Azure SQL Database. The Hyperscale service tier has been selected." lightbox="media/hyperscale-database-create-quickstart/create-database-select-hyperscale-service-tier.png":::
 
 1. Under **Compute Hardware**, select **Change configuration**. Review the available hardware configurations and select the most appropriate configuration for your database. For this example, we will select the **Gen5** configuration.
 1. Select **OK** to confirm the hardware generation.
@@ -57,7 +57,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Select **Apply**.
 1. Carefully consider the configuration option for **Backup storage redundancy** when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. You may choose locally redundant (preview), zone-redundant (preview), or geo-redundant storage. The selected storage redundancy option will be used for the lifetime of the database for both [data storage redundancy](hyperscale-architecture.md#azure-storage) and [backup storage redundancy](automated-backups-overview.md#backup-storage-redundancy). Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore.
 
-    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-basics-tab.png" alt-text="The basics tab in the create database process after the Hyperscale service tier has been selected and configured." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-basics-tab.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-basics-tab.png" alt-text="Screenshot of the basics tab in the create database process after the Hyperscale service tier has been selected and configured." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-basics-tab.png":::
 
 
 1. Select **Next: Networking** at the bottom of the page.
@@ -65,14 +65,14 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Next: Security** at the bottom of the page.
 
-    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png" alt-text="The networking configuration page for a new database in Azure SQL Database enables you to configure endpoints and optionally add a firewall rule for your client IP address." lightbox="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png" alt-text="Screenshot of the networking configuration page for a new database in Azure SQL Database that enables you to configure endpoints and optionally add a firewall rule for your client IP address." lightbox="media/hyperscale-database-create-quickstart/azure-sql-database-configure-network.png":::
 
 1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Select **Next: Additional settings** at the bottom of the page.
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
 1. Select **Review + create** at the bottom of the page:
     
-    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png" alt-text="The 'Additional Settings' screen to create a database in Azure SQL Database allows you to select sample data." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png" alt-text="Screenshot of the 'Additional Settings' screen to create a database in Azure SQL Database allows you to select sample data." lightbox="media/hyperscale-database-create-quickstart/azure-sql-create-database-sample-data.png":::
 
 1. On the **Review + create** page, after reviewing, select **Create**.
 
@@ -300,7 +300,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 1. On the page for your database, select **Query editor (preview)** in the left menu.
 1. Enter your server admin login information, and select **OK**.
 
-    :::image type="content" source="media/hyperscale-database-create-quickstart/query-editor-azure-portal-authenticate.png" alt-text="The Query editor (preview) pane in Azure SQL Database gives two options for authentication. In this example, we have filled in Login and Password under SQL server authentication." lightbox="media/hyperscale-database-create-quickstart/query-editor-azure-portal-authenticate.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/query-editor-azure-portal-authenticate.png" alt-text="Screenshot of the Query editor (preview) pane in Azure SQL Database gives two options for authentication. In this example, we have filled in Login and Password under SQL server authentication." lightbox="media/hyperscale-database-create-quickstart/query-editor-azure-portal-authenticate.png":::
 
 1. If you created your Hyperscale database from the AdventureWorksLT sample database, enter the following query in the **Query editor** pane.
 
@@ -336,7 +336,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 1. Select **Run**, and then review the query results in the **Results** pane.
     
-    :::image type="content" source="media/hyperscale-database-create-quickstart/query-editor-azure-portal-run-query.png" alt-text="A view of the Query editor (preview) pane in Azure SQL Database after a query has been run against AdventureWorks sample data." lightbox="media/hyperscale-database-create-quickstart/query-editor-azure-portal-run-query.png":::
+    :::image type="content" source="media/hyperscale-database-create-quickstart/query-editor-azure-portal-run-query.png" alt-text="Screenshot of the Query editor (preview) pane in Azure SQL Database after a query has been run against AdventureWorks sample data." lightbox="media/hyperscale-database-create-quickstart/query-editor-azure-portal-run-query.png":::
 
 1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 

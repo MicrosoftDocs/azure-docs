@@ -43,7 +43,7 @@ Select the tab for your preferred tool to migrate your database:
 
 The Azure portal enables you to migrate to the Hyperscale service tier by modifying the pricing tier for your database.
 
-:::image type="content" source="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png" alt-text="The compute & storage panel of a database in Azure SQL Database. The service tier dropdown is expanded, displaying the option for the Hyperscale service tier." lightbox="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png":::
+:::image type="content" source="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png" alt-text="Screenshot of the compute & storage panel of a database in Azure SQL Database. The service tier dropdown is expanded, displaying the option for the Hyperscale service tier." lightbox="media/manage-hyperscale-database/service-tier-dropdown-azure-sql-database-azure-portal.png":::
 
 1. Navigate to the database you wish to migrate in the Azure portal.
 1. In the left navigation bar, select **Compute + storage**.
@@ -176,7 +176,7 @@ Select the tab for your preferred method to reverse migrate your database:
 
 The Azure portal enables you to reverse migrate to the General Purpose service tier by modifying the pricing tier for your database.
 
-:::image type="content" source="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png" alt-text="The compute & storage panel of a Hyperscale database in Azure SQL Database." lightbox="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png":::
+:::image type="content" source="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png" alt-text="Screenshot of the compute & storage panel of a Hyperscale database in Azure SQL Database." lightbox="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png":::
 
 1. Navigate to the database you wish to migrate in the Azure portal.
 1. In the left navigation bar, select **Compute + storage**.
@@ -297,7 +297,7 @@ Select the tab for your preferred method to monitor operations.
 
 The Azure portal shows a notification for a database in Azure SQL Database when an operation such as a migration, reverse migration, or restore is in progress.
 
-:::image type="content" source="media/manage-hyperscale-database/ongoing-operation-notification-azure-sql-database-azure-portal.png" alt-text="The overview panel of a database in Azure SQL Database. A notification of an ongoing operation appears in the notification area at the bottom of the panel." lightbox="media/manage-hyperscale-database/ongoing-operation-notification-azure-sql-database-azure-portal.png":::
+:::image type="content" source="media/manage-hyperscale-database/ongoing-operation-notification-azure-sql-database-azure-portal.png" alt-text="Screenshot of the overview panel of a database in Azure SQL Database. A notification of an ongoing operation appears in the notification area at the bottom of the panel." lightbox="media/manage-hyperscale-database/ongoing-operation-notification-azure-sql-database-azure-portal.png":::
 
 1. Navigate to the database in the Azure portal.
 1. In the left navigation bar, select **Overview**.
@@ -362,7 +362,7 @@ After migrating a database to Hyperscale or reconfiguring a database within the 
 
 The Azure portal shows a list of all databases on a [logical server](logical-servers.md). The **Pricing tier** column includes the service tier for each database.
 
-:::image type="content" source="media/manage-hyperscale-database/database-list-azure-portal.png" alt-text="The overview panel of a logical server in Azure SQL Database. A list of databases appears at the bottom of the panel." lightbox="media/manage-hyperscale-database/database-list-azure-portal.png":::
+:::image type="content" source="media/manage-hyperscale-database/database-list-azure-portal.png" alt-text="Screenshot of the overview panel of a logical server in Azure SQL Database. A list of databases appears at the bottom of the panel." lightbox="media/manage-hyperscale-database/database-list-azure-portal.png":::
 
 1. Navigate to your [logical server](logical-servers.md) in the Azure portal.
 1. In the left navigation bar, select **Overview**.

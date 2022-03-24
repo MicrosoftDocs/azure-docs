@@ -96,7 +96,7 @@ The vCore-based service tiers are differentiated based on database availability 
 |**Storage size**<sup>1</sup> |5 GB – 4 TB |Up to 100 TB |5 GB – 4 TB |
 |**IOPS** |500 IOPS per vCore with 7,000 maximum IOPS. |Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. |5,000 IOPS with 200,000 maximum IOPS. |
 |**Availability** |1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache. |Multiple replicas, up to 4 Read Scale-out, zone-redundant HA (preview), partial local cache. |3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage. |
-|**Backups** |A choice of geo-redundant, zone-redundant, or locally-redundant backup storage, 1-35 day retention (default 7 days). |A choice of geo-redundant, zone-redundant, or locally-redundant backup storage, 7 day retention. |A choice of geo-redundant,zone-redundant, or locally-redundant backup storage, 1-35 day retention (default 7 days). |
+|**Backups** |A choice of geo-redundant, zone-redundant, or locally redundant backup storage, 1-35 day retention (default 7 days). |A choice of geo-redundant, zone-redundant, or locally redundant backup storage, 7 day retention. |A choice of geo-redundant,zone-redundant, or locally redundant backup storage, 1-35 day retention (default 7 days). |
 
 <sup>1</sup> Elastic pools are not supported in the Hyperscale service tier.
 
