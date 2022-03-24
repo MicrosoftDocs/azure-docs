@@ -27,20 +27,6 @@ sections:
         answer: |
           No. The 90-day policy, standard for all price increases, protects customers from last-minute price increases, as well as gives them time to react to a price increase.
 
-  - name: General
-    questions:
-      - question: |
-          How do current exchange rates apply when a price change is made?
-        answer: |
-          If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
-          To specify the price in a specific currency, export the prices from the pricing and availability page, update the respective market and currency, save, and import the file.
-
-      - question: |
-          Can I change a free or $0 offer to a paid offer?
-        answer: |
-          No. To make an offer billable, publish a new paid plan and move customers to the new plan.
-
   - name: Private and hidden plans
     questions:
       - question: |
@@ -64,6 +50,18 @@ sections:
           - Adding more than 30 custom meter dimensions
           - Changing the visibility of a plan from public to private
           - Changing unit of measure for a custom meter dimension
+
+      - question: |
+          How do current exchange rates apply when a price change is made?
+        answer: |
+          If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
+
+          To specify the price in a specific currency, export the prices from the pricing and availability page, update the respective market and currency, save, and import the file.
+
+      - question: |
+          Can I change a free or $0 offer to a paid offer?
+        answer: |
+          No. To make an offer billable, publish a new paid plan and move customers to the new plan.
 
       - question: |
           Is changing a price of an offer supported via APIs?
@@ -111,7 +109,7 @@ sections:
           View the [Customers dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/customer).
 
       - question: |
-          How will retail price changes to affect private offers (functionality in private previewC) where I am offering a discount?
+          How will retail price changes to affect private offers (functionality in private preview) where I am offering a discount?
         answer: |
           The retail price of the public plan used in the private offer is not locked. If the price changes after the private offer is created, the discount is applied to the _latest_ retail price.
 
