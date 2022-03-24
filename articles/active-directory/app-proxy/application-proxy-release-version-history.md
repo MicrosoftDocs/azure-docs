@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/21/2022
+ms.date: 03/24/2022
 ms.subservice: app-proxy
 ms.author: kenwith
 ms.reviewer: ashishj
@@ -30,23 +30,17 @@ Here is a list of related resources:
 
 ### Release status
 
-March 21, 2022: Released for download
-
-This version is only available for install via the download page. 
+March 22, 2022: Released for download. This version is only available for install via the download page.
 
 ### New features and improvements
 
-**General flow improvements:**
-- Maximum number of HTTP headers supported on an HTTP request increased from 41 to 60.
-- Trigger request retry for GET requests on SSL failures.
-- Change default ServicePoint connection limit from 2 to 200.
+- HTTP headers supported on a HTTP requests increased from 41 to 60.
+- Improved error handling of SSL failures from the connector and Azure Services.
+- Default connection limit set to 200 for connector traffic to go through outbound proxy. See [Work with existing on-premises proxy servers and Azure Active Directory](application-proxy-configure-connectors-with-proxy-servers#use-the-outbound-proxy-server.md) for more details.
+- Deprecated use of ADAL and implemented MSAL as part of connector installation flow.
 
-**Websocket support:**
-- Improved telemetry.
-- Failing websocket connect attempts will return the original error code and response instead of a 400 Bad Request code.
-
-**Installation flow:**
-- Use MSAL and not ADAL as part of installation.
+### Fixed issues
+- Return original error code and response instead of a 400 Bad Request code for failing websocket connect attempts.
 
 ## 1.5.1975.0
 
