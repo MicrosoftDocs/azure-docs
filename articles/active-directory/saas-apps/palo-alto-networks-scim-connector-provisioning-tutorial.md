@@ -130,8 +130,8 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
 
-    >![NOTE]
-    >**Schema Discovery** is enabled on this app. Hence you might see more attributes in the application than mentioned in the table above.
+> [!NOTE]
+> **Schema Discovery** is enabled on this app. Hence you might see more attributes in the application than mentioned in the table above.
           
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Palo Alto Networks SCIM Connector**.
 

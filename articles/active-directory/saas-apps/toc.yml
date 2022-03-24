@@ -2951,6 +2951,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Yellowbox
+        href: yellowbox-provisioning-tutorial.md
       - name: Zapier
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
