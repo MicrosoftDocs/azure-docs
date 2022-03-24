@@ -43,7 +43,7 @@ Create a network security group to define inbound connections to your virtual ne
 
 Create an Azure Bastion host to securely manage the virtual machines in the backend pool
 
-### Create virtual network, network security group, and bastion host
+### Create virtual network, network security group, bastion host, and NAT gateway
 
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 
