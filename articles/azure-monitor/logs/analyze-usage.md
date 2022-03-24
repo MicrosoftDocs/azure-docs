@@ -28,14 +28,6 @@ The following example is a [log alert rule](../alerts/alerts-unified-log.md) tha
 | Alert rule name | Billable data volume greater than 50 GB in 24 hours |
 
 
-
-## Causes of higher than expected usage
-Higher than expected usage in a Log Analytics workspace is typically caused by on of the following conditions:
-
-- More nodes than expected sending data to the workspace. See [Understanding nodes sending data](#understanding-nodes-sending-data).
-- More data than expected being sent to the workspace. See [Understanding ingested data volume](#understanding-ingested-data-volume).
-
-
 ## Quick analysis
 You can access tools in Azure Monitor XXX.
 

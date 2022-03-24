@@ -305,21 +305,21 @@ items:
       - name: Analyze usage and cost
         href: logs/analyze-usage.md    
       - name: Log Analytics
-      items:
-      - name: Overview
-        displayName: Log Analytics, log query, log queries, query, queries
-        href: logs/log-analytics-overview.md
-      - name: Tutorial
-        displayName: Log Analytics workspace, log query, log queries, query, queries
-        href: logs/log-analytics-tutorial.md
-      - name: Query scope
-        href: logs/scope.md
-      - name: Saving queries
-        href: logs/save-query.md
-      - name: Using queries
-        href: logs/queries.md
-      - name: Query packs
-        href: logs/query-packs.md
+        items:
+        - name: Overview
+          displayName: Log Analytics, log query, log queries, query, queries
+          href: logs/log-analytics-overview.md
+        - name: Tutorial
+          displayName: Log Analytics workspace, log query, log queries, query, queries
+          href: logs/log-analytics-tutorial.md
+        - name: Query scope
+          href: logs/scope.md
+        - name: Saving queries
+          href: logs/save-query.md
+        - name: Using queries
+          href: logs/queries.md
+        - name: Query packs
+          href: logs/query-packs.md
     - name: Log queries
       items:
       - name: Overview

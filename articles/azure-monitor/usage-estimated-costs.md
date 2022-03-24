@@ -13,7 +13,7 @@ This **article** describes the different ways that Azure Monitor charges for usa
 
 ## Pricing model
 Azure Monitor uses a consumption-based pricing (pay-as-you-go) billing model where you only pay for what you use.
-Features of Azure Monitor that are enabled by default do not incur a charge. This includes collection and alerting on the [Activity log](essentials/activity-log.md) and collection and analysis of [platform metrics](essentials/platform-metrics.md). 
+Features of Azure Monitor that are enabled by default do not incur a charge. This includes collection and alerting on the [Activity log](essentials/activity-log.md) and collection and analysis of [platform metrics](essentials/metrics-supported.md). 
 
 Several other features don't have a direct cost, but you instead pay for the ingestion and retention of data that they collect. The following table describes the different types of usage that are charged in Azure Monitor. Detailed pricing is provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -86,12 +86,12 @@ Most Application Insights usage for both classic and workspace-based resources i
 
 To separate costs from your Log Analytics or Application Insights usage, [create a filter](../cost-management-billing/costs/group-filter.md)  on **Resource type**. To see all Application Insights costs, filter **Resource type** to **microsoft.insights/components**. For Log Analytics costs, filter **Resource type** to **microsoft.operationalinsights/workspaces**. 
 
-The Application Insights option to [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of more pre-aggregation metrics. Learn more about log-based and pre-aggregated metrics in Application Insights and about pricing for Azure Monitor custom metrics.
+The Application Insights option to [Enable alerting on custom metric dimensions](app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of more pre-aggregation metrics. Learn more about log-based and pre-aggregated metrics in Application Insights and about pricing for Azure Monitor custom metrics.
 
 ### Download usage
 More details about your usage are available if you [download your usage from the Azure portal](../cost-management-billing/understand/download-azure-daily-usage.md). In the downloaded Excel spreadsheet, you can see usage per Azure resource per day. You can find usage from your Application Insights resources by filtering on the **Meter Category** column to show **Application Insights** and **Log Analytics**. Then add a **contains microsoft.insights/components** filter on the **Instance ID** column. 
 
-To view the daily Defender for Servers data allocations for a workspace, you need to [export your usage details](../usage-estimated-costs.md#viewing-azure-monitor-usage-and-charges), open the usage spreadsheet and filter the meter category to "Insight and Analytics".  You'll then see usage with the meter name "Data Included per Node" which has a zero price per GB.  The consumed quantity column will show the number of GBs of Defender for Cloud data allocation for the day. (If the workspace is in the legacy Per Node Log Analytics pricing tier, this meter will also include the data allocations from this Log Analytics pricing tier.) 
+To view the daily Defender for Servers data allocations for a workspace, you need to export your usage details, open the usage spreadsheet and filter the meter category to "Insight and Analytics".  You'll then see usage with the meter name "Data Included per Node" which has a zero price per GB.  The consumed quantity column will show the number of GBs of Defender for Cloud data allocation for the day. (If the workspace is in the legacy Per Node Log Analytics pricing tier, this meter will also include the data allocations from this Log Analytics pricing tier.) 
 
 ## Usage and estimated costs
 

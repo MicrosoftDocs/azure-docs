@@ -81,7 +81,7 @@ To change the daily cap for a classic Application Insights resource:
 
 :::image type="content" source="../app/media/pricing/pricing-003.png" lightbox="../app/media/pricing/pricing-003.png" alt-text="Application Insights configure data limit":::
 
-To configure the daily cap with Azure Resource Manager, set the `dailyQuota`, `dailyQuotaResetTime` and `warningThreshold` parameters as described at [Workspaces - Create Or Update](../app/powershell?branch=pr-en-us-189849#set-the-daily-cap).
+To configure the daily cap with Azure Resource Manager, set the `dailyQuota`, `dailyQuotaResetTime` and `warningThreshold` parameters as described at [Workspaces - Create Or Update](../app/powershell.md#set-the-daily-cap).
 
 
 ## Alert when daily cap is reached

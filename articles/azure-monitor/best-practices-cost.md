@@ -9,9 +9,7 @@ ms.date: 03/08/2022
 ---
 
 # Azure Monitor best practices - Cost management
-This article provides guidance on reducing your cloud monitoring costs by implementing Azure Monitor in the most cost effective manner. This includes leveraging cost saving features and ensuring that you're not paying for data collection that provides little or no value. 
-
-In most Azure Monitor implementations, the highest cost will be for data ingestion and retention in your Log Analytics workspace. 
+This article provides guidance on reducing your cloud monitoring costs by implementing Azure Monitor in the most cost effective manner. This includes leveraging cost saving features and ensuring that you're not paying for data collection that provides little or no value. It also provides guidance for detecting and analyzing excessive usage.
 
 ## Configure pricing tier or dedicated cluster
 By default, your workspace will use Pay-As-You-Go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by configuring a commitment tier. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for you  environment.
@@ -19,7 +17,7 @@ By default, your workspace will use Pay-As-You-Go pricing with no minimum data v
 [Dedicated clusters](logs/logs-dedicated-clusters.md) provide additional functionality and cost savings if you ingest at least 500 GB per day, collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach the 500 GB.
 
 ## Determine most cost effective workspace configuration
-
+There can be cost implications when you combine different services such as operational data from Azure Monitor and security data from Azure Sentinel and Microsoft Defender for Cloud. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for a description of these implications and guidance on determining your most cost effective configuration.
 
 ## Reduce the amount of data collected
 The most straightforward strategy to reduce your costs for data ingestion and retention is to reduce the amount of data that you collect. Your goal should be to collect the minimal amount of data to meet your monitoring requirements. If you find that you're collecting data that's not being used for alerting or analysis, then you have an opportunity to reduce your monitoring costs by modifying your configuration to stop collecting data that you don't need.
@@ -96,6 +94,15 @@ See the following table for methods to apply transformations to different workfl
 ## Caution when multi-homing agents
 
 ## Set a daily cap for Log Analytics workspace and Application Insights
+
+
+
+## Causes of higher than expected usage
+Higher than expected usage in a Log Analytics workspace is typically caused by on of the following conditions:
+
+- More nodes than expected sending data to the workspace. See [Understanding nodes sending data](#understanding-nodes-sending-data).
+- More data than expected being sent to the workspace. See [Understanding ingested data volume](#understanding-ingested-data-volume).
+
 
 ## Manage Application Insights data volume
 The volume of data you send can be managed using the following techniques:
