@@ -15,17 +15,20 @@ Perform the following steps to set up your Azure account and subscription:
 > In this Azure account, you must have permissions to register an app.  
 > [!NOTE]
 > Record your Azure subscription ID (GUID), a unique 32-digit GUID associated with your subscription.  
-For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F). 
+For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).  
 
 2.	Configure an Azure Active Directory (Azure AD) tenant with groups and users.  
-To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant.  
-For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant](~/active-directory/develop/quickstart-create-new-tenant).  
+To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant. 
+
+For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant. full](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant). 
+
+For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant, relative 1](~/active-directory/develop/quickstart-create-new-tenant.md). 
+
+For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant, relative 2](~/azure/active-directory/develop/quickstart-create-new-tenant.md). 
+
 
 3.	Set up a new Azure subscription. Work with Nutanix to get your subscription allowlisted. 
-[Quickstart: Set up a teen](~/azure/active-directory/develop/quickstart-create-new-tenant). 
- you set up a new Azure subscription well in advance and that the subscription is pinned to the private preview. Do not create any resource or resource group in the subscription until the subscription is pinned. Note down your Azure subscription ID (GUID). 
-
-[Quickstart: Set up 2 teen](~/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
+Note: Ensure that you set up a new Azure subscription well in advance and that the subscription is pinned to the private preview. Do not create any resource or resource group in the subscription until the subscription is pinned. Note down your Azure subscription ID (GUID). 
 This Azure subscription must be associated with the Azure AD that you configured. You can either create a new subscription in an existing tenant or create a new tenant. To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant. 
 4.	Register the resource provider for your account by running these lines in PowerShell: 
  
