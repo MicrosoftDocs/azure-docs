@@ -75,7 +75,7 @@ You can also [programmatically enumerate the alert instances generated on your s
 
 :::image type="content" source="media/alerts-overview/alerts-page.png" alt-text="Screenshot of alerts page.":::
 
-You can filter the view by selecting the following values in the drop-down menus at the top of the page:
+You can narrow down the list by selecting values from any of these filters at the top of the page:
 
 | Column | Description |
 |:---|:---|
@@ -84,15 +84,15 @@ You can filter the view by selecting the following values in the drop-down menus
 | Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. |
 | Resource | Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. |
 | Severity | Select an alert severity, or select **All** to include alerts of all severities. |
-| Monitor condition | Select a monitor condition, or select **All** to include alerts of all conditions. |
-| Alert state | Select an alert state, or select **All** to include alerts of all states. |
+| Alert condition | Select a monitor condition, or select **All** to include alerts of all conditions. |
+| User response | Select an alert state, or select **All** to include alerts of all states. |
 | Monitor service | Select a service, or select **All** to include all services. Only alerts created by rules that use service as a target are included. |
 | Time range | Only alerts fired within the selected time range are included in the view. Supported values are the past hour, the past 24 hours, the past seven days, and the past 30 days. |
 
 Select **Columns** at the top of the page to select which columns to show.
 ### Alert details page
 
-When you select an alert, this page provides details of the alert and enables you to change its state.
+When you select an alert, this page provides details of the alert and enables you to change how you want to respond to the alert.
 
 ![Screenshot of Alert details page](media/alerts-overview/alert-detail2.png)
 
@@ -107,7 +107,7 @@ The Alert details page includes the following sections:
 
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
 
-The following alert states are supported.
+The following user responses are supported.
 
 | State | Description |
 |:---|:---|
@@ -115,9 +115,9 @@ The following alert states are supported.
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
-*Alert state* is different and independent of the *monitor condition*. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to *'resolved'*. 
+The *user response* is different and independent of the *monitor condition*. The response is set by the user, while the monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to *'resolved'*. 
 
-The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
+The user response isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## Manage alert rules
 
