@@ -220,6 +220,18 @@ Create two network interfaces with [az network nic create](/cli/azure/network/ni
   done
 ```
 
+### Create the availability set for the virtual machines
+
+Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create).
+
+```azurecli-interactive
+  az vm availability-set create \
+    --name myAvailabilitySet \
+    --resource-group CreateIntLBQS-rg \
+    --location westus3 
+    
+```
+
 ### Create the virtual machines
 
 Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
@@ -234,7 +246,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
     --nics myNicVM$n \
     --image win2019datacenter \
     --admin-username azureuser \
-    --zone $n \
+    --availability-set myAvailabilitySet \
     --no-wait
   done
 ```
