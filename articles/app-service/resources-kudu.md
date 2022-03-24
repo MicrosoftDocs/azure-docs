@@ -17,6 +17,11 @@ Anytime you create an app, App Service creates a companion app for it that's sec
 
 For more information, see [Accessing the kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service).
 
+## RBAC permissions required to access Kudo
+In order to access the Kudo service through your browser with AAD authentication you need to be a member of a built-in or custom role.
+- If using a built-in role you must be a member of one of the following: `Website Contributor` or `Contributor` or `Owner`
+- If using a custom role you need the resource provider operation: `Microsoft.Web/sites/publish/Action`
+
 ## Kudu features
 
 Kudu gives you helpful information about your App Service app, such as:
