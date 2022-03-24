@@ -7,14 +7,17 @@ ms.date: 03/24/2022
 
 # Tutorial: Get started with Microsoft Defender for IoT for OT security
 
-This tutorial describes how to set up your network for OT system security monitoring, using a virtual sensor, on a virtual machine, using a trial subscription of Microsoft Defender  IoT.
+This tutorial describes how to set up your network for OT system security monitoring, using a virtual sensor, on a virtual machine (VM), using a trial subscription of Microsoft Defender  IoT.
+
+> [!NOTE]
+> If you're looking to set up security monitoring for enterprise IoT systems, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md) instead.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Onboard with Microsoft Defender for IoT
 > * Download the ISO for the virtual sensor
-> * Create a virtual machine for the sensor
+> * Create a VM for the sensor
 > * Install the virtual sensor software
 > * Configure a SPAN port
 > * Onboard, and activate the virtual sensor
@@ -29,50 +32,42 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- Either VMWare, ESXi 5.5 or later, or Hyper-V hypervisor, Windows 10 Pro or Enterprise, installed and operational
+- Either VMWare, ESXi 5.5 or later, or Hyper-V hypervisor, Windows 10 Pro or Enterprise, installed and operational.
+
+- Available hardware resources for your VM. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+
+- The following network parameters to use for your sensor appliance:
+
+    - A management network IP address
+    - A sensor subnet mask
+    - An appliance hostname
+    - A DNS address
+    - A default gateway
+    - Any input interfaces
 
 ## Download software for your virtual sensor
 
-To 
-## Download the ISO for the virtual sensor
+Defender for IoT's solution for OT security includes on-premises network sensors, which connect to Defender for IoT and send device data for analysis.
 
-The virtual appliances have minimum specifications that are required for both the sensor and management console. The following table shows the specifications needed for the sensor depending on your environment.
+You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This procedure uses your own machine, with either VMWare or Hyper-V hypervisor, and describes how to download and install the sensor software yourself.
 
-### Virtual sensor
+**To download software for your virtual sensors**:
 
-| Type | Corporate | Enterprise | SMB |
-|--|--|--|--|
-| vCPU | 32 | 8 | 4 |
-| Memory | 32 GB | 32 GB | 8 GB |
-| Storage | 5.6 TB | 1.8 TB | 500 GB |
+1. Go to Defender for IoT in the Azure portal. On the **Getting started** page, select the **Sensor** tab.
 
-**To download the ISO file for the virtual sensor**:
+1. In the **Purchase an appliance and install software** box, ensure that the default option is selected for the latest and recommended software version, and then select **Download**.
 
-1. Navigate to the [Azure portal](https://portal.azure.com/).
+1. Save the downloaded software in a location that will be accessible from your VM.
 
-1. Search for, and select **Microsoft Defender for IoT**.
+## Create a VM for your sensor
 
-1. On the Getting started page, select the **Sensor** tab.
+Select one of the following tabs to create a VM for your sensor.
 
-1. Select **Download**.
+# [VMWare ESXi](#tab/vmware)
 
-    :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Screenshot of the sensor tab, select download, to download the ISO file for the virtual sensor.":::
+**To create a VM for your sensor with VMWare ESXi**:
 
-## Create a virtual machine for the sensor
-
-The virtual sensor supports both VMware, and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
-
-- VMware (ESXi 5.5 or later), or Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational.
-
-- Available hardware resources for the virtual machine.
-
-- ISO installation file for the Microsoft Defender for IoT sensor.
-
-- Make sure the hypervisor is running.
-
-### Create the virtual machine for the sensor with ESXi
-
-**To create the virtual machine for the sensor (ESXi)**:
+1. Make sure that you have the sensor software downloaded and accessible, and that VMWare is running on your machine.
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -94,19 +89,19 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Choose the relevant datastore and select **Next**.
 
-1. Change the virtual hardware parameters according to the required [architecture](#download-the-iso-for-the-virtual-sensor).
+1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
 
-1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
 1. Select **Next** > **Finish**.
 
 1. Power on the VM, and open a console.
 
-### Create a virtual machine for the sensor with Hyper-V
+# [Hyper-V hypervisor](#tab/hyper-v)
 
-This procedure describes how to create a virtual machine by using Hyper-V.
+**To create VM for your sensor with Hyper-V hypervisor**:
 
-**To create a virtual machine with Hyper-V**:
+1. Make sure that you have the sensor software downloaded and accessible, and that hypervisor is running on your machine.
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -116,70 +111,69 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Enter the name and location for the VHD.
 
-1. Enter the required size (according to the [architecture](#download-the-iso-for-the-virtual-sensor)).
+1. Enter the required size. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
 
 1. Review the summary and select **Finish**.
 
-1. On the **Actions** menu, create a new virtual machine.
+1. On the **Actions** menu, create a new VM.
 
-1. Enter a name for the virtual machine.
+1. Enter a name for the VM.
 
 1. Select **Specify Generation** > **Generation 1**.
 
-1. Specify the memory allocation (according to the [architecture](#download-the-iso-for-the-virtual-sensor)) and select the check box for dynamic memory.
+1. Specify the memory allocation and select the check box for dynamic memory. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
 
 1. Configure the network adaptor according to your server network topology.
 
-1. Connect the VHDX created previously to the virtual machine.
+1. Connect the VHDX created previously to the VM.
 
 1. Review the summary and select **Finish**.
 
-1. Right-click the new virtual machine and select **Settings**.
+1. Right-click the new VM and select **Settings**.
 
 1. Select **Add Hardware** and add a new network adapter.
 
 1. Select the virtual switch that will connect to the sensor management network.
 
-1. Allocate CPU resources (according to the [architecture](#download-the-iso-for-the-virtual-sensor)).
+1. Allocate CPU resources. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
 
-1. Connect the management console's ISO image to a virtual DVD drive.
-
-1. Start the virtual machine.
+1. Start the VM.
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-## Install the virtual sensor software with ESXi or Hyper-V
+---
 
-Either ESXi, or Hyper-V can be used to install the software for the virtual sensor.
+## Install sensor software
+
+This procedure describes how to install the sensor software on your VM, whether you've used ESXi or Hyper-V to [create a VM](#create-a-vm-for-your-sensor).
 
 **To install the software on the virtual sensor**:
 
-1. Open the virtual machine console.
+1. Open the VM console.
 
 1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
 
-1. Select the required [architecture](#download-the-iso-for-the-virtual-sensor).
+1. Select the required specifications for your needs. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
 
-1. Define the appliance profile and network properties:
+1. Define the appliance profile and network properties as follows:
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Based on the required [architecture](#download-the-iso-for-the-virtual-sensor). |
+    | **Hardware profile** | Depending on your [system specifications](how-to-identify-required-appliances.md#virtual-sensors).  |
     | **Management interface** | **ens192** |
     | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
-    | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
+
+    You don't need to configure the bridge interface, which is relevant for special use cases only.
 
 1. Enter **Y** to accept the settings.
 
-1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required to sign-in, and manage your device. The username and password will not be presented again.
+1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords will not be presented again.
 
     - **Support**: The administrative user for user management.
 
     - **CyberX**: The equivalent of root for accessing the appliance.
 
-1. The appliance restarts.
-
-1. Access the sensor via the IP address previously configured: `https://ip_address`.
+1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
 
 ### Post-installation validation
 
@@ -210,7 +204,7 @@ For post-installation validation, test that:
 
 ## Configure a SPAN port
 
-A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
+A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the VM’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
 :::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
