@@ -83,7 +83,7 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 
 ## Configuring the host name
 
-Application Gateway allows for the connection to the backend to be established using a *different* hostname than the one used by the client to connect to Application Gateway.  Changing the hostname used towards the backend into a value that is different from the hostname that is used to connect to Application Gateway should however be done with care.  
+Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway.  While this configuration can be useful in some cases, overriding the hostname to be different between the client and application gateway and application gateway to backend target, should be done with care.  
 
 In a typical production-grade configuration, one will typically want to keep the host name used by the client towards Application Gateway the same as the hostname as used by Application Gateway towards the backend.  This avoid potential issues with absolute URLs, redirect URLs and host-bound cookies.
 
