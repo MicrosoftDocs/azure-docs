@@ -17,7 +17,7 @@ ms.date: 03/22/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you how to use an [Azure SQL Managed Instance link](link-feature.md) to replicate your database from SQL Server to SQL Managed Instance. You'll use SQL Server Management Studio (SSMS), which is the easiest way to use a SQL Managed Instance link. 
+This article teaches you how to replicate your database from SQL Server to Azure SQL Managed Instance by using [the link feature](link-feature.md) in SQL Server Management Studio (SSMS).  
 
 > [!NOTE]
 > A SQL Managed Instance link is a feature of SQL Server and is currently in preview. 
