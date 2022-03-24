@@ -48,7 +48,35 @@ A zone redundant function app will automatically distribute load the instances t
 
 ## How to deploy a function app on a zone redundant Premium plan
 
-For initial creation of a zone redundant Elastic Premium Functions plan, you need to deploy via [ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). Then, once successfully created, you can view and interact with the Function Plan via the Azure portal and CLI tooling. An ARM template is only needed for the initial creation of the Function Plan. A guide to hosting Functions on Premium plans can be found [here](functions-infrastructure-as-code.md#deploy-on-premium-plan). Once the zone redundant plan is created and deployed, any function app hosted on your new plan will now be zone redundant. 
+There are currently two publicly available options to deploy a zone redundant premium plan and function app. These options are either through the Azure Portal and through ARM template.
+
+### Via the Portal
+
+1. First, open the Azure Portal and navigate to the "Create Function App" page. Information on creating a function app in the portal can be found [here](functions-create-function-app-portal.md#create-a-function-app).
+
+2. In the "Basics" page, fill out the fields for your function app. Pay special attention to the fields in the table below (also highlighted in the screenshot below), as these fields have additional requirements for zone redundancy.
+
+| Setting      | Suggested value  | Additional Notes for Zone Redundancy |
+| ------------ | ---------------- | ----------- |
+| **Region** | Preferred region | The subscription under which this new function app is created. Note that you must pick a region that is AZ enabled. This list is referenced above in the article [here](#requirements). |
+
+![Choose HTTP trigger function](./media/functions-az-redundancy\AzureFunctionsBasicsAZ.png)
+
+3. In the "Hosting" page, fill out the fields for your function app hosting plan. Pay special attention to the fields in the table below (also highlighted in the screenshot below), as these fields have additional requirements for zone redundancy.
+
+| Setting      | Suggested value  | Additional Notes for Zone Redundancy |
+| ------------ | ---------------- | ----------- |
+| **Storage Account** | A [zone-redundant storage account](storage-considerations.md#storage-account-requirements) | As mentioned above in the [requirements](#requirements) section, we strongly recommend using a zone-redundant storage account for your zone redundant function app. |
+| **Plan Type** | Functions Premium | This article details how to create a Functions Premium zone redundant app and plan. Zone redundancy is not currently available in Consumption plans. Information on zone redundancy on app service plans can be found [here](../app-service/how-to-zone-redundancy.md). |
+| **Zone Redundancy** | Enabled | This field populates the flag which determines if your app is zone redundant or not. Note that you will not be able to select 'Enabled' unless you have chosen a Region supporting Zone Redundancy, as mentioned in step 2. |
+
+![Choose HTTP trigger function](./media/functions-az-redundancy\AzureFunctionsHostingAZ.png)
+
+4. For the rest of the function app creation process, create your function app as normal. There are no fields in the rest of the creation process that impact zone redundancy.
+
+### Using ARM Templates
+
+This section details deploying a zone redundant Functions Premium Plan via [ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md). A guide to hosting Functions on Premium plans can be found [here](functions-infrastructure-as-code.md#deploy-on-premium-plan). Once the zone redundant plan is created and deployed, any function app hosted on your new plan will now be zone redundant.
 
 The only properties to be aware of while creating a zone redundant Function plan are the new **zoneRedundant** property and the Function Plan instance count (**capacity**) fields. The **zoneRedundant** property must be set to **true** and the **capacity** property should be set based on the workload requirement, but no less than 3. Choosing the right capacity varies based on several factors and high availability/fault tolerance strategies. A good rule of thumb is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
