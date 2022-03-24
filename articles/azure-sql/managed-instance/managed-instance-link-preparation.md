@@ -1,5 +1,5 @@
 ---
-title: Prepare your environment for the link feature
+title: Prepare environment for Managed Instance link
 titleSuffix: Azure SQL Managed Instance
 description: Learn how to prepare your environment for using an Azure SQL Managed Instance link to replicate and fail over your database to SQL Managed Instance. 
 services: sql-database
