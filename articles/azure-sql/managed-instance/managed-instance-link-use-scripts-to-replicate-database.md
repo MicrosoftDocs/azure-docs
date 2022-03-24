@@ -230,7 +230,7 @@ To verify that you don't have an existing database mirroring endpoint created, u
 SELECT * FROM sys.database_mirroring_endpoints WHERE type_desc = 'DATABASE_MIRRORING'
 ```
 
-If the preceding query doesn't show an existing database mirroring endpoint, run the following script on SQL Server. It will create a new database mirroring endpoint on port 5022 and secure it with a certificate.
+If the preceding query doesn't show an existing database mirroring endpoint, run the following script on SQL Server to create a new database mirroring endpoint on port 5022 and secure it with a certificate.
 
 ```sql
 -- Run on SQL Server
