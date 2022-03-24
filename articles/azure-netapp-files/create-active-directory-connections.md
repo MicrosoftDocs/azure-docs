@@ -332,12 +332,11 @@ If you accidentally delete the computer account on your AD server or the AD serv
 The reset Active Directory feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
 
 1. Register the **reset Active Directory** feature:   
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
-    ```
-1.   Check the status of the feature registration: 
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+```azurepowershell-interactive
+Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
+```
+2.   Check the status of the feature registration. The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
     ```
@@ -347,7 +346,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**
 <!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/<file name>"::: -->
-1. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
+2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
 <!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This acction is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed.." lightbox="../media/azure-netapp-files/<file name>"::: -->
 
 ## Next steps  
