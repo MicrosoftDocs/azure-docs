@@ -36,7 +36,7 @@ To create resource-centric alerts at scale for a subscription or resource group,
 
 You may also decide not to split when you want a condition on multiple resources in the scope. For example, if you want to create an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-:::image type="content" source="media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
+:::image type="content" source="../vm/media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of a new log alert rule with split by dimensions.":::
 
 You might want to see a list of the alerts by affected computer. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
 ## Create a log query alert rule
