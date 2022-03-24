@@ -19,7 +19,7 @@ This article provides a reference for advanced API Management policies, such as 
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
--   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
+-   [Log to event hub](#log-to-eventhub) - Sends messages in the specified format to an event hub defined by a Logger entity.
 -   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
@@ -314,9 +314,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy scopes:** all scopes
 
-## <a name="log-to-eventhub"></a> Log to Event Hub
+## <a name="log-to-eventhub"></a> Log to event hub
 
-The `log-to-eventhub` policy sends messages in the specified format to an Event Hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
+The `log-to-eventhub` policy sends messages in the specified format to an event hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
 
 > [!NOTE]
 > For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](./api-management-howto-log-event-hubs.md).
