@@ -24,7 +24,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
  When uploading and sharing a trace for the first time, you'll need to create a storage account and a container resource to store your traces. You can skip this step if this has already been done.
 
 1. [Create a storage account](../storage/common/storage-account-create.md) with the following additional configuration: 
-    1. In the **Advanced** tab, select **Enable storage account access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
+    1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
     1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
 1. If you would like the traces in your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
 1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your traces.
