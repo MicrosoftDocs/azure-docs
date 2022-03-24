@@ -53,7 +53,7 @@ Collect all the values in the following table to define the packet core instance
 Collect all the values in the following table to define the packet core instance's connection to the data network over the N6 interface.
 
 > [!IMPORTANT]
-> Where noted, you must use the same values you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+> Where noted, you must use the same values you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
