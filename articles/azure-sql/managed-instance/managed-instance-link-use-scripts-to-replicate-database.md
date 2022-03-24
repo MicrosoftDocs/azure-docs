@@ -407,7 +407,7 @@ CREATE AVAILABILITY GROUP [<DAGName>]
 GO
 ```
 
-### Verify the availability group and distributed availability group
+### Verify availability groups
 
 Use the following script to list all availability groups and distributed availability groups on the SQL Server instance. At this point, the state of your availability group needs to be `connected`, and the state of your distributed availability groups needs to be `disconnected`. The state of the distributed availability group will move to `connected` only when it has been joined with SQL Managed Instance. 
 
