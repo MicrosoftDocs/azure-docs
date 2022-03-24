@@ -47,7 +47,7 @@ For each of the following networks, allocate a subnet and then identify the list
 - One IP address for port 6 on the Azure Stack Edge Pro device.
 - One IP address for the packet core instance's N6 interface.
 
-## Allocate User Equipment (UE) IP address pools
+## Allocate user equipment (UE) IP address pools
 
 Azure Private 5G Core supports the following IP address allocation methods for UEs.
 
