@@ -47,15 +47,7 @@ landingContent:
             url: onboard-windows-admin-center.md
           - text: All deployment options
             url: deployment-options.md
- 
- # Card
-  - title: Training
-    linkLists: 
-      - linkListType: learn
-        links:
-          - text: Microsoft Learn learning path
-            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc
- 
+  
  # Card
   - title: Proof of concept
     linkLists:
@@ -85,3 +77,11 @@ landingContent:
             url: /java/api/overview/azure/compute/resourcemanagement
           - text: JavaScript
             url: /javascript/api/@azure/arm-hybridcompute/
+
+ # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn learning path
+            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc         
