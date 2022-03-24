@@ -13,9 +13,6 @@ ms.date: 7/28/2021
 
 You can use a private endpoint (also called private link) to restrict access to your static web app so that it is only accessible from your private network.
 
-> [!NOTE]
-> Private endpoints support in Static Web Apps is currently in preview.
-
 ## How it works
 
 An Azure Virtual Network (VNet) is a network just like you might have in a traditional data center, but resources within the VNet talk to each other securely on the Microsoft backbone network.
@@ -25,8 +22,9 @@ Configuring Static Web Apps with a private endpoint allows you to use a private 
 > [!NOTE]
 > Placing your application behind a private endpoint means your app is only available in the region where your VNet is located. As a result, your application is no longer available across multiple points of presence.
 
-> [!WARNING]
-> Currently, private endpoints only secure your production environment. Support for staging environments will be added in an upcoming service update.
+When you create a private endpoint for your Static Web App, if the app is accessed over a public IPs it will return a 403 status code. Similarly all staging environments will also begin to return 403 status codes when accessed via public IP. The only way to reach the app is to use the private endpoint deployed within your VNet.
+
+It is important to note that the default DNS resolution of the Static Web App will still exist and route to a public IP. To ensure your client is able to reach the app correctly, you will need to make sure your client resolves the DNS of the app to the IP of the private endpoint. This is done automatically if you select a private DNS zone when creating the private endpoint (see below) and is our recommended solution. If you are connecting from on-prem or do not wish to use a private DNS zone, you will need to manually configure the DNS records for your application so that they route to the private DNS zone.
 
 ## Prerequisites
 
