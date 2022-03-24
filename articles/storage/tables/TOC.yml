@@ -36,7 +36,7 @@
     href: ../../cosmos-db/table-storage-how-to-use-python.md
     maintainContext: true 
   - name: Go
-    href: ../../cosmos-db/table/storage/how-to-use-go.md
+    href: ../../cosmos-db/table/how-to-use-go.md
     maintainContext: true
   - name: Ruby
     href: ../../cosmos-db/table-storage-how-to-use-ruby.md
