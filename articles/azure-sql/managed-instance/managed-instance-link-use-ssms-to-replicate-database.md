@@ -24,7 +24,7 @@ This article teaches you how to use an [Azure SQL Managed Instance link](link-fe
 
 ## Prerequisites 
 
-To replicate your databases to SQL Managed Instance through the link feature, you need the following prerequisites: 
+To replicate your databases to SQL Managed Instance through the link, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
