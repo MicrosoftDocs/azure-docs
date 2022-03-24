@@ -35,7 +35,7 @@ landingContent:
             url: prerequisites.md
       - linkListType: quickstart
         links:
-          - text: Deploy Arc-enabled servers agent
+          - text: Connect a hybrid machine
             url: ./learn/quick-enable-hybrid-vm.md
       - linkListType: deploy
         links:
