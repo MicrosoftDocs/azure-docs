@@ -143,7 +143,7 @@ Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full n
 
 ::: zone-end
 
-If you have enabled ingress on your container app, you can add `--query configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
 
 ## Verify deployment
 
@@ -154,7 +154,7 @@ After about 5-10 minutes has passed, use the following steps to view logged mess
 # [Bash](#tab/bash)
 
 ```azurecli
-LOG_ANALYTICS_WORKSPACE_CLIENT_Id=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
 
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \

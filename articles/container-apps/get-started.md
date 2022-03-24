@@ -61,7 +61,7 @@ az containerapp create \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
   --ingress 'external' \
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 # [PowerShell](#tab/powershell)
@@ -74,7 +74,7 @@ az containerapp create `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
   --ingress 'external' `
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 ---
