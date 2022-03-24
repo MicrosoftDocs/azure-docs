@@ -28,7 +28,7 @@ Profiler works with .NET applications deployed on the following Azure services. 
 | Kubernetes | No | Yes | No |
 | Azure Functions | No | No | No |
 | Azure Spring Cloud | N/A | No | No |
-| [Azure Service Fabric](profiler-servicefabric.md) |  |  |  |
+| [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes | No |
 
 If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
