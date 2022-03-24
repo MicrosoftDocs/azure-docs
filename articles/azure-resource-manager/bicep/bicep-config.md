@@ -53,5 +53,4 @@ The Bicep extension for Visual Studio Code supports intellisense for your `bicep
 
 * [Add module settings in Bicep config](bicep-config-modules.md)
 * [Add linter settings to Bicep config](bicep-config-linter.md)
-* [Add credential precedence settings to Bicep config](bicep-config-credential-precedence.md)
 * Learn about the [Bicep linter](linter.md)
