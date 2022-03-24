@@ -49,7 +49,7 @@ Understanding these high-level steps should help you understand where errors are
 
 ## Get deployment logs
 
-The first step in debugging errors is to get your deployment logs. First, follow the [instructions here](how-to-deploy-and-where.md#connect-to-your-workspace) to connect to your workspace.
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](how-to-deploy-and-where.md#connect-to-your-workspace).
 
 # [Azure CLI](#tab/azcli)
 

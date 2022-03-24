@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: mathoma
+ms.reviewer: mathoma, danil
 ms.date: 03/15/2022
 ---
 
@@ -47,6 +47,7 @@ Use the following PowerShell script to call REST API that changes the replicatio
 Replace `<YourSubscriptionID>` with your subscription ID and replace `<ManagedInstanceName>` with the name of your managed instance. Replace `<DAGName>` with the name of Distributed Availability Group link for which you’d like to get the status.
 
 ```powershell
+# Execute in Azure Cloud Shell
 # ====================================================================================
 # POWERSHELL SCRIPT TO SWITCH REPLICATION MODE SYNC-ASYNC ON MANAGED INSTANCE
 # USER CONFIGURABLE VALUES
@@ -79,12 +80,7 @@ echo $uriFull
 # Build API request body
 #
 
-$bodyFull = @"
-{
-    "properties":{
-        "ReplicationMode":"sync"
-    }
-}"@
+$bodyFull = "{`"properties`":{`"ReplicationMode`":`"sync`"}}"
 
 echo $bodyFull 
 
@@ -106,10 +102,10 @@ Invoke-WebRequest -Method PATCH -Headers $headers -Uri $uriFull -ContentType "ap
 
 ## Switch replication mode on SQL Server
 
-Use the following T-SQL script to change the replication mode of Distributed Availability Group on SQL Server from async to sync. Replace `<DAGName>` with the name of Distributed Availability Group, and replace `<AGName>` with the name of Availability Group created on SQL Server. In addition, replace `<ManagedInstanceName>` with the name of your SQL Managed Instance.
-With this step, the migration of the database from SQL Server to SQL Managed Instance is completed.
+Use the following T-SQL script on SQL Server to change the replication mode of Distributed Availability Group on SQL Server from async to sync. Replace `<DAGName>` with the name of Distributed Availability Group, and replace `<AGName>` with the name of Availability Group created on SQL Server. In addition, replace `<ManagedInstanceName>` with the name of your SQL Managed Instance.
 
 ```sql
+-- Execute on SQL Server
 -- Sets the Distributed Availability Group to synchronous commit.
 -- ManagedInstanceName example 'sqlmi1'
 USE master
@@ -126,6 +122,7 @@ AVAILABILITY GROUP ON
 To validate change of the link replication, execute the following DMV, and expected results are shown below. They're indicating SYNCHRONOUS_COMIT state.
 
 ```sql
+-- Execute on SQL Server
 -- Verifies the state of the distributed availability group
 SELECT
     ag.name, ag.is_distributed, ar.replica_server_name,
@@ -150,6 +147,7 @@ To complete the migration, we need to ensure that the replication has completed.
 Use the following T-SQL query on SQL Server to read the LSN number of the last recorded transaction log. Replace `<DatabaseName>` with your database name and look for the last hardened LSN number, as shown below.
 
 ```sql
+-- Execute on SQL Server
 -- Obtain last hardened LSN for a database on SQL Server.
 SELECT
     ag.name AS [Replication group],
@@ -173,6 +171,7 @@ Use the following T-SQL query on SQL Managed Instance to read the LSN number of 
 Query shown below will work on General Purpose SQL Managed Instance. For Business Critical Managed Instance, you will need to uncomment `and drs.is_primary_replica = 1` at the end of the script. On Business Critical, this filter will make sure that only primary replica details are read.
 
 ```sql
+-- Execute on Managed Instance
 -- Obtain LSN for a database on SQL Managed Instance.
 SELECT
     db.name AS [Database name],
@@ -200,6 +199,7 @@ SQL Managed Instance link database failover and migration to Azure is accomplish
 Use the following API to initiate database failover to Azure. Replace `<YourSubscriptionID>` with your actual Azure subscription ID. Replace `<RG>` with the resource group where your SQL Managed Instance is deployed and replace `<ManagedInstanceName>` with the name of our SQL Managed Instance. In addition, replace `<DAGName>` with the name of Distributed Availability Group made on SQL Server.
 
 ```PowerShell
+# Execute in Azure Cloud Shell
 # ====================================================================================
 # POWERSHELL SCRIPT TO FAILOVER AND MIGRATE DATABASE WITH SQL MANAGED INSTANCE LINK
 # USER CONFIGURABLE VALUES
@@ -246,10 +246,11 @@ Invoke-WebRequest -Method DELETE -Headers $headers -Uri $uriFull -ContentType "a
 
 ## Cleanup Availability Group and Distributed Availability Group on SQL Server
 
-After breaking the link and migrating database to Azure SQL Managed Instance, consider cleaning up Availability Group and Distributed Availability Group on SQL Server if they aren't used otherwise.
+After breaking the link and migrating database to Azure SQL Managed Instance, consider cleaning up Availability Group and Distributed Availability Group on SQL Server if they aren't used otherwise on SQL Server.
 Replace `<DAGName>` with the name of the Distributed Availability Group on SQL Server and replace `<AGName>` with Availability Group name on the SQL Server.
 
 ``` sql
+-- Execute on SQL Server
 DROP AVAILABILITY GROUP <DAGName>
 GO
 DROP AVAILABILITY GROUP <AGName>

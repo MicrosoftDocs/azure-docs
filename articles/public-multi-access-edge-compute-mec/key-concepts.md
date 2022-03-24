@@ -92,7 +92,7 @@ Azure public MEC supports creating Standard SSD managed disks only. All other Az
 
 ### Default outbound access
 
-Because Azure public MEC doesn't support [default outbound access](/azure/virtual-network/ip-services/default-outbound-access), manage your outbound connectivity by using one of the following methods:
+Because Azure public MEC doesn't support [default outbound access](../virtual-network/ip-services/default-outbound-access.md), manage your outbound connectivity by using one of the following methods:
 
 - Use the frontend IP addresses of an Azure Load Balancer for outbound via outbound rules.
 - Assign an Azure public IP to the VM.

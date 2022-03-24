@@ -1,17 +1,18 @@
 ---
 title: 'Quickstart: Create server - az postgres up - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create Azure Database for PostgreSQL - Single Server using Azure CLI (command-line interface) up command.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: quickstart
-ms.date: 01/25/2022
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli, mode-api
+ms.date: 01/25/2022
 ---
 # Quickstart: Use the az postgres up command to create an Azure Database for PostgreSQL - Single Server
 
-Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/postgres#az_postgres_up) command to create an Azure Database for PostgreSQL server using the Azure CLI. In addition to creating the server, the `az postgres up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. These defaults help to expedite the development process.
+Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/postgres#az-postgres-up) command to create an Azure Database for PostgreSQL server using the Azure CLI. In addition to creating the server, the `az postgres up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. These defaults help to expedite the development process.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,7 +51,7 @@ admin-user | System generated | The username for the administrator.
 admin-password | System generated | The password of the administrator user.
 
 > [!NOTE]
-> For more information about the `az postgres up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/postgres#az_postgres_up).
+> For more information about the `az postgres up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/postgres#az-postgres-up).
 
 Once your server is created, it comes with the following settings:
 
@@ -66,7 +67,7 @@ Once your server is created, it comes with the following settings:
 
 After the `az postgres up` command is completed, a list of connection strings for popular programming languages is returned to you. These connection strings are pre-configured with the specific attributes of your newly created Azure Database for PostgreSQL server.
 
-You can use the [az postgres show-connection-string](/cli/azure/postgres#az_postgres_show_connection_string) command to list these connection strings again.
+You can use the [az postgres show-connection-string](/cli/azure/postgres#az-postgres-show-connection-string) command to list these connection strings again.
 
 ## Clean up resources
 
@@ -76,7 +77,7 @@ Clean up all resources you created in the quickstart using the following command
 az postgres down --delete-group
 ```
 
-If you would just like to delete the newly created server, you can run [az postgres down](/cli/azure/postgres#az_postgres_down) command.
+If you would just like to delete the newly created server, you can run [az postgres down](/cli/azure/postgres#az-postgres-down) command.
 
 ```azurecli
 az postgres down

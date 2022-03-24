@@ -33,7 +33,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
 
-To create a resource group, use [az group create](/cli/azure/group#az_group_create). In this example, we'll name our resource group _MyResourceGroup_ and use the _East US_ location:
+To create a resource group, use [az group create](/cli/azure/group#az-group-create). In this example, we'll name our resource group _MyResourceGroup_ and use the _East US_ location:
 
 ```azurecli-interactive
 az group create \
@@ -107,7 +107,7 @@ Verify that the command returns the correct details of your DDoS protection plan
 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. 
 
-To delete the resource group use [az group delete](/cli/azure/group#az_group_delete):
+To delete the resource group use [az group delete](/cli/azure/group#az-group-delete):
 
 ```azurecli-interactive
 az group delete \

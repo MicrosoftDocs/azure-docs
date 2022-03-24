@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/21/2022
 ms.author: zxue
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -19,7 +19,7 @@ In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Add HealthcareAPIs extension
+## Add Azure Health Data Services (for example, HealthcareAPIs) extension
 
 ```azurecli-interactive
 az extension add --name healthcareapis
