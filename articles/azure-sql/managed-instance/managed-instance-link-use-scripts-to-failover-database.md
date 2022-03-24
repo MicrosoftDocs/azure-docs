@@ -28,7 +28,7 @@ This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts 
 
 Database failover from SQL Server to SQL Managed Instance breaks the link between the two databases. Failover stops replication and leaves both databases in an independent state, ready for individual read/write workloads. 
 
-To start migrating your database to SQL Managed Instance, first stop the application workload to SQL Server during your maintenance hours. This step enables SQL Managed Instance to catch up with the database replication and make the migration to Azure without any data loss.
+To start migrating your database to SQL Managed Instance, first stop any application workloads on SQL Server during your maintenance hours. This enables SQL Managed Instance to catch up with database replication and migrate to Azure while mitigating data loss. 
 
 While the primary database is a part of an Always On availability group, you can't set it to read-only mode. You need to ensure that your applications aren't committing transactions to SQL Server.
 
