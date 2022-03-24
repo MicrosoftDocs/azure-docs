@@ -243,7 +243,7 @@ SELECT @poolEndTime = dateadd(minute, -30, @endTime)
 SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, avg_data_io_percent, avg_log_write_percent, max_worker_percent, max_session_percent,
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
-'),
+)',
 @credential_name = 'job_credential',
 @target_group_name = 'ElasticJobGroup',
 @output_type = 'SqlDatabase',
