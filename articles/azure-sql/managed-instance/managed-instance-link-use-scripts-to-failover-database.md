@@ -278,7 +278,7 @@ With this step, you've finished the migration of the database from SQL Server to
 
 For more information on the link feature, see the following resources:
 
-- [SQL Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
+- [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
 - [Prepare for a SQL Managed Instance link](./managed-instance-link-preparation.md).
 - [Use a SQL Managed Instance link with scripts to replicate a database](./managed-instance-link-use-scripts-to-replicate-database.md).
 - [Use a SQL Managed Instance link via SSMS to replicate a database](./managed-instance-link-use-ssms-to-replicate-database.md).
