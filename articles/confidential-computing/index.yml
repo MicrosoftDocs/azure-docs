@@ -134,8 +134,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Confidential healthcare demo on AKS
-            url: https://github.com/Azure-Samples/confidential-container-samples
+          - text: Confidential big-data analytics with Confidential containers 
+            url: https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql
+          - text: Confidential healthcare demo on AKS 
+            url: https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference
           - text: Attested Mutual TLS with Open Enclave on AKS
             url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
       - linkListType: reference

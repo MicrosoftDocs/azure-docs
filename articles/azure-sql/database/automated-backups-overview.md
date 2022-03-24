@@ -76,7 +76,7 @@ This table summarizes the capabilities and features of [point in time restore (P
 | **Restore via Azure portal**|Yes|Yes|Yes|
 | **Restore via PowerShell** |Yes|Yes|Yes|
 | **Restore via Azure CLI** |Yes|Yes|Yes|
-| | | | |
+
 
 \* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
 
@@ -411,7 +411,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 ```json
 { 
     "properties":{
-        "retentionDays":28
+        "retentionDays":28,
         "diffBackupIntervalInHours":24
   }
 }
@@ -425,7 +425,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
   "name": "default",
   "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
   "properties": {
-    "retentionDays": 28
+    "retentionDays": 28,
     "diffBackupIntervalInHours":24
   }
 }
@@ -574,7 +574,7 @@ az sql db create \
     --tier Hyperscale \
     --backup-storage-redundancy Zone
 ```
-For more information, see [az sql db create](/cli/azure/sql/db#az_sql_db_create) and [az sql db update](/cli/azure/sql/db#az_sql_db_update).
+For more information, see [az sql db create](/cli/azure/sql/db#az-sql-db-create) and [az sql db update](/cli/azure/sql/db#az-sql-db-update).
 
 Except for Hyperscale and Basic tier databases, you can update the backup storage redundancy setting for an existing database with the `--backup-storage-redundancy` parameter and the `az sql db update` command. It may take up to 48 hours for the changes to be applied on the database. Switching from geo-redundant backup storage to local or zone redundant storage disables geo-restore.
 
@@ -603,7 +603,7 @@ az sql db copy \
     --backup-storage-redundancy Zone
 ```
 
-For syntax details, see [az sql db copy](/cli/azure/sql/db#az_sql_db_copy). For an overview of database copy, visit [Copy a transactionally consistent copy of a database in Azure SQL Database](database-copy.md).
+For syntax details, see [az sql db copy](/cli/azure/sql/db#az-sql-db-copy). For an overview of database copy, visit [Copy a transactionally consistent copy of a database in Azure SQL Database](database-copy.md).
 
 #### [SQL Managed Instance](#tab/managed-instance)
 

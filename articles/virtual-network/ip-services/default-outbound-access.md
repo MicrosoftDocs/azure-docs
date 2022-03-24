@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 03/02/2022
 ms.author: allensu
 ---
 
@@ -21,6 +21,8 @@ Examples of explicit outbound connectivity are virtual machines:
 * In the backend pool of a standard load balancer with outbound rules defined.
 * In the backend pool of basic public load balancer.
 * Virtual machines with public IP addresses explicitly associated to them.
+
+:::image type="content" source="./media/default-outbound-access/explicit-outbound-options.png" alt-text="Diagram of explicit outbound options.":::
 
 ## How is default outbound access provided?
 
@@ -66,9 +68,10 @@ There are multiple ways to turn off default outbound access:
 
 NAT gateway is the recommended approach to have explicit outbound connectivity. A firewall can also be used to provide this access.
 
-## Limitations
+## Constraints
 
 * Connectivity maybe needed for Windows Updates.
+
 * Default outbound access IP doesn't support fragmented packets. 
 
 ## Next steps

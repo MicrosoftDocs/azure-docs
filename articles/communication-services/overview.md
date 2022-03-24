@@ -23,7 +23,7 @@ Azure Communication Services supports various communication formats:
 
 You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications experience. You can acquire [phone numbers](./concepts/telephony/plan-solution.md) directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services [direct routing](./concepts/telephony/plan-solution.md) allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
-In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). A [UI library](https://aka.ms/acsstorybook) can accelerate development for Web, iOS, and Android apps. Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
+In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Android (Java), Windows (.NET). A [UI library](https://aka.ms/acsstorybook) can accelerate development for Web, iOS, and Android apps. Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
 
 Scenarios for Azure Communication Services include:
 

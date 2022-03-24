@@ -32,7 +32,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes | grep php
+az webapp list-runtimes --os windows | grep php
 ```
 
 ::: zone-end
@@ -51,7 +51,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --linux | grep PHP
+az webapp list-runtimes --os linux | grep PHP
 ```
 
 ::: zone-end
@@ -121,7 +121,7 @@ Commit all your changes and deploy your code using Git, or Zip deploy [with buil
 
 ## Run Grunt/Bower/Gulp
 
-If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). 
+If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -247,13 +247,13 @@ getenv("DB_HOST")
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the *public/* subdirectory as the site root.
 
-To customize the site root, set the virtual application path for the app by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. The following example sets the site root to the *public/* subdirectory in your repository. 
+To customize the site root, set the virtual application path for the app by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. The following example sets the site root to the *public/* subdirectory in your repository.
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-By default, Azure App Service points the root virtual application path (_/_) to the root directory of the deployed application files (_sites\wwwroot_).
+By default, Azure App Service points the root virtual application path (*/*) to the root directory of the deployed application files (*sites\wwwroot*).
 
 ::: zone-end
 
@@ -354,7 +354,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Navigate to the Kudu console (`https://<app-name>.scm.azurewebsites.net/DebugConsole`) and navigate to `d:\home\site`.
 
-Create a directory in `d:\home\site` called `ini`, then create an *.ini* file in the `d:\home\site\ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file. 
+Create a directory in `d:\home\site` called `ini`, then create an *.ini* file in the `d:\home\site\ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file.
 
 For example, to change the value of [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
 
@@ -382,10 +382,10 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Navigate to the web SSH session with your Linux container (`https://<app-name>.scm.azurewebsites.net/webssh/host`).
 
-Create a directory in `/home/site` called `ini`, then create an *.ini* file in the `/home/site/ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file. 
+Create a directory in `/home/site` called `ini`, then create an *.ini* file in the `/home/site/ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file.
 
 > [!TIP]
-> In the built-in Linux containers in App Service, */home* is used as persisted shared storage. 
+> In the built-in Linux containers in App Service, */home* is used as persisted shared storage.
 >
 
 For example, to change the value of [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
@@ -474,9 +474,9 @@ When a working PHP app behaves differently in App Service or has errors, try the
 
 - [Access the log stream](#access-diagnostic-logs).
 - Test the app locally in production mode. App Service runs your app in production mode, so you need to make sure that your project works as expected in production mode locally. For example:
-    - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
-    - Certain web frameworks may deploy static files differently in production mode.
-    - Certain web frameworks may use custom startup scripts when running in production mode.
+  - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
+  - Certain web frameworks may deploy static files differently in production mode.
+  - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in debug mode. For example, in [Laravel](https://laravel.com/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](configure-common.md#configure-app-settings).
 
 ::: zone pivot="platform-linux"

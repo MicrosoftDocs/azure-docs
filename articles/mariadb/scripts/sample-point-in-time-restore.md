@@ -24,7 +24,7 @@ This sample CLI script restores a single Azure Database for MariaDB server to a 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/backup-restore-pitr/backup-restore.sh" range="6-39":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/backup-restore-pitr/backup-restore.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -40,10 +40,10 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | Creates a MariaDB server that hosts the databases. |
-| [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) | Restore a server from backup. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Creates a MariaDB server that hosts the databases. |
+| [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) | Restore a server from backup. |
+| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

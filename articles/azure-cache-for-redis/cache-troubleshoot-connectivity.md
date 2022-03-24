@@ -25,6 +25,7 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Virtual network configuration](#virtual-network-configuration)
   - [Private endpoint configuration](#private-endpoint-configuration)
   - [Firewall rules](#third-party-firewall-or-external-proxy)
+  - [Public IP address change](#public-ip-address-change)
 
 ## Intermittent connectivity issues
 
@@ -41,7 +42,7 @@ Check if the Max aggregate for `Connected Clients` metric is close or higher tha
 ### Kubernetes hosted applications
 
 - If your client application is hosted on Kubernetes, check that the pod running the client application or the cluster nodes aren't under memory/CPU/Network pressure. A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations.
-- If you're using *Istio* or any other service mesh, check that your service mesh proxy reserves port 13000-13019 or 15000-15019. These ports are used by clients to communicate with a clustered Azure Cache For Redis nodes and could cause connectivity issues on those ports.
+- If you're using _Istio_ or any other service mesh, check that your service mesh proxy reserves port 13000-13019 or 15000-15019. These ports are used by clients to communicate with a clustered Azure Cache For Redis nodes and could cause connectivity issues on those ports.
 
 ### Linux-based client application
 
@@ -71,7 +72,7 @@ Steps to check your virtual network configuration:
 
 1. Check if a virtual network is assigned to your cache from the "**Virtual Network**" section under the **Settings** on the Resource menu of the Azure portal.
 1. Ensure that the client host machine is in the same virtual network as the Azure Cache For Redis.
-1. When the client application is in a different VNet than your Azure Cache For Redis, both VNets must have VNet peering enabled within the same Azure region.
+1. When the client application is in a different VNet from your Azure Cache For Redis, both VNets must have VNet peering enabled within the same Azure region.
 1. Validate that the [Inbound](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound](cache-how-to-premium-vnet.md#outbound-port-requirements) rules meet the requirement.
 1. For more information, see [Configure a virtual network - Premium-tier Azure Cache for Redis instance](cache-how-to-premium-vnet.md#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network).
 
@@ -91,6 +92,10 @@ If you have a firewall configured for your Azure Cache For Redis, ensure that yo
 #### Third-party firewall or external proxy
 
 When you use a third-party firewall or proxy in your network, check that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache or geo-replication.
+
+### Public IP address change
+
+If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP address changed. For more information, see [Rely on hostname not public IP address for your cache](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address).
 
 ## Next steps
 

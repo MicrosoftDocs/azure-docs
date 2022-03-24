@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/09/2022
 ms.author: Thwimmer
 ---
@@ -27,6 +27,7 @@ This tutorial describes the steps you need to perform in both Gong and Azure Act
 > * Create users in Gong.
 > * Remove users in Gong when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Gong.
+> * Provision groups and group memberships in Gong.
 
 ## Prerequisites
 
@@ -34,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A user account in Gong with **Technical Administrator** privileges.
+* A user account in Gong with **Technical Administrator** privilege.
 
 
 ## Step 1. Plan your provisioning deployment
@@ -121,8 +122,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Review the user attributes that are synchronized from Azure AD to Gong in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Gong for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Gong API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Gong|
-   |---|---|---|---|
+    |Attribute|Type|Supported for filtering|Required by Gong|
+    |---|---|---|---|
     |userName|String|&check;|&check;
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|| 
     |active|Boolean||
@@ -135,7 +136,16 @@ This section guides you through the steps to configure the Azure AD provisioning
     |locale|String|| 
     |timezone|String||
     |urn:ietf:params:scim:schemas:extension:Gong:2.0:User:stateOrProvince|String|| 
-    |urn:ietf:params:scim:schemas:extension:Gong:2.0:User:country|String||      
+    |urn:ietf:params:scim:schemas:extension:Gong:2.0:User:country|String||
+          
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Gong**.
+
+1. Review the group attributes that are synchronized from Azure AD to Gong in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Gong for update operations. Select the **Save** button to commit any changes.
+
+    |Attribute|Type|Supported for filtering|Required by Gong|
+    |---|---|---|---|
+    |displayName|String|&check;|&check;
+    |members|Reference||
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,6 +170,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## Change Log
+03/23/2022 - Added support for **Group Provisioning**.
 
 ## More resources
 

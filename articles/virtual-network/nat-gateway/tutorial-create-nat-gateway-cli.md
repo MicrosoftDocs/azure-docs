@@ -34,13 +34,13 @@ In this tutorial, you learn how to:
 
 Set the parameter values for use in creating the required resources. The $RANDOM function is used to create unique object names.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="4-28":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="VariableBlock":::
 
 ## Create a resource group
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="29-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="ResourceGroup":::
 
 ## Create the NAT gateway
 
@@ -48,47 +48,47 @@ In this section we create the NAT gateway and supporting resources.
 
 ### Create public IP address
 
-To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address resource.
+To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address resource.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="33-36":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="ip":::
 
 ### Create NAT gateway resource
 
-Create a global Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create). The result of this command will create a gateway resource that uses the public IP address defined in the previous step. The idle timeout is set to 10 minutes.  
+Create a global Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The result of this command will create a gateway resource that uses the public IP address defined in the previous step. The idle timeout is set to 10 minutes.  
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="37-40":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="nat":::
 
 ### Create virtual network
 
-Create a virtual network with a subnet with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The IP address space for the virtual network is **10.1.0.0/16**. The subnet within the virtual network is **10.1.0.0/24**.
+Create a virtual network with a subnet with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The IP address space for the virtual network is **10.1.0.0/16**. The subnet within the virtual network is **10.1.0.0/24**.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="41-44":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="vnet":::
 
 ### Create bastion host subnet
 
 Create an Azure Bastion host to access the virtual machine.
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a Azure Bastion subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Azure Bastion subnet.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="45-48":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="subnet":::
 
 ### Create public IP address for the bastion host
 
-Create a public IP address for the bastion host with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+Create a public IP address for the bastion host with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="49-52":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="bastionIP":::
 
 ### Create the bastion host
 
-Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host.
+Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="53-56":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="bastionHost":::
 
 ### Configure NAT service for source subnet
 
-Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). This command will activate the NAT service on the specified subnet.
+Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). This command will activate the NAT service on the specified subnet.
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="57-60":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="NATservice":::
 
 All outbound traffic to Internet destinations is now using the NAT gateway.  It's not necessary to configure a UDR.
 
@@ -96,9 +96,9 @@ All outbound traffic to Internet destinations is now using the NAT gateway.  It'
 
 Create a virtual machine to test the NAT gateway to verify the public IP address of the outbound connection.
 
-Create the virtual machine with [az vm create](/cli/azure/vm#az_vm_create).
+Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" range="61-64":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="vm":::
 
 Wait for the virtual machine creation to complete before moving on to the next section.
 

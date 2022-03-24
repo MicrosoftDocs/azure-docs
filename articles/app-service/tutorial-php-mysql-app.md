@@ -5,8 +5,8 @@ description: Learn how to get a PHP app working in Azure, with connection to a M
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 06/15/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.date: 03/04/2022
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]s
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ mysql -u root -p
 
 If you're prompted for a password, enter the password for the `root` account. If you don't remember your root account password, see [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-If your command runs successfully, then your MySQL server is running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+If your command runs successfully, then your MySQL server is running. If not, ensure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 ### Create a database locally
 
@@ -95,14 +95,14 @@ In the terminal window, `cd` to a working directory.
     cd laravel-tasks
     ```
 
-1. Make sure the default branch is `main`.
+1. Ensure the default branch is `main`.
 
     ```bash
     git branch -m main
     ```
     
     > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
+    > The branch name change isn't required by App Service. But, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
 
 1. Install the required packages.
 
@@ -148,15 +148,15 @@ For information on how Laravel uses the _.env_ file, see [Laravel Environment Co
     php artisan serve
     ```
 
-1. Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
+1. Go to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
     ![PHP connects successfully to MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-1. To stop PHP, type `Ctrl + C` in the terminal.
+1. To stop PHP, enter `Ctrl + C` in the terminal.
 
 ## Create MySQL in Azure
 
-In this step, you create a MySQL database in [Azure Database for MySQL](../mysql/index.yml). Later, you configure the PHP application to connect to this database.
+In this step, you create a MySQL database in [Azure Database for MySQL](../mysql/index.yml). Later, you set up the PHP application to connect to this database.
 
 ### Create a resource group
 
@@ -164,7 +164,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL](../mysql
 
 ### Create a MySQL server
 
-In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) command.
+In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server#az-mysql-server-create) command.
 
 In the following command, substitute a unique server name for the *\<mysql-server-name>* placeholder, a user name for the *\<admin-user>*, and a password for the *\<admin-password>*  placeholder. The server name is used as part of your MySQL endpoint (`https://<mysql-server-name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure. For details on selecting MySQL DB SKU, see [Create an Azure Database for MySQL server](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
@@ -190,7 +190,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 ### Configure server firewall
 
-1. In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
+1. In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
     ```azurecli-interactive
     az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -227,7 +227,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
     GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
     ```
 
-1. Exit the server connection by typing `quit`.
+1. Exit the server connection by entering `quit`.
 
     ```sql
     quit
@@ -259,7 +259,7 @@ MYSQL_SSL=true
 Save the changes.
 
 > [!TIP]
-> To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL. With environment variables, you don't need the *.env* file in App Service.
+> To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to set up the environment variables in App Service to connect to your database in Azure Database for MySQL. With environment variables, you don't need the *.env* file in App Service.
 >
 
 ### Configure TLS/SSL certificate
@@ -318,13 +318,13 @@ The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository 
     php artisan serve --env=production
     ```
 
-1. Navigate to `http://localhost:8000`. If the page loads without errors, the PHP application is connecting to the MySQL database in Azure.
+1. Go to `http://localhost:8000`. If the page loads without errors, the PHP application is connecting to the MySQL database in Azure.
 
 1. Add a few tasks in the page.
 
     ![PHP connects successfully to Azure Database for MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-1. To stop PHP, type `Ctrl + C` in the terminal.
+1. To stop PHP, enter `Ctrl + C` in the terminal.
 
 ### Commit your changes
 
@@ -376,7 +376,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 ### Configure database settings
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;app-name>_ and _&lt;mysql-server-name>_.
 
@@ -407,7 +407,7 @@ Laravel needs an application key in App Service. You can configure it with app s
     php artisan key:generate --show
     ```
 
-1. In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
+1. In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -421,7 +421,7 @@ Laravel needs an application key in App Service. You can configure it with app s
 
 Set the virtual application path for the app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
 
-In the Cloud Shell, set the virtual application path by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. Replace the _&lt;app-name>_ placeholder.
+In the Cloud Shell, set the virtual application path by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _&lt;app-name>_ placeholder.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -433,7 +433,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 ::: zone pivot="platform-linux"
 
-[Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. However, you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
+[Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. But you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
 For more information, see [Change site root](configure-language-php.md#change-site-root).
 
@@ -505,11 +505,11 @@ Congratulations, you're running a data-driven PHP app in Azure App Service.
 
 In this step, you make a simple change to the `task` data model and the webapp, and then publish the update to Azure.
 
-For the tasks scenario, you modify the application so that you can mark a task as complete.
+For the tasks scenario, you change the application so that you can mark a task as complete.
 
 ### Add a column
 
-1. In the local terminal window, navigate to the root of the Git repository.
+1. In the local terminal window, go to the root of the Git repository.
 
 1. Generate a new database migration for the `tasks` table:
 
@@ -615,11 +615,11 @@ For the tasks scenario, you modify the application so that you can mark a task a
     php artisan serve
     ```
 
-1. To see the task status change, navigate to `http://localhost:8000` and select the checkbox.
+1. To see the task status change, go to `http://localhost:8000` and select the checkbox.
 
     ![Added check box to task](./media/tutorial-php-mysql-app/complete-checkbox.png)
 
-1. To stop PHP, type `Ctrl + C` in the terminal.
+1. To stop PHP, enter `Ctrl + C` in the terminal.
 
 ### Publish changes to Azure
 
@@ -637,11 +637,11 @@ For the tasks scenario, you modify the application so that you can mark a task a
     git push azure main
     ```
 
-1. Once the `git push` is complete, navigate to the Azure app and test the new functionality.
+1. Once the `git push` is complete, go to the Azure app and test the new functionality.
 
     ![Model and database changes published to Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
+If you add any task, they're retained in the database. Updates to the data schema leave existing data intact.
 
 ## Stream diagnostic logs
 
@@ -649,7 +649,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 While the PHP application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
@@ -657,7 +657,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
 
-To stop log streaming at any time, type `Ctrl`+`C`.
+To stop log streaming at any time, enter `Ctrl`+`C`.
 
 ::: zone-end
 
@@ -678,11 +678,11 @@ To stop log streaming at any time, type `Ctrl`+`C`.
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage the app you created.
 
-1. From the left menu, click **App Services**, and then click the name of your Azure app.
+1. From the left menu, select **App Services**, and then select the name of your Azure app.
 
     ![Portal navigation to Azure app](./media/tutorial-php-mysql-app/access-portal.png)
 
-    You see your app's Overview page. Here, you can perform basic management tasks like  stop, start, restart, browse, and delete.
+    You see your app's Overview page. In this page, you can do basic management tasks like  stop, start, restart, browse, and delete.
 
     The left menu provides pages for configuring your app.
 

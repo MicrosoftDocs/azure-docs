@@ -54,7 +54,6 @@ After migration, you should avoid making any calls to the v2 API to modify strea
 ### How to guides
 
 - [Manage streaming endpoints with Media Services v3](stream-manage-streaming-endpoints-how-to.md)
-- [CLI example: Publish an asset](cli-publish-asset.md)
 - [Create a streaming locator and build URLs](create-streaming-locator-build-url.md)
 - [Download the results of a job](job-download-results-how-to.md)
 - [Signal descriptive audio tracks](signal-descriptive-audio-howto.md)

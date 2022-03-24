@@ -168,6 +168,32 @@ Although most customers use just one service, service redundancy might be necess
 
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
+## Add more services to a subscription
+
+Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+
+1. Sign in to the Azure portal and find your search service.
+
+1. On the left-navigation pane, scroll down and select **New Support Request.**
+
+1. In **Issue type**, choose **Service and subscription limits (quotas).**
+
+1. Select the subscription that needs more quota.
+
+1. Under **Quota type**, select **Search** and then select **Next**.
+
+1. In the **Problem details** section, select **Enter details**.
+
+1. Follow the prompts to select the location and tier for which you want to increase the limit.
+
+1. Add the number of new services you would like to add to your quota. The value must not be empty and must between 0 to 100. For example, the maximum number of S2 services is 8. If you want 12 services, you would request 4 of S2 services.
+
+1. When you're finished, select **Save and continue** to continue creating your support request.
+
+1. Provide the additional information required to file the request, and then select **Next**.
+
+1. On **Review + create**, review the details that you'll send to support, and then select **Create**. 
+
 ## Next steps
 
 After provisioning a service, you can continue in the portal to create your first index.
