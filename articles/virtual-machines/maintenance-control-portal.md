@@ -55,7 +55,6 @@ With Maintenance Configurations, you can now take more control over when to appl
 
 On the details page of the maintenance configuration, click Machines and then click **Add Machine**. 
 
-[!div class="mx-imgBorder"]
 ![Screenshot showing how to assign a resource](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
 Select the resources that you want the maintenance configuration assigned to and click **Ok**. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
@@ -66,7 +65,7 @@ Select the resources that you want the maintenance configuration assigned to and
 
 ## Check configuration
 
-You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**.
+You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned to a machine by going to the **Maintenance Configurations** and checking under the **Machines** tab. You should see any machine you have assigned the configuration in this tab.
 
 ![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-host-type.png)
 
