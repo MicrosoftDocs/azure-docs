@@ -32,10 +32,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname#az_webapp_config_hostnam_eadd) | Maps a custom domain to an App Service app. |
+| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname#az-webapp-config-hostnam-eadd) | Maps a custom domain to an App Service app. |
 
 ## Next steps
 

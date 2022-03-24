@@ -14,7 +14,7 @@ For example, an error occurs when your deployment template references an existin
 
 ## Deploy a troubleshooting template
 
-The following ARM template and Bicep file get information from an existing storage account. You run the deployment with Azure PowerShell [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) or Azure CLI [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). Specify the storage account's name and resource group. The output is an object with the storage account's property names and values.
+The following ARM template and Bicep file get information from an existing storage account. You run the deployment with Azure PowerShell [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) or Azure CLI [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). Specify the storage account's name and resource group. The output is an object with the storage account's property names and values.
 
 ```json
 {
