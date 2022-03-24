@@ -15,7 +15,7 @@ ms.date: 03/25/2022
 This article explains how to test a software as a service (SaaS) offer in preview.
 
 > [!NOTE]
-> In this example we will use the SaaS Accelerator for the landing page.
+> In this example we will use the [SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2190938) for the landing page.
 
 ## Verify the purchase of a private test plan
 
