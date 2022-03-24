@@ -18,7 +18,7 @@ ms.date: 03/22/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you how to use T-SQL and PowerShell scripts to set up an [Azure SQL Managed Instance link](link-feature.md). You'll use that link to replicate your database from SQL Server to Azure SQL Managed Instance.
+This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts to replicate your database from SQL Server to Azure SQL Managed Instance by using a [Managed Instance link](link-feature.md).
 
 > [!NOTE]
 > A SQL Managed Instance link is a feature of SQL Server and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-replicate-database.md) to set up the link feature for database replication.
