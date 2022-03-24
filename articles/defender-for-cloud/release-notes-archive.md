@@ -609,16 +609,16 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 
-### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) released for general availability (GA)
+### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 on Windows Virtual Desktop released for general availability (GA)
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+When you enable Azure Defender for servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
-Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 
 ### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
@@ -921,16 +921,16 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 
-### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview)
+### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 on Windows Virtual Desktop (in preview)
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
-When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
+When you enable Azure Defender for servers running Windows Server, a license for Defender for Endpoint is included with the plan. If you've already enabled Azure Defender for servers and you have Windows Server 2019 servers in your subscription, they'll automatically receive Defender for Endpoint with this update. No manual action is required. 
 
-Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### Direct link to policy from recommendation details page
 
