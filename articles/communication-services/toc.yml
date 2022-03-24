@@ -73,6 +73,8 @@ items:
     items:
     - name: Get started with UI Library
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Design your experience with UI Kit (Figma)
+      href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
