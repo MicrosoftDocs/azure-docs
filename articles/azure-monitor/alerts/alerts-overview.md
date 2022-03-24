@@ -90,19 +90,17 @@ You can narrow down the list by selecting values from any of these filters at th
 | Time range | Only alerts fired within the selected time range are included in the view. Supported values are the past hour, the past 24 hours, the past seven days, and the past 30 days. |
 
 Select **Columns** at the top of the page to select which columns to show.
-### Alert details page
+### Alert details pane
 
-When you select an alert, this page provides details of the alert and enables you to change how you want to respond to the alert.
+When you select an alert, this alert details pane provides details of the alert and enables you to change how you want to respond to the alert.
 
-![Screenshot of Alert details page](media/alerts-overview/alert-detail2.png)
+:::image type="content" source="media/alerts-overview/alert-detail-pane.png" alt-text="Screenshot of alert details pane.":::
 
-The Alert details page includes the following sections:
-
+The Alert details pane includes:
 | Section | Description |
 |:---|:---|
 | Summary | Displays the properties and other significant information about the alert. |
-| History | Lists each action taken by the alert and any changes made to the alert. Currently limited to user response changes. |
-| Diagnostics | Information about the smart group in which the alert is included. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days, whatever of the time filter in the alerts list page. Select an alert to view its detail. |
+| History | Lists each action on the alert and any changes made to the alert.|
 ## Manage alerts
 
 You can set the user response of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All user response changes are stored in the history of the alert.
@@ -120,9 +118,7 @@ The *user response* is different and independent of the *alert condition*. The r
 
 To show the **Rules** page, select **Manage alert rules**. The Rules page is a single place for managing all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. You can also edit, enable, or disable alert rules from this page.  
 
- ![Screenshot of Rules page](./media/alerts-overview/alerts-preview-rules.png)
-
-
+ :::image type="content" source="media/alerts-overview/alerts-rules.png" alt-text="Screenshot of alert rules page.":::
 ## Create an alert rule
 You can author alert rules in a consistent manner, whatever of the monitoring service or signal type.
 
