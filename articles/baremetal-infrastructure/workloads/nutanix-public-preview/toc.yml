@@ -12,17 +12,8 @@
     href: supported-instances.md
 - name: Deployment
   items:
-  - name: Overviewer
+  - name: Overview
     href: nutanix-deployment-overview.md
-  - name: Deploying Nutanix Clusters in Azure
-    href: deploying-nutanix-clusters-in-azure.md
-    items:
-    - name: Setup an Account
-      href: setup-an-account.md
-    - name: Setup networking infrastructure in Azure
-      href: setup-networking-infrastructure-in-azure.md
-    - name: Configure the Nutanix Cluster Console  
-      href: configure-nutanix-cluster-console.md
   - name: Registering Nutanix Clusters in Azure
     href: registering-nutanix-clusters.md
     items:
@@ -30,6 +21,13 @@
       href: creating-a-my-nutanix-account.md
     - name: Onboarding Nutanix Clusters 
       href: onboarding-nutanix-clusters.md
+  - name: Azure Portal Workflow
+    href: azure-portal-workflow.md
+    items:
+    - name: Setup your Account
+      href: setup-an-account.md
+  - name: Setup networking infrastructure in Azure
+    href: setup-networking-infrastructure-in-azure.md
 - name: User VM (UVM) Network Management 
   href: uvm-network-management.md
   items: 

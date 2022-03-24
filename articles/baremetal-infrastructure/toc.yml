@@ -103,5 +103,5 @@
     href: ./workloads/oracle/toc.yml
   - name: Nutanix (Public Preview prototype)
     items: 
-    href: ./workloads/nutanix-public-preview-prototype-2/toc.yml
+    href: ./workloads/nutanix-public-preview/toc.yml
   
