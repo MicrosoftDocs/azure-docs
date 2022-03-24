@@ -1288,7 +1288,7 @@ The Security Center experience within SQL provides access to the following Secur
 - **Security alerts** – a detection service that continuously monitors Azure SQL activities for threats such as SQL injection, brute-force attacks, and privilege abuse. This service triggers detailed and action-oriented security alerts in Security Center and provides options for continuing investigations with Azure Sentinel, Microsoft’s Azure-native SIEM solution.
 - **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.	 
 
-:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
+:::image type="content" source="media/release-notes/microsoft-defender-for-cloud-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
 
 
 ### Asset inventory tools and filters updated
