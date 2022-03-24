@@ -123,7 +123,7 @@ After you acquire an on-premises management console, go to **Defender for IoT** 
 
 This section describes hardware specifications for supported models.
 
-## Corporate deployment: HPE ProLiant DL360
+### Corporate deployment: HPE ProLiant DL360
 
 | Component | Technical specifications |
 |--|--|
@@ -140,7 +140,7 @@ This section describes hardware specifications for supported models.
 | Power | 2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit |
 | Rack support | HPE 1U Gen10 SFF Easy Install Rail Kit |
 
-### Appliance BOM
+#### Appliance BOM
 
 | PN | Description | Quantity |
 |--|--|--|
@@ -159,7 +159,7 @@ This section describes hardware specifications for supported models.
 | 512485-B21 | HPE iLO Adv 1-Server License 1 Year Support | 1 |
 | 874543-B21 | HPE 1U Gen10 SFF Easy Install Rail Kit | 1 |
 
-## Enterprise deployment: HPE ProLiant DL20
+### Enterprise deployment: HPE ProLiant DL20
 
 | Component | Technical specifications |
 |--|--|
@@ -176,7 +176,7 @@ This section describes hardware specifications for supported models.
 | Power | Dual Hot Plug Power Supplies 500 W |
 | Rack support | HPE 1U Short Friction Rail Kit |
 
-### Appliance BOM
+#### Appliance BOM
 
 | PN | Description: high end | Quantity |
 |--|--|--|
@@ -194,7 +194,7 @@ This section describes hardware specifications for supported models.
 | P06722-B21 | HPE DL20 Gen10 RPS Enablement FIO Kit | 1 |
 | 775612-B21 | HPE 1U Short Friction Rail Kit | 1 |
 
-## SMB deployment: HPE ProLiant DL20
+### SMB deployment: HPE ProLiant DL20
 
 | Component | Technical specifications |
 |--|--|
@@ -211,7 +211,7 @@ This section describes hardware specifications for supported models.
 | Power | Hot Plug Power Supply 290 W |
 | Rack support | HPE 1U Short Friction Rail Kit |
 
-### Appliance BOM
+#### Appliance BOM
 
 | PN | Description | Quantity |
 |--|--|--|
@@ -228,7 +228,7 @@ This section describes hardware specifications for supported models.
 | 512485-B21 | HPE iLO Adv 1-Server License 1 Year Support | 1 |
 | 775612-B21 | HPE 1U Short Friction Rail Kit | 1 |
 
-## SMB Rugged: HPE Edgeline EL300
+### SMB Rugged: HPE Edgeline EL300
 
 | Component | Technical specifications |
 |--|--|
@@ -248,7 +248,7 @@ This section describes hardware specifications for supported models.
 | Vibration | 0.3 gram 10 Hz to 300 Hz, 15 minutes per axis - Din rail   |
 | Shock | 10G 10 ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail |
 
-### Appliance BOM
+#### Appliance BOM
 | Product | Description |
 |--|--|
 | P25828-B21 | HPE Edgeline EL300 v2 Converged Edge System |
@@ -267,7 +267,7 @@ This section describes hardware specifications for supported models.
 | P08020-B21 optional | HPE Edgeline EL300 Wall Mount Kit |
 | P03456-B21 optional | HPE Edgeline 1GbE 4-port TSN FIO Daughter Card |
 
-## Office Rugged: YS-techsystems YS-FIT2
+### Office Rugged: YS-techsystems YS-FIT2
 
 | Component | Technical specifications |
 |--|--|
@@ -277,7 +277,7 @@ This section describes hardware specifications for supported models.
 | CPU | Intel Atom® x7-E3950 Processor |
 | Chipset | Intel® Q170 Platform Controller Hub |
 | Memory | 	8GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V) |
-| Storage | 128GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) PLP |
+| Storage | 128GB M.2 M-key 2260*  or 2242 (SATA 3 6 Gbps) PLP |
 | Network controller | 2x 1GbE LAN Ports |
 | Device access  | 2 x USB 2.0, 2 X USB 3.0  |
 | Power Adapter | 7V-20V (Optional 9V-36V) DC / 5W-15W Power Adapter / Vehicle DC cable for fitlet2 (Optional) / UPS	fit-uptime Miniature 12V UPS for miniPCs (Optional) |
