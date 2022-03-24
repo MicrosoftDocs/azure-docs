@@ -61,12 +61,24 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
+> [!IMPORTANT]
+> Deleting key, key vault might cause the cluster breaking, which is not recommended:
+> - If we enable the soft deletion of key vault, the cluster could be retrieved after the key restored.
+> - If you indeed purged the key/key vault, the cluster could not be retrieved any more.
+
 The following limitations apply when you integrate KMS with Azure Kubernetes Service:
-* Changing of keys
+* Changing of keyId(including key name and key version).
 * Disabling KMS
 * System-Assigned Managed Identity
 * Leveraging KeyVault with PrivateLink enabled.
 * Using more than 2000 secrets in a cluster.
+* Bring your own(BYO) key vault from another tenant.
+
+> [!NOTE]
+> KMS does not support System-Assigned Managed Identity(SystemMSI) because keyvault access-poicy is required to be set before the feature enabled.
+> SystemMSI is not available until cluster creation, thus there is a cycle dependency.
+> KMS works well for User-Assigned Managed Identity(UserMSI)/Service Principal as the identity is present before cluster creation.
+
 
 ## Create a KeyVault and key
 
@@ -115,7 +127,14 @@ az keyvault set-policy -n $KEYVAULT_NAME --key-permissions decrypt encrypt --obj
 ## Create an AKS cluster with KMS
 
 ```azurecli-interactive
-az keyvault set-policy -n $KEYVAULT_NAME --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az aks create --name $CLUSTER_NAME --resource-group $RG_NAME --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
+```
+
+# Update AKS cluster to enable KMS etcd encryption 
+You may add KMS etcd encryption to an existing AKS cluster. 
+
+```azurecli-interactive
+az aks update --name $CLUSTER_NAME --resource-group $RG_NAME --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
 ```
 
 ## Next steps
