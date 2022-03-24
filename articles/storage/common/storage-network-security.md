@@ -47,10 +47,7 @@ You can use unmanaged disks in storage accounts with network rules applied to ba
 
 ## Change the default network access rule
 
-By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
-
-> [!WARNING]
-> Making changes to network rules can impact your applications' ability to connect to Azure Storage. Setting the default network rule to **deny** blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+By default, storage accounts accept connections from clients on any network. You can limit access to selected networks or allow access only through the use of a private link. 
 
 ### Managing default network access rules
 
@@ -63,6 +60,14 @@ You can manage default network access rules for storage accounts through the Azu
 2. Select on the settings menu called **Networking**.
 
 3. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
+
+   > [!WARNING]
+   > Running this command blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+
+5. To allow access only through the use of a private link, choose **Disabled**.
+
+   > [!WARNING]
+   > Running this command blocks all access to the data unless a private link that grants access is distributed. Be sure to create a private link to your storage account before you disable public network access.
 
 4. Select **Save** to apply your changes.
 
@@ -84,11 +89,23 @@ You can manage default network access rules for storage accounts through the Azu
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
+   > [!WARNING]
+   > Running this command blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+
 4. Set the default rule to allow network access by default.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
+
+5. Allow access only through the use of a private link. 
+
+   ```powershell
+   Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
+   ```
+
+   > [!WARNING]
+   > Running this command blocks all access to the data unless a private link that grants access is distributed. Be sure to create a private link to your storage account before you disable public network access.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -106,11 +123,23 @@ You can manage default network access rules for storage accounts through the Azu
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
+   > [!WARNING]
+   > Running this command blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+
 4. Set the default rule to allow network access by default.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+
+5. Allow access only through the use of a private link. 
+
+   ```azurecli
+   az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Enabled
+   ```
+
+   > [!WARNING]
+   > Running this command blocks all access to the data unless a private link that grants access is distributed. Be sure to create a private link to your storage account before you disable public network access.
 
 ---
 
