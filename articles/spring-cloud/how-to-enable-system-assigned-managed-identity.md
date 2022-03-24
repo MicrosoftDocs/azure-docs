@@ -26,7 +26,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 ::: zone pivot="sc-enterprise-tier"
 
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
-- [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
+- [Azure CLI version 3.1.0 or later](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ::: zone-end
@@ -34,6 +34,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 ::: zone pivot="sc-standard-tier"
 
 - An already provisioned Azure Spring Cloud instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](./quickstart.md).
+- [Azure CLI version 3.1.0 or later](/cli/azure/install-azure-cli).
 
 ::: zone-end
 
@@ -65,7 +66,7 @@ az spring-cloud app create \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \
-    --assign-identity
+    --system-assigned
 ```
 
 **Enable system-assigned managed identity on an existing app**
@@ -76,7 +77,8 @@ Use `az spring-cloud app identity assign` command to enable the system-assigned 
 az spring-cloud app identity assign \
     --resource-group <resource-group-name> \
     --name <app-name> \
-    --service <service-instance-name>
+    --service <service-instance-name> \
+    --system-assigned
 ```
 
 ---
@@ -111,7 +113,13 @@ To remove system-assigned managed identity from an app that no longer needs it, 
 az spring-cloud app identity remove \
     --resource-group <resource-group-name> \
     --name <app-name> \
-    --service <service-instance-name>
+    --service <service-instance-name> \
+    --system-assigned
+```
+
+## How to get Client ID by Object ID (Principal ID)
+```azurecli
+az ad sp show --id {objectId} --query appId
 ```
 
 ---
