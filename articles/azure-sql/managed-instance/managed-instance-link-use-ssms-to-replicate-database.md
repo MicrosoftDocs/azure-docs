@@ -101,7 +101,7 @@ In the following steps, you use the **New Managed Instance link** wizard in SSMS
 
 After the link is created, the selected databases are replicated to the managed instance. 
 
-Use Object Explorer on your SQL Server instance to view the **Synchronized** status of the replicated database. Expand **Always On High Availability** and **Availability Groups** to view the distributed availability group that's created for the SQL Managed Instance link. 
+Use Object Explorer on your SQL Server instance to view the **Synchronized** status of the replicated database. Expand **Always On High Availability** and **Availability Groups** to view the distributed availability group that's created for the link. 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-sql-server-database.png" alt-text="Screenshot that shows the state of the SQL Server database and availability group, and the distributed availability group in S S M S.":::
 
