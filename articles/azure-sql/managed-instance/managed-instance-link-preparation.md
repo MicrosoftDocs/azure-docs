@@ -24,7 +24,7 @@ This article teaches you how to prepare your environment for an [Azure SQL Manag
 
 ## Prerequisites 
 
-To use a SQL Managed Instance link, you need the following prerequisites: 
+To use the link with Azure SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019?filetype=EXE), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
