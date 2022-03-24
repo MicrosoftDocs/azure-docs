@@ -20,7 +20,7 @@ Using these services, you can shift effort from manually performing operational 
 ## Categories in Automation operations
 Automation is mainly required in three broad categories of operations.
 
-- **Deployment & management of resources** — create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules are created using an Azure Resource Manager template or an automation script.
+- **Deployment and management of resources** — create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules are created using an Azure Resource Manager template or an automation script.
 
 - **Response to external events** — based on a critical external event such as responding to database changes, acting as per the  inputs given to a web page and so on, you can diagnose and resolve issues.
 
@@ -30,7 +30,7 @@ Automation is mainly required in three broad categories of operations.
 
 Multiple Azure services can fulfil the above requirements. Each service has its benefits and limitations, and customers can use multiple services to meet their automation requirements.  
 
-**Deployment & management of resources**
+**Deployment and management of resources**
   - Azure Resource Manager (ARM) templates with Bicep
   - Azure Blueprints
   - Azure Automation
@@ -41,9 +41,10 @@ Multiple Azure services can fulfil the above requirements. Each service has its 
   - Azure Automation
   - Azure Policy Guest Config (to take an action when there is a change in the compliance state of resource.)
 
-**Complex Orchestration & integration with 1st or 3rd party products** 
+**Complex Orchestration and integration with 1st or 3rd party products** 
   - Azure Logic Apps
   - Azure Functions or Azure Automation. (Azure Logic app has over 400+ connectors to other services, including Azure Automation and Azure Functions which could be leveraged to meet complex automation scenarios.)
+
 
   :::image type="content" source="media/automation-services/automation-services-overview.png" alt-text="Screenshot shows an Overview of Automation services.":::
 
@@ -58,7 +59,7 @@ ARM provides a language to develop repeatable and consistent deployment template
 
 We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
 
-The following table describes the scenarios and users for ARM and Bicep.
+The following table describes the scenarios and users for ARM and Bicep:
 
   **Scenarios** | **Users**
   --- | ---
@@ -86,29 +87,26 @@ It provides a persistent shared assets including variables, connections, objects
 
 ### Azure Automation based in-guest management
 
-**Configuration management** 
+**Configuration management** : Collects inventory and tracks changes in your environment. [Learn more](/azure/automation/change-tracking/overview).
+You can configure desired the state of your machines to discover and correct configuration drift. [Learn more](/azure/automation/automation-dsc-overview).
 
-Collects inventory & tracks changes in your environment. [Learn more](/azure/automation/change-tracking/overview).
-You can configure desired the state of your machines and discover\correct configuration drift. [Learn more](/azure/automation/automation-dsc-overview).
-
-**Update management** 
-Assess compliance of servers and can schedule update installation on your machines. [Learn more](/azure/automation/update-management/overview)
+**Update management** : Assess compliance of servers and can schedule update installation on your machines. [Learn more](/azure/automation/update-management/overview).
 
   **Scenarios** | **Users**
   --- | ---
-  | Detect and alert on software, services, file & registry changes to your machines, vigilant on everything installed in your servers. </br> </br> Assess and install updates on your servers using Azure Update management. </br> </br> Configure the desired state of your servers and ensure they stay compliant. | </br> </br> Central IT\Infrastructure Administrators\Auditors looking for regulatory requirements at scale & ensuring end state of severs looks as desired, patched and audited.
+  | Detect and alert on software, services, file and registry changes to your machines, vigilant on everything installed in your servers. </br> </br> Assess and install updates on your servers using Azure Update management. </br> </br> Configure the desired state of your servers and ensure they stay compliant. | </br> </br> Central IT\Infrastructure Administrators\Auditors looking for regulatory requirements at scale and ensuring end state of severs looks as desired, patched and audited.
 
 
 ### Azure Automanage (Preview)
 
-Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady-state of VM is equal to hands-free management.
+Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady-state of VM is equal to hands-free management. [Learn more](/azure/automanage/automanage-virtual-machines).
 
 **Linux and Windows support** 
 - You can intelligently onboard virtual machines to select best practices Azure services
 - It allows you to configure each service per Azure best practices automatically.
 - It supports customization of best practice services through VM Best practices template for Dev\Test and Production workload.
 - You can monitor for drift and correct it when detected
-- It provides a simple experience (point, click, set, and forget) [Learn more](/azure/automanage/automanage-virtual-machines).
+- It provides a simple experience (point, click, set, and forget) 
 
   **Scenarios** | **Users**
   --- | ---
@@ -119,11 +117,11 @@ Replaces repetitive, day-to-day operational tasks with an exception-only managem
 
 ### Azure Policy based Guest Configuration
 
-Azure Policy based Guest configuration is the next iteration of Azure Automation State configuration. 
+Azure Policy based Guest configuration is the next iteration of Azure Automation State configuration. [Learn more](/azure/governance/policy/concepts/guest-configuration-policy-effects). 
 You can check on what is installed in:
   - The next iteration of [Azure Automation State Configuration](/azure/automation/automation-dsc-overview).
   - For known-bad apps, protocols certificates, administrator privileges, and health of agents.
-  - For customer-authored content [Learn more](/azure/governance/policy/concepts/guest-configuration-policy-effects).  
+  - For customer-authored content. 
 
   **Scenarios** | **Users**
   --- | ---
@@ -171,7 +169,7 @@ Logic Apps is a platform for creating and running complex orchestration workflow
 
 ### Azure Automation - Process Automation
 
-Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. It provides persistent shared assets, including variables, connections, objects, that allows orchestration of complex jobs. [Learn more](/azure/automation/overview)
+Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. It provides persistent shared assets, including variables, connections, objects, that allows orchestration of complex jobs. [Learn more](/azure/automation/overview).
 
   **Scenarios** | **Users**
   --- | ---
