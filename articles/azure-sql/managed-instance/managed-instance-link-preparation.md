@@ -14,7 +14,7 @@ ms.reviewer: mathoma, danil
 ms.date: 03/22/2022
 ---
 
-# Prepare your environment for a SQL Managed Instance link
+# Prepare environment for link - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article teaches you how to prepare your environment for an [Azure SQL Managed Instance link](link-feature.md) so that you can replicate databases from SQL Server to SQL Managed Instance.
