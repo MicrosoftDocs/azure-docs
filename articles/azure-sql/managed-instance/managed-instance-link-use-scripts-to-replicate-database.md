@@ -529,7 +529,6 @@ After the connection is established, the **Managed Instance Databases** view in 
 > - The link will not work unless network connectivity exists between SQL Server and SQL Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
 - Take regular backups of the log file on SQL Server. If the used log space reaches 100 percent, replication to SQL Managed Instance stops until space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
 
-> [!IMPORTANT]
 > Make regular backups of the log file on SQL Server. If the used log space reaches 100 percent, the replication to SQL Managed Instance will stop until this space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
 
 ## Next steps
