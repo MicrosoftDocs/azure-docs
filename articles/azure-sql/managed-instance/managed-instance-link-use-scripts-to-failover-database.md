@@ -38,7 +38,7 @@ The replication between SQL Server and SQL Managed Instance is asynchronous by d
 
 Switching from async to sync mode requires a replication mode change on SQL Managed Instance and SQL Server.
 
-### Switch the replication mode on SQL Managed Instance
+### Switch replication mode (SQL Managed Instance)
 
 Use the following PowerShell script to call a REST API that changes the replication mode from asynchronous to synchronous on SQL Managed Instance. We suggest that you make the REST API call by using Azure Cloud Shell in the Azure portal. In the script, replace:
 
