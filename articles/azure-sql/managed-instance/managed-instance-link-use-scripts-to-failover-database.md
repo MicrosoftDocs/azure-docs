@@ -34,7 +34,7 @@ While the primary database is a part of an Always On availability group, you can
 
 ## Switch the replication mode
 
-The replication between SQL Server and SQL Managed Instance is asynchronous by default. Before you perform database migration to Azure, the link needs to be switched to synchronous mode. Synchronous replication across distances might slow down transactions on the primary SQL Server instance.
+The replication between SQL Server and SQL Managed Instance is asynchronous by default. Before you migrate your database to Azure, switch the link to synchronous mode. Synchronous replication across large network distances might slow down transactions on the primary SQL Server instance.
 
 Switching from async to sync mode requires a replication mode change on SQL Managed Instance and SQL Server.
 
