@@ -448,10 +448,10 @@ The following normalization and redirect rules will apply for each of the availa
 
 ### Always 
 
-When setting trailingSlashes to `always`, all requests that don't include a trailing slash will be redirected to a trailing slash URL. For example, `/contact` will be redirected to `/contact/`.
+When setting trailingSlash to `always`, all requests that don't include a trailing slash will be redirected to a trailing slash URL. For example, `/contact` will be redirected to `/contact/`.
 
 ```json
-"trailingSlashes": "always"
+"trailingSlash": "always"
 ```
 
 | Requests to... | returns... | with the status... | and path... |
@@ -463,12 +463,12 @@ When setting trailingSlashes to `always`, all requests that don't include a trai
 | _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
 | _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
 
-### None
+### Never
 
-When setting trailingSlashes to `none`, all requests ending in a trailing slash will be redirected to a non-trailing slash URL. For example, `/contact/` will be redirected to `/contact`.
+When setting trailingSlash to `never`, all requests ending in a trailing slash will be redirected to a non-trailing slash URL. For example, `/contact/` will be redirected to `/contact`.
 
 ```json
-"trailingSlashes": "none"
+"trailingSlash": "never"
 ```
 
 | Requests to... | returns... | with the status... | and path... |
@@ -482,10 +482,10 @@ When setting trailingSlashes to `none`, all requests ending in a trailing slash 
 
 ### Auto
 
-When setting trailingSlashes to `auto`, all requests to folders will be redirected to a URL with a trailing slash. All requests to files will be redirected to a non-trailing slash URL.
+When setting trailingSlash to `auto`, all requests to folders will be redirected to a URL with a trailing slash. All requests to files will be redirected to a non-trailing slash URL.
 
 ```json
-"trailingSlashes": "auto"
+"trailingSlash": "auto"
 ```
 
 | Requests to... | returns... | with the status... | and path... |
@@ -497,9 +497,9 @@ When setting trailingSlashes to `auto`, all requests to folders will be redirect
 | _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
 | _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
 
-For optimal website performance, it is recommended to configure a trailing slashes strategy using one of the `always`, `none` or `auto` modes.
+For optimal website performance, it is recommended to configure a trailing slash strategy using one of the `always`, `none` or `auto` modes.
 
-By default, when the trailingSlashes configuration is omitted, Azure Static Web Apps will apply the following rules: 
+By default, when the trailingSlash configuration is omitted, Azure Static Web Apps will apply the following rules: 
 
 | Requests to... | returns... | with the status... | and path... |
 |--|--|--|--|
