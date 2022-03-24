@@ -95,24 +95,6 @@ To query the generated logs:
 
    :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/custom-query-inline.png" alt-text="Screenshot showing how to query logs" lightbox="media/automation-manage-send-joblogs-log-analytics/custom-query-expanded.png":::
 
-### Send an email when a runbook job fails or suspends
-
-The following steps explain on how to set up email alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
-
-To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Querying the logs](#querying-the-logs). Click the **+New alert rule** to configure the alert rule.
-
-1. In your Automation account, under **Monitoring**, select **Logs**.
-1. Create a log search query for your alert by entering a search criteria into the query field.
-
-    ```kusto
-    AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")   
-    ```
-    You can also group by the runbook name by using:
-    
-    ```kusto
-    AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and     Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s 
-    ```
- 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](/azure/azure-monitor/alerts/alerts-log#create-a-log-alert-rule-in-the-azure-portal)
 
 ## Azure Monitor log records
 
@@ -266,7 +248,27 @@ AzureDiagnostics
 ```
 
 ## Sample Azure Automation Audit log queries
-You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. For information on configuring alerts see, [Send an email when a runbook job fails or suspends.](#send-an-email-when-a-runbook-job-fails-or-suspends)
+You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure alerts for audit log conditions as part of your security monitoring requirements. 
+
+### Send an email when a runbook job fails or suspends
+
+The following steps explain on how to set up email alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
+
+To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Querying the logs](#querying-the-logs). Click the **+New alert rule** to configure the alert rule.
+
+1. In your Automation account, under **Monitoring**, select **Logs**.
+1. Create a log search query for your alert by entering a search criteria into the query field.
+
+    ```kusto
+    AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")   
+    ```
+    You can also group by the runbook name by using:
+    
+    ```kusto
+    AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and     Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s 
+    ```
+ 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](/azure/azure-monitor/alerts/alerts-log#create-a-log-alert-rule-in-the-azure-portal)
+
 
 ## Difference between Activity logs and Audit logs?
 The Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. Activity log for Automation account includes information about when an automation resource is modified or created or deleted, however, it does not capture the name or ID of the resource. Audit logs for Automation accounts capture the name and ID of the resource like automation variable, credential, connection etc, along with the type of the operation performed for the resource.  
