@@ -1,6 +1,6 @@
 ---
 title: Monitoring overview
-description: Learn how you can monitor your app in Azure App Service with various monitoring methods.
+description: Learn about the various monitoring options on App Service.
 keywords: app service, azure app service, monitoring, diagnostic settings, support, web app, troubleshooting, 
 
 ms.topic: article
@@ -10,23 +10,10 @@ ms.author: msangapu
 ---
 # Azure App Service monitoring overview
 
-Azure App Service provides several monitoring options for monitoring resources for availability, performance, and operation. Options such as Diagnostic Settings, Application Insights, Log stream, Metrics, Quotas and alerts, and Activity logs. This article will bring clarity on when an option should be used and provide an overview of them.
+Azure App Service provides several monitoring options for monitoring resources for availability, performance, and operation. Options such as Diagnostic Settings, Application Insights, Log stream, Metrics, Quotas and alerts, and Activity logs. This article aims to bring clarity on monitoring options on App Service and when each should be used.
 
-## Monitoring scenarios
-
-|Scenario|Monitoring method |
-|----------|-----------|
-|I want to monitor platform metrics and logs | (Azure Monitor) Diagnostic Settings|
-|I want to monitor application performance and usage | (Azure Monitor) Application Insights|
-|I want to monitor built-in logs for testing and development|Log stream|
-|I want to monitor resource limits and configure alerts|Quotas and alerts|
-|I want to monitor web app resource events|Activity Logs|
-|I want to monitor metrics visually|Metrics|
 ## Monitoring options in App Service
 
-Add screenshots for each monitoring method.
-
-Add links from each section to how-to articles.
 ### Diagnostic Settings (via Azure Monitor)
 
 Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The Azure Monitor data platform collects data into logs and metrics where they can be analyzed together using a complete set of monitoring tools. App Service monitoring data can be shipped to Azure Monitor through Diagnostic Settings.
@@ -56,6 +43,19 @@ Application Insights, a feature of Azure Monitor, is an extensible Application P
 Azure provides built-in diagnostics to assist during testing and development to  debug an App Service app.  
 
  to get quick access to output and errors written by your application, and logs from the web server. These are standard output/error logs in addition to web server logs.
+## Monitoring scenarios
+
+The table below lists monitoring methods to use for different scenarios.
+
+|Scenario|Monitoring method |
+|----------|-----------|
+|I want to monitor platform metrics and logs | (Azure Monitor) [Diagnostic Settings](troubleshoot-diagnostic-logs.md)|
+|I want to monitor application performance and usage | (Azure Monitor) [Application Insights](monitor-app-service.md#application-insights)|
+|I want to monitor built-in logs for testing and development|[Log stream](troubleshoot-diagnostic-logs.md#stream-logs)|
+|I want to monitor resource limits and configure alerts|[Quotas and alerts](web-sites-monitor.md)|
+|I want to monitor web app resource events|[Activity Logs](get-resource-events.md#view-azure-activity-logs)|
+|I want to monitor metrics visually|[Metrics](web-sites-monitor#metrics-granularity-and-retention-policy)|
+
 
 
 ## Next steps
