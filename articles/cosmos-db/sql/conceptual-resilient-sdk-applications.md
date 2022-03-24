@@ -3,7 +3,7 @@ title: Designing resilient applications with Azure Cosmos SDKs
 description: Learn how to build resilient applications using the Azure Cosmos SDKs, which.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/22/2022
+ms.date: 03/24/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
@@ -22,7 +22,7 @@ For a video overview of the concepts discussed in this article, see:
 
 ## Connectivity modes
 
-Azure Cosmos SDKs can connect to the service in two [connectivity modes](sql-sdk-connection-modes.md). Some Azure Cosmos SDKs can connect to the service in both modes, while others can only connect in Gateway mode. Gateway mode uses the HTTP protocol while Direct mode uses the TCP protocol.
+Azure Cosmos SDKs can connect to the service in two [connectivity modes](sql-sdk-connection-modes.md). Some Azure Cosmos SDKs can connect to the service in both modes (.NET, Java), while others can only connect in Gateway mode. Gateway mode uses the HTTP protocol while Direct mode uses the TCP protocol.
 
 Azure Cosmos SDKs configured in Direct mode use Gateway mode to fetch metadata information such as the account, container, and routing information. This information is cached in memory and is used to connect to the [service replicas](../partitioning-overview.md#replica-sets).
 
@@ -54,7 +54,7 @@ The short answer is **yes**. But not all errors make sense to retry on, some of 
 |----------|-------------|-------------|
 | 400 | No | [Bad request](troubleshoot-bad-request.md) |
 | 401 | No | [Not authorized](troubleshoot-unauthorized.md) |
-| 403 | No | [Forbidden](troubleshoot-forbidden.md) |
+| 403 | Optional | [Forbidden](troubleshoot-forbidden.md) |
 | 404 | No | [Resource is not found](troubleshoot-not-found.md) |
 | 408 | Yes | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | No | Conflict failure is when the identity (id and partition key) provided for a resource on a write operation has been taken by an existing resource or when a [unique key constraint](../unique-keys.md) has been violated. |
@@ -67,6 +67,10 @@ The short answer is **yes**. But not all errors make sense to retry on, some of 
 | 503 | Yes | [Service unavailable](troubleshoot-service-unavailable.md) |
 
 In the table above, all the status codes marked with **Yes** should have some degree of retry coverage in your application.
+
+### HTTP 403
+
+The Azure Cosmos SDKs do not retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you are trying to write based on some business role. While not the most common scenarios, it is worth mentioning.
 
 ### HTTP 429
 
