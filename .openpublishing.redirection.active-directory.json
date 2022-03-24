@@ -342,7 +342,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/mimecast-admin-console-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/mimecast-personal-portal-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/mimecast-personal-portal-tutorial",
       "redirect_document_id": false
     },
     {
