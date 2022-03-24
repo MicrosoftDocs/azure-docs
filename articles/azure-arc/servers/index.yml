@@ -27,7 +27,7 @@ landingContent:
  # Card
   - title: Connect machines to Azure
     linkLists: 
-      - linkListType: deploy
+      - linkListType: concept
         links:
           - text: Plan for deployment
             url: plan-at-scale-deployment.md
@@ -37,7 +37,7 @@ landingContent:
         links:
           - text: Deploy Arc-enabled servers agent
             url: ./learn/quick-enable-hybrid-vm.md
-      - linkListType: get-started
+      - linkListType: deploy
         links:
           - text: Connect machines to Azure Arc using a deployment script
             url: onboard-portal.md
@@ -85,3 +85,19 @@ landingContent:
         links:
           - text: Microsoft Learn learning path
             url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc         
+
+ # Card
+  - title: Azure service integration
+    linkLists: 
+      - linkListType: tutorial
+        links:
+          - text: Azure Policy
+            url: ./learn/tutorial-assign-policy-portal.md 
+          - text: Azure Monitor
+            url: ./learn/tutorial-enable-vm-insights.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Microsoft Sentinel
+            url: scenario-onboard-azure-sentinel.md
+          - text: Microsoft Defender for Cloud
+            url: /azure/defender-for-cloud/quickstart-onboard-machines?toc=%2Fazure%2Fazure-arc%2Fservers%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fservers%2Fbreadcrumb%2Ftoc.json&branch=pr-en-us-192843&pivots=azure-arc    
