@@ -32,7 +32,6 @@ To replicate your databases to SQL Managed Instance through the link, you need t
 - [SQL Server Management Studio v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - A properly [prepared environment](managed-instance-link-preparation.md).
 
-<<<<<<< HEAD
 
 ## Replicate a database
 
