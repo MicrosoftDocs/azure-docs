@@ -171,7 +171,7 @@ Before you can do this, you will need to understand the JSON payload that is bei
 
 1. For the **True** case of the Condition, add an action that calls the **Add rows to a dataset** Power BI functionality. You will have to sign into Power BI for this. Your **False** case can again use the **Terminate** control.
 
-1. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. Your filled-out actions should look like this:
+1. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Click **Add new parameter**, and Select **Payload**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. And then, enter valid JSON contents into the Payload field.Your filled-out actions should look like this:
  
    :::image type="content" source="media/add-rows-yesenia.png" alt-text="Add rows to Power BI":::
 
