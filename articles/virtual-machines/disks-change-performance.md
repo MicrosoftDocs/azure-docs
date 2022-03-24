@@ -18,6 +18,10 @@ The performance of your Azure managed disk is set when you create your disk, in 
 
 Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary. This is ideal for events that temporarily require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. To handle these events, you can use a higher performance tier for as long as you need it. You can then return to the original tier when you no longer need the additional performance.
 
+## Restrictions
+
+[!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
+
 ## How it works
 
 When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. You can use a performance tier higher than the original baseline to meet higher demand. When you no longer need that performance level, you can return to the initial baseline performance tier.
@@ -48,10 +52,6 @@ The following table depicts which tiers each baseline performance tier can upgra
 | 8 TiB | P60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | None |
-
-## Restrictions
-
-[!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
 ## Next steps
 
