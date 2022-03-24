@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 03/23/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 You can manage your Azure Compute Gallery (formerly known as Shared Image Gallery) resources using the Azure CLI or Azure PowerShell.
 
-## List information
+## List your gallery information
 
 ### [CLI](#tab/cli)
 
@@ -25,6 +25,9 @@ Get the location, status and other information about the available image galleri
 ```azurecli-interactive 
 az sig list -o table
 ```
+
+> [!NOTE]
+> To get the name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 **List the image definitions** 
 
@@ -66,8 +69,10 @@ az sig image-version show \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --query "id"
+   --query "id" 
 ```
+
+
 
 ### [PowerShell](#tab/powershell)
 
@@ -252,6 +257,8 @@ Update-AzGalleryImageVersion `
 
 You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 
 
+Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) to stop sharing the gallery publicly.
+
 ### [CLI](#tab/cli)
 
 Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az_sig_image_version_delete).
@@ -274,7 +281,7 @@ az sig image-definition delete \
 ```
 
 
-Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete). Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) to stop sharing the gallery publicly.
+Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete). 
 
 ```azurecli-interactive
 az sig delete \

@@ -100,7 +100,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Create a community gallery
 
-A community gallery is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of pubic instance of your gallery will be the prefix you provide, plus a unique GUID.
+A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of pubic instance of your gallery will be the prefix you provide, plus a unique GUID.
 
 During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
@@ -110,8 +110,9 @@ During the preview, make sure that you create your gallery, image definitions, a
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Prerequisites
-- The user or service principal that will enable community sharing needs to be a member of the `Owner` role definition. Only the `Owner` at the scope of the gallery or higher will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
-- 
+
+The user or service principal that will enable community sharing needs to be a member of the `Owner` role definition. Only the `Owner` at the scope of the gallery or higher will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+
 ### [CLI](#tab/cli)
 
 The `--public-name-prefix` value is used to create a name for the public version of your gallery. The `--public-name-prefix` will be the first part of the public name, and the last part will be a GUID, created by the platform, that is unique to your gallery.
@@ -133,7 +134,7 @@ az sig create \
    --resource-group $resourceGroup \
    --publisher-uri $publisherUri \
    --publisher-email $publisherEmail \
-   --eula $eulaLink $eula \
+   --eula $eulaLink \
    --public-name-prefix $prefix
 ``` 
 
@@ -147,9 +148,13 @@ az sig share enable-community \
    --resource-group $resourceGroup 
 ```
 
+
+> [!IMPORTANT]
+> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
+
 To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) command.
 
-To delete a gallery shared to community, you must first reset the gallery then delete the gallery.
+To delete a gallery shared to community, you must first run `az sig share reset` to stop sharing, then delete the gallery.
 
 ### [REST](#tab/rest)
 

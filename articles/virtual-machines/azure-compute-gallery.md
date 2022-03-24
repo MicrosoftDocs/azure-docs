@@ -80,7 +80,9 @@ The regions that a resource is replicated to can be updated after creation time.
 
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
 
+<a name=community></a>
 ## Community Galleries (preview)
+
 
 > [!IMPORTANT]
 > Community Galleries is currently in public preview.
@@ -90,20 +92,29 @@ The regions that a resource is replicated to can be updated after creation time.
 
 Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, where you can make your images available to all Azure customers. When an gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private. You can continue to use it as you did before.
 
-Only an owner of a subscription can enable their gallery to go Public to the community.
+### How community galleries work
 
-If you want to stop sharing a gallery publicly, you can update the gallery but making the gallery private will prevent existing virtual machine scale set users from scaling their resources
+1. You create a gallery resource under `Microsoft.Compute/Galleries` and choose community gallery as a sharing option. 
+
+2. When you are ready, you flag your gallery to as ready to share publicly. Only an owner of a subscription can enable their gallery to go Public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries` which are public. This is similar to the process that publishers got through when creating resources under `Microsoft.Compute/Publishers` for the Azure marketplace.
+
+3. The end-users only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
+
+> [!WARNING]
+> If you want to stop sharing a gallery publicly, you can update the gallery to stop sharing, but making the gallery private will prevent existing virtual machine scale set users from scaling their resources.
 
 
-Community galleries don't support:
-- encrypted images
-- Image resources that aren't created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
-- [VM Applications](vm-applications.md)
+### Not supported for community galleries
+
+There are some limitations on community galleries:
+- Encrypted images are not supported
+- For the preview, image resources that aren't created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
+- For the preview, you can't share [VM Applications](vm-applications.md) in a community gallery.
 
 > [!IMPORTANT]
 > Microsoft does not provide support for images in the Community Gallery.
 
-## Explicit access
+## Explicit access using RBAC
 
 As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
 
