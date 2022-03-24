@@ -13,7 +13,7 @@ ms.author: sasapopo
 ms.reviewer: mathoma, danil
 ms.date: 03/10/2022
 ---
-# Fail over a database by using a SQL Managed Instance link in SSMS
+# Fail over a database by using the link in SSMS - Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
