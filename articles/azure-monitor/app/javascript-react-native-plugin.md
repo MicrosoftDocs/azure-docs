@@ -82,6 +82,8 @@ Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
 > [!NOTE]
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+
 Currently, we offer a desktop client [React plugin](javascript-react-plugin.md), which you can initialize with the JS SDK. It sets up route change tracking, and collects other React specific telemetry.
 
 > [!NOTE]
