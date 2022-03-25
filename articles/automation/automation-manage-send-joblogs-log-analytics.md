@@ -251,7 +251,7 @@ AzureDiagnostics
 
 The following steps explain how to set up email alerts in Azure Monitor to notify when something goes wrong with a runbook job.
 
-To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Querying the logs](#querying-the-logs). Click the **+New alert rule** to configure the alert rule.
+To create an alert rule, create a log search for the runbook job records that should invoke the alert as described in [Query the logs](#query-the-logs). Click the **+New alert rule** to configure the alert rule.
 
 1. In your Automation account, under **Monitoring**, select **Logs**.
 1. Create a log search query for your alert by entering a search criteria into the query field.
