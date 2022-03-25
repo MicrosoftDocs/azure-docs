@@ -84,21 +84,12 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.        
+The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The presented configuration shows a load balancer with:
 
-* Frontend configuration
-  * IP address 10.0.0.4 for NW1
-  * IP address 10.0.0.5 for NW2
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
-* Probe Port
-  * Port 61000 for NW1
-  * Port 61001 for NW2
-* Load balancing rules (if using basic load balancer)
-  * 2049 TCP for NW1
-  * 2049 UDP for NW1
-  * 2049 TCP for NW2
-  * 2049 UDP for NW2
+* Frontend IP address 10.0.0.4 for NW1
+* Frontend IP address 10.0.0.5 for NW2       
+* Probe port 61000 for NW1
+* Probe port 61001 for NW2
 
 ## Set up a highly available NFS server
 
@@ -174,7 +165,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2
-   1. Alternatively, if your scenario requires basic load balancer, follow these instructions:
+   1. Alternatively, ***only if***  your scenario requires basic load balancer, follow these instructions follow these configuration steps instead to create basic load balancer:
       1. Create the frontend IP addresses
          1. IP address 10.0.0.4 for NW1
             1. Open the load balancer, select frontend IP pool, and click Add
