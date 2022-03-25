@@ -120,7 +120,7 @@ To require attributes for access requests:
 
 1. Select the ellipsis next to the resource where you want to add attributes, and then select **Require attributes**. 
 
-    ![Screenshot that shows selecting Require attributes (Preview).](./media/entitlement-management-catalog-create/resources-require-attributes.png)
+    ![Screenshot that shows selecting Require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)
  
 1.	Select the attribute type:
 
