@@ -16,13 +16,41 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 # Email Communication Services
-Similar to Chat, VOIP and SMS modalities under the Azure Communication Services , developers will be able to send email using an Azure Communication Resource. However
-sending an email requires certain preconfiguration steps that are required and they need to rely on admin developer help setting that up which includes which sender domain they will use as the P1 sender also known as MailFrom email address (is an email address that shows up on the envelope of the email [RFC 5321]) and P2 sender(email address that most email recipients will see on their email client. [RFC 5322]). The admin developer will also need to setup and verify the sender domain by addting necessary DNS record records for sender verification to succeed.
+Similar to Chat, VOIP and SMS modalities under the Azure Communication Services , you will be able to send an email using an Azure Communication Resource. However
+sending an email requires certain preconfiguration steps that are required and you have to rely on your organization admins help setting that up. The admin developer tasks includes, deciding the domain that you organization allows to send mail from , which sender domain they will use as the P1 sender also known as MailFrom email address is an email address that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321) and P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). The admin developer will also need to setup and verify the sender domain by addting necessary DNS records for sender verification to succeed.
 
-One of the key prinicipal that we are focusing here is our email platform will simplify the expereicne for both developers to ease this back and forth operations and improve the developer expirence by letting the developers focus on building the required paylod to send email and allow admin developer configure the necessary sender authentication and other compliance releated steps to send email.
+One of the key prinicipal that we are focusing here is, our email platform will simplify the expereicne for developers and ease this back and forth operations with organization administartors and improve the end to end expirence by allowihg admin developer configure the necessary sender authentication and other compliance releated steps to send email and letting you focus on building the required paylod to send email.
 
-1.	Creates an Email Azure Communication Services resource.
-2.	Add and verify custom domains or get an azure managed domain.
-3.	Connect the verified domain to Azuare Communication Resource.
+Your Azure Administartors will create a new resource of type “Email Communication Services” and add the allowed email sender domains under this resource. The domains added under this resource type will contain all the sender authentication and engagment tracking configurations that are required to be completed before start sending emails. Once the sender domain is configured correctly and verified you  will able to link these domains with your Azure Communication Services resource and you can select which  specify which sender domain will be used to send emails for your application and connect them.  
+
+
+ Organziation Admins \ Admin Devlopers Responsibility 
+
+- Plan Email Domains with required Sender Verification needs.
+- Add Custom domains or get an azure managed domain.
+- Configures Custom Domains through Email Communication Services Resources APIs or through Portal
+
+Devlopers Responsibility 
+- Connect the preferred domains to Azure Communication Service resources.
+- Responsible for Generating email Payload
+  - Defines headers 
+  - Body of email
+  - Recipient list
+- Submits to Communication Services Email API
+
+## Next steps
+
+> [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
+
+> [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
+
+> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
+
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [Email client library](../Email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/Email/add-custom-verified-domains.md)
+- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/Email/add-azure-managed-domains.md)
 
 
