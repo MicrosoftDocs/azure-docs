@@ -6,7 +6,7 @@ ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 10/7/2021
+ms.date: 02/23/2022
 ---
 
 # Troubleshooting Azure Digital Twins Explorer: Authentication error
@@ -23,7 +23,7 @@ When setting up and running the Azure Digital Twins Explorer application, attemp
 
 ### Cause #1
 
-This error might occur if your Azure account does not have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the **Azure Digital Twins Data Reader** or **Azure Digital Twins Data Owner** role on the instance you are trying to read or manage, respectively. 
+This error might occur if your Azure account does not have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the *Azure Digital Twins Data Reader* or *Azure Digital Twins Data Owner* role on the instance you are trying to read or manage, respectively. 
 
 For more information about security and roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md).
 
@@ -31,7 +31,7 @@ For more information about security and roles in Azure Digital Twins, see [Secur
 
 ### Solution #1
 
-Verify that your Azure user has the **Azure Digital Twins Data Reader** role on the Azure Digital Twins instance if you're just trying to read its data, or the **Azure Digital Twins Data Owner** role on the instance if you're trying to manage its data.
+Verify that your Azure user has the *Azure Digital Twins Data Reader* role on the Azure Digital Twins instance if you're just trying to read its data, or the *Azure Digital Twins Data Owner* role on the instance if you're trying to manage its data.
 
 Note that this role is different from...
 * the former name for this role during preview, *Azure Digital Twins Owner (Preview)* (the role is the same, but the name has changed)
@@ -46,15 +46,15 @@ Note that this role is different from...
 
 #### Fix issues 
 
-If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the appropriate role on the **Azure Digital Twins instance**. 
+If you do not have this role assignment, someone with an Owner role in your Azure subscription should run the following command to give your Azure user the appropriate role on the Azure Digital Twins instance. 
 
-If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf. The role name is either **Azure Digital Twins Data Owner** for edit access or **Azure Digital Twins Data Reader** for read access.
+If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf. The role name is either *Azure Digital Twins Data Owner* for edit access or *Azure Digital Twins Data Reader* for read access.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "<role-name>"
 ```
 
-For more details about this role requirement and the assignment process, see the [Set up your user's access permissions section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
+For more details about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 
 ## Next steps
 

@@ -40,7 +40,7 @@ Access key authentication is suitable for service applications running in a trus
 
 Since the access key is part of the connection string of your resource, authentication with a connection string is equivalent to authentication with an access key.
 
-If you wish to call ACS' APIs manually using an access key, then you will need to sign the request. Signing the request is explained, in detail, within a [tutorial](../tutorials/hmac-header-tutorial.md).
+If you wish to call Azure Communication Services' APIs manually using an access key, then you will need to sign the request. Signing the request is explained, in detail, within a [tutorial](../tutorials/hmac-header-tutorial.md).
 
 ### Azure AD authentication
 
@@ -49,6 +49,8 @@ The Azure platform provides role-based access (Azure RBAC) to control access to 
 To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
 
 Communication services support Azure AD authentication but do not support managed identity for Communication services resources. You can find more details, about the managed identity support in the [Azure Active Directory documentation](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+
+Use our [Trusted authentication service hero sample](../samples/trusted-auth-sample.md) to map Azure Communication Services access tokens with your Azure Active Directory.
 
 ### User Access Tokens
 
@@ -62,8 +64,15 @@ The user identity is intended to act as a primary key for logs and metrics colle
 
 > [!div class="nextstepaction"]
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
+
+> [!div class="nextstepaction"]
 > [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md)
-> [Create User Access Tokens](../quickstarts/access-tokens.md)
+
+> [!div class="nextstepaction"]
+> [Create user access tokens](../quickstarts/access-tokens.md)
+
+> [!div class="nextstepaction"]
+> [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 For more information, see the following articles:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

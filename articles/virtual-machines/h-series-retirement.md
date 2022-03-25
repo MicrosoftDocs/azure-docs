@@ -1,12 +1,10 @@
 ---
 title: H-series retirement
 description: H-series retirement started September 1, 2021.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.author: amverma
 ---
 
 # Migrate your H and H-series Promo virtual machines by August 31, 2022
@@ -30,7 +28,7 @@ Azure [HC](hc-series.md), [HBv2](hbv2-series.md), [HBv3](hbv3-series.md), [Dv4](
 
 ## How does the H-series migration affect me?
 
-1-year and 3-year RI offerings for the VMs are no longer available; however, regular PAYGO offer can still be transacted until the official decommission date. After August 31, 2022, any remaining H-series VM subscriptions in the preceding list will be set to a deallocated state. They'll stop working and no longer incur billing charges. If you need RI, please refer to our migration documents to find the suitable VM offerings that have RI available.
+1-year and 3-year RI offerings for the VMs are no longer available; however, regular PAYGO offer can still be transacted until the official decommission date. After August 31, 2022, any remaining H-series VM subscriptions in the preceding list will be set to a deallocated state. They'll stop working and no longer incur billing charges. If you need RI, please refer to our migration documents to find the suitable VM offerings that have RI available. You can either exchange/refund your existing reservations. If you choose not to, after the hardware is deprecated you won’t be getting the reservation benefit but still be paying for it.
 
 The current VM size retirement only affects the VM sizes in the [H series](h-series.md), which includes the H-series Promo.
 

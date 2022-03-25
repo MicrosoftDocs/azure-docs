@@ -63,7 +63,7 @@ To grant GitHub Actions access to your Azure Load Testing resource, perform the 
 
 ### Create a service principal
 
-First, you'll create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) and grant it the permissions to access your Azure Load Testing resource.
+First, you'll create an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and grant it the permissions to access your Azure Load Testing resource.
 
 1. Run the following Azure CLI command to create a service principal and assign the *Contributor* role:
 
@@ -105,6 +105,7 @@ First, you'll create an Azure Active Directory [service principal](/azure/active
     ```azurecli
     az role assignment create --assignee "<sp-object-id>" \
         --role "Load Test Contributor" \
+        --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> \
         --subscription "<subscription-id>"
     ```
     
@@ -181,7 +182,7 @@ Update the *SampleApp.yaml* GitHub Actions workflow file to configure the parame
 The GitHub Actions workflow executes the following steps for every update to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the workflow file.
-- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
+- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
 - Trigger Azure Load Testing to create and run the load test based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 To view the results of the load test in the GitHub Actions workflow log:

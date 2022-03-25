@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 01/07/2022
+ms.topic: how-to
+ms.date: 03/15/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -29,19 +29,23 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
-1. Go to your project in [Language Studio](https://aka.ms/custom-classification)
+Deploying a model hosts it and makes it available for predictions through an endpoint.
 
-2. Select **Deploy model** from the left side menu.
 
-3. Select the model you want to deploy, then select **Deploy model**. If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+
+When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
+
+> [!NOTE]
+> You can only have ten deployment names.
+
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+   
+### Delete deployment
+
+To delete a deployment, select the deployment you want to delete and click **Delete deployment**
 
 > [!TIP]
-> You can test your model in Language Studio by sending samples of text for it to classify. 
-> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
-> 2. Select the model you want to test.
-> 3. Add your text to the textbox, you can also upload a `.txt` file. 
-> 4. Click on **Run the test**.
-> 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
+> You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
 
 ## Send a text classification request to your model
 
@@ -63,7 +67,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
-6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received form last step and submit the request.
+6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received from the last step and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 

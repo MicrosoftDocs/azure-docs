@@ -5,10 +5,8 @@ services: media-services
 author: willzhan
 manager: femila
 ms.service: media-services
-ms.workload: media
-ms.devlang: csharp
-ms.topic: conceptual
-ms.date: 05/25/2021
+ms.topic: how-to
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
 
@@ -51,6 +49,8 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
     - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
     - [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html)
     - [EoPlayer Developer Blog](https://medium.com/google-exoplayer)
+
+## [.NET](#tab/net/)
 
 ## Configure content protection in Azure Media Services
 
@@ -147,6 +147,8 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
     - Chrome and Firefox require SAN-Subject Alternative Name setting to exist in the certificate
     - The certificate must have trusted CA and a self-signed development certificate does not work
     - The certificate must have a CN matching the DNS name of the web server or gateway
+
+---
 
 ## More information
 

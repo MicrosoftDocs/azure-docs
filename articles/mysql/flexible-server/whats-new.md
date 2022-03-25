@@ -17,6 +17,16 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## March 2022
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Migrate from locally redundant backup storage to geo-redundant backup storage for existing flexible server**
+    Azure Database for MySQL - Flexible Server now provides the added flexibility to migrate to geo-redundant backup storage from locally redundant backup storage post server-create to provide higher data resiliency. Enabling geo-redundancy via the server's Compute + Storage blade empowers customers to recover their existing flexible servers from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled for their existing servers, customers can perform geo-restore and deploy a new server to the geo-paired Azure region leveraging the original server’s latest available geo-redundant backup. [Learn more](concepts-backup-restore.md)
+
+- **Simulate disaster recovery drills for your stopped servers**
+    Azure Database for MySQL - Flexible Server now provides the ability to perform geo-restore on stopped servers helping users simulate disaster recovery drills for their workloads to estimate impact and recovery time.This will help users plan better to meet their disaster recovery and business continuity objectives by leveraging geo-redundancy feature offered by Azure Database for MySQL Flexible Server. [Learn more](how-to-restore-server-cli.md)
+
 ## January 2022
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
@@ -40,7 +50,9 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-    When you're using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submitting the deployment request separately for to enable\disable and configuration changes. You wouldn’t have issue with Portal or Azure CLI as these are request already separated.
+  - When you're using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submitting the deployment request separately for to enable\disable and configuration changes. You wouldn’t have issue with Portal or Azure CLI as these are request already separated.
+
+  - When you're viewing automated backups for a HA enabled server in Backup and Restore blade, if at some point in time a forced or automatic failover is performed, you may lose viewing rights to the server's backups on the Backup and Restore blade. Despite the invisibility of information regarding backups on the portal, the flexible server is successfully taking daily automated backups for the server in the backend and the server can be restored to any point in time within the retention period.  
 
 ## November 2021
 
@@ -49,9 +61,10 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
   Azure Database for MySQL - Flexible Server is now **General Availability** in more than [30 Azure regions](overview.md) worldwide.
 
 - **View available full backups in Azure portal**
+  
   A dedicated Backup and Restore blade is now available in the Azure portal. This blade lists the backups available within the server’s retention period, effectively providing you with single pane view for managing a server’s backups and consequent restores. You can use this blade to
-   1) View the completion timestamps for all available full backups within the server’s retention period
-   2) Perform restore operations using these full backups
+     1) View the completion timestamps for all available full backups within the server’s retention period
+     2) Perform restore operations using these full backups
   
 - **Fastest restore points**
   

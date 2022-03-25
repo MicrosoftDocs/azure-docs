@@ -1,10 +1,11 @@
 ---
 title: Networking overview - Azure Database for PostgreSQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: nlarin
+author: niklarin
 ms.date: 11/30/2021
 ---
 
@@ -94,6 +95,8 @@ Private DNS zone settings and virtual network peering are independent of each ot
 > [!NOTE]
 > Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
 
+
+
 ### Unsupported virtual network scenarios
 
 Here are some limitations for working with virtual networks:
@@ -103,6 +106,8 @@ Here are some limitations for working with virtual networks:
 * Subnet size (address spaces) can't be increased after resources exist in the subnet.
 * A flexible server doesn't support Azure Private Link. Instead, it uses virtual network injection to make the flexible server available within a virtual network. 
 
+> [!IMPORTANT]
+> Azure Resource Manager supports  ability to lock resources, as a security control. Resource locks are applied to the resource, and are effective across all users and roles. There are two types of resource lock: CanNotDelete and ReadOnly. These lock types can be applied either to a Private DNS zone, or to an individual record set. Applying a lock of either type against Private DNS Zone or individual record set may interfere with ability of Azure Database for PostgreSQL - Flexible Server service to update DNS records and cause issues during important operations on DNS, such as High Availability failover from primary to secondary.  Please make sure you are not utilizing DNS private zone or record locks when utilizing High Availability features with Azure Database for PostgreSQL - Flexible Server. 
 
 ## Public access (allowed IP addresses)
 

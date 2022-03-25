@@ -8,7 +8,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 12/07/2021
 
 ---
@@ -316,7 +316,7 @@ The machine-learning entity in this example is more complex with nested subentit
 
 This example uses features at the subentity level and child of subentity level. Which level gets what kind of phrase list or model as a feature is an important part of your entity design.
 
-While subentities can have many phrase lists as features that help detect the entity, each subentity has only one model as a feature. In this [pizza app](/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), those models are primarily lists.
+While subentities can have many phrase lists as features that help detect the entity, each subentity has only one model as a feature. In this [pizza app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), those models are primarily lists.
 
 :::image type="content" source="../media/luis-concept-patterns/pizza-example-example-phrase-lists.png" alt-text="A screenshot showing a machine learning entity many phrase lists as features." lightbox="../media/luis-concept-patterns/pizza-example-example-phrase-lists.png":::
 

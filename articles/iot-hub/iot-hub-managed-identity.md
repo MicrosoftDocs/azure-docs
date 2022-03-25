@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub managed identity | Microsoft Docs
 description: How to use managed identities to allow egress connectivity from your IoT Hub to other Azure resources.
-author: miag
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.author: miag
+ms.author: lizross
 ---
 
 # IoT Hub support for managed identities 

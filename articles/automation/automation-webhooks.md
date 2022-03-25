@@ -98,8 +98,19 @@ param
     [object] $WebhookData
 )
 
-if ($WebhookData.RequestBody) { 
-    $names = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+write-output "start"
+write-output ("object type: {0}" -f $WebhookData.gettype())
+write-output $WebhookData
+#write-warning (Test-Json -Json $WebhookData)
+$Payload = $WebhookData | ConvertFrom-Json
+write-output "`n`n"
+write-output $Payload.WebhookName
+write-output $Payload.RequestBody
+write-output $Payload.RequestHeader
+write-output "end"
+
+if ($Payload.RequestBody) { 
+    $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
 
         foreach ($x in $names)
         {

@@ -7,7 +7,8 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Deploy your first container app

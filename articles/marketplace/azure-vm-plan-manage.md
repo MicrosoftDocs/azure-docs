@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/10/2022
+ms.date: 02/11/2022
 ---
 
 # Update core sizes for an Azure virtual machine offer
@@ -26,5 +26,5 @@ Complete these steps when you are notified that new core sizes are now supported
 1. In the left-nav, select **Pricing and availability**.
 1. Do one of the following:
     - If either the _Per core size_ or _Per market and core size_ price entry options are used, under **Pricing**, verify the price and make any necessary adjustments for the new core sizes that have been added.
-    - If your price entry option is set to _Free_, _Flat rate_, or _Per core_, go to step 6.
+    - If your price entry option is set to _Free_, _Flat rate_, or _Per core_, go to step 7.
 1. Select **Save draft** and then select **Review and publish**.  After the offer is republished, the new core sizes will be available to your customers at the prices that you have set.

@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Transform data using Apache Spark job definition"
 description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with Apache Spark job definition.
-author: djpmsft
-ms.author: daperlov
+author: juluczni
+ms.author: juluczni
 ms.reviewer: makromer
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2021
+ms.date: 02/15/2022
 ---
 
 # Quickstart: Transform data using Apache Spark job definition.
@@ -97,6 +97,6 @@ You can add properties for Apache Spark job definition activity in this panel.
 Advance to the following articles to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Data flow expression language](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Data flow expression language](../data-factory/data-flow-expression-functions.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)

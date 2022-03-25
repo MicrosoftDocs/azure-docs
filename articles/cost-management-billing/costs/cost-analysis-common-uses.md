@@ -1,5 +1,6 @@
 ---
-title: Common cost analysis uses in Azure Cost Management
+title: Common cost analysis uses in Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders

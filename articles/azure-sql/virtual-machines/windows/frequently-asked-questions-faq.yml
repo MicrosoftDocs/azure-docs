@@ -10,12 +10,11 @@ metadata:
   ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
   ms.service: virtual-machines-sql
   ms.subservice: service-overview
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.tgt_pltfrm: vm-windows-sql-server
   ms.workload: iaas-sql-server
   ms.date: 9/01/2021
   ms.author: pamela
-    
 title: Frequently asked questions for SQL Server on Azure VMs
 summary: |
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -98,7 +97,7 @@ sections:
       - question: |
           How can I install my licensed copy of SQL Server on an Azure VM?
         answer: |
-             There are three ways to do this. If you're an Enterprise Agreement (EA) customer, you can provision one of the [virtual machine images that supports licenses](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), you can enable the [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [extension](sql-agent-extension-manually-register-single-vm.md) for features such as portal management, automated backup and automated patching. 
+             There are three ways to do this. If you're an Enterprise Agreement (EA) customer, you can provision one of the [virtual machine images that support licenses](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), you can enable the [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [extension](sql-agent-extension-manually-register-single-vm.md) for features such as portal management, automated backup and automated patching. 
           
           
       - question: |
@@ -199,8 +198,12 @@ sections:
       - question: |
           Can I use the Azure portal to manage multiple instances on the same VM?
         answer: |
-             No. Portal management is provided by the SQL IaaS Agent extension, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the portal as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
-          
+             No. Portal management is provided by the SQL IaaS Agent extension, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the portal as the extension. The portal can either only manage one default instance, or one named instance as long as it's configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
+      
+      - question: |
+          Is Azure Active Directory Domain Services (Azure AD DS) supported with SQL Server on Azure VMs? 
+        answer: |
+             No. Using Azure Active Directory Domain Services (Azure AD DS) is not currently supported with SQL Server on Azure VMs. Use an Active Directory domain account instead. 
           
   - name: Updating and patching
     questions:

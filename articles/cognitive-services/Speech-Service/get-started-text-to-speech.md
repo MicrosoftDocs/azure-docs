@@ -1,7 +1,7 @@
 ---
 title: "Text-to-speech quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to convert text to speech, including object construction and design patterns, supported audio output formats, the Speech CLI, and custom configuration options for speech synthesis.
+description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio output formats, and custom configuration options for speech synthesis.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-speech-services
 keywords: text to speech
 ---
 
-# Get started with text-to-speech
+# Quickstart: Convert text to speech
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/text-to-speech-basics/csharp.md)]

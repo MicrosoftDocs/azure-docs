@@ -15,6 +15,8 @@ ms.reviewer: laobri
 
 # CLI (v2) core YAML syntax
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
 
 This article provides an overview of core syntax concepts you will encounter while configuring these YAML files.

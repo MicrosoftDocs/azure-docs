@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 12/03/2021
+ms.date: 02/16/2022
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -128,6 +128,8 @@ This report contains descriptions of any policies that failed, along with review
 ## Preview creation phase
 
 During the preview creation phase, we create a version of your offer that will be accessible to only the audience you specified on the **Preview audience** page of your offer, if any. The preview version of your offer won’t be available to anyone outside the preview audience until you publish the offer live.
+
+If the offer already has a preview, you can publish another preview on top of the existing preview. The latest preview submission overrides the previous preview submission.
 
 > [!NOTE]
 > Do not use the preview audience to give people outside your organization visibility into an offer. Use the Private Offer option instead. At this point, your offering has not been fully tested and validated, and is not ready for outside distribution.

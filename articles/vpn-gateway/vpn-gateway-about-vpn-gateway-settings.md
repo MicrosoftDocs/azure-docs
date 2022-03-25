@@ -8,7 +8,8 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 # About VPN Gateway configuration settings

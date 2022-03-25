@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 

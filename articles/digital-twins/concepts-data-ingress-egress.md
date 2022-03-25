@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/07/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -35,7 +35,7 @@ You can also learn how to connect Azure Digital Twins to a Logic Apps trigger in
 
 ## Data egress services
 
-Azure Digital Twins can send data to connected **endpoints**. Supported endpoints can be:
+Azure Digital Twins can send data to connected endpoints. Supported endpoints can be:
 * [Event Hubs](../event-hubs/event-hubs-about.md)
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
@@ -46,7 +46,7 @@ There are many other services where you may want to ultimately direct your data,
 
 For example, if you're also using Azure Maps and want to correlate location with your Azure Digital Twins graph, you can use Azure Functions with Event Grid to establish communication between all the services in your deployment. For more information on integrating Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For information on routing data in a similar way to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
-Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
+Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
 ## Next steps
 

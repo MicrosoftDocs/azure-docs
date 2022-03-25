@@ -128,7 +128,7 @@ A pre-upgrade validator is available to help identify potential issues when migr
 
 To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
-```bash
+```azurecli
 az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
 # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
@@ -148,6 +148,8 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 - Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
+
+- Azure Functions 4.x uses Azure.Identity and Azure.Security.KeyVault.Secrets for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. See the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories) for more information on how to configure function app settings. ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
 
 - Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
@@ -206,7 +208,7 @@ The main differences between versions when running .NET class library functions 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-* Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
+* Output bindings assigned through 1.x `context.done` or return values now behave the same as setting in 2.x+ `context.bindings`.
 
 * Timer trigger object is camelCase instead of PascalCase
 

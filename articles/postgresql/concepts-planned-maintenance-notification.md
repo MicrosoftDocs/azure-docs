@@ -1,12 +1,14 @@
 ---
 title: Planned maintenance notification - Azure Database for PostgreSQL - Single Server
 description: This article describes the Planned maintenance notification feature in Azure Database for PostgreSQL - Single Server
-author: sunilagarwal 
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.author: sunila
+author: sunilagarwal 
+ms.date: 2/17/2022
 ---
+
 # Planned maintenance notification in Azure Database for PostgreSQL - Single Server
 
 Learn how to prepare for planned maintenance events on your Azure Database for PostgreSQL.
@@ -29,8 +31,6 @@ You can utilize the planned maintenance notifications feature to receive alerts 
 
 ### Planned maintenance notification
 
-> [!IMPORTANT]
-> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
 
 **Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance event to your Azure Database for PostgreSQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 calendar hours before the event.
 

@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 02/03/2022
+ms.topic: how-to
+ms.date: 03/21/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
@@ -29,7 +29,7 @@ You should have an idea of the [project schema](design-schema.md) you will use f
 
 ## Azure resources
 
-Before you start using custom NER, you will need a Azure Language resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom NER.
+Before you start using custom NER, you will need an Azure Language resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom NER.
 
 # [Azure portal](#tab/portal)
 
@@ -39,7 +39,7 @@ Before you start using custom NER, you will need a Azure Language resource. We r
 
 ### Create a new resource from Language Studio
 
-If it's your first time logging in, you'll see a window appear in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
+If it's your first time logging in, you'll see a window in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
 
 > [!IMPORTANT]
 > * To use Custom NER, you'll need a Language resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
@@ -132,11 +132,19 @@ To set proper roles on your storage account:
 
 1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** then **Add Role Assignments**, and choose the appropriate role for your Language resource. You can search for your resource in the **Select** field. Repeat this for all roles. 
+3. Select **Add** to **Add Role Assignments**, and choose the appropriate role for your Language resource.
+4. Select **Managed identity** under **Assign access to**. 
+5. Select **Members** and find your resource. In the window that appears, select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. Repeat this for all roles. 
 
 [!INCLUDE [Storage connection note](../../custom-classification/includes/storage-account-note.md)]
 
-For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](/azure/storage/common/authorize-data-access?toc=/azure/storage/blobs/toc.json).
+For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](../../../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### Enable CORS for your storage account
+
+Make sure to allow (**GET, PUT, DELETE**) methods when enabling Cross-Origin Resource Sharing (CORS). Then, add an asterisk (`*`) to the fields and add the recommended value of 500 for the maximum age.
+
+:::image type="content" source="../media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../media/cors.png":::
 
 ## Prepare training data
 
@@ -154,7 +162,11 @@ For information on authorizing access to your Azure blob storage account and dat
 
 ## Create a custom named entity recognition project
 
+Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+
 [!INCLUDE [Create custom NER project](../includes/create-project.md)]
+
+Review the data you entered and select **Create Project**.
 
 ## Next steps
 

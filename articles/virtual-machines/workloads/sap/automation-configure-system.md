@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters JSON file.
+description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -261,7 +261,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `NFS_Provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files.  | 
+> | `NFS_provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files.  | 
 > | `sapmnt_volume_size`               | Defines the size (in GB) for the 'sapmnt' volume                        | Optional    |
 
 ### Azure Files NFS Support

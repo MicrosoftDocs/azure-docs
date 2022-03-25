@@ -50,5 +50,5 @@ For more information, see:
 
 ## Next steps
 
-* [Subclip your videos](transform-subclip-video-rest-how-to.md).
+* [Subclip your videos](transform-subclip-video-how-to.md).
 * [Define filters for your assets](filters-dynamic-manifest-rest-howto.md).

@@ -3,16 +3,16 @@ author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
-ms.author: eric-urban
+ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/swift.md)]
+[!INCLUDE [Header](../../common/swift.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK and samples
 

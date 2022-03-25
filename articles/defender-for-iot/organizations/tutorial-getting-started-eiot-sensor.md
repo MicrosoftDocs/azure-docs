@@ -1,8 +1,6 @@
 ---
 title: Get started with Enterprise IoT
 description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 12/12/2021
 ms.custom: template-tutorial
@@ -30,11 +28,11 @@ An Azure subscription is required for this tutorial.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+If you already have a subscription that is onboarded for Microsoft Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
-There is a minimum security level needed to access different parts of Azure Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
+There is a minimum security level needed to access different parts of Microsoft Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
 
-The following table describes user access permissions to Azure Defender for IoT portal tools:
+The following table describes user access permissions to Microsoft Defender for IoT portal tools:
 
 | Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
@@ -48,17 +46,17 @@ Before you deploy your Enterprise IoT sensor, you will need to configure your se
 
 **To set up a server, or VM**:
 
-1. Ensure the minimum resources are set to:
+1. Ensure that your resources are set to one of the following specifications:
 
-    * 4C CPU
-
-    * 8-GB ram
-
-    * 250 GB HDD
-
-    * Two Network Adapters
-
-    * OS: Ubuntu 18.04
+    | Tier | Requirements |
+    |--|--|
+    | **Minimum** | To support at least 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 8 GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 10 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32 GB RAM of DDR4 or better<br>- 500 GB HDD |
+   
+    Make sure that your server or VM also has:
+   
+    * Two network adapters
+    * Ubuntu 18.04 operating system.
 
 1. Connect a NIC to a switch.
 
@@ -98,9 +96,9 @@ The environment will now have to be prepared.
 
     * **Storage**: *.blob.core.windows.net
 
-    * **IoT Hub**: *.azure-devices.net
-
     * **Download Center**: download.microsoft.com
+
+    * **IoT Hub**: *.azure-devices.net
 
 You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall will allow the Azure resources that are specified above along with their region.
 

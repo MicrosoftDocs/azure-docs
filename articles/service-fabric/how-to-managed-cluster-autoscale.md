@@ -2,22 +2,22 @@
 title: Configure autoscaling for Service Fabric managed cluster nodes
 description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 2/14/2022
 ---
 
-# Introduction to Autoscaling on Service Fabric managed clusters (preview)
+# Introduction to Autoscaling on Service Fabric managed clusters
 [Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the amount of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
 
 
 **Requirements and supported metrics:**
-* In order to use autoscaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
 * After enabling autoscale for a node type, configure `vmInstanceCount` property to `-1` when redeploying the resource.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
 >[!NOTE] 
-> If using an OS Image "-with-containers” memory metrics from Azure Monitor will not be available. 
+> If using Windows OS image with Hyper-V role enabled, ie. the VM will be configured for nested virtualization, the Available Memory Metric will not be available, since the dynamic memory driver within the VM will be in a stopped state.
 
 
 A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
@@ -134,7 +134,7 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
                                 "metricTrigger": {
                                   "metricName": "Percentage CPU",
                                   "metricNamespace": "",
-                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2021-07-01-preview').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
+                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2022-01-01').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
                                   "timeGrain": "PT1M",
                                   "statistic": "Average",
                                   "timeWindow": "PT30M",
@@ -153,7 +153,7 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
                                 "metricTrigger": {
                                   "metricName": "Percentage CPU",
                                   "metricNamespace": "",
-                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2021-07-01-preview').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
+                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2022-01-01').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
                                   "timeGrain": "PT1M",
                                   "statistic": "Average",
                                   "timeWindow": "PT30M",

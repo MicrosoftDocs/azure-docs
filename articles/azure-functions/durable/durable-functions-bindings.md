@@ -2,7 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 02/08/2022
 ms.author: azfuncdf
 ---
 
@@ -85,7 +85,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> The `durable-functions` library takes care of calling the `context.done` method when the generator function exits.
+> The `durable-functions` library takes care of calling the synchronous `context.done` method when the generator function exits.
 
 # [Python](#tab/python)
 

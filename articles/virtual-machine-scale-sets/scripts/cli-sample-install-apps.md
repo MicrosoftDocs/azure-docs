@@ -24,7 +24,7 @@ This script creates a virtual machine scale set running Ubuntu and uses the Cust
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh" range="4-33":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh" id="FullScript":::
 
 ## Clean up resources
 

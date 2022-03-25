@@ -159,9 +159,13 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 This pipeline should be used when there's an update in the sap-automation repository that you want to use.
 
+## Import Ansible task from Visual Studio Marketplace
+
+The pipelines use a custom task to run Ansible. The custom task can be installed from [Ansible](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.vss-services-ansible). Install it to your Azure DevOps organization before running the _Configuration and SAP installation_ or _SAP software acquisition_  pipelines.
+
 ## Import Cleanup task from Visual Studio Marketplace
 
-The pipelines use a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the _Configuration and SAP installation_ or _SAP software acquisition_  pipelines.
+The pipelines use a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the pipelines.
 
 ## Variable definitions
 
@@ -177,7 +181,6 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | ---------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
 | `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                  |
 | Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.                    |
-| Repository                         | https://github.com/Azure/sap-automation |                                                                  |
 | Branch                             | main                                    |                                                                  |
 | S-Username                         | `<SAP Support user account name>`       |                                                                  |
 | S-Password                         | `<SAP Support user password>`           |  Change variable type to secret by clicking the lock icon        |
@@ -189,13 +192,26 @@ Save the variables and assign permissions for all pipelines using _Pipeline perm
 
 ### Environment specific variables
 
-As each environment may have different deployment credentials you'll need to create a variable group per environment, for example 'SDAF-DEV', 'SDAF-QA'. 
+As each environment may have different deployment credentials you'll need to create a variable group per environment, for example 'SDAF-MGMT','SDAF-DEV', 'SDAF-QA'. 
 
-Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines section. Add the following variables:
+Create a new variable group 'SDAF-MGMT' for the control plane environment using the Library page in the Pipelines section. Add the following variables:
 
 | Variable              | Value                                          | Notes                                                    |
 | --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
-| Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'DEV-WEEU-POOL' Note, this pool will be created in a later step. |
+| Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'MGMT-WEEU-POOL' Note, this pool will be created in a later step. |
+| ARM_CLIENT_ID         | Service principal application id               |                                                          |
+| ARM_CLIENT_SECRET     | Service principal password                     | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |
+| ARM_TENANT_ID         | Tenant ID for service principal                |                                                          |
+| AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
+| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
+
+
+Clone the group for each environment 'SDAF-DEV', 'SDAF-QA', ... and update the values to reflect the environment.
+
+| Variable              | Value                                          | Notes                                                    |
+| --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
+| Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'MGMT-WEEU-POOL' Note, this pool will be created in a later step. |
 | ARM_CLIENT_ID         | Service principal application id               |                                                          |
 | ARM_CLIENT_SECRET     | Service principal password                     | Change variable type to secret by clicking the lock icon |
 | ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |

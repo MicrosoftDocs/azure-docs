@@ -1,8 +1,6 @@
 ---
 title: Microsoft Defender for IoT trial setup
 description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with a virtual sensor, on a virtual machine, with a trial subscription of Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.custom: template-tutorial
@@ -223,13 +221,14 @@ The validation is available to both the **Support**, and **CyberX** user.
 
 1. Sign in to the sensor.
 
-1. Select **System Settings** from the left side pane.
+1. Select **System Settings**> **Health and troubleshooting** > **System Health Check**.
 
-1. Select the :::image type="icon" source="media/tutorial-onboarding/system-statistics-icon.png" border="false"::: button.
+1. Select a command.
 
-    :::image type="content" source="media/tutorial-onboarding/system-health-check-screen.png" alt-text="Screenshot of the system health check." lightbox="media/tutorial-onboarding/system-health-check-screen-expanded.png":::
-
-For post-installation validation, you must test to ensure the system is running, that you have the right version, and to verify that all of the input interfaces that were configured during the installation process are running.
+For post-installation validation, test that:
+- the system is running
+- you have the right version
+- all of the input interfaces that were configured during the installation process are running
 
 **To verify that the system is running**:
 
@@ -415,13 +414,15 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
 1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from Defender for IoT to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered to Defender for Cloud on Azure and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from Defender for IoT to sensors. Conversely when, the sensor is not cloud connected, you must download threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
 
-      For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+        For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+
+        For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors).
+1. Select a site to associate your sensor to. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
 
 1. Select **Register**.
 
@@ -447,27 +448,9 @@ Once registration is complete for the sensor, you will be able to download an ac
 
 1. Enter the credentials defined during the sensor installation.
 
-1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
+1. Select **Log in** and follow the instructions described in [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
-   :::image type="content" source="media/tutorial-onboarding/activation-upload-screen-with-upload-button.png" alt-text="Screenshot of selecting to upload and go to the activation file.":::
 
-1. Accept the terms and conditions.
-
-1. Select **Activate**. The SSL/TLS certificate dialog box opens.
-
-1. Define a certificate name.
-
-1. Upload the CRT and key files.
-
-1. Enter a passphrase and upload a PEM file if necessary.
-
-1. Select **Next**. The validation screen opens. By default, validation between the management console and connected sensors is enabled.
-
-1. Turn off the **Enable system-wide validation** toggle to disable validation. We recommend that you enable validation.
-
-1. Select **Save**.  
-
-You might need to refresh your screen after uploading the CA-signed certificate.
 
 ## Next steps
 

@@ -80,7 +80,7 @@ The following sections provide instructions for specific types of Kubernetes pla
 - [Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
 
 > [!TIP]
-> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions at [Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process. 
+> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions at [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process. 
 >
 > Then follow the instructions under [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks).
 

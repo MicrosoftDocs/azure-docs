@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/11/2022
 ms.author: marsma
-ms.reviewer: hpsin, jelledruyts, paulgarn
+ms.reviewer: nickludwig, jelledruyts, paulgarn
 ---
 
 # Exchange a SAML token issued by AD FS for a Microsoft Graph access token
@@ -95,3 +95,5 @@ For more information about app registration and authentication flow, see:
 
 - [Register an application with the Microsoft identity platform](quickstart-register-app.md)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+
+<!-- _This article was originally contributed by [Umesh Barapatre](https://github.com/umeshbarapatre)._ -->

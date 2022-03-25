@@ -81,7 +81,7 @@ Create a new cluster, and don't use Uptime SLA:
 
 ```azurecli-interactive
 # Create a new cluster without uptime SLA
-az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1
 ```
 
 Use the [`az aks update`][az-aks-update] command to update the existing cluster:

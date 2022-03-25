@@ -4,8 +4,7 @@ description: Learn how to store and restore automated backups on separate Azure 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
-ms.custom: devx-track-azurepowershell
-ms.devlang: 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 author: SudhirRaparla 
 ms.author: nvraparl 
@@ -85,7 +84,7 @@ You can configure SQL Managed Instance to [retain automated backups](../database
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Run the [az sql midb show](/cli/azure/sql/midb#az_sql_midb_show) command to get the details for the Managed Instance database.
+1. Run the [az sql midb show](/cli/azure/sql/midb#az-sql-midb-show) command to get the details for the Managed Instance database.
 
     ```azurecli
     az sql midb show /
@@ -95,7 +94,7 @@ You can configure SQL Managed Instance to [retain automated backups](../database
     --subscription mysubscription
     ```
 
-2. Run the [az sql midb ltr-policy set](/cli/azure/sql/midb/ltr-policy#az_sql_midb_ltr_policy_set) command to create an LTR policy. The following example sets a long-term retention policy for 12 weeks for the weekly backup.
+2. Run the [az sql midb ltr-policy set](/cli/azure/sql/midb/ltr-policy#az-sql-midb-ltr-policy-set) command to create an LTR policy. The following example sets a long-term retention policy for 12 weeks for the weekly backup.
 
     ```azurecli
     az sql midb ltr-policy set /
@@ -190,7 +189,7 @@ View the backups that are retained for a specific database with an LTR policy, a
 
 ### View LTR policies
 
-Run the [az sql midb ltr-policy show](/cli/azure/sql/midb/ltr-policy#az_sql_midb_ltr_policy_show) command to view the LTR policy for a single database within an instance.
+Run the [az sql midb ltr-policy show](/cli/azure/sql/midb/ltr-policy#az-sql-midb-ltr-policy-show) command to view the LTR policy for a single database within an instance.
 
 ```azurecli
 az sql midb ltr-policy show \
@@ -201,7 +200,7 @@ az sql midb ltr-policy show \
 
 ### View LTR backups
 
-Use the [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_list) command to view the LTR backups within an instance.
+Use the [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az-sql-midb-ltr-backup-list) command to view the LTR backups within an instance.
 
 ```azurecli
 az sql midb ltr-backup list \
@@ -212,7 +211,7 @@ az sql midb ltr-backup list \
 
 ### Delete LTR backups
 
-Run the [az sql midb ltr-backup delete](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_delete) command to remove an LTR backup. You can run [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_list) to get the backup `name`.
+Run the [az sql midb ltr-backup delete](/cli/azure/sql/midb/ltr-backup#az-sql-midb-ltr-backup-delete) command to remove an LTR backup. You can run [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az-sql-midb-ltr-backup-list) to get the backup `name`.
 
 ```azurecli
 az sql midb ltr-backup delete \
@@ -227,7 +226,7 @@ az sql midb ltr-backup delete \
 
 ### Restore from LTR backups
 
-Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) to get the `backup-id`.
+Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az-sql-midb-ltr-backup-restore) command to restore your database from an LTR backup. You can run [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az-sql-midb-ltr-backup-show) to get the `backup-id`.
 
 1. Create a variable for the `backup-id` with the command `az sql db ltr-backup show` for future use.
 
@@ -264,7 +263,7 @@ This example shows how to list the LTR policies within an instance for a single 
 
 ```powershell
 # gets the current version of LTR policy for a database
-$LTRPolicies = @{
+$LTRPolicy = @{
     InstanceName = $instanceName 
     DatabaseName = $dbName 
     ResourceGroupName = $resourceGroup

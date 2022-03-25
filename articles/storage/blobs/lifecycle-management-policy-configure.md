@@ -10,7 +10,8 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell"
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
+ms.devlang: azurecli
 ---
 
 # Configure a lifecycle management policy
@@ -55,7 +56,7 @@ Enable-AzStorageBlobLastAccessTimeTracking  -ResourceGroupName $rgName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage account blob-service-properties update \
@@ -191,7 +192,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To add a lifecycle management policy with Azure CLI, write the policy to a JSON file, then call the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az_storage_account_management_policy_create) command to create the policy.
+To add a lifecycle management policy with Azure CLI, write the policy to a JSON file, then call the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create the policy.
 
 The following example shows how to use each of these commands to create a lifecycle policy. Remember to replace placeholder values in angle brackets with your own values:
 

@@ -29,7 +29,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
 | South Central US | West Europe | | East Asia |
-| US Gov Virginia | Sweden Central |  | |
+| US Gov Virginia | Sweden Central | | China North 3 |
 | West US 2 | | | |
 | West US 3 | | | |
 
@@ -116,7 +116,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Container Instances](../container-instances/container-instances-region-availability.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Container Registry](../container-registry/zone-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Data Factory](../data-factory/index.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Data Factory](../data-factory/concepts-data-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Database for MySQL – [Flexible Server](../mysql/flexible-server/concepts-high-availability.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Database for PostgreSQL – [Flexible Server](../postgresql/flexible-server/overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure DDoS Protection](../ddos-protection/ddos-faq.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |

@@ -14,7 +14,10 @@ ms.author: kgremban
 
 Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure Monitor resource logs](../azure-monitor/essentials/platform-logs-overview.md), a feature of Azure Monitor. Resource logs supply resource-level diagnostic information for many Azure services.
 
-**The operations monitoring functionality of IoT Hub is deprecated**, and has been removed from the portal. This article provides steps to move your workloads from operations monitoring to Azure Monitor resource logs. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+>[!IMPORTANT]
+>**IoT Hub operations monitoring is retired and was removed from IoT Hub on March 10, 2019.** Accordingly, this article is no longer being updated. IoT Hub operations monitoring was replaced by Azure Monitor. To learn about monitoring the operations and health of IoT Hub with Azure Monitor, see [Monitor IoT Hub](monitor-iot-hub.md).
+
+This article provides steps to move your workloads from operations monitoring to Azure Monitor resource logs.
 
 ## Update IoT Hub
 

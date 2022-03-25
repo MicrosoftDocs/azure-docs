@@ -20,8 +20,7 @@ Azure Communication Services allows one to enable Closed Captions for the VoIP c
 Closed Captions is the conversion of a voice or video call audio track into written words that appear in real time. Closed Captions are never saved and are only visible to the user that has enabled it.
 Here are main scenarios where Closed Captions are useful:
 
-- **Accessibility**. In the workplace or consumer apps, Closed Captioning for meetings, conference calls, and training videos can make a huge difference. 
-- **Accessibility**. Scenarios when audio can't be heard, either because of a noisy environment, such as an airport, or because of an environment that must be kept quiet, such as a hospital. 
+- **Accessibility**. In the workplace or consumer apps, Closed Captioning for meetings, conference calls, and training videos can make a huge difference. Scenarios when audio can't be heard, either because of a noisy environment, such as an airport, or because of an environment that must be kept quiet, such as a hospital. 
 - **Inclusivity**. Closed Captioning was developed to aid hearing-impaired people, but it could be useful for a language proficiency as well. 
 
 ![closed captions work flow](../media/call-closed-caption.png)
@@ -36,7 +35,6 @@ Here are main scenarios where Closed Captions are useful:
 - Support for multiple platforms with cross-platform support.
 - Async processing with client subscription to events and callbacks.
 - Multiple languages to choose from for recognition.
-- Support for existing SkypeToken Authentication
 
 
 ## Availability
@@ -47,8 +45,4 @@ The private preview will be available on all platforms.
 
 ## Next steps
 
-- Get started with a [Closed Captions Quickstart](Thttps://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-closed-captions?pivots=platform-iosBD)
-
-
-
-
+- Get started with a [Closed Captions Quickstart](../../quickstarts/voice-video-calling/get-started-with-closed-captions.md?pivots=platform-iosBD)
