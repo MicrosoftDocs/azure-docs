@@ -32,7 +32,7 @@ Azure Communication Services Email client libraries can be used to add transacti
 
 ### Azure Email Communication Resource
 
-Azure Resource Manager for Email Communication Services are meant for Email Domain Administration, and Email client libraries are focused on service integrations for application to send an email.
+Azure Resource Manager for Email Communication Services are meant for Email Domain Administration.
 
 | Area           | JavaScript | .NET | Python | Java SE | iOS | Android | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -44,9 +44,6 @@ Azure Resource Manager for Email Communication Services are meant for Email Doma
 ## Email client library capabilities
 
 The following list presents the set of features which are currently available in the Communication Services Email client libraries.
-
-
-The following list presents the set of features which are currently available in our client libraries.
 
 | Feature | Capability                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
