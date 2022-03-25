@@ -56,6 +56,9 @@ It's not supported to use this extension on Azure Kubernetes Service (AKS) clust
 
 If you choose to install and use the CLI locally, you must be running the Azure CLI version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
+> [!NOTE]
+> This is functionality is also available for [Azure Arc-enabled servers](../../azure-arc/servers/ssharc-overview.md).
+
 ## Requirements for login with Azure AD using openSSH certificate-based authentication
 
 To enable Azure AD login using SSH certificate-based authentication for Linux VMs in Azure, ensure the following network, virtual machine, and client (ssh client) requirements are met.
