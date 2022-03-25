@@ -29,6 +29,21 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Fox Sports
 - IMDB
 - Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
+- Teams Live Events (on web)
+  - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
+
+### How to use MMR for Teams live events 
+
+To use MMR for Teams live events:
+
+1. First, make sure you can see a green check mark next to the Teams status icon. If the check mark is there, you can set up MMR for Teams live events.
+
+2. Open the link to the Teams live event in a Microsoft Edge or Google Chrome browser.
+
+3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser.
+
+>[!NOTE]
+>Make sure you only select **Watch on the web instead**. If you use the Teams app, MMR won't work.
 
 ## Requirements
 
