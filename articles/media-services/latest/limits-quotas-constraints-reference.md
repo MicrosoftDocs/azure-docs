@@ -38,7 +38,7 @@ This article lists some of the most common Microsoft Azure Media Services limits
 
 ## Storage limits
 
-Azure Storage block blog limits apply to storage accounts used with Media Services.  See [Azure Blob Storage limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits).
+Azure Storage block blog limits apply to storage accounts used with Media Services.  See [Azure Blob Storage limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-blob-storage-limits).
 
 These limit includes the total stored data storage size of the files that you upload for encoding and the file sizes of the encoded files.  The limit for file size for encoding is a different limit. See [File size for encoding](#file-size-for-encoding-limit).
 

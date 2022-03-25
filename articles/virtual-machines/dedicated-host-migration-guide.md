@@ -146,4 +146,4 @@ Once all VMs have been migrated from your old Dedicated Host to the target Dedic
 
 ## Help and support
 
-If you have questions, ask community experts in [Microsoft Q&A](https://aka.ms/azure-dedicated-host-qa).
+If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/azure-dedicated-host.html).

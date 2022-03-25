@@ -22,7 +22,7 @@ sections:
           What is Form Recognizer?
         answer: |
 
-          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
+          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
           Form Recognizer use cases include automating your data processing in applications and workflows, enhancing data-driven strategies, and enriching document search capabilities.
 
@@ -62,7 +62,7 @@ sections:
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
 
-          - [Azure Cognitive Search](/azure/search/cognitive-search-custom-skill-form)
+          - [Azure Cognitive Search](../../search/cognitive-search-custom-skill-form.md)
 
           - [Azure Functions](tutorial-azure-function.md)
 
@@ -78,7 +78,7 @@ sections:
 
           Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 
-          Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
+          Learn more about [Form Recognizer and Applied AI Services](../what-are-applied-ai-services.md).
 
       - question: |
            What is the accuracy score and how is it calculated?
@@ -260,7 +260,7 @@ sections:
 
           - Try applying longer timeouts to account for random latency spikes. A timeout of 1 to 2 minutes should be sufficient to catch all responses. If not, try the call again after a short delay.
 
-          - Consider using [Proximity placement groups](/azure/virtual-machines/co-location) for workloads where low latency is a requirement.
+          - Consider using [Proximity placement groups](../../virtual-machines/co-location.md) for workloads where low latency is a requirement.
           
           - Enable a backup resource in another region to mitigate the latency impact.
 
@@ -366,7 +366,7 @@ sections:
       - question: |
            If my storage account is behind a VNet or firewall, how do I give Form Recognizer access to my storage account data?
         answer: |
-            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
+            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 
             If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the VNet or firewall.
 
@@ -379,7 +379,7 @@ sections:
         answer: |
 
           Yes, Form Recognizer containers require internet connectivity to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
-          Learn more about [Azure container security](/azure/container-instances/container-instances-image-security#security-recommendations-for-azure-container-instances).
+          Learn more about [Azure container security](../../container-instances/container-instances-image-security.md#security-recommendations-for-azure-container-instances).
 
   - name: Security and Privacy
     questions:
@@ -390,9 +390,9 @@ sections:
 
           - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-api-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription key.
 
-          - [Authenticate](/azure/cognitive-services/authentication?context=%2Fazure%2Fapplied-ai-services%2Fform-recognizer%2Fcontext%2Fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
-          - [Enable](/azure/applied-ai-services/form-recognizer/encrypt-data-at-rest#enable-customer-managed-keys-for-your-resource) customer-managed keys.
+          - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 
           - [Authorize](managed-identities.md#enable-a-system-assigned-managed-identity) managed identities.
 
@@ -408,7 +408,7 @@ sections:
       - question: |
             Where can I find more solutions to my Azure Form Recognizer questions?
         answer: |
-             [Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specific to Form Recognizer.
+             [Microsoft Q & A](/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specific to Form Recognizer.
 
       - question: |
             What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?

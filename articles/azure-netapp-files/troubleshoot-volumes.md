@@ -12,18 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 03/15/2022
+ms.date: 03/17/2022
 ms.author: anfdocs
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 
 This article describes error messages and resolutions that can help you troubleshoot Azure NetApp Files volumes. 
-
-## General errors for volume creation or management 
-
-|     Error conditions    |     Resolutions    |
-|-|-|
-| Error during SMB, LDAP, or Kerberos volume creation: <br> `Failed to create the Active Directory machine account "PAKA-5755". Reason: SecD Error: no server available Details: Error: Machine account creation procedure failed [ 34] Loaded the preliminary configuration. [ 80] Created a machine account in the domain [ 81] Successfully connected to ip 10.193.169.25, port 445 using TCP [ 83] Unable to connect to LSA service on win-2bovaekb44b.harikrb.com (Error: RESULT_ERROR_SPINCLIENT_SOCKET_RECEIVE_ERROR) [ 83] No servers available for MS_LSA, vserver: 251, domain: http://contoso.com/. **[ 83] FAILURE: Unable to make a connection (LSA:CONTOSO.COM), ** result: 6940 [ 85] Could not find Windows SID 'S-1-5-21-192389270-1514950320-2551433173-512' [ 133] Deleted existing account 'CN=PAKA-5755,CN=Computers,DC=contoso,DC=com' .`  | SMB3 is disabled on the domain controller. <br> Enable SMB3 on the domain controller and then try creating the volume. See [How to detect, enable and disable SMBv1, SMBv2, and SMBv3 in Windows](/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3) for details about enabling SMB3. |
 
 ## Errors for SMB and dual-protocol volumes
 
