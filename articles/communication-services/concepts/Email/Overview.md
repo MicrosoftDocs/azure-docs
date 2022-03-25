@@ -51,7 +51,9 @@ Key features include:
 ## Next steps
 
 
-> [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
+>  [Understanding Email Communication Services](./Understanding-email-communication-resource.md)
+
+>  [Understanding Email Domains in Email Communication Services](./Understanding-email-domain-setup.md)
 
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
 
