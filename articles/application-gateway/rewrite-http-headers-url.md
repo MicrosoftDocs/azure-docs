@@ -189,7 +189,7 @@ Application Gateway inserts an X-Forwarded-For header into all requests before i
 
 #### Modify a redirection URL
 
-Modification of a redirect URL can under certain circumstances be useful.  For example: when previously clients were redirected to a path like "/blog" but now you want to redirect them to "/updates" because of a change in content structure.  
+Modification of a redirect URL can be useful under certain circumstances.  For example: clients were originally redirected to a path like "/blog" but now should be sent to "/updates" due to a change in content structure.  
 
 > [!WARNING]
 > The need to modify a redirection URL sometimes comes up in the context of a configuration whereby Application Gateway is configured to override the hostname towards the backend.  The hostname as seen by the backend is in that case different from the hostname as seen by the browser.  In this situation, the redirect would not use the correct hostname.  This configuration is not recommended.
