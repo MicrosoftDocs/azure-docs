@@ -145,7 +145,7 @@ We will connect to the backend using HTTPS.
 5. Make sure to set "Override with new host name" to "No"
 6. Select the custom HTTPS health probe in the dropdown for "Custom probe".  (Note: it will work with the default probe but for correctness we recommend using a custom probe with the correct domain name.)
 
-:::image type="content" source="./media/configure-web-app/http-settings-custom-domain.png" alt-text="Configure HTTP Settings to use custom domain towards App Service backend using No Override":::
+:::image type="content" source="./media/configure-web-app/http-settings-custom-domain.png" alt-text="Configure H T T P Settings to use custom domain towards App Service backend using No Override":::
 
 ### [Azure portal](#tab/azure-portal/defaultdomain)
 
@@ -158,7 +158,7 @@ An HTTP Setting is required that instructs Application Gateway to access the App
 5. Make sure to set "Override with new host name" to "Yes"
 6. Under "Host name override", select "Pick host name from backend target". This setting will cause the request towards App Service to use the "azurewebsites.net" host name, as is configured in the Backend Pool.
 
-:::image type="content" source="media/configure-web-app/http-settings-default-domain.png" alt-text="Configure HTTP Settings to use default domain towards App Service backend by setting Pick host name from backend target":::
+:::image type="content" source="media/configure-web-app/http-settings-default-domain.png" alt-text="Configure H T T P Settings to use default domain towards App Service backend by setting Pick host name from backend target":::
 
 ### [PowerShell](#tab/azure-powershell/customdomain)
 
@@ -223,7 +223,7 @@ To accept traffic we need to configure a Listener.  For more info on this see [A
 1. Under "Listener Type", select "Basic"
 1. Click "Add" to add the listener
 
-:::image type="content" source="media/configure-web-app/add-https-listener.png" alt-text="Add a listener for HTTPS traffic":::
+:::image type="content" source="media/configure-web-app/add-https-listener.png" alt-text="Add a listener for H T T P S traffic":::
 
 ### [Azure portal](#tab/azure-portal/defaultdomain)
 
@@ -235,7 +235,7 @@ Assuming there's no custom domain available or associated certificate, we'll con
 1. Under "Port", select 80
 1. Under "Protocol", select "HTTP"
 
-:::image type="content" source="media/configure-web-app/add-http-listener.png" alt-text="Add a listener for HTTP traffic":::
+:::image type="content" source="media/configure-web-app/add-http-listener.png" alt-text="Add a listener for H T T P traffic":::
 
 ### [PowerShell](#tab/azure-powershell/customdomain)
 
@@ -313,7 +313,7 @@ Provided with the earlier configured Backend Pool and the HTTP Settings, the req
 1. Configure the HTTP settings with which Application Gateway should connect to the App Service backend
 1. Select "Add" to save this configuration
 
-:::image type="content" source="media/configure-web-app/add-routing-rule.png" alt-text="Add a new Routing rule from the listener to the App Service Backend Pool using the configured HTTP Settings" lightbox="media/configure-web-app/add-routing-rule-expanded.png":::
+:::image type="content" source="media/configure-web-app/add-routing-rule.png" alt-text="Add a new Routing rule from the listener to the App Service Backend Pool using the configured H T T P Settings" lightbox="media/configure-web-app/add-routing-rule-expanded.png":::
 
 ### [PowerShell](#tab/azure-powershell)
 
