@@ -47,7 +47,7 @@ You can use unmanaged disks in storage accounts with network rules applied to ba
 
 ## Change the default network access rule
 
-By default, storage accounts accept connections from clients on any network. You can limit access to selected networks or prevent traffic from all networks and permit access only through a [private endpoint](storage-private-endpoints.md).
+By default, storage accounts accept connections from clients on any network. You can limit access to selected networks **or** prevent traffic from all networks and permit access only through a [private endpoint](storage-private-endpoints.md).
 
 > [!WARNING]
 > Changing this setting can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks or set up access through a [private endpoint](storage-private-endpoints.md) before you change this setting.
@@ -90,9 +90,9 @@ By default, storage accounts accept connections from clients on any network. You
 
    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
 
-    ```powershell
-    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
-    ```
+     ```powershell
+     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+     ```
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -100,23 +100,23 @@ By default, storage accounts accept connections from clients on any network. You
 
 2. Choose which type of public network access you want to allow.
 
-    - To allow traffic only from specific virtual networks, use the `az storage account update` command and set the `--default-action` parameter to `Deny`.
+   - To allow traffic only from specific virtual networks, use the `az storage account update` command and set the `--default-action` parameter to `Deny`.
 
-    ```azurecli
-    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
-    ```
+     ```azurecli
+     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
+     ```
 
-   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`.
+    - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`.
 
-   ```azurecli
-   az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
-   ```
+      ```azurecli
+      az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
+      ```
 
-   - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
+    - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
 
-    ```azurecli
-    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
-    ```
+      ```azurecli
+      az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
+      ```
 
 ---
 
