@@ -32,7 +32,7 @@ and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 ## Validate for any violation(s) during a release
 
 > [!NOTE]
-> Use the [AzurePolicyCheckGate](/azure/devops/pipelines/tasks/deploy/azure-policy.md) task to check for policy compliance in YAML. This task can only be used as a gate and not in a build or a release pipeline.
+> Use the [AzurePolicyCheckGate](/azure/devops/pipelines/tasks/deploy/azure-policy) task to check for policy compliance in YAML. This task can only be used as a gate and not in a build or a release pipeline.  
 
 1. Navigate to your team project in Azure DevOps.
 
