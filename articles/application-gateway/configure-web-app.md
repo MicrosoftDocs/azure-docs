@@ -24,7 +24,7 @@ This configuration is recommended for production-grade scenarios and meets the p
 
 By associating the same domain name to both Application Gateway and App Service in the backend pool, the request flow does not need to override the host name.  The backend web application will see the original host as was used by the client.
 
-:::image type="content" source="media/configure-web-app/scenario-appgw-to-appsvc-custom-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the same custom domain for both":::
+:::image type="content" source="media/configure-web-app/scenario-application-gateway-to-azure-app-service-custom-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the same custom domain for both":::
 
 ## [Default Domain](#tab/defaultdomain)
 
@@ -37,7 +37,7 @@ When App Service does not have a custom domain associated with it, the host head
 
 The host header in the original request received by the Application Gateway will be different from the host name of the backend App Service.
 
-:::image type="content" source="media/configure-web-app/scenario-appgw-to-appsvc-default-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the default App Service domain towards the backend":::
+:::image type="content" source="media/configure-web-app/scenario-application-gateway-to-azure-app-service-default-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the default App Service domain towards the backend":::
 
 ---
 

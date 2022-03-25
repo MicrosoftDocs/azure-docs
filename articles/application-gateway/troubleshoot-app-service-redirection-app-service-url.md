@@ -29,7 +29,7 @@ In this article, you'll learn how to troubleshoot the following issues, as descr
 
 The root-cause for the above symptoms is a setup that overrides the hostname as used by Application Gateway towards App Service into a different hostname as is seen by the browser.  Often the hostname is overridden to the default App Service "azurewebsites.net" domain.
 
-:::image type="content" source="media/troubleshoot-app-service-redirection-app-service-url/root-cause-appgw-to-appsvc-default-domain.png" alt-text="Root cause - Application Gateway overwrites hostname to azurewebsites.net":::
+:::image type="content" source="media/troubleshoot-app-service-redirection-app-service-url/root-cause-application-gateway-to-azure-app-service-default-domain.png" alt-text="Root cause - Application Gateway overwrites hostname to azurewebsites.net":::
 
 ## Sample configuration
 
