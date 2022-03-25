@@ -309,6 +309,9 @@ The server-side needs to be able to accept connections with those headers presen
 
 Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
 
+> [!NOTE]
+> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
 ### Route tracking
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
