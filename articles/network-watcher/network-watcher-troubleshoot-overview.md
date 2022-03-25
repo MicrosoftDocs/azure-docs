@@ -127,6 +127,21 @@ The **CPUStats.txt** file contains CPU usage and memory available at the time of
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
 ```
 
+### IKElogs.txt
+
+The **IKElogs.txt** file contains any IKE activity that was found during monitoring.
+
+The following example shows the contents of an IKElogs.txt file.
+
+```
+Remote <IPaddress>:500: Local <IPaddress>:500: [RECEIVED][SA_AUTH] Received IKE AUTH message
+Remote <IPaddress>:500: Local <IPaddress>:500: Received Traffic Selector payload request- [Tsid 0x729  ]Number of TSIs 2: StartAddress 10.20.0.0 EndAddress 10.20.255.255 PortStart 0 PortEnd 65535 Protocol 0, StartAddress 192.168.100.0 EndAddress 192.168.100.255 PortStart 0 PortEnd 65535 Protocol 0 Number of TSRs 1:StartAddress 0.0.0.0 EndAddress 255.255.255.255 PortStart 0 PortEnd 65535 Protocol 0
+Remote <IPaddress>:500: Local <IPaddress>:500: [SEND] Proposed Traffic Selector payload will be (Final Negotiated) - [Tsid 0x729  ]Number of TSIs 2: StartAddress 10.20.0.0 EndAddress 10.20.255.255 PortStart 0 PortEnd 65535 Protocol 0, StartAddress 192.168.100.0 EndAddress 192.168.100.255 PortStart 0 PortEnd 65535 Protocol 0 Number of TSRs 1:StartAddress 0.0.0.0 EndAddress 255.255.255.255 PortStart 0 PortEnd 65535 Protocol 0
+Remote <IPaddress>:500: Local <IPaddress>:500: [RECEIVED]Received IPSec payload: Policy1:Cipher=DESIntegrity=Md5
+IkeCleanupQMNegotiation called with error 13868 and flags a
+Remote <IPaddress>:500: Local <IPaddress>:500: [SEND][NOTIFY] Sending Notify Message - Policy Mismatch
+```
+
 ### IKEErrors.txt
 
 The **IKEErrors.txt** file contains any IKE errors that were found during monitoring.
