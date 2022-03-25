@@ -54,6 +54,8 @@
       href: view-usage-report.md
     - name: Teams apps usage report
       href: teams-apps-usage.md
+    - name: Ratings and reviews
+      href: ratings-reviews.md  
 - name: Discover resources
   items: 
     - name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
