@@ -6,15 +6,19 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.date: 03/24/2022
+ms.reviewer: wiassaf
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, cosmos-db-video
 ---
 # Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
+
+>
+> [!VIDEO https://aka.ms/docs.learn-live-dotnet-bulk]
+
 In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
 This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which can be targeted to .NET Framework or .NET Core.
 
@@ -80,9 +84,9 @@ While still in the application directory, install the Azure Cosmos DB client lib
 
 The sample application needs to authenticate to your Azure Cosmos account. To authenticate, you should pass the Azure Cosmos account credentials to the application. Get your Azure Cosmos account credentials by following these steps:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com/).
-1.	Navigate to your Azure Cosmos account.
-1.	Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
+1.    Sign in to the [Azure portal](https://portal.azure.com/).
+1.    Navigate to your Azure Cosmos account.
+1.    Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
 If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
 
@@ -130,7 +134,7 @@ You can then create a container to store all our items.  Define `/pk` as the par
 ## Step 6: Populate a list of concurrent tasks
 
 To take advantage of the bulk execution support, create a list of asynchronous tasks based on the source of data and the operations you want to perform, and use `Task.WhenAll` to execute them concurrently.
-Let’s start by using "Bogus" data to generate a list of items from our data model. In a real-world application, the items would come from your desired data source.
+Let's start by using "Bogus" data to generate a list of items from our data model. In a real-world application, the items would come from your desired data source.
 
 First, add the Bogus package to the solution by using the dotnet add package command.
 

@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: jroth
 ms.custom: devx-track-java
+ms.reviewer: wiassaf
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
