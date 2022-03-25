@@ -250,7 +250,7 @@ const configObj = {
   enableCorsCorrelation: true,
   enableRequestHeaderTracking: true,
   enableResponseHeaderTracking: true,
-  correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net'],
+  correlationHeaderExcludedDomains: ['*.queue.core.windows.net'],
   extensions: [clickPluginInstance],
   extensionConfig: {
     [clickPluginInstance.identifier]: clickPluginConfig
@@ -258,23 +258,33 @@ const configObj = {
 };
 ``` 
 
-If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
+### Correlation header excluded domains
 
-The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
+The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
+An example would be `*.queue.core.windows.net`, as seen in the code sample above.
+Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
 
-Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
+### CORS configuration
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
+
+Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
 
 > [!NOTE]
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
-If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
- 
+### Route tracking
+
 The React Plugin automatically tracks route changes and collects other React specific telemetry. 
 
 > [!NOTE]
 > `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
 
 For `react-router v6` or other scenarios where router history is not exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
+
+### PageView
+
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
 
 ## Sample app
 
