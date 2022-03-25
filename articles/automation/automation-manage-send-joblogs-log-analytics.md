@@ -16,7 +16,7 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
   - Trigger an email or alert based on your runbook job status (for example, failed or suspended).
   - Write advanced queries across your job streams.
   - Correlate jobs across Automation accounts.
-  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
+  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics through an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
   - Get the audit logs related to Automation accounts, runbooks, and other asset create, modify and delete operations. 
 
 Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyse the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyse the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
@@ -247,9 +247,6 @@ AzureDiagnostics
 | project TimeGenerated, RunbookName_s, StreamType_s, _ResourceId, ResultDescription, JobId_g 
 ```
 
-## Sample Azure Automation Audit log queries
-You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also configure the alerts for audit log conditions as part of your security monitoring requirements. 
-
 ### Send an email when a runbook job fails or suspends
 
 The following steps explain how to set up email alerts in Azure Monitor to notify when something goes wrong with a runbook job.
@@ -270,30 +267,51 @@ To create an alert rule, create a log search for the runbook job records that sh
  1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](/azure/azure-monitor/alerts/alerts-log#create-a-log-alert-rule-in-the-azure-portal)
 
 
-## Difference between Activity logs and Audit logs?
-The Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview) in Azure that provides insight into subscription-level events. Activity log for Automation account includes information about when an automation resource is modified or created or deleted, however, it does not capture the name or ID of the resource. Audit logs for Automation accounts capture the name and ID of the resource like automation variable, credential, connection etc, along with the type of the operation performed for the resource.  
+## Azure Automation diagnostic Audit logs
 
-**Query to view Automation resource audit logs**
+You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the Automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also [configure the alerts](#send-an-email-when-a-runbook-job-fails-or-suspends) for audit log conditions as part of your security monitoring requirements.
+
+
+## Difference between Activity logs and Audit logs?
+
+Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview)in Azure that provides insight into subscription-level events. The activity log for Automation account includes information about when an automation resource is modified or created or deleted. However, it does not capture the name or ID of the resource. 
+
+Audit logs for Automation accounts capture the name and ID of the resource such as automation variable, credential, connection and so on, along with the type of the operation performed for the resource and Azure Automation would scrub some details like client IP data conforming to the GDPR compliance.
+
+Activity logs would show details such as client IP because an Activity log is a platform log that provide detailed diagnostic and auditing information for Azure resources. They are automatically generated for activities that occur in ARM and gets pushed to the activity log resource provider. Since Activity logs are part of Azure monitoring, it would show some client data to provide insights into the client activity.   
+
+## Sample audit log query
+
+### Query to view Automation resource audit logs
+
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" 
 ```
-**Query to monitor any variable update, create or delete operation**
+
+### Query to monitor any variable update, create or delete operation
+
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s == "Variable" 
 ```
-**Query to monitor any runbook operation like create, draft or update**
+
+### Query to monitor any runbook operation like create, draft or update
+
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Runbook" 
 ```
-**Query to monitor any certificate creation, updating or deletion**
+
+### Query to monitor any certificate creation, updating or deletion
+
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Certificate" 
 ```
-**Query to monitor any credentials creation, updating or deletion**
+
+### Query to monitor any credentials creation, updating or deletion
+
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Credential" 
