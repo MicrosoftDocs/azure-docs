@@ -20,7 +20,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |Pricing:|Free<br>(Most security alerts are only available with [enhanced security features](enable-enhanced-security.md))|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 
 ## What are suppression rules?
