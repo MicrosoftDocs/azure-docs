@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2022
 ms.author: govindk
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
@@ -33,7 +33,7 @@ When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choos
 
 :::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png":::
 
-Table API and Graph API are in preview at and can be provisioned with powershell and cli support at present.
+Table API and Graph API are in preview and can be provisioned with PowerShell and Azure CLI.
 
 ## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
@@ -53,7 +53,7 @@ Before provisioning the account, install the [latest version of Azure PowerShell
 
 #### <a id="provision-powershell-sql-api"></a>SQL API account
 
-To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
+To provision an account with continuous backup, add the argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
 The following cmdlet is an example of a single region write account *Pitracct* with continuous backup policy created in *West US* region under *MyRG* resource group:
 
@@ -149,7 +149,7 @@ az cosmosdb create \
 
 ### <a id="provision-cli-mongo-api"></a>API for MongoDB
 
-The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created in the *West US* region under *MyRG* resource group:
 
 ```azurecli-interactive
 
@@ -165,7 +165,7 @@ az cosmosdb create \
 ```
 ### <a id="provision-cli-table-api"></a>Table API account
 
-The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created in the *West US* region under *MyRG* resource group:
 ```azurecli-interactive
 
 az cosmosdb create \
