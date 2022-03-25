@@ -508,7 +508,12 @@ For all Linux distros except CentOS 7 (including Debian 9), IoT Edge's default c
 
 **Resolution:**
 
-Make sure you update the URLs in the configuration file to ensure the `iotedge` user can write to `/var/run/iotedge`.
+Make sure that `/var/run/iotedge` is writable by the `iotedge` user so that `iotedged` can unlock and mount the sockets itself. Depending on the distro, `/var/run` is ephemeral so the directory should be recreated on every boot.
+
+If you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
+1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
+1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
+1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
 :::moniker-end
 <!-- end 1.2 -->
