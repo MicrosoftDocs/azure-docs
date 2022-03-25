@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/22/2021
+ms.date: 03/24/2021
 author: palma21
 
 ---
@@ -111,6 +111,9 @@ storageclass.storage.k8s.io/my-azurefile created
 ```
 
 The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+
+> [!NOTE]
+> This driver only supports snapshot creation, restore from snapshot is not supported by this driver, snapshot could be restored from Azure portal or CLI. To get the snapshot created, you can go to Azure Portal -> access the Storage Account -> File shares -> access the file share associated -> Snapshots. There you can click on it and restore. 
 
 Create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
 
