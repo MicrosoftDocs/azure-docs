@@ -43,6 +43,8 @@
     items:
     - name: Analysis Services
       href: ../../analysis-services/analysis-services-create-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Data Factory
+      href: ../../data-factory/quickstart-create-data-factory-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Linux virtual machine
