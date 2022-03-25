@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 03/25/2022
 ms.author: jianleishen
 ---
 
@@ -99,7 +99,7 @@ The following properties are supported in the copy activity ***\*source\**** sec
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties) and [SFTP](connector-SFTP.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
