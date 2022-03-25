@@ -34,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A user account in Yellowbox with Admin rights.
+* A Yellowbox issued JSON Web Token for authorization against the SCIM provisioning endpoint
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -42,8 +42,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Yellowbox](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Yellowbox to support provisioning with Azure AD
-
-Contact [Yellowbox Help desk](https://dashboard.yellowbox.app/#/help-desk) to obtain the SCIM Url and corresponding Token.
+* For the tenant URL, use `https://australia-southeast1-yellowbox-f4c6e.cloudfunctions.net/scim`
+* Obtain your JWT authorization Token from yellowbox by contacting [Yellowbox support](mailto:contact@yellowbox.app), if you have not already been issued a token.
 
 ## Step 3. Add Yellowbox from the Azure AD application gallery
 
