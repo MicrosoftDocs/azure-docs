@@ -495,7 +495,12 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 
 **Observed behavior:**
 
-The security daemon failed to start and module containers aren't being created. The edgeAgent, edgeHub and other custom modules aren't being started by IoT Edge service.
+The security daemon fails to start and module containers aren't created. The `edgeAgent`, `edgeHub` and other custom modules aren't started by IoT Edge service. In `aziot-edged` logs, you see this error:
+
+> - The daemon could not start up successfully: Could not start management service
+>  - caused by: An error occurred for path /var/run/iotedge/mgmt.sock
+>  - caused by: Permission denied (os error 13)
+
 
 **Root cause:**
 
