@@ -28,7 +28,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 ## Open a support ticket
 
-If you are unable to find answers by using self-help resources, you can open an online support ticket. You should open each support ticket for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
+If you're unable to find answers by using self-help resources, you can open an online support ticket. You should open each support ticket for only a single problem to enable us connect you to the support engineers who are subject matter experts for your problem. Also, Azure AD B2C engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
 
 ### How to open a support ticket for Azure AD B2C in the Azure portal
 
@@ -57,28 +57,35 @@ If you are unable to find answers by using self-help resources, you can open an 
     
     1. For **Summary**, write a descriptive summary for your request. The summary needs be under 140 characters.
   
-    1. For **Problem type**, and then select a category for that type. At this point, you are also offered self-help information for your problem category.
+    1. For **Problem type**, and then select a category for that type. 
+
+1. Select **Next**. 
+
+1. Under the **2. Recommended solution** tab, you're offered self-help solution and documentation. If none of the solutions recommended resolves your problem, select **Next**.  
+
+1. Under **3. Additional details** tab, fill out the required details accurately. For example:
+
+    1. Your tenant ID or domain name. See how to find your [tenant ID](tenant-management.md#get-your-tenant-id) or [tenant name](tenant-management.md#get-your-tenant-name). 
+    
+    1. If you're using a user-flow or custom policy. 
+
+    1. The time and date when the problem occurred.
+ 
+    1. Additional details to describe the problem. 
+   
+    1. Under **Advanced diagnostic information**, select **Yes (Recommended)** to allow Microsoft support to access your Azure resources for faster problem resolution. 
+    
+    1. Select a **[Severity](https://azure.microsoft.com/support/plans/response)**, and your preferred contact method.
     
 
-==========FROM HERE===============
-  
-1. Add the rest of your problem information and click **Next**. 
-
-1. At this point, you are offered self-help solutions and documentation in the **Solutions** blade. If none of the solutions there resolve your problem, click **Next**. 
-
-1. On the **Details** blade, fill out the required details and select a [Severity](https://azure.microsoft.com/support/plans/response/). 
+    :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket.png" alt-text="Find help and submit support ticket.":::
  
-    ![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
- 
-1. Provide your contact information and select **Next**. 
+1. Select **Next**. Under **4. Review + create**, you'll see a summary of your support ticket. 
 
-1. Provide your contact information and select **Create**.
-  ![Problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+1. If the details of your support ticket are accurate, select **Create** to submit the support ticket. Otherwise, select **Previous** to make corrections. 
 
+    :::image type="content" source="media/find-help-and-submit-support-ticket/review-and-create.png" alt-text="Find help and submit support ticket review and create tab.":::
 
-## Get phone support
-
-See the [Contact Microsoft for support](https://portal.office.com/Support/ContactUs.aspx) page to obtain support phone numbers.
 
 ##  Next steps
 
