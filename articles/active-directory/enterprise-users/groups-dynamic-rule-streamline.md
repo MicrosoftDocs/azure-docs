@@ -68,7 +68,7 @@ It is better to use a rule like this:
 user.city -notin ["Lagos", "Ibadan", "Kaduna", "Abuja", "Port Harcourt"]
 ```
 
-# Avoid redundant criteria
+## Avoid redundant criteria
 
 Ensure that you aren't using redundant criteria in your rule. For example, instead of using a rule like this:
 
