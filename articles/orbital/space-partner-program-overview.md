@@ -14,7 +14,7 @@ ms.author: wamota
 
 At Microsoft, our mission is to empower every person and every organization on the planet to achieve more.  When it comes to space, we’re investing in building the tools that will allow every person and organization on Earth to realize the incredible potential of space.   
 
-We are a partner-led and ecosystem-focused platform. Our approach to space is multi-band, multi-vendor, and multi-orbit. Our thriving ecosystem of space partners allows for the most comprehensive and innovative offerings for our joint customers and the future of space computing.
+We're a partner-led and ecosystem-focused platform. Our approach to space is multi-band, multi-vendor, and multi-orbit. Our thriving ecosystem of space partners allows for the most comprehensive and innovative offerings for our joint customers and the future of space computing.
 
 Our differentiated ecosystem of partners spans space operators, manufacturers, systems integrators, data providers, analytics and AI ISVs, and more.  These partners cover a breadth of capabilities like virtualization, data processing and insight, and ground infrastructure. 
 
@@ -22,10 +22,10 @@ Our differentiated ecosystem of partners spans space operators, manufacturers, s
 
 # Why join the Space Partner Program?
 
-We believe in a better together story for Space and Spectrum partners running on Azure.  By joining the program, you can gain access to a variety of benefits such as: 
+We believe in a better together story for Space and Spectrum partners running on Azure.  By joining the program, you can gain access to various benefits such as: 
 
 - Azure Engineering Training & Adoption Resources 
-- Quarterly NDA Roadmap Reviews and newsletters
+- Quarterly NDA roadmap reviews and newsletters
 - Participation in Space and Spectrum focused Microsoft events
 - Co-engineering for customer POCs
 - Microsoft Product Integration or add-ins
@@ -40,7 +40,7 @@ We believe in a better together story for Space and Spectrum partners running on
 
 To join the program, we ask partners to commit to: 
 
-- Sign an NDA with Microsoft
+- Sign a non-disclosure agreement with Microsoft
 - Run solution(s) on Azure including Azure monetary commitment 
 - Provide resourcing towards joint goals and engagements 
 - Participate in quarterly business and GTM reviews with committed pipelines and metrics
@@ -57,13 +57,13 @@ To join the program, we ask partners to commit to:
   - [5G core for Gov with Lockheed Martin](https://azure.microsoft.com/en-us/blog/new-azure-for-operators-solutions-and-services-built-for-the-future-of-telecommunications/)
   - [Private network based on SATCOM with Intelsat](https://www.intelsat.com/newsroom/intelsat-collaborates-with-microsoft-to-demonstrate-private-cellular-network-using-intelsats-global-satellite-and-ground-network/)
 - [Read this public deck on Microsoft Space offerings](https://azurespace.blob.core.windows.net/docs/Azure_Space_Public_Deck.pdf)
-- Reach out to [SpacePartnerProgram@microsoft.com](mailto:SpacePartnerProgram@microsoft.com) to learn more and sign an NDA
+- Reach out to [SpacePartnerProgram@microsoft.com](mailto:SpacePartnerProgram@microsoft.com) to learn more and sign a non-disclosure agreement
 
 ## Next steps
 
 - [Sign up for MS Startups for access to credits and support](https://startups.microsoft.com/)
 - [Downlink data from satellites using Azure Orbital](overview.md)
 - [Analyze space data on Azure](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
-- [Drive insights with geospatial partners on Azure – ESRI  and visualize with PowerBI](https://azuremarketplace.microsoft.com/en/marketplace/apps/esri.arcgis-enterprise?tab=Overview)
+- [Drive insights with geospatial partners on Azure – ESRI  and visualize with Power BI](https://azuremarketplace.microsoft.com/en/marketplace/apps/esri.arcgis-enterprise?tab=Overview)
 - [Use the Azure Software Radio Developer VM to jump start your software radio development](https://github.com/microsoft/azure-software-radio)
-- [List your app on the Azure marketplace](/azure/marketplace/determine-your-listing-type#free-trial)
+- [List your app on the Azure Marketplace](/azure/marketplace/determine-your-listing-type#free-trial)
