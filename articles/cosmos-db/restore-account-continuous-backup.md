@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/03/2022
 ms.author: govindk
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
-This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or a [Resource Manager template](#restore-arm-template).
+This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [Azure CLI](#restore-account-cli), or a [Resource Manager template](#restore-arm-template).
 
 ## <a id="restore-account-portal"></a>Restore an account using Azure portal
 
@@ -102,7 +102,7 @@ Use the following steps to get the restore details from Azure portal:
 
 1. Navigate to the **Export template** pane. It opens a JSON template, corresponding to the restored account.
 
-1. The **resources** > **properties** > **restoreParameters** object contains the restore details. The **restoreTimestampInUtc** gives you the time at which the account was restored and the databasesToRestore/gremlinDatabasesToRestore/TablesToRestore show the specific (databases and containers), (graph databases and graphs) or tables from which the account was restored. .
+1. The **resources** > **properties** > **restoreParameters** object contains the restore details. The **restoreTimestampInUtc** gives you the time at which the account was restored. The `databasesToRestore`/`gremlinDatabasesToRestore`/`TablesToRestore` output shows the specific databases and containers/databases and graphs/tables from which the account was restored.
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
