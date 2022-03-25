@@ -28,7 +28,7 @@ Delegated administration relationships enable technicians at a Microsoft CSP to 
 
 There are two types of delegated administration relationships that are visible in the Azure AD admin portal experience. The newer type of delegated admin relationship is known as Granular Delegated Admin Permission. The older type of relationship is known as Delegated Admin Permission. You can see both types of relationship if you sign in to the Azure AD admin portal and then select **Delegated administration**.
 
-## Granular Delegated Admin Permission
+## Granular delegated admin permission
 
 When a Microsoft CSP creates a GDAP relationship request for your tenant, a GDAP relationship is created in the tenant when a global administrator approves the request. The GDAP relationship request specifies:
 
@@ -38,15 +38,12 @@ When a Microsoft CSP creates a GDAP relationship request for your tenant, a GDAP
 
 If you have any GDAP relationships in your tenant, you will see a notification banner on the **Delegated Administration** page in the Azure AD admin portal. Select the notification banner to see and manage GDAP relationships in the **Partners** page in Microsoft Admin Center.
 
-## Delegated Admin Permission
+## Delegated admin permission
 
 When a Microsoft CSP creates a DAP relationship request for your tenant, a GDAP relationship is created in the tenant when a global administrator approves the request. All DAP relationships enable the CSP to delegate Global administrator and Helpdesk administrator roles to their technicians. Unlike a GDAP relationship, a DAP relationship persists until they are revoked either by you or by your CSP.
-
 
 If you have any DAP relationships in your tenant, you will see them in the list on the Delegated Administration page in the Azure AD admin portal. To remove a DAP relationship for a CSP, follow the link to the Partners page in the Microsoft Admin Center.
 
 ## Next steps
 
 If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](../fundamentals/index.yml).
-
-Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning licenses](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning app access](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) or [assigning administrator roles](../roles/permissions-reference.md).
