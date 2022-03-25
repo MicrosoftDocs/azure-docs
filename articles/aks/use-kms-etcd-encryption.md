@@ -11,7 +11,7 @@ ms.date: 03/24/2022
 
 Enables encryption at rest of your Kubernetes data in etcd using Azure Key Vault. From the Kubernetes documentation on [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/):
 
-[KMS Plugin for Key Vault is] the recommended choice for using a third party tool for key management. Simplifies key rotation, with a new data encryption key (DEK) generated for each encryption, and key encryption key (KEK) rotation controlled by the user.
+KMS Plugin for Key Vault is the recommended choice for using a third party tool for key management. KMS plugin simplifies key rotation, with a new data encryption key (DEK) generated for each encryption, and key encryption key (KEK) rotation controlled by the user.
 
 Features
 * Use a key in Key Vault for etcd encryption
