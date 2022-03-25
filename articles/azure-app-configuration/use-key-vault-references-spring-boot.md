@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault
@@ -162,17 +162,17 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
+1. Open *MessageProperties.java*. Add a new variable called *message*:
 
     ```java
-    private String keyVaultMessage;
+    private String message;
 
-    public String getKeyVaultMessage() {
-        return keyVaultMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setKeyVaultMessage(String keyVaultMessage) {
-        this.keyVaultMessage = keyVaultMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
     ```
 

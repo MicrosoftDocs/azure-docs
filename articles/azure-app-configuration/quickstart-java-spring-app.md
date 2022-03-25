@@ -64,7 +64,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-        <version>2.4.0</version>
+        <version>2.5.0</version>
     </dependency>
     ```
 

@@ -53,7 +53,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-    <version>2.4.0</version>
+    <version>2.5.0</version>
 </dependency>
 ```
 
@@ -70,15 +70,14 @@ The feature manager supports *application.yml* as a configuration source for fea
 
 ```yml
 feature-management:
-  feature-set:
-    feature-a: true
-    feature-b: false
-    feature-c:
-      enabled-for:
-        -
-          name: Percentage
-          parameters:
-            value: 50
+  feature-a: true
+  feature-b: false
+  feature-c:
+    enabled-for:
+      -
+        name: PercentageFilter
+        parameters:
+          Value: 50
 ```
 
 By convention, the `feature-management` section of this YML document is used for feature flag settings. The prior example shows three feature flags with their filters defined in the `EnabledFor` property:

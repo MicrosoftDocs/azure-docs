@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
+- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - An existing Azure App Configuration Store.
 
@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
            <dependency>
                <groupId>com.azure.spring</groupId>
                <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-               <version>2.4.0</version>
+               <version>2.5.0</version>
            </dependency>
    
            <!-- Adds the Ability to Push Refresh -->
