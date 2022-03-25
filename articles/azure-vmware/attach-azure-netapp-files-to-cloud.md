@@ -5,6 +5,8 @@ ms.topic: how-to
 ms.date: 03/24/2022
 ---
 
+# Attach Azure NetApp Files datastores to a private cloud (Private preview)
+
 ## Azure VMware Solution NFS datastores on Azure NetApp Files
 
 ## Overview
