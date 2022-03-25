@@ -69,15 +69,34 @@ On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)
 
 Next, create an Azure Container App to host the project.  Select the the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
 
+
+|Container App setting  | Container App value  |
+|---------|---------|
+| Container App name  | Enter a name of `msdocscontainerapp`. |
+| Subscription name |Choose the subscription where you would like to host your app. |
+| Resource group | A resource group acts as a logical container to organize related resources in Azure.  You can either select an existing resource group, or select **New** to create one with a name of your choosing, such as `msdocscontainerapps`. |
+| Container Apps Environment | Every container app requires a Container Apps Environment. Environments help to orchestrate Container Apps and allow multiple apps to be hosted alongside one another. Click **New** to open the **Create new** dialog for your container app environment. Enter the values in the table below. |
+
+
+|Container Environment setting  | Container Environment value  |
+|---------|---------|
+|Environment name     | Leave the default name.   |
+|Location     | Choose a location that's close to you. |
+|Azure Log Analytics workspace     |  Every container app requires an Azure Log Analytics workspace to view logs. Select **New** to open the **Create new** Azure Log Analytics Workspace dialog.  Enter a name of `msdocscontainerappworkspace` or something similar, and then choose a **Location** that is close to you.  Select **OK** to close the Azure Log Analytics workspace dialog. |
+
+
 - **Container App name**: Enter a name of `msdocscontainerapp`.
 - **Subscription name**: Choose the subscription where you would like to host your app.
 - **Resource group**: A resource group acts as a logical container to organize related resources in Azure.  You can either select an existing resource group, or select **New** to create one with a name of your choosing, such as `msdocscontainerapps`.
 - **Container Apps Environment**:  Every container app requires a Container Apps Environment. Environments help to orchestrate Container Apps and allow multiple apps to be hosted alongside one another. Click **New** to open the **Create new** dialog for your container app environment. Enter the following values:
     - **Environment name**: Leave the default name.  
     - **Location**: Choose a location that's close to you.
-    - **Azure Log Analytics workspace**: Every container app requires an Azure Log Analytics workspace to view logs. Select **New** to open the **Create new** Azure Log Analytics Workspace dialog.  Enter a name of `msdocscontainerappworkspace` or something similar, and then choose a **Location** that is close to you.  Select **OK** to close the Azure Log Analytics workspace dialog.
-- Select **OK** to close the **Crew new** environment dialog.
-- For **Container Name**, enter a value of **msdocscontainer1**. In the future, you can run multiple containers in a single app, but for now there is only one.
+    - **Azure Log Analytics workspace**: Every container app requires an Azure Log Analytics workspace to view logs. Select **New** to open the **Create new** Azure Log Analytics Workspace dialog and enter the following values:  
+        - **Workspace name**: Enter a name of `msdocscontainerappworkspace` or something similar.
+        - **Location**: Choose a location that is close to you.
+        - Select **OK** to close the **Azure Log Analytics workspace** dialog.
+    - Select **OK** to close the **Crew new** environment dialog.
+- **Container Name**: On the original Container App dialog, enter a value of `msdocscontainer1`. In the future, you can run multiple containers in a single app, but for now there is only one.
 
 :::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
 
