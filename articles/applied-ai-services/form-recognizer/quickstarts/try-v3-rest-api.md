@@ -137,16 +137,42 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
         "apiVersion": "2022-01-30-preview",
         "modelId": "prebuilt-invoice",
         "stringIndexType": "textElements"...
+    ..."pages": [
+            {
+                "pageNumber": 1,
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "words": [
+                    {
+                        "content": "CONTOSO",
+                        "boundingBox": [
+                            0.5911,
+                            0.6857,
+                            1.7451,
+                            0.6857,
+                            1.7451,
+                            0.8664,
+                            0.5911,
+                            0.8664
+                        ],
+                        "confidence": 1,
+                        "span": {
+                            "offset": 0,
+                            "length": 7
+                        }
+                    },
 }
 ```
 
 #### Supported document fields
 
-The prebuilt models extract a pre-defined set of document fields. See [Model data extraction](../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
+The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, explore the reference documentation to learn more about the Form Recognizer API.
+In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, further explore the latest reference documentation to learn more about the Form Recognizer API.
 
 > [!div class="nextstepaction"]
-> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
