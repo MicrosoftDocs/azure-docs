@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 03/03/2022
 ms.topic: how-to
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ---
 
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
