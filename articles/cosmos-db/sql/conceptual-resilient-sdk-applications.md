@@ -1,6 +1,6 @@
 ---
 title: Designing resilient applications with Azure Cosmos DB SDKs
-description: Learn how to build resilient applications using the Azure Cosmos DB SDKs and which are the expected error codes to retry on.
+description: Learn how to build resilient applications using the Azure Cosmos DB SDKs and what all are the expected error status codes to retry on.
 author: ealsur
 ms.service: cosmos-db
 ms.date: 03/25/2022
@@ -26,7 +26,7 @@ Azure Cosmos DB SDKs can connect to the service in two [connectivity modes](sql-
 
 Gateway mode is always used to fetch metadata such as the account, container, and routing information regardless of which mode SDK is configured to use. This information is cached in memory and is used to connect to the [service replicas](../partitioning-overview.md#replica-sets).
 
-In summary, for SDKs in Gateway mode, you can expect HTTP traffic, while for SDKs in Direct mode, you can expect a combination of HTTP and TCP traffic under certain circumstances (like initialization).
+In summary, for SDKs in Gateway mode, you can expect HTTP traffic, while for SDKs in Direct mode, you can expect a combination of HTTP and TCP traffic under different circumstances (like initialization, or fetching metadata, or routing information).
 
 ## Client instances and connections
 
@@ -42,7 +42,7 @@ When you design distributed applications, there are three key components:
 
 When failures occur, they often fall into one of these three areas, and it's important to understand that due to the distributed nature of the system, it's impractical to expect 100% availability for any of these components.
 
-Azure Cosmos DB  has a [comprehensive set of availability SLAs](../high-availability.md#slas), but none of them are 100%. The network components that connect your application to the service endpoint can have transient hardware issues and lose packets. Even the compute environment where your application runs could have a CPU spike affecting operations. These failure conditions can affect the operations of the SDKs and normally surface as errors with particular codes.
+Azure Cosmos DB  has a [comprehensive set of availability SLAs](../high-availability.md#slas), but none of them is 100%. The network components that connect your application to the service endpoint can have transient hardware issues and lose packets. Even the compute environment where your application runs could have a CPU spike affecting operations. These failure conditions can affect the operations of the SDKs and normally surface as errors with particular codes.
 
 Your application should be resilient to a [certain degree](#when-to-contact-customer-support) of potential failures across these components by implementing [retry policies](#should-my-application-retry-on-errors) over the responses provided by the SDKs.
 
