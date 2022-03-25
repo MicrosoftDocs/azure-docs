@@ -11,7 +11,7 @@ ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-pyth
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you will deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. The Python app is hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
+In this tutorial, you will deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. The Python app is hosted in a fully managed **[Azure App Service](./overview.md#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
 
@@ -130,7 +130,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 To host your application in Azure, you need to create Azure App Service web app.
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resource.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -176,7 +176,7 @@ You can create a PostgreSQL database in Azure using the [Azure portal](https://p
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|

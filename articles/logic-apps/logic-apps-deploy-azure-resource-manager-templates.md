@@ -77,7 +77,7 @@ az deployment group create -g <Azure-resource-group-name> --template-uri https:/
 For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [`az deployment group create`](/cli/azure/deployment/group#az_deployment_group_create)
+* [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create)
 
 <a name="azure-pipelines"></a>
 

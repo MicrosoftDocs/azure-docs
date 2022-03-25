@@ -1,11 +1,11 @@
 ---
 title: Networking overview - Azure Database for PostgreSQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: nlarin
+author: niklarin
 ms.date: 11/30/2021
 ---
 

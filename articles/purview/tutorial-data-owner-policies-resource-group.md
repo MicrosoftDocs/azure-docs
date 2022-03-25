@@ -60,6 +60,7 @@ The limit for Azure Purview policies that can be enforced by Storage accounts is
 ## Next steps
 Check blog, demo and related tutorials
 
+* [Concepts for Azure Purview data owner policies](./concept-data-owner-policies.md)
+* [Data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
-* [Demo of data owner access policies for Azure Storage](https://docs.microsoft.com/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
-* [Fine-grain data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+* [Demo of data owner access policies for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)

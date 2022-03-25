@@ -22,7 +22,7 @@ This guide describes how to delete self-service data access policies that have b
 Self-service policies must exist for them to be deleted. Refer to the articles below to create
 self-service policies
 
-- [Enable Data Use Governance](./how-to-enable-data-use-governance.md)
+- [Enable Data Use Governance](./tutorial-data-owner-policies-storage.md)
 - [Create a self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md)
 - [Approve self-service data access request](how-to-workflow-manage-requests-approvals.md)
 

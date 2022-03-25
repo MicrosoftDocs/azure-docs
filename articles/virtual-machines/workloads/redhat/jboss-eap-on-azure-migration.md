@@ -238,7 +238,7 @@ You can expose the application using the following methods which is suitable for
 * [Create a Jump VM in the Same Virtual Network (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. This Jump VM can be used to expose the application.
 * [Create a Jump VM with VNet Peering](../../windows/quick-create-portal.md#create-virtual-machine) in a different Virtual Network and access the server and expose the application using [Virtual Network Peering](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
 * Expose the application using an [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)
-* Expose the application using an [External Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) (ELB).
+* Expose the application using an [External Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer) (ELB).
 
 ## Post-migration
 
