@@ -265,6 +265,8 @@ In the following code, replace:
 
 ``` sql
 -- Run on SQL Server
+USE MASTER
+GO
 DROP AVAILABILITY GROUP <DAGName>
 GO
 DROP AVAILABILITY GROUP <AGName>
