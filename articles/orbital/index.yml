@@ -61,3 +61,11 @@ landingContent:
         links:
           - text: Geospatial Reference Architecture
             url: geospatial-reference-architecture.md
+
+  # Card
+  - title: Azure Space Partner Program
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Space Partner Program?
+            url: space-partner-program-overview.md
