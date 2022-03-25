@@ -1,6 +1,6 @@
 ---
 title: What is the Space Partner Program?
-description: .
+description: Overview of the Azure Space Partner Program
 author: wamota
 ms.service: orbital
 ms.topic: overview
