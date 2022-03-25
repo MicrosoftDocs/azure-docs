@@ -28,9 +28,10 @@ You can configure a WAF exclusion for the following request attributes:
 
 * Request headers
 * Request cookies
-* Form fields
-* JSON entities
-* URL query string arguments
+* Request attribute name (args) can be added as an exclusion element, such as:
+   * Form field name
+   * JSON entity
+   * URL query string args
 
 You can specify an exact request header, body, cookie, or query string attribute match. Or, you can specify partial matches. Use the following operators to configure the exclusion:
 
@@ -47,7 +48,7 @@ In all cases matching is case insensitive. Regular expression aren't allowed as 
 
 ## Exclusion scopes
 
-Exclusions can be configured to apply to a specific set of WAF rules, or globally across all rules.
+Exclusions can be configured to apply to a specific set of WAF rules, to rulesets, or globally across all rules.
 
 > [!TIP]
 > It's a good practice to make exclusions as narrow and specific as possible, to avoid accidentally leaving room for attackers to exploit your system. When you need to add an exclusion rule, use per-rule exclusions wherever possible.
