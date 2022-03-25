@@ -425,7 +425,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
    ```
 
 3. Create a new Azure Cosmos DB Graph account by restoring only selected databases and graphs from an existing account.
-  ```azurecli-interactive
+   ```azurecli-interactive
    az cosmosdb restore \ 
       --resource-group MyResourceGroup \ 
       --target-database-account-name MyRestoredCosmosDBDatabaseAccount \ 
@@ -434,12 +434,11 @@ The simplest way to trigger a restore is by issuing the restore command with nam
       --location "West US" \ 
       --gremlin-databases-to-restore name=MyDB1 graphs=graph1 graph2\ 
       -gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
- 
    ```
  
 4. Create a new Azure Cosmos DB Table account by restoring only selected tables from an existing account
  
- ```azurecli-interactive
+   ```azurecli-interactive
    az cosmosdb restore \ 
       --resource-group MyResourceGroup \ 
       --target-database-account-name MyRestoredCosmosDBDatabaseAccount \ 
@@ -447,7 +446,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
       --restore-timestamp 2020-07-13T16:03:41+0000 \ 
       --location "West US" \ 
       --tables-to-restore table1 table2 
-    ```
+   ```
 
 ### <a id="get-the-restore-details-cli"></a>Get the restore details from the restored account
 
@@ -654,6 +653,7 @@ az cosmosdb gremlin restorable-database list \
    --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \ 
    --location "West US"
 ```
+
 This command output now shows when a database was created and deleted. 
 ```
 [ { 
@@ -670,7 +670,7 @@ This command output now shows when a database was created and deleted.
     
   } 
 ] 
- ``` 
+``` 
 
 #### List all the versions of Gremlin graphs of a database in a live database account 
 
@@ -680,6 +680,7 @@ az cosmosdb gremlin restorable-graph list \
    --database-rid "OIQ1AA==" \ 
    --location "West US" 
 ```
+
 This command output shows includes list of operations performed on all the containers inside this database: 
 ```
 [ { 
@@ -696,7 +697,8 @@ This command output shows includes list of operations performed on all the conta
     "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableGraphs" 
   } 
 ] 
-```  
+``` 
+
 #### Find databases or graphs that can be restored at any given timestamp 
 
 ```azurecli-interactive
@@ -758,6 +760,7 @@ az cosmosdb table restorable-table list \
 ```
 
 ### List all the resources of a Table API account that are available to restore at a given timestamp and region 
+
 ```azurecli-interactive
 az cosmosdb table restorable-resource list \ 
    --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \ 
@@ -774,7 +777,6 @@ az cosmosdb table restorable-resource list \
   ] 
 } 
 ```
-
 
 ## <a id="restore-arm-template"></a>Restore using the Resource Manager template
 
@@ -813,9 +815,7 @@ You can also restore an account using Resource Manager template. When defining t
 }
 ```
 
-
-
-Next deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:  
+Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:  
 
 ```azurecli-interactive
 az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
