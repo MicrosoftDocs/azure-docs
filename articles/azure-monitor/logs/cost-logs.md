@@ -77,7 +77,7 @@ See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details
 ## Data retention and Archive Logs
 In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, but there is a charge to restore or search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
-See [Configure data retention and archive policies in Azure Monitor Logs](data-retnetion-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
+See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
 ## Application insights billing
 Since [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables you to leverage all options of the Log Analytics pricing model, including [commitment tiers](#commitment-tiers) in addition to Pay-As-You-Go.
 

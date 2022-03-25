@@ -101,10 +101,6 @@ You should regularly
 
 
 ## Causes of higher than expected usage
-Higher than expected usage in a Log Analytics workspace is typically caused by on of the following conditions:
-
-- More nodes than expected sending data to the workspace. See [Understanding nodes sending data](#understanding-nodes-sending-data).
-- More data than expected being sent to the workspace. See [Understanding ingested data volume](#understanding-ingested-data-volume).
 
 
 ## Manage Application Insights data volume

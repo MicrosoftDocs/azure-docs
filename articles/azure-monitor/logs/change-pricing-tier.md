@@ -1,13 +1,15 @@
 ---
 title: Change pricing tier for Log Analytics workspace
-description: Instructions on how to change pricing tier for Log Analytics workspace in Azure Monitor.
+description: Details on how to change pricing tier for Log Analytics workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 03/25/2022
 ---
  
 # Change pricing tier for Log Analytics workspace
 Each Log Analytics workspace in Azure Monitor can have a different [pricing tier](cost-logs.md#commitment-tiers). This article describes how to change the pricing tier for a workspace and how to track these changes.
 
+> [!NOTE]
+> This article describes how to change the commitment tier for a Log Analytics workspace once you determine which commitment tier you want to use. See [Azure Monitor Logs pricing details](cost-logs.md) for details on how commitment tiers work and [Azure Monitor cost and usage](../usage-estimated-costs.md#log-analytics-workspace) for recommendations on the most cost effective commitment based on your observed Azure Monitor usage. 
 ## Azure portal
 Use the following steps to change the pricing tier of your workspace using the Azure portal.
 
@@ -50,8 +52,9 @@ See [Deploying the sample templates](../resource-manager-samples.md) if you're n
 
 
 ## Tracking pricing tier changes
-Changes to a workspace's pricing tier are recorded in the [Activity Log](../essentials/activity-log.md). Filter for events with an **Operation** of *Create Workspace*. The event's **Change history** tab will show the old and new pricing tiers in the  `properties.sku.name` row.  
-
-To monitor changes the pricing tier, [create an alert](../alerts/alerts-activity-log.md) for the *Create Workspace* operation.
+Changes to a workspace's pricing tier are recorded in the [Activity Log](../essentials/activity-log.md). Filter for events with an **Operation** of *Create Workspace*. The event's **Change history** tab will show the old and new pricing tiers in the  `properties.sku.name` row. To monitor changes the pricing tier, [create an alert](../alerts/alerts-activity-log.md) for the *Create Workspace* operation.
 
 ## Next steps
+
+- See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
+- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.

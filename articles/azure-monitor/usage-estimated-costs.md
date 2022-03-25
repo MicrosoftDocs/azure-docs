@@ -21,7 +21,7 @@ Several other features don't have a direct cost, but you instead pay for the ing
 | Logs | Ingestion, retention, and export of data in Log Analytics workspaces and legacy Application insights resources. This will typically be the bulk of Azure Monitor charges for most customers. There is no charge for querying this data except in the case of [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
 | Platform Logs | [Diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there is a charge for the workspace data ingestion and collection. |
 | Custom metrics | There is no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There is a cost for cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
-| Alerts | Charged based on the type and number of of [signals](../alerts/alerts-overview.md#what-you-can-alert-on) used by the alert rule, its frequency, and the type of notification used in response. |
+| Alerts | Charged based on the type and number of [signals](alerts/alerts-overview.md#what-you-can-alert-on) used by the alert rule, its frequency, and the type of notification used in response. |
 | Multi-step web tests | There is a cost for [multi-step web tests](app/availability-multistep.md) in Application Insights, but this feature has been deprecated.
 
 ## Data transfer charges 
@@ -53,7 +53,7 @@ For SDKs that don't support adaptive sampling, you can employ [ingestion samplin
 ## Viewing Azure Monitor usage and charges
 There are two primary tools to view and analyze your Azure Monitor billing and estimated charges.
 
-- [Azure Cost Management + Billing](#azure-cost-management-billing) is the primary tool that you'll use to analyze your usage and costs. It gives you multiple options to analyze your monthly charges for different Azure Monitor features and their projected cost over time.
+- [Azure Cost Management + Billing](#azure-cost-management--billing) is the primary tool that you'll use to analyze your usage and costs. It gives you multiple options to analyze your monthly charges for different Azure Monitor features and their projected cost over time.
 - [Usage and Estimated Costs](#usage-and-estimated-costs) provides a listing of monthly charges for different Azure Monitor features. This is particularly useful for Log Analytics workspaces where it helps you to select your pricing tier by showing how your cost would be different at different tiers.
 
 
@@ -118,7 +118,7 @@ To explore the data in more detail, click on the icon in the upper-right corner 
 ### Application insights
 To learn about your usage trends for your classic Application Insights resource, select **Usage and Estimated Costs** from the **Applications** menu in the Azure portal. 
 
-:::image type="content" source="media/usage-estimated-costs/app-insights-usage.png" lightbox="media/usage-estimated-costs/app-insights-usage.png alt-text="Application Insights classic application usage and estimated costs":::
+:::image type="content" source="media/usage-estimated-costs/app-insights-usage.png" lightbox="media/usage-estimated-costs/app-insights-usage.png" alt-text="Application Insights classic application usage and estimated costs":::
 
 This view includes the following:
 
@@ -153,7 +153,7 @@ Also, if you move a subscription to the new Azure monitoring pricing model in Ap
 
 ## Next steps
 
-- See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
-- See [Analyze usage in Log Analytics workspace](analyze-usage.md) for details on analyzing the data in your workspace to determine to source of any higher than expected usage and opportunities to reduce your amount of data collected.
+- See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
+- See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for details on analyzing the data in your workspace to determine to source of any higher than expected usage and opportunities to reduce your amount of data collected.
 - See [Set daily cap on Log Analytics workspace](logs/daily-cap.md) to control your costs by setting a daily limit on the amount of data that may be ingested in a workspace.
-- See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
+- See [Azure Monitor best practices - Cost management](best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.

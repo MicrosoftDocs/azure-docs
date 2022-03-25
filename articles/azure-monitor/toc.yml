@@ -161,6 +161,8 @@ items:
       href: usage-estimated-costs.md
     - name: Logs pricing details
       href: logs/cost-logs.md
+    - name: Legacy Application Insights pricing
+      href: app/legacy-pricing.md
     - name: Optimize costs
       href: best-practices-cost.md
   - name: Data security
@@ -280,7 +282,7 @@ items:
         - name: Resource Manager template
           href: logs/resource-manager-workspace.md
       - name: Change pricing tier
-        href: 
+        href: logs/change-pricing-tier.md
       - name: Monitor a workspace
         href: logs/monitor-workspace.md
       - name: Delete and recover a workspace
