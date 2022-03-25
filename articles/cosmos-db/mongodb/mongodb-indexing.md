@@ -242,7 +242,7 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 #### Limitations
 
-* On accounts that have continuous backup enabled, unique indexes will need to be created while the collection is empty.
+* On accounts that have continuous backup or synapse link enabled, unique indexes will need to be created while the collection is empty.
 
 #### Unique partial indexes
 
