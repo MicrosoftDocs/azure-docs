@@ -5,6 +5,8 @@ items:
   items:
   - name: Why use Azure Orbital?
     href: overview.md
+  - name: What is the Space Partner Program?
+    href: space-partner-program-overview.md
 - name: Quickstart
   items:
   - name: Earth Observation
