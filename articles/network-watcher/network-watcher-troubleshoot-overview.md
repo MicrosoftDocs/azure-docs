@@ -228,5 +228,5 @@ Elapsed Time            330 sec
 To learn how to diagnose a problem with a gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
-[1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogsNew.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
