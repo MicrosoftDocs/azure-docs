@@ -344,10 +344,16 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ### Steps
 
-1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**
-<!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/<file name>"::: -->
+1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**.
+    
+:::image type="content" source="../media/azure-netapp-files/ad-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/ad-reset-overview.png":::
+
+Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the meatballs menu at the end of the row. Select **Reset Active Directory Account**.
+
+:::image type="content" source="../media/azure-netapp-files/ad-reset-listview.png" alt-text="Azure volume list menu with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/ad-reset-listview.png":::
+
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-<!-- :::image type="content" source="../media/azure-netapp-files/<file-name>" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This acction is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed.." lightbox="../media/azure-netapp-files/<file name>"::: -->
+:::image type="content" source="../media/azure-netapp-files/ad-accountreset-confirm.png" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed.." lightbox="../media/azure-netapp-files/ad-accountreset-confirm.png":::
 
 ## Next steps  
 
