@@ -77,7 +77,7 @@ You can configure diagnostic settings in the Azure portal from the menu for the 
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. There can be 15 minutes time difference between the event emitted and its appearance in [Log Analytics workspace](/azure/azure-monitor/logs/data-ingestion-time).
 
-## Querying the logs
+## Query the logs
 
 To query the generated logs:
 
@@ -272,7 +272,7 @@ To create an alert rule, create a log search for the runbook job records that sh
 You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the Automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also [configure the alerts](#send-an-email-when-a-runbook-job-fails-or-suspends) for audit log conditions as part of your security monitoring requirements.
 
 
-## Difference between activity logs and audit logs?
+## Difference between activity logs and audit logs
 
 Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview)in Azure that provides insight into subscription-level events. The activity log for Automation account includes information about when an automation resource is modified or created or deleted. However, it does not capture the name or ID of the resource. 
 
