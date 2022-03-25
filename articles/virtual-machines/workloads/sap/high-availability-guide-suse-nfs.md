@@ -165,46 +165,46 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2
-   1. Alternatively, ***only if***  your scenario requires basic load balancer, follow these instructions follow these configuration steps instead to create basic load balancer:
-      1. Create the frontend IP addresses
-         1. IP address 10.0.0.4 for NW1
-            1. Open the load balancer, select frontend IP pool, and click Add
-            1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
-            1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
-            1. Click OK
-         1. IP address 10.0.0.5 for NW2
-            * Repeat the steps above for NW2
-      1. Create the backend pools
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
-            1. Open the load balancer, select backend pools, and click Add
-            1. Enter the name of the new backend pool (for example **nw-backend**)
-            1. Click Add a virtual machine
-            1. Select the Availability Set you created earlier
-            1. Select the virtual machines of the NFS cluster
-            1. Click OK
-      1. Create the health probes
-         1. Port 61000 for NW1
-            1. Open the load balancer, select health probes, and click Add
-            1. Enter the name of the new health probe (for example **nw1-hp**)
-            1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
-            1. Click OK
-         1. Port 61001 for NW2
-            * Repeat the steps above to create a health probe for NW2
-      1. Load balancing rules
-         1. 2049 TCP for NW1
-            1. Open the load balancer, select load balancing rules and click Add
-            1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
-            1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**)
-            1. Keep protocol **TCP**, enter port **2049**
-            1. Increase idle timeout to 30 minutes
-            1. **Make sure to enable Floating IP**
-            1. Click OK
-         1. 2049 UDP for NW1
-            * Repeat the steps above for port 2049 and UDP for NW1
-         1. 2049 TCP for NW2
-            * Repeat the steps above for port 2049 and TCP for NW2
-         1. 2049 UDP for NW2
-            * Repeat the steps above for port 2049 and UDP for NW2
+1. Alternatively, ***only if***  your scenario requires basic load balancer, follow these instructions follow these configuration steps instead to create basic load balancer:
+   1. Create the frontend IP addresses
+      1. IP address 10.0.0.4 for NW1
+         1. Open the load balancer, select frontend IP pool, and click Add
+         1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
+         1. Click OK
+      1. IP address 10.0.0.5 for NW2
+         * Repeat the steps above for NW2
+   1. Create the backend pools
+      1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
+         1. Open the load balancer, select backend pools, and click Add
+         1. Enter the name of the new backend pool (for example **nw-backend**)
+         1. Click Add a virtual machine
+         1. Select the Availability Set you created earlier
+         1. Select the virtual machines of the NFS cluster
+         1. Click OK
+   1. Create the health probes
+      1. Port 61000 for NW1
+         1. Open the load balancer, select health probes, and click Add
+         1. Enter the name of the new health probe (for example **nw1-hp**)
+         1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Click OK
+      1. Port 61001 for NW2
+         * Repeat the steps above to create a health probe for NW2
+   1. Load balancing rules
+      1. 2049 TCP for NW1
+         1. Open the load balancer, select load balancing rules and click Add
+         1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**)
+         1. Keep protocol **TCP**, enter port **2049**
+         1. Increase idle timeout to 30 minutes
+         1. **Make sure to enable Floating IP**
+         1. Click OK
+      1. 2049 UDP for NW1
+         * Repeat the steps above for port 2049 and UDP for NW1
+      1. 2049 TCP for NW2
+         * Repeat the steps above for port 2049 and TCP for NW2
+      1. 2049 UDP for NW2
+         * Repeat the steps above for port 2049 and UDP for NW2
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
