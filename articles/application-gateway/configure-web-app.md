@@ -313,7 +313,7 @@ Provided with the earlier configured Backend Pool and the HTTP Settings, the req
 1. Configure the HTTP settings with which Application Gateway should connect to the App Service backend
 1. Select "Add" to save this configuration
 
-:::image type="content" source="media/configure-web-app/add-routing-rule.png" alt-text="Add a new Routing rule from the listener to the App Service Backend Pool using the configured HTTP Settings":::
+:::image type="content" source="media/configure-web-app/add-routing-rule.png" alt-text="Add a new Routing rule from the listener to the App Service Backend Pool using the configured HTTP Settings" lightbox="media/configure-web-app/add-routing-rule-expanded.png":::
 
 ### [PowerShell](#tab/azure-powershell)
 
