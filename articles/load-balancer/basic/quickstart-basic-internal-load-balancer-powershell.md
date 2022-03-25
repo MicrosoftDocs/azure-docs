@@ -123,7 +123,7 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 
 ```
-## Create standard load balancer
+## Create load balancer
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -201,6 +201,8 @@ In this section, you'll create the two virtual machines for the backend pool of 
 
 * Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)
 
+* Use [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) to create an availability set for the virtual machines.
+
 * Create the virtual machines with:
     
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -238,6 +240,17 @@ $sg = @{
 }
 $nsg = Get-AzNetworkSecurityGroup @sg
 
+## Create availability set for the virtual machines. ##
+$set = @{
+    Name = 'myAvailabilitySet'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Aligned'
+    PlatformFaultDomainCount = '2'
+    PlatformUpdateDomainCount =  '2'
+}
+$avs = New-AzAvailabilitySet @set
+
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 2; $i++)
 {
@@ -255,7 +268,8 @@ $nicVM = New-AzNetworkInterface @nic
 ## Create a virtual machine configuration for VMs ##
 $vmsz = @{
     VMName = "myVM$i"
-    VMSize = 'Standard_DS1_v2'  
+    VMSize = 'Standard_DS1_v2'
+    AvailabilitySetId = $avs.Id 
 }
 $vmos = @{
     ComputerName = "myVM$i"
