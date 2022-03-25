@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/17/2022
-ms.author: vhorne
+ms.author: victorh
 ---
 
 # Application Gateway HTTP settings configuration
