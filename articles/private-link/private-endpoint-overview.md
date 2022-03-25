@@ -106,7 +106,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
-| Azure App Service | Microsoft.Web/staticSites | staticSite |
+| Azure Static Web Apps | Microsoft.Web/staticSites | staticSite |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
