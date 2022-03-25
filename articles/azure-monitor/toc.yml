@@ -273,7 +273,7 @@ items:
       - name: Overview
         displayName: Log Analytics workspace
         href: logs/log-analytics-workspace-overview.md
-      - name: Create a workspace
+      - name: Create
         items:
         - name: Azure portal
           href: logs/quick-create-workspace.md
@@ -281,31 +281,39 @@ items:
           href: logs/powershell-workspace-configuration.md
         - name: Resource Manager template
           href: logs/resource-manager-workspace.md
-      - name: Change pricing tier
-        href: logs/change-pricing-tier.md
-      - name: Monitor a workspace
-        href: logs/monitor-workspace.md
-      - name: Delete and recover a workspace
-        href: logs/delete-workspace.md
-      - name: Manage access
-        displayName: Log Analytics workspace
-        href: logs/manage-access.md
-      - name: Move a workspace
-        href: logs/move-workspace.md
-      - name: Move a workspace across regions 
-        href: logs/move-workspace-region.md
-      - name: Configure Basic Logs
-        href: logs/basic-logs-configure.md
-      - name: Set retention and archive policy
-        href: logs/data-retention-archive.md
-      - name: Run a search job
-        href: logs/search-jobs.md
-      - name: Restore logs
-        href: logs/restore.md
-      - name: Set a daily cap
-        href: logs/daily-cap.md
-      - name: Analyze usage and cost
-        href: logs/analyze-usage.md    
+      - name: Configure
+        items:
+        - name: Manage access
+          displayName: Log Analytics workspace
+          href: logs/manage-access.md
+        - name: Change pricing tier
+          href: logs/change-pricing-tier.md
+        - name: Set a daily cap
+          href: logs/daily-cap.md
+        - name: Configure Basic Logs
+          href: logs/basic-logs-configure.md
+      - name: Archive and restore
+        items:
+        - name: Set retention and archive policy
+          href: logs/data-retention-archive.md
+        - name: Run a search job
+          href: logs/search-jobs.md
+        - name: Restore logs
+          href: logs/restore.md
+      - name: Monitor
+        items:
+        - name: Monitor a workspace
+          href: logs/monitor-workspace.md
+        - name: Analyze usage and cost
+          href: logs/analyze-usage.md    
+      - name: Move and delete
+        items:
+        - name: Move a workspace
+          href: logs/move-workspace.md
+        - name: Move a workspace across regions 
+          href: logs/move-workspace-region.md
+        - name: Delete and recover a workspace
+          href: logs/delete-workspace.md
       - name: Log Analytics
         items:
         - name: Overview

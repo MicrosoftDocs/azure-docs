@@ -51,7 +51,7 @@ See the **Usage** tab for a breakdown of ingestion by solution and table. This c
 Select **Additional Queries** for pre-built queries that help you further understand your data patterns.
 
 ### Usage and Estimated Costs
-The *Data ingestion per solution* chart on the [Usage and Estimated Costs](usage-estimated-costs.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution. 
+The *Data ingestion per solution* chart on the [Usage and Estimated Costs](../usage-estimated-costs.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution. 
 
 
 ## Log queries
