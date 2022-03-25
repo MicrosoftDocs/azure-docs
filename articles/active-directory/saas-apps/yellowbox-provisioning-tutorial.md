@@ -42,8 +42,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Yellowbox](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Yellowbox to support provisioning with Azure AD
-* For the tenant URL, use `https://australia-southeast1-yellowbox-f4c6e.cloudfunctions.net/scim`
-* Obtain your JWT authorization Token from yellowbox by contacting [Yellowbox support](mailto:contact@yellowbox.app), if you have not already been issued a token.
+* Use `https://australia-southeast1-yellowbox-f4c6e.cloudfunctions.net/scim` as the Tenant Url.
+* Obtain your JWT authorization Token from yellowbox by contacting [Yellowbox support](mailto:contact@yellowbox.app), if you haven't already been issued a token.
 
 ## Step 3. Add Yellowbox from the Azure AD application gallery
 
