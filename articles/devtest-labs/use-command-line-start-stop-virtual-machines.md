@@ -13,11 +13,11 @@ This article shows you how to start or stop Azure DevTest Labs virtual machines 
 
 You can start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs by using the Azure portal. You can configure [automatic startup](devtest-lab-auto-startup-vm.md) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
 
-You can also use Azure PowerShell or Azure CLI commands and scripts to automate starting and stopping lab VMs. Use these commands for situations like:
+You can also use Azure PowerShell or Azure CLI commands and scripts to automate lab VM startup and shutdown. For example, use scripted command lines to start or stop VMs when you want to:
 
-- Testing a three-tier application, where the tiers need to start in a sequence.
-- Turning off VMs when they meet custom criteria, to save costs.
-- Starting when a continuous integration and continuous delivery (CI/CD) workflow begins, and stopping when the workflow finishes. For an example, see [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md).
+- Test a three-tier application, where the tiers need to start in a sequence.
+- Turn off VMs when they meet custom criteria, to save costs.
+- Start when a continuous integration and continuous delivery (CI/CD) workflow begins, and stop when the workflow finishes. For an example, see [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md).
 
 ## Prerequisites
 
