@@ -14,7 +14,7 @@ recommendations: false
 
 # Composed custom models
 
-**Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model comprised of your form types. When a document is submitted for analysis to a composed model, the service performs a classification to decide which custom model accurately represents the form presented for analysis.
+**Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. When a document is submitted for analysis to a composed model, the service performs a classification to decide which custom model accurately represents the form presented for analysis.
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It's useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 

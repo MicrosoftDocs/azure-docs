@@ -17,7 +17,7 @@ recommendations: false
 > [!NOTE]
 > This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Compose custom models v2.1.](compose-custom-models.md).
 
-A composed model is created by taking a collection of custom models and assigning them to a single model comprised of your form types. You can assign up to 100 trained custom models to a single composed model. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model.
+A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign up to 100 trained custom models to a single composed model. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model.
 
 To learn more, see [Composed custom models](concept-composed-models.md)
 
@@ -185,18 +185,14 @@ You can manage your custom models throughout life cycles:
 
 Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
-* [**Gather your custom model IDs**](#gather-your-model-ids)
 * [**Compose your custom models**](#compose-your-custom-models)
 * [**Analyze documents**](#analyze-documents)
 * [**Manage your composed models**](#manage-your-composed-models)
 
-#### Gather your model IDs
-
-The [**REST API**](./quickstarts/try-v3-rest-api.md#manage-custom-models), will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model.
 
 #### Compose your custom models
 
-The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) accepts a list of models to be composed.
+The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
 
 :::image type="content" source="media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 

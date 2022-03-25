@@ -135,4 +135,4 @@ See how data, including employee, employer, wage, and tax information is extract
 |:---:|:---:|:---:|
 |[**C#**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)||[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)|
 |[**Java**](quickstarts/try-v3-java-sdk.md#prebuilt-model)||[**Python**](quickstarts/try-v3-python-sdk.md#prebuilt-model)|
-|[**REST API**](quickstarts/try-v3-rest-api.md#prebuilt-model)|||
+|[**REST API**](quickstarts/try-v3-rest-api.md)|||

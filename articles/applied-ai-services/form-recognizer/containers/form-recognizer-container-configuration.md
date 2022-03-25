@@ -75,7 +75,7 @@ The exact syntax of the host volume location varies depending on the host operat
 
 ## Example docker-compose.yml file
 
-The **docker compose** method is comprised of three steps:
+The **docker compose** method is built from three steps:
 
  1. Create a Dockerfile.
  1. Define the services in a **docker-compose.yml** so they can be run together in an isolated environment.
