@@ -4,6 +4,7 @@ description: In this tutorial, you implement an Azure Policy with an Azure DevOp
 ms.date: 03/24/2022
 ms.topic: tutorial
 ms.author: jukullam
+ms.custom: devops-pipelines-deploy
 ---
 
 # Implement Azure Policy with Azure DevOps release pipelines
