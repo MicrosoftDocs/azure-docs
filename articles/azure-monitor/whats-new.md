@@ -25,14 +25,14 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Azure Monitor agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview.md)
-- [Manage the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Monitor agent overview](./agents/azure-monitor-agent-overview.md)
+- [Manage the Azure Monitor agent](./agents/azure-monitor-agent-manage.md)
 
 ### Alerts
 
 **Updated articles**
 
-- [How to trigger complex actions with Azure Monitor alerts](/azure/azure-monitor/alerts/action-groups-logic-app.md)
+- [How to trigger complex actions with Azure Monitor alerts](./alerts/action-groups-logic-app.md)
 
 ### Application Insights
 
@@ -43,10 +43,10 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java.md)
-- [Application Monitoring for Azure App Service and Node.js](/azure/azure-monitor/app/azure-web-apps-nodejs.md)
-- [Enable Snapshot Debugger for .NET apps in Azure App Service](/azure/azure-monitor/app/snapshot-debugger-appservice.md)
-- [Profile live Azure App Service apps with Application Insights](/azure/azure-monitor/app/profiler.md)
+- [Application Monitoring for Azure App Service and Java](./app/azure-web-apps-java.md)
+- [Application Monitoring for Azure App Service and Node.js](./app/azure-web-apps-nodejs.md)
+- [Enable Snapshot Debugger for .NET apps in Azure App Service](./app/snapshot-debugger-appservice.md)
+- [Profile live Azure App Service apps with Application Insights](./app/profiler.md)
 - [Visualizations for Application Change Analysis (preview)](/azure/azure-monitor/app/change-analysis-visualizations.md)
 
 ### Autoscale
@@ -67,7 +67,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Azure Activity log](/azure/azure-monitor/essentials/activity-log.md)
+- [Azure Activity log](./essentials/activity-log.md)
 
 ### Logs
 

@@ -80,6 +80,7 @@ For pricing see [Load Balancer pricing](https://azure.microsoft.com/pricing/deta
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
 * Cross-tenant chaining is not supported through the Azure portal.
+* Gateway Load Balancer does not currently support IPv6
 
 ## Next steps
 

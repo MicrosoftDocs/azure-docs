@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 03/18/2022
 ms.author: helohr
 manager: femila
 ---
@@ -142,6 +142,8 @@ The following issues are ones we're already aware of, so you won't need to repor
 - Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
+
+- When the display scale factor of the screen isn't at 100% and you've set the video window to a certain size, you might see a gray patch on the screen. In most cases, you can get rid of the gray patch by resizing the window.
 
 ## Next steps
 

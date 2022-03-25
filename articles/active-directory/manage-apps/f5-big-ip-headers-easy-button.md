@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP’s Easy Button for Header-based SSO
 description: learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications using F5’s BIG-IP Easy Button Guided Configuration.
 services: active-directory
-author: CelesteDG
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/07/2022
-ms.author: celested
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -19,7 +19,7 @@ In this article, learn to secure headers based applications with Azure Active Di
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
- * [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
+ * [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
   * Full SSO between Azure AD and BIG-IP published services
 
@@ -96,7 +96,7 @@ There are many methods to configure BIG-IP for this scenario, including two temp
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)
+Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
 This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 

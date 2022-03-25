@@ -431,10 +431,6 @@ To respond, the device sends a message with a valid JSON or empty body to the to
 
 For more information, see the [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
 
-## Additional considerations
-
-As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway](iot-hub-protocol-gateway.md). This software enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
-
 ## Next steps
 
 To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
@@ -442,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 To learn more about planning your IoT Hub deployment, see:
 
 * [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
-* [Support additional protocols](iot-hub-protocol-gateway.md)
+* [Support additional protocols](../iot-edge/iot-edge-as-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)
 

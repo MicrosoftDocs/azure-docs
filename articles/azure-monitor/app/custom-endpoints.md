@@ -189,9 +189,6 @@ If you currently use the [Application Insights REST API](https://dev.application
 | Azure China | REST API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST API | `api.applicationinsights.us`|
 
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.
-
 ## Next steps
 
 - To learn more about the custom modifications for Azure Government, consult the detailed guidance for [Azure monitoring and management](../../azure-government/compare-azure-government-global-azure.md#application-insights).

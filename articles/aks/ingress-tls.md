@@ -675,7 +675,7 @@ You can also:
 - [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
 [new-az-dns-recordset-create-a-record]: /powershell/module/az.dns/new-azdnsrecordset
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
@@ -688,7 +688,7 @@ You can also:
 [cert-manager-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
-[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[helm-install]: https://docs.helm.sh/using-helm/#installing-helm
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
 <!-- LINKS - internal -->

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/confidential-ledger/register-ledger-service-principal.md",
+      "redirect_url": "/azure/confidential-ledger/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
       "redirect_document_id": false
@@ -3735,54 +3740,79 @@
     },
     {
       "source_path_from_root": "/articles/app-service/containers/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-availability-performance-application-issues-faq.md",
-      "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-availability-performance-application-issues-faq.md",
-      "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-configuration-and-management-faq.md",
-      "redirect_url": "/azure/app-service/faq-configuration-and-management",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-configuration-and-management-faq.md",
-      "redirect_url": "/azure/app-service/faq-configuration-and-management",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/faq-app-service-linux.yml",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-availability-performance-application-issues.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-configuration-and-management.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-deployment.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-open-source-technologies.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
+      "redirect_document_id": false
+    },                    
+    {
       "source_path_from_root": "/articles/app-service/app-service-web-deployment-faq.md",
-      "redirect_url": "/azure/app-service/faq-deployment",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-deployment-faq.md",
-      "redirect_url": "/azure/app-service/faq-deployment",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-open-source-technologies-faq.md",
-      "redirect_url": "/azure/app-service/faq-open-source-technologies",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-open-source-technologies-faq.md",
-      "redirect_url": "/azure/app-service/faq-open-source-technologies",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
-    },
+    }, 
     {
       "source_path_from_root": "/articles/app-service/web-sites-backup.md",
       "redirect_url": "/azure/app-service/manage-backup",
@@ -6294,28 +6324,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/cache-keys-ports.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/redis-cache/scripts/cache-keys-ports.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/cache-keys-ports",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-premium-cache-cluster.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-premium-cache-cluster.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/delete-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/delete-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
@@ -10221,6 +10276,11 @@
     {
       "source_path_from_root": "/articles/azure-preview-portal-supported-browsers-devices.md",
       "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/original-preferences.md",
+      "redirect_url": "/azure/azure-portal/set-preferences",
       "redirect_document_id": true
     },
     {
@@ -14966,11 +15026,6 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-qradar.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-qradar",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-devops-starter.md",
-      "redirect_url": "/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic/",
       "redirect_document_id": false
     },
     {
@@ -26214,6 +26269,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-nfs-shares.md",
+      "redirect_url": "/azure/storage/files/storage-files-quick-create-use-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
       "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false
@@ -28256,6 +28316,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link.md",
       "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-tutorial-geo-filtering.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -43725,7 +43790,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
       "redirect_document_id": false
     },
     {

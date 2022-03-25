@@ -42,7 +42,7 @@ az login
 
 ## Create a container
 
-To create a container with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.The following example illustrates three options for the creation of blob containers with the `az storage container create` command. The first approach creates a single container, while the remaining two approaches use Bash scripting operations to automate container creation.
+To create a container with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.The following example illustrates three options for the creation of blob containers with the `az storage container create` command. The first approach creates a single container, while the remaining two approaches use Bash scripting operations to automate container creation.
 
 To use this example, supply values for the variables and ensure that you've logged in. Remember to replace the placeholder values in brackets with your own values.
 
@@ -88,7 +88,7 @@ You can also use the `--query` parameter to execute a [JMESPath query](https://j
 
 The following example first lists the maximum number of containers (subject to the service limit). Next, it lists three containers whose names begin with the prefix *container-* by supplying values for the `--num-results` and `--prefix` parameters. Finally, a single container is listed by supplying a known container name to the `--prefix` parameter.
 
-Read more about the [az storage container list](/cli/azure/storage/container#az_storage_container_list).
+Read more about the [az storage container list](/cli/azure/storage/container#az-storage-container-list).
 
 ```azurecli-interactive
 #!/bin/bash
@@ -125,7 +125,7 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 
 ### Container properties
 
-To display the properties of a container with Azure CLI, call the [az storage container show](/cli/azure/storage/container#az_storage_container_show) command.
+To display the properties of a container with Azure CLI, call the [az storage container show](/cli/azure/storage/container#az-storage-container-show) command.
 
 In the following example, the first approach displays the properties of a single named container. Afterward, it retrieves all containers with the **demo-container-** prefix and iterates through them, listing their properties. Remember to replace the placeholder values with your own values.
 

@@ -77,6 +77,16 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.1.1.0
+
+### Release status
+3/24/2022: Released for download only, not available for auto upgrade
+
+
+### Bug fixes
+ - Fixed an issue where some sync rule functions were not parsing surrogate pairs properly.
+ - Fixed an issue where, under certain circumstances, the sync service would not start due to a model db corruption.
+
 ## 2.0.91.0
 
 ### Release status
