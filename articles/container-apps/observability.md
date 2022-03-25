@@ -31,7 +31,7 @@ Container Apps offers the following features:
 
 ## Observability features
 
-There are many methods to observe your application. Azure Monitor provides many features such  as Metrics, to automatically gather information from your container app, Log Analytics to capture your application logging.
+There are many methods to observe your application. Azure Monitor provides many ways to monitor your application.  Two primary features are Metrics, to automatically gather information from your container app, and Log Analytics to capture your application logs.
 
 With both Metrics and Log Analytics, you can set alerts to notify you when certain thresholds have been exceeded.
 
