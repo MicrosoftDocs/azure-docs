@@ -48,12 +48,11 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 _redisConnection = await _redisConnectionFactory;
 ```
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
-
 <!-- Is this right Philo -->
 The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
@@ -63,33 +62,33 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ## Layout views in the sample
 
-Open *Views\Shared\\_Layout.cshtml*.
+1.    Open *Views\Shared\\_Layout.cshtml*.
 
-You should see in `<div class="navbar-header">`:
+1. You should see in `<div class="navbar-header">`:
 
-```html
-<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
-```
+    ```html
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
+    ```
 
 ## Run the app locally
 
-Execute the following command in your command window to build the app:
+1. Execute the following command in your command window to build the app:
 
-```dotnetcli
-dotnet build
-```
+    ```dotnetcli
+    dotnet build
+    ```
+    
+1. Then run the app with the following command:
 
-Then run the app with the following command:
+    ```dotnetcli
+    dotnet run
+    ```
+    
+1. Browse to `https://localhost:5001` in your web browser.
 
-```dotnetcli
-dotnet run
-```
+1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
 
-Browse to `https://localhost:5001` in your web browser.
-
-Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
-
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+In the example, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 :::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Simple test completed local":::
 
