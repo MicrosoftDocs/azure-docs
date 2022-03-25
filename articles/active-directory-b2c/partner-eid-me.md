@@ -43,7 +43,8 @@ account](https://azure.microsoft.com/free).
 
 ## Scenario description
 
-eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider enabling tenants to use standard user flows or implement more complex scenarios via the Identity Experience Framework. The following components comprise the eID-Me solution with Azure AD B2C:
+eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider. The following components comprise the eID-Me solution with Azure AD B2C:
+
 
 - **An Azure AD B2C tenant**: Your Azure AD B2C tenant need be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign up and sign in.
 
