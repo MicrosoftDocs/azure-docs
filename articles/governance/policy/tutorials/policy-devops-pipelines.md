@@ -28,7 +28,7 @@ and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 1. Add a pre- or post-deployment condition that includes the **Security and compliance assessment** task as a gate.
    [More details](/azure/devops/pipelines/release/deploy-using-approvals.md#configure-gate).
 
-   ![Azure Policy Gate](../media/devops-policy/azure-policy-gate.png)
+   ![Screenshot of Azure Policy Gate.](../media/devops-policy/azure-policy-gate.png)
 
 ## Validate for any violation(s) during a release
 
@@ -44,17 +44,23 @@ and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 1. When the release is in progress and attempts to perform an action disallowed by
    the defined policy, the deployment is marked as **Failed**. The error message contains a link to view the policy violations.
 
-   ![Azure Policy failure message](../media/devops-policy/azure-policy-02.png)
+   ![Screenshot of Azure Policy failure message.](../media/devops-policy/azure-policy-02.png)
 
 1. An error message is written to the logs and displayed in the stage status panel in the releases page of Azure Pipelines.
 
-   ![Azure Policy failure in log](../media/devops-policy/azure-policy-03.png)
+   ![Screenshot of Azure Policy failure in log.](../media/devops-policy/azure-policy-03.png)
 
 1. When the policy compliance gate passes the release, a **Succeeded** status is displayed.
 
-   ![Policy Gates](../media/devops-policy/policy-compliance-gates.png)
+   ![Screenshot of Policy Gates.](../media/devops-policy/policy-compliance-gates.png)
 
 1. Choose the successful deployment to view the detailed logs.
 
-   ![Policy Logs](../media/devops-policy/policy-logs.png)
+   ![Screenshot of Policy Logs.](../media/devops-policy/policy-logs.png)
 
+## Next steps
+
+To learn more about the structures of policy definitions, look at this article:
+
+> [!div class="nextstepaction"]
+> [Azure Policy definition structure](../concepts/definition-structure.md)
