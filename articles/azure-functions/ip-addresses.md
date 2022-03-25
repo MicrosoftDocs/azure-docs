@@ -43,7 +43,7 @@ Each function app has a set of available outbound IP addresses. Any outbound con
 
 To find the outbound IP addresses available to a function app:
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
 2. Select **subscriptions > {your subscription} > providers > Microsoft.Web > sites**.
@@ -146,7 +146,7 @@ For full control over the IP addresses, both inbound and outbound, we recommend 
 
 To find out if your function app runs in an App Service Environment:
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
