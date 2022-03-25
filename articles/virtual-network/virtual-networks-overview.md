@@ -78,5 +78,5 @@ Virtual networks and subnets span all availability zones in a region. You don't 
 There is no charge for using Azure VNet&mdash;it is free of cost. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products. To learn more, see [VNet pricing](https://azure.microsoft.com/pricing/details/virtual-network/) and the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Next steps
- - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md) .
+ - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md).
  - To get started using a virtual network, create one, deploy a few VMs to it, and communicate between the VMs. To learn how, see the [Create a virtual network](quick-create-portal.md) quickstart.
