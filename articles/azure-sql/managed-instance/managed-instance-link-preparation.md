@@ -1,7 +1,7 @@
 ---
-title: Prepare your environment for the link feature
+title: Prepare environment for Managed Instance link
 titleSuffix: Azure SQL Managed Instance
-description: Learn how to prepare your environment for using an Azure SQL Managed Instance link to replicate and fail over your database to SQL Managed Instance. 
+description: Learn how to prepare your environment for using a Managed Instance link to replicate and fail over your database to SQL Managed Instance. 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -14,17 +14,17 @@ ms.reviewer: mathoma, danil
 ms.date: 03/22/2022
 ---
 
-# Prepare your environment for a SQL Managed Instance link
+# Prepare your environment for a link - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you how to prepare your environment for an [Azure SQL Managed Instance link](link-feature.md) so that you can replicate databases from SQL Server to SQL Managed Instance.
+This article teaches you how to prepare your environment for a [Managed Instance link](link-feature.md) so that you can replicate databases from SQL Server to Azure SQL Managed Instance.
 
 > [!NOTE]
-> A SQL Managed Instance link is a feature of SQL Server and is currently in preview. 
+> The link is a feature of Azure SQL Managed Instance and is currently in preview. 
 
 ## Prerequisites 
 
-To use a SQL Managed Instance link, you need the following prerequisites: 
+To use the link with Azure SQL Managed Instance, you need the following prerequisites: 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [SQL Server 2019 Enterprise or Developer edition](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019?filetype=EXE), starting with [CU15 (15.0.4198.2)](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6).
@@ -160,7 +160,7 @@ Your SQL Server version should be 15.0.4198.2 or later, the Always On availabili
 
 ### Set up database recovery and backup
 
-All databases that will be replicated via SQL Managed Instance link must be in full recovery mode and have at least one backup. Run the following code on SQL Server:
+All databases that will be replicated via the link must be in full recovery mode and have at least one backup. Run the following code on SQL Server:
 
 ```sql
 -- Run on SQL Server
@@ -175,7 +175,7 @@ GO
 
 ## Configure network connectivity
 
-For the SQL Managed Instance link to work, you must have network connectivity between SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server instance resides - whether it's on-premises or on a virtual machine (VM). 
+For the link to work, you must have network connectivity between SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server instance resides - whether it's on-premises or on a virtual machine (VM). 
 
 ### SQL Server on Azure Virtual Machines 
 
@@ -218,7 +218,7 @@ New-NetFirewallRule -DisplayName "Allow TCP port 5022 outbound" -Direction outbo
 
 ## Test bidirectional network connectivity
 
-Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the SQL Managed Instance link feature to work. After you open ports on the SQL Server side and configure an NSG rule on the SQL Managed Instance side, test connectivity. 
+Bidirectional network connectivity between SQL Server and SQL Managed Instance is necessary for the link to work. After you open ports on the SQL Server side and configure an NSG rule on the SQL Managed Instance side, test connectivity. 
 
 ### Test the connection from SQL Server to SQL Managed Instance 
 
@@ -351,13 +351,13 @@ If the connection is unsuccessful, verify the following items:
 
 ## Migrate a certificate of a TDE-protected database
 
-If you are migrating a database on SQL Server protected by Transparent Data Encryption to a managed instance, the corresponding encryption certificate from the on-premises or Azure VM SQL Server needs to be migrated to managed instance before using the link. For detailed steps, see [Migrate a TDE cert to a managed instance](tde-certificate-migrate.md).
+If you're migrating a SQL Server database protected by Transparent Data Encryption to a managed instance, you must migrate the corresponding encryption certificate from the on-premises or Azure VM SQL Server instance to the managed instance before using the link. For detailed steps, see [Migrate a TDE certificate to a managed instance](tde-certificate-migrate.md).
 
 ## Install SSMS
 
 SQL Server Management Studio (SSMS) v18.11.1 is the easiest way to use a SQL Managed Instance link. [Download SSMS version 18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms) and install it to your client machine. 
 
-After installation finishes, open SSMS and connect to your supported SQL Server instance. Right-click a user database, and validate that the **Azure SQL Managed Instance link** option appears on the menu. 
+After installation finishes, open SSMS and connect to your supported SQL Server instance. Right-click a user database and validate that the **Azure SQL Managed Instance link** option appears on the menu. 
 
 :::image type="content" source="./media/managed-instance-link-preparation/ssms-database-context-menu-managed-instance-link.png" alt-text="Screenshot that shows the Azure SQL Managed Instance link option on the context menu.":::
 

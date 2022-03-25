@@ -1,7 +1,7 @@
 ---
-title: Replicate a database by using the link feature via T-SQL and PowerShell scripts
+title: Replicate a database with the link via T-SQL & PowerShell scripts
 titleSuffix: Azure SQL Managed Instance
-description: Learn how to use an Azure SQL Managed Instance link with scripts to replicate a database from SQL Server to SQL Managed Instance.
+description: Learn how to use a Managed Instance link with Transact-SQL and PowerShell scripts to replicate a database from SQL Server to Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -14,17 +14,16 @@ ms.reviewer: mathoma, danil
 ms.date: 03/22/2022
 ---
 
-# Replicate a database by using a SQL Managed Instance link via T-SQL and PowerShell scripts
+# Replicate a database with the link feature via T-SQL and PowerShell scripts - Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts to set up an [Azure SQL Managed Instance link](link-feature.md). You'll use that link to replicate your database from SQL Server to Azure SQL Managed Instance.
+This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts to replicate your database from SQL Server to Azure SQL Managed Instance by using a [Managed Instance link](link-feature.md).
 
 > [!NOTE]
-> A SQL Managed Instance link is a feature of SQL Server and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-replicate-database.md) to set up the link feature for database replication.
+> - The link is a feature of Azure SQL Managed Instance and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-replicate-database.md) to set up the link to replicate your database. 
+> - The PowerShell scripts in this article call SQL Managed Instance REST APIs.
 
-> [!NOTE]
-> For configuration on the Azure side, PowerShell scripts call the SQL Managed Instance REST API. We're planning to release support for Azure PowerShell and the Azure CLI. At that point, this article will be updated with the simplified PowerShell scripts.
 
 ## Prerequisites 
 
@@ -36,12 +35,12 @@ To replicate your databases to SQL Managed Instance, you need the following prer
 - [SQL Server Management Studio v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - A properly [prepared environment](managed-instance-link-preparation.md).
 
-## Replicate database
+## Replicate a database
 
-Use instructions below to manually setup the link between your instance of SQL Server and your instance of SQL Managed Instance. Once the link is created, your source database gets a read-only replica copy on your target Azure SQL Managed Instance. 
+Use the following instructions to manually set up the link between your SQL Server instance and managed instance. After the link is created, your source database gets a read-only replica copy on your target managed instance. 
 
 > [!NOTE]
-> The link supports replication of user databases only. Replication of system databases is not supported. To replicate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
+> The link supports replication of user databases only. Replication of system databases is not supported. To replicate instance-level objects (stored in master or msdb databases), we recommend that you script them out and run T-SQL scripts on the destination instance.
 
 ## Terminology and naming conventions
 
@@ -55,9 +54,9 @@ As you run scripts from this user guide, it's important not to mistake SQL Serve
 | SQL Managed Instance FQDN | Fully qualified domain name of your SQL Managed Instance name. For example: *managedinstance1.6d710bcf372b.database.windows.net*. | See the host name on the SQL Managed Instance overview page in the Azure portal. |
 | Resolvable domain name | DNS name that can be resolved to an IP address. For example, running *nslookup sqlserver1.domain.com* should return an IP address such as 10.0.1.100. | Use nslookup from the command prompt. |
 
-## Trust between SQL Server and SQL Managed Instance
+## Establish trust between instances
 
-The first step in creating a SQL Managed Instance link is to establish trust between the two entities and secure the endpoints that are used for communication and encryption of data across the network. The SQL Server technology for distributed availability groups doesn't have its own database mirroring endpoint. Instead, it uses the existing database mirroring endpoint for the availability group. This is why the security and trust between the two entities need to be configured for an availability group's database mirroring endpoint.
+The first step in setting up a link is to establish trust between the two instances and secure the endpoints that are used to communicate and encrypt data across the network. Distributed availability groups use the existing availability group database mirroring endpoint, rather than having their own dedicated endpoint. This is why security and trust need to be configured between the two entities through the availability group database mirroring endpoint.
 
 Certificate-based trust is the only supported way to secure database mirroring endpoints on SQL Server and SQL Managed Instance. If you have existing availability groups that use Windows authentication, you need to add certificate-based trust to the existing mirroring endpoint as a secondary authentication option. You can do this by using the `ALTER ENDPOINT` statement.
 
@@ -120,7 +119,7 @@ SELECT @PUBLICKEYENC AS PublicKeyEncoded;
 
 Save the value of `PublicKeyEncoded` from the output, because you'll need it for the next step.
 
-For the next step, use PowerShell with the installed Az.Sql module, version 3.5.1 or later. Or use Azure Cloud Shell online to run the commands, because it's always updated with the latest module versions.
+For the next step, use PowerShell with the installed [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql/3.7.1), version 3.5.1 or later. Or use Azure Cloud Shell online to run the commands, because it's always updated with the latest module versions.
   
 Run the following PowerShell script. (If you use Cloud Shell, fill out necessary user information, copy it, paste it into Cloud Shell, and then run the script.) Replace:
 
@@ -191,7 +190,7 @@ The result of this operation will be a time stamp of the successful upload of th
 
 ### Get the certificate public key from SQL Managed Instance and import it to SQL Server
 
-The certificate for securing the endpoint for a SQL Managed Instance link is automatically generated. This section describes how to get the certificate public key from SQL Managed Instance, and how to import it to SQL Server.
+The certificate for securing the endpoint for a link is automatically generated. This section describes how to get the certificate public key from SQL Managed Instance, and how to import it to SQL Server.
 
 Use SSMS to connect to SQL Managed Instance. Run the stored procedure [sp_get_endpoint_certificate](/sql/relational-databases/system-stored-procedures/sp-get-endpoint-certificate-transact-sql) to get the certificate public key:
 
@@ -219,9 +218,9 @@ Finally, verify all created certificates by using the following dynamic manageme
 SELECT * FROM sys.certificates
 ```
 
-## Mirroring endpoint on SQL Server
+## Create a mirroring endpoint on SQL Server
 
-If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section, "Altering an existing database mirroring endpoint."
+If you don't have an existing availability group or a mirroring endpoint on SQL Server, the next step is to create a mirroring endpoint on SQL Server and secure it with the certificate. If you do have an existing availability group or mirroring endpoint, go straight to the next section, [Alter an existing endpoint](#alter-an-existing-endpoint).
 
 To verify that you don't have an existing database mirroring endpoint created, use the following script:
 
@@ -231,7 +230,7 @@ To verify that you don't have an existing database mirroring endpoint created, u
 SELECT * FROM sys.database_mirroring_endpoints WHERE type_desc = 'DATABASE_MIRRORING'
 ```
 
-If the preceding query doesn't show an existing database mirroring endpoint, run the following script on SQL Server. It will create a new database mirroring endpoint on port 5022 and secure it with a certificate.
+If the preceding query doesn't show an existing database mirroring endpoint, run the following script on SQL Server. It creates a new database mirroring endpoint on port 5022 and secures the endpoint with a certificate.
 
 ```sql
 -- Run on SQL Server
@@ -262,12 +261,12 @@ FROM
 
 A new mirroring endpoint was created with certificate authentication and AES encryption enabled.
 
-### Altering an existing database mirroring endpoint
+### Alter an existing endpoint
 
 > [!NOTE]
 > Skip this step if you've just created a new mirroring endpoint. Use this step only if you're using existing availability groups with an existing database mirroring endpoint.
 
-If you're using existing availability groups for the SQL Managed Instance link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the link:
+If you're using existing availability groups for the link, or if there's an existing database mirroring endpoint, first validate that it satisfies the following mandatory conditions for the link:
 
 - Type must be `DATABASE_MIRRORING`.
 - Connection authentication must be `CERTIFICATE`.
@@ -328,9 +327,9 @@ FROM
 
 You've successfully modified your database mirroring endpoint for a SQL Managed Instance link.
 
-## Availability group on SQL Server
+## Create an availability group on SQL Server
 
-If you don't have an existing availability group, the next step is to create one on SQL Server. Create an availability group with the following parameters for a SQL Managed Instance link:
+If you don't have an existing availability group, the next step is to create one on SQL Server. Create an availability group with the following parameters for a link:
 
 -	SQL Server name
 -	Database name
@@ -347,7 +346,7 @@ SELECT @@SERVERNAME AS SQLServerName
 Then, use the following script to create the availability group on SQL Server. Replace:
 
 - `<SQLServerName>` with the name of your SQL Server instance. 
-- `<AGName>` with the name of your availability group. For multiple databases, you'll need to create multiple availability groups. A SQL Managed Instance link requires one database per availability group. Consider naming each availability group so that its name reflects the corresponding database - for example, `AG_<db_name>`. 
+- `<AGName>` with the name of your availability group. For multiple databases, you'll need to create multiple availability groups. A Managed Instance link requires one database per availability group. Consider naming each availability group so that its name reflects the corresponding database - for example, `AG_<db_name>`. 
 - `<DatabaseName>` with the name of database that you want to replicate.
 - `<SQLServerIP>` with the SQL Server IP address. You can use a resolvable SQL Server host machine name as an alternative, but you need to make sure that the name is resolvable from the SQL Managed Instance virtual network.
 
@@ -369,12 +368,11 @@ WITH (CLUSTER_TYPE = NONE)
 GO
 ```
 
-> [!NOTE]
-> One database per availability group is the current product limitation for replication to SQL Managed Instance through the link feature.
->
-> If you get Error 1475, you'll have to create a full backup without the `COPY ONLY` option. That will start a new backup chain.
->
-> As a best practice, we recommend ensuring that collation on SQL Server and SQL Managed Instance is the same. The reason is that depending on collation settings, names of availability groups and distributed availability groups might be case sensitive. If there's a mismatch, you might not be able to successfully connect SQL Server to SQL Managed Instance.
+Consider the following:
+
+- The link currently supports replicating one database per availability group. You can replicate multiple databases to SQL Managed Instance by setting up multiple links.
+- Collation between SQL Server and SQL Managed Instance should be the same. A mismatch in collation could cause a mismatch in server name casing and prevent a successful connection from SQL Server to SQL Managed Instance.
+- Error 1475 indicates that you need to start a new backup chain by creating a full backup without the `COPY ONLY` option.
 
 In the following code, replace:
 
@@ -411,7 +409,7 @@ CREATE AVAILABILITY GROUP [<DAGName>]
 GO
 ```
 
-### Verify the availability group and distributed availability group
+### Verify availability groups
 
 Use the following script to list all availability groups and distributed availability groups on the SQL Server instance. At this point, the state of your availability group needs to be `connected`, and the state of your distributed availability groups needs to be `disconnected`. The state of the distributed availability group will move to `connected` only when it has been joined with SQL Managed Instance. 
 
@@ -423,9 +421,9 @@ SELECT * FROM sys.availability_groups
 
 Alternatively, you can use SSMS Object Explorer to find availability groups and distributed availability groups. Expand the **Always On High Availability** folder and then the **Availability Groups** folder.
 
-## Creating a SQL Managed Instance link
+## Create a link
 
-The final step of the setup process is to create the SQL Managed Instance link. At this time, you accomplish this by making a REST API call. The replacement of direct API calls with PowerShell and CLI clients is planned for a future release.
+The final step of the setup process is to create the link. At this time, you accomplish this by making a REST API call. 
 
 You can invoke direct API calls to Azure by using various API clients. For simplicity of the process, sign in to the Azure portal and run the following PowerShell script from Azure Cloud Shell. Replace: 
 
@@ -506,11 +504,11 @@ $response = Invoke-WebRequest -Method PUT -Headers $headers -Uri $uriFull -Conte
 echo $response
 ```
 
-The result of this operation will be a time stamp of the successful execution of the request to create a SQL Managed Instance link.
+The result of this operation will be a time stamp of the successful execution of the request to create a link.
 
-## Verifying a created SQL Managed Instance link
+## Verify the link
 
-To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. Have in mind that connection will not be instantaneous after you make the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
+To verify that connection has been made between SQL Managed Instance and SQL Server, run the following query on SQL Server. The connection will not be instantaneous after you make the API call. It can take up to a minute for the DMV to start showing a successful connection. Keep refreshing the DMV until the connection appears as `CONNECTED` for the SQL Managed Instance replica.
 
 ```sql
 -- Run on SQL Server
@@ -527,20 +525,19 @@ FROM
     ON rs.replica_id = r.replica_id
 ```
 
-After the connection is established, the **Managed Instance Databases** view in SSMS will initially show the replicated database as **Restoring**. The initial seeding is in progress with moving the full backup of the database, followed by the catchup replication. After the seeding process is done, the database will no longer be in **Restoring** state. For small databases, seeding might finish quickly, so you might not see the initial **Restoring** state in SSMS.
+After the connection is established, the **Managed Instance Databases** view in SSMS initially shows the replicated databases in a **Restoring** state as the initial seeding phase moves and restores the full backup of the database. After the database is restored, replication has to catch up to bring the two databases to a synchronized state. The database will no longer be in **Restoring** after the initial seeding finishes. Seeding small databases might be fast enough that you won't see the initial **Restoring** state in SSMS.
 
 > [!IMPORTANT]
-> The link will not work unless network connectivity exists between SQL Server and Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
+> - The link won't work unless network connectivity exists between SQL Server and SQL Managed Instance. To troubleshoot network connectivity, follow the steps in [Test bidirectional network connectivity](managed-instance-link-preparation.md#test-bidirectional-network-connectivity).
+> - Take regular backups of the log file on SQL Server. If the used log space reaches 100 percent, replication to SQL Managed Instance stops until space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
 
-> [!IMPORTANT]
-> Make regular backups of the log file on SQL Server. If the used log space reaches 100 percent, the replication to SQL Managed Instance will stop until this space use is reduced. We highly recommend that you automate log backups by setting up a daily job. For details, see [Back up log files on SQL Server](link-feature-best-practices.md#take-log-backups-regularly).
 
 ## Next steps
 
 For more information on the link feature, see the following resources:
 
-- [SQL Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog)
-- [Prepare your environment for a SQL Managed Instance link](./managed-instance-link-preparation.md)
-- [Use a SQL Managed Instance link with scripts to migrate a database](./managed-instance-link-use-scripts-to-failover-database.md)
-- [Use a SQL Managed Instance link via SSMS to replicate a database](./managed-instance-link-use-ssms-to-replicate-database.md)
-- [Use a SQL Managed Instance link via SSMS to migrate a database](./managed-instance-link-use-ssms-to-failover-database.md)
+- [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog)
+- [Prepare your environment for a Managed Instance link](./managed-instance-link-preparation.md)
+- [Use a Managed Instance link with scripts to migrate a database](./managed-instance-link-use-scripts-to-failover-database.md)
+- [Use a Managed Instance link via SSMS to replicate a database](./managed-instance-link-use-ssms-to-replicate-database.md)
+- [Use a Managed Instance link via SSMS to migrate a database](./managed-instance-link-use-ssms-to-failover-database.md)

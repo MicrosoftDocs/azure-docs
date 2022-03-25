@@ -1,7 +1,7 @@
 ---
-title: Fail over a database by using the link feature in SSMS
+title: Fail over a database by using the link in SSMS
 titleSuffix: Azure SQL Managed Instance
-description: Learn how to use an Azure SQL Managed Instance link in SQL Server Management Studio (SSMS) to fail over a database from SQL Server to SQL Managed Instance.
+description: Learn how to use the link feature in SQL Server Management Studio (SSMS) to fail over a database from SQL Server to Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -13,16 +13,16 @@ ms.author: sasapopo
 ms.reviewer: mathoma, danil
 ms.date: 03/10/2022
 ---
-# Fail over a database by using a SQL Managed Instance link in SSMS
+# Fail over a database by using the link in SSMS - Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you how to use an [Azure SQL Managed Instance link](link-feature.md) to fail over your database from SQL Server to SQL Managed Instance. You'll use SQL Server Management Studio (SSMS), which is the easiest way to use a SQL Managed Instance link. 
+This article teaches you how to fail over a database from SQL Server to Azure SQL Managed Instance by using [the link feature](link-feature.md) in SQL Server Management Studio (SSMS). 
 
 Failing over your database from SQL Server to SQL Managed Instance breaks the link between the two databases. It stops replication and leaves both databases in an independent state, ready for individual read/write workloads. 
 
 > [!NOTE]
-> A SQL Managed Instance link is a feature of SQL Server and is currently in preview. 
+> The link is a feature of Azure SQL Managed Instance and is currently in preview. 
 
 ## Prerequisites 
 
@@ -56,7 +56,7 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-login-to-azure.png" alt-text="Screenshot that shows the page for signing in to Azure.":::
 
-4. On the **Failover Type** page, choose the type of failover you're performing. Select the box to confirm that you've stopped the workload for a planned failover, or you understand that you might lose data for a forced failover. Select **Next**. 
+4. On the **Failover Type** page, choose the type of failover you're performing. Select the box to confirm that you've stopped the workload for a planned failover, or you understand that you might lose data if using a forced failover. Select **Next**. 
 
    :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-failover-type.png" alt-text="Screenshot that shows the Failover Type page.":::
 
@@ -79,9 +79,9 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
 ## View the failed-over database 
 
-During the failover process, the SQL Managed Instance link is dropped and no longer exists. The source SQL Server database and the target SQL Managed Instance database can both execute a read/write workload. They're completely independent. 
+During the failover process, the link is dropped and no longer exists. The source SQL Server database and the target SQL Managed Instance database can both execute a read/write workload. They're completely independent. 
 
-You can validate that the link is gone by reviewing the database on SQL Server. 
+You can validate that the link bas been dropped by reviewing the database on SQL Server. 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-sql-server-database.png" alt-text="Screenshot that shows a database on SQL Server in S S M S.":::
 
