@@ -32,6 +32,7 @@ Before you can do anything, you need to install the Speech SDK. Depending on you
 Follow these steps to create a new console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechSynthesis.java`.
+1. Copy the following code into `SpeechSynthesis.java`: 
 
     ```java
     import com.microsoft.cognitiveservices.speech.*;
@@ -52,8 +53,7 @@ Follow these steps to create a new console application for speech recognition.
             SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig);
     
             // Get text from the console and synthesize to the default speaker.
-            System.out.println("Enter some text that you want to speak...");
-            System.out.print("> ");
+            System.out.println("Enter some text that you want to speak >");
             String text = new Scanner(System.in).nextLine();
             if (text.isEmpty())
             {
@@ -93,8 +93,8 @@ java SpeechSynthesis
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
 ```console
-Enter some text that you want to speak...
-> I'm excited to try text to speech
+Enter some text that you want to speak >
+I'm excited to try text to speech
 ```
 
 > [!div class="nextstepaction"]

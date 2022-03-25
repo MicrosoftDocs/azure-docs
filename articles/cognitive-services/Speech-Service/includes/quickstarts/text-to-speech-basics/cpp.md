@@ -55,8 +55,7 @@ Follow these steps to create a new console application and install the Speech SD
         auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
     
         // Get text from the console and synthesize to the default speaker.
-        cout << "Enter some text that you want to speak..." << std::endl;
-        cout << "> ";
+        cout << "Enter some text that you want to speak >" << std::endl;
         std::string text;
         getline(cin, text);
     
@@ -97,8 +96,8 @@ dotnet run
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
 ```console
-Enter some text that you want to speak...
-> I'm excited to try text to speech
+Enter some text that you want to speak >
+I'm excited to try text to speech
 ```
 
 > [!div class="nextstepaction"]

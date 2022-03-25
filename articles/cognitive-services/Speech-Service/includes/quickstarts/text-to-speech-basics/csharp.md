@@ -82,8 +82,7 @@ Follow these steps to create a new console application and install the Speech SD
             using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
             {
                 // Get text from the console and synthesize to the default speaker.
-                Console.WriteLine("Enter some text that you want to speak...");
-                Console.Write("> ");
+                Console.WriteLine("Enter some text that you want to speak >");
                 string text = Console.ReadLine();
     
                 var speechSynthesisResult = await speechSynthesizer.SpeakTextAsync(text);
@@ -108,8 +107,8 @@ dotnet run
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
 ```console
-Enter some text that you want to speak...
-> I'm excited to try text to speech
+Enter some text that you want to speak >
+I'm excited to try text to speech
 ```
 
 > [!div class="nextstepaction"]

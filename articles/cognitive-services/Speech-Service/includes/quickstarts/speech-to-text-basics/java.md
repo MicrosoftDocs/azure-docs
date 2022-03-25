@@ -32,6 +32,7 @@ Before you can do anything, you need to install the Speech SDK. Depending on you
 Follow these steps to create a new console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
+1. Copy the following code into `SpeechRecognition.java`:
 
     ```java
     import com.microsoft.cognitiveservices.speech.*;

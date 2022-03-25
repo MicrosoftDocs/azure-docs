@@ -29,7 +29,7 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 Follow these steps to create a new GO module.
 
 1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
-1. Replace the contents of `speech-recognition.go` with the following code. 
+1. Copy the following code into `speech-recognition.go`:
 
     ```go
     package main

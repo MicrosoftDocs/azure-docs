@@ -66,7 +66,7 @@ Follow these steps to create a new console application for speech synthesis.
           output: process.stdout
         });
       
-        rl.question("Enter some text that you want to speak...\n> ", function (text) {
+        rl.question("Enter some text that you want to speak >\n> ", function (text) {
           rl.close();
           // Start the synthesizer and wait for a result.
           synthesizer.speakTextAsync(text,
@@ -102,7 +102,7 @@ node.exe SpeechSynthesis.js
 The provided text should be output to an audio file:
 
 ```console
-Enter some text that you want to speak...
+Enter some text that you want to speak >
 > I'm excited to try text to speech
 Now synthesizing to: YourAudioFile.wav
 synthesis finished.

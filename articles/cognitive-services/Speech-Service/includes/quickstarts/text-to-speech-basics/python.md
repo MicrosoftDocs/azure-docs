@@ -22,10 +22,14 @@ ms.author: eur
 The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). 
 
 The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
-- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
-- On Linux, you need a 64-bit target architecture.
+- On Windows, you must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+- On Linux, you must use the x64 target architecture.
 
-You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
+Install the Speech SDK. First check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
+
+```console
+pip install azure-cognitiveservices-speech
+```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -35,11 +39,7 @@ You install the Speech SDK in the next section of this article, but first check 
 Follow these steps to create a new console application and install the Speech SDK.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
-1. Install the Speech SDK.
-    ```console
-    pip install azure-cognitiveservices-speech
-    ```
-1. Replace the contents of `speech_synthesis.py` with the following code. 
+1. Copy the following code into `speech_synthesis.py`: 
 
     ```Python
     import azure.cognitiveservices.speech as speechsdk
@@ -53,7 +53,7 @@ Follow these steps to create a new console application and install the Speech SD
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
     
     # Get text from the console and synthesize to the default speaker.
-    print("Enter some text that you want to speak > ")
+    print("Enter some text that you want to speak >")
     text = input()
     
     speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
