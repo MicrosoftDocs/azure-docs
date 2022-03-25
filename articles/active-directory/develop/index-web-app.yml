@@ -1,0 +1,67 @@
+### YamlMime:Landing
+
+title: Web app authentication documentation
+summary: The Microsoft identity platform performs identity and access management (IAM) for registered applications. Traditional web applications perform most of their application logic on the web server. This section provides
+        documentation on web app authentication on the Microsoft identity platform. 
+
+metadata:
+   ms.topic: landing-page
+   ms.date: 09/16/2021
+   author: mmacy
+   ms.author: marsma
+   ms.service: active-directory
+   ms.subservice: develop
+   ms.workload: identity
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: About $APP_TYPE authentication
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: $ARTICLE_TITLE
+            url: index.yml
+          - text: $ARTICLE_TITLE
+            url: index.yml
+  - title: $CARD_TITLE
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: $ARTICLE_TITLE
+            url: index.yml
+          - text: $ARTICLE_TITLE
+            url: index.yml
+  - title: $CARD_TITLE
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: $ARTICLE_TITLE
+            url: index.yml
+          - text: $ARTICLE_TITLE
+            url: index.yml
+## ROW  ################################################### ROW 2 ##
+  # - title: $CARD_TITLE
+  #   linkLists:
+  #     - linkListType: get-started
+  #       links:
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  # - title: $CARD_TITLE
+  #   linkLists:
+  #   - linkListType: get-started
+  #     links:
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  # - title: $CARD_TITLE
+  #   linkLists:
+  #     - linkListType: get-started
+  #       links:
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
+  #         - text: $ARTICLE_TITLE
+  #           url: index.yml
