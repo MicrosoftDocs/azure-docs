@@ -76,12 +76,6 @@ Create a location based Conditional Access policy that applies to service princi
 1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
 
-#### Report-only mode
-
-To view results of a location-based policy, refer to the **Report-only** tab of events in the **Sign-in report**, or use the **Conditional Access Insights and Reporting** workbook. 
-
-To view results of a risk-based policy, refer to the **Report-only** tab of events in the **Sign-in report**.
-
 ## Roll back
 
 If you wish to roll back this feature, you can delete or disable any created policies.
@@ -94,6 +88,12 @@ The sign-in logs are used to review how policy is enforced for service principal
 1. Select a log entry and choose the **Conditional Access** tab to view evaluation information.
 
 Failure reason when Service Principal is blocked by Conditional Access: “Access has been blocked due to conditional access policies.” 
+
+#### Report-only mode
+
+To view results of a location-based policy, refer to the **Report-only** tab of events in the **Sign-in report**, or use the **Conditional Access Insights and Reporting** workbook. 
+
+To view results of a risk-based policy, refer to the **Report-only** tab of events in the **Sign-in report**.
 
 ## Reference
 
