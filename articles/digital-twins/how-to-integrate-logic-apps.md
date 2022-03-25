@@ -62,6 +62,9 @@ Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/Hu
 
 In the **Create logic apps custom connector** page that follows, select your subscription and resource group, and a name and deployment region for your new connector. Select **Review + create**. 
 
+>[!IMPORTANT]
+> The custom connector and the logic app that you'll create later will need to be in the same deployment region.
+
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Screenshot of the 'Create logic apps custom connector' page in the Azure portal.":::
 
 Doing so will take you to the **Review + create** tab, where you can select **Create** at the bottom to create your custom connector.
@@ -111,10 +114,10 @@ In the Security step, select **Edit** and configure this information:
 * **Authentication type**: **OAuth 2.0**
 * **OAuth 2.0**:
     - **Identity provider**: **Azure Active Directory**
-    - **Client ID**: The Application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
-    - **Client secret**: The Client secret from the app registration 
+    - **Client ID**: The application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
+    - **Client secret**: The client secret value from the app registration 
     - **Login URL**: `https://login.windows.net` (leave default)
-    - **Tenant ID**: The Directory (tenant) ID for your Azure AD app registration
+    - **Tenant ID**: The directory (tenant) ID from the app registration
     - **Resource URL**: *0b07f429-9f4b-4714-9392-cc5e8e80c8b0*
     - **Enable on-behalf-of login**: *false* (leave default)
     - **Scope**: *Directory.AccessAsUser.All*
@@ -155,6 +158,9 @@ In the [Azure portal](https://portal.azure.com), search for *Logic apps* in the 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Screenshot of the 'Logic Apps' page in the Azure portal, highlighting the 'Create logic app' button.":::
 
 In the **Create Logic App** page that follows, enter your subscription, resource group, and a name and region for your logic app. Choose whether you want to enable or disable log analytics. Under **Plan**, select a **Consumption** plan type. 
+
+>[!IMPORTANT]
+> The logic app should be in the same deployment region as the custom connector you created earlier.
 
 Select the **Review + create** button.
 
