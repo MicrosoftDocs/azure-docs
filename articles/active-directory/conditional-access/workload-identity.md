@@ -78,7 +78,9 @@ Create a location based Conditional Access policy that applies to service princi
 
 #### Report-only mode
 
-To view results organizations should look at the sign-in reports to view results. Currently workload identities do not show in the report-only mode workbook.
+To view results of a location-based policy, refer to the **Report-only** tab of events in the **Sign-in report**, or use the **Conditional Access Insights and Reporting** workbook. 
+
+To view results of a risk-based policy, refer to the **Report-only** tab of events in the **Sign-in report**.
 
 ## Roll back
 
