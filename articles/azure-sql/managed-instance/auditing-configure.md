@@ -11,7 +11,7 @@ f1_keywords:
   - "mi.azure.sqlaudit.general.f1"
 author: sravanisaluru
 ms.author: srsaluru
-ms.date: "03/23/2022"
+ms.date: "03/25/2022"
 ms.reviewer: vanto
 ---
 # Get started with Azure SQL Managed Instance auditing
