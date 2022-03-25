@@ -54,15 +54,14 @@ Before uploading the certificate to the Key Vault created in step 1, it needs to
 $fileName = "<Path to the .pfx file>"
 $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-
 [System.Collections.HashTable]$TableForJSON = @{
     "data"     = $fileContentEncoded;
     "dataType" = "pfx";
     "password" = "<password>";
 }
 [System.String]$jsonObject = $TableForJSON | ConvertTo-Json
-$jsonEncoded = [System.Convert]::ToBase64String($jsonObject)
-
+$encoding = [System.Text.Encoding]::UTF8
+$jsonEncoded = [System.Convert]::ToBase64String($encoding.GetBytes($jsonObject))
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
