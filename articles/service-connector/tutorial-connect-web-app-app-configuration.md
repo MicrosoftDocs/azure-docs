@@ -149,7 +149,7 @@ Start by creating your Azure resources using a system-assigned managed identity 
         az appconfig kv import -n <myAppConfigStoreName> --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
-    ### [UMI](#tab/smi)
+    ### [UMI](#tab/umi)
     Import the test configuration file to Azure App Configuration using a user-assigned managed identity.
 
     1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\user-assigned-managed-identity\Microsoft.Azure.ServiceConnector.Sample`
@@ -243,11 +243,11 @@ Use the following steps or any other approach you're familiar with to build and 
         az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
         git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
         
-        # Push local main to the remote master branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:master
+        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
+        git push azure main:main
         ```
 
-    ### [UMI](#tab/smi)
+    ### [UMI](#tab/umi)
     
     Deploy your Azure web app with UMI using one of the following tools:
     1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, click Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
@@ -264,8 +264,8 @@ Use the following steps or any other approach you're familiar with to build and 
         az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
         git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
         
-        # Push local main to the remote master branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:master
+        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
+        git push azure main:main
         ```
 
     ### [Service principal](#tab/serviceprincipal)
@@ -285,8 +285,8 @@ Use the following steps or any other approach you're familiar with to build and 
         az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
         git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
         
-        # Push local main to the remote master branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:master
+        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
+        git push azure main:main
         ```
 
     ### [Connection string](#tab/connectionstring)
@@ -307,13 +307,13 @@ Use the following steps or any other approach you're familiar with to build and 
         az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
         git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
         
-        # Push local main to the remote master branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:master
+        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
+        git push azure main:main
         ```
 
 ---
 
- 3. To check if the connection is working, navigate to your web app at `https://<myWebAppName>.azurewebsites.net/` from your browser. Once the website is up, you will see it displaying "Hello. Your Azure WebApp is connected to App Configuration by ServiceConnector now".
+To check if the connection is working, navigate to your web app at `https://<myWebAppName>.azurewebsites.net/` from your browser. Once the website is up, you will see it displaying "Hello. Your Azure WebApp is connected to App Configuration by ServiceConnector now".
 
 ## How it works
 
@@ -348,20 +348,20 @@ Service Connector manages the connection configuration for you:
 For more information, go to [Service Connector internals.](concept-service-connector-internals.md)
 
 ## Test (optional)
+
+Optionally, perform the following tests:
 1. Update the value of the key `SampleApplication:Settings:Messages` in the App Configuration Store.
 
     ```azurecli
     az appconfig kv set -n <myAppConfigStoreName> --key SampleApplication:Settings:Messages --value hello --yes
     ```
 
-1. Navigate to your Azure web app by going to https://<myWebAppName>.azurewebsites.net/ and refresh the page. You'll see that the message is updated to "hello".
+1. Navigate to your Azure web app by going to `https://<myWebAppName>.azurewebsites.net/` and refresh the page. You'll see that the message is updated to "hello".
 
 ## Cleanup
 Once you're done, delete the Azure resources you created.
 
 `az group delete -n <myResourceGroupName> --yes`
-Useful links
-
 
 ## Next steps
 
