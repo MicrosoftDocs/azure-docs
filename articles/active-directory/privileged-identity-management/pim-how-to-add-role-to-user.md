@@ -4,14 +4,15 @@ description: Learn how to assign Azure AD roles in Azure AD Privileged Identity 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/01/2021
+ms.date: 02/02/2022
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
 ---
@@ -23,6 +24,11 @@ With Azure Active Directory (Azure AD), a Global administrator can make **perman
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
 Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
+
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be asigned for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
@@ -60,7 +66,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. After the role is assigned, a assignment status notification is displayed.
+1. After the role is assigned, an assignment status notification is displayed.
 
     ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 

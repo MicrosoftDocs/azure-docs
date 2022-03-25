@@ -1,12 +1,12 @@
-﻿---
+---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperf-fy21q1, fasttrack-edit, iot]
 ---
 
@@ -42,11 +42,11 @@ The following table contains links to code samples for each supported language a
 
 | Language | MQTT protocol parameter | MQTT over Web Sockets protocol parameter
 | --- | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
 
 The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Node.js SDK:
 
@@ -150,7 +150,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) to quickly generate a SAS token that you can copy and paste into your own code.
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
 
 ### For Azure IoT Tools
 
@@ -294,6 +294,9 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
 
+* To route messages based on message body, you must first add property 'contentType' (`ct`) to the end of the MQTT topic and set its value to be `application/json;charset=utf-8`. An example is shown below. To learn more about routing messages either based on message properties or message body, please see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
+
+    ```devices/{device_id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 
@@ -383,7 +386,7 @@ The possible status codes are:
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-The python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
+The Python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
 
 ```python
 from paho.mqtt import client as mqtt
@@ -428,10 +431,6 @@ To respond, the device sends a message with a valid JSON or empty body to the to
 
 For more information, see the [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
 
-## Additional considerations
-
-As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway](iot-hub-protocol-gateway.md). This software enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
-
 ## Next steps
 
 To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
@@ -439,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 To learn more about planning your IoT Hub deployment, see:
 
 * [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
-* [Support additional protocols](iot-hub-protocol-gateway.md)
+* [Support additional protocols](../iot-edge/iot-edge-as-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)
 

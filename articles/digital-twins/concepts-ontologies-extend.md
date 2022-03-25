@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/12/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,11 +17,11 @@ ms.service: digital-twins
 
 # Extending ontologies 
 
-An industry-standard [ontology](concepts-ontologies.md), such as the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building), is a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. 
+This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component, or Command). 
+
+An industry-standard [ontology](concepts-ontologies.md), such as the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology, is a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. 
 
 However, it's possible that your solution may have specific needs that aren't covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, you can extend one of these ontologies to add your own capabilities while keeping all the benefits of the original ontology.
-
-This article uses the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component, or Command). 
 
 ## RealEstateCore space hierarchy 
 
@@ -31,7 +31,7 @@ A portion of the hierarchy looks like the diagram below.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy. It shows elements for Space, Room, ConferenceRoom, and Office."::: 
 
-For more information about the RealEstateCore ontology, see [Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+For more information about the RealEstateCore ontology, see [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) on GitHub.
 
 ## Extending the RealEstateCore space hierarchy 
 

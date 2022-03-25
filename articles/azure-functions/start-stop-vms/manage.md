@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ## Azure dashboard
 
-Start/Stop VMs v2 (preview) includes a [dashboard](../../azure-monitor/visualizations.md#azure-dashboards) to help you understand the management scope and recent operations against your VMs. It is a quick and easy way to verify the status of each operation that’s performed on your Azure VMs. The visualization in each tile is based on a Log query and to see the query, select the **Open in logs blade** option in the right-hand corner of the tile. This opens the [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) tool in the Azure portal, and from here you can evaluate the query and modify to support your needs, such as custom [log alerts](../../azure-monitor/alerts/alerts-log.md), a custom [workbook](../../azure-monitor/visualize/workbooks-overview.md), etc.
+Start/Stop VMs v2 (preview) includes a [dashboard](../../azure-monitor/best-practices-analysis.md#azure-dashboards) to help you understand the management scope and recent operations against your VMs. It is a quick and easy way to verify the status of each operation that’s performed on your Azure VMs. The visualization in each tile is based on a Log query and to see the query, select the **Open in logs blade** option in the right-hand corner of the tile. This opens the [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) tool in the Azure portal, and from here you can evaluate the query and modify to support your needs, such as custom [log alerts](../../azure-monitor/alerts/alerts-log.md), a custom [workbook](../../azure-monitor/visualize/workbooks-overview.md), etc.
 
 The log data each tile in the dashboard displays is refreshed every hour, with a manual refresh option on demand by clicking the **Refresh** icon on a given visualization, or by refreshing the full dashboard.
 
@@ -21,7 +21,7 @@ To learn about working with a log-based dashboard, see the following [tutorial](
 
 To change email notifications after Start/Stop VMs v2 (preview) is deployed, you can modify the action group created during deployment.
 
-1. In the Azure portal, navigate to **Monitor**, then **Alerts**. Select **Manage actions**.
+1. In the Azure portal, navigate to **Monitor**, then **Alerts**. Select **Action groups**.
 
 1. On the **Manage actions** page, select the action group called **StartStopV2_VM_Notication**.
 

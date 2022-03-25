@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial - Migrate from Google Maps to Azure Maps | Microsoft Azure Maps'
 description:  Tutorial on how to migrate from Google Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: 
 ---
 
@@ -105,10 +104,10 @@ Here is a list of useful technical resources for Azure Maps.
 - Documentation: [https://aka.ms/AzureMapsDocs](./index.yml)
 - Web SDK Code Samples: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
 - Developer Forums: [https://aka.ms/AzureMapsForums](/answers/topics/azure-maps.html)
-- Videos: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
+- Videos: [https://aka.ms/AzureMapsVideos](/shows/)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Tech Blog: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
-- Azure Maps Feedback (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
+- Azure Maps Feedback (UserVoice): [https://aka.ms/AzureMapsFeedback](/answers/topics/25319/azure-maps.html)
 - [Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## Migration support

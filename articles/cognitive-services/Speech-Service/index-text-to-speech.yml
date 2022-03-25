@@ -6,12 +6,12 @@ metadata:
   title: Text-to-speech documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: pafarley
+  ms.author: eur
 
 landingContent:
 - title: About text-to-speech
@@ -47,7 +47,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Neural voice support
-          url: language-support.md#neural-voices
+          url: language-support.md#prebuilt-neural-voices
         - text: SSML phonetic sets
           url: speech-ssml-phonetic-sets.md
         - text: Text-to-speech pricing

@@ -4,12 +4,11 @@ titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to Linux VM using SSH.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create an SSH connection to a Linux VM using Azure Bastion
@@ -45,12 +44,12 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 * Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
 
    > [!NOTE]
-   > If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports. The Standard SKU is currently in Preview.
+   > If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports.
    >
 
 ## <a name="username"></a>Connect: Using username and password
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-linux/connect.png" alt-text="Screenshot shows the overview for a virtual machine in Azure portal with Connect selected" lightbox="./media/bastion-connect-vm-ssh-linux/connect.png":::
 
@@ -62,7 +61,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 ## <a name="privatekey"></a>Connect: Manually enter a private key
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-linux/connect.png" alt-text="Screenshot of the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-linux/connect.png":::
 1. After you select Bastion, click **Use Bastion**. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./quickstart-host-portal.md).
@@ -74,7 +73,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 ## <a name="ssh"></a>Connect: Using a private key file
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-linux/connect.png" alt-text="Screenshot depicts the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-linux/connect.png":::
 1. After you select Bastion, click **Use Bastion**. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./quickstart-host-portal.md).
@@ -87,7 +86,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 ## <a name="akv"></a>Connect: Using a private key stored in Azure Key Vault
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-linux/connect.png" alt-text="Screenshot showing the overview for a virtual machine in Azure portal with Connect selected" lightbox="./media/bastion-connect-vm-ssh-linux/connect.png":::
 1. After you select Bastion, click **Use Bastion**. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./quickstart-host-portal.md).

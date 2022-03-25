@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 01/22/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using Visual Studio
@@ -239,52 +239,53 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 
    ```json
-  {
-   "name": "ADFTutorialPipeline",
-   "properties": {
-     "description": "Copy data from a blob to Azure SQL table",
-     "activities": [
-       {
-         "name": "CopyFromBlobToSQL",
-         "type": "Copy",
-         "inputs": [
-           {
-             "name": "InputDataset"
-           }
-         ],
-         "outputs": [
-           {
-             "name": "OutputDataset"
-           }
-         ],
-         "typeProperties": {
-           "source": {
-             "type": "BlobSource"
+   {
+     "name": "ADFTutorialPipeline",
+     "properties": {
+       "description": "Copy data from a blob to Azure SQL table",
+       "activities": [
+         {
+           "name": "CopyFromBlobToSQL",
+           "type": "Copy",
+           "inputs": [
+             {
+               "name": "InputDataset"
+             }
+           ],
+           "outputs": [
+             {
+               "name": "OutputDataset"
+             }
+           ],
+           "typeProperties": {
+             "source": {
+               "type": "BlobSource"
+             },
+             "sink": {
+               "type": "SqlSink",
+               "writeBatchSize": 10000,
+               "writeBatchTimeout": "60:00:00"
+             }
            },
-           "sink": {
-             "type": "SqlSink",
-             "writeBatchSize": 10000,
-             "writeBatchTimeout": "60:00:00"
+           "Policy": {
+             "concurrency": 1,
+             "executionPriorityOrder": "NewestFirst",
+             "style": "StartOfInterval",
+             "retry": 0,
+             "timeout": "01:00:00"
            }
-         },
-         "Policy": {
-           "concurrency": 1,
-           "executionPriorityOrder": "NewestFirst",
-           "style": "StartOfInterval",
-           "retry": 0,
-           "timeout": "01:00:00"
          }
-       }
-     ],
-     "start": "2017-05-11T00:00:00Z",
-     "end": "2017-05-12T00:00:00Z",
-     "isPaused": false
+       ],
+       "start": "2017-05-11T00:00:00Z",
+       "end": "2017-05-12T00:00:00Z",
+       "isPaused": false
+     }
    }
-  }
-    ```   
+   ```
+
    - In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
-   - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
-   - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
+   - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
+   - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.
      
      Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
      

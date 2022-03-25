@@ -3,28 +3,28 @@ title: Configure DNN listener for availability group
 description: Learn how to configure a distributed network name (DNN) listener to replace your virtual network name (VNN) listener and route traffic to your Always On availability group on SQL Server on Azure VM. 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
-manager: jroth
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 
 ---
 # Configure a DNN listener for an availability group
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-With SQL Server on Azure VMs, the distributed network name (DNN) routes traffic to the appropriate clustered resource. It provides an easier way to connect to an Always On availability group (AG) than the virtual network name (VNN) listener, without the need for an Azure Load Balancer.
+> [!TIP]
+> Eliminate the need for a distributed network name for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+With SQL Server on Azure VMs in a single subnet, the distributed network name (DNN) routes traffic to the appropriate clustered resource. It provides an easier way to connect to an Always On availability group (AG) than the virtual network name (VNN) listener, without the need for an Azure Load Balancer.
 
 This article teaches you to configure a DNN listener to replace the VNN listener and route traffic to your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR).
 
-The DNN listener feature is currently only available starting with SQL Server 2019 CU8 on Windows Server 2016 and later.
 
 For an alternative connectivity option, consider a [VNN listener and Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead.
 
@@ -41,12 +41,11 @@ Use the DNN listener to replace an existing VNN listener, or alternatively, use 
 
 Before you complete the steps in this article, you should already have:
 
-- SQL Server 2019 on CU8 or later, on Windows Server 2016 and later
+- SQL Server starting with either [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) and later, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) and later, or [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) and later on Windows Server 2016 and later.
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 - Identified the unique port that you will use for the DNN listener. The port used for a DNN listener must be unique across all replicas of the availability group or failover cluster instance.  No other connection can share the same port.
-- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 
 
 
@@ -141,7 +140,11 @@ A value of `1` for `is_distributed_network_name` indicates the listener is a dis
 
 ## Update connection string
 
-Update connection strings for applications so that they connect to the DNN listener. Connection strings for DNN listeners must provide the DNN port number. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it.
+Update the connection string for any application that needs to connect to the DNN listener. The connection string to the DNN listener must provide the DNN port number, and specify `MultiSubnetFailover=True` in the connection string. If the SQL client does not support the `MultiSubnetFailover=True` parameter, then it is not compatible with a DNN listener.  
+
+The following is an example of a connection string for listener name **DNN_Listener** and port 6789: 
+
+`DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 
 ## Test failover
 
@@ -168,8 +171,8 @@ Test the connectivity to your DNN listener with these steps:
 
 ## Limitations
 
-- Currently, a DNN listener for an availability group is only supported for SQL Server 2019 CU8 and later on Windows Server 2016 and later. 
 - DNN Listeners **MUST** be configured with a unique port.  The port cannot be shared with any other connection on any replica.
+- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 - There might be additional considerations when you're working with other SQL Server features and an availability group with a DNN. For more information, see [AG with DNN interoperability](availability-group-dnn-interoperability.md). 
 
 ## Port considerations

@@ -4,7 +4,6 @@ description: This article lists Azure Application Insights metrics with supporte
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
-
 ---
 
 # Application Insights standard metrics
@@ -95,7 +94,7 @@ The number of failed dependency calls.
 
 |Unit of measure|Supported aggregations | Supported dimensions |
 |---|---|---|---|
-|Count|Count| `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Rarget of dependency call`.
+|Count|Count| `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Target of dependency call`.
 
 
 ### Exceptions (exceptions/count)
@@ -213,16 +212,16 @@ This metric refers to duration of dependency calls.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
+| Milliseconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
 
 
-### Server request rate (requests/count)
+### Server request rate (requests/rate)
 
 This metric reflects the number of incoming server requests that were received by your web application.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Count | Average | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Count Per Second | Average | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ### Server requests (requests/count)
 
@@ -236,7 +235,7 @@ This metric reflects the time it took for the servers to process incoming reques
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| MilliSeconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ## Usage metrics
 
@@ -246,7 +245,7 @@ This metric refers to the amount of time it took for PageView events to load.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
+| MilliSeconds | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
 
 ### Page views (pageViews/count)
 

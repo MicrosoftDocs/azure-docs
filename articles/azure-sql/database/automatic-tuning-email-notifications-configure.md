@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning

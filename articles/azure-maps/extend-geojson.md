@@ -7,7 +7,6 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
 ---
 
 

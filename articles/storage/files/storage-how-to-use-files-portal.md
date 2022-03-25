@@ -1,12 +1,14 @@
 ---
 title: Quickstart for managing Azure file shares
 description: See how to create and manage Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/17/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
+ms.custom: mode-ui, devx-track-azurecli 
+ms.devlang: azurecli
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -158,7 +160,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create) command. This example creates an Azure file share named **myshare**: 
+Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates an Azure file share named **myshare**: 
 
 ```azurecli-interactive
 shareName="myshare"

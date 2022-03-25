@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
+ms.date: 11/23/2021
 ---
 
 # Troubleshooting common authentication errors

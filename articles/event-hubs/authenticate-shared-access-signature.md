@@ -2,7 +2,8 @@
 title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 01/05/2022
+ms.devlang: csharp, java, javascript, php
 ms.custom: devx-track-js, devx-track-csharp
 ---
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
@@ -161,10 +162,50 @@ private static string createToken(string resourceUri, string keyName, string key
     var week = 60 * 60 * 24 * 7;
     var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
     string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
-    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
-    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
-    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
-    return sasToken;
+    using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key)))
+    {
+        var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+        var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
+        return sasToken;
+    }
+}
+```
+
+#### PowerShell
+
+```azurepowershell-interactive
+[Reflection.Assembly]::LoadWithPartialName("System.Web")| out-null
+$URI="myNamespace.servicebus.windows.net/myEventHub"
+$Access_Policy_Name="RootManageSharedAccessKey"
+$Access_Policy_Key="myPrimaryKey"
+#Token expires now+300
+$Expires=([DateTimeOffset]::Now.ToUnixTimeSeconds())+300
+$SignatureString=[System.Web.HttpUtility]::UrlEncode($URI)+ "`n" + [string]$Expires
+$HMAC = New-Object System.Security.Cryptography.HMACSHA256
+$HMAC.key = [Text.Encoding]::ASCII.GetBytes($Access_Policy_Key)
+$Signature = $HMAC.ComputeHash([Text.Encoding]::ASCII.GetBytes($SignatureString))
+$Signature = [Convert]::ToBase64String($Signature)
+$SASToken = "SharedAccessSignature sr=" + [System.Web.HttpUtility]::UrlEncode($URI) + "&sig=" + [System.Web.HttpUtility]::UrlEncode($Signature) + "&se=" + $Expires + "&skn=" + $Access_Policy_Name
+$SASToken
+```
+
+#### BASH
+
+```bash
+get_sas_token() {
+    local EVENTHUB_URI=$1
+    local SHARED_ACCESS_KEY_NAME=$2
+    local SHARED_ACCESS_KEY=$3
+    local EXPIRY=${EXPIRY:=$((60 * 60 * 24))} # Default token expiry is 1 day
+
+    local ENCODED_URI=$(echo -n $EVENTHUB_URI | jq -s -R -r @uri)
+    local TTL=$(($(date +%s) + $EXPIRY))
+    local UTF8_SIGNATURE=$(printf "%s\n%s" $ENCODED_URI $TTL | iconv -t utf8)
+
+    local HASH=$(echo -n "$UTF8_SIGNATURE" | openssl sha256 -hmac $SHARED_ACCESS_KEY -binary | base64)
+    local ENCODED_HASH=$(echo -n $HASH | jq -s -R -r @uri)
+
+    echo -n "SharedAccessSignature sr=$ENCODED_URI&sig=$ENCODED_HASH&se=$TTL&skn=$SHARED_ACCESS_KEY_NAME"
 }
 ```
 
@@ -180,17 +221,7 @@ All tokens are assigned with SAS keys. Typically, all tokens are signed with the
 For example, to define authorization rules scoped down to only sending/publishing to Event Hubs, you need to define a send authorization rule. This can be done at a namespace level or give more granular scope to a particular entity (event hubs instance or a topic). A client or an application that is scoped with such granular access is called, Event Hubs publisher. To do so, follow these steps:
 
 1. Create a SAS key on the entity you want to publish to assign the **send** scope on it. For more information, see [Shared access authorization policies](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
-2. Generate a SAS token with an expiry time for a specific publisher by using the key generated in step1.
-
-    ```csharp
-    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
-                new Uri("Service-Bus-URI"),
-                "eventub-name",
-                "publisher-name",
-                "sas-key-name",
-                "sas-key",
-                TimeSpan.FromMinutes(30));
-    ```
+2. Generate a SAS token with an expiry time for a specific publisher by using the key generated in step1. For the sample code, see [Generating a signature(token) from a policy](#generating-a-signaturetoken-from-a-policy).
 3. Provide the token to the publisher client, which can only send to the entity and the publisher that token grants access to.
 
     Once the token expires, the client loses its access to send/publish to the entity. 
@@ -211,6 +242,66 @@ For example, to define authorization rules scoped down to only sending/publishin
 
 ## Authenticating Event Hubs consumers with SAS 
 To authenticate back-end applications that consume from the data generated by Event Hubs producers, Event Hubs token authentication requires its clients to either have the **manage** rights or the **listen** privileges assigned to its Event Hubs namespace or event hub instance or topic. Data is consumed from Event Hubs using consumer groups. While SAS policy gives you granular scope, this scope is defined only at the entity level and not at the consumer level. It means that the privileges defined at the namespace level or the event hub instance or topic level will be applied to the consumer groups of that entity.
+
+## Disabling Local/SAS Key authentication  
+For certain organizational security requirements, you may have to disable local/SAS key authentication completely and rely on the Azure Active Directory (Azure AD) based authentication which is the recommended way to connect with Azure Event Hubs. You can disable local/SAS key authentication at the Event Hubs namespace level using Azure portal or Azure Resource Manager template. 
+
+### Disabling Local/SAS Key authentication via the portal 
+You can disable local/SAS key authentication for a given Event Hubs namespace using the Azure portal. 
+
+As shown in the following image, in the namespace overview section, click on the *Local Authentication*. 
+
+![Namespace overview for disabling local auth](./media/authenticate-shared-access-signature/disable-local-auth-overview.png)
+
+And then select *Disabled* option and click *Ok* as shown below. 
+![Disabling local auth](./media/authenticate-shared-access-signature/disabling-local-auth.png)
+
+### Disabling Local/SAS Key authentication using a template 
+You can disable local authentication for a given Event Hubs namespace by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template(ARM Template).
+
+```json
+"resources":[
+      {
+         "apiVersion":"[variables('ehVersion')]",
+         "name":"[parameters('eventHubNamespaceName')]",
+         "type":"Microsoft.EventHub/Namespaces",
+         "location":"[variables('location')]",
+         "sku":{
+            "name":"Standard",
+            "tier":"Standard"
+         },
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7", 
+        "disableLocalAuth": false
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]"
+          }
+
+        }
+      ]
+    }
+  ]
+``` 
 
 ## Next steps
 See the following articles:

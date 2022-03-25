@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
-ms.date: 05/11/2020
+ms.date: 10/21/2021
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
@@ -165,10 +165,6 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 1. Select which event(s) to be notified for. For example, the following screenshot __RunCompleted__.
 
     ![Screenshot shows the When a resource event occurs dialog box with an event type selected.](./media/how-to-use-event-grid/select-event-runcomplete.png)
-
-1. You can use the filtering method in the section above or add filters to only trigger the logic app on a subset of event types. In the following screenshot, a __prefix filter__ of __/datadriftID/runs/__ is used.
-
-    ![filter-events](./media/how-to-use-event-grid/filtering-events.png)
 
 1. Next, add a step to consume this event and search for email. There are several different mail accounts you can use to receive events. You can also configure conditions on when to send an email alert.
 

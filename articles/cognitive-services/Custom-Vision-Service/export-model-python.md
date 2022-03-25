@@ -8,13 +8,14 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: tutorial
-ms.date: 11/23/2020
+ms.topic: how-to
+ms.date: 01/05/2022
 ms.author: pafarley
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Run TensorFlow model in Python
+# Tutorial: Run a TensorFlow model in Python
 
 After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
@@ -23,7 +24,7 @@ After you have [exported your TensorFlow model](./export-your-model.md) from the
 
 ## Prerequisites
 
-To use the tutorial, you need to do the following:
+To use the tutorial, first to do the following:
 
 - Install either Python 2.7+ or Python 3.6+.
 - Install pip.
@@ -39,7 +40,7 @@ pip install opencv-python
 
 ## Load your model and tags
 
-The downloaded .zip file contains a _model.pb_ and a _labels.txt_ file. These files represent the trained model and the classification labels. The first step is to load the model into your project. Add the following code to a new Python script.
+The downloaded _.zip_ file contains a _model.pb_ and a _labels.txt_ file. These files represent the trained model and the classification labels. The first step is to load the model into your project. Add the following code to a new Python script.
 
 ```Python
 import tensorflow as tf
@@ -65,7 +66,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## Prepare an image for prediction
 
-There are a few steps you need to take to prepare the image for prediction. These steps mimic the image manipulation performed during training:
+There are a few steps you need to take to prepare the image for prediction. These steps mimic the image manipulation performed during training.
 
 ### Open the file and create an image in the BGR color space
 
@@ -171,7 +172,7 @@ def update_orientation(image):
 
 ## Classify an image
 
-Once the image is prepared as a tensor, we can send it through the model for a prediction:
+Once the image is prepared as a tensor, we can send it through the model for a prediction.
 
 ```Python
 

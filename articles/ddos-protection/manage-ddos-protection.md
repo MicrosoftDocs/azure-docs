@@ -9,10 +9,10 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: ddos-protection
-ms.devlang: na
-ms.topic: how-to
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: mode-ui
 ms.date: 05/17/2019
 ms.author: yitoh
 
@@ -69,6 +69,12 @@ You cannot move a virtual network to another resource group or subscription when
 2. Enter the name of the virtual network that you want to enable DDoS Protection Standard for in the **Search resources, services, and docs box** at the top of the Azure portal. When the name of the virtual network appears in the search results, select it.
 3. Select **DDoS protection**, under **SETTINGS**.
 4. Select **Standard**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
+
+### Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
+
+Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md)
+
+:::image type="content" source="/azure/firewall-manager/media/configure-ddos/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan":::
 
 ### Enable DDoS protection for all virtual networks
 

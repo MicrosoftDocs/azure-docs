@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the SQL API'
 description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the SQL API to store and access data from a Java application hosted on Azure Websites.'
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: devx-track-java
 ---
 
@@ -19,7 +19,6 @@ ms.custom: devx-track-java
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure App Service Web Apps. In this article, you will learn:
@@ -251,4 +250,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Build a node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)
+> [Build a Node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)

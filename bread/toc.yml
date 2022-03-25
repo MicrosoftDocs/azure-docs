@@ -21,6 +21,9 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
+      - name: Cloud sync
+        tocHref: /azure/active-directory/cloud-sync/
+        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -174,6 +177,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure Fluid Relay
+    tocHref: /azure/azure-fluid-relay/
+    topicHref: /azure/azure-fluid-relay/
   - name: Azure HPC Cache
     tocHref: /azure/hpc-cache/
     topicHref: /azure/hpc-cache/
@@ -267,6 +273,9 @@
       - name: Azure Certified Device
         tocHref: /azure/certification/
         topicHref: /azure/certification/
+      - name: Industrial IoT
+        tocHref: /azure/industrial-iot/
+        topicHref: /azure/industrial-iot/index
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -280,6 +289,9 @@
       - name: Management
         tocHref: /azure/azure-resource-manager/management/
         topicHref: /azure/azure-resource-manager/management/
+      - name: Troubleshooting
+        tocHref: /azure/azure-resource-manager/troubleshooting/
+        topicHref: /azure/azure-resource-manager/troubleshooting/
       - name: Managed Applications
         tocHref: /azure/azure-resource-manager/managed-applications/
         topicHref: /azure/azure-resource-manager/managed-applications/
@@ -299,6 +311,9 @@
       - name: Elastic
         tocHref: /azure/partner-solutions/elastic/
         topicHref: /azure/partner-solutions/elastic/overview
+      - name: Logz.io
+        tocHref: /azure/partner-solutions/logzio/
+        topicHref: /azure/partner-solutions/logzio/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -589,7 +604,7 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Healthcare APIs
+  - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
     items:
@@ -599,12 +614,12 @@
     - name: DICOM service
       tocHref: /azure/healthcare-apis/dicom/
       topicHref: /azure/healthcare-apis/dicom/index
-    - name: Data Transformation
-      tocHref: /azure/healthcare-apis/data-transformation/
-      topicHref: /azure/healthcare-apis/data-transformation/index
-    - name: IoT Connector
+    - name: MedTech service
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
+    - name: Events
+      tocHref: /azure/healthcare-apis/events/
+      topicHref: /azure/healthcare-apis/events/index
   - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis/azure-api-for-fhir/
     topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
@@ -685,8 +700,8 @@
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
       - name: Live Video Analytics on IoT Edge
-        tocHref: /azure/media-services/live-video-analytics-edge/
-        topicHref: /azure/media-services/live-video-analytics-edge/        
+        tocHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
+        topicHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge        
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/
@@ -831,6 +846,9 @@
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
+  - name: Private 5G Core
+    tocHref: /azure/private-5g-core/
+    topicHref: /azure/private-5g-core/
   - name: Azure Cache for Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/
@@ -884,13 +902,13 @@
           - name: Managed HSM
             tocHref: /azure/key-vault/managed-hsm/
             topicHref: /azure/key-vault/managed-hsm/
-      - name: Security Center
-        tocHref: /azure/security-center/
-        topicHref: /azure/security-center/
-      - name: Azure Sentinel
+      - name: Microsoft Defender for Cloud
+        tocHref: /azure/defender-for-cloud/
+        topicHref: /azure/defender-for-cloud/
+      - name: Microsoft Sentinel
         tocHref: /azure/sentinel/
         topicHref: /azure/sentinel/
-      - name: Defender for IoT
+      - name: Microsoft Defender for IoT
         tocHref: /azure/defender-for-iot/
         topicHref: /azure/defender-for-iot/
       - name: Attestation
@@ -1033,7 +1051,10 @@
     - name: Microsoft Customer Agreement
       tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
       topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
-  - name: Purview
+    - name: Centrally managed Azure Hybrid Benefit
+      tocHref: /azure/cost-management-billing/scope-level
+      topicHref: /azure/cost-management-billing/scope-level
+  - name: Azure Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Applied AI Services 
@@ -1046,3 +1067,18 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+  - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
+    tocHref: /azure/devtest/offer/
+    topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
+  - name: Service Connector
+    tocHref: /azure/service-connector/
+    topicHref: /azure/service-connector/
+  - name: Azure Orbital
+    tocHref: /azure/orbital/
+    topicHref: /azure/orbital/
+  - name: Load Testing
+    tocHref: /azure/load-testing/
+    topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+  - name: Azure Spring Cloud
+    tocHref: /azure/spring-cloud/
+    topicHref: /azure/spring-cloud/index

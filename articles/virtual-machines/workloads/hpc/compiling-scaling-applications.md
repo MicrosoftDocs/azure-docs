@@ -1,13 +1,13 @@
 ---
 title: Scaling HPC applications - Azure Virtual Machines | Microsoft Docs
 description: Learn how to scale HPC applications on Azure VMs. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 04/16/2021
-ms.author: amverma
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Scaling HPC applications
@@ -87,14 +87,14 @@ $ gfortran [gFortran flags]
 ```
    
 ### PGI Compiler
-PGI Community Edition ver. 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. Below is sample CLI to compiler optimally with the Intel Compiler:
+PGI Community Edition 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. Below is sample CLI to compiler optimally with the Intel Compiler:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
 ```
 
 ### Intel Compiler
-Intel Compiler ver. 18 is confirmed to work with AMD EPYC. Below is sample CLI to compiler optimally with the Intel Compiler.
+Intel Compiler 18 is confirmed to work with AMD EPYC. Below is sample CLI to compiler optimally with the Intel Compiler.
 
 ```bash
 icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=large -shared-intel -Ofast –qopenmp

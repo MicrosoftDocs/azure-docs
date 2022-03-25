@@ -54,7 +54,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 | **Batch Management REST** |[Azure REST API - Docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Management .NET** |[Azure SDK for .NET - Docs](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
 | **Batch Management Python** |[Azure SDK for Python - Docs](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
-| **Batch Management JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/@azure/arm-batch) |- |- | 
+| **Batch Management JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/arm-batch-readme) |[npm](https://www.npmjs.com/package/@azure/arm-batch) |- |- | 
 | **Batch Management Java** |[Azure SDK for Java - Docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 
 ## Batch command-line tools

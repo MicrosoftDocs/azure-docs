@@ -10,7 +10,6 @@ ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel

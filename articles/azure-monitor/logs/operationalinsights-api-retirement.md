@@ -26,7 +26,6 @@ Depending on the configuration method you use, you should update the new version
 
 2. Azure Resource Manager templates use the API version in the **apiVersion** property of the resource. Replace that version with the latest version (2020-08-01) as shown in the following example.
 
-
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",

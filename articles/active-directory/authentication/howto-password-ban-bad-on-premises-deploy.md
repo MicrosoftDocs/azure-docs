@@ -10,7 +10,7 @@ ms.date: 03/05/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
@@ -343,7 +343,7 @@ The proxy service doesn't support the use of specific credentials for connecting
 
 The Azure AD Password Protection DC agent software uses RPC over TCP to communicate with the proxy service. By default, the Azure AD Password Protection proxy service listens on any available dynamic RPC endpoint. You can configure the service to listen on a specific TCP port, if necessary due to networking topology or firewall requirements in your environment. When you configure a static port, you must open port 135 and the static port of your choice.
 
-<a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet as follows:
+<a id="static"></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet as follows:
 
 ```powershell
 Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>

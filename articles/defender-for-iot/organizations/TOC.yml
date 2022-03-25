@@ -1,50 +1,66 @@
-- name: Azure Defender for IoT for end-user organizations
+- name: Microsoft Defender for IoT for end-user organizations
   href: index.yml
   items:
-- name: Overview
-  displayName: IoT, OT, getting started
-  href: overview.md
+- name: Overview 
   items:
+  - name: Overview for OT networks
+    displayName: IoT, OT, getting started
+    href: overview.md
+  - name: Overview for EIoT networks
+    displayName: IoT, OT, getting started
+    href: overview-eiot.md
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: What is Agentless solution architecture
-    displayName: deployment, where to deploy
-    href: architecture.md
 - name: Quickstarts
-  expanded: true
-  items:
-  - name: System prerequisites
-    displayName: firewall, proxy, open ports
-    href: quickstart-system-prerequisites.md
-  - name: Get started with Azure Defender for IoT
+  expanded: false
+  items: 
+  - name: Get started with Defender for IoT
     displayName: getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription 
     href: getting-started.md
-- name: Tutorial
+- name: Tutorials
   expanded: false
   items:
-  - name: Azure Defender for IoT trial setup
-    href: tutorial-onboarding.md
-  - name: Integrate ClearPass
-    href: tutorial-clearpass.md
-  - name: Integrate CyberArk
-    href: tutorial-cyberark.md
-  - name: Integrate Forescout
-    href: tutorial-forescout.md
-  - name: Integrate Fortinet
-    href: tutorial-fortinet.md
-  - name: Integrate Palo Alto
-    href: tutorial-palo-alto.md
-  - name: Integrate Qradar
-    href: tutorial-qradar.md
-  - name: Integrate Splunk
-    href: tutorial-splunk.md
-  - name: Integrate ServiceNow
-    href: tutorial-servicenow.md
+  - name: Enterprise IoT networks
+    items:
+    - name: Get started with Enterprise IoT
+      displayNAme: EIoT, Enterprise, IoT
+      href: tutorial-getting-started-eiot-sensor.md
+  - name: OT networks
+    items: 
+    - name: Defender for IoT trial setup
+      href: tutorial-onboarding.md
+    - name: Integrate ClearPass
+      href: tutorial-clearpass.md
+    - name: Integrate CyberArk
+      href: tutorial-cyberark.md
+    - name: Integrate Forescout
+      href: tutorial-forescout.md
+    - name: Integrate Fortinet
+      href: tutorial-fortinet.md
+    - name: Integrate Palo Alto
+      href: tutorial-palo-alto.md
+    - name: Integrate Qradar
+      href: tutorial-qradar.md
+    - name: Integrate Splunk
+      href: tutorial-splunk.md
+    - name: Integrate ServiceNow
+      href: tutorial-servicenow.md
+    - name: Detect threats with Microsoft Sentinel
+      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
-  items:  
+  items:
+    - name: Architecture
+      items:
+      - name: Agentless solution architecture
+        href: architecture.md
+      - name: Sensor connection methods
+        href: architecture-connections.md
     - name: Key concepts
       href: concept-key-concepts.md
+    - name: OT threat monitoring in enterprise SOCs
+      displayName: SOC, SCADA, OT, Microsoft Sentinel
+      href: concept-sentinel-integration.md 
     - name: Supported protocols
       displayName: protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary
       href: concept-supported-protocols.md    
@@ -64,7 +80,9 @@
       - name: Install software
         displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span, 
         href: how-to-install-software.md
-      - name: Connect sensors with a proxy
+      - name: Connect sensors to Defender for IoT
+        href: connect-sensors.md
+      - name: Connect sensors with a proxy (legacy)
         displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel
         href: how-to-connect-sensor-by-proxy.md
   - name: Manage subscriptions
@@ -113,26 +131,31 @@
   - name: Work with threat intelligence packages
     href: how-to-work-with-threat-intelligence-packages.md
     displayName: packages, automatic, intelligence, push, threat
-  - name: Work with device inventory information
+  - name: Manage device inventories
     items: 
-    - name: Investigate all enterprise sensor detections in a device inventory
-      href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-      displayName: classification
-    - name: Investigate sensor detections in a device inventory
-      href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-      displayName: classification, Windows registry, device, firmware, import, bulk, delete
+    - name: OT Networks
+      items:
+      - name: Manage cloud device inventory
+        href: how-to-manage-device-inventory-for-organizations.md
+        displayNAme: device inventory, device, inventory, EIoT, eiot
+      - name: Manage sensor device inventory
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+        displayName: classification, Windows registry, device, firmware, import, bulk, delete, device inventory
+      - name: Manage the management console device inventory
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+        displayName: classification, device inventory
+    - name: Enterprise IoT
+      items: 
+      - name: Manage cloud device inventory
+        href: how-to-manage-device-inventory-for-organizations.md
+        displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Work with the sensor device map
     href: how-to-work-with-the-sensor-device-map.md
     displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network
   - name: Work with alerts detected by a sensor
     items:
-    - name: Understand sensor alerts
-      href: how-to-work-with-alerts-on-your-sensor.md
-    - name: Filter and manage alerts from the Alerts page 
+    - name: View alerts details on the Alerts page 
       href: how-to-view-alerts.md
-    - name: About alert messages
-      href: how-to-view-information-provided-in-alerts.md
-      displayName: PCAP, metadata, alerts, link, device map,  
     - name: Alert types and descriptions
       href: alert-engine-messages.md
       displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
@@ -145,16 +168,21 @@
     - name: Forward alert information
       href: how-to-forward-alert-information-to-partners.md
       displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
+  - name: Manage cloud alerts
+    href: how-to-manage-cloud-alerts.md
+    displayName: MITRE ATT&CK, remediation, severity, status, alert exclusion, learn, important, mute, new, active, close
   - name: Gain insight into global, regional, and local threats
     href: how-to-gain-insight-into-global-regional-and-local-threats.md
     displayName: site, business unit, region, map
-  - name: Few information devices, alerts and sensors per zone
+  - name: View information devices, alerts and sensors per zone
     href: how-to-view-information-per-zone.md
     displayName: zones
   - name: Work with alerts on the on-premises management console
     href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Create reports
     items:
+    - name: View and create Azure Monitor workbooks
+      href: workbooks.md
     - name: Create risk assessment reports
       href: how-to-create-risk-assessment-reports.md
       displayName: vulnerability, security score, score, CVE
@@ -167,6 +195,9 @@
     - name: Create trends and statistics reports
       href: how-to-create-trends-and-statistics-reports.md
       displayName: widgets, charts      
+  - name: Analyze programming details and changes
+    displayName: programming, unauthorized 
+    href: how-to-analyze-programming-details-changes.md
   - name: Enrich device information
     items: 
     - name: Work with device notifications
@@ -184,9 +215,6 @@
   - name: Track sensor activity
     displayName: timeline, time line, time-line, event
     href: how-to-track-sensor-activity.md
-  - name: Configure Azure Sentinel with Defender for IoT for end-user organizations
-    displayName: Sentinel
-    href: how-to-configure-with-sentinel.md  
   - name: Troubleshoot the sensor and on-premises management console
     displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service, export, logs
     href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
@@ -197,10 +225,6 @@
   items:
   - name: Work with Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
-  - name: Horizon API
-    href: references-horizon-api.md
-  - name: Horizon SDK
-    href: references-horizon-sdk.md
   - name: Work with Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Manage proprietary protocols (Horizon)
@@ -212,6 +236,8 @@
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
+  - name: Release notes archive
+    href: release-notes-archive.md
   - name: Pre-deployment checklist
     displayNAme: pre-deployment
     href: resources-sensor-deployment-checklist.md
@@ -228,8 +254,6 @@
     items:
     - name: Build your security skills with Microsoft Learn
       href: /learn/browse/?term=securityS&terms=securityS
-    - name: Azure Security Center documentation
-      href: ../../security-center/
     - name: Azure security documentation 
       href: ../../security/index.yml
     - name: Azure IoT Security, Privacy, & Compliance blog

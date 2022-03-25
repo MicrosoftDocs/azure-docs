@@ -6,8 +6,9 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/26/2021
+ms.date: 12/06/2021
 ms.author: amsriva
+ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
@@ -39,7 +40,7 @@ Azure Front Door Standard/Premium supports both Azure managed certificate and cu
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-new-custom-domain.png" alt-text="Screenshot of domain configuration landing page.":::
 
-1. On the **Add a domain** page, for *DNS management* select the **Azure managed DNS** option. 
+1. On the **Add a domain** page, for *DNS management* select the **Azure managed DNS** option.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-azure-managed.png" alt-text="Screen shot of add a domain page with Azure managed DNS selected.":::
 
@@ -52,7 +53,7 @@ Azure Front Door Standard/Premium supports both Azure managed certificate and cu
 You can also choose to use your own TLS certificate.  When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate are not guaranteed to work as expected. This certificate must be imported into an Azure Key Vault before you can use it with Azure Front Door Standard/Premium. See [import a certificate](../../key-vault/certificates/tutorial-import-certificate.md) to Azure Key Vault.
 
 #### Prepare your Azure Key vault account and certificate
- 
+
 1. You must have a running Azure Key Vault account under the same subscription as your Azure Front Door Standard/Premium that you want to enable custom HTTPS. Create an Azure Key Vault account if you don't have one.
 
     > [!WARNING]
@@ -61,7 +62,7 @@ You can also choose to use your own TLS certificate.  When you create your TLS/S
 1. If you already have a certificate, you can upload it directly to your Azure Key Vault account. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner Certificate Authorities that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
 
     > [!NOTE]
-    > For your own TLS/SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
+    > For your own TLS/SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 
@@ -74,10 +75,10 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. In PowerShell, run the following command:
 
-     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor`
 
 #### Grant Azure Front Door access to your key vault
- 
+
 Grant Azure Front Door permission to access the  certificates in your Azure Key Vault account.
 
 1. In your key vault account, under SETTINGS, select **Access policies**. Then select **Add new** to create a new policy.
@@ -88,17 +89,17 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 1. In **Certificate permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-1. Select **OK**. 
+1. Select **OK**.
 
 #### Select the certificate for Azure Front Door to deploy
- 
+
 1. Return to your Azure Front Door Standard/Premium in the portal.
 
 1. Navigate to **Secrets** under *Settings* and select **Add certificate**.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-certificate.png" alt-text="Screenshot of Azure Front Door secret landing page.":::
 
-1. On the **Add certificate** page, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium. Leave the version selection as "Latest" and select **Add**. 
+1. On the **Add certificate** page, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium. Leave the version selection as "Latest" and select **Add**.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-certificate-page.png" alt-text="Screenshot of add certificate page.":::
 
@@ -106,8 +107,8 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/successful-certificate-provisioned.png" alt-text="Screenshot of certificate successfully added to secrets.":::
 
-1. Navigate to **Domains** under *Setting* and select **+ Add** to add a new custom domain. On the **Add a domain** page, choose 
-"Bring Your Own Certificate (BYOC)" for *HTTPS*. For *Secret*, select the certificate you want to use from the drop-down. 
+1. Navigate to **Domains** under *Setting* and select **+ Add** to add a new custom domain. On the **Add a domain** page, choose
+"Bring Your Own Certificate (BYOC)" for *HTTPS*. For *Secret*, select the certificate you want to use from the drop-down.
 
     > [!NOTE]
     > The selected certificate must have a common name (CN) same as the custom domain being added.
@@ -128,4 +129,4 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](concept-caching.md).
+Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).

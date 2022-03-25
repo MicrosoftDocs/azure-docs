@@ -133,7 +133,7 @@ $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -N
  
 $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $SubnetName}  
  
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location $Location -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
 ### Integrate the private endpoint with a private DNS zone
@@ -163,13 +163,13 @@ $networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
 
 $PrivateDnsZoneId = $zone.ResourceId
 
-$config = New-AzPrivateDnsZoneConfig -Name $zoneName`
+$config = New-AzPrivateDnsZoneConfig -Name $zoneName `
  -PrivateDnsZoneId $PrivateDnsZoneId
 
 ## Create a DNS zone group
-New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName`
- -PrivateEndpointName $PrivateEndpointName`
- -Name "MyPrivateZoneGroup"`
+New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName `
+ -PrivateEndpointName $PrivateEndpointName `
+ -Name "MyPrivateZoneGroup" `
  -PrivateDnsZoneConfig $config
 ```
 
@@ -688,6 +688,8 @@ The following limitations apply when you're using Private Link with an Azure Cos
 * When you're using an Azure Cosmos DB's API for MongoDB account that has a Private Link, tools/libraries must support Service Name Identification (SNI) or pass the `appName` parameter from the connection string to properly connect. Some older tools/libraries may not be compatible to use the Private Link feature.
 
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
+
+* Currently, you can't approve a rejected private endpoint connection. Instead, re-create the private endpoint to resume the private connectivity. The Cosmos DB private link service automatically approves the re-created private endpoint.
 
 ### Limitations to private DNS zone integration
 

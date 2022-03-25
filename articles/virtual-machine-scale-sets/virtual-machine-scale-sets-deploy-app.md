@@ -8,7 +8,8 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurepowershell
+ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 
@@ -37,7 +38,7 @@ The Custom Script Extension downloads and executes scripts on Azure VMs. This ex
 
 
 ## Install an app to a Windows VM with PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) is a management platform to define the configuration of target machines. DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations.
+[PowerShell Desired State Configuration (DSC)](/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations.
 
 The PowerShell DSC extension lets you customize VM instances in a scale set with PowerShell. The following example:
 

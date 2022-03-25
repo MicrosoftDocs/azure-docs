@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using Azure PowerShell
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/3/2021
+ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,13 +19,9 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-This article covers the steps to **set up a new Azure Digital Twins instance**, including creating
-the instance and setting up authentication. After completing this article, you will have an Azure
-Digital Twins instance ready to start programming against.
+This article covers the steps to set up a new Azure Digital Twins instance, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az). Setup can also be completed by using the following alternate instructions:
-* [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md)
-* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
+This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -43,48 +39,35 @@ This version of this article goes through these steps manually, one by one, usin
     
             :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing selection of the PowerShell version.":::
     
-1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
-   [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
    ```azurepowershell-interactive
    Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
    ```
 
-1. If this is your first time using Azure Digital Twins with this subscription, you must register the **Microsoft.DigitalTwins** resource provider. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
+1. If this is your first time using Azure Digital Twins with this subscription, you must register the `Microsoft.DigitalTwins` resource provider. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace Microsoft.DigitalTwins
    ```
 
-1. Use the following command to install the **Az.DigitalTwins** PowerShell module.
+1. Use the following command to install the `Az.DigitalTwins` PowerShell module.
     ```azurepowershell-interactive
     Install-Module -Name Az.DigitalTwins
     ```
 
-> [!IMPORTANT]
-> While the **Az.DigitalTwins** PowerShell module is in preview, you must install it separately
-> using the `Install-Module` cmdlet as described above. After this PowerShell module becomes generally available, it
-> will be part of future Az PowerShell module releases and available by default from within Azure
-> Cloud Shell.
-
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins** using Azure PowerShell.
-You'll need to provide:
+In this section, you'll create a new instance of Azure Digital Twins using Azure PowerShell. You'll need to provide:
 
-* An [Azure resource group](../azure-resource-manager/management/overview.md) where the instance will be deployed. If you don't
-  already have an existing resource group, you can create one using the
-  [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet:
+* An [Azure resource group](../azure-resource-manager/management/overview.md) where the instance will be deployed. If you don't already have an existing resource group, you can create one using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet:
 
   ```azurepowershell-interactive
   New-AzResourceGroup -Name <name-for-your-resource-group> -Location <region>
   ```
 
-* A region for the deployment. To see what regions support Azure Digital Twins, visit
-  [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* A name for your instance. The name of the new instance must be unique within the region for your
-  subscription. If your subscription has another Azure Digital Twins instance in the region that's
-  already using the specified name, you'll be asked to pick a different name.
+* A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* A name for your instance. The name of the new instance must be unique within the region for your subscription. If your subscription has another Azure Digital Twins instance in the region that's already using the specified name, you'll be asked to pick a different name.
 
 Use your values in the following command to create the instance:
 
@@ -94,8 +77,7 @@ New-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 
 ### Verify success and collect important values
 
-If the instance was created successfully, the result looks similar to the following output
-containing information about the resource you've created:
+If the instance was created successfully, the result looks similar to the following output containing information about the resource you've created:
 
 ```Output
 Location   Name                                         Type
@@ -113,13 +95,9 @@ Get-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 > [!TIP]
 > You can use this command to see all the properties of your instance at any time.
 
-Note the Azure Digital Twins instance's **host name**, **name**, and **resource group**. These are
-important values that you may need as you continue working with your Azure Digital Twins instance,
-to set up authentication, and related Azure resources. If other users will be programming against
-the instance, you should share these values with them.
+Note the Azure Digital Twins instance's **host name**, **name**, and **resource group**. These are important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication, and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 
-You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure
-user permissions to manage it.
+You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure user permissions to manage it.
 
 ## Set up user access permissions
 
@@ -130,17 +108,15 @@ user permissions to manage it.
 
 ### Assign the role
 
-To give a user permissions to manage an Azure Digital Twins instance, you must assign them the _**Azure Digital Twins Data Owner**_ role within the instance.
+To give a user permissions to manage an Azure Digital Twins instance, you must assign them the **Azure Digital Twins Data Owner** role within the instance.
 
-First, determine the **ObjectId** for the Azure AD account of the user that should be assigned the role. You can find this value using the [Get-AzAdUser](/powershell/module/az.resources/get-azaduser) cmdlet, by passing in the user principal name on the Azure AD account to retrieve their ObjectId (and other user information). In most cases, the user principal name will match the user's email on the Azure AD account.
+First, determine the Object Id for the Azure AD account of the user that should be assigned the role. You can find this value using the [Get-AzAdUser](/powershell/module/az.resources/get-azaduser) cmdlet, by passing in the user principal name on the Azure AD account to retrieve their Object Id (and other user information). In most cases, the user principal name will match the user's email on the Azure AD account.
 
 ```azurepowershell-interactive
 Get-AzADUser -UserPrincipalName <Azure-AD-user-principal-name-of-user-to-assign>
 ```
 
-Next, use the **ObjectId** in the following command to assign the role. The command also requires you to enter the same subscription ID, resource group name, and
-Azure Digital Twins instance name that you chose earlier when creating the instance. The command must be run by a user with
-[sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription.
+Next, use the Object Id in the following command to assign the role. The command also requires you to enter the same subscription ID, resource group name, and Azure Digital Twins instance name that you chose earlier when creating the instance. The command must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription.
 
 ```azurepowershell-interactive
 $Params = @{

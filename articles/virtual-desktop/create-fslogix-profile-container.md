@@ -101,16 +101,24 @@ After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
+   ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu-2.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
 
     - For **Primary DNS**, enter the IP address of the DNS server in your environment that can resolve the domain name.
-    - For **Domain**, enter your fully qualified domain name (FQDN).
+    - For **Secondary DNS**, enter the IP address of the secondary DNS Server for the domain.
+    - For **AD DNS Domain Name**, enter your fully qualified domain name (FQDN).
+    - For **AD Site Name**, enter the Active Directory Site name that the domain controller discovery will be limited to. This should match the Site name in Active Directory Sites and Services for the Site created to represent the Azure virtual network environment. This Site must be reachable by Azure NetApp Files in Azure. 
     - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
-    - For **Username**, enter the name of the account with permissions to perform domain join.
-    - For **Password**, enter the account's password.
+    - For **Organizational unit path**, this is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is OU=AADDC Computers when you configure Active Directory for your NetApp account.
+    - For **Credentials**, insert username and password: 
+      
+      ![A screenshot of the Join Active Directory connections menu for username and password.](media/active-directory-connections-credentials.png)
+
+    - For additional parameters descriptions, please refer to [this](../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection) article. 
+    - Click **Join**, the Active Directory connection you created appears.
+    
+      ![A screenshot of Active Directory connection screen after joining.](media/active-directory-connections-show.png)
 
 ## Create a new volume
 
@@ -149,7 +157,7 @@ After you create the volume, configure the volume access parameters.
 
 This section is based on [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 
-1. [Download the FSLogix agent .zip file](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) while you're still remoted in the session host VM.
+1. [Download the FSLogix agent .zip file](https://aka.ms/fslogix/download) while you're still remoted in the session host VM.
 
 2. Unzip the downloaded file.
 

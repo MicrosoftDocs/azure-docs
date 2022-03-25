@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 Azure Spring Cloud alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
 
 There are two steps to set up an alert pipeline:
@@ -106,7 +108,7 @@ A rule can also be created using the **Metrics** page:
 
 ## Next steps
 
-In this tutorial you learned how to set up alerts and action groups for an Azure Spring Cloud application. To learn more about action groups, see:
+In this tutorial you learned how to set up alerts and action groups for an application in Azure Spring Cloud. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
 > [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)

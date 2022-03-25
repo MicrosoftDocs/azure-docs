@@ -1,3 +1,4 @@
+items:
 - name: Azure HDInsight documentation
   href: index.yml
 - name: HDInsight service
@@ -268,6 +269,8 @@
       items:
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
+      - name: Troubleshoot Apache Ambari Metrics Collector
+        href: ./hadoop/apache-ambari-troubleshoot-metricservice-issues.md
       - name: Troubleshoot script actions
         href: ./troubleshoot-script-action.md
       - name: Resource creation failures
@@ -695,6 +698,8 @@
       items:
       - name: Insufficient fault domains
         href: ./kafka/kafka-troubleshoot-insufficient-domains.md
+      - name: Full data disk
+        href: ./kafka/kafka-troubleshoot-full-disk.md
 - name: Apache HBase
   items:
   - name: Overview
@@ -798,7 +803,7 @@
     - name: Gateway best practices
       href: ./interactive-query/gateway-best-practices.md
     - name: Sizing guidelines
-      href: ./interactive-query/sizing-guidelines.md
+      href: ./interactive-query/hive-llap-sizing-guide.md
     - name: Hive replication
       href: ./interactive-query/apache-hive-replication.md
   - name: How-to guides
@@ -1004,6 +1009,8 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Restrict public connectivity
+      href: ./hdinsight-restrict-public-connectivity.md
     - name: Private link
       href: ./hdinsight-private-link.md
     - name: Transport layer security

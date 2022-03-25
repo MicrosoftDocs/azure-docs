@@ -9,7 +9,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -51,5 +50,5 @@ For more information, see:
 
 ## Next steps
 
-* [Subclip your videos](transform-subclip-video-rest-how-to.md).
+* [Subclip your videos](transform-subclip-video-how-to.md).
 * [Define filters for your assets](filters-dynamic-manifest-rest-howto.md).

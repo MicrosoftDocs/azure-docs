@@ -6,7 +6,6 @@ documentationcenter: na
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
-ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media

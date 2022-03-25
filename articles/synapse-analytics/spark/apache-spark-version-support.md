@@ -1,7 +1,6 @@
 ---
 title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python, .NET
-services: synapse-analytics
 author: midesa 
 ms.service: synapse-analytics 
 ms.topic: reference

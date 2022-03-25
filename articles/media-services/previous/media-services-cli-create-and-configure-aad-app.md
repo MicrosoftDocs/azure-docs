@@ -9,7 +9,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -41,7 +40,7 @@ For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/over
  
 ```azurecli
 az login
-az ad sp create-for-rbac --name <appName> 
+az ad sp create-for-rbac --name <appName> --role Contributor
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 

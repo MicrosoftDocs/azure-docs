@@ -10,7 +10,6 @@ ms.assetid: 10dfad38-2112-42ab-b99b-8f74a94513c3
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel

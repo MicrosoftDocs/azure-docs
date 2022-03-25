@@ -4,6 +4,8 @@
   items:
   - name: About application gateways
     href: overview.md
+  - name: Application Gateway v2
+    href: overview-v2.md
 - name: Quickstarts
   expanded: true
   items:
@@ -16,6 +18,8 @@
   - name: Create Application Gateway - ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Create Application Gateway - Terraform
+    href: /azure/developer/terraform/application-gateway-quickstart?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -138,6 +142,8 @@
         href: tutorial-ssl-cli.md
       - name: Configure Key Vault - PowerShell
         href: configure-keyvault-ps.md
+      - name: Configure Key Vault - Portal
+        href: configure-key-vault-portal.md
     - name: End-to-end SSL
       items:
       - name: End-to-end SSL - Portal
@@ -280,10 +286,18 @@
         href: application-gateway-backend-health-troubleshooting.md
       - name: Key Vault errors
         href: application-gateway-key-vault-common-errors.md
+      - name: Disabled listeners
+        href: disabled-listeners.md
+  - name: Proxy buffer configuration
+    href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
+  - name: Configure alerts
+    href: configure-alerts-with-templates.md
+  - name: Classic to Resource Manager
+    href: classic-to-resource-manager.md  
 - name: Reference
   items:
   - name: Monitoring data
@@ -295,15 +309,15 @@
   - name: Azure PowerShell
     href: /powershell/azure/
   - name: .NET
-    href: /dotnet/api
+    href: /dotnet/api/
   - name: Java
-    href: /java/api
+    href: /java/api/
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/applicationgateway
+    href: /rest/api/application-gateway/application-gateways
   - name: Azure Resource Manager
     displayName: ARM
     href: ../azure-resource-manager/management/overview.md
@@ -319,10 +333,10 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     displayName: ARM
-    href: https://azure.microsoft.com/documentation/templates
+    href: https://azure.microsoft.com/resources/templates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway

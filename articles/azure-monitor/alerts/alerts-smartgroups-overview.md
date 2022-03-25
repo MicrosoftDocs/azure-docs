@@ -1,11 +1,11 @@
 ---
-title: Smart groups
+title: Smart groups (preview)
 description: Smart Groups are aggregations of alerts that help you reduce alert noise
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 2/23/2022
 ---
 
-# Smart groups
+# Smart groups (preview)
 
 A common challenge faced when dealing with alerts is sifting through the noise to find out what actually matters - smart groups are intended to be the solution to that problem.  
 

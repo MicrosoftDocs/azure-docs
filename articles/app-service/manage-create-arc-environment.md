@@ -1,14 +1,14 @@
 ---
 title: 'Set up Azure Arc for App Service, Functions, and Logic Apps'
-description: For your Azure Arc enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
+description: For your Azure Arc-enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
 ms.topic: article
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ---
-# Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
+# Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 
-If you have an [Azure Arc enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
+If you have an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
 
-Azure Arc enabled Kubernetes lets you make your on-premises or cloud Kubernetes cluster visible to App Service, Functions, and Logic Apps in Azure. You can create an app and deploy to it just like another Azure region.
+Azure Arc-enabled Kubernetes lets you make your on-premises or cloud Kubernetes cluster visible to App Service, Functions, and Logic Apps in Azure. You can create an app and deploy to it just like another Azure region.
 
 ## Prerequisites
 
@@ -25,7 +25,6 @@ If you don't have an Azure account, [sign up today](https://azure.microsoft.com/
 Set the following environment variables based on your Kubernetes cluster deployment:
 
 ```bash
-staticIp="<public-ip-address-of-the-kubernetes-cluster>"
 aksClusterGroupName="<name-resource-group-with-aks-cluster>"
 groupName="<name-of-resource-group-with-the-arc-connected-cluster>"
 clusterName="<name-of-arc-connected-cluster>"
@@ -48,13 +47,13 @@ az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.Web --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
+az extension add --upgrade --yes --name appservice-kube
 ```
 
 ## Create a connected cluster
 
 > [!NOTE]
-> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps below will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc enabled Kubernetes cluster.
+> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps below will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
 
 1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 
@@ -67,9 +66,6 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
-    infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
-    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
-    staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
     # [PowerShell](#tab/powershell)
@@ -81,9 +77,6 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
     az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
-    $infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
-    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
-    $staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
     ---
@@ -145,7 +138,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 ## Create a Log Analytics workspace
 
-While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc enabled Kubernetes cluster. 
+While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
 
 1. For simplicity, create the workspace now.
 
@@ -231,7 +224,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     ---
     
-2. Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics is not required, you can't add it to the extension later, so it's easier to do it now.
+2. Install the App Service extension to your Azure Arc-connected cluster, with Log Analytics enabled. Again, while Log Analytics is not required, you can't add it to the extension later, so it's easier to do it now.
 
     # [bash](#tab/bash)
 
@@ -249,7 +242,6 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
-        --configuration-settings "loadBalancerIp=${staticIp}" \
         --configuration-settings "keda.enabled=true" \
         --configuration-settings "buildService.storageClassName=default" \
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" \
@@ -276,7 +268,6 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${namespace}" `
         --configuration-settings "clusterName=${kubeEnvironmentName}" `
-        --configuration-settings "loadBalancerIp=${staticIp}" `
         --configuration-settings "keda.enabled=true" `
         --configuration-settings "buildService.storageClassName=default" `
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" `
@@ -298,15 +289,14 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     | Parameter | Description |
     | - | - |
     | `Microsoft.CustomLocation.ServiceAccount` | The service account that should be created for the custom location that will be created. It is recommended that this be set to the value `default`. |
-    | `appsNamespace` | The namespace to provision the app definitions and pods. Must match that of the extension release namespace. |
+    | `appsNamespace` | The namespace to provision the app definitions and pods. **Must** match that of the extension release namespace. |
     | `clusterName` | The name of the App Service Kubernetes environment that will be created against this extension. |
-    | `loadBalancerIp` | The public IP of the Kubernetes cluster. App Service apps receive traffic on this IP address. Also informs default DNS mapping. |
     | `keda.enabled` | Whether [KEDA](https://keda.sh/) should be installed on the Kubernetes cluster. Accepts `true` or `false`. |
-    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/). |
+    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).  Default is a valid storage class for AKS and AKS HCI but it may not be for other distrubtions/platforms. |
     | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class above. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
     | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace` above. |
     | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service.  |
-    | `logProcessor.appLogs.destination` | Optional. Accepts `log-analytics`. |
+    | `logProcessor.appLogs.destination` | Optional. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
     | | |
@@ -359,7 +349,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
 <!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
 
-1. Set the following environment variables for the desired name of the custom location and for the ID of the Azure Arc connected cluster.
+1. Set the following environment variables for the desired name of the custom location and for the ID of the Azure Arc-connected cluster.
 
     # [bash](#tab/bash)
 
@@ -449,8 +439,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     az appservice kube create \
         --resource-group $groupName \
         --name $kubeEnvironmentName \
-        --custom-location $customLocationId \
-        --static-ip $staticIp
+        --custom-location $customLocationId 
     ```
 
     # [PowerShell](#tab/powershell)
@@ -459,8 +448,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     az appservice kube create `
         --resource-group $groupName `
         --name $kubeEnvironmentName `
-        --custom-location $customLocationId `
-        --static-ip $staticIp
+        --custom-location $customLocationId       
     ```
 
     ---

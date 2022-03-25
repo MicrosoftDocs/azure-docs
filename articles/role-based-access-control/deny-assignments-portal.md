@@ -4,15 +4,14 @@ description: Learn how to list the users, groups, service principals, and manage
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/10/2019
+ms.date: 01/24/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -22,7 +21,7 @@ ms.reviewer: bagovind
 [Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For more information, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 

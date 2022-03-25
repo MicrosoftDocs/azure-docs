@@ -29,7 +29,7 @@
     items:
     - name: What is an ontology?
       href: concepts-ontologies.md
-    - name: Adopting industry-standard ontologies
+    - name: Adopting DTDL-based industry ontologies
       href: concepts-ontologies-adopt.md
     - name: Converting ontologies
       href: concepts-ontologies-convert.md
@@ -55,7 +55,7 @@
     href: concepts-data-ingress-egress.md
   - name: Event notifications
     href: concepts-event-notifications.md
-  - name: Event routes
+  - name: Endpoints and event routes
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
     href: concepts-security.md  
@@ -77,7 +77,7 @@
       href: how-to-enable-private-link.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
-    - name: Create an app registration
+    - name: Create an app registration with Azure Digital Twins access
       items:
       - name: Portal
         href: how-to-create-app-registration-portal.md
@@ -115,7 +115,7 @@
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
-    - name: Auto-manage devices with DPS
+    - name: Automanage devices with DPS
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
@@ -133,25 +133,25 @@
       href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
-    - name: View metrics in Azure Monitor
-      href: troubleshoot-metrics.md
-    - name: Use diagnostics logs
-      href: troubleshoot-diagnostics.md
-    - name: Enable alerts
-      href: troubleshoot-alerts.md
+    - name: Metrics
+      href: how-to-monitor-metrics.md
+    - name: Diagnostics logs
+      href: how-to-monitor-diagnostics.md
+    - name: Alerts
+      href: how-to-monitor-alerts.md
+    - name: Resource health
+      href: how-to-monitor-resource-health.md
     - name: Troubleshoot performance
       href: troubleshoot-performance.md
-    - name: Understand your resource health
-      href: troubleshoot-resource-health.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
       items:
-      - name: 403 (Forbidden)
+      - name: Error 403 (Forbidden)
         href: troubleshoot-error-403.md
-      - name: 404 Sub-Domain not found
+      - name: Error 404 (Sub-Domain not found)
         href: troubleshoot-error-404.md
-      - name: Azure Digital Twins Explorer authentication
+      - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
@@ -176,7 +176,7 @@
         - name: Python SDK
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
-    href: /cli/azure/dt?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/dt
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
   - name: Query language reference
@@ -187,6 +187,8 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
+        - name: MATCH (preview)
+          href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md
         - name: WHERE
@@ -269,7 +271,7 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
       - name: Digital Twins instance data source
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
-      - name: Event Hub endpoint resource
+      - name: Event Hubs endpoint resource
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
       - name: Event Grid endpoint resource
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid
@@ -317,8 +319,10 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-  - name: 'Learn: Develop with Azure Digital Twins'
-    href: /learn/paths/develop-azure-digital-twins/
+  - name: 'Microsoft Learn: Extend IoT solutions by using Azure Digital Twins'
+    href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+  - name: 'Microsoft Learn: Set up a mixed reality project for Azure Digital Twins in Unity'
+    href: /learn/modules/set-up-mixed-reality-azure-digital-twins-unity/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

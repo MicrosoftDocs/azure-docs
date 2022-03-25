@@ -8,6 +8,7 @@ ms.date: 07/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: cpp
 ---
 
 # How to use Queue Storage from C++

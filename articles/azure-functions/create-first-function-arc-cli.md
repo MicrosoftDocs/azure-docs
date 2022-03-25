@@ -3,6 +3,8 @@ title: 'Quickstart: Create a function app on Azure Arc'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app.
 ms.topic: quickstart
 ms.date: 05/10/2021
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create your first function on Azure Arc (preview)
@@ -10,7 +12,7 @@ ms.date: 05/10/2021
 In this quickstart, you create an Azure Functions project and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
 > [!NOTE]
-> Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
+> Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 >  
 > Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
 
@@ -21,19 +23,19 @@ On your local computer:
 # [C\#](#tab/csharp)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245. 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245. 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 ---
@@ -114,7 +116,7 @@ Before you can deploy your function code to your new App Service Kubernetes envi
 
 ### Create Storage account
 
-Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a general-purpose storage account in your resource group and region:
+Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a general-purpose storage account in your resource group and region:
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -127,7 +129,7 @@ In the previous example, replace `<STORAGE_NAME>` with a name that is appropriat
 
 ### Create the function app
 
-Run the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command to create a new function app in the environment.
+Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command to create a new function app in the environment.
 
 # [C\#](#tab/csharp)  
 ```azurecli
@@ -159,7 +161,7 @@ func azure functionapp list-functions
 
 ## Next steps
 
-Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Azure Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 

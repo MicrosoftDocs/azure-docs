@@ -12,9 +12,51 @@ ms.date: 06/17/2021
 
 [!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
-Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6, 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
+Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6(retired), 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## March 2022
+
+This release of Azure Database for MySQL - Single Server includes the following updates.
+
+**Bug Fixes**
+
+The MySQL 8.0.27 client and newer versions are now compatible with Azure Database for MySQL - Single Server.
+
+## February 2022
+
+This release of Azure Database for MySQL - Single Server includes the following updates.
+
+**Known Issues**
+
+Customers in Japan,East US received two Maintenance Notification emails for this month. The Email notification send for *05-Feb 2022* was send by mistake and no changes will be done to the service on this date. You can safely ignore them. We apologize for the inconvenience. 
+
+## December 2021
+
+This release of Azure Database for MySQL - Single Server includes the following updates:
+
+- **Query Text removed in Query Performance Insights to avoid unauthorized access** 
+
+Starting December 2021, you will not be able to see the query text of the queries in Query performance insight blade in Azure portal. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk. The recommended steps to view the query text is shared below:
+
+- Identify the query_id of the top queries from the Query Performance Insight blade in Azure portal
+- Login to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries
+
+     ```sql
+    SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
+    SELECT * FROM mysql.query_store_wait_stats where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for wait statistics 
+    ```
+
+- You can browse the query_digest_text column to identify the query text for the corresponding query_id
+
+The above steps will ensure only authenticated and authorized users can have secure access to the query text.
+
+## October 2021
+
+- **Known Issues**
+
+The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](./flexible-server/overview.md) instead.
 
 ## June 2021
   
@@ -78,8 +120,8 @@ If you have questions about or suggestions for working with Azure Database for M
 In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 

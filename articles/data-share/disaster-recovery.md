@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 01/03/2022
 ---
 # Disaster recovery for Azure Data Share
 
@@ -23,7 +23,7 @@ Data consumers can either have an active share subscription that is idle for DR 
 
 ## Related information
 
-- [Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md)
+- [Business Continuity and Disaster Recovery](../availability-zones/cross-region-replication-azure.md)
 - [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## Next steps

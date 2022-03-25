@@ -1,9 +1,9 @@
 ---
-author: wesmc7777
+author: flang-msft
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: wesmc
+ms.author: franlanglois
 ---
 ## Clean up deployment 
 

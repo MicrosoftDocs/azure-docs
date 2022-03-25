@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/23/2021 #Required; mm/dd/yyyy format.
+  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -61,6 +61,14 @@ landingContent:
         links:
           - text: Samples on GitHub
             url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+
+  # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Expose hybrid services securely with Azure Relay
+            url: /learn/modules/expose-hybrid-services-with-azure-relay/
 
   # Card
   - title: Security

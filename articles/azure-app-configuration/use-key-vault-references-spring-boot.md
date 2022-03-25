@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: csharp
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: alkemper
@@ -90,10 +90,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+    az ad sp create-for-rbac -n "http://mySP" --role Contributor --sdk-auth
     ```
 
     This operation returns a series of key/value pairs:
@@ -122,7 +122,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
-    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
+    az role assignment create --role "App Configuration Data Reader" --scope /subscriptions/<subscriptionId>/resourceGroups/<group-name> --assignee-principal-type --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Create the environment variables **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET**, and **AZURE_TENANT_ID**. Use the values for the service principal that were displayed in the previous steps. At the command line, run the following commands and restart the command prompt to allow the change to take effect:

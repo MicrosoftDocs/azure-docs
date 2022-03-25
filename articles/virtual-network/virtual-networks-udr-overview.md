@@ -7,7 +7,6 @@ documentationcenter: na
 author: KumudD
 manager: 
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -76,7 +75,7 @@ You can specify the following next hop types when creating a user-defined route:
 
 * **Virtual appliance**: A virtual appliance is a virtual machine that typically runs a network application, such as a firewall. To learn about a variety of pre-configured network virtual appliances you can deploy in a virtual network, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). When you create a route with the **virtual appliance** hop type, you also specify a next hop IP address. The IP address can be:
 
-    * The [private IP address](./private-ip-addresses.md) of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure *Enable IP forwarding* option enabled for it. The setting disables Azure's check of the source and destination for a network interface. Learn more about how to [enable IP forwarding for a network interface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Though *Enable IP forwarding* is an Azure setting, you may also need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance must route traffic to a public IP address, it must either proxy the traffic, or network address translate the private IP address of the source's private IP address to its own private IP address, which Azure then network address translates to a public IP address, before sending the traffic to the Internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
+    * The [private IP address](./ip-services/private-ip-addresses.md) of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure *Enable IP forwarding* option enabled for it. The setting disables Azure's check of the source and destination for a network interface. Learn more about how to [enable IP forwarding for a network interface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Though *Enable IP forwarding* is an Azure setting, you may also need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance must route traffic to a public IP address, it must either proxy the traffic, or network address translate the private IP address of the source's private IP address to its own private IP address, which Azure then network address translates to a public IP address, before sending the traffic to the Internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 
       > [!NOTE]
       > Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance are deployed in. Deploying the virtual appliance to the same subnet, then applying a route table to the subnet that routes traffic through the virtual appliance, can result in routing loops, where traffic never leaves the subnet.
@@ -109,7 +108,7 @@ When there is an exact prefix match between a route with an explicit IP prefix a
    3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
    4. The AzureCloud tag </br></br>
 
-To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
+To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in PowerShell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -128,7 +127,7 @@ When BGP routes are present or a Service Endpoint is configured on your subnet, 
 
 
 > [!NOTE] 
-> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through Powershell and CLI. There is no support for use with containers. 
+> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through PowerShell and CLI. There is no support for use with containers. 
 
 ## Next hop types across Azure tools
 

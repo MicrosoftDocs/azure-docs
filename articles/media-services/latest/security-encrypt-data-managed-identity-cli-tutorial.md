@@ -14,6 +14,8 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
+[!INCLUDE [note-managed-identities-v3](includes/note-managed-identities-v3.md)]
+
 If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to your Key Vault using the Media Services CLI.
 
 :::image type="content" source="media/diagrams/managed-identities-scenario-keyvault-media-services-account.svg" alt-text="Media Services account uses Key Vault with a Managed Identity":::
@@ -40,12 +42,12 @@ Before you get started, decide on the names of the resources you'll create.  The
 
 You'll see these names referenced in the commands below.  The names of resources you'll need are:
 
-- your-resource-group-name
-- your-storage-account-name
-- your-media-services-account-name
-- your-keyvault-name
-- your-key-name
-- your-region
+- myRG
+- myStorageAccount
+- myAmsAccount
+- myKeyVault
+- myKey
+- location
 
 > [!NOTE]
 > The hyphens above are only used to separate guidance words. Because of the inconsistency of naming resources in Azure services, don't use hyphens when you name your resources.
@@ -61,11 +63,6 @@ If you're not sure of the actual region name to use, use this command to get a l
 
 Each of the steps below is done in a particular order because one or more values from the JSON responses are used in the next step in the sequence.
 
-## Create a resource group
-
-The resources you'll create must belong to a resource group. Create the resource group first. You'll use `your-resource-group-name` for the Media Services account creation step, and subsequent steps.
-
-[!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
 ## Create a Storage account
 

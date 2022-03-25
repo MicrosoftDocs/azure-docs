@@ -6,7 +6,7 @@ ms.author: b-swiencki
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 05/31/2021
-#Customer intent: As an operator I need to rotate service principal credentials
+#Customer intent: As an operator, I need to rotate service principal credentials
 ---
 # Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster
 The article provides the necessary detail to rotate service principal credentials in Azure Red Hat OpenShift clusters ([ARO](https://github.com/Azure/ARO-RP)).

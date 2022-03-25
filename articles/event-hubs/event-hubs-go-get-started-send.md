@@ -1,8 +1,10 @@
 ---
 title: 'Quickstart: Send and receive events using Go - Azure Event Hubs'
-description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.' 
+description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.'
 ms.topic: quickstart
-ms.date: 09/23/2021
+ms.date: 11/11/2021
+ms.devlang: golang
+ms.custom: mode-api
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -75,7 +77,7 @@ The following code creates an Event Hubs client:
 
 ```go
 hub, err := eventhubs.NewHub("namespaceName", "hubName", tokenProvider)
-ctx := context.WithTimeout(context.Background(), 10 * time.Second)
+ctx, cancel := context.WithTimeout(context.Background(), 10 * time.Second)
 defer hub.Close(ctx)
 if err != nil {
 	log.Fatalf("failed to get hub %s\n", err)

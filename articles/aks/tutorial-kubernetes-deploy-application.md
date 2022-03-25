@@ -23,6 +23,9 @@ In later tutorials, this application is scaled out and updated.
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
+> [!TIP]
+> AKS clusters can use GitOps for configuration management. This enables declarations of your cluster's state, which are pushed to source control, to be applied to the cluster automatically. To learn how to use GitOps to deploy an application with an AKS cluster, see the tutorial [Use GitOps with Flux v2][gitops-flux-tutorial] and follow the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks].
+
 ## Before you begin
 
 In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created.
@@ -61,13 +64,13 @@ Get the ACR login server name using the [Get-AzContainerRegistry][get-azcontaine
 
 ---
 
-The sample manifest file from the git repo cloned in the first tutorial uses the login server name of *microsoft*. Make sure that you're in the cloned *azure-voting-app-redis* directory, then open the manifest file with a text editor, such as `vi`:
+The sample manifest file from the git repo cloned in the first tutorial uses the images from Microsoft Container Registry (*mcr.microsoft.com*). Make sure that you're in the cloned *azure-voting-app-redis* directory, then open the manifest file with a text editor, such as `vi`:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Replace *microsoft* with your ACR login server name. The image name is found on line 60 of the manifest file. The following example shows the default image name:
+Replace *mcr.microsoft.com* with your ACR login server name. The image name is found on line 60 of the manifest file. The following example shows the default image name:
 
 ```yaml
 containers:
@@ -160,3 +163,5 @@ Advance to the next tutorial to learn how to scale a Kubernetes application and 
 [kubernetes-service]: concepts-network.md#services
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[gitops-flux-tutorial]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json
+[gitops-flux-tutorial-aks]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json#for-azure-kubernetes-service-clusters

@@ -5,19 +5,17 @@ metadata:
   services: active-directory
   documentationcenter: ''
   author: billmath
-  manager: daveba
+  manager: karenhoran
   ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 08/23/2019
   ms.subservice: hybrid
   ms.author: billmath
   
   ms.collection: M365-identity-device-management
-    
 title: Azure Active Directory Connect FAQ
 summary: |
 
@@ -389,4 +387,3 @@ sections:
           Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?
         answer: |
           The events 6311 - **The server encountered an unexpected error while performing a callback** and 6401 - **The management agent controller encountered an unexpected error** - are always logged after a synchronization step error. To resolve these errors, you need to clean up the synchronization step errors.  For more information, see [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) and [Troubleshoot object synchronization with Azure AD Connect sync](tshoot-connect-objectsync.md)
-

@@ -3,11 +3,11 @@ title: 'Quickstart: Create an Object Anchors model to be used in an app'
 description: In this quickstart, you learn how to create an Object Anchors model from a 3D model.
 author: craigktreasure
 manager: virivera
-
 ms.author: crtreasu
 ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Create an Object Anchors model from a 3D model
 
@@ -30,6 +30,8 @@ To complete this quickstart, make sure you have:
 * The <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## Create an Object Anchors account
 
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
@@ -55,7 +57,7 @@ Now, you can go ahead and convert your 3D model.
 
     | Field                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath           | The absolute path to a 3D model on your local machine. Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
+    | InputAssetPath           | The absolute path to a 3D model on your local machine. Supported file formats are `fbx`, `ply`, `obj`, and `glb`. |
     | AssetDimensionUnit       | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
 

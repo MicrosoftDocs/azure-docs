@@ -8,7 +8,6 @@ manager: femila
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -155,6 +154,8 @@ src: ...,
 emeHeaders: {'Authorization': "Bearer=" + "YOUR TOKEN"},
 keySystems: {...
 ```
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
 
 ## Next steps
 

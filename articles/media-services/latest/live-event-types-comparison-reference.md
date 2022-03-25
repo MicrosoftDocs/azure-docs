@@ -10,9 +10,8 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 02/17/2022
 ms.author: inhenkel
 
 ---
@@ -108,6 +107,9 @@ If the source frame rate on input is >30 fps, the frame rate will be reduced to 
 
 For both *Default720p* and *Default1080p* presets, audio is encoded to stereo AAC-LC at 128 kbps. The sampling rate follows that of the audio track in the contribution feed.
 
+> [!NOTE]
+> If the sampling rate is low, such as 8khz, the encoded output will be lower than 128kbps.
+
 ## Implicit properties of the live encoder
 
 The previous section describes the properties of the live encoder that can be controlled explicitly, via the preset - such as the number of layers, resolutions, and bitrates. This section clarifies the implicit properties.
@@ -131,6 +133,7 @@ For example, if you send a contribution feed at 720p to a Live Event configured 
 ### Bitrate of contribution feed and output layers
 
 The live encoder is configured to honor the bitrate settings in the preset, irrespective of the bitrate of the contribution feed. As a result the bitrate of the output layers may exceed that of the contribution feed. For example, if you send in a contribution feed at a resolution of 720p at 1 Mbps, the output layers will remain the same as in the [table](live-event-types-comparison-reference.md#output-video-streams-for-default720p) above.
+
 
 ## Next steps
 

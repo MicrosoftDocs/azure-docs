@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
-ms.reviewer: luquinta
-ms.date: 11/16/2020
+ms.reviewer: ssalgado
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
 ---
@@ -124,8 +124,7 @@ The following example shows how to use the fairness package. We will upload mode
 
     # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
     from raiwidgets import FairnessDashboard
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test,
                       y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
@@ -279,8 +278,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
 
     from raiwidgets import FairnessDashboard
 
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test.tolist(),
                       y_pred=ys_pred)
     ```

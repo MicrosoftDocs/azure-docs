@@ -2,17 +2,17 @@
 title: Best practices for memory management
 titleSuffix: Azure Cache for Redis
 description: Learn how to manage your Azure Cache for Redis memory effectively.
-author: shpathak-msft
+author: flang-msft
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
-ms.author: shpathak
+ms.author: franlanglois
 ---
 # Memory management
 
 ## Eviction policy
 
-Choose an [eviction policy](https://redis.io/topics/lru-cache) that works for your application. The default policy for Azure Cache for Redis is `volatile-lru`, which means that only keys that have a TTL value set are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
+Choose an [eviction policy](https://redis.io/topics/lru-cache) that works for your application. The default policy for Azure Cache for Redis is `volatile-lru`, which means that only keys that have a TTL value set with a command like [EXPIRE](https://redis.io/commands/expire) are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
 
 ## Keys expiration
 

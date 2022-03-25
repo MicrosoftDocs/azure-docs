@@ -16,13 +16,13 @@ In this document, you will learn the type of interactions that you can perform
 
 ## Prerequisites 
 
-- [Azure Purview account](../../purview/create-catalog-portal.md) 
+- [Azure Azure Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
 - [Connect an Azure Purview Account into Synapse](quickstart-connect-azure-purview.md) 
 
 ## Using Azure Purview in Synapse 
 
-The use Azure Purview in Synapse requires you to have access to that Purview account. Synapse passes-through your Purview permission. As an example, if you have a curator permission role, you will be able to edit metadata scanned by Azure Purview. 
+The use Azure Purview in Synapse requires you to have access to that Azure Purview account. Synapse passes-through your Azure Purview permission. As an example, if you have a curator permission role, you will be able to edit metadata scanned by Azure Purview. 
 
 ### Data discovery: search datasets 
 

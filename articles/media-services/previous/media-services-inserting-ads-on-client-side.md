@@ -10,7 +10,7 @@ ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -364,7 +364,7 @@ An executable ad is created in code that must be executed in a runtime environme
 An executable ad can be initialized using the `<AdParameters>` element within the `<Linear>` or `<NonLinear>` elements in a VAST response. For more information on the `<AdParameters>` element, see [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). For more information about the VPAID API, see [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## Implementing a Windows or Windows Phone 8 Player with Ad Support
-The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Player Framework for Windows 8 and Windows Phone 8](https://playerframework.codeplex.com).
+The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Player Framework for Windows 8 and Windows Phone 8](https://developerpublish.com/player-framework-for-windows-8-preview-6-released/).
 
 When you open the Microsoft.PlayerFramework.Xaml.Samples solution, you will see a number of folders within the project. The Advertising folder contains the sample code relevant to creating a video player with ad support. Inside the Advertising folder is a number of XAML/cs files each of which show how to insert ads in a different way. The following list describes each:
 
@@ -403,7 +403,6 @@ This sample uses the AdSchedulerPlugin to define when to display an ad. In this 
     </mmppf:MediaPlayer>
 ```
 
-For more information about the AdSchedulerPlugin, see [Advertising in the Player Framework on Windows 8 and Windows Phone 8](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### AdSchedulingPage
 This sample also uses the AdSchedulerPlugin. It schedules three ads, a pre-roll ad, a mid-roll ad, and a post-roll ad. The URI to the VAST for each ad is specified in a `<RemoteAdSource>` element.

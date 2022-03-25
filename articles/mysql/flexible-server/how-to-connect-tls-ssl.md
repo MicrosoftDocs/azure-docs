@@ -6,14 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
+ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
@@ -53,7 +51,7 @@ If your client application doesn't support encrypted connections, you will need 
 The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=DISABLED` connection string setting to disable TLS/SSL connection from mysql client. Replace values with your actual server name and password.
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 
 It is important to note that setting require_secure_transport to OFF doesn't mean encrypted connections will not supported on server side. If you set require_secure_transport to OFF on flexible server but if the client connects with encrypted connection, it will still be accepted. The following connection using mysql client to a flexible server configured with require_secure_transport=OFF will also work as shown below.
@@ -118,6 +116,9 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUI
 
 > [!Note]
 > Confirm that the value passed to `--ssl-ca` matches the file path for the certificate you saved.
+>If you are connecting to the Azure Database for MySQL- Flexible with SSL and are using an option to perform full verification (sslmode=VERTIFY_IDENTITY) with certificate subject name, use \<servername\>.mysql.database.azure.com in your connection string.
+
+
 
 If you try to connect to your server with unencrypted connections, you will see error stating connections using insecure transport are prohibited similar to one below:
 

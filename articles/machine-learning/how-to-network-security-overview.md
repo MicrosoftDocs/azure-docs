@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
-ms.author: peterlu
-author: peterclu
-ms.date: 09/24/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 02/02/2022
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
 ---
@@ -27,12 +27,14 @@ Secure Azure Machine Learning workspace resources and compute environments using
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+>
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Prerequisites
 
 This article assumes that you have familiarity with the following topics:
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
-+ [IP networking](../virtual-network/public-ip-addresses.md)
++ [IP networking](../virtual-network/ip-services/public-ip-addresses.md)
 + [Azure Machine Learning workspace with private endpoint](how-to-configure-private-link.md)
 + [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
@@ -45,14 +47,16 @@ The following table compares how services access different parts of an Azure Mac
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
 |**No virtual network**| Public IP | Public IP | Public IP | Public IP |
-|**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  | 
+|**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  |
+|**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  | 
 
 * **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
+    * **Public access** - You can optionally enable public access for a secured workspace.
 * **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault. For Azure Container Services, use a private endpoint.
     * **Service endpoints** provide the identity of your virtual network to the Azure service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. Service endpoints use public IP addresses.
     * **Private endpoints** are network interfaces that securely connect you to a service powered by Azure Private Link. Private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
-* **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters securely with public IP addresses. 
-* **Inferencing compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
+* **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters with public or private IP addresses.
+* **Inference compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
 
 
 The next sections show you how to secure the network scenario described above. To secure your network, you must:
@@ -62,12 +66,18 @@ The next sections show you how to secure the network scenario described above. T
 1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
 1. Configure [**firewall settings**](#configure-firewall-settings).
-1. Configure [DNS name resolution](#custom-dns).
-## Secure the workspace and associated resources
+1. Configure [**DNS name resolution**](#custom-dns).
 
-Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
+## Public workspace and secured resources
 
-1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
+If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
+
+1. Create an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
+1. Use __one__ of the following options to create a publicly accessible workspace:
+
+    * Create an Azure Machine Learning workspace that __does not__ use the virtual network. For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
+    * Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace. Then [enable public access to the workspace](#optional-enable-public-access).
+
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
     | Service | Endpoint information | Allow trusted information |
@@ -76,15 +86,29 @@ Use the following steps to secure your workspace and associated resources. These
     | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 
+1. In properties for the Azure Storage Account(s) for your workspace, add your client IP address to the allowed list in firewall settings. For more information, see [Configure firewalls and virtual networks](../storage/common/storage-network-security.md#configuring-access-from-on-premises-networks).
 
-![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
+## Secure the workspace and associated resources
+
+Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
+
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources. Then create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
+1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
+
+    | Service | Endpoint information | Allow trusted information |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access from Azure resource instances](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview)</br>**or**</br>[Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+
+
+:::image type="content" source="./media/how-to-network-security-overview/secure-workspace-resources.svg" alt-text="Diagram showing how the workspace and associated resources communicate inside a VNet.":::
 
 For detailed instructions on how to complete these steps, see [Secure an Azure Machine Learning workspace](how-to-secure-workspace-vnet.md). 
 
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Using an Azure Machine Learning workspace with private endpoint is not available in Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment
@@ -94,9 +118,12 @@ In this section, you learn how to secure the training environment in Azure Machi
 To secure the training environment, use the following steps:
 
 1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster) to run the training job.
-1. [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
+1. If your compute cluster or compute instance does not use a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
-![Architecture diagram showing how to secure managed compute clusters and instances](./media/how-to-network-security-overview/secure-training-environment.png)
+    > [!TIP]
+    > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, they communicate with the Azure Batch Services over the public IP. If created without a public IP, they communicate with Azure Batch Services over the private IP. When using a private IP, you need to allow inbound communications from Azure Batch.
+
+:::image type="content" source="./media/how-to-network-security-overview/secure-training-environment.svg" alt-text="Diagram showing how to secure managed compute clusters and instances.":::
 
 For detailed instructions on how to complete these steps, see [Secure a training environment](how-to-secure-training-vnet.md). 
 
@@ -110,8 +137,9 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 1. Azure Batch service receives the job from the workspace. It then submits the training job to the compute environment through the public load balancer for the compute resource. 
 
-1. The compute resource receive the job and begins training. The compute resources accesses secure storage accounts to download training files and upload output.
+1. The compute resource receives the job and begins training. The compute resource uses information stored in key vault to access storage accounts to download training files and upload output.
 
+:::image type="content" source="./media/how-to-network-security-overview/secure-training-job-submission.svg" alt-text="Diagram showing the secure training job submission workflow.":::
 ### Limitations
 
 - Azure Compute Instance and Azure Compute Clusters must be in the same VNet, region, and subscription as the workspace and its associated resources. 
@@ -133,20 +161,21 @@ For detailed instructions on how to add default and private clusters, see [Secur
 
 The following network diagram shows a secured Azure Machine Learning workspace with a private AKS cluster attached to the virtual network.
 
-![Architecture diagram showing how to attach a private AKS cluster to the virtual network. The AKS control plane is placed outside of the customer VNet](./media/how-to-network-security-overview/secure-inferencing-environment.png)
+:::image type="content" source="./media/how-to-network-security-overview/secure-inferencing-environment.svg" alt-text="Diagram showing an attached private AKS cluster.":::
 
 ### Limitations
-- AKS clusters must belong to the same VNet as the workspace and its associated resources. 
+
+- The workspace must have a private endpoint in the same VNet as the AKS cluster. For example, when using multiple private endpoints with the workspace, one private endpoint can be in the AKS VNet and another in the VNet that contains dependency services for the workspace.
 
 ## Optional: Enable public access
 
 You can secure the workspace behind a VNet using a private endpoint and still allow access over the public internet. The initial configuration is the same as [securing the workspace and associated resources](#secure-the-workspace-and-associated-resources). 
 
-After securing the workspace with a private endpoint, you then [Enable public access](how-to-configure-private-link.md#enable-public-access). After this, you can access the workspace from both the public internet and the VNet.
+After securing the workspace with a private endpoint, use the following steps to enable clients to develop remotely using either the SDK or Azure Machine Learning studio:
 
-### Limitations
+1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 
-- If you use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 ## Optional: enable studio functionality
 
 [Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
@@ -179,6 +208,26 @@ For more information on firewall settings, see [Use workspace behind a Firewall]
 If you need to use a custom DNS solution for your virtual network, you must add host records for your workspace.
 
 For more information on the required domain names and IP addresses, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
+
+## Microsoft Sentinel
+
+Microsoft Sentinel is a security solution that can integrate with Azure Machine Learning. For example, using Jupyter notebooks provided through Azure Machine Learning. For more information, see [Use Jupyter notebooks to hunt for security threats](../sentinel/notebooks.md).
+
+### Public access
+
+Microsoft Sentinel can automatically create a workspace for you if you are OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
+
+For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+
+:::image type="content" source="./media/how-to-network-security-overview/common-public-endpoint-deployment.svg" alt-text="Diagram showing Microsoft Sentinel public connection.":::
+
+### Private endpoint
+
+If you want to secure your workspace and associated resources in a VNet, you must create the Azure Machine Learning workspace first. You must also create a virtual machine 'jump box' in the same VNet as your workspace, and enable Azure Bastion connectivity to it. Similar to the public configuration, SOC analysts and administrators can connect using Microsoft Sentinel, but some operations must be performed using Azure Bastion to connect to the VM.
+
+For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks.md?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+
+:::image type="content" source="./media/how-to-network-security-overview/private-endpoint-deploy-bastion.svg" alt-text="Daigram showing Microsoft Sentinel connection through a VNet.":::
 
 ## Next steps
 

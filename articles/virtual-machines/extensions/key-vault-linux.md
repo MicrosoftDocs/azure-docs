@@ -10,8 +10,7 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Key Vault virtual machine extension for Linux
 
@@ -28,6 +27,9 @@ The Key Vault VM extension supports these Linux distributions:
 > [!NOTE]
 > To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.
 > 
+
+> [!NOTE]
+> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The KeyValut VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
 
 ### Supported certificate content types
 
@@ -112,8 +114,12 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** only for VMs with **user assigned identities**.
-> It specifies identity to use for authentication to Key Vault.
+> The 'authenticationSettings' property is **required** for VMs with **user assigned identities**.
+> Set msiClientId to the identity that will authenticate to Key Vault.
+> 
+> Also **required** for **Azure Arc-enabled VMs**.
+> Set msiEndpoint to `http://localhost:40342/metadata/identity`.
+
 
 
 ### Property values

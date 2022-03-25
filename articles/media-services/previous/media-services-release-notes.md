@@ -9,11 +9,9 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.custom: devx-track-csharp
 ---
 # Azure Media Services release notes
 

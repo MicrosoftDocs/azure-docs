@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021
 ---
 # Set up compute targets for model training and deployment
 
@@ -26,7 +26,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
 
 To use compute targets managed by Azure Machine Learning, see:
 
@@ -227,7 +227,7 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 > [!IMPORTANT]
 > Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
 > 
-> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
+> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://portal.azure.com/).
 
 To attach Azure Databricks as a compute target, provide the following information:
 
@@ -341,10 +341,10 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 
 ## <a id="kubernetes"></a>Kubernetes (preview)
 
-Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
+Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training and inferencing:
 
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure.
+* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.
 
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
@@ -355,7 +355,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#clean-up-resources).
 
 ## Notebook examples
 
@@ -368,7 +368,7 @@ See these notebooks for examples of training with various compute targets:
 ## Next steps
 
 * Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
-* [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
+* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

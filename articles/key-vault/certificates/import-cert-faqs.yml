@@ -8,10 +8,9 @@ metadata:
   
   ms.service: key-vault
   ms.subservice: certificates
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 07/20/2020
   ms.author: sebansal
-    
 title: Importing Azure Key Vault certificates FAQ
 summary: This article answers frequently asked questions about importing Azure Key Vault certificates.
 
@@ -59,7 +58,7 @@ sections:
         answer: |
           Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](./about-certificates.md#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
           
-          For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+          For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/certificates/get-deleted-certificate/get-deleted-certificate).
           
       - question: |
           Why am I getting "Error type: char length is too long"?
@@ -98,6 +97,12 @@ sections:
           Why can't I see the App Service certificate that I imported to Key Vault? 
         answer: |
           If you've imported the certificate successfully, you should be able to confirm it by going to the **Secrets** pane.
+          
+      - question: |
+          How do I combine certificates in a single .PEM or .PFX file to have the whole certificate bundle imported to Key Vault? 
+        answer: |
+          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. While importing certificate in Key Vault, it will allow you to import one certificate or the whole chain, it's up to you.
+
 
 
 additionalContent: |

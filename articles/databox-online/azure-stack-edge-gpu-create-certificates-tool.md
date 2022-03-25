@@ -5,7 +5,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ---
 
@@ -70,9 +70,9 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     |Input |Description  |
     |---------|---------|
     |`OutputRequestPath`|The file path on your local client where you want the certificate requests to be created.        |
-    |`DeviceName`|The name of your device in the **Devices** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
-    |`NodeSerialNumber`|The serial number of the device node in the **Network** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
-    |`ExternalFQDN`|The DNSDomain value in the **Devices** page in the local web UI of your device.         |
+    |`DeviceName`|The name of your device in the **Device** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
+    |`NodeSerialNumber`|The `Node serial number` of the device node shown on the **Overview** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
+    |`ExternalFQDN`|The `DNS domain` value in the **Device** page in the local web UI of your device.         |
     |`RequestType`|The request type can be for `MultipleCSR` - different certificates for the various endpoints, or `SingleCSR` - a single certificate for all the endpoints. <br> This field isn't required for a VPN certificate.     |
 
     For all the certificates except the VPN certificate, type: 
@@ -123,7 +123,7 @@ The certificate files that you get from your certificate authority (CA) must be 
 
 - To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 
 ## Validate certificates

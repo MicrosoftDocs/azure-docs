@@ -11,7 +11,6 @@ ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
@@ -65,7 +64,7 @@ The following documents contain provisions, which, through reference in this tex
 
 | Standard          | Definition                                                                                                                                                                                                     |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Adobe-Primetime] | [Primetime Digital Program Insertion Signaling Specification 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
+| [Adobe-Primetime] | Primetime Digital Program Insertion Signaling Specification 1.2                       |
 | [Adobe-Flash-AS]  | [FLASH ActionScript Language Reference](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
 | [AMF0]            | ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
 | [DASH-IF-IOP]     | DASH Industry Forum Interop Guidance v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
@@ -80,7 +79,7 @@ The following documents contain provisions, which, through reference in this tex
 | [MS-SSTR-Ingest]  | [Azure Media Services Fragmented MP4 Live Ingest Specification](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. August 2017. Informational. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
-| [RTMP]            | ["Adobe's Real-Time Messaging Protocol", December 21, 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [RTMP]            | ["Adobe's Real-Time Messaging Protocol", December 21, 2012](https://rtmp.veriskope.com/docs/spec/)                                                                                                            |
 | [SCTE-35-2019]    | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://scte-cms-resource-storage.s3.amazonaws.com/ANSI_SCTE-35-2019a-1582645390859.pdf                                                                       |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH for IP-Based Cable Services Part 1: MPD Constraints and Extensions                                                                                                                 |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile                                                                                                                                  |

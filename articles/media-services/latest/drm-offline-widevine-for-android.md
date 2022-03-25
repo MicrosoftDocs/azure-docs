@@ -5,9 +5,8 @@ services: media-services
 author: willzhan
 manager: femila
 ms.service: media-services
-ms.workload: media
-ms.topic: conceptual
-ms.date: 05/25/2021
+ms.topic: how-to
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
 
@@ -50,6 +49,8 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
     - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
     - [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html)
     - [EoPlayer Developer Blog](https://medium.com/google-exoplayer)
+
+## [.NET](#tab/net/)
 
 ## Configure content protection in Azure Media Services
 
@@ -98,16 +99,16 @@ ExoPlayer version 2.6 and higher includes many classes that support offline Wide
 
 The following list of classes facilitates offline mode in the ExoPlayer SDK for Android:
 
-- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
-- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java`  
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java` 
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java`
+- `library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java` 
 
 Developers should reference the [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html) and the corresponding [Developer Blog](https://medium.com/google-exoplayer) during development of an application. Google has not released a fully documented reference implementation or sample code for the ExoPlayer app supporting Widevine offline at this time, so the information is limited to the developers' guide and blog. 
 
@@ -146,6 +147,8 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
     - Chrome and Firefox require SAN-Subject Alternative Name setting to exist in the certificate
     - The certificate must have trusted CA and a self-signed development certificate does not work
     - The certificate must have a CN matching the DNS name of the web server or gateway
+
+---
 
 ## More information
 

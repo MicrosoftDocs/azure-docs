@@ -1,59 +1,59 @@
 ---
-title: 'Disable PTA when using Azure AD Connect "Do not configure" | Microsoft Docs'
-description: This article describes how to disable PTA with the Azure AD Connect "do not configure" feature.
+title: 'Disable pass-through authentication by using Azure AD Connect or PowerShell | Microsoft Docs'
+description: This article describes how to disable pass-through authentication by using the Azure AD Connect Do Not Configure feature or by using PowerShell.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/20/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
+# Disable pass-through authentication 
 
-# Disable PTA when using Azure AD Connect
-
-If you are using Pass-through Authentication with Azure AD Connect and you have it set to **"Do not configure"**, you can disable it. 
-
->[!NOTE]
->If you have PHS already enabled then disabling PTA will result in the tenant fallback to PHS.
-
-Disabling PTA can be done using the following cmdlets. 
+In this article, you learn how to disable pass-through authentication by using Azure Active Directory (Azure AD) Connect or PowerShell.
 
 ## Prerequisites
-The following prerequisites are required:
-- Any Windows machine that has the PTA agent installed. 
-- Agent must be at version 1.5.1742.0 or later. 
-- An Azure global administrator account in order to run the PowerShell cmdlets to disable PTA.
+
+Before you begin, ensure that you have the following:
+
+- A Windows machine with pass-through authentication agent version 1.5.1742.0 or later installed. Any earlier version might not have the requisite cmdlets for completing this operation.
+
+   If you don't already have an agent, you can install it by doing the following:
+
+   1. Go to the [Azure portal](https://portal.azure.com).
+   1. Download the latest Auth Agent.
+   1. Install the feature by running either of the following: 
+      * `.\AADConnectAuthAgentSetup.exe`  
+      * `.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
+        > [!IMPORTANT]
+        > If you're using the Azure Government cloud, pass in the ENVIRONMENTNAME parameter with the following value: 
+        >
+        >| Environment Name | Cloud |
+        >| - | - |
+        >| AzureUSGovernment | US Gov |
+
+- An Azure global administrator account for running the PowerShell cmdlets.
+
+## Use Azure AD Connect
+
+If you're using pass-through authentication with Azure AD Connect and you have it set to **Do not configure**, you can disable the setting. 
 
 >[!NOTE]
-> If your agent is older then it may not have the cmdlets required to complete this operation. You can get a new agent from Azure Portal an install it on any Windows machine and provide admin credentials. (Installing the agent does not affect the PTA status in the cloud)
+>If you already have password hash synchronization enabled, disabling pass-through authentication will result in a tenant fallback to password hash synchronization.
 
-> [!IMPORTANT]
-> If you are using the Azure Government cloud then you will have to pass in the ENVIRONMENTNAME parameter with the following value. 
->
->| Environment Name | Cloud |
->| - | - |
->| AzureUSGovernment | US Gov|
+## Use PowerShell
 
+In a PowerShell session, run the following cmdlets:
 
-## To disable PTA
-From within a PowerShell session, use the following to disable PTA:
 1. PS C:\Program Files\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
-2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` or `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
-3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` or `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
-
-## If you don't have access to an agent
-
-If you do not have an agent machine you can use following command to install an agent.
-
-1. Download the latest Auth Agent from portal.azure.com.
-2. Install the feature: `.\AADConnectAuthAgentSetup.exe` or `.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
-
+2. `Get-PassthroughAuthenticationEnablementStatus`
+3. `Disable-PassthroughAuthentication`
 
 ## Next steps
 
-- [User sign-in with Azure Active Directory Pass-through Authentication](how-to-connect-pta.md)
+- [User sign-in with Azure AD pass-through authentication](how-to-connect-pta.md)

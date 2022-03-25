@@ -10,7 +10,7 @@ ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -32,11 +32,10 @@ Media Services provides a service for delivering PlayReady and Widevine DRM lice
 
 You also can use the following Media Services partners to help you deliver Widevine licenses: 
 
-* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
-For more information, see integration with [Axinom](media-services-axinom-integration.md) and [castLabs](media-services-castlabs-integration.md).
+For more information, see integration with [castLabs](media-services-castlabs-integration.md).
 
 Media Services supports multiple ways of authorizing users who make key requests. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [simple web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) and [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT) formats. 
 

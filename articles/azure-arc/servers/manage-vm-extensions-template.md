@@ -2,7 +2,7 @@
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
 ms.date: 07/16/2021
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 To use the Custom Script extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
-* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc-enabled servers. The list of supported OSs for Azure Arc-enabled servers can be found [here](agent-overview.md#supported-operating-systems).
+* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc-enabled servers. The list of supported OSs for Azure Arc-enabled servers can be found [here](prerequisites.md#supported-operating-systems).
 
 * Configuration details regarding Azure Virtual Machine Scale Sets or Classic VMs are not applicable.
 
@@ -530,9 +530,9 @@ Save the template file to disk. You can then deploy the extension to the connect
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
 ```
 
-## Deploy the Azure Defender integrated scanner
+## Deploy the Microsoft Defender for Cloud integrated scanner
 
-To use the Azure Defender integrated scanner extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the integrated scanner, see [Overview of Azure Defender's vulnerability assessment solution](../../security-center/deploy-vulnerability-assessment-vm.md) for hybrid machines.
+To use the Microsoft Defender for Cloud integrated scanner extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the integrated scanner, see [Overview of Microsoft Defender for Cloud's vulnerability assessment solution](../../security-center/deploy-vulnerability-assessment-vm.md) for hybrid machines.
 
 ### Template file for Windows
 

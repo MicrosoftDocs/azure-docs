@@ -2,9 +2,7 @@
 title: IT Service Management Connector - Secure Export in Azure Monitor - Configuration with ServiceNow
 description: This article shows you how to connect your ITSM products/services with ServiceNow on Secure Export in Azure Monitor.
 ms.topic: conceptual
-author: nolavime
-ms.author: v-jysur
-ms.date: 12/31/2020
+ms.date: 2/23/2022
 
 ---
 
@@ -26,6 +24,6 @@ Ensure that you've met the following prerequisites:
 1. Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure export definition.
 
 2. Follow the instructions according to the version:
+   * [Rome](https://docs.servicenow.com/bundle/rome-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
-   * [Orlando](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/concept/azure-integration.html)

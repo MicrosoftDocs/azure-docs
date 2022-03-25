@@ -6,19 +6,20 @@
  ms.topic: include
  ms.date: 08/03/2021
  ms.author: timlt
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli 
+ ms.devlang: azurecli
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
+In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a temperature controller, connect it securely to the hub, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Hub.
 
 ## Prerequisites
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
 - Windows 10
-- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
-- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
+- Ubuntu 20.04 LTS
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
@@ -32,15 +33,15 @@ Install the following prerequisites on your development machine except where not
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## Run a simulated device
-In this section, you use the Python SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
+## Run the device sample
+In this section, you use the Python SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 1. Open a new console such as Windows CMD, PowerShell, or Bash. In the following steps, you'll use this console to install the Python SDK and work with the Python sample code.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
-1. Clone the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine:
+1. Clone the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples) to your local machine:
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
@@ -63,7 +64,7 @@ In this section, you use the Python SDK to send messages from a simulated device
     ```console
     pip3 install azure-iot-device
     ```
-1. Set the following environment variables, to enable your simulated device to connect to Azure IoT.
+1. Set the following environment variables, to enable your device to connect to Azure IoT.
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
 
@@ -125,7 +126,7 @@ To read telemetry sent by individual device components, you can use the plug and
 
 To view device telemetry with Azure CLI:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

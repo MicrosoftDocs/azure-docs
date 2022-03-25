@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 08/26/2021
+ms.date: 11/01/2021
 ---
 
 # Tutorial: Add authentication and permissions to your application when using Azure Web PubSub
@@ -96,7 +96,16 @@ First, add GitHub authentication to the chat room so the user can use a GitHub a
     1. Fill in the application name and homepage URL (the URL can be anything you like), and set **Authorization callback URL** to `http://localhost:8080/auth/github/callback`. This URL matches the callback API you exposed in the server.
     1. After the application is registered, copy the client ID and select **Generate a new client secret**.
 
-    Then run `node server <connection-string> <client-id> <client-secret>`, and open `http://localhost:8080/auth/github`. You're redirected to GitHub to sign in. After you sign in, you're redirected to the chat application.
+    Run the below command to test the settings, don't forget to replace `<connection-string>`, `<client-id>`, and `<client-secret>` with your values.
+
+    ```bash
+    export WebPubSubConnectionString="<connection-string>"
+    export GitHubClientId="<client-id>"
+    export GitHubClientSecret="<client-secret>"
+    node server
+    ```
+    
+    Now open `http://localhost:8080/auth/github`. You're redirected to GitHub to sign in. After you sign in, you're redirected to the chat application.
 
 1.  Update the chat room to make use of the identity you get from GitHub, instead of prompting the user for a username.
 
@@ -126,7 +135,7 @@ First, add GitHub authentication to the chat room so the user can use a GitHub a
       let options = {
         userId: req.user.username
       };
-      let token = await serviceClient.getAuthenticationToken(options);
+      let token = await serviceClient.getClientAccessToken(options);
       res.json({
         url: token.url
       });
@@ -159,7 +168,7 @@ First, you need to separate system and user messages into two different groups s
 Change `server.js` to send different messages to different groups:
 
 ```javascript
-let handler = new WebPubSubEventHandler(hubName, ['*'], {
+let handler = new WebPubSubEventHandler(hubName, {
   path: '/eventhandler',
   handleConnect: (req, res) => {
     res.success({
@@ -250,12 +259,12 @@ By default, the client doesn't have permission to send to any group. Update serv
 ```javascript
 app.get('/negotiate', async (req, res) => {
   ...
-  if (req.user.username === process.argv[5]) options.claims = { role: ['webpubsub.sendToGroup.system'] };
-  let token = await serviceClient.getAuthenticationToken(options);
+  if (req.user.username === process.argv[2]) options.claims = { role: ['webpubsub.sendToGroup.system'] };
+  let token = await serviceClient.getClientAccessToken(options);
 });
 ```
 
-Now run `node server <connection-string> <client-id> <client-secret> <admin-id>`. You'll see that you can send a system message to every client when you sign in as `<admin-id>`.
+Now run `node server <admin-id>`. You'll see that you can send a system message to every client when you sign in as `<admin-id>`.
 
 But if you sign in as a different user, when you select **system message**, nothing happens. You might expect the service to give you an error to let you know the operation isn't allowed. To provide this feedback, you can set `ackId` when you're publishing the message. Whenever `ackId` is specified, Web PubSub will return a message with a matching `ackId` to indicate whether the operation has succeeded or not.
 

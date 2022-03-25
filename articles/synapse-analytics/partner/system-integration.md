@@ -2,13 +2,13 @@
 title: System integration partners 
 description: List of industry system integrators building customer solutions with Azure Synapse Analytics
 services: synapse-analytics 
-author: periclesrocha
+author: gillharmeet
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/24/2020 
-ms.author: procha 
-ms.reviewer: jrasnick
+ms.author: harmeetgill 
+ms.reviewer: sngun
 ---
 
 # Azure Synapse Analytics system integration partners

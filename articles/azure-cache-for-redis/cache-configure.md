@@ -1,12 +1,12 @@
 ---
 title: How to configure Azure Cache for Redis
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
-author: yegu-ms
+author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/22/2017
-ms.author: yegu 
+ms.date: 02/02/2022
+ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -27,7 +27,7 @@ Azure Cache for Redis settings are viewed and configured on the **Azure Cache fo
 
 ![Azure Cache for Redis Settings](./media/cache-configure/redis-cache-settings.png)
 
-You can view and configure the following settings using the **Resource Menu**.
+You can view and configure the following settings using the **Resource Menu**. The settings that you see depend on the tier of your cache. For example, you don't see **Reboot** when using the Enterprise tier.
 
 * [Overview](#overview)
 * [Activity log](#activity-log)
@@ -142,7 +142,7 @@ For more information about `maxmemory` policies, see [Eviction policies](https:/
 
 The **maxmemory-reserved** setting configures the amount of memory, in MB per instance in a cluster, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data.
 
-The **maxfragmentationmemory-reserved** setting configures the amount of memory, in MB per instance in a cluster, that is reserved to accommodate for memory fragmentation. When you set this value, you to have a more consistent Redis server experience when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data.
+The **maxfragmentationmemory-reserved** setting configures the amount of memory, in MB per instance in a cluster, that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data.
 
 One thing to consider when choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change will drop the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -265,7 +265,7 @@ Select **Firewall** to view and configure firewall rules for cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
-You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved, there is a short delay before the rule is effective. This delay is typically less than one minute.
+You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved, there's a short delay before the rule is effective. This delay is typically less than one minute.
 
 > [!IMPORTANT]
 > Connections from Azure Cache for Redis monitoring systems are always permitted, even if firewall rules are configured.
@@ -311,7 +311,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
 ### Reboot
 
-The **Reboot** on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
+The **Reboot** item on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -322,8 +322,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then select **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is now available for all pricing tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
->
+> Reboot is not yet available for the Enterprise tier. Reboot is available for all other tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
 >
 
 ## Monitoring
@@ -393,11 +392,11 @@ New Azure Cache for Redis instances are configured with the following default Re
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
 | `maxclients` |Depends on the pricing tier<sup>2</sup> |This value is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting for how Redis selects what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Cache for Redis the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting used by Redis to select what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Cache for Redis the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 mb 60 |The client output buffer limits can be used to force disconnection of clients that aren't reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 
@@ -416,7 +415,7 @@ New Azure Cache for Redis instances are configured with the following default Re
   * P2 (13 GB - 130 GB) - up to 32 databases
   * P3 (26 GB - 260 GB) - up to 48 databases
   * P4 (53 GB - 530 GB) - up to 64 databases
-  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command isn't allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 For more information about databases, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-)
 
@@ -461,6 +460,8 @@ For more information about databases, see [What are Redis databases?](cache-deve
 > * SAVE
 > * SHUTDOWN
 > * SLAVEOF
+> * REPLICAOF
+> * ACL
 > * CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
 >
 >

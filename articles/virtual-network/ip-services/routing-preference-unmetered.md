@@ -6,7 +6,6 @@ documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 # Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -28,7 +27,7 @@ Your network traffic egressing from origin in Azure destined to CDN provider ben
 
 To take advantage of Routing Preference unmetered, your CDN providers need to be part of this program. If your CDN provider is not part of the program, contact your CDN provider.
 
-Next, configure routing preference for your resources, and set the Routing Preference type to **Internet**. You can configure Routing Preference while creating a public IP address, and then associate the public IP to resources such as virtual machines, internet facing load balancers, and more. [Learn how to configure routing preference for a public IP address using the Azure portal](../../virtual-network/routing-preference-portal.md)
+Next, configure routing preference for your resources, and set the Routing Preference type to **Internet**. You can configure Routing Preference while creating a public IP address, and then associate the public IP to resources such as virtual machines, internet facing load balancers, and more. [Learn how to configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md)
 
 You can also enable routing preference for your storage account and publish a second endpoint, that needs to be used by CDN provider to fetch data from the storage origin. For example, publishing an internet route-specific endpoint for the storage account *StorageAccountA* will publish the second end point for your storage services as shown below:
 
@@ -37,6 +36,6 @@ You can also enable routing preference for your storage account and publish a se
 
 ## Next steps
 
-* [Configure routing preference for a VM using the Azure PowerShell](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md)
-* [Configure routing preference for a VM using the Azure CLI](../../virtual-network/configure-routing-preference-virtual-machine-cli.md)
+* [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md)
+* [Configure routing preference for a VM using the Azure CLI](./configure-routing-preference-virtual-machine-cli.md)
 * [Configure routing preference for your storage account](../../storage/common/network-routing-preference.md)

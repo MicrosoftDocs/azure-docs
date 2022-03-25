@@ -11,14 +11,17 @@
 
 [![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
+In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
+
+> [!TIP]
+> As a developer, you have some options for how to connect devices to Azure IoT. To learn about connection options, see [Overview: Connection options for Azure IoT device developers](../articles/iot-develop/concepts-overview-connection-options.md).
 
 ## Prerequisites
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
 - Windows 10
-- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
-- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
+- Ubuntu 20.04 LTS
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the remaining prerequisites for your operating system.
 
@@ -51,14 +54,14 @@ To complete this quickstart on Windows, install Visual Studio 2019 and add the r
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a simulated device
-In this section, you configure your local environment, install the Azure IoT C device SDK, and run a sample that creates a simulated temperature controller.
+## Run the device sample
+In this section, you configure your local environment, install the Azure IoT C device SDK, and run a sample that creates a temperature controller.
 
 ### Configure your environment
 
 1. Open a console to install the Azure IoT C device SDK and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands. 
 
-1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
+1. Set the following environment variables, using the appropriate commands for your console. The device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **CMD**
 
@@ -121,7 +124,7 @@ In this section, you configure your local environment, install the Azure IoT C d
     cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
 
-    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
+    After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
     
     ```output
     Info: Initiating DPS client to retrieve IoT Hub connection information

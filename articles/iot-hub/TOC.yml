@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-    - name: What is Azure IoT Hub?
-      href: about-iot-hub.md
-    - name: IoT concepts
-      href: iot-concepts.md 
+    - name: IoT concepts and Azure IoT Hub
+      href: iot-concepts-and-iot-hub.md
 - name: Quickstarts
   expanded: true
   items:
@@ -42,8 +40,8 @@
       href: tutorial-manual-failover.md
     - name: Configure your devices
       href: tutorial-device-twins.md
-    - name: Manage firmware updates
-      href: tutorial-firmware-update.md
+    - name: Manage device updates
+      href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
     - name: Data visualization in Power BI
@@ -207,19 +205,23 @@
       items:
         - name: Use device and service SDKs
           items:
-            - name: Use the IoT device SDK for C
-              href: iot-hub-device-sdk-c-intro.md
+            - name: Azure IoT Embedded C SDK
+              href: iot-hub-device-embedded-c-sdk.md
+            - name: Azure IoT C SDK
               items:
-                - name: Use the IoTHubClient
-                  href: iot-hub-device-sdk-c-iothubclient.md
-            - name: Azure IoT C SDK resource information
-              href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
-            - name: Develop for constrained devices
-              href: iot-hub-devguide-develop-for-constrained-devices.md
-            - name: Develop for mobile devices
-              href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: Develop for Android Things platform
-              href: iot-hub-how-to-android-things.md
+                - name: Use the Azure IoT C SDK
+                  href: iot-hub-device-sdk-c-intro.md
+                  items:
+                    - name: Use the IoTHubClient
+                      href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Azure IoT C SDK resource information
+                  href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
+                - name: Develop for constrained devices
+                  href: iot-hub-devguide-develop-for-constrained-devices.md
+                - name: Develop for mobile devices
+                  href: iot-hub-how-to-develop-for-mobile-devices.md
+                - name: Develop for Android Things platform
+                  href: iot-hub-how-to-android-things.md
         - name: Control a device on Android
           href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
@@ -386,7 +388,7 @@
           href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
     - name: Troubleshoot and problem solution
       items:
-        - name: Device disconnects
+        - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md
         - name: Troubleshoot message routing
           href: troubleshoot-message-routing.md
@@ -443,7 +445,7 @@
     - name: Node.js (Service)
       href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
-      href: /javascript/api/overview/azure/iothub/management
+      href: /javascript/api/overview/azure/iot-hub
     - name: Python (Device)
       href: /python/api/azure-iot-device
     - name: Python (Service)
@@ -484,19 +486,19 @@
     - name: Azure IoT services
       items:
       - name: IoT Hub
-        href: ./index.yml
+        href: ../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
         href: ../iot-dps/index.yml
       - name: IoT Central
-        href: /microsoft-iot-central/
+        href: ../iot-central/index.yml
       - name: IoT Edge
         href: ../iot-edge/index.yml
-      - name: IoT Plug and Play
-        href: ../iot-develop/index.yml
       - name: Azure Maps
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
+    - name: IoT device developer
+      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs

@@ -1,29 +1,26 @@
 ---
-title: 'Troubleshooting issues with the ECMA Connector Host and Azure AD'
+title: 'Troubleshooting issues with provisioning to on-premises applications'
 description: Describes how to troubleshoot various issues you might encounter when you install and use the ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/24/2021
+ms.date: 02/03/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot ECMA Connector Host issues
-
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
+# Troubleshoot on-premises application provisioning
 
 ## Troubleshoot test connection issues
-After you configure the ECMA host and provisioning agent, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. When the test connection fails, try the following troubleshooting steps:
+After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. When the test connection fails, try the following troubleshooting steps:
 
  1. Check that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
-     2. Under **Services**, make sure the **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
+     2. Under **Services**, make sure the **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
     
         ![Screenshot that shows that the ECMA service is running.](./media/on-premises-ecma-troubleshoot/tshoot-1.png)
 
@@ -59,7 +56,7 @@ To resolve the following issues, run the ECMA host as an admin:
 
 ## Turn on verbose logging 
 
-By default, `switchValue` for the ECMA Connector Host is set to `Error`. This setting means it will only log events that are errors. To enable verbose logging for the ECMA host service or wizard, set `switchValue` to `Verbose` in both locations as shown.
+By default, `switchValue` for the ECMA Connector Host is set to `Verbose`. This will emit detailed logging that will help you troubleshoot issues. You can change the verbosity to `Error` if you would like to limit the number of logs emitted to only errors. Wen using the SQL connector without Windows Integrated Auth, we recommend setting the `switchValue` to `Error` as it will ensure that the connection string is not emitted in the logs. In order to change the verbosity to error, please update the `switchValue` to "Error" in both places as shown below.
 
 The file location for verbose service logging is C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config.
   ```
@@ -73,7 +70,7 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
       </appSettings> 
       <system.diagnostics> 
         <sources> 
-      <source name="ConnectorsLog" switchValue="Verbose"> 
+      <source name="ConnectorsLog" switchValue="Error"> 
             <listeners> 
               <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
                 <filter type=""/> 
@@ -81,14 +78,14 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
             </listeners> 
           </source> 
           <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-          <source name="ECMA2Host" switchValue="Verbose"> 
+          <source name="ECMA2Host" switchValue="Error"> 
             <listeners>  
               <add initializeData="ECMA2Host" type="System.Diagnos
   ```
 
-The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config.
+The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config.
   ```
-        <source name="ConnectorsLog" switchValue="Verbose"> 
+        <source name="ConnectorsLog" switchValue="Error"> 
           <listeners> 
             <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
               <filter type=""/> 
@@ -96,7 +93,7 @@ The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2
           </listeners> 
         </source> 
         <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-        <source name="ECMA2Host" switchValue="Verbose"> 
+        <source name="ECMA2Host" switchValue="Error"> 
           <listeners> 
             <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
   ```

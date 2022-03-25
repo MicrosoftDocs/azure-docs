@@ -41,7 +41,7 @@ When you configure object replication in the Azure portal, you only need to conf
 To create a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
-1. Under **Blob service**, select **Object replication**.
+1. Under **Data management**, select **Object replication**.
 1. Select **Set up replication rules**.
 1. Select the destination subscription and storage account.
 1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy.
@@ -139,7 +139,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 To create a replication policy with Azure CLI, first install Azure CLI version 2.11.1 or later. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-Next, enable blob versioning on the source and destination storage accounts, and enable change feed on the source account, by calling the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command. Remember to replace values in angle brackets with your own values:
+Next, enable blob versioning on the source and destination storage accounts, and enable change feed on the source account, by calling the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az login
@@ -178,7 +178,7 @@ az storage container create \
     --auth-mode login
 ```
 
-Create a new replication policy and an associated rule on the destination account by calling the [az storage account or-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
+Create a new replication policy and an associated rule on the destination account by calling the [az storage account or-policy create](/cli/azure/storage/account/or-policy#az-storage-account-or-policy-create).
 
 ```azurecli
 az storage account or-policy create \
@@ -193,7 +193,7 @@ az storage account or-policy create \
 
 ```
 
-Azure Storage sets the policy ID for the new policy when it is created. To add additional rules to the policy, call the [az storage account or-policy rule add](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) and provide the policy ID.
+Azure Storage sets the policy ID for the new policy when it is created. To add additional rules to the policy, call the [az storage account or-policy rule add](/cli/azure/storage/account/or-policy/rule#az-storage-account-or-policy-rule-add) and provide the policy ID.
 
 ```azurecli
 az storage account or-policy rule add \
@@ -286,7 +286,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # [Azure CLI](#tab/azure-cli)
 
-To write the replication policy definition for the destination account to a JSON file from Azure CLI, call the [az storage account or-policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) command and output to a file.
+To write the replication policy definition for the destination account to a JSON file from Azure CLI, call the [az storage account or-policy show](/cli/azure/storage/account/or-policy#az-storage-account-or-policy-show) command and output to a file.
 
 The following example writes the policy definition to a JSON file named *policy.json*. Remember to replace values in angle brackets and the file path with your own values:
 
@@ -296,7 +296,7 @@ az storage account or-policy show \
     --policy-id  <policy-id> > policy.json
 ```
 
-To use the JSON file to configure the replication policy on the source account with Azure CLI, call the [az storage account or-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) command and reference the *policy.json* file. Remember to replace values in angle brackets and the file path with your own values:
+To use the JSON file to configure the replication policy on the source account with Azure CLI, call the [az storage account or-policy create](/cli/azure/storage/account/or-policy#az-storage-account-or-policy-create) command and reference the *policy.json* file. Remember to replace values in angle brackets and the file path with your own values:
 
 ```azurecli
 az storage account or-policy create \

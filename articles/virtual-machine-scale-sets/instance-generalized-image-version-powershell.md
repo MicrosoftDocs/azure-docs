@@ -1,14 +1,14 @@
 ---
 title: Create a scale set from a generalized image with Azure PowerShell
-description: Create a scale set using a generalized image in a Shared Image Gallery using PowerShell.
-author: cynthn
+description: Create a scale set using a generalized image in an Azure Compute Gallery using PowerShell.
+author: sandeepraichura
+ms.author: saraic
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.author: cynthn
-ms.reviewer: mimckitt 
+ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-Create a VM from a generalized image version stored in a [Shared Image Gallery](../virtual-machines/shared-image-galleries.md). If want to create a scale set using a specialized image, see [Create scale set instances from a specialized image](instance-specialized-image-version-powershell.md).
+Create a VM from a generalized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). If want to create a scale set using a specialized image, see [Create scale set instances from a specialized image](instance-specialized-image-version-powershell.md).
 
 Once you have a generalized image, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
 
@@ -57,7 +57,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 ## Extended parameter set
 
-For full control over all of the resources, including naming, use the full parameter set to create a scale set using a Shared Image Gallery image. 
+For full control over all of the resources, including naming, use the full parameter set to create a scale set using an Azure Compute Gallery image. 
 
 ```azurepowershell-interactive
 # Get the image definition
@@ -173,10 +173,10 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can also create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
 For more information about Shared Image Galleries, see the [Overview](../virtual-machines/shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../virtual-machines/troubleshooting-shared-images.md).

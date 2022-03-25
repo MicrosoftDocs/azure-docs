@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create custom VM images with Azure PowerShell 
-description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Shared Image Gallery.
+description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/01/2020
@@ -16,14 +16,14 @@ ms.custom: mvc, devx-track-azurepowershell
 # Tutorial: Create Windows VM images with Azure PowerShell
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-Images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own specialized image of an Azure virtual machine using PowerShell and store it in a Shared Image Gallery. You learn how to:
+Images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own specialized image of an Azure virtual machine using PowerShell and store it in an Azure Compute Gallery (formerly known as Shared Image Gallery). You learn how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 
 
@@ -35,11 +35,11 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## Overview
 
-A [Shared Image Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+an [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
+The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
-The Shared Image Gallery feature has multiple resource types:
+The Azure Compute Gallery feature has multiple resource types:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
@@ -72,18 +72,18 @@ $resourceGroup = New-AzResourceGroup `
    -Location 'EastUS'
 ```
 
-## Create an image gallery 
+## Create a gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
+A gallery is the primary resource used for enabling image sharing. Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
-Create an image gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+Create a gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
-   -Description 'Shared Image Gallery for my organization'	
+   -Description 'Azure Compute Gallery for my organization'	
 ```
 
 
@@ -130,7 +130,7 @@ New-AzGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $sourceVM.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-01'
+   -PublishingProfileEndOfLifeDate '2030-12-01'
 ```
 
 It can take a while to replicate the image to all of the target regions.
@@ -159,7 +159,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $locati
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name $vmName -ResourceGroupName $resourceGroup -Location $location `
@@ -177,7 +177,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Share the gallery
 
-We recommend that you share access at the image gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
+We recommend that you share access at the gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
 
 ```azurepowershell-interactive
 # Get the object ID for the user
@@ -212,11 +212,11 @@ Azure also offers a service, built on Packer, [Azure VM Image Builder](../image-
 In this tutorial, you created a specialized VM image. You learned how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 
-> * Share an image gallery
+> * Share a gallery
 
 Advance to the next tutorial to learn about how to create highly available virtual machines.
 

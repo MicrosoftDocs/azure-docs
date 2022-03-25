@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 12/07/2021
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps
@@ -37,7 +37,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. [Sign in](https://make.powerapps.com) to Power Apps.
 
-1. On the left, expand **Data** > **Custom Connectors**.
+1. On the left, expand **Dataverse** > **Custom Connectors**.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Custom connector menu" border="true":::
 

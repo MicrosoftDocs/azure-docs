@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial - Migrate an Android app |Microsoft Azure Maps'
+title: Tutorial - Migrate an Android app
+titleSuffix: Microsoft Azure Maps
 description: 'Tutorial on how to migrate an Android app from Google Maps to Microsoft Azure Maps'
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 02/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -16,6 +16,7 @@ zone_pivot_groups: azure-maps-android
 The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply. In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
+>
 > * Load a map
 > * Localize a map
 > * Add markers, polylines, and polygons.
@@ -257,14 +258,14 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
-        > [!Note]
+        > [!NOTE]
         > You can set the version number to "0+" to have your code always point to the latest version.
 
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
 
 3. Add a map fragment to the main activity (resources pwd\> layout \> activity\_main.xml):
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -1327,4 +1328,4 @@ No resources to be cleaned up.
 Learn more about the Azure Maps Android SDK:
 
 > [!div class="nextstepaction"]
-> [Getting started with Azure Maps Android SDK](how-to-use-android-map-control-library.md)
+> [Get started with Azure Maps Android SDK](how-to-use-android-map-control-library.md)

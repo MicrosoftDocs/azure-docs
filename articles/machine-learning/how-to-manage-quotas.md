@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 06/14/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
@@ -94,12 +94,15 @@ The following table shows additional limits in the platform. Please reach out to
 | Parameter servers per node | 1 |
 
 <sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
 ### Azure Machine Learning managed online endpoints (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning managed online endpoints have the following limits.
+Azure Machine Learning managed online endpoints have limits described in the following table. 
+
+To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). To request an exception from the Azure Machine Learning product team, please open a technical support ticket.
 
 | **Resource** | **Limit** |
 | --- | --- |
@@ -109,13 +112,17 @@ Azure Machine Learning managed online endpoints have the following limits.
 | Number of deployments per subscription | 200 |
 | Number of deployments per endpoint | 20 |
 | Number of instances per deployment | 20 |
-| Max payload size at endpoint level |1.5 MB |
-| Max request time out at endpoint level  | 60 seconds |
-| Total QPS at endpoint level for all deployments  | 100 |
+| Max request time out at endpoint level  | 90 seconds |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>2</sup> |
 
-<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names
+<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-#### Azure Machine Learning pipelines
+<sup>2</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
+
+### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
 | **Resource** | **Limit** |
@@ -139,7 +146,7 @@ For more information, see [Container Instances limits](../azure-resource-manager
 ### Storage
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
 
-To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
+To increase the limit, make a request through [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
 
 
 ## Workspace-level quotas
@@ -183,7 +190,7 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 ## Request quota increases
 
-To raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
+To raise the limit or quota above the default limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
 
 You can't raise limits above the maximum values shown in the preceding tables. If there's no maximum limit, you can't adjust the limit for the resource.
 
@@ -196,4 +203,4 @@ When you're requesting a quota increase, select the service that you have in min
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
 + [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
-+ [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
++ [Troubleshooting managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md)

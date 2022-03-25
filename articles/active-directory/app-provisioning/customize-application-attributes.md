@@ -3,12 +3,12 @@ title: Tutorial - Customize Azure Active Directory attribute mappings in Applica
 description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 11/15/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -21,7 +21,7 @@ Before you get started, make sure you are familiar with app management and **Sin
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [What is Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
-There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
+There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app's user objects. Some apps manage other types of objects along with Users, such as Groups.
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.
 
@@ -42,6 +42,9 @@ Follow these steps to access the **Mappings** feature of user provisioning:
    ![Use Attribute Mapping to configure attribute mappings for apps](./media/customize-application-attributes/22.png)
 
    In this screenshot, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
+   
+   > [!NOTE]
+   > Clearing **Create** doesn't affect existing users. If **Create** isn't selected, you can't create new users.   
 
 1. Select an existing **Attribute Mapping** to open the **Edit Attribute** screen. Here you can edit the user attributes that flow between Azure AD and the target application.
 
@@ -115,7 +118,7 @@ Applications and systems that support customization of the attribute list includ
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute is not automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute is not automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
 
 When editing the list of supported attributes, the following properties are provided:
 
@@ -253,6 +256,7 @@ The request format in the PATCH and POST differ. To ensure that POST and PATCH a
   - **Things to consider**
     - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
+    - AppRoleAssignmentsComplex is not compatible with setting scope to "Sync All users and groups." 
     
   - **Example output** 
   
@@ -326,7 +330,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 - Microsoft Azure AD provides an efficient implementation of a synchronization process. In an initialized environment, only objects requiring updates are processed during a synchronization cycle.
 - Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated.
 - A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
-- Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It is not recommended to remove the IsSoftDeleted attribute from your attribute mappings.
 - The Azure AD provisioning service does not support provisioning null values.
 - They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 

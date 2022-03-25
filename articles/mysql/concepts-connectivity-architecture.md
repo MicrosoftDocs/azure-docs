@@ -5,7 +5,7 @@ author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/11/2021
+ms.date: 10/15/2021
 ---
 
 # Connectivity architecture in Azure Database for MySQL
@@ -38,50 +38,53 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 
 |  **Region name**       |  **Gateway IP addresses**                                  | **Gateway IP addresses   (decommissioning)**  |  **Gateway IP addresses   (decommissioned)**  |
 |------------------------|------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
-|  Australia Central     |  20.36.105.0                                               |                                               |                                               |
-|  Australia Central2    |  20.36.113.0                                               |                                               |                                               |
-|  Australia East        |  13.75.149.87, 40.79.161.1                                 |                                               |                                               |
-|  Australia South East  | 191.239.192.109, 13.73.109.251                             |                                               |                                               |
-|  Brazil South          |  191.233.201.8, 191.233.200.16                             |                                               |  104.41.11.5                                  |
-|  Canada Central        |  40.85.224.249                                             |                                               |                                               |
-|  Canada East           |  40.86.226.166                                             |                                               |                                               |
-|  Central US            |  23.99.160.139, 52.182.136.37,   52.182.136.38             |  13.67.215.62                                 |                                               |
-|  China East            |  139.219.130.35                                            |                                               |                                               |
-|  China East 2          |  40.73.82.1                                                |                                               |                                               |
-|  China North           |  139.219.15.17                                             |                                               |                                               |
-|  China North 2         |  40.73.50.0                                                |                                               |                                               |
-|  East Asia             |  191.234.2.139, 52.175.33.150,   13.75.33.20, 13.75.33.21  |                                               |                                               |
-|  East US               |  40.71.8.203, 40.71.83.113                                 |  40.121.158.30                                |  191.238.6.43                                 |
-|  East US 2             |  40.70.144.38, 52.167.105.38                               |  52.177.185.181                               |                                               |
-|  France Central        |  40.79.137.0, 40.79.129.1                                  |                                               |                                               |
-|  France South          |  40.79.177.0                                               |                                               |                                               |
-|  Germany Central       |  51.4.144.100                                              |                                               |                                               |
-|  Germany North         |  51.116.56.0                                               |                                               |                                               |
-|  Germany North East    |  51.5.144.179                                              |                                               |                                               |
-|  Germany West Central  |  51.116.152.0                                              |                                               |                                               |
-|  India Central         |  104.211.96.159                                            |                                               |                                               |
-|  India South           |  104.211.224.146                                           |                                               |                                               |
-|  India West            |  104.211.160.80                                            |                                               |                                               |
-|  Japan East            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196                                 |                                               |
-|  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7                   |  104.214.148.156                              |                                               |
-|  Korea Central         |  52.231.17.13                                              |  52.231.32.42                                 |                                               |
-|  Korea South           |  52.231.145.3                                              |  52.231.200.86                                |                                               |
-|  North Central US      |  52.162.104.35, 52.162.104.36                              |  23.96.178.199                                |                                               |
-|  North Europe          |  52.138.224.6, 52.138.224.7                                |  40.113.93.91                                 |  191.235.193.75                               |
-|  South Africa North    |  102.133.152.0                                             |                                               |                                               |
-|  South Africa West     |  102.133.24.0                                              |                                               |                                               |
-|  South Central US      |  104.214.16.39, 20.45.120.0                                |  13.66.62.124                                 | 23.98.162.75                                  |
-|  South East Asia       |  40.78.233.2, 23.98.80.12                                  |  104.43.15.0                                  |                                               |
-|  Switzerland North     |  51.107.56.0                                               |                                               |                                               |
-|  Switzerland West      |  51.107.152.0                                              |                                               |                                               |
-|  UAE Central           |  20.37.72.64                                               |                                               |                                               |
-|  UAE North             |  65.52.248.0                                               |                                               |                                               |
-|  UK   South            |  51.140.144.32                                             |  51.140.184.11                                |                                               |
-|  UK   West             |  51.141.8.11                                               |                                               |                                               |
-|  West Central US       |  13.78.145.25                                              |                                               |                                               |
+|  Australia Central     |  20.36.105.0 |  |       |
+|  Australia Central2    |  20.36.113.0  |  |        |
+|  Australia East        |  13.75.149.87, 40.79.161.1   |    |         |
+|  Australia South East  | 13.73.109.251, 13.77.49.32, 13.77.48.10     |        |            |
+|  Brazil South          |  191.233.201.8, 191.233.200.16     |       |  104.41.11.5                                  |
+|  Canada Central        |  13.71.168.32|| 40.85.224.249, 52.228.35.221             |                                               
+|  Canada East           |  40.86.226.166, 52.242.30.154                  |                                               |                                               |
+|  Central US            |  23.99.160.139, 52.182.136.37,   52.182.136.38       |  13.67.215.62      |                                               |
+|  China East            |  139.219.130.35            |                                               |                                               |
+|  China East 2          |  40.73.82.1, 52.130.120.89            | 
+|  China East 3          |  52.131.155.192      | 
+|  China North           |  139.219.15.17    |        |                                               |
+|  China North 2         |  40.73.50.0          |                                        |
+|  China North 3         |  52.131.27.192     |          |
+|  East Asia             |  13.75.33.20, 52.175.33.150,   13.75.33.20, 13.75.33.21  |                |                                               |
+|  East US               |  40.71.8.203, 40.71.83.113                                 |  40.121.158.30                  |  191.238.6.43                   |
+|  East US 2             |  40.70.144.38, 52.167.105.38                               |  52.177.185.181  |                                               |
+|  France Central        |  40.79.137.0, 40.79.129.1                                  |   |                                               |
+|  France South          |  40.79.177.0                                               |                      |                                               |
+|  Germany Central       |  51.4.144.100                                              |                           |                                               |
+|  Germany North         |  51.116.56.0                                               |                                  |                                               |
+|  Germany North East    |  51.5.144.179                                              |                  |                                               |
+|  Germany West Central  |  51.116.152.0                                              |             |                                               |
+|  India Central         |  104.211.96.159                                            |                      |                                               |
+|  India South           |  104.211.224.146                                           |                     |                                               |
+|  India West            |  104.211.160.80                                            |           |                                               |
+|  Japan East            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196           |                                               |
+|  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7                   |  104.214.148.156                |                                               |
+|  Korea Central         |  52.231.17.13                                              |  52.231.32.42                    |                                               |
+|  Korea South           |  52.231.145.3, 52.231.151.97                                              |  52.231.200.86     |                                               |
+|  North Central US      |  52.162.104.35, 52.162.104.36                              |  23.96.178.199       |                                               |
+|  North Europe          |  52.138.224.6, 52.138.224.7                                |  40.113.93.91                        |  191.235.193.75       |
+|  South Africa North    |  102.133.152.0                                             |                 |                                               |
+|  South Africa West     |  102.133.24.0                                              |                |                                               |
+|  South Central US      |  104.214.16.39, 20.45.120.0                                |  13.66.62.124              | 23.98.162.75                                  |
+|  South East Asia       |  40.78.233.2, 23.98.80.12                                  |  104.43.15.0         |                                               |
+|  Switzerland North     |  51.107.56.0                                               |       |                                               |
+|  Switzerland West      |  51.107.152.0                                              |                       |                                               |
+|  UAE Central           |  20.37.72.64                                               |                      |                                               |
+|  UAE North             |  65.52.248.0                                               |                         |                                               |
+|  UK   South            |  51.140.144.32, 51.105.64.0                 |  51.140.184.11                                |                                               |
+|  UK   West             |  51.141.8.11                                               |                                 |                                               |
+|  West Central US       |  13.78.145.25, 52.161.100.158                              |                       |                                               |
 |  West Europe           |  13.69.105.208, 104.40.169.187                             |  40.68.37.158                                 |  191.237.232.75                               |
 |  West US               |  13.86.216.212, 13.86.217.212                              |  104.42.238.205                               |  23.99.34.75                                  |
-
+|  West US2               |  13.66.136.195, 13.66.136.192, 13.66.226.202                              |       |                                   |
+|  West US3              |  20.150.184.2                |                               |                                 |
 ## Connection redirection
 
 Azure Database for MySQL supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MySQL servers. With redirection, and after the initial TCP session is established to the Azure Database for MySQL server, the server returns the backend address of the node hosting the MySQL server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.

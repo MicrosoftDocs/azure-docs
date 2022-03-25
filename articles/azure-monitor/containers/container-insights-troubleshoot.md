@@ -18,12 +18,9 @@ During the onboarding or update process, granting the **Monitoring Metrics Publi
 
 You can also manually grant this role from the Azure portal by performing the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Kubernetes**. As you begin typing, the list filters based on your input. Select **Azure Kubernetes**.
-3. In the list of Kubernetes clusters, select one from the list.
-2. From the left-hand menu, click **Access control (IAM)**.
-3. Select **+ Add** to add a role assignment and select the **Monitoring Metrics Publisher** role and under the **Select** box type **AKS** to filter the results on just the clusters service principals defined in the subscription. Select the one from the list that is specific to that cluster.
-4. Select **Save** to finish assigning the role.
+1. Assign the **Publisher** role to the **Monitoring Metrics** scope.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). 
 
 ## Container insights is enabled but not reporting any information
 
@@ -156,6 +153,31 @@ To view the non-Azure Kubernetes cluster in Container insights, Read access is r
         kubernetes.azure.com/managedby: aks
         ```
 
+## Installation of Azure Monitor Containers Extension fail with an error containing “manifests contain a resource that already exists” on Azure Arc Enabled Kubernetes cluster
+The error _manifests contain a resource that already exists_ indicates that resources of the Container Insights agent already exist on the Azure Arc Enabled Kubernetes cluster. This indicates that the container insights agent is already installed either through azuremonitor-containers HELM chart or Monitoring Addon if it is AKS Cluster which is connected Azure Arc. The solution to this issue, is to clean up the existing resources of container insights agent if it exists and then enable Azure Monitor Containers Extension.
+
+### For non-AKS clusters 
+1.	Against the K8s cluster which is connected to Azure Arc,  run below command to verify whether the azmon-containers-release-1  helm chart release exists or not:
+
+    `helm list  -A`
+
+2.	If the output of the above command indicates that azmon-containers-release-1  exists, delete the helm chart release:
+
+    `helm del azmon-containers-release-1`
+
+### For AKS clusters
+1.	Run below commands and look for omsagent addon profile to verify the AKS monitoring addon enabled or not:
+
+    ```
+    az  account set -s <clusterSubscriptionId>
+    az aks show -g <clusterResourceGroup> -n <clusterName>
+    ```
+
+2.	If there is omsagent addon profile config with log analytics workspace resource Id in the output of the above command indicates that, AKS Monitoring addon enabled and which needs to be disabled:
+
+    `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
+
+If above steps didn’t resolve the installation of Azure Monitor Containers Extension issues, please create a ticket to Microsoft for further investigation.
 
 
 ## Next steps

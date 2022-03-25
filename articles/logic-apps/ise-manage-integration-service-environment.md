@@ -1,10 +1,10 @@
 ---
 title: Manage integration service environments in Azure Logic Apps
-description: Check network health and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps
+description: Check network health and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2020
 ---
 
@@ -118,6 +118,10 @@ You can view and manage the custom connectors that you deployed to your ISE.
 ## Add ISE capacity
 
 The Premium ISE base unit has fixed capacity, so if you need more throughput, you can add more scale units, either during creation or afterwards. The Developer SKU doesn't include the capability to add scale units.
+
+> [!IMPORTANT]
+> Scaling out an ISE can take 20-30 minutes on average.
+
 
 1. In the [Azure portal](https://portal.azure.com), go to your ISE.
 

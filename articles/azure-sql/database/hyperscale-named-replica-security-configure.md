@@ -7,7 +7,7 @@ ms.subservice: scale-out
 ms.topic: how-to
 author: yorek
 ms.author: damauri
-ms.reviewer: 
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 7/27/2021
 ---
 # Configure isolated access to a Hyperscale named replica

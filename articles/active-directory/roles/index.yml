@@ -10,11 +10,11 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: roles
-  manager: daveba
+  manager: karenhoran
   ms.topic: landing-page
-  ms.date: 10/19/2020
-  author: curtand
-  ms.author: curtand
+  ms.date: 12/17/2021
+  author: rolyon
+  ms.author: rolyon
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -25,73 +25,77 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure AD role-based access control overview
+          - text: What is Azure AD RBAC?
             url: custom-overview.md
       - linkListType: concept
         links:
           - text: Understand Azure AD roles
             url: concept-understand-roles.md
-          - text: Understand administrative units in Azure AD
+          - text: Understand administrative units
             url: administrative-units.md
           - text: Use groups to manage role assignments
             url: groups-concept.md
 
   # Card
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Grant permission to create unlimited app registrations
-            url: quickstart-app-registration-limits.md
-
-  # Card
-  - title: Delegate roles
+  - title: Choose roles
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Delegate roles by task
+          - text: List role definitions
+            url: role-definitions-list.md
+      - linkListType: reference
+        links:
+          - text: Built-in roles
+            url: permissions-reference.md
+          - text: Least privileged roles by task
             url: delegate-by-task.md
-          - text: Delegate application management
-            url: delegate-app-roles.md
 
   # Card
-  - title: Assign roles to users
+  - title: List role assignments
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create custom roles
-            url: custom-create.md
-          - text: Assign roles using Graph API
-            url: custom-assign-graph.md
-          - text: Assign using PowerShell
-            url: custom-assign-powershell.md
-          - text: Assign roles using Graph API
-            url: custom-assign-graph.md
+          - text: List role assignments
+            url: view-assignments.md
+
+  # Card
+  - title: Assign roles
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Assign roles to users
+            url: manage-roles-portal.md
+          - text: Assign roles at different scopes
+            url: assign-roles-different-scopes.md
 
   # Card
   - title: Assign roles to groups
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create role-assignable groups
+          - text: Create a role-assignable group
             url: groups-create-eligible.md
           - text: Assign roles to groups
             url: groups-assign-role.md
-          - text: Make a group eligible for PIM
-            url: groups-pim-eligible.md
-          - text: View assignments for a group
-            url: groups-view-assignments.md
+
+  # Card
+  - title: Create custom roles
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a custom role
+            url: custom-create.md
+          - text: Create custom roles for enterprise apps
+            url: custom-enterprise-apps.md
 
   # Card
   - title: Manage scope with administrative units
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Add and remove administrative units
+          - text: Create administrative units
             url: admin-units-manage.md
-          - text: Assign users to units
-            url: admin-units-add-manage-users.md
-          - text: Assign groups to units  
-            url: admin-units-add-manage-groups.md
-          - text: Assign groups with scope  
+          - text: Add members
+            url: admin-units-members-add.md
+          - text: Assign roles with scope
             url: admin-units-assign-roles.md

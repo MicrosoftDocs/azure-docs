@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/16/2021
+ms.date: 11/06/2021
 ---
 
 #  Azure Web PubSub supported JSON WebSocket subprotocol
@@ -25,266 +25,11 @@ var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'j
 ```
 For a simple WebSocket client, the *server* is a MUST HAVE role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-groups) and publish messages to a group using [publish requests](#publish-messages) directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs using [event requests](#send-custom-events).
 
-## Permissions
-
-You may have noticed that when we describe the PubSub WebSocket clients, a client can publish to other clients only when it's *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
-
-| Role | Permission |
-|---|---|
-| Not specified | The client can send event requests.
-| `webpubsub.joinLeaveGroup` | The client can join/leave any group.
-| `webpubsub.sendToGroup` | The client can publish messages to any group.
-| `webpubsub.joinLeaveGroup.<group>` | The client can join/leave group `<group>`.
-| `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`.
-
-The server-side can also grant or revoke permissions of the client dynamically through REST APIs or server SDKs.
+[!INCLUDE [reference-permission](includes/reference-permission.md)]
 
 ## Requests
 
-### Join groups
-
-Format:
-
-```json
-{
-    "type": "joinGroup",
-    "group": "<group_name>",
-    "ackId" : 1 // optional
-}
-```
-
-* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
-
-### Leave groups
-
-Format:
-
-```json
-{
-    "type": "leaveGroup",
-    "group": "<group_name>",
-    "ackId" : 1 // optional
-}
-```
-
-* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
-
-### Publish messages
-
-Format:
-
-```json
-{
-    "type": "sendToGroup",
-    "group": "<group_name>",
-    "ackId" : 1, // optional
-    "dataType" : "json|text|binary",
-    "data": {}, // data can be string or valid json token depending on the dataType 
-}
-```
-
-* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
-
-`dataType` can be one of `json`, `text`, or `binary`:
-* `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
-* `text`: `data` should be in string format, and the string data will be published;
-* `binary`: `data` should be in base64 format, and the binary data will be published;
-
-#### Case 1: publish text data:
-```json
-{
-    "type": "sendToGroup",
-    "group": "<group_name>",
-    "dataType" : "text",
-    "data": "text data" 
-}
-```
-
-* What subprotocol client in this group `<group_name>` receives:
-```json
-{
-    "type": "message",
-    "from": "group",
-    "group": "<group_name>",
-    "dataType" : "text",
-    "data" : "text data"
-}
-```
-* What the raw client in this group `<group_name>` receives is string data `text data`.
-
-#### Case 2: publish JSON data:
-```json
-{
-    "type": "sendToGroup",
-    "group": "<group_name>",
-    "dataType" : "json",
-    "data": {
-        "hello": "world"
-    }
-}
-```
-
-* What subprotocol client in this group `<group_name>` receives:
-```json
-{
-    "type": "message",
-    "from": "group",
-    "group": "<group_name>",
-    "dataType" : "json",
-    "data" : {
-        "hello": "world"
-    }
-}
-```
-* What the raw client in this group `<group_name>` receives is serialized string data `{"hello": "world"}`.
-
-
-#### Case 3: publish binary data:
-```json
-{
-    "type": "sendToGroup",
-    "group": "<group_name>",
-    "dataType" : "binary",
-    "data": "<base64_binary>"
-}
-```
-
-* What subprotocol client in this group `<group_name>` receives:
-```json
-{
-    "type": "message",
-    "from": "group",
-    "group": "<group_name>",
-    "dataType" : "binary",
-    "data" : "<base64_binary>", 
-}
-```
-* What the raw client in this group `<group_name>` receives is the **binary** data in the binary frame.
-
-### Send custom events
-
-Format:
-
-```json
-{
-    "type": "event",
-    "event": "<event_name>",
-    "dataType" : "json|text|binary",
-    "data": {}, // data can be string or valid json token depending on the dataType 
-}
-```
-
-`dataType` can be one of `text`, `binary`, or `json`:
-* `json`: data can be any type json supports and will be published as what it is; If `dataType` is not specified, it defaults to `json`.
-* `text`: data should be in string format, and the string data will be published;
-* `binary`: data should be in base64 format, and the binary data will be published;
-
-#### Case 1: send event with text data:
-```json
-{
-    "type": "event",
-    "event": "<event_name>",
-    "dataType" : "text",
-    "data": "text data", 
-}
-```
-
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
-
-```HTTP
-POST /upstream HTTP/1.1
-Host: xxxxxx
-WebHook-Request-Origin: xxx.webpubsub.azure.com
-Content-Type: text/plain
-Content-Length: nnnn
-ce-specversion: 1.0
-ce-type: azure.webpubsub.user.<event_name>
-ce-source: /client/{connectionId}
-ce-id: {eventId}
-ce-time: 2021-01-01T00:00:00Z
-ce-signature: sha256={connection-id-hash-primary},sha256={connection-id-hash-secondary}
-ce-userId: {userId}
-ce-connectionId: {connectionId}
-ce-hub: {hub_name}
-ce-eventName: <event_name>
-
-text data
-
-```
-
-#### Case 2: send event with JSON data:
-```json
-{
-    "type": "event",
-    "event": "<event_name>",
-    "dataType" : "json",
-    "data": {
-        "hello": "world"
-    }, 
-}
-```
-
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/json` for `dataType`=`json`
-
-```HTTP
-POST /upstream HTTP/1.1
-Host: xxxxxx
-WebHook-Request-Origin: xxx.webpubsub.azure.com
-Content-Type: application/json
-Content-Length: nnnn
-ce-specversion: 1.0
-ce-type: azure.webpubsub.user.<event_name>
-ce-source: /client/{connectionId}
-ce-id: {eventId}
-ce-time: 2021-01-01T00:00:00Z
-ce-signature: sha256={connection-id-hash-primary},sha256={connection-id-hash-secondary}
-ce-userId: {userId}
-ce-connectionId: {connectionId}
-ce-hub: {hub_name}
-ce-eventName: <event_name>
-
-{
-    "hello": "world"
-}
-
-```
-
-#### Case 3: send event with binary data:
-```json
-{
-    "type": "event",
-    "event": "<event_name>",
-    "dataType" : "binary",
-    "data": "base64_binary", 
-}
-```
-
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` for `dataType`=`binary`
-
-```HTTP
-POST /upstream HTTP/1.1
-Host: xxxxxx
-WebHook-Request-Origin: xxx.webpubsub.azure.com
-Content-Type: application/octet-stream
-Content-Length: nnnn
-ce-specversion: 1.0
-ce-type: azure.webpubsub.user.<event_name>
-ce-source: /client/{connectionId}
-ce-id: {eventId}
-ce-time: 2021-01-01T00:00:00Z
-ce-signature: sha256={connection-id-hash-primary},sha256={connection-id-hash-secondary}
-ce-userId: {userId}
-ce-connectionId: {connectionId}
-ce-hub: {hub_name}
-ce-eventName: <event_name>
-
-binary
-
-```
-
-The WebSocket frame can be `text` format for text message frames or UTF8 encoded binaries for `binary` message frames.
-
-Service declines the client if the message does not match the described format.
+[!INCLUDE [json-requests](includes/reference-json-requests.md)]
 
 ## Responses
 
@@ -301,7 +46,7 @@ Format:
     "ackId": 1, // The ack id for the request to ack
     "success": false, // true or false
     "error": {
-        "name": "NotFound|Forbidden|Timeout|InternalServerError",
+        "name": "Forbidden|InternalServerError|Duplicate",
         "message": "<error_detail>"
     }
 }
@@ -322,6 +67,7 @@ Clients can receive messages published from one group the client joined, or from
         "group": "<group_name>",
         "dataType": "json|text|binary",
         "data" : {} // The data format is based on the dataType
+        "fromUserId": "abc"
     }
     ```
 

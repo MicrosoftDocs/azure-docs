@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/08/2021
+  ms.date: 03/17/2022
   featureFlags:
   - clicktale
 
@@ -296,6 +296,14 @@ productDirectory:
         - analytics
       url: analysis-services/index.yml
     # Card
+    - title: Azure Chaos Studio (Preview)
+      summary: Improve application resilience by introducing faults and simulating outages
+      imageSrc: ./media/index/chaos-studio.svg
+      azureCategories:
+        - analytics
+        - management-and-governance
+      url: chaos-studio/index.yml
+    # Card
     - title: Azure Data Explorer
       summary: Fast and highly scalable data exploration service
       imageSrc: https://static.docs.com/ui/media/product/azure/data-explorer.svg
@@ -399,19 +407,11 @@ productDirectory:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
     # Card
-    - title: Azure Blockchain Workbench (Preview)
-      summary: Easily prototype blockchain apps in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/workbench/index.yml
-    # Card
     - title: Azure Cosmos DB
       summary: Fast NoSQL database with open APIs for any scale
       imageSrc: https://static.docs.com/ui/media/product/azure/cosmos-db.svg
       azureCategories:
         - featured
-        - blockchain
         - databases
         - iot
       url: cosmos-db/index.yml
@@ -427,7 +427,6 @@ productDirectory:
       summary: Automate the access and use of data across clouds without writing code
       imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
       azureCategories:
-        - blockchain
         - integration
         - iot
       url: logic-apps/index.yml
@@ -492,6 +491,13 @@ productDirectory:
         - compute
         - featured
       url: /azure/quantum/
+    # Card
+    - title: Azure Spot Virtual Machines
+      summary: Provision unused compute capacity at deep discounts to run interruptible workloads
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+      azureCategories:
+        - compute
+      url: ./virtual-machines/spot-vms.md
     # Card
     - title: Azure Spring Cloud
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
@@ -594,6 +600,13 @@ productDirectory:
         - compute
       url: ./virtual-machines/index.yml
     # Card
+    - title: Azure Container Apps (Preview)
+      summary: Build and deploy modern apps and microservices using serverless containers
+      imageSrc: ./media/index/container-apps.svg
+      azureCategories:
+        - containers
+      url: container-apps/index.yml
+    # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
       imageSrc: ./media/index/AzureDevSpaceController_50x.svg
@@ -628,9 +641,15 @@ productDirectory:
       summary: Easily create and deploy a FHIR service for health data solutions and interoperability
       imageSrc: https://static.docs.com/ui/media/product/azure/api-for-fhir.svg
       azureCategories:
-        - databases
         - integration
-      url: healthcare-apis/fhir/index.yml
+      url: healthcare-apis/azure-api-for-fhir/index.yml
+    # Card
+    - title: Azure Health Data Services
+      summary: A unified solution that helps protect and combine health data in the cloud and generates healthcare insights with analytics
+      imageSrc: https://static.docs.com/ui/media/product/azure/api-for-fhir.svg
+      azureCategories:
+        - integration
+      url: healthcare-apis/index.yml
     # Card
     - title: Azure Cache for Redis
       summary: Power applications with high-throughput, low-latency data access
@@ -811,6 +830,13 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
+    - title: Azure Load Testing
+      summary: Generate high-scale load and identify app performance bottlenecks
+      imageSrc: https://static.docs.com/ui/media/product/azure/load-testing.svg
+      azureCategories:
+        - devops
+      url: load-testing/index.yml
+    # Card
     - title: GitHub Actions for Azure
       summary: Build, test and deploy any app from GitHub to Azure
       imageSrc: ./media/index/github-actions-icon.svg
@@ -843,7 +869,7 @@ productDirectory:
         - networking
       url: expressroute/index.yml
     # Card
-    - title: Azure Sentinel
+    - title: Microsoft Sentinel
       summary: Put cloud-native SIEM and intelligent security analytics to work to help protect your enterprise
       imageSrc: https://static.docs.com/ui/media/product/azure/sentinel.svg
       azureCategories:
@@ -878,14 +904,6 @@ productDirectory:
       azureCategories:
         - hybrid
       url: ./databox-online/index.yml
-    # Card
-    - title: Security Center
-      summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
-      imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-      azureCategories:
-        - hybrid
-        - security
-      url: security-center/index.yml
     # Card
     - title: Azure IoT Edge
       summary: Extend cloud intelligence and analytics to edge devices
@@ -1239,14 +1257,14 @@ productDirectory:
         - networking
       url: bastion/index.yml
     # Card
-    - title: Azure Defender
-      summary: Protect hybrid cloud workloads
+    - title: Microsoft Defender for Cloud
+      summary: Security posture management and advanced threat protection across Azure, hybrid, and multi-cloud workloads
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: security-center/azure-defender.md
+      url: defender-for-cloud/index.yml
     # Card
-    - title: Azure Defender for IoT
+    - title: Microsoft Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
       imageSrc: ./media/index/defender-iot.svg
       azureCategories:
@@ -1305,6 +1323,13 @@ productDirectory:
         - networking
       url: private-link/index.yml
     # Card
+    - title: Azure Private 5G Core (Preview)
+      summary: Rapidly deploy and manage private 5G networks at the enterprise edge
+      imageSrc: ./media/index/private-5g-core.svg
+      azureCategories:
+        - networking
+      url: private-5g-core/index.yml
+    # Card
     - title: Load Balancer
       summary: Deliver high availability and network performance to your applications
       imageSrc: https://static.docs.com/ui/media/product/azure/load-balancer.svg
@@ -1325,6 +1350,13 @@ productDirectory:
       azureCategories:
         - networking
       url: virtual-network/index.yml
+    # Card
+    - title: Azure Virtual Network Manager (Preview)
+      summary: Centralized management of virtual network connectivity and enforce security rules across subscriptions.
+      imageSrc: ./media/index/azure-virtual-network-manager.svg
+      azureCategories:
+        - networking
+      url: virtual-network-manager/index.yml
     # Card
     - title: Virtual WAN
       summary: Microsoft-managed hub and spoke service for connectivity and security
@@ -1453,6 +1485,13 @@ productDirectory:
       azureCategories:
         - web
       url: azure-signalr/index.yml
+    # Card
+    - title: Azure Orbital (Preview)
+      summary: Satellite ground station and scheduling services for fast downlinking of data
+      imageSrc: https://docs.microsoft.com/en-us/media/logos/logo-azureorbital.svg
+      azureCategories:
+        - networking
+      url: orbital/index.yml
 
 tools:
   title: Languages and tools
@@ -1508,18 +1547,14 @@ tools:
 
 additionalContent:
   sections:
-    - title: Sovereign clouds
+    - title: Azure clouds
       items:
         # Card
         - title: Azure Government
           summary: A dedicated cloud for U.S. government agencies and their partners.
           url: azure-government/index.yml
         # Card
-        - title: Azure Germany
-          summary: A dedicated cloud that adheres to German data-handling regulations.
-          url: germany/index.yml
-        # Card
-        - title: Azure China 21Vianet
+        - title: Azure China
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
     - title: Partner solutions

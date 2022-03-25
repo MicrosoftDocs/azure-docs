@@ -3,14 +3,14 @@ title: Enable remote access to SharePoint - Azure Active Directory Application P
 description: Covers the basics about how to integrate on-premises SharePoint Server with Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Enable remote access to SharePoint with Azure Active Directory Application Proxy

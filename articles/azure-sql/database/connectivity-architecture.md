@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 01/25/2021
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
@@ -18,8 +18,7 @@ ms.date: 01/25/2021
 
 This article explains architecture of various components that direct network traffic to a server in Azure SQL Database or Azure Synapse Analytics. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
 
-> [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../managed-instance/connectivity-architecture-overview.md).
+This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../managed-instance/connectivity-architecture-overview.md).
 
 ## Connectivity architecture
 
@@ -117,7 +116,6 @@ Periodically, we will retire Gateways using old hardware and migrate the traffic
 | West US              | 104.42.238.205, 13.86.216.196   | 13.86.217.224/29 |
 | West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29 |
 | West US 3            | 20.150.168.0, 20.150.184.2   | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
-|                      |                    |                    |
 
 ## Next steps
 

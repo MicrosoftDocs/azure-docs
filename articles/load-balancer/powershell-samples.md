@@ -6,7 +6,6 @@ documentationcenter: load-balancer
 author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure

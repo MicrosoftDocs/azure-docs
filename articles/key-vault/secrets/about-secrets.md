@@ -24,7 +24,11 @@ Key Vault also supports a contentType field for secrets. Clients may specify the
 
 ## Encryption
 
-All secrets in your Key Vault are stored encrypted. This encryption is transparent, and requires no action from the user. The Azure Key Vault service encrypts your secrets when you add them, and decrypts them automatically when you read them. The encryption key is unique to each key vault.
+All secrets in your Key Vault are stored encrypted. Key Vault encrypts secrets at rest with a hierarchy of encryption keys, with all keys in that hierarchy are protected by modules that are FIPS 140-2 compliant. This encryption is transparent, and requires no action from the user. The Azure Key Vault service encrypts your secrets when you add them, and decrypts them automatically when you read them.
+
+The encryption leaf key of the key hierarchy is unique to each key vault. The encryption root key of the key hierarchy is unique to the security world, and its protection level varies between regions:
+- China:  root key is protected by a module that is validated for FIPS 140-2 Level 1. 
+- Other regions: root key is protected by a module that is validated for FIPS 140-2 Level 2 or higher. 
 
 ## Secret attributes
 
@@ -63,7 +67,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a deleted secret
 
-For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
+For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 
 How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)

@@ -19,14 +19,15 @@ This article uses Health check in the Azure portal to monitor App Service instan
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
-- After removal, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
+- If an instance doesn't respond with a status code between 200-299 (inclusive) after ten requests, App Service determines it is unhealthy and removes it. (The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of 2 requests.)
+- After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299) then the instance is returned to the load balancer.
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
-- Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
+- When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
->- Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->- Note, if your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
+>- Health check doesn't follow 302 redirects. 
+>- At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>- If your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health Check
 
@@ -54,7 +55,7 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No additional settings are required if these security features are enabled.
 
-If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
+If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already be secured by prior security features.
 
 ## Monitoring
 
@@ -69,15 +70,15 @@ After providing your application's Health check path, you can monitor the health
 
 ### What happens if my app is running on a single instance?
 
-If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to two or more instances to get the re-routing benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
+If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to get the re-routing benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
  
-### Why are the Health check request not showing in my frontend logs?
+### Why are the Health check request not showing in my web server logs?
 
-The Health check request are sent to your site internally, so the request will not show in [the frontend logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since it the request being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
+The Health check request are sent to your site internally, so the request will not show in [the web server logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since it the request being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 
-The Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP.
+On Windows App Service, the Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and cannot be sent over HTTP**S** at this time.
 
 ### What if I have multiple apps on the same App Service Plan?
 

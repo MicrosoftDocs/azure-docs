@@ -3,7 +3,7 @@ title: Govern on-premises service accounts  | Azure Active Directory
 description: Use this guide to create and run an account lifecycle process for service accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -54,7 +54,7 @@ For user accounts that are used as service accounts, apply the following setting
 
 *  **LogonWorkstations**: Restrict permissions where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from signing in anywhere else.
 
-* [**Cannot change password**](/powershell/module/activedirectory/set-aduser): Prevent the service account from changing its own password by setting the parameter to false.
+* [**Cannot change password**](/powershell/module/activedirectory/set-aduser): Prevent the service account from changing its own password by setting the parameter to true.
  
 ## Build a lifecycle management process
 

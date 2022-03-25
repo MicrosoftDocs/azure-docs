@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -100,4 +99,4 @@ The limits on IP addressing are found in the full set of [limits for networking]
 
 ## Next steps
 Learn about [Public IP Addresses in Azure](public-ip-addresses.md)
-* [Deploy a VM with a static private IP address using the Azure portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+* [Deploy a VM with a static private IP address using the Azure portal](./virtual-networks-static-private-ip-arm-pportal.md)

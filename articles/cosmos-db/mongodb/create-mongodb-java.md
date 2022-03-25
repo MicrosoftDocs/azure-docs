@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB
@@ -16,6 +16,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)

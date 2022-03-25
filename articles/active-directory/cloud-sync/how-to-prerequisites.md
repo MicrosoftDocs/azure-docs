@@ -3,11 +3,11 @@ title: 'Prerequisites for Azure AD Connect cloud sync in Azure AD'
 description: This article describes the prerequisites and hardware requirements you need for cloud sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/04/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -21,7 +21,8 @@ You need the following to use Azure AD Connect cloud sync:
 
 - Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent service.	
 - A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
-- An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).  Installing the agent on a domain controller is supported.
+- High availability refers to the Azure AD Connect cloud sync's ability to operate continuously without failure for a long time.  By having multiple active agents installed and running, Azure AD Connect cloud sync can continue to function even if one agent should fail.  Microsoft recommends having 3 active agents installed for high availability.
 - On-premises firewall configurations.
 
 ## Group Managed Service Accounts
@@ -49,6 +50,45 @@ If you are creating a custom gMSA account, you need to ensure that the account h
 
 For steps on how to upgrade an existing agent to use a gMSA account see [Group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
 
+#### Create gMSA account with PowerShell
+You can use the following PowerShell script to create a custom gMSA account.  Then you can use the [cloud sync gMSA cmdlets](how-to-gmsa-cmdlets.md) to apply more granular permissions.
+
+```powershell
+# Filename:    1_SetupgMSA.ps1
+# Description: Creates and installs a custom gMSA account for use with Azure AD Connect cloud sync.
+#
+# DISCLAIMER:
+# Copyright (c) Microsoft Corporation. All rights reserved. This 
+# script is made available to you without any express, implied or 
+# statutory warranty, not even the implied warranty of 
+# merchantability or fitness for a particular purpose, or the 
+# warranty of title or non-infringement. The entire risk of the 
+# use or the results from the use of this script remains with you.
+#
+#
+#
+#
+# Declare variables
+$Name = 'provAPP1gMSA'
+$Description = "Azure AD Cloud Sync service account for APP1 server"
+$Server = "APP1.contoso.com"
+$Principal = Get-ADGroup 'Domain Computers'
+
+# Create service account in Active Directory
+New-ADServiceAccount -Name $Name `
+-Description $Description `
+-DNSHostName $Server `
+-ManagedPasswordIntervalInDays 30 `
+-PrincipalsAllowedToRetrieveManagedPassword $Principal `
+-Enabled $True `
+-PassThru
+
+# Install the new service account on Azure AD Cloud Sync server
+Install-ADServiceAccount -Identity $Name
+```
+
+For additional information on the cmdlets above, see [Getting Started with Group Managed Service Accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)?redirectedfrom=MSDN).
+
 ### In the Azure Active Directory admin center
 
 1. Create a cloud-only hybrid identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only hybrid identity administrator account](../fundamentals/add-users-azure-active-directory.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
@@ -64,22 +104,10 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 
-3. If there's a firewall between your servers and Azure AD, configure the following items:
-    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+3. If there's a firewall between your servers and Azure AD, configure see [Firewall and proxy requirements](#firewall-and-proxy-requirements) below.  
 
-      | Port number | How it's used |
-      | --- | --- |
-      | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate.  |
-      | **443** | Handles all outbound communication with the service. |
-      | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure AD portal. |
-
-    - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
-    - If your firewall or proxy allows you to specify safe suffixes, add connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
-    - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
-    - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
-
-    >[!NOTE]
-    > Installing the cloud provisioning agent on Windows Server Core is not supported.
+>[!NOTE]
+> Installing the cloud provisioning agent on Windows Server Core is not supported.
 
 ### Additional requirements
 
@@ -104,6 +132,47 @@ To enable TLS 1.2, follow these steps.
     ```
 
 1. Restart the server.
+
+## Firewall and Proxy requirements
+If there's a firewall between your servers and Azure AD, configure the following items:
+
+- Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+
+   | Port number | How it's used |
+   | --- | --- |
+   | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate.  |
+   | **443** | Handles all outbound communication with the service. |
+   | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure AD portal. |
+ 
+- If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
+- If your firewall or proxy allows you to specify safe suffixes, add connections: 
+
+#### [Public Cloud](#tab/public-cloud)
+
+
+  |URL |How it's used|
+  |-----|-----|
+  |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
+  |&#42;.microsoftonline.com</br>&#42;.microsoft.com</br>&#42;.msappproxy.com</br>&#42;.windowsazure.com|The agent uses these URLs to communicate with the Azure AD cloud service. |
+   |`mscrl.microsoft.com:80` </br>`crl.microsoft.com:80` </br>`ocsp.msocsp.com:80` </br>`www.microsoft.com:80`| The agent uses these URLs to verify certificates.|
+   |login.windows.net</br>|The agent uses these URLs during the registration process.
+
+
+
+#### [U.S. Government Cloud](#tab/us-government-cloud)
+
+ |URL |How it's used|
+ |-----|-----|
+ |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
+ |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| The agent uses these URLs to verify certificates.|
+ |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| The agent uses these URLs during the registration process.
+
+
+
+
+- If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+
+---
 ## NTLM requirement
 
 You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 

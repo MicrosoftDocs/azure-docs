@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/22/2021 #Required; mm/dd/yyyy format.
+  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -37,7 +37,58 @@ landingContent:
             url: event-handlers.md
           - text: Event filters
             url: event-filtering.md                        
- 
+ # Card
+  - title: Quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Route Blob storage events to a web endpoint
+            url: blob-event-quickstart-portal.md
+          - text: Azure Functions as an event handler
+            url: custom-event-to-function.md
+          - text: Queue storage as an event handler
+            url: custom-event-to-queue-storage.md
+          - text: Event Hubs as an event handler
+            url: custom-event-to-eventhub.md
+          - text: Route custom events to a web endpoint
+            url: custom-event-quickstart-portal.md
+          - text: Send events from a private container registry
+            url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Email when VM changes
+            url: monitor-virtual-machine-changes-event-grid-logic-app.md
+          - text: Resize uploaded images
+            url: resize-images-on-storage-blob-upload-event.md
+          - text: Trigger Automation runbook
+            url: ensure-tags-exists-on-new-virtual-machines.md
+          - text: Email when IoT Hub device is added
+            url: publish-iot-hub-events-to-logic-apps.md
+          - text: Respond to Service Bus events
+            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+          - text: Stream data from Event Hubs
+            url: event-grid-event-hubs-integration.md
+          - text: Route Media Services events
+            url: ../media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+          - text: Route to Hybrid Connections
+            url: custom-event-to-hybrid-connection.md
+  # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Explore Azure Event Grid
+            url: /learn/modules/azure-event-grid/
+          - text: React to state changes in your Azure services by using Event Grid
+            url: /learn/modules/react-to-state-changes-using-event-grid/
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+          - text: Trigger an Azure Event Grid workflow from an IoT device
+            url: /learn/modules/trigger-azure-event-grid-workflow-iot-device/
+
   # Card
   - title: Advanced concepts
     linkLists:
@@ -94,38 +145,4 @@ landingContent:
           - text: Install Event Grid extension
             url: ./kubernetes/install-k8s-extension.md
 
-  # Card
-  - title: Scenarios
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Route Blob storage events to a web endpoint
-            url: blob-event-quickstart-portal.md
-          - text: Azure Functions as an event handler
-            url: custom-event-to-function.md
-          - text: Queue storage as an event handler
-            url: custom-event-to-queue-storage.md
-          - text: Event Hubs as an event handler
-            url: custom-event-to-eventhub.md
-          - text: Route custom events to a web endpoint
-            url: custom-event-quickstart-portal.md
-          - text: Send events from a private container registry
-            url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-      - linkListType: tutorial
-        links:
-          - text: Email when VM changes
-            url: monitor-virtual-machine-changes-event-grid-logic-app.md
-          - text: Resize uploaded images
-            url: resize-images-on-storage-blob-upload-event.md
-          - text: Trigger Automation runbook
-            url: ensure-tags-exists-on-new-virtual-machines.md
-          - text: Email when IoT Hub device is added
-            url: publish-iot-hub-events-to-logic-apps.md
-          - text: Respond to Service Bus events
-            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
-          - text: Stream data from Event Hubs
-            url: event-grid-event-hubs-integration.md
-          - text: Route Media Services events
-            url: ..//media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
-          - text: Route to Hybrid Connections
-            url: custom-event-to-hybrid-connection.md
+  
