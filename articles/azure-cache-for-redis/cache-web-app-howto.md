@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an ASP.NET web app with
 author: flang-msft
 ms.service: cache
 ms.topic: quickstart
-ms.date: 03/35/2022
+ms.date: 03/25/2022
 ms.author: franlanglois
 ms.custom: devx-track-csharp, mvc, mode-other
 
@@ -97,7 +97,8 @@ Your solution needs the `StackExchange.Redis` package to run. Install it, with t
 
 Philo - Isn't this superfluous now? 
 
-1. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis` package. -->
+1. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis` package.
+ -->
 
 ## Connect to the cache with RedisConnection
 
@@ -110,11 +111,12 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter.
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
+
 The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).

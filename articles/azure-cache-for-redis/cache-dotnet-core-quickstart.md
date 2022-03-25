@@ -48,7 +48,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 ```
 
-In in `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
@@ -147,6 +147,7 @@ At the bottom of `Main()` procedure in *Program.cs*, see the following lines of 
     Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
     Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
 ```
+<!-- This seems unnecessary now that we are cloning the project.
 
 Save *Program.cs* and rebuild the app with the following command:
 
@@ -160,7 +161,8 @@ Run the app with the following command to test serialization of .NET objects:
 dotnet run
 ```
 
-:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed"::: 
+-->
 
 ## Clean up resources
 
