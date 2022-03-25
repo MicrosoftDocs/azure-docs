@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 03/17/2022
+ms.date: 03/21/2022
 ---
 # Link feature for Azure SQL Managed Instance (preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,8 @@ To use the link feature, you'll need:
 - Azure SQL Managed Instance provisioned on any service tier.
 
 > [!NOTE]
-> SQL Managed Instance link feature is now available in all Azure regions.
+> SQL Managed Instance link feature is available in all public Azure regions. 
+> National clouds are currently not supported.
 
 ## Overview
 

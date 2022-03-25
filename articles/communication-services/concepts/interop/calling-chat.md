@@ -51,6 +51,7 @@ const call = callAgent.startCall([teamsCallee]);
 [Communication Services voice and video calling events](../../../event-grid/communication-services-voice-video-events.md) are raised for calls between a Communication Services user and Teams users.
 
 **Limitations and known issues**
+- This functionality is not currently available in the .NET Calling SDK.
 - Teams users must be in "TeamsOnly" mode. Skype for Business users can't receive 1:1 calls from Communication Services users.
 - Escalation to a group call isn't supported.
 - Communication Services call recording isn't available for 1:1 calls.

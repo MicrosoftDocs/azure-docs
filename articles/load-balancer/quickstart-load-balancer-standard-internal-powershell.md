@@ -48,10 +48,6 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
 
-The following diagram shows the resources created in this quickstart:
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
-
 ## Configure virtual network - Standard
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
@@ -307,10 +303,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
-
-The following diagram shows the resources created in this quickstart:
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 ## Configure virtual network - Basic
 
