@@ -222,7 +222,11 @@ inputs:
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
 > [!NOTE]
-> To skip the API you need to set the `apiRuntime` to the correct language and version in `staticwebapp.config.json`. Click [here](https://docs.microsoft.com/en-us/azure/static-web-apps/configuration#selecting-the-api-language-runtime-version) for the list of supported language and versions.
+> Currently the `skip_api_build` is only supported in GitHub Actions and not Azure Pipelines.
+
+Steps to skip building the API:
+
+- In `staticwebapp.config.json`, set the `apiRuntime` to the correct language and version. Click [here](https://docs.microsoft.com/en-us/azure/static-web-apps/configuration#selecting-the-api-language-runtime-version) for the list of supported language and versions.
 ```json
 {
   "platform": {
@@ -230,10 +234,6 @@ If you want to skip building the API, you can bypass the automatic build and dep
   }
 }
 ```
-
-Steps to skip building the API:
-
-- In `staticwebapp.config.json`, set the `apiRuntime` to the correct language and version.
 - Set `skip_api_build` to `true`.
 
 # [GitHub Actions](#tab/github-actions)
@@ -251,20 +251,8 @@ with:
   skip_api_build: true
 ```
 
-# [Azure Pipelines](#tab/azure-devops)
-
-```yml
-...
-
-inputs:
-  app_location: "src" # App source code path relative to repository root
-  api_location: "api" # Api source code path relative to repository root - optional
-  output_location: "public" # Built app content directory, relative to app_location - optional
-  skip_api_build: true
-  azure_static_web_apps_api_token: $(deployment_token)
-```
-
 ---
+
 ## Extend build timeout
 
 By default, the app and API builds are limited to 15 minutes. You can extend the build timeout by setting the `build_timeout_in_minutes` property.
