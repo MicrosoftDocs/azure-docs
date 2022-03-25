@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/10/2022
+ms.date: 03/25/2022
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: aragra, lenalepa, sureshja
