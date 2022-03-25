@@ -22,6 +22,8 @@ We recommend sharing at the gallery level for the best experience. We do not rec
 
 If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
 
+To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community).
+
 ## Share a gallery
 
 ### [Portal](#tab/portal)

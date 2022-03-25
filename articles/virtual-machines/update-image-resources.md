@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.date: 03/23/2022
+ms.date: 03/25/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -29,7 +29,7 @@ az sig list -o table
 > [!NOTE]
 > To get the name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
-**List the image definitions** 
+**List the image definitions**
 
 See all of image definitions in your gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list):
 

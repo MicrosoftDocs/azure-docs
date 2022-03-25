@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/22/2022
+ms.date: 03/25/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -108,6 +108,8 @@ During the preview, make sure that you create your gallery, image definitions, a
 > Community Galleries is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> To publish to a community gallery, you need to register for the `Microsoft.Compute/CommunityGalleries` preview feature. For more information, see [Register a preview feature](../azure-resource-manager/management/preview-features.md#register-preview-feature).
 
 ### Prerequisites
 

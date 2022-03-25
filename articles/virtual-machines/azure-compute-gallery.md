@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 03/03/2022
+ms.date: 03/24/2022
 ms.reviewer: cynthn
 
 --
@@ -88,6 +88,8 @@ The regions that a resource is replicated to can be updated after creation time.
 > Community Galleries is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> To publish to a community gallery, you need to register for the `Microsoft.Compute/CommunityGalleries` preview feature. For more information, see [Register a preview feature](../azure-resource-manager/management/preview-features.md#register-preview-feature).
 
 
 Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, where you can make your images available to all Azure customers. When an gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private. You can continue to use it as you did before.
