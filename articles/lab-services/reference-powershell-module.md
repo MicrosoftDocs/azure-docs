@@ -3,7 +3,8 @@ title: PowerShell module for Azure Lab Services
 titleSuffix: ""
 description: Learn how to install and launch Az.LabServices PowerShell module
 ms.topic: how-to
-ms.date: 2/16/2022
+ms.date: 03/25/2022
+ms.custom: devdivchpfy22
 ---
 
 # Az.LabServices PowerShell module for Azure Lab Services resources (deprecated)
