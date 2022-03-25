@@ -1,17 +1,17 @@
 ---
-title: Designing resilient applications with Azure Cosmos SDKs
-description: Learn how to build resilient applications using the Azure Cosmos SDKs, which.
+title: Designing resilient applications with Azure Cosmos DB SDKs
+description: Learn how to build resilient applications using the Azure Cosmos DB SDKs and which are the expected error codes to retry on.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/24/2022
+ms.date: 03/25/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ---
-# Designing resilient applications with Azure Cosmos SDKs
+# Designing resilient applications with Azure Cosmos DB SDKs
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-When authoring client applications that interact with Azure Cosmos through any of the Azure Cosmos SDKs, it's important to understand a few key fundamentals. This article is a design guide to help you understand these fundamentals and design resilient applications.
+When authoring client applications that interact with Azure Cosmos DB through any of the SDKs, it's important to understand a few key fundamentals. This article is a design guide to help you understand these fundamentals and design resilient applications.
 
 ## Overview
 
@@ -37,14 +37,14 @@ Regardless of the connectivity mode, it's critical to maintain a Singleton insta
 When you design distributed applications, there are three key components:
 
 * Your application and the environment it runs on.
-* The network, which includes any component between your application and the Azure Cosmos service.
-* The Azure Cosmos service.
+* The network, which includes any component between your application and the Azure Cosmos DB service endpoint.
+* The Azure Cosmos DB service endpoint.
 
 When failures occur, they often fall into one of these three areas, and it's important to understand that due to the distributed nature of the system, it's impractical to expect 100% availability for any of these components.
 
-The Azure Cosmos service has a [comprehensive set of availability SLAs](../high-availability.md#slas), but none of them are 100%. The network components that connect your application to the Azure Cosmos service can have transient hardware issues and lose packets. Even the compute environment where your application runs could have a CPU spike affecting operations. These failure conditions can affect the operations of the Azure Cosmos SDKs and normally surface as errors with particular codes.
+Azure Cosmos DB  has a [comprehensive set of availability SLAs](../high-availability.md#slas), but none of them are 100%. The network components that connect your application to the service endpoint can have transient hardware issues and lose packets. Even the compute environment where your application runs could have a CPU spike affecting operations. These failure conditions can affect the operations of the SDKs and normally surface as errors with particular codes.
 
-Your application should be resilient to a [certain degree](#when-to-contact-customer-support) of potential failures across these components by implementing [retry policies](#should-my-application-retry-on-errors) over the responses provided by the Azure Cosmos SDKs.
+Your application should be resilient to a [certain degree](#when-to-contact-customer-support) of potential failures across these components by implementing [retry policies](#should-my-application-retry-on-errors) over the responses provided by the SDKs.
 
 ## Should my application retry on errors?
 
@@ -70,28 +70,28 @@ In the table above, all the status codes marked with **Yes** should have some de
 
 ### HTTP 403
 
-The Azure Cosmos SDKs don't retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you're trying to write based on some business rule.
+The Azure Cosmos DB SDKs don't retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you're trying to write based on some business rule.
 
 ### HTTP 429
 
-The Azure Cosmos SDKs will retry on HTTP 429 errors by default following the client configuration and honoring the service's response `x-ms-retry-after-ms` header, by waiting the indicated time and retrying after.
+The Azure Cosmos DB SDKs will retry on HTTP 429 errors by default following the client configuration and honoring the service's response `x-ms-retry-after-ms` header, by waiting the indicated time and retrying after.
 
 When the SDK retries are exceeded, the error is returned to your application. Ideally inspecting the `x-ms-retry-after-ms` header in the response can be used as a hint to decide how long to wait before retrying the request. Another alternative would be an exponential back-off algorithm or configuring the client to extend the retries on HTTP 429.
 
 ### HTTP 449
 
-The Azure Cosmos SDKs will retry on HTTP 449 with an incremental back-off during a fixed period of time to accommodate most scenarios.
+The Azure Cosmos DB SDKs will retry on HTTP 449 with an incremental back-off during a fixed period of time to accommodate most scenarios.
 
 When the automatic SDK retries are exceeded, the error is returned to your application. HTTP 449 errors can be safely retried. Because of the highly concurrent nature of write operations, it's better to have a random back-off algorithm to avoid repeating the same degree of concurrency after a fixed interval.
 
 ### Timeouts and connectivity related failures (HTTP 408/503)
 
-Network timeouts and connectivity failures are among the most common errors. The Azure Cosmos SDKs are themselves resilient and will retry timeouts and connectivity issues across the HTTP and TCP protocols if the retry is feasible:
+Network timeouts and connectivity failures are among the most common errors. The Azure Cosmos DB SDKs are themselves resilient and will retry timeouts and connectivity issues across the HTTP and TCP protocols if the retry is feasible:
 
 * For read operations, the SDKs will retry any timeout or connectivity related error.
 * For write operations, the SDKs will **not** retry because these operations are **not idempotent**. When a timeout occurs waiting for the response, it's not possible to know if the request reached the service.
 
-If the account has multiple regions available, Azure Cosmos SDKs will also attempt a [cross-region retry](troubleshoot-sdk-availability.md#transient-connectivity-issues-on-tcp-protocol).
+If the account has multiple regions available, the SDKs will also attempt a [cross-region retry](troubleshoot-sdk-availability.md#transient-connectivity-issues-on-tcp-protocol).
 
 Because of the nature of timeouts and connectivity failures, these might not appear in your [account metrics](../monitor-cosmos-db.md), as they only cover failures happening on the service side.
 
@@ -101,11 +101,11 @@ It's recommended for applications to have their own retry policy for these scena
 
 From the client perspective, any retries will affect the end to end latency of an operation. When your application P99 latency is being affected, understanding the retries that are happening and how to address them is important.
 
-Azure Cosmos SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dot-net-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4-sql.md#capture-the-diagnostics).
+Azure Cosmos DB SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dot-net-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4-sql.md#capture-the-diagnostics).
 
 ## What about regional outages?
 
-The Azure Cosmos SDKs cover regional availability and can perform retries on another account regions. Refer to the [multiregional environments retry scenarios and configurations](troubleshoot-sdk-availability.md) article to understand which scenarios involve other regions.
+The Azure Cosmos DB SDKs cover regional availability and can perform retries on another account regions. Refer to the [multiregional environments retry scenarios and configurations](troubleshoot-sdk-availability.md) article to understand which scenarios involve other regions.
 
 ## When to contact customer support
 
