@@ -2,7 +2,7 @@
 title: What is BareMetal Infrastructure for Nutanix?
 description: Learn about the features BareMetal Infrastructure offers for Nutanix workloads. 
 ms.topic: conceptual
-ms.subservice: baremetal-nutanix
+ms.subservice:  
 ms.date: 09/03/2021
 ---
 

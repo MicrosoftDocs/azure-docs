@@ -2,7 +2,7 @@
 title: Storage on BareMetal for Nutanix workloads
 description: Learn about the storage offered by the BareMetal Infrastructure for Nutanix workloads.
 ms.topic: reference
-ms.subservice: baremetal-nutanix
+ms.subservice:  
 ms.date: 04/14/2021
 ---
 

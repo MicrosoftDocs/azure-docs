@@ -2,7 +2,7 @@
 title: BareMetal SKUs for Nutanix workloads
 description: Learn about the SKUs for the Nutanix BareMetal Infrastructure workloads.
 ms.topic: reference
-ms.subservice: baremetal-nutanix
+ms.subservice:  
 ms.date: 04/15/2021
 ---
 

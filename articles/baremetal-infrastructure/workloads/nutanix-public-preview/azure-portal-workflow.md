@@ -2,7 +2,7 @@
 title: Cluster administration 
 description: Public Preview
 ms.topic: how-to
-ms.subservice: baremetal-nutanix
+ms.subservice: 
 ms.date: 03/31/2021
 ---
 

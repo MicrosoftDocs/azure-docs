@@ -2,7 +2,7 @@
 title: Architecture of BareMetal Infrastructure for Nutanix
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for Nutanix.
 ms.topic: reference
-ms.subservice: baremetal-nutanix
+ms.subservice:  
 ms.date: 04/14/2021
 ---
 

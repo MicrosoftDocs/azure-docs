@@ -2,7 +2,7 @@
 title: Cluster Administration 
 description: tba
 ms.topic: how-to
-ms.subservice: baremetal-nutanix
+ms.subservice:
 ms.date: 03/31/2021
 ---
 
