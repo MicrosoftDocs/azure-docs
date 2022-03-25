@@ -79,17 +79,19 @@ export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspri
 
 # [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-- First create a user-assigned managed identity in advance with iis resource ID `$UserIdentityResourceId`.
+- First create a user-assigned managed identity in advance with its resource ID `$USER_IDENTITY_RESOURCE_ID`.
 ![Create a user-assigned managed identity](./media/enterprise/msi/app-user-mi-keyvault.jpg)
 
     ```azurecli
     export SERVICE_IDENTITY={principal ID of user-assigned managed identity}
+    export USER_IDENTITY_RESOURCE_ID={resource ID of user-assigned managed identity}
+    export USER_IDENTITY_CLIENT_ID={client ID of user-assigned managed identity}
     ```
 
 - The following example creates an app named `springapp` with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
 
     ```azurecli
-    az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --assign-endpoint true --user-assigned $UserIdentityResourceId
+    az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --assign-endpoint true --user-assigned $USER_IDENTITY_RESOURCE_ID
     az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup"
     ```
 
@@ -131,15 +133,19 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
 
     To use managed identity for Azure Spring Cloud apps, add properties with the below content to src/main/resources/application.properties.
 
+# [System-assigned managed identity](#tab/system-assigned-managed-identity)
     ```properties
     azure.keyvault.enabled=true
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
 
-    For user-assigned managed identity, add one more properties:
+# [User-assigned managed identity](#tab/user-assigned-managed-identity)
     ```properties
-    azure.keyvault.client-id={Client ID}
+    azure.keyvault.enabled=true
+    azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
+    azure.keyvault.client-id={Client ID of user-assigned managed identity}
     ```
+---
 
     > [!Note]
     > Must add the key vault url in `application.properties` as above. Otherwise, the key vault url may not be captured during runtime.
