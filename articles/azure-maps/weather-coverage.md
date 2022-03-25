@@ -17,7 +17,7 @@ This article provides coverage information for Azure Maps [Weather services](/re
 ## Weather information supported
 
 ### Infrared Satellite Tiles
-
+<!-- Minimal Description -->
 Infrared (IR) radiation is electromagnetic radiation that measures an object's infrared emission, returning information about its temperature. Infrared images can indicate cloud heights (Colder cloud-tops mean higher clouds) and types, calculate land and surface water temperatures, and locate ocean surface features. Infrared satellite imagery is returned when `tilesetID` is set to `microsoft.weather.infrared.main` when making calls to [Get Map Tile](/rest/api/maps/render-v2/get-map-tile) and can then be overlayed on the map image.
 
 ### Minute Forecast
@@ -25,6 +25,7 @@ Infrared (IR) radiation is electromagnetic radiation that measures an object's i
 The [Get Minute Forecast](/rest/api/maps/weather/get-minute-forecast) service returns minute-by-minute forecasts for the specified location for the next 120 minutes.
 
 ### Radar Tiles
+<!-- Minimal Description -->
 
 Radar imagery is a depiction of the response returned when microwave radiation is sent into the atmosphere. The pulses of radiation reflect back showing its interactions with any precipitation it encounters. The radar technology visually represents those pulses showing where it's clear, raining, snowing or stormy. Radar Tiles are returned when `tilesetID` is set to `microsoft.weather.radar.main` when making calls to [Get Map Tile](/rest/api/maps/render-v2/get-map-tile) and can then be overlayed on the map image.
 
@@ -35,7 +36,11 @@ Azure Maps [Severe Weather Alerts](/rest/api/maps/weather/get-severe-weather-ale
 ### Other
 
 The column in the tables below labeled *Other* includes the following weather information:
+<!--{No links, just list what is returned. Consider finding a way to add links by including frequency for example:
 
+- **Air Quality**. The Air Quality service returns [current](link), [hourly](link) or [daily](link) forecasts that include pollution levels, air quality index values, the dominant pollutant, and a brief statement summarizing risk level and suggested precautions for.
+
+}-->
 - **Air Quality**. The [Get Current Air Quality](/rest/api/maps/weather/get-current-air-quality) service returns pollution levels, air quality index values, the dominant pollutant, and a brief statement summarizing risk level and suggested precautions.
 - **Current Conditions**. The [Get Current Conditions](/rest/api/maps/weather/get-current-conditions) service returns detailed current weather conditions such as precipitation, temperature and wind for a given coordinate location
 - **Daily Forecast**. The [Get Daily Forecast](/rest/api/maps/weather/get-current-air-quality) service returns detailed weather forecasts such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location.
