@@ -11,7 +11,7 @@ ms.service: role-based-access-control
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2022
+ms.date: 03/25/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -83,5 +83,4 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 
 ## Next steps
 
-* [Tutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
 * [List Azure deny assignments using the Azure portal](deny-assignments-portal.md)
