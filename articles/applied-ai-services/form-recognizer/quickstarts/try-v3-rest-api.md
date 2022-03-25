@@ -19,7 +19,7 @@ ms.author: lajanuar
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
 The current API version is ```2022-01-30-preview```.
 
-| [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) | [Azure REST API reference](/rest/api/azure/) |
+| [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
 
 Get started with Azure Form Recognizer using the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models using the REST API or by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -67,29 +67,30 @@ To learn more about Form Recognizer features and development options, visit our 
   
 ## Analyze documents and get results
 
- Form Recognizer v3.0 consolidates the analyze document (POST) and get result (GET) requests into single operations. A `modelId` is used for POST and `resultId` for GET operations.
+ Form Recognizer v3.0 consolidates the analyze document (POST) and get result (GET) requests into single operations. The `modelId` is used for POST and `resultId` for GET operations.
 
 ### Analyze document (POST Request)
 
-> [!div class="checklist"]
->
-> * Before you run the command, make these changes:
+Before you run the cURL command, make the following changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-2. Replace `{subscription key}` with the subscription key you copied from the previous step.
-3. Using the table below as a reference, replace `{model name}` and `{your-document-url}` with the desired values.
-4. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the below table for each feature.
+1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
+
+1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+
+1. Using the table below as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
+
+1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the below table for each feature.
 
 #### POST request
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/{model name}:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Reference table
 
-| **Feature**   | **{model name}**   | **{your-document-url}** |
-| --- | --- |
+| **Feature**   | **{modelID}**   | **{your-document-url}** |
+| --- | --- |--|
 | General Document | prebuilt-document | [Sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
 | Read | prebuilt-read | [Sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
 | Layout | prebuilt-layout | [Sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
@@ -101,35 +102,43 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{model name}:analyze?a
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that can be queried to get the status of the asynchronous operation:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
-<https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/>**{resultId}**?api-version=2022-01-30-preview
+:::image type="content" source="../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
 ### Get analyze results (GET Request)
 
-> [!div class="checklist"]
->
-> * After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-2. Replace `{model name}` with the same model name you used to analyze your document with.
-3. Replace `{subscription key}` with the subscription key you copied from the previous step.
-4. Replace `{resultId}` with the result ID from the previous step.
+1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
+1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{modelID}` with the same model name you used to analyze your document.
+1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 <!-- markdownlint-disable MD024 -->
 
 #### GET request
 
 ```bash
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Examine the response
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-#### Sample response for general documents
+#### Sample response for prebuilt-invoice
 
-In case you want to check out what the downloaded JSON output looks like, here's the [link](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/rest-api/general_documents_sample_response.json) to the results for the general documents feature using our sample document.
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2022-03-25T19:31:37Z",
+    "lastUpdatedDateTime": "2022-03-25T19:31:43Z",
+    "analyzeResult": {
+        "apiVersion": "2022-01-30-preview",
+        "modelId": "prebuilt-invoice",
+        "stringIndexType": "textElements"...
+}
+```
 
 #### Supported document fields
 
@@ -137,13 +146,7 @@ The prebuilt models extract a pre-defined set of document fields. See [Model dat
 
 ## Next steps
 
-### Improve results
-
-[!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
-
-### REST API reference documentation
-
-In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, explore the reference documentation to learn more about the Form Recognizer API.
 
 > [!div class="nextstepaction"]
 > [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
