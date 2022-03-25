@@ -18,7 +18,7 @@ This article describes the security features in Azure Cognitive Search that prot
 
 ## Data flow (network traffic patterns)
 
-A search service is hosted on Azure and is typically accessed by client applications using public network connections. While that pattern is predominant, it's not the only traffic pattern that you need to care about. Understanding all points of entry and outbound traffic is necessary background for protecting your development and production environments.
+A Cognitive Search service is hosted on Azure and is typically accessed by client applications over public network connections. While that pattern is predominant, it's not the only traffic pattern that you need to care about. Understanding all points of entry as well as outbound traffic is necessary background for securing your development and production environments.
 
 Cognitive Search has three basic network traffic patterns:
 
@@ -30,7 +30,7 @@ Cognitive Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint consist of:
 
-+ Creating and managing objects
++ Creating and managing indexes, indexers, and other objects
 + Sending requests for indexing, running indexer jobs, executing skills
 + Querying an index
 
@@ -44,12 +44,12 @@ Outbound requests from a search service to other applications are typically made
 
 + Search, on behalf of an indexer, connects to external data sources to read in data for indexing.
 + Search, on behalf of an indexer, writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ A custom skill runs external code that's hosted off-service. The request for external processing is sent during skillset execution.
++ A custom skill connects to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a resource's full access connection string that includes a shared access key or a database login, or a managed identity if you're using Azure Active Directory. 
+Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or a managed identity if you're using Azure Active Directory. 
 
-If your Azure resource is behind a firewall, you'll need to create rules that admit indexer or service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
+If your Azure resource is behind a firewall, you'll need to create rules that admit search service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
 
 ### Internal traffic
 
