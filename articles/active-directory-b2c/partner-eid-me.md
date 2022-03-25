@@ -48,7 +48,8 @@ eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provide
 
 - **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants will also have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
 
-- **eID-Me smartphone apps**: Users of your Azure AD B2C tenant will need to have the eID-Me smartphone app for iOS or Android.
+- **eID-Me smartphone apps**: Users of your Azure AD B2C tenant need to have the eID-Me smartphone app for iOS or Android.
+
 
 - **Issued eID-Me digital identities**: Before using eID-Me, users will need to successfully go through the eID-Me identity proofing process. They should have been issued a digital identity to the digital wallet within the app. This process is done from home and usually takes minutes provided the users have valid identity documents.
 
