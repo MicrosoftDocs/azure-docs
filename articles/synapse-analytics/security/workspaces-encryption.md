@@ -18,9 +18,6 @@ This article will describe:
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
 
-> [!NOTE]
-> Column-level encryption is generally available for Azure Synapse Analytics. For more information, see [Encrypt a column of data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true).
-
 ## Encryption of data at rest
 
 A complete Encryption-at-Rest solution ensures the data is never persisted in unencrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](../../key-vault/general/overview.md), which allows you to take ownership of key management and rotation.
@@ -100,6 +97,5 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 
 ## Next steps
 
-[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
-
-[Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)
+- [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
+- [Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)
