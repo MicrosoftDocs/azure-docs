@@ -39,7 +39,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 4 GB system RAM
 * 4 GB of GPU RAM
 * 8 core CPU
-* 1 NVIDIA Tesla T4 GPU
+* 1 NVIDIA CUDA Compute Capable devices 6.0 or higher ( e.g.: NVIDIA Tesla T4, 1080Ti, or 2080Ti )
 * 20 GB of HDD space
 
 #### Recommended hardware
