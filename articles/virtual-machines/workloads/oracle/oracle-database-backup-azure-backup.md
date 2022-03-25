@@ -932,7 +932,7 @@ Now the database has been restored you must recover the database. Please follow 
 ### Recovery after complete VM restore
 
 1. First reconnect to the VM:
-
+   ```bash
    ssh azureuser@<publicIpAddress>
    ```
    > [!Important]
