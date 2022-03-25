@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/16/2022
-ms.custom: references_regions
+ms.date: 03/25/2022
+
 ---
 
 # Security overview for Azure Cognitive Search
@@ -42,14 +42,14 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations:
 
-+ Indexers connect to external data sources to pull in data for indexing.
-+ Indexers can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ A custom skill runs external code that's hosted off-service. An indexer sends the request for external processing during skillset execution.
++ Search, on behalf of an indexer, connects to external data sources to read in data for indexing.
++ Search, on behalf of an indexer, writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
++ A custom skill runs external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a full access connection string that includes a shared access key or a database login, or a managed identity if you're using Azure Active Directory. 
+Outbound connections can be made using a resource's full access connection string that includes a shared access key or a database login, or a managed identity if you're using Azure Active Directory. 
 
-If your Azure resources are behind a firewall, you'll need to create rules that admit indexer or service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
+If your Azure resource is behind a firewall, you'll need to create rules that admit indexer or service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
 
 ### Internal traffic
 
@@ -83,13 +83,13 @@ While this solution is the most secure, using additional services is an added co
 
 ## Authentication
 
-Once a request is admitted, it must still undergo authentication and authorization that determines whether the request is permitted.
+Once a request is admitted, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
 
-For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters) that proves the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
++ [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that proves the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-Alternatively, there's new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md), that establishes the caller (and not the request) as the authenticated identity.
++ [Azure AD authentication](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An additional Azure role assignment determine the allowed operation. Azure AD authentication for data plane operations, such as creating or querying an index, is in public preview. 
 
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 
@@ -97,7 +97,7 @@ Cognitive Search provides different authorization models for content management 
 
 ### Authorization for content management
 
-Authorization to content, and operations related to content, is either write access, as conferred through the [API key](search-security-api-keys.md) provided on the request. The API key is an authentication mechanism, but also authorizes access depending on the type of API key.
+If you're using key-based authentication, authorization on content operations is conferred through the type of [API key](search-security-api-keys.md) on the request:
 
 + Admin key (allows read-write access for create-read-update-delete operations on the search service), created when the service is provisioned
 
@@ -105,16 +105,15 @@ Authorization to content, and operations related to content, is either write acc
 
 In application code, you specify the endpoint and an API key to allow access to content and options. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the permission level (full or read-only rights based on the key) constitute the security formula that protects content and operations.
 
-> [!NOTE]
-> Authorization for data plane operations using Azure role-based access control (RBAC) is now in preview. You can use this preview capability if you want to [use role assignments instead of API keys](search-security-rbac.md).
+If you're using Azure AD authentication, [use role assignments instead of API keys](search-security-rbac.md) to establish who and what can read and write to your search service.
 
 ### Controlling access to indexes
 
-In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access based on which API key you provide), along with the context of an operation.
+In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
-For read-only access, you can structure query requests to connect using a [query key](search-security-api-keys.md), and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+If you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
 
-Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
+For key-based authentication scenarios, administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update the objects managed by the service. Anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the solution for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
