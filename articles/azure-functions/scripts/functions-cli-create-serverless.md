@@ -27,7 +27,6 @@ This Azure Functions sample script creates a function app, which is a container 
 ## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
---->
 
 ```azurecli
 az group delete --name $resourceGroup

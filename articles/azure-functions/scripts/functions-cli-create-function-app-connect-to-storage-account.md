@@ -24,7 +24,6 @@ This Azure Functions sample script creates a function app and connects the funct
 ## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
---->
 
 ```azurecli
 az group delete --name $resourceGroup
