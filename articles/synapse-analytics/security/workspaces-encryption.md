@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 03/07/2022
+ms.date: 03/24/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 
@@ -17,6 +17,9 @@ This article will describe:
 * Encryption of data at rest in Synapse Analytics workspaces.
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
+
+> [!NOTE]
+> Column-level encryption is generally available for Azure Synapse Analytics. For more information, see [Encrypt a column of data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true).
 
 ## Encryption of data at rest
 
