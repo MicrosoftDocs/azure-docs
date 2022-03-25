@@ -90,7 +90,7 @@ To connect to App Service, Application Gateway uses the default domain as provid
 
 ## Add App service as backend pool
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, select your Application Gateway.
 
@@ -132,7 +132,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## Edit HTTP settings for App Service
 
-### [Azure Portal](#tab/azure-portal/customdomain)
+### [Azure portal](#tab/azure-portal/customdomain)
 
 An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe) which relies on the hostname as is configured in the Backend Pool (suffixed "azurewebsites.net").  For this reason, it is good to first configure a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
 
@@ -147,7 +147,7 @@ We will connect to the backend using HTTPS.
 
 :::image type="content" source="./media/configure-web-app/http-settings-custom-domain.png" alt-text="Configure HTTP Settings to use custom domain towards App Service backend using No Override":::
 
-### [Azure Portal](#tab/azure-portal/defaultdomain)
+### [Azure portal](#tab/azure-portal/defaultdomain)
 
 An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **default ("azurewebsites.net") domain name**.  To do so, the HTTP Setting will explicitly override the host name.
 
@@ -208,7 +208,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 To accept traffic we need to configure a Listener.  For more info on this see [Application Gateway listener configuration](configuration-listeners.md).
 
-### [Azure Portal](#tab/azure-portal/customdomain)
+### [Azure portal](#tab/azure-portal/customdomain)
 
 1. Open the "Listeners" section and choose "Add listener" or click an existing one to edit
 1. For a new listener: give it a name
@@ -225,7 +225,7 @@ To accept traffic we need to configure a Listener.  For more info on this see [A
 
 :::image type="content" source="media/configure-web-app/add-https-listener.png" alt-text="Add a listener for HTTPS traffic":::
 
-### [Azure Portal](#tab/azure-portal/defaultdomain)
+### [Azure portal](#tab/azure-portal/defaultdomain)
 
 Assuming there's no custom domain available or associated certificate, we'll configure Application Gateway to listen for HTTP traffic on port 80.  Alternatively, see the instructions on how to [Create a self-signed certificate](tutorial-ssl-powershell.md#create-a-self-signed-certificate)
 
@@ -302,9 +302,9 @@ if ($listener -eq $null){
 ---
 ## Configure Request Routing Rule
 
-Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have a HTTP or HTTPS listener available that is not already bound to an existing routing rule.
+Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have an HTTP or HTTPS listener available that is not already bound to an existing routing rule.
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. Under "Rules", click to add a new "Request routing rule"
 1. Provide the rule with a name
@@ -346,11 +346,11 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 Before we do so, make sure that the backend health shows as healthy:
 
-### [Azure Portal](#tab/azure-portal/defaultdomain)
+### [Azure portal](#tab/azure-portal/defaultdomain)
 
 Open the "Backend health" section and ensure the "Status" column indicates the combination for HTTP Setting and Backend Pool shows as "Healthy".
 
-:::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure Portal":::
+:::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure portal":::
 
 Now browse to the web application using either the Application Gateway IP Address or the associated DNS name for the IP Address.  Both can be found on the Application Gateway "Overview" page as a property under "Essentials".  Alternatively the Public IP Address resource also shows the IP address and associated DNS name.
 
@@ -362,11 +362,11 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 
 The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
-### [Azure Portal](#tab/azure-portal/customdomain)
+### [Azure portal](#tab/azure-portal/customdomain)
 
 Open the "Backend health" section and ensure the "Status" column indicates the combination for HTTP Setting and Backend Pool shows as "Healthy".
 
-:::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure Portal":::
+:::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure portal":::
 
 Now browse to the web application using the custom domain which you associated with both Application Gateway and the App Service in the backend.
 
