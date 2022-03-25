@@ -22,28 +22,29 @@ See Creating a virtual network (VNet) and subnet in Azure.
 See the Microsoft Azure documentation at Create a virtual network in Azure. See az network vnet subnet for instructions on how to manage subnets in the Azure portal for Nutanix clusters. 
 Note: While you create these VNets, set the “fastpathenabled” tag with the 
 “True” value on these VNets. 
-3.	Create NAT gateway for the cluster management subnet and PC subnet. 
+1.	Create NAT gateway for the cluster management subnet and PC subnet. 
 You must configure a NAT gateway and assign it to the cluster management subnet you created earlier so that the subnet has access to the internet. 
 Note: Set the “fastpathenabled” tag with the “True” value for the NAT gateway. See Creating a NAT gateway in Azure. 
 See the Microsoft Azure documentation at Set up a NAT Gateway for up-to-date and detailed instructions on how to configure the NAT gateway. 
-4.	Create cluster management/bare-metal subnets: 
-a.	Bare-metal nodes (req ≥ /24) 
-b.	Flow gateway external traffic (req ≥ /24) 
-c.	Flow gateway internal traffic (req ≥ /24) 
-For up-to-date and detailed instructions on how to create a subnet in Azure, see the Microsoft Azure documentation at Add, change, or delete a virtual network subnet. 
-5.	Create a subnet for Prism Central. Note: Delegate the PC subnet to the “Microsoft. BareMetal/AzureHostedService” service. 
-6.	Create VPN/ER (Hub) gateway subnets. 
-7.	Apply tag to your resources used for the cluster deployment. 
-Apply tag for all resources used for the cluster deployment using the Tag tab on the Azure portal. 
-a.	VNets - Cluster Management VNet, PC VNet, VPN VNet, ER VNet 
-b.	NAT Gateway 
-c.	VPN/ER Gateway 
- 
-Set the “fastpathenabled” tag with the “True” value on the new subscription and all above resources. 
+1. Create cluster management/bare-metal subnets:  
+   1. Bare-metal nodes (req ≥ /24) 
+   1. Flow gateway external traffic (req ≥ /24) 
+   1. Flow gateway internal traffic (req ≥ /24)  
+See [Add, change, or delete a virtual network subnet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet). 
+1.	Create a subnet for Prism Central.
+> [!NOTE]:
+> Delegate the PC subnet to the “Microsoft. BareMetal/AzureHostedService” service.
+5. Create VPN/ER (Hub) gateway subnets. 
+1. Apply tag for all resources used for the cluster deployment using the Tag tab on the Azure portal. 
+   1. VNets - Cluster Management VNet, PC VNet, VPN VNet, ER VNet 
+   1. NAT Gateway 
+   1. VPN/ER Gateway  
+   Set the “fastpathenabled” tag with the “True” value on the new subscription and all above resources. 
 8.	Delegate the cluster management subnet to the “Microsoft. BareMetal/AzureHostedService” service. 
 Specify the DNS server listed earlier. 
-In your Azure portal, go to your cluster management VNet > under Subnets, click on the cluster management subnet > in the right pane, select 
-“Microsoft.BareMetal/AzureHostedService” in the Delegate subnet to a service list. See the Microsoft Azure documentation at Add or remove a subnet delegation for up-todate and detailed instructions on how to delegate a subnet. 
+In your Azure portal, go to your cluster management VNet > under **Subnets**, click on the cluster management subnet > in the right pane, select 
+“Microsoft.BareMetal/AzureHostedService” in the Delegate subnet to a service list.  
+See [Add or remove a subnet delegation](https://docs.microsoft.com/en-us/azure/virtual-network/manage-subnet-delegation).  
 9.	Verify that the cluster management subnet has the NAT gateway and AzureHostedService configured. 
 In your Azure portal, go to your cluster management VNet > under Subnets, click on the cluster management subnet > in the right pane, you can see the NAT gateway name in the NAT gateway list, and the subnet delegation in the Delegate subnet to a service list. 
 10.	Create subnets in the Cluster VNet to deploy a Flow gateway. 
