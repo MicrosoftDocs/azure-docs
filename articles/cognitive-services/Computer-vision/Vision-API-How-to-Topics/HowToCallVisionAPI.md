@@ -24,9 +24,9 @@ You submit either a local image or a remote image to the Analyze API.
 
 #### [REST](#tab/rest)
 
-For local, you put the binary image data in the HTTP request body. For remote, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
+WHen analyzing a local image, you put the binary image data in the HTTP request body. For a remote image, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
 
-#### [Csharp](#tab/csharp)
+#### [C#](#tab/csharp)
 
 In your main class, save a reference to the URL of the image you want to analyze.
 
@@ -63,7 +63,7 @@ In your `main` function, save a reference to the URL of the image you want to an
 
 ### Select visual features
 
-The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature.
+The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples below add all of the available visual features, but for practical usage you will likely only need one or two.
 
 #### [REST](#tab/rest)
 
@@ -87,7 +87,7 @@ A populated URL might look like the following:
 
 `https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities`
 
-#### [Csharp](#tab/csharp)
+#### [C#](#tab/csharp)
 
 Define your new method for image analysis. Add the code below, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)** enum for a complete list.
 
@@ -140,7 +140,7 @@ A populated URL might look like the following:
 
 `https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities&language=en`
 
-#### [Csharp](#tab/csharp)
+#### [C#](#tab/csharp)
 
 Use the *language* parameter of [AnalyzeImageAsync](dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageasync?view=azure-dotnet#microsoft-azure-cognitiveservices-vision-computervision-computervisionclientextensions-analyzeimageasync(microsoft-azure-cognitiveservices-vision-computervision-icomputervisionclient-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-visualfeaturetypes))))-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-details))))-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-descriptionexclude))))-system-string-system-threading-cancellationtoken)) call to specify a language. A method call that specifies a language might look like the following.
 
@@ -150,7 +150,7 @@ ImageAnalysis results = await client.AnalyzeImageAsync(imageUrl, visualFeatures:
 
 #### [Java](#tab/java)
 
-Use the (AnalyzeImageOptionalParameter)[https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.analyzeimageoptionalparameter] input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
+Use the [AnalyzeImageOptionalParameter](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.analyzeimageoptionalparameter) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
 
 
 ```java
@@ -194,12 +194,12 @@ Use the *language* parameter of your [AnalyzeImage](https://pkg.go.dev/github.co
 
 ## Get results from the service
 
-This section shows you how to parse the results of the API call. It includes examples of the API call itself.
+This section shows you how to parse the results of the API call. It includes the API call itself.
 
 > [!NOTE]
 > **Scoped API calls**
 >
-> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag`. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
+> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
 
 #### [REST](#tab/rest)
 
@@ -266,7 +266,7 @@ See the following list of possible errors and their causes:
     * `InternalServerError`
 
 
-#### [Csharp](#tab/csharp)
+#### [C#](#tab/csharp)
 
 The following code calls the Image Analysis API and prints the results to the console.
 
@@ -305,4 +305,5 @@ The following code calls the Image Analysis API and prints the results to the co
 
 ## Next steps
 
-To try out the REST API, go to the [Image Analysis API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).
+* Explore the [concept articles](../concept-object-detection.md) to learn more about each feature.
+* See the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn more about the API functionality.
