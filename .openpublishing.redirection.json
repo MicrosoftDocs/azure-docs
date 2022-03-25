@@ -2879,6 +2879,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/application-gateway/create-web-app.md",
+      "redirect_url": "/articles/application-gateway/configure-web-app.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/configure-web-app-portal.md",
+      "redirect_url": "/articles/application-gateway/configure-web-app.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-insights/app-insights-developer-analytics.md",
       "redirect_url": "/azure/application-insights/",
       "redirect_document_id": false
