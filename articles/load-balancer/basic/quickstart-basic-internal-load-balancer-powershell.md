@@ -232,7 +232,7 @@ $lb = @{
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
-$sg = {
+$sg = @{
     Name = 'myNSG'
     ResourceGroupName = 'CreateIntLBQS-rg'
 }
