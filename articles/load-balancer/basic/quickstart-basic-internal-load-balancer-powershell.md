@@ -234,9 +234,9 @@ $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 ## Place the network security group into a variable. ##
 $sg = {
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg' @sg
+    ResourceGroupName = 'CreateIntLBQS-rg'
 }
-$nsg = Get-AzNetworkSecurityGroup 
+$nsg = Get-AzNetworkSecurityGroup @sg
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 2; $i++)
