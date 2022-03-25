@@ -2,7 +2,7 @@
 title: Managed identities for applications in Azure Spring Cloud
 titleSuffix: Azure Spring Cloud Enterprise Tier
 description: Home page for managed identities for applications.
-author: jiec
+author: N.A.
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
@@ -33,9 +33,9 @@ Managed identities for Azure resources provide an automatically managed identity
 
 An app can use its managed identity to get tokens to access other resources protected by Azure Active Directory, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
 
-You may need to [configure the target resource to allow access from your application](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
+You may need to [configure the target resource to allow access from your application](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
 
-Azure Spring Cloud shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token.  See [How to use VM token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
+Azure Spring Cloud shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token.  See [How to use VM token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Samples of connecting Azure services in app code
 | Azure service   | tutorial |
@@ -56,7 +56,7 @@ Azure Spring Cloud shares the same endpoint for token acquisition with Azure Vir
 See managed-identity for app in [Quotas and Service Plans for Azure Spring Cloud](./quotas.md).
 
 ### Not supported Azure services
-The reason is there are multiple versions of tokens, see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens), applications in Azure Spring Cloud don't support services which only accept token for v2.0 or higher. We're working on the adding support for such services.
+The reason is there are multiple versions of tokens, see [Microsoft identity platform access tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens), applications in Azure Spring Cloud don't support services which only accept token for v2.0 or higher. We're working on the adding support for such services.
 
 - [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)
 ---
