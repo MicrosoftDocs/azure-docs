@@ -97,7 +97,8 @@ The resource troubleshooting log files are stored in a storage account after res
 ![zip file][1]
 
 > [!NOTE]
-> In some cases, only a subset of the logs files is written to storage.
+> 1. In some cases, only a subset of the logs files is written to storage.
+> 2. For newer Gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by a IkeLogs.txt file that contains the whole IKE activity (not just errors).
 
 For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
