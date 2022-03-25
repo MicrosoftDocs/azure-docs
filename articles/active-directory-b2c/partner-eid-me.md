@@ -47,7 +47,8 @@ eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provide
 
 - **An Azure AD B2C tenant**: Your Azure AD B2C tenant must be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign-up and sign-in user flows and journeys.
 
-- **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants will also have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
+- **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants need to have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
+
 
 - **eID-Me smartphone apps**: Users of your Azure AD B2C tenant need to have the eID-Me smartphone app for iOS or Android.
 
