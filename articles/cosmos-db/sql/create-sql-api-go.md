@@ -80,34 +80,39 @@ go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
 **Authenticate the client**
 
 ```go
-	endpoint, ok := os.LookupEnv("AZURE_COSMOS_URI")
-	if !ok {
-		panic("AZURE_COSMOS_ENDPOINT could not be found")
-	}
-
-	key, ok := os.LookupEnv("AZURE_COSMOS_PRIMARY_KEY")
-	if !ok {
-		panic("AZURE_COSMOS_KEY could not be found")
-	}
-
-	// Create a CosmosDB client
+	var endpoint = "<azure_cosmos_uri>"
+	var key      = "<azure_cosmos_primary_key"
+	
 	cred, err := azcosmos.NewKeyCredential(key)
 	if err != nil {
 		log.Fatal("Failed to create a credential: ", err)
 	}
 
+	// Create a CosmosDB client
 	client, err := azcosmos.NewClientWithKey(endpoint, cred, nil)
 	if err != nil {
-		log.Fatal("Failed to create a client: ", err)
+		log.Fatal("Failed to create cosmos client: ", err)
+	}
+
+	// Create database client
+  databaseClient, err := client.NewDatabase("<databaseName>")
+	if err != nil {
+		log.fatal("Failed to create database client:", err)
+	}
+
+  // Create container client
+	containerClient, err := client.NewContainer("<databaseName>", "<containerName>")
+	if err != nil {
+		log.fatal("Failed to create a container client:", err)
 	}
 ```
 
 **Create a Cosmos database**
 
 ```go
-databaseProperties := azcosmos.DatabaseProperties{ID: "ToDoListDB"}
+databaseProperties := azcosmos.DatabaseProperties{ID: "<databaseName>"}
 
-databaseResp, err := client.CreateDatabase(context.Background(), databaseProperties, nil)
+databaseResp, err := client.CreateDatabase(context.TODO(), databaseProperties, nil)
 if err != nil {
 	panic(err)
 }
@@ -116,7 +121,7 @@ if err != nil {
 **Create a container**
 
 ```go
-database, err := client.NewDatabase("ToDoListDB") //returns struct that represents a database.
+database, err := client.NewDatabase("<databaseName>") //returns struct that represents a database.
 if err != nil {
 	panic(err)
 }
@@ -128,7 +133,7 @@ properties := azcosmos.ContainerProperties{
 	},
 }
 
-resp, err := database.CreateContainer(context.Background(), properties, nil)
+resp, err := database.CreateContainer(context.TODO(), properties, nil)
 if err != nil {
 	panic(err)
 }
@@ -137,7 +142,7 @@ if err != nil {
 **Create an item**
 
 ```go
-container, err := client.NewContainer("ToDoListDB", "ToDoItems")
+container, err := client.NewContainer("<databaseName>", "<containerName>")
 if err != nil {
 	panic(err)
 }
@@ -157,7 +162,7 @@ if err != nil {
 	panic(err)
 }
 
-itemResponse, err := container.CreateItem(context.Background(), pk, marshalled, nil)
+itemResponse, err := container.CreateItem(context.TODO(), pk, marshalled, nil)
 if err != nil {
 	panic(err)
 }
@@ -166,7 +171,7 @@ if err != nil {
 **Read an item**
 
 ```go
-getResponse, err := container.ReadItem(context.Background(), pk, "1", nil)
+getResponse, err := container.ReadItem(context.TODO(), pk, "1", nil)
 if err != nil {
 	panic(err)
 }
@@ -187,7 +192,7 @@ for key, value := range getResponseBody {
 **Delete an item**
 
 ```go
-delResponse, err := container.DeleteItem(context.Background(), pk, "1", nil)
+delResponse, err := container.DeleteItem(context.TODO(), pk, "1", nil)
 
 if err != nil {
 	panic(err)
