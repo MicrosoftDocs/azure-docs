@@ -45,7 +45,7 @@ App Service is a multitenant service, so it uses the host header in the request 
 
 The production-recommended solution is to configure Application Gateway and App Service to not override the hostname.  Follow the instructions for **"Custom Domain (recommended)"** in [Configure App Service with Application Gateway](./configure-web-app.md)
 
-Only consider applying another workaround (like a rewrite of the Location header as described below) after assessing the implications as described in the article: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation).  These implication include the potential for domain-bound cookies and for absolute URL's outside of the location header, to remain broken.
+Only consider applying another workaround (like a rewrite of the Location header as described below) after assessing the implications as described in the article: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation).  These implications include the potential for domain-bound cookies and for absolute URL's outside of the location header, to remain broken.
 
 ## Workaround: rewrite the Location header
 
