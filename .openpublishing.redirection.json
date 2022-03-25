@@ -28319,6 +28319,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-tutorial-geo-filtering.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-gateway/application-gateway-webapplicationfirewall-overview.md",
       "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
       "redirect_document_id": false
@@ -43785,7 +43790,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
       "redirect_document_id": false
     },
     {
