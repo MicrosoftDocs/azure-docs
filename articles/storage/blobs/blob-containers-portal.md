@@ -76,11 +76,15 @@ Properly managing access to containers and their blobs is key to ensuring that y
 
 ### Manage Azure RBAC role assignments for the container
 
-Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment. You can read about the assignment of roles at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
+Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment. 
+
+You can read about the assignment of roles at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
 
 ### Enable anonymous public read access
 
-Although anonymous read access for containers is supported, it is disabled by default. All access requests must require authorization until anonymous access is explicitly enabled. After anonymous access is enabled, any client will be able to read data within that container without authorizing the request. Read about enabling public access level at [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal)
+Although anonymous read access for containers is supported, it is disabled by default. All access requests must require authorization until anonymous access is explicitly enabled. After anonymous access is enabled, any client will be able to read data within that container without authorizing the request.
+
+Read about enabling public access level in the [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal) article.
 
 ### Generate container SAS tokens
 
@@ -120,17 +124,21 @@ To generate an SAS token using the Azure portal, follow these steps:
 
 A **stored access policy** gives you additional server-side control over one or more shared access signatures. When you associate an SAS with a stored access policy, the SAS inherits the restrictions defined in the policy. These additional restrictions allow you to change the start time, expiry time, or permissions for a signature. You can also revoke it after it has been issued.
 
+**Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a period of time. Azure supports two types of SAS. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but but must be explicitly explicitly cleared before those operations can resume.
+
+#### Create a stored access policy
+
 Configuring a stored access policy is a two-step process: the policy must first be defined, and then subsequently applied to the container. To configure a stored access policy, follow these steps:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
 1. Select the checkbox next to the name of the container for which you will generate an SAS token.
 1. Select the container's **More** button (**...**), and select **Access policy** to display the **Access policy** pane.
 
-    :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-container-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings in the Azure portal" lightbox="media/blob-containers-portal/select-container-policy-lrg.png":::
 
 1. Within the **Access policy** pane, select **+ Add policy** in the **Stored access policies** section to display the **Add policy** pane. Any existing policies will be displayed in either the appropriate section.
 
-    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to access container shared access signature settings in the Azure portal" lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings in the Azure portal" lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
 
 1. Within the **Add policy** pane, select the **Identifier** box and add a name for your new policy.
 1. Select the **Permissions** field, then select the check boxes corresponding to the permissions desired for your new policy.
@@ -140,13 +148,13 @@ Configuring a stored access policy is a two-step process: the policy must first 
     > [!CAUTION]
     > Although your policy is now displayed in the **Stored access policy** table, it is still not applied to the container. If you navigate away from the **Access policy** pane at this point, the policy will *not* be saved or applied and you will lose your work.
 
-    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy in the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing a defined stored access policy in the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
 
-1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to associate your new policy the the container.
+1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to apply your new policy the the container. After creating at least one stored access policy, you will be able to associate other secure access signatures (SAS) with it.
 
-    :::image type="content" source="media/blob-containers-portal/apply-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy in the Azure portal" lightbox="media/blob-containers-portal/apply-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/apply-policy-sml.png" alt-text="Screenshot showing how to apply a stored access policy in the Azure portal" lightbox="media/blob-containers-portal/apply-policy-lrg.png":::
 
-**Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a period of time. Azure supports two types of SAS. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but but must be explicitly explicitly cleared before those operations can resume.
+#### Create an immutability policy
 
 Read more about how to [Configure immutability policies for containers](immutable-storage-overview.md). For help in implementing immutability policies, follow the steps outlined in the [Configure a retention policy](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-a-retention-policy-on-a-container) or [Configure or clear a legal hold](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-or-clear-a-legal-hold) articles.
 
