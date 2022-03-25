@@ -117,4 +117,4 @@ You'll need to assign a SIM policy to your SIMs to bring them into service.
 <!-- we may want to update the template to include SIM policies, or update the link below to reference the ARM template procedure rather than the portal -->
 
 - [Configure a SIM policy for Azure Private 5G Core Preview - Azure portal](configure-sim-policy-azure-portal.md)
-- [Assign a SIM policy to a SIM](provision-sims-azure-portal.md#assign-a-sim-policy)
+- [Assign a SIM policy to a SIM](provision-sims-azure-portal.md#assign-sim-policies)
