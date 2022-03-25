@@ -45,7 +45,7 @@ To expand your host pool by adding virtual machines:
 5. Select **+Add** to start adding session hosts to your host pool.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the "+Add" option in the portal to add session hosts to a host pool, highlighted with a red border.](media/portal-add-vms.pngs)
+    > ![A screenshot showing the "+Add" option in the portal to add session hosts to a host pool, highlighted with a red border.](media/portal-add-vms.png)
 
 6. If the registration token you used to initially create the host pool has now expired, you'll receive the following banner. Select **->** to generate a new registration token. If your host pool's registration token is still valid, skip ahead to step 10.
 
