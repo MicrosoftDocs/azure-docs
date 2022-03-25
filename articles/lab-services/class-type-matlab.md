@@ -12,7 +12,7 @@ ms.author: enewman
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-[MATLAB](https://www.mathworks.com/products/matlab.html), which stands for Matrix laboratory, is programming platform from [MathWorks](https://www.mathworks.com/). MATLAB also combines computational power and visualization making it a popular tool in the fields of:
+[MATLAB](https://www.mathworks.com/products/matlab.html), which stands for Matrix laboratory, is a programming platform from [MathWorks](https://www.mathworks.com/). MATLAB also combines computational power and visualization making it a popular tool in the fields of:
 
 - Math
 - Engineering
@@ -38,7 +38,7 @@ Assuming the license server is located in an on-premise network or a private net
 
 ## Lab configuration
 
-Once you've an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). If you're using a [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). If you're using a [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
 
 ### Lab settings
 
@@ -53,12 +53,15 @@ MATLAB is supported on more operating systems than Windows 10. For more informat
 
 ## Template machine configuration
 
-After the template machine is created, start the machine and connect to it to complete the following major tasks:
+After the template machine is created, start the machine and connect it to complete the following major tasks:
 
 1. Download the installation files for the MATLAB client software.
 2. Install MATLAB using the file installation key.
 
-Installing MATLAB will be a multi-part process. The first part will download the files for MATLAB and any other products you want to install. Ensure that all the installation files for products to be installed are pre-downloaded before you use a file installation key. The second part will be installing the MATLAB software on the template VM and activating the software. If the template VM is configured to activate using the license server, the student VMs will do the same.
+Installing MATLAB will be a multi-part process:
+
+1. Download the files for MATLAB and any other products you want to install. Ensure that all the installation files for products to be installed are pre-downloaded before you use a file installation key.
+1. Install the MATLAB software on the template VM and activating the software. If the template VM is configured to activate using the license server, the student VMs will do the same.
 
 ### Download installation files
 
@@ -91,7 +94,7 @@ You can also download an ISO image from the MathWorks website.
 
 Once the files are downloaded, the second step is to run the installer. Once again, you must be a license administrator to complete this step. Only the license administrators can install MATLAB with a file installation key.
 
-1. Check the downloaded license file and verify the SERVER line lists the license server correctly. For more information on how to format the license file, see [update network license](https://www.mathworks.com/help/install/ug/network-license-files.html), [license borrowing](https://www.mathworks.com/help/install/license/borrow-licenses.html), and [find host ID](https://www.mathworks.com/matlabcentral/answers/101892-what-is-a-host-id-how-do-i-find-my-host-id-in-order-to-activate-my-license) articles.
+1. Check the downloaded license file and verify that the SERVER line lists the license server correctly. For more information on how to format the license file, see [update network license](https://www.mathworks.com/help/install/ug/network-license-files.html), [license borrowing](https://www.mathworks.com/help/install/license/borrow-licenses.html), and [find host ID](https://www.mathworks.com/matlabcentral/answers/101892-what-is-a-host-id-how-do-i-find-my-host-id-in-order-to-activate-my-license) articles.
 1. Launch the MATLAB Installer.
 1. On the **Sign in to your MathWorks Account** page, enter your MathWorks account details.
 1. On the **MathWorks License Agreement** page, accept the terms and select the **Next** button.
