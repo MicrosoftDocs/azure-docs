@@ -1,7 +1,7 @@
 ---
 title: SSH access to Azure Arc-enabled servers
 description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
-ms.date: 02/18/2022
+ms.date: 03/25/2022
 ms.topic: conceptual
 ---
 
@@ -14,7 +14,7 @@ allowing existing management tools to have a greater impact on Azure Arc-enabled
 SSH access to Arc-enabled servers provides the following key benefits:
  - No public IP address or open SSH ports required
  - Access to Windows and Linux machines
- - Ability to log-in as a local user or an [Azure user (Linux only)](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux)
+ - Ability to log-in as a local user or an [Azure user (Linux only)](..\..\active-directory\devices\howto-vm-sign-in-azure-ad-linux.md)
  - Support for other OpenSSH based tooling with config file support
 
 ## Prerequisites
@@ -60,6 +60,19 @@ In order to install this extension, run:
 If you already have the extension installed, it can be updated by running:
 
 ```az extension update --name ssh```
+
+> [!NOTE]
+> The Azure CLI extension version must be greater than 1.0.1
+
+### Create default connectivity endpoint
+> [!NOTE]
+> The following actions must be completed for each Arc-enabled server.
+
+Run the following commands:
+ ```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{"properties": {"type": "default"}}'```
+
+ ```az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
+
 
 ### Enable functionality on your Arc-enabled server
 In order to use the SSH connect feature, you must enable connections on the hybrid agent.
