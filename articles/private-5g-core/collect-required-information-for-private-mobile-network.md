@@ -40,7 +40,7 @@ As part of creating your private mobile network, you can provision one or more S
 If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
 
 - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a small number of SIMs.
-- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [Provision SIM resources using a JSON file](#provision-sim-resources-using-a-json-file).
+- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [JSON file format for provisioning SIMs](#json-file-format-for-provisioning-sims).
 
 You must then collect each of the values given in the following table for each SIM resource you want to provision.
 
@@ -53,7 +53,7 @@ You must then collect each of the values given in the following table for each S
    |The derived operator code (OPc). This is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. This must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
    |The type of device that is using this SIM. This is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
 
-### Provision SIM resources using a JSON file
+### JSON file format for provisioning SIMs
 
 The following example shows the file format you'll need if you want to provision your SIM resources using a JSON file. It contains the parameters required to provision two SIMs (SIM1 and SIM2).
 
@@ -77,6 +77,16 @@ The following example shows the file format you'll need if you want to provision
  }
 ]
 ```
+
+## Decide whether you want to use the default service and SIM policy
+
+You'll be given the option of creating a default service and SIM policy as part of deploying your private mobile network. They allow all traffic in both directions for all the SIMs you provision. They're designed to allow you to quickly deploy a private mobile network and bring SIMs into service automatically, without the need to design your own policy control configuration. 
+
+Decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-and-sim-policy.md) if you need it.
+
+If they aren't suitable, you can choose to deploy the private mobile network without any services or SIM policies. In this case, any SIMs you provision won't be brought into service when you create your private mobile network. You'll need to create your own services and SIM policies later.  
+
+For detailed information on services and SIM policies, see [Policy control](policy-control.md).
 
 ## Next steps
 

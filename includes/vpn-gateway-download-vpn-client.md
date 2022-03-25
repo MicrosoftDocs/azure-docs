@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/19/2021
+ms.date: 03/24/2022
 ms.service: vpn-gateway
 ms.topic: include
 
@@ -9,9 +9,4 @@ ms.topic: include
 ---
 1. Download the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554) to each computer.
 
-1. Verify that the Azure VPN Client has permission to run in the background. To check and enable permissions, navigate to **Start -> Settings -> Privacy -> Background Apps**.
-
-   * Under **Background Apps**, make sure **Let apps run in the background** is turned **On**.
-   * Under **Choose which apps can run in the background**, turn settings for **Azure VPN Client** to **On**.
-
-      :::image type="content" source="media/vpn-gateway-download-vpn-client/permissions.png" alt-text="Screenshot shows background permissions.":::
+1. Verify that the Azure VPN Client has permission to run in the background. For steps, see [Windows background apps](https://support.microsoft.com/windows/windows-background-apps-and-your-privacy-83f2de44-d2d9-2b29-4649-2afe0913360a#ID0EBD=Windows_11).

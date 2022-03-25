@@ -7,7 +7,8 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 03/22/2022
+
 ---
 
 # Custom Entity Lookup cognitive skill
