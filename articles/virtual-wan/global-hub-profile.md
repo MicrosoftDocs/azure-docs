@@ -76,7 +76,7 @@ The profile points to a single hub. The user can connect to only the particular 
 1. On the **Download virtual WAN user VPN**, select **EAPTLS** as the authentication type.
 1. Select **Generate and download profile**.
 
-   :::image type="content" source="./media/global-hub-profile/generate.png" alt-text="Screenshot that shows the button for generating and downloading a profile." lightbox="./media/global-hub-profile/generate.png":::
+   :::image type="content" source="./media/global-hub-profile/generate.png" alt-text="Screenshot that shows generating and downloading a profile." lightbox="./media/global-hub-profile/generate.png":::
 
 ## Next steps
 
