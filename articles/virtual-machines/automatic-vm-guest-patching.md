@@ -207,6 +207,11 @@ To modify an existing VM, use [az vm update](/cli/azure/vm#az-vm-update)
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
 ```
 
+### Azure portal
+When creating a VM using the Azure portal, patch orchestration modes can be set under the **Management** tab for both Linux and Windows. 
+
+:::image type="content" source="/media/automatic-vm-guest-patching/auto-guest-patching-portal.png" alt-text="Shows the management tab in the Azure portal used to enable patch orchestration modes.":::
+
 ## Enablement and assessment
 
 > [!NOTE]
