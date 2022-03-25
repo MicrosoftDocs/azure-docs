@@ -73,7 +73,7 @@
 - name: Cluster Administration
   href: cluster-administration.md
   items:
-  - name: Storage
-    href: nutanix-baremetal-storage.md    
+  - name: User Management
+    href: user-management.md    
 
   
