@@ -49,7 +49,7 @@ Visual Studio launches the Docker Desktop for Windows installer.  You can follow
 
 The application includes a Dockerfile because the **Enable Docker** setting is selected in the project template.  Visual Studio uses the Dockerfile to build the image that is run by Azure Container Apps.
 
-Refer to [How Visual Studio builds containerized apps]((/visualstudio/containers/container-build)) if you'd like to learn more about the specifics of this process.
+Refer to [How Visual Studio builds containerized apps](/visualstudio/containers/container-build) if you'd like to learn more about the specifics of this process.
 
 Your are now ready to deploy to Azure Containers Apps.
 
