@@ -65,7 +65,7 @@ In the dialog, choose **Azure** from the list of publishing options, and then se
 
 On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
 
-:::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing to publish to Azure.":::
+:::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
 
 Next, create an Azure Container App to host the project.  Select the the **green plus icon** on the right to open the create dialog. In the *Create new* dialog, enter the following values:
 
@@ -100,13 +100,13 @@ On the **Registry** screen, you can either select an existing Registry if you ha
 - **Sku**: Select **Standard**.
 - **Registry Location**: Select a region that is geographically close to you.
 
-:::image type="content" source="media/visual-studio/container-apps-registry.png" alt-text="A screenshot showing how to select the container registry.":::
+:::image type="content" source="media/visual-studio/container-apps-registry.png" alt-text="A screenshot showing how to create the container registry.":::
 
 After you have populated these values, select **Create**. Visual Studio and Azure will take a moment to create the registry.
 
 Once the Container registry is created, make sure it is selected, and then choose **Finish**.  Visual Studio will take a moment to create the publish profile.  You can close the dialog once it finishes.
 
-:::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how to select the container registry.":::
+:::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how select the created registry.":::
 
 ### Publish the app
 
@@ -114,7 +114,7 @@ While the resources and publishing profile are created, you still need to publis
 
 Choose **Publish** in the upper right of the publishing profile screen to deploy to the container app you created in Azure.  This process may take a moment, so wait for it to complete.
 
-:::image type="content" source="media/visual-studio/container-apps-publish.png" alt-text="A screenshot showing how to select the container registry.":::
+:::image type="content" source="media/visual-studio/container-apps-publish.png" alt-text="A screenshot showing how to publish the app.":::
 
 When the app finishes deploying, Visual Studio opens a browser to the the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
 
