@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 03/25/2022
 ms.custom: devx-track-java
 ms.author: mametcal
 

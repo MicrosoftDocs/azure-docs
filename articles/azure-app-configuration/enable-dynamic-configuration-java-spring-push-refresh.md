@@ -13,7 +13,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 04/05/2021
+ms.date: 03/25/2022
 ms.author: mametcal
 
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.

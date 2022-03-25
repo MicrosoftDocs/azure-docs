@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 03/25/2022
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 

@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 06/25/2021
+ms.date: 03/25/2022
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.

@@ -11,7 +11,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 03/25/2022
 ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 
@@ -162,17 +162,17 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Open *MessageProperties.java*. Add a new variable called *message*:
+1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
 
     ```java
-    private String message;
+    private String keyVaultMessage;
 
-    public String getMessage() {
-        return message;
+    public String getKeyVaultMessage() {
+        return keyVaultMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setKeyVaultMessage(String keyVaultMessage) {
+        this.keyVaultMessage = keyVaultMessage;
     }
     ```
 
