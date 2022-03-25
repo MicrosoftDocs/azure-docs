@@ -18,9 +18,7 @@ keywords: computer vision, computer vision service
 
 # Quickstart: Use the Image Analysis client library or REST API
 
-Get started with the Image Analysis REST API or client libraries. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for basic tasks.
-
-
+Get started with the Image Analysis REST API or client libraries. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for a basic task.
 
 ::: zone pivot="programming-language-csharp"
 
