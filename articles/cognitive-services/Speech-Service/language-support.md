@@ -245,6 +245,8 @@ To improve accuracy, customization is available for some languages and baseline 
 | Portuguese (Brazil)               | `pt-BR`         |
 | Spanish (Spain)                   | `es-ES`         |
 
+---
+
 ### Phrase list
 
 You can use the locales in this table with [phrase list](improve-accuracy-phrase-list.md). 
