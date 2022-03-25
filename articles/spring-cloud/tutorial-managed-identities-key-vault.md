@@ -134,17 +134,17 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
     To use managed identity for Azure Spring Cloud apps, add properties with the below content to src/main/resources/application.properties.
 
 # [System-assigned managed identity](#tab/system-assigned-managed-identity)
-    ```properties
-    azure.keyvault.enabled=true
-    azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
-    ```
+```properties
+azure.keyvault.enabled=true
+azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
+```
 
 # [User-assigned managed identity](#tab/user-assigned-managed-identity)
-    ```properties
-    azure.keyvault.enabled=true
-    azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
-    azure.keyvault.client-id={Client ID of user-assigned managed identity}
-    ```
+```properties
+azure.keyvault.enabled=true
+azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
+azure.keyvault.client-id={Client ID of user-assigned managed identity}
+```
 ---
 
     > [!Note]
