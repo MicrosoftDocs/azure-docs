@@ -91,7 +91,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     Navigate to the *Room.json* file on your machine and select "Open." Then, repeat this step for *Floor.json*.
 
-1. Next, use the [az dt model create](/cli/azure/dt/model#az_dt_model_create) command as shown below to upload your updated Room model to your Azure Digital Twins instance. The second command uploads another model, Floor, which you'll also use in the next section to create different types of twins. If you're using Cloud Shell, *Room.json* and *Floor.json* are in the main storage directory, so you can just use the file names directly in the command below where a path is required.
+1. Next, use the [az dt model create](/cli/azure/dt/model#az-dt-model-create) command as shown below to upload your updated Room model to your Azure Digital Twins instance. The second command uploads another model, Floor, which you'll also use in the next section to create different types of twins. If you're using Cloud Shell, *Room.json* and *Floor.json* are in the main storage directory, so you can just use the file names directly in the command below where a path is required.
 
     ```azurecli-interactive
     az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models <path-to-Room.json>
@@ -101,9 +101,9 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     The output from each command will show information about the successfully uploaded model.
 
     >[!TIP]
-    >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
+    >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az-dt-model-create-optional-parameters).
 
-1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az_dt_model_list) command as shown below. Doing so will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
+1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az-dt-model-list) command as shown below. Doing so will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
 
     ```azurecli-interactive
     az dt model list --dt-name <Azure-Digital-Twins-instance-name> --definition
@@ -129,7 +129,7 @@ As models cannot be overwritten, running this command on the same model will now
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can create [digital twins](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az_dt_twin_create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You don't have to pass any relationship information at this stage.
+To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You don't have to pass any relationship information at this stage.
 
 1. Run this code in the CLI to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these properties. (Initializing property values is optional in general, but they're needed for this tutorial.)
 
@@ -145,7 +145,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az_
     
     The output from each command will show information about the successfully created twin (including properties for the room twins that were initialized with them).
 
-1. You can verify that the twins were created with the [az dt twin query](/cli/azure/dt/twin#az_dt_twin_query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance.
+1. You can verify that the twins were created with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance.
     
     ```azurecli-interactive
     az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS"
@@ -161,7 +161,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az_
 
 You can also modify the properties of a twin you've created. 
 
-1. Run this [az dt twin update](/cli/azure/dt/twin#az_dt_twin_update) command to change room0's RoomName from Room0 to PresidentialSuite:
+1. Run this [az dt twin update](/cli/azure/dt/twin#az-dt-twin-update) command to change room0's RoomName from Room0 to PresidentialSuite:
 
     ```azurecli-interactive
     az dt twin update --dt-name <Azure-Digital-Twins-instance-name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
@@ -174,7 +174,7 @@ You can also modify the properties of a twin you've created.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot of Cloud Shell showing result of the update command, which includes a RoomName of PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. You can verify the update succeeded by running the [az dt twin show](/cli/azure/dt/twin#az_dt_twin_show) command to see room0's information:
+1. You can verify the update succeeded by running the [az dt twin show](/cli/azure/dt/twin#az-dt-twin-show) command to see room0's information:
 
     ```azurecli-interactive
     az dt twin show --dt-name <Azure-Digital-Twins-instance-name> --twin-id room0
@@ -188,7 +188,7 @@ Next, you can create some relationships between these twins, to connect them int
 
 The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called `contains`. Since the model definition specifies this relationship, it's possible to create a `contains`-type relationship from each Floor twin to the corresponding room that it contains.
 
-To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create) command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID. If a relationship was defined to have properties, you can initialize the relationship properties in this command as well.
+To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-create) command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID. If a relationship was defined to have properties, you can initialize the relationship properties in this command as well.
 
 1. Run the following code to add a `contains`-type relationship from each of the Floor twins you created earlier to the corresponding Room twin. The relationships are named relationship0 and relationship1.
 
@@ -229,7 +229,7 @@ The twins and relationships you have set up in this tutorial form the following 
 
 ## Query the twin graph to answer environment questions
 
-A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, querying is done with the [az dt twin query](/cli/azure/dt/twin#az_dt_twin_query) command.
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, querying is done with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command.
 
 [!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
@@ -297,7 +297,7 @@ After completing this tutorial, you can choose which resources you want to remov
 
 * If you plan to continue to the next tutorial, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
-* If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [az dt twin delete](/cli/azure/dt/twin#az_dt_twin_delete), and [az dt model delete](/cli/azure/dt/model#az_dt_model_delete) commands to clear the relationships, twins, and models in your instance, respectively.
+* If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-delete), [az dt twin delete](/cli/azure/dt/twin#az-dt-twin-delete), and [az dt model delete](/cli/azure/dt/model#az-dt-model-delete) commands to clear the relationships, twins, and models in your instance, respectively.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
