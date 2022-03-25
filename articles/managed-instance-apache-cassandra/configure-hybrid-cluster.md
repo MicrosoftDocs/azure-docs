@@ -208,7 +208,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```
    
    > [!IMPORTANT]
-   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you run [`nodetool repair --full`](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. 
+   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you run [`nodetool repair --full`](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. 
 
 ## Troubleshooting
 
