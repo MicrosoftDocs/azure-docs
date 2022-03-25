@@ -167,7 +167,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ***Composed model dialog window[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot of Form Recognizer Studio compose custom model dialog window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)

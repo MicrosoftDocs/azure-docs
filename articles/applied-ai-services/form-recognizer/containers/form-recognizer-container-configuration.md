@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 03/25/2022
 ms.author: lajanuar
 ---
 # Configure Form Recognizer containers
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container) below for more information.
+> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. For more information, See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container).
 
-With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, virtually-isolated environment that can be easily deployed on-premise and in the cloud. In this article, you will learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premise and in the cloud. In this article, you'll learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -25,7 +25,7 @@ Each container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[ApiKey](#apikey-and-billing-configuration-setting)|Tracks billing information.|
-|Yes|[Billing](#apikey-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure. For more information on obtaining _see_ [Billing]](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
+|Yes|[Billing](#apikey-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  _See_ [Billing]](form-recognizer-container-install-run.md#billing), for more information. For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
@@ -45,7 +45,7 @@ The `Billing` setting specifies the endpoint URI of the resource on Azure that's
 
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-## Eula setting
+## EULA setting
 
 [!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
