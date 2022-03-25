@@ -229,7 +229,7 @@ To get a list of all container mutations under the same database, see graph rest
 
 ### Restorable Table resources 
 
-Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Please note - Table API does not have explicit database.
+Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Note the Table API does not specify an explicit database.
 
 |Property Name |Description  |
 |---------|---------|
