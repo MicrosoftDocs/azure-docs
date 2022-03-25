@@ -62,7 +62,8 @@ The following diagram shows the identity proofing process, which occurs outside 
 | Steps | Description                                                                                                  |
 | :---- | :----------------------------------------------------------------------------------------------------------- |
 | 1.    | User uploads a selfie capture into the eID-Me smartphone application.                                        |
-| 2.    | User scans and uploads a govt. ID such as Passport or Driver license into the eID-Me smartphone application. |
+| 2.    | User scans and uploads a government issued identification document such as Passport or Driver license into the eID-Me smartphone application. |
+
 | 3.    | Submits this data to eID-Me identity service for verification.                                               |
 | 4.    | Post verification, a digital identity is issued to the user and saved in the application.                    |
 
