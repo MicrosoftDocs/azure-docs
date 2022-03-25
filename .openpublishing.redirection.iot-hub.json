@@ -1008,7 +1008,16 @@
       "source_path_from_root": "/articles/iot-hub/tutorial-firmware-update.md",
       "redirect_url": "/azure/iot-hub-device-update/device-update-raspberry-pi",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-visual-studio.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-toolkit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-visual-studio-cloud-device-messaging.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+      "redirect_document_id": false
     }
-    
   ]
 }
