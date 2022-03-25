@@ -226,7 +226,7 @@ If you want to skip building the API, you can bypass the automatic build and dep
 
 Steps to skip building the API:
 
-- In `staticwebapp.config.json`, set the `apiRuntime` to the correct language and version. Click [here](https://docs.microsoft.com/en-us/azure/static-web-apps/configuration#selecting-the-api-language-runtime-version) for the list of supported language and versions.
+- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct language and version. Refer to [Configure Azure Static Web Apps](configuration.md#selecting-the-api-language-runtime-version) for the list of supported languages and versions.
 ```json
 {
   "platform": {
