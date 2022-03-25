@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -194,7 +194,7 @@ CAE only has insight into [IP-based named locations](../conditional-access/locat
 
 ### Named location limitations
 
-When the sum of all IP ranges specified in location policies exceeds 5,000 for policies that will be enforced on the Resource provider, user change location flow isn't enforced. In this case, Azure AD will issue a one-hour CAE token and won't enforce client location change. Security is improved compared to traditional one-hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
+When the sum of all IP ranges specified in location policies exceeds 5,000 for policies that will be enforced on the Resource provider, user change location flow isn't enforced. In this case, Azure AD will issue a one-hour CAE token and won't enforce client location change; security is improved compared to traditional one-hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
 
 ### Office and Web Account Manager settings
 
