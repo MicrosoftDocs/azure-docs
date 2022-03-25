@@ -232,6 +232,9 @@ If you need to repair the cloud sync service account, you can use the `Repair-AA
 
    1. After this completes, it should say that the account was repaired successfully.
 
+## Password issues
+If you have a mix of Azure AD Connect sync and Azure AD Cloud sync and are having issues signing in with Cloud synced user credentials, make sure pass-through authentication is disabled.
+
 ## Password writeback
 
 To enable and use password writeback with cloud sync, keep the following in mind:
