@@ -52,7 +52,7 @@ The table below lists monitoring methods to use for different scenarios.
 |I want to monitor built-in logs for testing and development|[Log stream](troubleshoot-diagnostic-logs.md#stream-logs)|
 |I want to monitor resource limits and configure alerts|[Quotas and alerts](web-sites-monitor.md)|
 |I want to monitor web app resource events|[Activity Logs](get-resource-events.md#view-azure-activity-logs)|
-|I want to monitor metrics visually|[Metrics](web-sites-monitor.d#metrics-granularity-and-retention-policy)|
+|I want to monitor metrics visually|[Metrics](web-sites-monitor.md#metrics-granularity-and-retention-policy)|
 
 ## Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
