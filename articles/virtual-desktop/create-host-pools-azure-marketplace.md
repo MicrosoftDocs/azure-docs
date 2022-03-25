@@ -79,7 +79,7 @@ To start creating your new host pool:
 12. Once you create your host pool, you can get the host pool's registration key by going to the host pool's **Overview** page and selecting **Registration key**. Use this key when adding virtual machines created outside of Azure Virtual Desktop to your host pool.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the registration key option in the host pool overview blade, highlighted with a red border.](media/reg-key-host-pool-page.png)
+    > ![A screenshot showing the registration key option in the host pool overview blade, highlighted with a red border.](media/registration-key-host-pool-page.png)
 
 ### [Azure CLI](#tab/azure-cli)
 

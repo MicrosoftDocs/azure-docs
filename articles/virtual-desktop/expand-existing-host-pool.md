@@ -45,17 +45,17 @@ To expand your host pool by adding virtual machines:
 5. Select **+Add** to start adding session hosts to your host pool.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the "+Add" option in the portal to add session hosts to a host pool, highlighted with a red border.](media/portal-add-vms.png)
+    > ![A screenshot showing the "+Add" option in the portal to add session hosts to a host pool, highlighted with a red border.](media/portal-add-vms.pngs)
 
 6. If the registration token you used to initially create the host pool has now expired, you'll receive the following banner. Select **->** to generate a new registration token. If your host pool's registration token is still valid, skip ahead to step 10.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the red banner indicating an invalid registration token highlighted with a red border.](media/reg-token.png)
+    > ![A screenshot showing the red banner indicating an invalid registration token highlighted with a red border.](media/registration-token.png)
 
 7. Select **Generate new key** and select an expiration date. We recommend you set the expiration date to be the maximum of 27 days so that you don't need to regenerate a registration key frequently. Select **Ok** to generate the registration key.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the options to generate a new registration key and set an expiration date for it, highlighted with a red border.](media/reg-token-2.png)
+    > ![A screenshot showing the options to generate a new registration key and set an expiration date for it, highlighted with a red border.](media/registration-token-2.png)
 
 8.  After a few seconds, your host pool's new registration key will get filled in the text box. Select **Download** and then exit out of the **Registration key** context blade. 
 
