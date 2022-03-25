@@ -27,7 +27,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Reader** on the workspace to which the host connects|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
-|||
+
 
 ## Identify and remediate security vulnerabilities in your Docker configuration
 

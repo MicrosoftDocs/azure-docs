@@ -15,7 +15,7 @@ In this article you, as the admin, use PowerShell and the Azure module to create
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2&preserve-view=true).
-- [Azure Az PowerShell module](/powershell/azure/install-Az-ps?view=azps-7.2.0&preserve-view=true). Must be version 7.2 or higher.
+- [Azure AzPreview PowerShell module](https://www.powershellgallery.com/packages/AzPreview). Must be version 7.2 or higher.
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure and verify an active subscription.
 
@@ -24,6 +24,8 @@ Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sig
 The following steps will show you how to create a lab plan.  Any properties set in the lab plan will be used in labs created with this plan.
 
 ```powershell
+New-AzResourceGroup -Name "MyResourceGroup" -Location "eastus"
+
 $plan = New-AzLabServicesLabPlan -Name "ContosoLabPlan" `
     -ResourceGroupName "MyResourceGroup" `
     -Location "eastus" `

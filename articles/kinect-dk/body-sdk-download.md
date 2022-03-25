@@ -4,7 +4,7 @@ description: Understand how to download each version of the Azure Kinect Sensor 
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 03/18/2021
+ms.date: 03/21/2022
 ms.topic: conceptual
 keywords: azure, kinect, sdk, download update, latest, available, install, body, tracking
 ---
@@ -53,16 +53,17 @@ If the command succeeds, the SDK is ready for use.
 * [Feature] Added cmake support to all body tracking samples
 * [Feature] NuGet package returns. Developed new NuGet package that includes Microsoft developed body tracking dlls and headers, and ONNX runtime dependencies. The package no longer includes the NVIDIA CUDA and TRT dependencies. These continue to be included in the MSI package.
 * [Feature] Upgraded to ONNX Runtime v1.10. Recommended NVIDIA driver version is 472.12 (Game Ready) or 472.84 (Studio). There are OpenGL issues with later drivers.
+* [Bug Fix] CMake missing from offline_processor sample [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/890)
 * [Bug Fix] CPU mode no longer requires NVIDIA CUDA dependencies [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1154)
-* [Bug Fix] Verified samples compile with Visual Studio 2022 and updated samples to use this release [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1250)
-* [Bug Fix] Added const qualifier to APIs [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1365)
-* [Bug Fix] Added check for nullptr handle in shutdown() [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1373)
-* [Bug Fix] Improved dependencies checks [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1510)
+* [Bug Fix] Verified samples compile with Visual Studio 2022 and updated samples to use this release [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1250)
+* [Bug Fix] Added const qualifier to APIs [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1365)
+* [Bug Fix] Added check for nullptr handle in shutdown() [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1373)
+* [Bug Fix] Improved dependencies checks [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1510)
 * [Bug Fix] Updated REDIST.TXT file [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1541)
-* [Bug Fix] Improved DirectML performance [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1546)
-* [Bug Fix] Fixed exception declaration in frame::get_body() [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1573)
-* [Bug Fix] Fixed memory leak [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1576)
-* [Bug Fix] Updated dependencies list [Link] (https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1644)
+* [Bug Fix] Improved DirectML performance [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1546)
+* [Bug Fix] Fixed exception declaration in frame::get_body() [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1573)
+* [Bug Fix] Fixed memory leak [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1576)
+* [Bug Fix] Updated dependencies list [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1644)
 
 ### v1.1.0
 * [Feature] Add support for DirectML (Windows only) and TensorRT execution of pose estimation model. See FAQ on new execution environments.

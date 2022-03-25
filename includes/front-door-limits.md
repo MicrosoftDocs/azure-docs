@@ -87,5 +87,6 @@
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
 * Maximum ETag header size: 128 bytes
+* Maximum endhpoint name for Standard and Premium: 46 characters.
 
 For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)
