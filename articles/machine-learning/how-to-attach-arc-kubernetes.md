@@ -255,7 +255,7 @@ kubectl get pods -n azureml
 ```
 ## Update Azure Machine Learning extension
 
-Use ```k8s-extension update``` CLI command to update the mutable properties of  Azure Machine Learning extension. For more information, see the [`k8s-extension update` CLI command documentation](/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_update&preserve-view=true). 
+Use ```k8s-extension update``` CLI command to update the mutable properties of  Azure Machine Learning extension. For more information, see the [`k8s-extension update` CLI command documentation](/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-update&preserve-view=true). 
 
 1.	Azure Arc supports update of  ``--auto-upgrade-minor-version``, ``--version``,  ``--configuration-settings``, ``--configuration-protected-settings``.  
 2.	For configurationSettings, only the settings that require update need to be provided. If the user provides all settings, they would be merged/overwritten with the provided values. 
@@ -276,7 +276,7 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 
 ## Delete Azure Machine Learning extension
 
-Use [`k8s-extension delete`](/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_delete&preserve-view=true) CLI command to delete the Azure Machine Learning extension. 
+Use [`k8s-extension delete`](/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-delete&preserve-view=true) CLI command to delete the Azure Machine Learning extension. 
 
 It takes around 10 minutes to delete all components deployed to the Kubernetes cluster. Run `kubectl get pods -n azureml` to check if all components were deleted.
 
