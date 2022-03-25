@@ -93,5 +93,5 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 | **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
 | **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
-| **Standard_F12s_HPN-new**   | 12      | 24           |256                 | 1000                           | 48000                               |   500                             | 64              | 8         |
+| **Standard_F12s_HPN-new**   | 12      | 24           |256                 | 2000                           | 48000                               |   2300                             | 64              | 8         |
 | **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
