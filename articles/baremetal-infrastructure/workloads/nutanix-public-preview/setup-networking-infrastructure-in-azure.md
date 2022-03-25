@@ -32,7 +32,7 @@ See the Microsoft Azure documentation at Set up a NAT Gateway for up-to-date and
    1. Flow gateway internal traffic (req ≥ /24)  
 See [Add, change, or delete a virtual network subnet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet). 
 1.	Create a subnet for Prism Central.
-> [!NOTE]:
+> [!NOTE]
 > Delegate the PC subnet to the “Microsoft. BareMetal/AzureHostedService” service.
 5. Create VPN/ER (Hub) gateway subnets. 
 1. Apply tag for all resources used for the cluster deployment using the Tag tab on the Azure portal. 
@@ -40,25 +40,28 @@ See [Add, change, or delete a virtual network subnet](https://docs.microsoft.com
    1. NAT Gateway 
    1. VPN/ER Gateway  
    Set the “fastpathenabled” tag with the “True” value on the new subscription and all above resources. 
-8.	Delegate the cluster management subnet to the “Microsoft. BareMetal/AzureHostedService” service. 
+1. Delegate the cluster management subnet to the “Microsoft. BareMetal/AzureHostedService” service. 
 Specify the DNS server listed earlier. 
-In your Azure portal, go to your cluster management VNet > under **Subnets**, click on the cluster management subnet > in the right pane, select 
+In your Azure portal, go to your cluster management VNet > unde **Subnets**, click on the cluster management subnet > in the right pane, select 
 “Microsoft.BareMetal/AzureHostedService” in the Delegate subnet to a service list.  
 See [Add or remove a subnet delegation](https://docs.microsoft.com/en-us/azure/virtual-network/manage-subnet-delegation).  
-9.	Verify that the cluster management subnet has the NAT gateway and AzureHostedService configured. 
+1.	Verify that the cluster management subnet has the NAT gateway and AzureHostedService configured. 
 In your Azure portal, go to your cluster management VNet > under Subnets, click on the cluster management subnet > in the right pane, you can see the NAT gateway name in the NAT gateway list, and the subnet delegation in the Delegate subnet to a service list. 
-10.	Create subnets in the Cluster VNet to deploy a Flow gateway. 
-a.	Create one non-delegated subnet (Azure native subnet) in the Cluster VNet. 
-b.	Create another non-delegated (external) subnet for Flow gateway. 
-c.	Create the Azure NAT gateway and attach it to the non-delegated subnet. 
-11.	Create Prism Central VNet to deploy Nutanix Prism Central (PC). 
-a.	Create a VNet with one delegated subnet. 
-b.	Create the Azure NAT gateway and attach to the delegated subnet. 
-c.	Establish VNet peering between Cluster VNet and PC VNet. 
-12.	Deploy a Jump Host (JH) instance to access the Nutanix Cluster nodes. 
-Note: The Jump Host may be deployed in the Cluster VNet or a new VNet. If the Jump Host must be deployed in a new VNet, it must be peered with the Cluster VNet. 
-13.	Allow outbound internet access on your Azure portal so that the Nutanix Clusters console can successfully provision and orchestrate Nutanix clusters in Azure. Note: The outbound internet access can be available either through NAT gateway or VPN. 
-14.	Ensure that Azure Directory Service resolves the specified FQDN:  
+1.	Create subnets in the Cluster VNet to deploy a Flow gateway.  
+    1.	Create one non-delegated subnet (Azure native subnet) in the Cluster VNet. 
+    1.	Create another non-delegated (external) subnet for Flow gateway. 
+    1.	Create the Azure NAT gateway and attach it to the non-delegated subnet. 
+1.	Create Prism Central VNet to deploy Nutanix Prism Central (PC). 
+    1.	Create a VNet with one delegated subnet.  
+    1.	Create the Azure NAT gateway and attach to the  delegated subnet. 
+    1.	Establish VNet peering between Cluster VNet and PC VNet. 
+1.	Deploy a Jump Host (JH) instance to access the Nutanix Cluster nodes. 
+> [!NOTE]
+> The Jump Host may be deployed in the Cluster VNet or a new  VNet. If the Jump Host must be deployed in a new VNet, it must be peered with the Cluster VNet.
+12. Allow outbound internet access on your Azure portal so that the Nutanix Clusters console can successfully provision and orchestrate Nutanix clusters in Azure. 
+> [!NOTE]
+> The outbound internet access can be available either through NAT gateway or VPN. 
+1.	Ensure that Azure Directory Service resolves the specified FQDN:  
 gateway-external-api.console.nutanix.com. 
 
 
