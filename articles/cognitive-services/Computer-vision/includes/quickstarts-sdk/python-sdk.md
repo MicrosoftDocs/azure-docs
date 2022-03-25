@@ -52,19 +52,19 @@ Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it i
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 
 ## Read printed and handwritten text
 
 1. Replace the contents of *quickstart-file.py* with the following code.
 
-  [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart-single.py?name=snippet_single)]
+   [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart-single.py?name=snippet_single)]
 
 1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
-  > [!IMPORTANT]
-  > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > [!IMPORTANT]
+   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
 1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
 
@@ -75,9 +75,9 @@ Go to the Azure portal. If the Computer Vision resource you created in the **Pre
 
 1. Run the application with the `python` command on your quickstart file.
 
-  ```console
-  python quickstart-file.py
-  ```
+   ```console
+   python quickstart-file.py
+   ```
 
 ## Clean up resources
 

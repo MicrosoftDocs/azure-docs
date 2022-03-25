@@ -14,10 +14,10 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the OCR client library to read printed and handwritten text from a local image. The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview. 
+Use the OCR client library to read printed and handwritten text from a remote image. The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../overview-ocr.md) overview. 
 
 > [!TIP]
-> You can also read text in a remote image referenced by URL. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **read**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) for scenarios involving remote images.
+> You can also read text in a local image. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **read**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) for scenarios involving local images.
 
 [Reference documentation](/java/api/overview/azure/cognitiveservices/client/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -86,31 +86,31 @@ Navigate to the new folder and create a file called *ComputerVisionQuickstart.ja
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 ## Read printed and handwritten text
 
 1. replace the contents. This code defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
 
-  [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart-single.java?name=snippet_single)]
+   [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart-single.java?name=snippet_single)]
 
 1. Paste your subscription key and endpoint into the above code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
-  > [!IMPORTANT]
-  > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > [!IMPORTANT]
+   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
 1. Change the value of the `localFilePath` to match the image file you downloaded. 
 1. Build the app with the following command:
 
-  ```console
-  gradle build
-  ```
+   ```console
+   gradle build
+   ```
 
-  Then, run the application with the `gradle run` command:
+   Then, run the application with the `gradle run` command:
 
-  ```console
-  gradle run
-  ```
+   ```console
+   gradle run
+   ```
 
 ## Clean up resources
 

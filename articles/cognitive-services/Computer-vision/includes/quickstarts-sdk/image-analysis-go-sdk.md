@@ -76,7 +76,7 @@ touch sample-app.go
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 
 ## Analyze image

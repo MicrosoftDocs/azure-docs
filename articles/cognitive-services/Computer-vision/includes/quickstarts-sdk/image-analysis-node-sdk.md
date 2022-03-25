@@ -66,7 +66,7 @@ Create a new file, *index.js*.
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 ## Analyze image
 

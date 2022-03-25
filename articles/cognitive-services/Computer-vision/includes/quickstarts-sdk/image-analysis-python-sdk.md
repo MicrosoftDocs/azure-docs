@@ -53,7 +53,7 @@ Create a new Python file&mdash;*quickstart-file.py*, for example.
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 ## Analyze image
 
@@ -68,9 +68,9 @@ Go to the Azure portal. If the Computer Vision resource you created in the **Pre
 
 1. Run the application with the `python` command on your quickstart file.
 
-```console
-python quickstart-file.py
-```
+   ```console
+   python quickstart-file.py
+   ```
 
 ## Clean up resources
 

@@ -54,7 +54,7 @@ Your workspace will contain three folders:
 Next, install the client library for Go:
 
 ```bash
-go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
+go install github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision@latest
 ```
 
 or if you use dep, within your repo run:
@@ -74,7 +74,7 @@ touch sample-app.go
 
 ### Find the subscription key and endpoint
 
-Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+[!INCLUDE [find key and endpoint](../find-key.md)]
 
 ## Read printed and handwritten text
 
