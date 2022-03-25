@@ -223,7 +223,7 @@ When using private link, your workspace cannot use Azure Container Registry task
 az ml workspace create -g <resource-group-name> --file privatelink.yml
 ```
 
-After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create a private link endpoint for the workspace.
+After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -355,7 +355,7 @@ az ml workspace show -n <workspace-name> -g <resource-group-name>
 
 ---
 
-For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
+For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az-ml-workspace-show) documentation.
 
 ### Update a workspace
 
@@ -380,7 +380,7 @@ az ml workspace update -n <workspace-name> -g <resource-group-name>
 ---
 
 
-For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) documentation.
+For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) documentation.
 
 ### Sync keys for dependent resources
 
@@ -406,7 +406,7 @@ az ml workspace sync-keys -n <workspace-name> -g <resource-group-name>
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
-For more information on the sync-keys command, see [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys).
+For more information on the sync-keys command, see [az ml workspace sync-keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys).
 
 ### Delete a workspace
 
@@ -443,7 +443,7 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) documentation.
+For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
 If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](./how-to-high-availability-machine-learning.md#workspace-deletion).
 

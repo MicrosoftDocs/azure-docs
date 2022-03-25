@@ -4,7 +4,7 @@ description: Learn how to use Azure Resource Manager (ARM) templates to create m
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/03/2021
+ms.date: 01/03/2022
 ---
 
 # Use ARM templates to create DevTest Labs environments
@@ -115,7 +115,7 @@ By default, lab users have **Reader** role in environments, so they can't change
 
 If you need to create multiple environments for development or testing scenarios, you can automate environment deployment with Azure PowerShell or Azure CLI.
 
-You can use the Azure CLI command [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) to create environments. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+You can use the Azure CLI command [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) to create environments. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 Lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates.
 

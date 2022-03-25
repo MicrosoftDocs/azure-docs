@@ -388,7 +388,7 @@
           href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
     - name: Troubleshoot and problem solution
       items:
-        - name: Device disconnects
+        - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md
         - name: Troubleshoot message routing
           href: troubleshoot-message-routing.md
@@ -445,7 +445,7 @@
     - name: Node.js (Service)
       href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
-      href: /javascript/api/overview/azure/iothub/management
+      href: /javascript/api/overview/azure/iot-hub
     - name: Python (Device)
       href: /python/api/azure-iot-device
     - name: Python (Service)

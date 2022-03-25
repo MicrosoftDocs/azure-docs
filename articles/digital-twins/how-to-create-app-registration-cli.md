@@ -123,7 +123,7 @@ To create a client secret for your app registration, you'll need your app regist
 az ad app credential reset --id <client-ID> --append
 ```
 
-You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az_ad_app_credential_reset).
+You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az-ad-app-credential-reset).
 
 The output of this command is information about the client secret that you've created. Copy the value for `password` to use when you need the client secret for authentication.
 
