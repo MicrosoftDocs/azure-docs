@@ -3,7 +3,7 @@ title: Azure Virtual Desktop Scheduled Agent Updates preview
 description: How to use the Scheduled Agent Updates feature to choose a date and time to update your Azure Virtual Desktop agent components.
 author: Sefriend
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 03/28/2022
 ms.author: sefriend
 manager: rkiran
 ---
@@ -13,7 +13,7 @@ manager: rkiran
 > The Scheduled Agent Updates feature is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Scheduled Agent Updates feature (preview) lets you create up to two maintenance windows that will make sure the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent won't update during peak business hours. You can also use Log Analytics to see when agent component updates are available and when updates are unsuccessful. 
+The Scheduled Agent Updates feature (preview) lets you create up to two maintenance windows for the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent to get updated so that updates don't happen during peak business hours. To monitor agent updates, you can use Log Analytics to see when agent component updates are available and when updates are unsuccessful. 
 
 This article describes how the Scheduled Agent Updates feature works and how to set it up.
 
@@ -34,7 +34,7 @@ To use the Azure portal to configure Scheduled Agent Updates:
 
 2. In the Azure portal, go to **Azure Virtual Desktop**.
 
-3. Select **Host pools**, then go to the host pool where you want to enable the feature. Note that you can only configure this feature for existing host pools. This feature cannot be enabled when you create a new host pool.
+3. Select **Host pools**, then go to the host pool where you want to enable the feature. You can only configure this feature for existing host pools. You can't enable this feature when you create a new host pool.
 
 4. In the host pool, select **Scheduled Agent Updates**. Scheduled Agent Updates is disabled by default. This means that, unless you enable this setting, the agent can get updated at any time by the agent update flighting service. Select the **Scheduled agent updates** checkbox to enable the feature.
 
@@ -54,7 +54,8 @@ To use the Azure portal to configure Scheduled Agent Updates:
 
 ### How the feature works
 
-The Scheduled Agent Updates feature updates the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent if any one or more of these components needs to be updated. Any reference to the agent components is referring to these three components. Scheduled Agent Updates doesn't apply to the initial installation of the agent components. When you install the agent on a virtual machine (VM), the agent will automatically install the side-by-side stack and the Geneva Monitoring agent regardless of which maintenance windows you set. Any non-critical updates after installation will only happen within your maintenance windows. Host pools with the Scheduled Agent Updates feature enabled will receive the agent update after the agent has been fully flighted to production. For more information about how agent flighting works, see [Agent update process](agent-overview.md#agent-update-process). The agent component update won't succeed if the session host virtual machine is shut down or deallocated during the scheduled update time. If you enable Scheduled Agent Updates, make sure all session hosts in your host pool are on during your configured maintenance window time. The broker will attempt to update the agent components during each specified maintenance window on up to four occasions. After the fourth try, the broker will install the update by force. This process gives time for installation retries if an update is unsuccessful, and also prevents session hosts from having outdated versions of agent components. Note that if there is a critical agent component update, the broker will install the agent component by force for security purposes.
+The Scheduled Agent Updates feature updates the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent if any one or more of these components needs to be updated. Any reference to the agent components is referring to these three components. Scheduled Agent Updates doesn't apply to the initial installation of the agent components. When you install the agent on a virtual machine (VM), the agent will automatically install the side-by-side stack and the Geneva Monitoring agent regardless of which maintenance windows you set. Any non-critical updates after installation will only happen within your maintenance windows. Host pools with the Scheduled Agent Updates feature enabled will receive the agent update after the agent has been fully flighted to production. For more information about how agent flighting works, see [Agent update process](agent-overview.md#agent-update-process).
+The agent component update won't succeed if the session host VM is shut down or deallocated during the scheduled update time. If you enable Scheduled Agent Updates, make sure all session hosts in your host pool are on during your configured maintenance window time. The broker will attempt to update the agent components during each specified maintenance window up to four times. After the fourth try, the broker will install the update by force. This process gives time for installation retries if an update is unsuccessful, and also prevents session hosts from having outdated versions of agent components. If a critical agent component update is available, the broker will install the agent component by force for security purposes.
 
 ### Maintenance window and time zone information
 
@@ -62,7 +63,7 @@ The Scheduled Agent Updates feature updates the Azure Virtual Desktop agent, sid
 
 - All maintenance windows are two hours long to account for situations where all three agent components must be updated at the same time. For example, if your maintenance window is Saturday at 9:00 AM PST, the updates will happen between 9:00 AM PST and 11:00 AM PST.
 
-- The **Use session host local time** parameter is not selected by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
+- The **Use session host local time** parameter isn't selected by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
 
 - If you select **Use session host local time**, the agent component update will be in the local time zone of each session host in the host pool. Use this setting when all session hosts in your host pool or their assigned users are in different time zones. For example, let's say you have one host pool with session hosts in West US in the Pacific Standard Time zone and session hosts in East US in the Eastern Standard Time zone, and you've set the maintenance window to be Saturday at 9:00 PM. Enabling **Use session host local time** ensures that updates to all session hosts in the host pool will happen at 9:00 PM in their respective time zones. Disabling **Use session host local time** and setting the time zone to be Central Standard Time ensures that updates to the session hosts in the host pool will happen at 9:00 PM Central Standard Time, regardless of the session hosts' local time zones.
 

@@ -3,7 +3,7 @@ title: Set up diagnostics for monitoring agent updates
 description: How to set up diagnostic reports to monitor agent updates.
 author: Sefriend
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 03/28/2022
 ms.author: sefriend
 manager: rkiran
 ---
@@ -13,7 +13,7 @@ Diagnostic logs can tell you which agent version is installed for an update, whe
 
 This article describes how to use diagnostic logs in a Log Analytics workspace to monitor agent updates.
 
-## To enable sending diagnostic logs to your Log Analytics workspace:
+## Enable sending diagnostic logs to your Log Analytics workspace:
 
 1. Create a Log Analytics workspace, if you haven't already. Next, get the workspace ID and primary key by following the instructions in [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md#before-you-get-started).
 
