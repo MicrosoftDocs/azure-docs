@@ -3,25 +3,53 @@ title:  Microsoft Azure Maps Weather services coverage
 description: Learn about Microsoft Azure Maps Weather services coverage
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 01/26/2022
+ms.date: 03/25/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
-
 ---
 
 # Azure Maps Weather services coverage
 
 This article provides coverage information for Azure Maps [Weather services](/rest/api/maps/weather). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, the weather along a route, air quality, historical weather and tropical storms info.
 
-Azure Maps doesn't have the same level of information and accuracy for all countries and regions.
+## Weather information supported
 
-The following table refers to the *Other* column and provides a list containing the weather information you can request from that country/region.
+### Infrared Satellite Tiles
 
-| Symbol  | Meaning                  |
-|:-------:|--------------------------|
-|    *    |Refers to coverage of the following features: Air Quality, Current Conditions, Daily Forecast, Daily Indices, Historical Weather, Hourly Forecast, Quarter-day Forecast, Tropical Storms and Weather Along Route. |
+Infrared (IR) radiation is electromagnetic radiation that measures an object's infrared emission, returning information about its temperature. Infrared images can indicate cloud heights (Colder cloud-tops mean higher clouds) and types, calculate land and surface water temperatures, and locate ocean surface features. Infrared satellite imagery is returned when `tilesetID` is set to `microsoft.weather.infrared.main` when making calls to [Get Map Tile](/rest/api/maps/render-v2/get-map-tile) and can then be overlayed on the map image.
+
+### Minute Forecast
+
+The [Get Minute Forecast](/rest/api/maps/weather/get-minute-forecast) service returns minute-by-minute forecasts for the specified location for the next 120 minutes.
+
+### Radar Tiles
+
+Radar imagery is a depiction of the response returned when microwave radiation is sent into the atmosphere. The pulses of radiation reflect back showing its interactions with any precipitation it encounters. The radar technology visually represents those pulses showing where it's clear, raining, snowing or stormy. Radar Tiles are returned when `tilesetID` is set to `microsoft.weather.radar.main` when making calls to [Get Map Tile](/rest/api/maps/render-v2/get-map-tile) and can then be overlayed on the map image.
+
+### Severe Weather Alerts
+
+Azure Maps [Severe Weather Alerts](/rest/api/maps/weather/get-severe-weather-alerts) service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
+
+### Other
+
+The column in the tables below labeled *Other* includes the following weather information:
+
+- **Air Quality**. The [Get Current Air Quality](/rest/api/maps/weather/get-current-air-quality) service returns pollution levels, air quality index values, the dominant pollutant, and a brief statement summarizing risk level and suggested precautions.
+- **Current Conditions**. The [Get Current Conditions](/rest/api/maps/weather/get-current-conditions) service returns detailed current weather conditions such as precipitation, temperature and wind for a given coordinate location
+- **Daily Forecast**. The [Get Daily Forecast](/rest/api/maps/weather/get-current-air-quality) service returns detailed weather forecasts such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location.
+- **Daily Indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
+- **Historical Weather**. The [Get Daily Historical Records](/rest/api/maps/weather/get-daily-historical-records) service returns climatology data such as past daily record temperatures, precipitation and snowfall.
+- **Hourly Forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
+- **Quarter-day Forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
+- **Tropical Storms**. The [Get Tropical Storm Forecast](/rest/api/maps/weather/get-tropical-storm-forecast) Service returns individual government-issued tropical storm forecasts.
+- **Weather Along Route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (one kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
+
+## Azure Maps Weather coverage tables
+
+> [!NOTE]
+> Azure Maps doesn't have the same level of detail and accuracy for all countries and regions.
 
 ## Americas
 
@@ -90,7 +118,7 @@ The following table refers to the *Other* column and provides a list containing 
 ## Asia Pacific
 
 | Country/Region                     | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
-||-----------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
+|-----------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Afghanistan                        |            ✓             |                              |                       |   ✓   |
 | American Samoa                     |            ✓             |                              |           ✓           |   ✓   |
 | Australia                          |            ✓             |               ✓              |            ✓         |   ✓   |
@@ -291,3 +319,11 @@ The following table refers to the *Other* column and provides a list containing 
 | Yemen                                  |            ✓             |                              |                       |   ✓   |
 | Zambia                                 |            ✓             |                              |                       |   ✓   |
 | Zimbabwe                               |            ✓             |                              |                       |   ✓   |
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Weather services in Azure Maps](weather-services-concepts.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps Weather services frequently asked questions (FAQ)](weather-services-faq.md)
