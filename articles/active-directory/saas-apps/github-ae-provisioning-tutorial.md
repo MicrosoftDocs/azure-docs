@@ -57,8 +57,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and/or groups before rolling out to everyone. When scope for provisioning is set to assigned users and/or groups, you can control this by assigning one or two users and/or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
-
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 ## Step 5. Configure automatic user provisioning to GitHub AE 
 
