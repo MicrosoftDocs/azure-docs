@@ -504,7 +504,7 @@ The security daemon fails to start and module containers aren't created. The `ed
 
 **Root cause:**
 
-The URLs in the configuration file need to be up to date. For example, if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, the `iotedge` user won't be able to write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+For all Linux distros except CentOS 7 (including Debian 9), IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
 
 **Resolution:**
 
