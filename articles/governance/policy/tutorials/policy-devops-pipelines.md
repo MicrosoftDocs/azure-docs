@@ -3,16 +3,17 @@ title: "Tutorial: Implement Azure Policy with Azure DevOps"
 description: In this tutorial, you implement an Azure Policy with an Azure DevOps release pipeline.
 ms.date: 03/24/2022
 ms.topic: tutorial
+ms.author: jukullam
 ---
 
 # Implement Azure Policy with Azure DevOps release pipelines
 
 **Azure DevOps Services**
 
-Azure Policy helps you manage and prevent IT issues by using policy definitions that enforce rules and effects for your resources. This tutorial guides you in enforcing compliance policies on your resources before and after deployment during the release process through Azure Pipelines.
+Learn how to enforce compliance policies on your Azure resources before and after deployment with Azure Pipelines. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 
-For more information, see [What is Azure Policy?](/azure/governance/policy/overview)
-and [Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage).
+For more information, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+and [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
 ## Prepare
 
