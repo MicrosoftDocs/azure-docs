@@ -56,7 +56,7 @@ The script starts with commands to clean up after a possible previous run, and i
 2. Start PowerShell ISE as an Administrator.
 3. At the prompt, type<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>and then press Enter.
 4. In PowerShell ISE, open your **.ps1** file. Run the script.
-5. The script first starts a new window in which you log in to Azure.
+5. The script first starts a new window in which you sign in to Azure.
 
    - If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
 
@@ -64,7 +64,7 @@ The script starts with commands to clean up after a possible previous run, and i
 
 ### PowerShell code
 
-This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+This PowerShell script assumes you've already installed the `Az` module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -241,7 +241,7 @@ The PowerShell script printed a few named values when it ended. You must edit th
 
 1. Open SQL Server Management Studio (ssms.exe).
 2. Connect to your database in Azure SQL Database or SQL Managed Instance.
-3. Click to open a new query pane.
+3. Select to open a new query pane.
 4. Paste the following Transact-SQL script into the query pane.
 5. Find every **TODO** in the script and make the appropriate edits.
 6. Save, and then run the script.
@@ -442,7 +442,7 @@ GO
 
 ## Output
 
-When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
+When the Transact-SQL script completes, select a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
 
 Here is one **\<event>** element that was generated during testing:
 
@@ -501,7 +501,7 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 - You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
 - In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like `C:\myfile.xel`.
 
-  - No Azure Storage account need be involved.
+  - An Azure Storage account is not needed.
 
 ## Next steps
 
