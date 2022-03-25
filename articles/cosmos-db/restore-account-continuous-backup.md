@@ -163,7 +163,8 @@ Restore-AzCosmosDBAccount `
 
 ```
 **Example 3:** Restore Graph account 
-This example restores the collections *graph1*, *graph2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
+This example restores the collections *graph1* and *graph2* from `MyDB1` and the entire database `MyDB2`, which includes all the containers under it.
+
 ```azurepowershell
 $datatabaseToRestore1 = New-AzCosmosDBGremlinDatabaseToRestore -DatabaseName "MyDB1" -GraphName "graph1", "graph2"  
 $datatabaseToRestore2 = New-AzCosmosDBGremlinDatabaseToRestore -DatabaseName "MyDB2"  
@@ -176,7 +177,7 @@ Restore-AzCosmosDBAccount `
    -GremlinDatabasesToRestore $datatabaseToRestore1, $datatabaseToRestore2 ` 
    -Location "West US" 
 ```
-**Example 3:** Restore Table account 
+**Example 4:** Restore Table account 
 
 ```azurepowershell
 $tablesToRestore = New-AzCosmosDBTableToRestore -TableName "table1", "table2"
