@@ -22,9 +22,9 @@ For a video overview of the concepts discussed in this article, see:
 
 ## Connectivity modes
 
-Azure Cosmos SDKs can connect to the service in two [connectivity modes](sql-sdk-connection-modes.md). Some Azure Cosmos SDKs can connect to the service in both modes (.NET, Java), while others can only connect in Gateway mode. Gateway mode uses the HTTP protocol while Direct mode uses the TCP protocol.
+Azure Cosmos DB SDKs can connect to the service in two [connectivity modes](sql-sdk-connection-modes.md). The .NET and Java SDKs can connect to the service in both Gateway and Direct mode, while the others can only connect in Gateway mode. Gateway mode uses the HTTP protocol and Direct mode uses the TCP protocol.
 
-Azure Cosmos SDKs configured in Direct mode use Gateway mode to fetch metadata information such as the account, container, and routing information. This information is cached in memory and is used to connect to the [service replicas](../partitioning-overview.md#replica-sets).
+Gateway mode is always used to fetch metadata such as the account, container, and routing information regardless of which mode SDK is configured to use. This information is cached in memory and is used to connect to the [service replicas](../partitioning-overview.md#replica-sets).
 
 In summary, for SDKs in Gateway mode, you can expect HTTP traffic, while for SDKs in Direct mode, you can expect a combination of HTTP and TCP traffic under certain circumstances (like initialization).
 
@@ -70,7 +70,7 @@ In the table above, all the status codes marked with **Yes** should have some de
 
 ### HTTP 403
 
-The Azure Cosmos SDKs don't retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you're trying to write based on some business role.
+The Azure Cosmos SDKs don't retry on HTTP 403 failures in general, but there are certain errors associated with HTTP 403 that your application might decide to react to. For example, if you receive an error indicating that [a Partition Key is full](troubleshoot-forbidden.md#partition-key-exceeding-storage), you might decide to alter the partition key of the document you're trying to write based on some business rule.
 
 ### HTTP 429
 
@@ -82,7 +82,7 @@ When the SDK retries are exceeded, the error is returned to your application. Id
 
 The Azure Cosmos SDKs will retry on HTTP 449 with an incremental back-off during a fixed period of time to accommodate most scenarios.
 
-When the SDK retries are exceeded, the error is returned to your application. HTTP 449 errors can be safely retried, because of their nature (high concurrency of write operations) it's better to have a random back-off algorithm to avoid repeating the same degree of concurrency after a fixed interval.
+When the automatic SDK retries are exceeded, the error is returned to your application. HTTP 449 errors can be safely retried. Because of the highly concurrent nature of write operations, it's better to have a random back-off algorithm to avoid repeating the same degree of concurrency after a fixed interval.
 
 ### Timeouts and connectivity related failures (HTTP 408/503)
 
@@ -101,7 +101,7 @@ It's recommended for applications to have their own retry policy for these scena
 
 From the client perspective, any retries will affect the end to end latency of an operation. When your application P99 latency is being affected, understanding the retries that are happening and how to address them is important.
 
-Azure Cosmos SDKs provide detailed information in their logs and diagnostics that can help identify which are the retries that are taking place. For more information, see the [how to collect .NET SDK diagnostics](troubleshoot-dot-net-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4-sql.md#capture-the-diagnostics).
+Azure Cosmos SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dot-net-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4-sql.md#capture-the-diagnostics).
 
 ## What about regional outages?
 
