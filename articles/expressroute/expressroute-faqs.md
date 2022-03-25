@@ -301,7 +301,7 @@ You should experience minimal to no impact during maintenance if you operate you
 
 ### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
 
-You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is comprised of multiple instances and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself will not experience any downtime.
+You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is composed of multiple instances and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself will not experience any downtime.
 
 ## ExpressRoute SKU scope access
 
