@@ -53,7 +53,7 @@ To join the program, we ask partners to commit to:
   - [Connecting to the ISS](https://azure.microsoft.com/blog/connecting-azure-to-the-international-space-station-with-hewlett-packard-enterprise/)
   - [Geospatial partnerships and capabilities](https://azure.microsoft.com/blog/new-satellite-connectivity-and-geospatial-capabilities-with-azure-space/)
   - [Space connectivity partnerships](https://news.microsoft.com/transform/azure-space-partners-bring-deep-expertise-to-new-venture/)
-  - [Airbus partnership and geospatial scenarios](https://azure.microsoft.com/en-us/blog/geospatial-imagery-unlocks-new-cloud-computing-scenarios-on-azure/)
+  - [Airbus partnership and geospatial scenarios](https://azure.microsoft.com/blog/geospatial-imagery-unlocks-new-cloud-computing-scenarios-on-azure/)
   - [5G core for Gov with Lockheed Martin](https://azure.microsoft.com/blog/new-azure-for-operators-solutions-and-services-built-for-the-future-of-telecommunications/)
   - [Private network based on SATCOM with Intelsat](https://www.intelsat.com/newsroom/intelsat-collaborates-with-microsoft-to-demonstrate-private-cellular-network-using-intelsats-global-satellite-and-ground-network/)
 - [Read this public deck on Microsoft Space offerings](https://azurespace.blob.core.windows.net/docs/Azure_Space_Public_Deck.pdf)
