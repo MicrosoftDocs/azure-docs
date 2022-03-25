@@ -18,7 +18,7 @@ We're a partner-led and ecosystem-focused platform. Our approach to space is mul
 
 Our differentiated ecosystem of partners spans space operators, manufacturers, systems integrators, data providers, analytics and AI ISVs, and more.  These partners cover a breadth of capabilities like virtualization, data processing and insight, and ground infrastructure. 
 
-:::image type="content" source="media/azure-space-partners.png" alt-text="List of all Azure Space partners" lightbox="media/azure-space-partners.png":::
+:::image type="content" source="media/azure-space-partners.png" alt-text="List of all Azure Space partners":::
 
 ## Why join the Space Partner Program?
 
