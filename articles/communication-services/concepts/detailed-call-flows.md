@@ -183,7 +183,7 @@ The audio/video/screen sharing (VBSS) service is part of Azure Communication Ser
 
 Internal clients will obtain local, reflexive, and relay candidates in the same manner as described for one-to-one calls. The clients will send these candidates to the service in an invite. The service does not use a relay since it has a publicly reachable IP address, so it responds with its local IP address candidate. The client and the service will check connectivity in the same manner described for one-to-one calls.
 
-:::image type="content" source="./media/call-flows/acs-group-calls.png" alt-text="OACS Group Call":::
+:::image type="content" source="./media/call-flows/acs-group-calls.png" alt-text="Azure Communication Services Group Call":::
 
 *Figure 9 – Communication Services Group Calls*
 

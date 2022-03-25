@@ -34,7 +34,7 @@ Like most NoSQL stores, Apache Cassandra is not designed to have a normalized da
 - BATCH guarantees that all statements in the batch are committed or none.
 - All the statements have the same quorum and commit semantics.
 
-If your workload truly needs a normalized data model, consider a scalable relational store like Azure's [Hyperscale PostgreSQL](/azure/postgresql/hyperscale/).
+If your workload truly needs a normalized data model, consider a scalable relational store like Azure's [Hyperscale PostgreSQL](../postgresql/hyperscale/index.yml).
 
 ## How to enable materialized views
 You need to set `enable_materialized_views: true` in the `rawUserConfig` field of your Cassandra data center. To do so, use the following Azure CLI command to update each data center in your cluster:

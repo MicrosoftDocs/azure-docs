@@ -8,8 +8,8 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: guide
-author: MladjoA
-ms.author: mlandzic
+author: danimir
+ms.author: danil
 ms.reviewer: mathoma, danil
 ms.date: 03/11/2022
 ---
@@ -25,15 +25,14 @@ This article outlines best practices when using the link feature for Azure SQL M
 
 The link feature replicates data using the [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) concept based on the Always On availability groups technology stack. Data replication with distributed availability groups is based on replicating transaction log records. No transaction log records can be truncated from the database on the primary instance until they're replicated to the database on the secondary instance. If transaction log record replication is slow or blocked due to network connection issues, the log file keeps growing on the primary instance. Growth speed depends on the intensity of workload and the network speed. If there's a prolonged network connection outage and heavy workload on primary instance, the log file may take all available storage space.
 
-
 To minimize the risk of running out of space on your primary instance due to log file growth, make sure to **take database log backups regularly**. By taking log backups regularly, you make your database more resilient to unplanned log growth events. Consider scheduling daily log backup tasks using SQL Server Agent job.
 
 You can use a Transact-SQL (T-SQL) script to back up the log file, such as the sample provided in this section. Replace the placeholders in the sample script with name of your database, name and path of the backup file, and the description.
 
-To back up your transaction log, use the following sample Transact-SQL (T-SQL) script: 
+To back up your transaction log, use the following sample Transact-SQL (T-SQL) script on SQL Server: 
 
 ```sql
-
+-- Execute on SQL Server
 USE [<DatabaseName>]
 --Set current database inside job step or script
 --Check that you are executing the script on the primary instance
@@ -51,10 +50,10 @@ NAME = N'<Description>', SKIP, NOREWIND, NOUNLOAD, COMPRESSION, STATS = 1
 END
 ```
 
-
-Use the following Transact-SQL (T-SQL) command to check the log spaced used by your database: 
+Use the following Transact-SQL (T-SQL) command to check the log spaced used by your database on SQL Server: 
 
 ```sql
+-- Execute on SQL Server
 DBCC SQLPERF(LOGSPACE); 
 ```
 
@@ -62,7 +61,7 @@ The query output looks like the following example below for sample database **tp
 
 :::image type="content" source="./media/link-feature-best-practices/database-log-file-size.png" alt-text="Screenshot with results of the command showing log file size and space used":::
 
-In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but it's typically an indication that you should take a log backup to truncate log file and free up some space. 
+In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but it's typically an indication that you should take a log backup to truncate the log file and free up some space. 
 
 ## Add startup trace flags
 

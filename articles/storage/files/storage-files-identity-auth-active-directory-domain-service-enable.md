@@ -1,12 +1,12 @@
 ---
 title: Use Azure AD Domain Services to authorize access to file data over SMB
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials.
-author: roygara
+author: khdownie
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/14/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -159,7 +159,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To create a new storage account, call [az storage account create](/cli/azure/storage/account#az_storage_account_create), and set the `--enable-files-aadds` argument. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
+To create a new storage account, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), and set the `--enable-files-aadds` argument. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

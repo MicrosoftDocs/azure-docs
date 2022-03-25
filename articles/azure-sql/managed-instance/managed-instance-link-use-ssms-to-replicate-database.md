@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: guide
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: mathoma
-ms.date: 03/07/2022
+ms.reviewer: mathoma, danil
+ms.date: 03/22/2022
 ---
 # Replicate database with link feature in SSMS - Azure SQL Managed Instance
 
@@ -34,15 +34,17 @@ To replicate your databases to Azure SQL Managed Instance, you need the followin
 - [SQL Server Management Studio (SSMS) v18.11.1 or later](/sql/ssms/download-sql-server-management-studio-ssms).
 - A properly [prepared environment](managed-instance-link-preparation.md).
 
-
 ## Replicate database
 
 Use the **New Managed Instance link** wizard in SQL Server Management Studio (SSMS) to setup the link between your instance of SQL Server and your instance of SQL Managed Instance. The wizard takes you through the process of creating the Managed Instance link. Once the link is created, your source database gets a read-only replica copy on your target Azure SQL Managed Instance. 
 
+> [!NOTE]
+> The link supports replication of user databases only. Replication of system databases is not supported. To replicate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
+
 To set up the Managed Instance link, follow these steps: 
 
 1. Open SQL Server Management Studio (SSMS) and connect to your instance of SQL Server. 
-1. In **Object Explorer**, right-click your database, hover over **Azure SQL Managed Instance link** and select **Replicate database** to open the **New Managed Instance link** wizard. In case you are using a version of SQL Server that is not supported, this option will not be available in the context menu.
+1. In **Object Explorer**, right-click your database, hover over **Azure SQL Managed Instance link** and select **Replicate database** to open the **New Managed Instance link** wizard. If SQL Server version isn't supported, this option won't be available in the context menu.
 
     :::image type="content" source="./media/managed-instance-link-use-ssms-to-replicate-database/link-replicate-ssms-database-context-replicate-database.png" alt-text="Screenshot showing database's context menu option to replicate database after hovering over Azure SQL Managed Instance link.":::
 

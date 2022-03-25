@@ -67,9 +67,9 @@ ms.author: lajanuar
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
-| 🆕 </br> Inuinnaqtun | `ikt` |✔|||||
+| Inuinnaqtun | `ikt` |✔|||||
 | Inuktitut | `iu` |✔|✔|✔|✔||
-| 🆕 </br> Inuktitut (Latin) | `iu-Latn` |✔||||| 
+| Inuktitut (Latin) | `iu-Latn` |✔||||| 
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
@@ -112,6 +112,7 @@ ms.author: lajanuar
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
+| Somali | `so` |✔|||✔||
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
@@ -126,7 +127,7 @@ ms.author: lajanuar
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
-| 🆕 </br> Upper Sorbian | `hsb` |✔|||||
+| Upper Sorbian | `hsb` |✔|||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||

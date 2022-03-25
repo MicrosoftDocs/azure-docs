@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 01/20/2022
+ms.date: 03/11/2022
 ms.author: aahi
 ---
 
@@ -16,6 +16,7 @@ ms.author: aahi
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs completely disconnected from the internet. Currently, the following containers can be run in this manner:
 
 * [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
+* [Neural Text to Speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
@@ -113,7 +114,7 @@ After you have configured the container, use the next section to run the contain
 ## Run the container in a disconnected environment
 
 > [!IMPORTANT]
-> If you're using the Translator or Speech-to-text containers, read the **Additional parameters** section below for information on commands or additional parameters you will need to use.
+> If you're using the Translator, Neural text-to-speech, or Speech-to-text containers, read the **Additional parameters** section below for information on commands or additional parameters you will need to use.
 
 Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values. 
 
@@ -148,9 +149,9 @@ If you're using the [Translator container](../translator/containers/translator-h
 -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
 ```
 
-#### Speech-to-text container
+#### Speech-to-text and Neural text-to-speech containers
 
-The [speech-to-text container](../speech-service/speech-container-howto.md?tabs=stt) provides two default directories, `license` and `output`, by default for writing the license file and billing log at runtime. When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container. 
+The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container. 
  
 Below is a sample command to set file/directory ownership.
 

@@ -80,6 +80,8 @@ To include resources in an access package, the resources must exist in a catalog
 * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
 * Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 * Sites can be SharePoint Online sites or SharePoint Online site collections.
+> [!NOTE]
+> Search SharePoint Site by site name or an exact URL as the search box is case sensitive.
 
 **Prerequisite roles:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 

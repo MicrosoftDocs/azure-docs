@@ -108,7 +108,7 @@ The default value is false. When set to true, iisnode displays the HTTP status c
 
 This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to `http://yoursite/server.js/debug`. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
 
-Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
+Read [Debug Node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
 
 ## Scenarios and recommendations/troubleshooting
 
@@ -210,7 +210,7 @@ You can see that 95% of the time was consumed by the WriteConsoleLog function. T
 
 If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure portal Dashboard](../azure-monitor/essentials/metrics-charts.md), be sure to check the MAX values for memory so you don’t miss the peak values.
 
-#### Leak detection and Heap Diff for node.js
+#### Leak detection and Heap Diff for Node.js
 
 You could use [node-memwatch](https://github.com/lloyd/node-memwatch) to help you identify memory leaks.
 You can install `memwatch` just like v8-profiler and edit your code to capture and diff heaps to identify the memory leaks in your application.
@@ -265,7 +265,7 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 
 ## More resources
 
-Follow these links to learn more about node.js applications on Azure App Service.
+Follow these links to learn more about Node.js applications on Azure App Service.
 
 * [Get started with Node.js web apps in Azure App Service](quickstart-nodejs.md)
 * [How to debug a Node.js web app in Azure App Service](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
