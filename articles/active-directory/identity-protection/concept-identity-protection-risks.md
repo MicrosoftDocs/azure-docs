@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 03/18/2022
+ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: sahandle
+ms.reviewer: sahandle, chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -39,7 +39,7 @@ Real-time detections may not show up in reporting for five to 10 minutes. Offlin
 
 ### Premium detections
 
-Premium detections are visible only to Azure AD Premium P2 customers.
+Premium detections are visible only to Azure AD Premium P2 customers. Customers without Azure AD Premium P2 licenses still receives the premium detections but they will be titled "additional risk detected
 
 | Risk detection | Detection type | Description |
 | --- | --- | --- |
@@ -49,7 +49,6 @@ Premium detections are visible only to Azure AD Premium P2 customers.
 | Malware linked IP address | Offline | This risk detection type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This detection is determined by correlating IP addresses of the user's device against IP addresses that were in contact with a bot server while the bot server was active. <br><br> **[This detection has been deprecated](../fundamentals/whats-new-archive.md#planned-deprecation---malware-linked-ip-address-detection-in-identity-protection)**. Identity Protection will no longer generate new "Malware linked IP address" detections. Customers who currently have "Malware linked IP address" detections in their tenant will still be able to view, remediate, or dismiss them until the 90-day detection retention time is reached.|
 | Suspicious browser | Offline | Suspicious browser detection indicates anomalous behavior based on suspicious sign-in activity across multiple tenants from different countries in the same browser. |
 | Unfamiliar sign-in properties | Real-time | This risk detection type considers past sign-in history (IP, Latitude / Longitude and ASN) to look for anomalous sign-ins. The system stores information about previous locations used by a user, and considers these "familiar" locations. The risk detection is triggered when the sign-in occurs from a location that isn't already in the list of familiar locations. Newly created users will be in "learning mode" for a while where unfamiliar sign-in properties risk detections will be turned off while our algorithms learn the user's behavior. The learning mode duration is dynamic and depends on how much time it takes the algorithm to gather enough information about the user's sign-in patterns. The minimum duration is five days. A user can go back into learning mode after a long period of inactivity and after a secure password reset. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. <br><br> We also run this detection for basic authentication (or legacy protocols). Because these protocols don't have modern properties such as client ID, there's limited telemetry to reduce false positives. We recommend our customers to move to modern authentication. <br><br> Unfamiliar sign-in properties can be detected on both interactive and non-interactive sign-ins. When this detection is detected on non-interactive sign-ins, it deserves increased scrutiny due to the risk of token replay attacks.  |
-| Admin confirmed user compromised | Offline | This detection indicates an admin has selected 'Confirm user compromised' in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user's risk history (via UI or API). |
 | Malicious IP address | Offline | This detection indicates sign-in from a malicious IP address. An IP address is considered malicious based on high failure rates because of invalid credentials received from the IP address or other IP reputation sources. |
 | Suspicious inbox manipulation rules | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). This detection profiles your environment and triggers alerts when suspicious rules that delete or move messages or folders are set on a user's inbox. This detection may indicate that the user's account is compromised, that messages are being intentionally hidden, and that the mailbox is being used to distribute spam or malware in your organization. |
 | Password spray | Offline | A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been performed. |
@@ -68,7 +67,7 @@ Premium detections are visible only to Azure AD Premium P2 customers.
 | Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, and so on) for potentially malicious intent. |
 | Leaked credentials | Offline | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they're checked against Azure AD users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions). |
 | Azure AD threat intelligence | Offline | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-| Admin confirmed compromised | Manual | Administrators can take action based on their own signals or risk investigations and **Confirm users compromised** or **Confirm sign-ins compromised** in the **Risky users** or **Risky sign-ins report**. |
+| Admin confirmed user compromised | Offline | This detection indicates an admin has selected 'Confirm user compromised' in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user's risk history (via UI or API). |
 
 ## Common questions
 
