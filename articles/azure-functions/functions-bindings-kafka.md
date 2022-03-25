@@ -65,6 +65,31 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 
 ::: zone-end
 
+## host.json settings
+
+This section describes the configuration settings available for this binding.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "kafka": {
+            "maxBatchSize": 64,
+            "SubscriberIntervalInSeconds": 1,
+            "ExecutorChannelCapacity": 1,
+            "ChannelFullRetryIntervalInMs": 50
+        }
+    }
+}
+
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+| MaxBatchSize | 64 | Maximum batch size when calling a Kafka triggered function. | 
+| SubscriberIntervalInSeconds | 1 | Defines the minimum frequency in messages are executed per function. Only if the message volume is less than MaxBatchSize / SubscriberIntervalInSeconds| 
+| ExecutorChannelCapacity | 1| Defines the channel message capacity. Once capacity is reached, the Kafka subscriber pauses until the function catches up. |
+| ChannelFullRetryIntervalInMs | 50 | Defines the subscriber retry interval in milliseconds used when attempting to add items to at-capacity channel. | 
 
 ## Next steps
 

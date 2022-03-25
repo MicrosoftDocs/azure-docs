@@ -1,21 +1,21 @@
 ---
 title: Apache Kafka trigger for Azure Functions
 description: Learn to run an Azure Functions app from an Apache Kafka stream.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
-ms.date: 06/14/2021
-ms.author: cshoe
+ms.date: 03/14/2022
+ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Apache Kafka trigger for Azure Functions
 
-Trigger a function based on a new Kafka event.
+The Kafka trigger runs a function based on a new Kafka event.
 
 ## Example
 ::: zone pivot="programming-language-csharp"
 
-The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
+The usage of the binding depends on the C# modality used in your function app, which can be one of the following:
 
 # [In-process](#tab/in-process)
 
@@ -200,8 +200,9 @@ Isolated process only supported string (JSON) payloads.
 
 ---
 
-::: zone-end
+::: zone-end  
 ::: zone pivot="programming-language-javascript"
+
 
 
 ::: zone-end  
