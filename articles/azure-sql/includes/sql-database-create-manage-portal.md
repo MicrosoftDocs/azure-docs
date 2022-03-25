@@ -19,11 +19,11 @@ To access the **Azure SQL** page, from the Azure portal menu, select **Azure SQL
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Create**.
 
-:::image type="content" source="media/sql-database-create-manage-portal/add-azure-sql-resources.png" alt-text="Screenshot of the Azure SQL portal page"  lightbox="media/sql-database-create-manage-portal/add-azure-sql-resources.png":::
+:::image type="content" source="media/sql-database-create-manage-portal/add-azure-sql-resources.png" alt-text="Screenshot of the Azure SQL portal page."  lightbox="media/sql-database-create-manage-portal/add-azure-sql-resources.png":::
 
 After selecting **+ Create**, view additional information about the different options by selecting **Show details** on any tile.
 
-:::image type="content" source="media/sql-database-create-manage-portal/single-sql-database-deployment-options.png" alt-text="Database tile details in the Azure portal."  lightbox="media/sql-database-create-manage-portal/single-sql-database-deployment-options.png":::
+:::image type="content" source="media/sql-database-create-manage-portal/single-sql-database-deployment-options.png" alt-text="Screenshot of database tile details in the Azure portal."  lightbox="media/sql-database-create-manage-portal/single-sql-database-deployment-options.png":::
 
 For details, see:
 
