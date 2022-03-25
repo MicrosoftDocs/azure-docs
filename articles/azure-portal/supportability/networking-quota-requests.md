@@ -15,13 +15,12 @@ For quick access to request an increase, select **Quotas** on the Azure Home pag
 
 If you don't see **Quotas** on Azure Home, type "quotas" in the search box, then select **Quotas**. The **Quotas** icon will then appear on your Home page the next time you visit.
 
-Alternately, you can navigate to your subscription in the Azure portal, then select **Usage + quotas** in the left pane.
-
 You can also use the following options to view your network quota usage and limits:
 
 - [Azure CLI](/cli/azure/network#az-network-list-usages)
 - [Azure PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
 - [REST API](/rest/api/virtualnetwork/virtualnetworks/listusage)
+- **Usage + quotas** (in the left pane when viewing your subscription in the Azure portal) 
 
 Based on your subscription, you can typically request increases for these quotas:
 
@@ -31,7 +30,9 @@ Based on your subscription, you can typically request increases for these quotas
 
 ## Request networking quota increases
 
-1. From [Azure Home](https://portal.azure.com), select **Quotas** and then select **Microsoft.Network**. Alternately, navigate to your subscription and then select **Usage + quotas** in the left pane.
+Follow these steps to request a networking quota increase from Azure Home.
+
+1. From [Azure Home](https://portal.azure.com), select **Quotas** and then select **Microsoft.Network**.
 
 1. Find the quota you want to increase, then select the support icon.
 
