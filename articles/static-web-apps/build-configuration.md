@@ -250,7 +250,9 @@ with:
   output_location: "public" # Built app content directory, relative to app_location - optional
   skip_api_build: true
 ```
-
+# [Azure Pipelines](#tab/azure-devops)
+This feature is unsupported in Azure Pipelines.
+---
 ---
 
 ## Extend build timeout
