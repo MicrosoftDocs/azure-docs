@@ -81,7 +81,8 @@ The following architecture diagram shows the implementation.
 | 6.    | The challenge response is returned to the eID-Me router.                                                                                            |
 | 7.    | The eID-Me router then replies to Azure AD B2C with the authentication result.                                                                      |
 | 8.    | Response from Azure AD B2C is sent as an ID token to the application.                                                                               |
-| 9.    | Based on the authentication, result user is granted/denied access.                                                                                  |
+| 9.    | Based on the authentication result, the user is granted or denied access.                                                                                  |
+
 
 ## Onboard with eID-Me
 
