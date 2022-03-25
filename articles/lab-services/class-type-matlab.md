@@ -64,7 +64,7 @@ Installing MATLAB will be a multi-part process. The first part will download the
 
 You must be a license administrator to download the installation files, get the license file, and the file installation key. Steps to download the installation files are below:
 
-1. Log into your [MathWorks account](https://www.mathworks.com).
+1. Log into your MathWorks account at https://www.mathworks.com.
 1. Choose **My Account**.
 1. Under the **My Software** section of the account page, select the license attached to the Network License Manager setup for the lab.
 1. On the license detail page, select **Download Products**.
@@ -81,7 +81,7 @@ You must be a license administrator to download the installation files, get the 
 
 You can also download an ISO image from the MathWorks website.
 
-1. Log into your [MathWorks account](https://www.mathworks.com).
+1. Log into your MathWorks account at https://www.mathworks.com.
 1. Go to [https://www.mathworks.com/downloads](https://www.mathworks.com/downloads).
 1. Select the MATLAB release you want to install.
 1. Select the “Get {version}.iso image” link present below the Related links where {version} is R2022a.
@@ -110,7 +110,7 @@ Let's cover a possible cost estimate for this class. This estimate doesn't inclu
 
 For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be:
 
-25 students \* (20 + 10) hours \* 55 lab units \*  0.01 USD per hour  = 412.50 USD
+25 students \* (20 scheduled hours + 10 quota hours) \* 55 lab units \*  0.01 USD per hour  = 412.50 USD
 
 >[!IMPORTANT]
 > Cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
