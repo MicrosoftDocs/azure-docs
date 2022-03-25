@@ -18,13 +18,16 @@ The tutorial applies to the Lab Services web portal ([https://labs.azure.com](ht
 
 ## Register to the lab
 
-1. Navigate to the **registration URL** that you received from the educator. You don't need to use the registration URL again after you complete the registration. Go directly to the Azure Lab Services portal at [https://labs.azure.com](https://labs.azure.com).
+1. Navigate to the **registration URL** that you received from the educator. You only have to use the registration URL once to complete the registration.  Registration must be completed for each lab.
+    > [!IMPORTANT]
+    > Registration must be completed for each lab.
+
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/register-lab.png" alt-text="Screenshot of browser with example registration link for Azure Lab Services.  Registration link is highlighted.":::
 1. Sign in using your school account to complete the registration.
 
     > [!NOTE]
     > A Microsoft account is required for using Azure Lab Services. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account email. Then, follow the steps to complete the registration process.
-1. Once registered, confirm that you see the virtual machine for the lab you have access to.
+1. Once registered, confirm that you see the virtual machine for the lab you have access to.  Now that you have registered, you can go directly to the Azure Lab Services portal at [https://labs.azure.com](https://labs.azure.com) in the future.
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png" alt-text="Screenshot of My virtual machines page in Azure Lab Services portal.":::
 1. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.

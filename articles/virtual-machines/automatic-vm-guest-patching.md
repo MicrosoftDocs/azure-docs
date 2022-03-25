@@ -195,13 +195,13 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### Azure CLI for Windows VMs
-Use [az vm create](/cli/azure/vm#az_vm_create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
+Use [az vm create](/cli/azure/vm#az-vm-create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
 ```
 
-To modify an existing VM, use [az vm update](/cli/azure/vm#az_vm_update)
+To modify an existing VM, use [az vm update](/cli/azure/vm#az-vm-update)
 
 ```azurecli-interactive
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
@@ -246,7 +246,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 PowerShell currently only provides information on the patch extension. Information about `patchStatus` will also be available soon through PowerShell.
 
 ### Azure CLI
-Use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) to access the instance view for your VM.
+Use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to access the instance view for your VM.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group myResourceGroup --name myVM
@@ -292,7 +292,7 @@ Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### Azure CLI
-Use [az vm assess-patches](/cli/azure/vm#az_vm_assess_patches) to assess available patches for your virtual machine.
+Use [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) to assess available patches for your virtual machine.
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM
@@ -359,7 +359,7 @@ Invoke-AzVmInstallPatch -ResourceGroupName "myResourceGroup" -VMName "myVM" -Max
 ```
 
 ### Azure CLI
-Use [az vm install-patches](/cli/azure/vm#az_vm_install_patches) to install patches on your virtual machine.
+Use [az vm install-patches](/cli/azure/vm#az-vm-install-patches) to install patches on your virtual machine.
 
 Example to install all Critical patches on a Linux VM:
 ```azurecli-interactive

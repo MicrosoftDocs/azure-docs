@@ -44,6 +44,9 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 
         > [!IMPORTANT]
         > Talk to your admin, if you don't see the virtual machine image you need.  They may have to [specify Marketplace images](specify-marketplace-images.md) or [specify custom images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images) available to lab creators.  If using custom images, the admin must also verify the custom image is replicated to the same region as the lab plan.
+
+        > [!NOTE]
+        > Prices shown are for example only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).
         
         :::image type="content" source="./media/tutorial-setup-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
 
@@ -54,7 +57,7 @@ In this step, you create a lab for your class in Azure Lab Services portal.
     1. This step is **optional** for the tutorial. Select **Give lab user a non-admin account on their virtual machines** to give the student non-administrator account rather the default administrator account.  
         > [!IMPORTANT]
         > Make a note of non-admin user name and password. They won't be shown again.
-    1. If you would like students to set their own password the first time they sign into their VM, uncheck **Use same password for all virtual machines**.  Note, students will have to wait for the password set function to complete before logging in to their VM if **Use same password for all virtual machines** is unchecked. Select **Next**.
+    1. If you would like students to set their own password the first time they sign into their VM, uncheck **Use same password for all virtual machines**.  Note, students will have to wait for the password set function to complete before the connect button is available for their VM if **Use same password for all virtual machines** is unchecked. Select **Next**.
 
         :::image type="content" source="./media/tutorial-setup-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 

@@ -28,7 +28,7 @@ Use the following steps to set title and description for the lab.  Educators and
 Use the following steps to update a template VM.  
 
 1. On the **Template** page for the lab, select **Start template** on the toolbar.
-1. Wait until the template VM is started, and then select **Connect to template** on the toolbar to connect to the template VM.
+1. Wait until the template VM is started, and then select **Connect to template** on the toolbar to connect to the template VM.  Depending on the setting for the lab, you'll connect using Remote Desktop Protocol (RDP) or Secure Shell (SSH).
 1. Once you connect to the template and make changes, it will no longer have the same setup as the virtual machines last published to your users. Template changes won’t be reflected on your students' existing virtual machines until after you publish again.
 
     ![Connect to the template VM](./media/how-to-create-manage-template/connect-template-vm.png)
