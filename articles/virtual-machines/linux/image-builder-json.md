@@ -258,7 +258,7 @@ Sets the source image an existing image version in an Azure Compute Gallery.
         } 
 ```
 
-The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) to list image versions.
+The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 
 ## Properties: buildTimeoutInMinutes

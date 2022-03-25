@@ -1,8 +1,10 @@
 ---
 title: Microsoft Defender for servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for servers.
-ms.date: 11/09/2021
+ms.date: 03/08/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 # Introduction to Microsoft Defender for servers
 
@@ -15,7 +17,7 @@ To protect machines in hybrid and multi-cloud environments, Defender for Cloud u
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
 > [!TIP]
-> For details of which Defender for servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
+> For details of which Defender for servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
 
 ## What are the benefits of Microsoft Defender for servers?
 

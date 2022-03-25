@@ -18,6 +18,8 @@
   - name: Create Application Gateway - ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Create Application Gateway - Terraform
+    href: /azure/developer/terraform/application-gateway-quickstart?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -284,12 +286,16 @@
         href: application-gateway-backend-health-troubleshooting.md
       - name: Key Vault errors
         href: application-gateway-key-vault-common-errors.md
+      - name: Disabled listeners
+        href: disabled-listeners.md
   - name: Proxy buffer configuration
     href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
+  - name: Configure alerts
+    href: configure-alerts-with-templates.md
   - name: Classic to Resource Manager
     href: classic-to-resource-manager.md  
 - name: Reference

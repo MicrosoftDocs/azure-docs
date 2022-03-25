@@ -38,7 +38,7 @@ Import data as follows:
 1. In **System settings**, under **Import settings**, select **Device Information** to import. Select **Add** and upload the CSV file that you prepared.
 
 
-### Import authorization status:**
+## Import authorization status
 
 1. Download the [Authorization file](https://download.microsoft.com/download/8/2/3/823c55c4-7659-4236-bfda-cc2427be2cee/CSS/authorized_devices%20-%20example.csv)  and save as a CSV file.
 1. In the authorized_devices sheet, specify the device IP address.
@@ -48,8 +48,10 @@ Import data as follows:
 When the information is imported, you receive alerts about unauthorized devices for all the devices that don't appear on this list.
 
 
-## See also
+## Next steps
 
-[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+For more information, see:
 
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+
+- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)

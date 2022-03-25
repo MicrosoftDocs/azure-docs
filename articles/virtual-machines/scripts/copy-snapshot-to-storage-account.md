@@ -28,7 +28,7 @@ This script exports a managed snapshot to a storage account in different region.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh" range="3-33":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh" id="FullScript":::
 
 ## Clean up resources
 

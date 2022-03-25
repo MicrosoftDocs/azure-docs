@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2022
+ms.date: 03/15/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -78,6 +78,8 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- March 15, 2022: Corrected rsize and wsize mount option settings for ANF in [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
+- March 1, 2022: Corrected note about database snapshots with multiple database containers in [SAP HANA Large Instances high availability and disaster recovery on Azure](./hana-overview-high-availability-disaster-recovery.md)
 - February 28, 2022: Added E(d)sv5 VM storage configurations to [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - February 13, 2022: Corrected broken links to HANA hardware directory in the following documents: SAP Business One on Azure Virtual Machines, Available SKUs for HANA Large Instances, Certification of SAP HANA on Azure (Large Instances), Installation of SAP HANA on Azure virtual machines, SAP workload planning and deployment checklist, SAP HANA infrastructure configurations and operations on Azure, SAP HANA on Azure Large Instance migration to Azure Virtual Machines, Install and configure SAP HANA (Large Instances) ,on Azure, High availability of SAP HANA scale-out system on Red Hat Enterprise Linux, High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server, High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server, Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server, SAP workload on Azure virtual machine supported scenarios, What SAP software is supported for Azure deployments
 - February 13, 2022: Change in [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add instructions about adding the SAP installation user as `Administrators Privilege user` to avoid SWPM permission errors  

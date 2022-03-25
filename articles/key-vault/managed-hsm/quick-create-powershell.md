@@ -31,6 +31,7 @@ A resource group is a logical container into which Azure resources are deployed 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "westus2"
+```
 
 ## Get your principal ID
 

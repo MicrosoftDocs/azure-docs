@@ -1133,10 +1133,12 @@
           href: cassandra/cli-samples.md
         - name: Glowroot using Cassandra API
           href: cassandra/glowroot-cassandra.md
-        - name: Error codes definitions
+        - name: Understand Cassandra API error codes
           href: cassandra/error-codes-solution.md
         - name: Lightweight Transactions in Cassandra API
           href: cassandra/lwt-cassandra-api.md
+        - name: Cassandra API extensions overview
+          href: cassandra/cassandra-driver-extensions.md
     - name: Reference
       items:
         - name: REST resource provider

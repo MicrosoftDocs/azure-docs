@@ -6,7 +6,7 @@ ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 9/23/2021
+ms.date: 02/22/2022
 ---
 
 # Troubleshooting failed service request: Error 404 (Sub-Domain not found)
@@ -29,7 +29,7 @@ Azure Digital Twins requires that all authenticating users belong to the same Az
 
 ### Solution #1
 
-You can resolve this issue by having each federated identity from another tenant request a **token** from the Azure Digital Twins instance's "home" tenant. 
+You can resolve this issue by having each federated identity from another tenant request a token from the Azure Digital Twins instance's "home" tenant. 
 
 [!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
 

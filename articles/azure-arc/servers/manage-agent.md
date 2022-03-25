@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 02/28/2022
+ms.date: 03/17/2022
 ms.topic: conceptual
 ---
 
@@ -13,13 +13,17 @@ After initial deployment of the Azure Connected Machine agent, you may need to r
 
 The azcmagent tool is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. azcmagent.exe provides command-line parameters to customize the agent and view its status:
 
+* **check** - To troubleshoot network connectivity issues
+
 * **connect** - To connect the machine to Azure Arc
 
 * **disconnect** - To disconnect the machine from Azure Arc
 
 * **show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
 
-* **config** - View and change settings to enable features and control agent behavior
+* **config** - View and change settings to enable features and control agent behavior.
+
+* **check** - Validate network connectivity.
 
 * **logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
 
@@ -37,6 +41,14 @@ You can perform a **Connect** and **Disconnect** manually while logged on intera
 
 >[!NOTE]
 >You must have *Administrator* permissions on Windows or *root* access permissions on Linux machines to run **azcmagent**.
+
+### Check
+
+This parameter allows you to run the network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
+
+When running a network connectivity check, you must provide the name of the Azure region (for example, eastus) that you want to test. It's also recommended to use the `--verbose` parameter to see the results of both successful and unsuccessful tests.
+
+`azcmagent check --location <regionName> --verbose`
 
 ### Connect
 
@@ -105,7 +117,7 @@ To clear a configuration property's value, run the following command:
 
 The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, and uninstalling the Azure Connected Machine Agent will not require you to restart your server.
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, or uninstalling the Azure Connected Machine Agent will not require you to restart your server.
 
 The following table describes the methods supported to perform the agent upgrade.
 

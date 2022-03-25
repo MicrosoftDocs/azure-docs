@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "troubleshoot-alerts.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-alerts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-diagnostics.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-diagnostics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-metrics.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-metrics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-resource-health.md",
+      "redirect_url": "/azure/digital-twins/how-to-monitor-resource-health",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "how-to-create-app-registration.md",
       "redirect_url": "/azure/digital-twins/how-to-create-app-registration-portal",
       "redirect_document_id": true

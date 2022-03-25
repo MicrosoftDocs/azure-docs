@@ -63,7 +63,7 @@ Azure Front Door uses the same three-step process below across all algorithms to
 
 ## Complete health probe failure
 
-If health probes fail for every backend in a backend pool, then Front Door considers all backends healthy and routes traffic in a round robin distribution across all of them.
+If health probes fail for every backend in a backend pool, then Front Door considers all backends unhealthy and routes traffic in a round robin distribution across all of them.
 
 Once any backend returns to a healthy state, then Front Door will resume the normal load-balancing algorithm.
 

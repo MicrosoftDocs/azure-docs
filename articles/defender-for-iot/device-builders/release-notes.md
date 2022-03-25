@@ -19,7 +19,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 ## February 2022
 
-**Version 4.1.1**:
+**Version 4.1.2**:
 
 - **Micro agent for Edge is now in Public Preview**: The micro-agent supports IoT Edge devices, with an easy installation and identity provisioning process that uses an automatically provisioned module identity to authenticate Edge devices without the need to perform any manual authentication.
 
@@ -27,7 +27,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - **New directory structure**: Now aligned with the standard Linux installation directory structure.
 
-    Due to this change, updates to version 4.1.1 require you to reauthenticate the micro agent and save your connection string in the new location. For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
+    Due to this change, updates to version 4.1.2 require you to reauthenticate the micro agent and save your connection string in the new location. For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
 - **SBoM collector**: The SBoM collector now collects the packages installed on the device periodically. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
 

@@ -1,8 +1,8 @@
 ---
 title: Create server group with private access - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Connect a VM to a server group private endpoint
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: tutorial

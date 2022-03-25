@@ -10,7 +10,7 @@
     href: agent-release-notes-archive.md
 - name: Quickstarts
   items:
-  - name: Enable Arc-enabled servers agent
+  - name: Connect a machine to Arc-enabled servers
     href: ./learn/quick-enable-hybrid-vm.md
 - name: Tutorials
   items:
@@ -24,25 +24,31 @@
     href: ./resource-graph-samples.md
 - name: Concepts
   items:
-  - name: Log Analytics agent deployment options
-    href: concept-log-analytics-extension-deployment.md
-  - name: Security
-    items:
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: security-controls-policy.md
-    - name: Security overview
-      href: security-overview.md
-    - name: Private Link networking
-      href: private-link-security.md
+    - name: Connected Machine agent overview
+      href: agent-overview.md
+    - name: Log Analytics agent deployment options
+      href: concept-log-analytics-extension-deployment.md
+    - name: Security
+      items:
+       - name: Security controls by Azure Policy
+         displayName: regulatory, compliance, standards, domains
+         href: security-controls-policy.md
+       - name: Security overview
+         href: security-overview.md
+       - name: Private Link networking
+         href: private-link-security.md
 - name: How-to guides
   items:
   - name: Deploy
     items:
-    - name: Connected Machine agent overview
-      href: agent-overview.md
     - name: Plan for deployment
       href: plan-at-scale-deployment.md
+    - name: Prerequisites
+      href: prerequisites.md
+    - name: Network requirements
+      href: network-requirements.md
+    - name: Deployment options
+      href: deployment-options.md
     - name: Connect machines interactively
       items:
       - name: Connect machines using a deployment script

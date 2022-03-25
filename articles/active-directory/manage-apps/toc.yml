@@ -186,6 +186,8 @@
             href: f5-big-ip-oracle-jde-easy-button.md
           - name: Oracle PeopleSoft
             href: f5-big-ip-oracle-peoplesoft-easy-button.md
+          - name: SAP ERP
+            href: f5-big-ip-sap-erp-easy-button.md
         - name: Advanced configuration
           items:
             - name: Headers

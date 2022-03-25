@@ -42,7 +42,7 @@ landingContent:
           - text: Endpoint Manager
             url: concept-endpoint-manager.md
           - text: Route
-            url: concept-route.md
+            url: ../front-door-route-matching.md
       - linkListType: how-to-guide
         links:
           - text: Configure Endpoint Manager
@@ -76,11 +76,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: What is Rule Set?
-            url: concept-rule-set.md
+            url: ../front-door-rules-engine.md
           - text: Rule Set Match Conditions
             url: concept-rule-set-match-conditions.md
           - text: Rule Set Actions
-            url: concept-rule-set-actions.md
+            url: ../front-door-rules-engine-actions.md
       - linkListType: how-to-guide
         links:
           - text: Configure a Rule Set
@@ -122,7 +122,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Caching
-            url: concept-caching.md
+            url: ../front-door-caching.md
       - linkListType: how-to-guide
         links:
           - text: Cache purge

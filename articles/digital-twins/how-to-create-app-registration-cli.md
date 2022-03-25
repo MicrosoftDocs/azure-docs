@@ -27,7 +27,7 @@ When working with Azure Digital Twins, it's common to interact with your instanc
 The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up and grant it permissions to the Azure Digital Twins APIs. It also covers how to collect important values that you'll need to use the app registration when authenticating.
 
 >[!TIP]
-> You may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
+> You may prefer to set up a new app registration every time you need one, or to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -35,7 +35,7 @@ The app registration isn't required for all authentication scenarios. However, i
 
 First, create a file containing certain service information that your app registration will need to access the Azure Digital Twins APIs. Later, you'll pass in this file when creating the app registration, to set up the Azure Digital Twins permissions.
 
-Create a new .json file on your computer called **manifest.json**. Copy this text into the file:
+Create a new .json file on your computer called *manifest.json*. Copy this text into the file:
 
 ```json
 [
@@ -63,7 +63,7 @@ To upload the file, go to the Cloud Shell window in your browser. Select the "Up
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
 
-Navigate to the **manifest.json** file on your machine and select "Open." Doing so will upload the file to the root of your Cloud Shell storage.
+Navigate to the *manifest.json* file on your machine and select **Open**. Doing so will upload the file to the root of your Cloud Shell storage.
 
 ## Create the registration
 
@@ -92,12 +92,12 @@ You can also verify the app registration was successfully created with the neces
 ## Collect important values
 
 Next, collect some important values about the app registration that you'll need to use the app registration to authenticate a client application. These values include:
-* **resource name**
-* **client ID**
-* **tenant ID**
-* **client secret**
+* resource name
+* client ID
+* tenant ID
+* client secret
 
-To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
+To work with Azure Digital Twins, the resource name is `http://digitaltwins.azure.net`.
 
 The following sections describe how to find the other values.
 
@@ -117,13 +117,13 @@ Directory (tenant) ID:
 
 ### Collect client secret
 
-To create a **client secret** for your app registration, you'll need your app registration's client ID value from the previous section. Use the value in the following CLI command to create a new secret:
+To create a client secret for your app registration, you'll need your app registration's client ID value from the previous section. Use the value in the following CLI command to create a new secret:
 
 ```azurecli-interactive
 az ad app credential reset --id <client-ID> --append
 ```
 
-You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az_ad_app_credential_reset).
+You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az-ad-app-credential-reset).
 
 The output of this command is information about the client secret that you've created. Copy the value for `password` to use when you need the client secret for authentication.
 
