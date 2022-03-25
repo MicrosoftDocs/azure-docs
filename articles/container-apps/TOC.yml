@@ -42,6 +42,8 @@
   items:
     - name: Scale an app
       href: scale-app.md
+    - name: Deploy using Visual Studio
+      href: deploy-visual-studio.md
     - name: Manage secrets
       href: manage-secrets.md
     - name: Monitor an app
