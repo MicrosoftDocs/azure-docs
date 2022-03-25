@@ -6,7 +6,7 @@ ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/02/2022
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 
 ---
 
@@ -17,7 +17,7 @@ This article explains the resource model for the Azure Cosmos DB point-in-time r
 
 ## Database account's resource model
 
-The database account's resource model is updated with a few extra properties to support the new restore scenarios. These properties are **BackupPolicy, CreateMode, and RestoreParameters.**
+The database account's resource model is updated with a few extra properties to support the new restore scenarios. These properties are `BackupPolicy`, `CreateMode`, and `RestoreParameters`.
 
 ### BackupPolicy
 
@@ -203,16 +203,16 @@ Each resource represents a single database and all the graphs under that databas
 
 ### Restorable Graph database 
 
-Each resource contains information of a mutation event such as creation and deletion that occurred on the Graph Database. This information can help in the scenario where the database was accidentally deleted and user needs to find out when that event happened. 
+Each resource contains information about a mutation event, such as a creation and deletion, that occurred on the Graph database. This information can help in the scenario where the database was accidentally deleted and user needs to find out when that event happened. 
 
 |Property Name |Description  |
 |---------|---------|
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the Graph database. |
 | ownerResourceId	| The resource ID of the Graph database. |
-| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user. </li></ul> |
 
-To get a list of all database mutation, see Restorable Graph Databases - List article. 
+To get a list of all database mutation, see the [Restorable Graph Databases - List article. 
 
 ### Restorable Graphs 
 
