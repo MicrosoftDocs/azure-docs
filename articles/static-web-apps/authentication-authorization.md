@@ -19,7 +19,7 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 - Users are assigned custom roles using the built-in [invitations](#invitations) system.
 - Users can be programmatically assigned custom roles at login by an API function.
 - All authentication providers are enabled by default.
-  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule. Configuring a custom provider also disables pre-configured providers.
+  - To restrict an authentication provider, [block access](#block-an-authentication-provider) with a custom route rule. Configuring a custom provider also disables pre-configured providers.
 - Pre-configured providers include:
   - Azure Active Directory<sup>1</sup>
   - GitHub
@@ -70,6 +70,21 @@ For example:
 <a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
 ```
 
+Additionally, you can redirect unauthenticated users back to the referring page after they log in. To configure this behavior, create a [response override](configuration.md#response-overrides) rule that sets `post_login_redirect_uri` to `.referrer`.
+
+For example:
+
+```json
+{
+  "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/github?post_login_redirect_uri=.referrer",
+      "statusCode": 302
+    }
+  }
+}
+```
+
 ## Logout
 
 The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
@@ -91,11 +106,11 @@ You can use a [route rule](./configuration.md#routes) to map a friendly route li
 
 If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
 
-## Block an authorization provider
+## Block an authentication provider
 
-You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
+You may want to restrict your app from using an authentication provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
 
-To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+To block a provider, you can create [route rules](configuration.md#routes) to return a 404 status code for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
 
 ```json
 {

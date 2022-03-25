@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 2/23/2022
 ms.author: dukek
 ---
 

@@ -162,7 +162,7 @@ definitions as `constraintTemplate` is deprecated.
       create a custom definition from an existing
       [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
-- **constraint** (optional)
+- **constraint** (deprecated)
   - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
@@ -256,9 +256,9 @@ related resources to match.
 
 - **Type** (required)
   - Specifies the type of the related resource to match.
-  - If **details.type** is a resource type underneath the **if** condition resource, the policy
+  - If **type** is a resource type underneath the **if** condition resource, the policy
     queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
-    policy queries within the same resource group as the evaluated resource.
+    policy queries within the same resource group or subscription as the evaluated resource depending on the **existenceScope**.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
@@ -478,8 +478,9 @@ related resources to match and the template deployment to execute.
 
 - **Type** (required)
   - Specifies the type of the related resource to match.
-  - Starts by trying to fetch a resource underneath the **if** condition resource, then queries
-    within the same resource group as the **if** condition resource.
+  - If **type** is a resource type underneath the **if** condition resource, the policy
+    queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
+    policy queries within the same resource group or subscription as the evaluated resource depending on the **existenceScope**.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.

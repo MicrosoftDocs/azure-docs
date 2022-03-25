@@ -1,12 +1,12 @@
 ---
 title: SQL functions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Functions in the Hyperscale (Citus) SQL API
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 04/07/2021
+ms.date: 02/24/2022
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
@@ -31,7 +31,7 @@ inserts appropriate metadata to mark the table as distributed. The function
 defaults to 'hash' distribution if no distribution method is specified. If the
 table is hash-distributed, the function also creates worker shards based on the
 shard count and shard replication factor configuration values. If the table
-contains any rows, they are automatically distributed to worker nodes.
+contains any rows, they're automatically distributed to worker nodes.
 
 This function replaces usage of master\_create\_distributed\_table() followed
 by master\_create\_worker\_shards().
@@ -48,7 +48,7 @@ table is to be distributed. Permissible values are append or hash, with
 a default value of 'hash'.
 
 **colocate\_with:** (Optional) include current table in the colocation group
-of another table. By default tables are colocated when they are distributed by
+of another table. By default tables are colocated when they're distributed by
 columns of the same type, have the same shard count, and have the same
 replication factor. Possible values for `colocate_with` are `default`, `none`
 to start a new colocation group, or the name of another table to colocate
@@ -62,7 +62,7 @@ distribution columns, accidentally colocating them can decrease performance
 during [shard rebalancing](howto-scale-rebalance.md).  The
 table shards will be moved together unnecessarily in a \"cascade.\"
 
-If a new distributed table is not related to other tables, it's best to
+If a new distributed table isn't related to other tables, it's best to
 specify `colocate_with => 'none'`.
 
 #### Return Value
@@ -80,6 +80,37 @@ SELECT create_distributed_table('github_events', 'repo_id');
 -- alternatively, to be more explicit:
 SELECT create_distributed_table('github_events', 'repo_id',
                                 colocate_with => 'github_repo');
+```
+
+### truncate\_local\_data\_after\_distributing\_table
+
+Truncate all local rows after distributing a table, and prevent constraints
+from failing due to outdated local records. The truncation cascades to tables
+having a foreign key to the designated table. If the referring tables aren't themselves distributed, then truncation is forbidden until they are, to protect
+referential integrity:
+
+```
+ERROR:  cannot truncate a table referenced in a foreign key constraint by a local table
+```
+
+Truncating local coordinator node table data is safe for distributed tables
+because their rows, if any, are copied to worker nodes during
+distribution.
+
+#### Arguments
+
+**table_name:** Name of the distributed table whose local counterpart on the
+coordinator node should be truncated.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+-- requires that argument is a distributed table
+SELECT truncate_local_data_after_distributing_table('public.github_events');
 ```
 
 ### create\_reference\_table
@@ -107,17 +138,29 @@ defined as a reference table
 SELECT create_reference_table('nation');
 ```
 
-### upgrade\_to\_reference\_table
+### alter_distributed_table
 
-The upgrade\_to\_reference\_table() function takes an existing distributed
-table that has a shard count of one, and upgrades it to be a recognized
-reference table. After calling this function, the table will be as if it had
-been created with [create_reference_table](#create_reference_table).
+The alter_distributed_table() function can be used to change the distribution
+column, shard count or colocation properties of a distributed table.
 
 #### Arguments
 
-**table\_name:** Name of the distributed table (having shard count = 1)
-which will be distributed as a reference table.
+**table\_name:** Name of the table that will be altered.
+
+**distribution\_column:** (Optional) Name of the new distribution column.
+
+**shard\_count:** (Optional) The new shard count.
+
+**colocate\_with:** (Optional) The table that the current distributed table
+will be colocated with. Possible values are `default`, `none` to start a new
+colocation group, or the name of another table with which to colocate. (See
+[table colocation](concepts-colocation.md).)
+
+**cascade_to_colocated:** (Optional) When this argument is set to "true",
+`shard_count` and `colocate_with` changes will also be applied to all of the
+tables that were previously colocated with the table, and the colocation will
+be preserved. If it is "false", the current colocation of this table will be
+broken.
 
 #### Return Value
 
@@ -125,48 +168,38 @@ N/A
 
 #### Example
 
-This example informs the database that the nation table should be
-defined as a reference table
-
 ```postgresql
-SELECT upgrade_to_reference_table('nation');
+-- change distribution column
+SELECT alter_distributed_table('github_events', distribution_column:='event_id');
+
+-- change shard count of all tables in colocation group
+SELECT alter_distributed_table('github_events', shard_count:=6, cascade_to_colocated:=true);
+
+-- change colocation
+SELECT alter_distributed_table('github_events', colocate_with:='another_table');
 ```
 
-### mark\_tables\_colocated
+### update_distributed_table_colocation
 
-The mark\_tables\_colocated() function takes a distributed table (the
-source), and a list of others (the targets), and puts the targets into
-the same colocation group as the source. If the source is not yet in a
-group, this function creates one, and assigns the source and targets to
-it.
+The update_distributed_table_colocation() function is used to update colocation
+of a distributed table. This function can also be used to break colocation of a
+distributed table. Citus will implicitly colocate two tables if the
+distribution column is the same type, this can be useful if the tables are
+related and will do some joins. If tables A and B are colocated, and table A
+gets rebalanced, table B will also be rebalanced. If table B doesn't have a
+replica identity, the rebalance will fail. Therefore, this function can be
+useful breaking the implicit colocation in that case.
 
-Colocating tables ought to be done at table distribution time via the
-`colocate_with` parameter of
-[create_distributed_table](#create_distributed_table), but
-`mark_tables_colocated` can take care of it later if necessary.
+This function doesn't move any data around physically.
 
 #### Arguments
 
-**source\_table\_name:** Name of the distributed table whose colocation
-group the targets will be assigned to match.
+**table_name:** Name of the table colocation of which will be updated.
 
-**target\_table\_names:** Array of names of the distributed target
-tables, must be non-empty. These distributed tables must match the
-source table in:
+**colocate_with:** The table to which the table should be colocated with.
 
-> -   distribution method
-> -   distribution column type
-> -   replication type
-> -   shard count
-
-If none of the above apply, Hyperscale (Citus) will raise an error. For
-instance, attempting to colocate tables `apples` and `oranges` whose
-distribution column types differ results in:
-
-```
-ERROR:  XX000: cannot colocate tables apples and oranges
-DETAIL:  Distribution column types don't match for apples and oranges.
-```
+If you want to break the colocation of a table, you should specify
+`colocate_with => 'none'`.
 
 #### Return Value
 
@@ -174,12 +207,71 @@ N/A
 
 #### Example
 
-This example puts `products` and `line_items` in the same colocation
-group as `stores`. The example assumes that these tables are all
-distributed on a column with matching type, most likely a \"store id.\"
+This example shows that colocation of table A is updated as colocation of table
+B.
 
 ```postgresql
-SELECT mark_tables_colocated('stores', ARRAY['products', 'line_items']);
+SELECT update_distributed_table_colocation('A', colocate_with => 'B');
+```
+
+Assume that table A and table B are colocated (possibly implicitly), if you
+want to break the colocation:
+
+```postgresql
+SELECT update_distributed_table_colocation('A', colocate_with => 'none');
+```
+
+Now, assume that table A, table B, table C and table D are colocated and you
+want to colocate table A and table B together, and table C and table D
+together:
+
+```postgresql
+SELECT update_distributed_table_colocation('C', colocate_with => 'none');
+SELECT update_distributed_table_colocation('D', colocate_with => 'C');
+```
+
+If you have a hash distributed table named none and you want to update its
+colocation, you can do:
+
+```postgresql
+SELECT update_distributed_table_colocation('"none"', colocate_with => 'some_other_hash_distributed_table');
+```
+
+### undistribute\_table
+
+The undistribute_table() function undoes the action of create_distributed_table
+or create_reference_table. Undistributing moves all data from shards back into
+a local table on the coordinator node (assuming the data can fit), then deletes
+the shards.
+
+Citus won't undistribute tables that have--or are referenced by--foreign
+keys, unless the cascade_via_foreign_keys argument is set to true. If this
+argument is false (or omitted), then you must manually drop the offending
+foreign key constraints before undistributing.
+
+#### Arguments
+
+**table_name:** Name of the distributed or reference table to undistribute.
+
+**cascade_via_foreign_keys:** (Optional) When this argument set to "true,"
+undistribute_table also undistributes all tables that are related to table_name
+through foreign keys. Use caution with this parameter, because it can
+potentially affect many tables.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+This example distributes a `github_events` table and then undistributes it.
+
+```postgresql
+-- first distribute the table
+SELECT create_distributed_table('github_events', 'repo_id');
+
+-- undo that and make it local again
+SELECT undistribute_table('github_events');
 ```
 
 ### create\_distributed\_function
@@ -191,10 +283,10 @@ to pick a worker node to run the function. Executing the function on workers
 increases parallelism, and can bring the code closer to data in shards for
 lower latency.
 
-The Postgres search path is not propagated from the coordinator to workers
+The Postgres search path isn't propagated from the coordinator to workers
 during distributed function execution, so distributed function code should
 fully qualify the names of database objects. Also notices emitted by the
-functions will not be displayed to the user.
+functions won't be displayed to the user.
 
 #### Arguments
 
@@ -204,9 +296,9 @@ multiple functions can have the same name in PostgreSQL. For instance,
 `'foo(int)'` is different from `'foo(int, text)'`.
 
 **distribution\_arg\_name:** (Optional) The argument name by which to
-distribute. For convenience (or if the function arguments do not have
+distribute. For convenience (or if the function arguments don't have
 names), a positional placeholder is allowed, such as `'$1'`. If this
-parameter is not specified, then the function named by `function_name`
+parameter isn't specified, then the function named by `function_name`
 is merely created on the workers. If worker nodes are added in the
 future, the function will automatically be created there too.
 
@@ -269,20 +361,20 @@ overridden with these GUCs:
 **table_name:** Name of the columnar table.
 
 **chunk_row_count:** (Optional) The maximum number of rows per chunk for
-newly inserted data. Existing chunks of data will not be changed and may have
+newly inserted data. Existing chunks of data won't be changed and may have
 more rows than this maximum value. The default value is 10000.
 
 **stripe_row_count:** (Optional) The maximum number of rows per stripe for
-newly inserted data. Existing stripes of data will not be changed and may have
+newly inserted data. Existing stripes of data won't be changed and may have
 more rows than this maximum value. The default value is 150000.
 
 **compression:** (Optional) `[none|pglz|zstd|lz4|lz4hc]` The compression type
-for newly inserted data. Existing data will not be recompressed or
+for newly inserted data. Existing data won't be recompressed or
 decompressed. The default and suggested value is zstd (if support has
 been compiled in).
 
 **compression_level:** (Optional) Valid settings are from 1 through 19. If the
-compression method does not support the level chosen, the closest level will be
+compression method doesn't support the level chosen, the closest level will be
 selected instead.
 
 #### Return value
@@ -298,57 +390,122 @@ SELECT alter_columnar_table_set(
   stripe_row_count => 10000);
 ```
 
-## Metadata / Configuration Information
+### alter_table_set_access_method
 
-### master\_get\_table\_metadata
-
-The master\_get\_table\_metadata() function can be used to return
-distribution-related metadata for a distributed table. This metadata includes
-the relation ID, storage type, distribution method, distribution column,
-replication count, maximum shard size, and shard placement policy for the
-table. Behind the covers, this function queries Hyperscale (Citus) metadata
-tables to get the required information and concatenates it into a tuple before
-returning it to the user.
+The alter_table_set_access_method() function changes access method of a table
+(for example, heap or columnar).
 
 #### Arguments
 
-**table\_name:** Name of the distributed table for which you want to
-fetch metadata.
+**table_name:** Name of the table whose access method will change.
+
+**access_method:** Name of the new access method.
 
 #### Return Value
 
-A tuple containing the following information:
-
-**logical\_relid:** Oid of the distributed table. It references
-the relfilenode column in the pg\_class system catalog table.
-
-**part\_storage\_type:** Type of storage used for the table. May be
-'t' (standard table), 'f' (foreign table) or 'c' (columnar table).
-
-**part\_method:** Distribution method used for the table. May be 'a'
-(append), or 'h' (hash).
-
-**part\_key:** Distribution column for the table.
-
-**part\_replica\_count:** Current shard replication count.
-
-**part\_max\_size:** Current maximum shard size in bytes.
-
-**part\_placement\_policy:** Shard placement policy used for placing the
-table's shards. May be 1 (local-node-first) or 2 (round-robin).
+N/A
 
 #### Example
 
-The example below fetches and displays the table metadata for the
-github\_events table.
+```postgresql
+SELECT alter_table_set_access_method('github_events', 'columnar');
+```
+
+### create_time_partitions
+
+The create_time_partitions() function creates partitions of a given interval to
+cover a given range of time.
+
+#### Arguments
+
+**table_name:** (regclass) table for which to create new partitions. The table
+must be partitioned on one column, of type date, timestamp, or timestamptz.
+
+**partition_interval:** an interval of time, such as `'2 hours'`, or `'1
+month'`, to use when setting ranges on new partitions.
+
+**end_at:** (timestamptz) create partitions up to this time. The last partition
+will contain the point end_at, and no later partitions will be created.
+
+**start_from:** (timestamptz, optional) pick the first partition so that it
+contains the point start_from. The default value is `now()`.
+
+#### Return Value
+
+True if it needed to create new partitions, false if they all existed already.
+
+#### Example
 
 ```postgresql
-SELECT * from master_get_table_metadata('github_events');
- logical_relid | part_storage_type | part_method | part_key | part_replica_count | part_max_size | part_placement_policy 
----------------+-------------------+-------------+----------+--------------------+---------------+-----------------------
-         24180 | t                 | h           | repo_id  |                  2 |    1073741824 |                     2
-(1 row)
+-- create a year's worth of monthly partitions
+-- in table foo, starting from the current time
+
+SELECT create_time_partitions(
+  table_name         := 'foo',
+  partition_interval := '1 month',
+  end_at             := now() + '12 months'
+);
 ```
+
+### drop_old_time_partitions
+
+The drop_old_time_partitions() function removes all partitions whose intervals
+fall before a given timestamp. In addition to using this function, you might
+consider
+[alter_old_partitions_set_access_method](#alter_old_partitions_set_access_method)
+to compress the old partitions with columnar storage.
+
+#### Arguments
+
+**table_name:** (regclass) table for which to remove partitions. The table must
+be partitioned on one column, of type date, timestamp, or timestamptz.
+
+**older_than:** (timestamptz) drop partitions whose upper range is less than or
+equal to older_than.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+-- drop partitions that are over a year old
+
+CALL drop_old_time_partitions('foo', now() - interval '12 months');
+```
+
+### alter_old_partitions_set_access_method
+
+In a timeseries use case, tables are often partitioned by time, and old
+partitions are compressed into read-only columnar storage.
+
+#### Arguments
+
+**parent_table_name:** (regclass) table for which to change partitions. The
+table must be partitioned on one column, of type date, timestamp, or
+timestamptz.
+
+**older_than:** (timestamptz) change partitions whose upper range is less than
+or equal to older_than.
+
+**new_access_method:** (name) either ‘heap’ for row-based storage, or
+‘columnar’ for columnar storage.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+CALL alter_old_partitions_set_access_method(
+  'foo', now() - interval '6 months',
+  'columnar'
+);
+```
+
+## Metadata / Configuration Information
 
 ### get\_shard\_id\_for\_distribution\_column
 
@@ -359,7 +516,7 @@ database administrator can ignore. However it can be useful to determine a
 row's shard, either for manual database maintenance tasks or just to satisfy
 curiosity. The `get_shard_id_for_distribution_column` function provides this
 info for hash-distributed, range-distributed, and reference tables. It
-does not work for the append distribution.
+doesn't work for the append distribution.
 
 #### Arguments
 
@@ -390,7 +547,7 @@ name. The translation is useful to determine the distribution column of a
 distributed table.
 
 For a more detailed discussion, see [choosing a distribution
-column](concepts-choose-distribution-column.md).
+column](howto-choose-distribution-column.md).
 
 #### Arguments
 
@@ -514,6 +671,37 @@ N/A
 
 None
 
+### citus_get_active_worker_nodes
+
+The citus_get_active_worker_nodes() function returns a list of active worker
+host names and port numbers.
+
+#### Arguments
+
+N/A
+
+#### Return Value
+
+List of tuples where each tuple contains the following information:
+
+**node_name:** DNS name of the worker node
+
+**node_port:** Port on the worker node on which the database server is
+listening
+
+#### Example
+
+```postgresql
+SELECT * from citus_get_active_worker_nodes();
+ node_name | node_port
+-----------+-----------
+ localhost |      9700
+ localhost |      9702
+ localhost |      9701
+
+(3 rows)
+```
+
 ## Server group management and repair
 
 ### master\_copy\_shard\_placement
@@ -565,7 +753,7 @@ SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
 ### master\_move\_shard\_placement
 
 This function moves a given shard (and shards colocated with it) from one node
-to another. It is typically used indirectly during shard rebalancing rather
+to another. It's typically used indirectly during shard rebalancing rather
 than being called directly by a database administrator.
 
 There are two ways to move the data: blocking or nonblocking. The blocking
@@ -618,8 +806,8 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 
 ### rebalance\_table\_shards
 
-The rebalance\_table\_shards() function moves shards of the given table to make
-them evenly distributed among the workers. The function first calculates the
+The rebalance\_table\_shards() function moves shards of the given table to
+distribute them evenly among the workers. The function first calculates the
 list of moves it needs to make in order to ensure that the server group is
 balanced within the given threshold. Then, it moves shard placements one by one
 from the source node to the destination node and updates the corresponding
@@ -714,7 +902,7 @@ Output the planned shard movements of
 [rebalance_table_shards](#rebalance_table_shards) without performing them.
 While it's unlikely, get\_rebalance\_table\_shards\_plan can output a slightly
 different plan than what a rebalance\_table\_shards call with the same
-arguments will do. They are not executed at the same time, so facts about the
+arguments will do. They aren't executed at the same time, so facts about the
 server group \-- for example, disk space \-- might differ between the calls.
 
 #### Arguments
@@ -852,54 +1040,10 @@ SELECT * from citus_remote_connection_stats();
 (1 row)
 ```
 
-### replicate\_table\_shards
-
-The replicate\_table\_shards() function replicates the under-replicated shards
-of the given table. The function first calculates the list of under-replicated
-shards and locations from which they can be fetched for replication. The
-function then copies over those shards and updates the corresponding shard
-metadata to reflect the copy.
-
-#### Arguments
-
-**table\_name:** The name of the table whose shards need to be
-replicated.
-
-**shard\_replication\_factor:** (Optional) The desired replication
-factor to achieve for each shard.
-
-**max\_shard\_copies:** (Optional) Maximum number of shards to copy to
-reach the desired replication factor.
-
-**excluded\_shard\_list:** (Optional) Identifiers of shards that
-shouldn't be copied during the replication operation.
-
-#### Return Value
-
-N/A
-
-#### Examples
-
-The example below will attempt to replicate the shards of the
-github\_events table to shard\_replication\_factor.
-
-```postgresql
-SELECT replicate_table_shards('github_events');
-```
-
-This example will attempt to bring the shards of the github\_events table to
-the desired replication factor with a maximum of 10 shard copies. The
-rebalancer will copy a maximum of 10 shards in its attempt to reach the desired
-replication factor.
-
-```postgresql
-SELECT replicate_table_shards('github_events', max_shard_copies:=10);
-```
-
 ### isolate\_tenant\_to\_new\_shard
 
 This function creates a new shard to hold rows with a specific single value in
-the distribution column. It is especially handy for the multi-tenant Hyperscale
+the distribution column. It's especially handy for the multi-tenant Hyperscale
 (Citus) use case, where a large tenant can be placed alone on its own shard and
 ultimately its own physical node.
 

@@ -7,8 +7,8 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 02/10/2020
+ms.topic: how-to
+ms.date: 02/08/2022
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -56,7 +56,7 @@ When you create a LUIS app, LUIS automatically generates a authoring key so you 
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
-![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
+:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
 
 On the **Azure Resources** page:
 
@@ -142,14 +142,14 @@ Instead of adding individual intents, you can also use the `AddAllIntents` metho
 
 ## Start recognition
 
-With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both at-start and continuous recognition.
+With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both single-shot and continuous recognition.
 
 | Recognition mode | Methods to call | Result |
 | ---------------- | --------------- | ------ |
-| At-start | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
+| Single-shot | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
 | Continuous | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Recognizes multiple utterances; emits events (for example, `IntermediateResultReceived`) when results are available. |
 
-The application uses at-start mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
+The application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)

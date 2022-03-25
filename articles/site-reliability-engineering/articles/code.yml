@@ -6,11 +6,9 @@ metadata:
   author: dnblankedelman
   manager: ScottCa
   ms.service: site-reliability-engineering
-  ms.topic: article
+  ms.topic: faq
   ms.date: 09/14/2020
   ms.author: dnb
-  
-    
 title: "Frequently asked questions: Do I need to know how to code to get involved with SRE?"
 summary: |
   When individuals are considering getting involved in SRE and teams are thinking about bringing in SRE practices, a common question that comes up is "Do you need to know how to code?"

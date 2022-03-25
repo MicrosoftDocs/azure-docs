@@ -22,7 +22,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See [project creation article](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
@@ -46,7 +46,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 
 ### Get your resource keys endpoint
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 * From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
 :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../../../media/azure-portal-resource-credentials.png":::
@@ -289,11 +289,12 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
+Use the following JSON in your request. Use the name of the model you want to deploy.  
 
 ```json
 {
-  "trainedModelLabel": "MyModel"
+  "trainedModelLabel": "MyModel",
+  "deploymentName": "prod"
 }
 ```
 

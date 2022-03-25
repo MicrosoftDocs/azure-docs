@@ -44,6 +44,8 @@ This procedure describes how to list role assignments with organization-wide sco
 
 It's easy to list your own permissions as well. Select **Your Role** on the **Roles and administrators** page to see the roles that are currently assigned to you.
 
+   ![List my role assignments](./media/view-assignments/list-my-role-assignments.png)
+
 ### Download role assignments
 
 To download all assignments for a specific role, on the **Roles and administrators** page, select a role, and then select **Download role assignments**. A CSV file that lists assignments at all scopes for that role is downloaded.

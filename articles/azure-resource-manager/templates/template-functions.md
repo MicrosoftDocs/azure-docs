@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 02/11/2022
 ---
 
 # ARM template functions
@@ -12,6 +12,9 @@ This article describes all the functions you can use in an Azure Resource Manage
 To create your own functions, see [User-defined functions](./syntax.md#functions).
 
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Bicep functions](../bicep/bicep-functions.md) and [Bicep operators](../bicep/operators.md).
 
 <a id="array" aria-hidden="true"></a>
 <a id="concatarray" aria-hidden="true"></a>
@@ -53,7 +56,7 @@ Resource Manager provides several functions for working with arrays.
 * [take](template-functions-array.md#take)
 * [union](template-functions-array.md#union)
 
-For Bicep files, use the Bicep [array](../bicep/bicep-functions-array.md) functions.
+For Bicep files, use the [array](../bicep/bicep-functions-array.md) functions.
 
 <a id="coalesce" aria-hidden="true"></a>
 <a id="equals" aria-hidden="true"></a>
@@ -73,11 +76,7 @@ Resource Manager provides several functions for making comparisons in your templ
 * [greater](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
 
-For Bicep files, use the Bicep [coalesce](../bicep/operators-logical.md) logical operator. For comparisons, use the Bicep [comparison](../bicep/operators-comparison.md) operators.
-
-<a id="deployment" aria-hidden="true"></a>
-<a id="parameters" aria-hidden="true"></a>
-<a id="variables" aria-hidden="true"></a>
+For Bicep files, use the [coalesce](../bicep/operators-logical.md) logical operator. For comparisons, use the [comparison](../bicep/operators-comparison.md) operators.
 
 ## Date functions
 
@@ -86,7 +85,11 @@ Resource Manager provides the following functions for working with dates.
 * [dateTimeAdd](template-functions-date.md#datetimeadd)
 * [utcNow](template-functions-date.md#utcnow)
 
-For Bicep files, use the Bicep [date](../bicep/bicep-functions-date.md) functions.
+For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.
+
+<a id="deployment" aria-hidden="true"></a>
+<a id="parameters" aria-hidden="true"></a>
+<a id="variables" aria-hidden="true"></a>
 
 ## Deployment value functions
 
@@ -97,7 +100,7 @@ Resource Manager provides the following functions for getting values from sectio
 * [parameters](template-functions-deployment.md#parameters)
 * [variables](template-functions-deployment.md#variables)
 
-For Bicep files, use the Bicep [deployment](../bicep/bicep-functions-deployment.md) functions.
+For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) functions.
 
 <a id="and" aria-hidden="true"></a>
 <a id="bool" aria-hidden="true"></a>
@@ -117,7 +120,7 @@ Resource Manager provides the following functions for working with logical condi
 * [or](template-functions-logical.md#or)
 * [true](template-functions-logical.md#true)
 
-For Bicep files, use the Bicep [bool](../bicep/bicep-functions-logical.md) logical function. For other logical values, use Bicep [logical](../bicep/operators-logical.md) operators.
+For Bicep files, use the [bool](../bicep/bicep-functions-logical.md) logical function. For other logical values, use [logical](../bicep/operators-logical.md) operators.
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -145,7 +148,7 @@ Resource Manager provides the following functions for working with integers:
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
 
-For Bicep files that use `int`, `min`, and `max` use Bicep [numeric](../bicep/bicep-functions-numeric.md) functions. For other numeric values, use Bicep [numeric](../bicep/operators-numeric.md) operators.
+For Bicep files that use `int`, `min`, and `max` use [numeric](../bicep/bicep-functions-numeric.md) functions. For other numeric values, use [numeric](../bicep/operators-numeric.md) operators.
 
 <a id="json" aria-hidden="true"></a>
 
@@ -162,7 +165,7 @@ Resource Manager provides several functions for working with objects.
 * [null](template-functions-object.md#null)
 * [union](template-functions-object.md#union)
 
-For Bicep files, use the Bicep [object](../bicep/bicep-functions-object.md) functions.
+For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.
 
 <a id="extensionResourceId" aria-hidden="true"></a>
 <a id="listkeys" aria-hidden="true"></a>
@@ -189,7 +192,7 @@ Resource Manager provides the following functions for getting resource values:
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
-For Bicep files, use the Bicep [resource](../bicep/bicep-functions-resource.md) functions.
+For Bicep files, use the [resource](../bicep/bicep-functions-resource.md) functions.
 
 <a id="managementgroup" aria-hidden="true"></a>
 <a id="resourcegroup" aria-hidden="true"></a>
@@ -205,7 +208,7 @@ Resource Manager provides the following functions for getting deployment scope v
 * [subscription](template-functions-scope.md#subscription) - can only be used in deployments to a resource group or subscription.
 * [tenant](template-functions-scope.md#tenant) - can be used for deployments at any scope.
 
-For Bicep files, use the Bicep [scope](../bicep/bicep-functions-scope.md) functions.
+For Bicep files, use the [scope](../bicep/bicep-functions-scope.md) functions.
 
 <a id="base64" aria-hidden="true"></a>
 <a id="base64tojson" aria-hidden="true"></a>
@@ -275,7 +278,7 @@ Resource Manager provides the following functions for working with strings:
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
 
-For Bicep files, use the Bicep [string](../bicep/bicep-functions-string.md) functions.
+For Bicep files, use the [string](../bicep/bicep-functions-string.md) functions.
 
 ## Next steps
 

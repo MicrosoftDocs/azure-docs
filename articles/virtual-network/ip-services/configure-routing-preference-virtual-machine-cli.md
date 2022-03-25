@@ -7,7 +7,8 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Configure routing preference for a VM using the Azure CLI
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **TutorVMRoutePref-rg** in the **westus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **TutorVMRoutePref-rg** in the **westus2** location.
 
 ```azurecli-interactive
   az group create \
@@ -39,7 +40,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ## Create a public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IPv4 address named **myPublicIP** in **TutorVMRoutePref-rg**. The **Tag** of **Internet** is applied to the public IP address as a parameter in the CLI command enabling the **Internet** routing preference.
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard zone-redundant public IPv4 address named **myPublicIP** in **TutorVMRoutePref-rg**. The **Tag** of **Internet** is applied to the public IP address as a parameter in the CLI command enabling the **Internet** routing preference.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -53,7 +54,7 @@ az network public-ip create \
 
 ## Create virtual machine
 
-Use [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine. The public IP address created in the previous section is added as part of the CLI command and is attached to the VM during creation.
+Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine. The public IP address created in the previous section is added as part of the CLI command and is attached to the VM during creation.
 
 ```azurecli-interactive
 az vm create \
@@ -67,7 +68,7 @@ az vm create \
 
 ## Verify internet routing preference
 
-Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to verify that **Internet** routing preference is configured for the public IP address.
+Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to verify that **Internet** routing preference is configured for the public IP address.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -79,7 +80,7 @@ az network public-ip show \
 
 ## Clean up resources
 
-When you're done with the virtual machine and public IP address, delete the resource group and all of the resources it contains with [az group delete](/cli/azure/group#az_group_delete).
+When you're done with the virtual machine and public IP address, delete the resource group and all of the resources it contains with [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
   az group delete \

@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 02/13/2022
 ms.author: radeltch
 
 ---
@@ -156,7 +156,7 @@ In this example, we used Azure NetApp Files for all SAP Netweaver file systems t
 
 ### Important considerations
 
-When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
+When considering Azure NetApp Files for the SAP Netweaver on RHEL High Availability architecture, be aware of the following important considerations:
 
 - The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
 - The minimum volume is 100 GiB

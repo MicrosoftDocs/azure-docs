@@ -5,10 +5,9 @@ metadata:
   author: duongau
   ms.author: duau
   ms.service: frontdoor
-  ms.topic: article
+  ms.topic: faq
   ms.workload: infrastructure-services
   ms.date: 09/14/2021
-    
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):

@@ -9,7 +9,8 @@ ms.workload:
 ms.topic: quickstart
 ms.date: 5/21/2021
 ms.author: inhenkel
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Event-based Face Redaction
@@ -121,7 +122,7 @@ The bash script below is used for configuring the Resources after they have been
 - Create the Azure Media Services Transform using a REST API call. This transform will be called in the Azure Function.
 
 > [!NOTE]
-> Currently, neither the Azure Media Services v3 Python SDK, nor Azure CLI did support the creation of a FaceRedaction Transform. We therefore the Rest API method to create the transform job.
+> Currently, neither the Azure Media Services v3 Python SDK, nor Azure CLI did support the creation of a FaceRedaction Transform. We therefore the REST API method to create the transform job.
 
 [!code-bash[Main](../../../media-services-v3-python/VideoAnalytics/FaceRedactorEventBased/AzureServicesProvisioning/configure_resources.azcli)]
  

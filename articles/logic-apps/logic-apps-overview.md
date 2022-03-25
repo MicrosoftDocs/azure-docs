@@ -27,7 +27,7 @@ The following list describes just a few example tasks, business processes, and w
 
 Based on the logic app resource type that you choose and create, your logic apps run in multi-tenant Azure Logic Apps, [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), or a dedicated [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) when accessing an Azure virtual network. To run logic apps in containers, [create single-tenant based logic apps using Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) and [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
-To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#managed-connector) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
+To securely access and run operations on various data sources, you can use [*managed connectors*](#managed-connector) in your workflows. Choose from [many hundreds of connectors in an abundant and growing Azure ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors), for example:
 
 * Azure services such as Blob Storage and Service Bus
 

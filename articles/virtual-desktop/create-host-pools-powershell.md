@@ -5,7 +5,8 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/23/2021
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+
 manager: femila
 ---
 # Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI
@@ -68,7 +69,7 @@ If you haven't already done so, prepare your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
+After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
 
 ```azurecli
 az desktopvirtualization hostpool create --name "MyHostPool" \

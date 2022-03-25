@@ -16,7 +16,7 @@ ms.date: 03/23/2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -28,7 +28,7 @@ ms.date: 03/23/2021
 
 [!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file and create variables for your resource's endpoint and subscription key.
 
@@ -329,7 +329,7 @@ send_multi_slot_reward(multi_slot_rewards, multi_slot_rank_response['eventId'])
 
 ## Run the program
 
-Run the application with the python from your application directory.
+Run the application with the Python from your application directory.
 
 ```console
 python sample.py

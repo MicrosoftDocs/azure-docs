@@ -31,7 +31,7 @@ You'll need the following things to set up the rule editor:
 
 ## Install Office
 
-To install Office on your VHD or VHDX, enable the Remote Desktop Protocol in your VM, then follow the instructions in [Install Office on a VHD master image](install-office-on-wvd-master-image.md). When installing, make sure you're using [the correct licenses](overview.md#requirements).
+To install Office on your VHD or VHDX, enable the Remote Desktop Protocol in your VM, then follow the instructions in [Install Office on a VHD master image](install-office-on-wvd-master-image.md). When installing, make sure you're using [the correct licenses](prerequisites.md#operating-systems-and-licenses).
 
 >[!NOTE]
 >Azure Virtual Desktop requires Share Computer Activation (SCA).

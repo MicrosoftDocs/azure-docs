@@ -4,7 +4,7 @@ description: Learn how to resolve common problems in IT Service Management Conne
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 04/12/2020
+ms.date: 2/23/2022
 
 ---
 # Troubleshoot problems in IT Service Management Connector

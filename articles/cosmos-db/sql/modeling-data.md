@@ -7,11 +7,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
-
+ms.date: 02/15/2022
+ms.custom: cosmos-db-video
 ---
 # Data modeling in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+
+📺 <B><a href="https://aka.ms/cosmos-db-video-data-modeling-best-practices" target="_blank">Video: Data modeling best practices</a></b>
+
 
 While schema-free databases, like Azure Cosmos DB, make it super easy to store and query unstructured and semi-structured data, you should spend some time thinking about your data model to get the most of the service in terms of performance and scalability and lowest cost.
 
@@ -113,7 +116,7 @@ Take this JSON snippet.
 }
 ```
 
-This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there's no (practical) limit to the number of comments any single post can have. This may become a problem as the size of the item could grow infinitely large.
+This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there's no (practical) limit to the number of comments any single post can have. This may become a problem as the size of the item could grow infinitely large so is a design you should avoid.
 
 As the size of the item grows the ability to transmit the data over the wire as well as reading and updating the item, at scale, will be impacted.
 
@@ -133,26 +136,19 @@ Post item:
 }
 
 Comment items:
-{
-    "postId": "1"
-    "comments": [
-        {"id": 4, "author": "anon", "comment": "more goodness"},
-        {"id": 5, "author": "bob", "comment": "tails from the field"},
-        ...
-        {"id": 99, "author": "angry", "comment": "blah angry blah angry"}
-    ]
-},
-{
-    "postId": "1"
-    "comments": [
-        {"id": 100, "author": "anon", "comment": "yet more"},
-        ...
-        {"id": 199, "author": "bored", "comment": "will this ever end?"}
-    ]
-}
+[
+    {"id": 4, "postId": "1", "author": "anon", "comment": "more goodness"},
+    {"id": 5, "postId": "1", "author": "bob", "comment": "tails from the field"},
+    ...
+    {"id": 99, "postId": "1", "author": "angry", "comment": "blah angry blah angry"},
+    {"id": 100, "postId": "2", "author": "anon", "comment": "yet more"},
+    ...
+    {"id": 199, "postId": "2", "author": "bored", "comment": "will this ever end?"}   
+]
 ```
 
-This model has the three most recent comments embedded in the post container, which is an array with a fixed set of attributes. The other comments are grouped in to batches of 100 comments and stored as separate items. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
+This model has a document for each comment with a property that contains the post id. This allows posts to contain any number of comments and can grow efficiently. Users wanting to see more
+than the most recent comments would query this container passing the postId which should be the partition key for the comments container.
 
 Another case where embedding data isn't a good idea is when the embedded data is used often across items and will change frequently.
 
@@ -340,7 +336,7 @@ Now, if I had an author, I immediately know which books they've written, and con
 
 ## Hybrid data models
 
-We've now looked embedding (or denormalizing) and referencing (or normalizing) data, each have their upsides and each have compromises as we've seen.
+We've now looked at embedding (or denormalizing) and referencing (or normalizing) data which, each have their upsides and compromises as we've seen.
 
 It doesn't always have to be either or, don't be scared to mix things up a little.
 

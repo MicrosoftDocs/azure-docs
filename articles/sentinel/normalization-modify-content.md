@@ -1,14 +1,13 @@
 ---
-title: Modify content to use the Microsoft Sentinel Advanced SIEM Information Model (ASIM) | Microsoft Docs
-description: This article explains how to convert Microsoft Sentinel content to use the the Advanced SIEM Information Model (ASIM).
+title: Modify content to use the Microsoft Sentinel Advanced Security Information Model (ASIM) | Microsoft Docs
+description: This article explains how to convert Microsoft Sentinel content to use the the Advanced Security Information Model (ASIM).
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 ---
 
-# Modify content to use the Advanced SIEM Information Model (ASIM) (Public preview)
+# Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -16,7 +15,7 @@ Normalized security content in Microsoft Sentinel includes analytics rules, hunt
 
 <a name="builtin"></a>You can find normalized, out-of-the-box content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing, custom content to use normalized data.
 
-This article explains how to convert existing Microsoft Sentinel analytics rules to use [normalized data](normalization.md) with the Advanced SIEM Information Model (ASIM).
+This article explains how to convert existing Microsoft Sentinel analytics rules to use [normalized data](normalization.md) with the Advanced Security Information Model (ASIM).
 
 To understand how normalized content fits within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -108,12 +107,12 @@ imDns
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Advanced SIEM Information Model (ASIM) content.
+This article discusses the Advanced Security Information Model (ASIM) content.
 
 For more information, see:
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

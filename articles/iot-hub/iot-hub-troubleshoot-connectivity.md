@@ -1,19 +1,19 @@
 ---
-title: Monitor and troubleshoot disconnects with Azure IoT Hub
+title: Monitor and troubleshoot device connectivity to Azure IoT Hub
 description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub 
-author: jlian
+author: kgremban
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: jlian
+ms.author: kgremban
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
 
 #Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
 
-# Monitor, diagnose, and troubleshoot Azure IoT Hub disconnects 
+# Monitor, diagnose, and troubleshoot Azure IoT Hub device connectivity
 
 Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Application logic, physical networks, protocols, hardware, IoT Hub, and other cloud services can all cause problems. The ability to detect and pinpoint the source of an issue is critical. However, an IoT solution at scale could have thousands of devices, so it's not practical to check individual devices manually. IoT Hub integrates with two Azure services to help you:
 
@@ -113,6 +113,22 @@ Use the following problem resolution guides for help with the most common errors
 * [500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)
 
 * [500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)
+
+## Azure Monitor: Use logs to monitor connectivity for a specific device
+
+There may be situations when you want to use Azure Monitor to see connectivity errors and information for a specific device. To isolate connectivity events for a device, you can follow the same steps as in the preceding section, but enter the following query. Replace *test-device* with the name of your device.
+
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend DeviceId = tostring(parse_json(properties_s).deviceId)
+| where DeviceId == "test-device"
+```
+
+The query returns both error and informational events for your target device. The following example output shows an informational **deviceConnect** event:
+
+:::image type="content" source="media/iot-hub-troubleshoot-connectivity/device-connect-event.png" alt-text="Screenshot of deviceConnect event in logs.":::
 
 ## MQTT device disconnect behavior with Azure IoT SDKs
 

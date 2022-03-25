@@ -36,7 +36,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * Your solution needs to support automatic duplicate detection.
 * You want your application to process messages as parallel long-running streams (messages are associated with a stream using the **session ID** property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
-* Your application handles messages that can exceed 64 KB but won't likely approach the 256-KB limit.
+* Your application handles messages that can exceed 64 KB but won't likely approach the 256 KB or 1 MB limit, depending on the chosen [service tier](service-bus-premium-messaging.md) (although Service Bus queues can [handle messages up to 100 MB](service-bus-premium-messaging.md#large-messages-support)).
 * You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see the following articles:
     - [Authenticate with managed identities](service-bus-managed-service-identity.md)
     - [Authenticate from an application](authenticate-application.md)
@@ -54,17 +54,17 @@ This section compares some of the fundamental queuing capabilities provided by S
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Ordering guarantee |**No** <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | **Yes - First-In-First-Out (FIFO)**<br/><br>(by using [message sessions](message-sessions.md)) |
-| Delivery guarantee |**At-Least-Once** |**At-Least-Once** (using PeekLock receive mode. It's the default) <br/><br/>**At-Most-Once** (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
-| Atomic operation support |**No** |**Yes**<br/><br/> |
-| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(using .NET managed API only) |
-| Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
-| Receive mode |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receive & Delete** |
-| Exclusive access mode |**Lease-based** |**Lock-based** |
-| Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**30 seconds (default)**<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
-| Lease/Lock precision |**Message level**<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
-| Batched receive |**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly by using transactions) |
-| Batched send |**No** |**Yes**<br/><br/>(by using transactions or client-side batching) |
+| Ordering guarantee | No <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | Yes - First-In-First-Out (FIFO)<br/><br>(by using [message sessions](message-sessions.md)) |
+| Delivery guarantee |At-Least-Once |At-Least-Once (using PeekLock receive mode. It's the default) <br/><br/>At-Most-Once (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
+| Atomic operation support |No |Yes<br/><br/> |
+| Receive behavior |Non-blocking<br/><br/>(completes immediately if no new message is found) |Blocking with or without a timeout<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>Non-blocking<br/><br/>(using .NET managed API only) |
+| Push-style API |No |Yes<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
+| Receive mode |Peek & Lease |Peek & Lock<br/><br/>Receive & Delete |
+| Exclusive access mode |Lease-based |Lock-based |
+| Lease/Lock duration |30 seconds (default)<br/><br/>7 days (maximum) (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |30 seconds (default)<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
+| Lease/Lock precision |Message level<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |Queue level<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
+| Batched receive |Yes<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |Yes<br/><br/>(implicitly enabling a pre-fetch property or explicitly by using transactions) |
+| Batched send |No |Yes<br/><br/>(by using transactions or client-side batching) |
 
 ### Additional information
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
@@ -89,21 +89,21 @@ This section compares advanced capabilities provided by Storage queues and Servi
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Scheduled delivery |**Yes** |**Yes** |
-| Automatic dead lettering |**No** |**Yes** |
-| Increasing queue time-to-live value |**Yes**<br/><br/>(via in-place update of visibility timeout) |**Yes**<br/><br/>(provided via a dedicated API function) |
-| Poison message support |**Yes** |**Yes** |
-| In-place update |**Yes** |**Yes** |
-| Server-side transaction log |**Yes** |**No** |
-| Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](monitor-service-bus-reference.md#message-metrics). |
-| State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
-| Message autoforwarding |**No** |**Yes** |
-| Purge queue function |**Yes** |**No** |
-| Message groups |**No** |**Yes**<br/><br/>(by using messaging sessions) |
-| Application state per message group |**No** |**Yes** |
-| Duplicate detection |**No** |**Yes**<br/><br/>(configurable on the sender side) |
-| Browsing message groups |**No** |**Yes** |
-| Fetching message sessions by ID |**No** |**Yes** |
+| Scheduled delivery |Yes |Yes |
+| Automatic dead lettering |No |Yes |
+| Increasing queue time-to-live value |Yes<br/><br/>(via in-place update of visibility timeout) |Yes<br/><br/>(provided via a dedicated API function) |
+| Poison message support |Yes |Yes |
+| In-place update |Yes |Yes |
+| Server-side transaction log |Yes |No |
+| Storage metrics |Yes<br/><br/>Minute Metrics provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |Yes<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](monitor-service-bus-reference.md#message-metrics). |
+| State management |No |Yes (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
+| Message autoforwarding |No |Yes |
+| Purge queue function |Yes |No |
+| Message groups |No |Yes<br/><br/>(by using messaging sessions) |
+| Application state per message group |No |Yes |
+| Duplicate detection |No |Yes<br/><br/>(configurable on the sender side) |
+| Browsing message groups |No |Yes |
+| Fetching message sessions by ID |No |Yes |
 
 ### Additional information
 * Both queuing technologies enable a message to be scheduled for delivery at a later time.
@@ -122,11 +122,11 @@ This section compares Storage queues and Service Bus queues from the perspective
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Maximum queue size |**500 TB**<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
-| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |**256 KB** or **100 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
-| Maximum message TTL |**Infinite** (api-version 2017-07-27 or later) |**TimeSpan.Max** |
-| Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace) |
-| Maximum number of concurrent clients |**Unlimited** |**5,000** |
+| Maximum queue size |500 TB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
+| Maximum message size |64 KB<br/><br/>(48 KB when using Base64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum message TTL |Infinite (api-version 2017-07-27 or later) |TimeSpan.Max |
+| Maximum number of queues |Unlimited |10,000<br/><br/>(per service namespace) |
+| Maximum number of concurrent clients |Unlimited |5,000 |
 
 ### Additional information
 * Service Bus enforces queue size limits. The maximum queue size is specified when creating a queue. It can be between 1 GB and 80 GB. If the queue's size reaches this limit, additional incoming messages will be rejected and the caller receives an exception. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
@@ -141,17 +141,17 @@ This section compares the management features provided by Storage queues and Ser
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Management protocol |**REST over HTTP/HTTPS** |**REST over HTTPS** |
-| Runtime protocol |**REST over HTTP/HTTPS** |**REST over HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP with TLS)** |
-| .NET API |**Yes**<br/><br/>(.NET Storage Client API) |**Yes**<br/><br/>(.NET Service Bus API) |
-| Native C++ |**Yes** |**Yes** |
-| Java API |**Yes** |**Yes** |
-| PHP API |**Yes** |**Yes** |
-| Node.js API |**Yes** |**Yes** |
-| Arbitrary metadata support |**Yes** |**No** |
-| Queue naming rules |**Up to 63 characters long**<br/><br/>(Letters in a queue name must be lowercase.) |**Up to 260 characters long**<br/><br/>(Queue paths and names are case-insensitive.) |
-| Get queue length function |**Yes**<br/><br/>(Approximate value if messages expire beyond the TTL without being deleted.) |**Yes**<br/><br/>(Exact, point-in-time value.) |
-| Peek function |**Yes** |**Yes** |
+| Management protocol | REST over HTTP/HTTPS | REST over HTTPS |
+| Runtime protocol | REST over HTTP/HTTPS | REST over HTTPS<br/><br/>AMQP 1.0 Standard (TCP with TLS) |
+| .NET API | Yes<br/><br/>(.NET Storage Client API) |Yes<br/><br/>(.NET Service Bus API) |
+| Native C++ | Yes | Yes |
+| Java API | Yes | Yes |
+| PHP API | Yes | Yes |
+| Node.js API | Yes | Yes |
+| Arbitrary metadata support | Yes | No |
+| Queue naming rules | Up to 63 characters long<br/><br/>(Letters in a queue name must be lowercase.) | Up to 260 characters long <br/><br/>(Queue paths and names are case-insensitive.) |
+| Get queue length function | Yes<br/><br/>(Approximate value if messages expire beyond the TTL without being deleted.) |Yes<br/><br/>(Exact, point-in-time value.) |
+| Peek function | Yes | Yes |
 
 ### Additional information
 * Storage queues provide support for arbitrary attributes that can be applied to the queue description, in the form of name/value pairs.
@@ -165,13 +165,13 @@ This section discusses the authentication and authorization features supported b
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Authentication |**Symmetric key** |**Symmetric key** |
-| Security model |Delegated access via SAS tokens. |SAS |
-| Identity provider federation |**Yes** |**Yes** |
+| Authentication | [Symmetric key](../storage/common/storage-account-keys-manage.md) and [Role-based access control (RBAC)](../storage/queues/assign-azure-role-data-access.md) |[Symmetric key](service-bus-authentication-and-authorization.md#shared-access-signature) and [Role-based access control (RBAC)](service-bus-authentication-and-authorization.md#azure-active-directory) |
+| Identity provider federation | Yes | Yes |
 
 ### Additional information
-* Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access aren't supported. Using [SAS](service-bus-sas.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
-* The authentication scheme provided by Storage queues involves the use of a symmetric key. This key is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-sas.md).
+* Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access aren't supported. 
+* Using shared access signature (SAS) authentication, you can create a shared access authorization rule on a queue that can give users a write-only, read-only, or full access. For more information, see [Azure Storage - SAS authentication](../storage/common/storage-sas-overview.md) and [Azure Service Bus - SAS authentication](service-bus-sas.md).
+* Both queues support authorizing access using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Azure AD authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Azure AD authentication](service-bus-authentication-and-authorization.md#azure-active-directory). 
 
 ## Conclusion
 By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors may depend heavily on the individual needs of your application and its architecture. 

@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 03/04/2022
 ---
 
 # Azure Purview network architecture and best practices
@@ -253,6 +253,30 @@ If you need to scan some data sources by using an ingestion private endpoint and
   - Make sure that your credentials are stored in an Azure key vault and registered inside Azure Purview.
 
   - You must create a credential in Azure Purview based on each secret that you create in Azure Key Vault. At minimum, assign _get_ and _list_ access for secrets for Azure Purview on the Key Vault resource in Azure. Otherwise, the credentials won't work in the Azure Purview account. 
+
+## Self-hosted integration runtime network and proxy recommendations
+
+For scanning data sources across your on-premises and Azure networks, you may need to deploy and use one or multiple [self-hosted integration runtime virtual machines](manage-integration-runtimes.md) inside an Azure VNet or an on-premises network, for any of the scenarios mentioned earlier in this document. 
+
+- To simplify management, when possible, use Azure runtime and [Azure Purview Managed runtime](catalog-managed-vnet.md) to scan Azure data sources.
+ 
+- The Self-hosted integration runtime service can communicate with Azure Purview through public or private network over port 443. For more information see, [self-hosted integration runtime networking requirements](manage-integration-runtimes.md#networking-requirements).
+
+- One self-hosted integration runtime VM can be used to scan one or multiple data sources in Azure Purview, however, self-hosted integration runtime must be only registered for Azure Purview and cannot be used for Azure Data Factory or Azure Synapse at the same time.
+
+- You can register and use one or multiple self-hosted integration runtime in one Azure Purview account. It is recommended to place at least one self-hosted integration runtime VM in each region or on-premises network where your data sources reside. 
+
+- It is recommended to define a baseline for required capacity for each self-hosted integration runtime VM and scale the VM capacity based on demand. 
+
+- It is recommended to setup network connection between self-hosted integration runtime VMs and Azure Purview and its managed resources through private network, when possible.
+
+- Allow outbound connectivity to download.microsoft.com, if auto-update is enabled.
+
+- The self-hosted integration runtime service does not require outbound internet connectivity, if self-hosted integration runtime VMs are deployed in an Azure VNet or in the on-premises network that is connected to Azure through an ExpressRoute or Site to Site VPN connection. In this case, the scan and metadata ingestion process can be done through private network.  
+
+- Self-hosted integration runtime can communicate Azure Purview and its managed resources directly or through [a proxy server](manage-integration-runtimes.md#proxy-server-considerations). Avoid using proxy settings if self-hosted integration runtime VM is inside an Azure VNet or connected through ExpressRoute or Site to Site VPN connection.
+
+- Review supported scenarios, if you need to use self-hosted integration runtime with [proxy setting](manage-integration-runtimes.md#proxy-server-considerations).
 
 ## Next steps
 -  [Use private endpoints for secure access to Azure Purview](./catalog-private-link.md)

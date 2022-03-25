@@ -163,6 +163,8 @@ If you then submit the following entry, before the record type is created, Azure
 The following properties are reserved and shouldn't be used in a custom record type. You'll receive an error if your payload includes any of these property names:
 
 - tenant
+- TimeGenerated
+- RawData
 
 ## Data limits
 The data posted to the Azure Monitor Data collection API is subject to certain constraints:
@@ -223,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
+# Optional name of a field that includes the timestamp for the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -381,6 +383,13 @@ namespace OIAPIExample
 ```
 
 ### Python sample
+
+>[!NOTE]
+> If using Python 2, you may need to change the line:
+> `bytes_to_hash = bytes(string_to_hash, encoding="utf-8")`
+> to
+> `bytes_to_hash = bytes(string_to_hash).encode("utf-8")`
+
 ```python
 import json
 import requests

@@ -22,7 +22,7 @@ This how-to guide outlines the steps to create a [logical server](logical-server
 
 - Version 2.26.1 or later is needed when using The Azure CLI. For more information on the installation and the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 - [Az 6.1.0](https://www.powershellgallery.com/packages/Az/6.1.0) module or higher is needed when using PowerShell.
-- If you're provisioning a managed instance using the Azure CLI, PowerShell, or Rest API, a virtual network and subnet needs to be created before you begin. For more information, see [Create a virtual network for Azure SQL Managed Instance](../managed-instance/virtual-network-subnet-create-arm-template.md).
+- If you're provisioning a managed instance using the Azure CLI, PowerShell, or REST API, a virtual network and subnet needs to be created before you begin. For more information, see [Create a virtual network for Azure SQL Managed Instance](../managed-instance/virtual-network-subnet-create-arm-template.md).
 
 ## Permissions
 
@@ -34,7 +34,7 @@ The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql
 
 The following section provides you with examples and scripts on how to create a logical server or managed instance with an Azure AD admin set for the server or instance, and have Azure AD-only authentication enabled during server creation. For more information on the feature, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
 
-In our examples, we're enabling Azure AD-only authentication during server or managed instance creation, with a system assigned server admin and password. This will prevent server admin access when Azure AD-only authentication is enabled, and only allows the Azure AD admin to access the resource. It's optional to add parameters to the APIs to include your own server admin and password during server creation. However, the password cannot be reset until you disable Azure AD-only authentication. An example of how to use these optional parameters to specify the server admin login name is presented in the [PowerShell](?tabs=azure-powershell#azure-sql-database) tab on this page.
+In our examples, we're enabling Azure AD-only authentication during server or managed instance creation, with a system assigned server admin and password. This will prevent server admin access when Azure AD-only authentication is enabled, and only allows the Azure AD admin to access the resource. It's optional to add parameters to the APIs to include your own server admin and password during server creation. However, the password can’t be reset until you disable Azure AD-only authentication. An example of how to use these optional parameters to specify the server admin login name is presented in the [PowerShell](?tabs=azure-powershell#azure-sql-database) tab on this page.
 
 > [!NOTE]
 > To change the existing properties after server or managed instance creation, other existing APIs should be used. For more information, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis) and [Configure and manage Azure AD authentication with Azure SQL](authentication-aad-configure.md).
@@ -102,7 +102,7 @@ Replace the following values in the example:
 az sql server create --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <ServerName>
 ```
 
-For more information, see [az sql server create](/cli/azure/sql/server#az_sql_server_create).
+For more information, see [az sql server create](/cli/azure/sql/server#az-sql-server-create).
 
 To check the server status after creation, see the following command:
 
@@ -129,7 +129,7 @@ Replace the following values in the example:
 New-AzSqlServer -ResourceGroupName "<ResourceGroupName>" -Location "<Location>" -ServerName "<ServerName>" -ServerVersion "12.0" -ExternalAdminName "<AzureADAccount>" -EnableActiveDirectoryOnlyAuthentication
 ```
 
-Here is an example of specifying the server admin name (instead of letting the server admin name being automatically created) at the time of logical server creation. As mentioned earlier, this login is not usable when Azure AD-only authentication is enabled.
+Here's an example of specifying the server admin name (instead of letting the server admin name being automatically created) at the time of logical server creation. As mentioned earlier, this login isn't usable when Azure AD-only authentication is enabled.
 
 ```powershell
 $cred = Get-Credential
@@ -138,9 +138,9 @@ New-AzSqlServer -ResourceGroupName "<ResourceGroupName>" -Location "<Location>" 
 
 For more information, see [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver).
 
-# [Rest API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
-The [Servers - Create Or Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) Rest API can be used to create a logical server with Azure AD-only authentication enabled during provisioning. 
+The [Servers - Create Or Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) REST API can be used to create a logical server with Azure AD-only authentication enabled during provisioning. 
 
 The script below will provision a logical server, set the Azure AD admin as `<AzureADAccount>`, and enable Azure AD-only authentication. The server SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
 
@@ -318,7 +318,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
 1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
-1. Once you are done with configuring your settings, select **Review + create** to proceed. Select **Create** to start provisioning the managed instance.
+1. Once you're done with configuring your settings, select **Review + create** to proceed. Select **Create** to start provisioning the managed instance.
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -343,7 +343,7 @@ Replace the following values in the example:
 az sql mi create --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <managedinstancename> --subnet /subscriptions/<Subscription ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>
 ```
 
-For more information, see [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create).
+For more information, see [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -371,9 +371,9 @@ New-AzSqlInstance -Name "<managedinstancename>" -ResourceGroupName "<ResourceGro
 
 For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
 
-# [Rest API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
-The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) Rest API can be used to create a managed instance with Azure AD-only authentication enabled during provisioning.
+The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) REST API can be used to create a managed instance with Azure AD-only authentication enabled during provisioning.
 
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.

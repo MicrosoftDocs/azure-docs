@@ -5,10 +5,11 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/13/2021
+ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2 
+ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -20,7 +21,7 @@ ms.custom: contperf-fy22q2
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
+This article covers the steps to set up a new Azure Digital Twins instance, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -30,7 +31,7 @@ This article covers the steps to **set up a new Azure Digital Twins instance**, 
 
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins** using the CLI command. You will need to provide:
+In this section, you will create a new instance of Azure Digital Twins using the CLI command. You will need to provide:
 * A resource group where the instance will be deployed. If you do not already have an existing resource group in mind, you can create one now with this command:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
@@ -81,13 +82,13 @@ The result of this command is outputted information about the role assignment th
 > [!NOTE]
 > If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
 >
-> Assign the role using the user's *Object ID* instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
+> Assign the role using the user's Object ID instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
 >
-> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's *ObjectID*:
+> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's **Object ID**:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Screenshot of the user page in Azure portal highlighting the GUID in the 'Object ID' field." lightbox="media/includes/user-id.png":::
 >
-> Then, repeat the role assignment list command using the user's *Object ID* for the `assignee` parameter above.
+> Then, repeat the role assignment list command using the user's Object ID for the `assignee` parameter above.
 
 ### Verify success
 

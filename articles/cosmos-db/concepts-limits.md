@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: abhijitpai
-ms.author: abpai
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 02/16/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -35,7 +35,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** this minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
-> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20GB in production, it is recommended to re-architect your application with a different partition key as a long-term solution. To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Note this is intended as a temporary mitigation and not recommendeded as a long-term solution, as SLA guarantees are not honored when the limit is increased. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
+> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20GB in production, it is recommended to re-architect your application with a different partition key as a long-term solution. To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Note this is intended as a temporary mitigation and not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
 
 ### Minimum throughput limits
 
@@ -74,7 +74,7 @@ In summary, here are the minimum provisioned RU limits.
 | Resource | Default limit |
 | --- | --- |
 | Minimum RUs per container ([dedicated throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. Additional 100 RU/s for each container afterward. |
+| Minimum RUs per database ([shared throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
@@ -89,7 +89,10 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container | 50 GB |
+| Maximum storage per container | 50 GB * |
+
+> [!NOTE]
+> * Maximum storage limit is 30GB for Cassandra API. 
 
 ## Control plane operations
 
@@ -113,7 +116,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 | --- | --- |
 | Maximum number of databases | 500 |
 | Maximum number of containers per database with shared throughput |25 |
-| Maximum number of containers per database or account with dedicated throughput  | 500 |
+| Maximum number of containers per account | 500 |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ### Serverless
@@ -275,7 +278,7 @@ Read more about Cosmos DB's core concepts [global distribution](distribute-data-
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)

@@ -119,7 +119,7 @@ Each health probe log has the following schema.
 | OriginName  | The origin where requests are being sent. This field helps locate origins of interest if origin is configured to FDQN. |
 | POP | The edge pop, which sent out the probe request. |
 | Origin IP | Target origin IP. This field is useful in locating origins of interest if you configure origin using FDQN. |
-| TotolaLatency | The time from AFDX edge sends the request to origin to the time origin sends the last response to AFDX edge. |
+| TotalLatency | The time from AFDX edge sends the request to origin to the time origin sends the last response to AFDX edge. |
 | ConnectionLatency| Duration Time spent on setting up the TCP connection to send the HTTP Probe request to origin. | 
 | DNSResolution Latency | Duration Time spent on DNS resolution if the origin is configured to be an FDQN instead of IP. N/A if the origin is configured to IP. |
 

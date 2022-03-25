@@ -69,7 +69,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -183,7 +183,7 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-nam
 
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact.
 
-```bash
+```azurecli
 az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 
