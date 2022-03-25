@@ -223,7 +223,7 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp |The time in UTC when this collection event happened. |
 | ownerId| The name of the Graph collection. |
 | ownerResourceId	| The resource ID of the Graph collection. |
-| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user.</li></ul> |
 
 To get a list of all container mutations under the same database, see graph rest article.
 
