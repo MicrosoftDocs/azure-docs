@@ -107,7 +107,7 @@ To connect to App Service, Application Gateway uses the default domain as provid
 
 5. Select **Save**.
 
-### [Powershell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 # Fully qualified default domain name of the web app:
@@ -160,7 +160,7 @@ An HTTP Setting is required that instructs Application Gateway to access the App
 
 :::image type="content" source="media/configure-web-app/http-settings-default-domain.png" alt-text="Configure HTTP Settings to use default domain towards App Service backend by setting Pick host name from backend target":::
 
-### [Powershell](#tab/azure-powershell/customdomain)
+### [PowerShell](#tab/azure-powershell/customdomain)
 
 ```powershell
 # Configure Application Gateway to connect to App Service using the incoming hostname
@@ -184,7 +184,7 @@ Add-AzApplicationGatewayBackendHttpSettings -Name $httpSettingsName -Application
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-### [Powershell](#tab/azure-powershell/defaultdomain)
+### [PowerShell](#tab/azure-powershell/defaultdomain)
 
 ```powershell
 # Configure Application Gateway to connect to backend using default App Service hostname
@@ -237,7 +237,7 @@ Assuming there's no custom domain available or associated certificate, we'll con
 
 :::image type="content" source="media/configure-web-app/add-http-listener.png" alt-text="Add a listener for HTTP traffic":::
 
-### [Powershell](#tab/azure-powershell/customdomain)
+### [PowerShell](#tab/azure-powershell/customdomain)
 
 ```powershell
 # This script assumes that:
@@ -274,7 +274,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ```
 
-### [Powershell](#tab/azure-powershell/defaultdomain)
+### [PowerShell](#tab/azure-powershell/defaultdomain)
 
 In many cases a public listener for HTTP on port 80 will already exist.  The below script will create one if that is not yet the case.
 
@@ -315,7 +315,7 @@ Provided with the earlier configured Backend Pool and the HTTP Settings, the req
 
 :::image type="content" source="media/configure-web-app/add-routing-rule.png" alt-text="Add a new Routing rule from the listener to the App Service Backend Pool using the configured HTTP Settings":::
 
-### [Powershell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $rgName = "<name of resource group for App Gateway>"
@@ -370,7 +370,7 @@ Open the "Backend health" section and ensure the "Status" column indicates the c
 
 Now browse to the web application using the custom domain which you associated with both Application Gateway and the App Service in the backend.
 
-### [Powershell](#tab/azure-powershell/customdomain)
+### [PowerShell](#tab/azure-powershell/customdomain)
 
 Check if the backend health for the backend and HTTP Settings shows as "Healthy":
 
@@ -392,7 +392,7 @@ $customDomainName = "<FQDN for custom domain pointing to Application Gateway>"
 Invoke-WebRequest $customDomainName
 ```
 
-### [Powershell](#tab/azure-powershell/defaultdomain)
+### [PowerShell](#tab/azure-powershell/defaultdomain)
 
 Check if the backend health for the backend and HTTP Settings shows as "Healthy":
 
