@@ -20,7 +20,7 @@ Our differentiated ecosystem of partners spans space operators, manufacturers, s
 
 :::image type="content" source="media/azure-space-partners.png" alt-text="List of all Azure Space partners" lightbox="media/azure-space-partners.png":::
 
-# Why join the Space Partner Program?
+## Why join the Space Partner Program?
 
 We believe in a better together story for Space and Spectrum partners running on Azure.  By joining the program, you can gain access to various benefits such as: 
 
@@ -36,7 +36,7 @@ We believe in a better together story for Space and Spectrum partners running on
 
 :::image type="content" source="media/azure-space-program.png" alt-text="Benefits of the Azure Space Program" lightbox="media/azure-space-program.png":::
 
-# Partner Requirements 
+## Partner Requirements 
 
 To join the program, we ask partners to commit to: 
 
@@ -46,15 +46,15 @@ To join the program, we ask partners to commit to:
 - Participate in quarterly business and GTM reviews with committed pipelines and metrics
 - Participate in joint marketing, customer stories, and events
 
-# Learn More
+## Learn More
 
 - [Watch this video about end-to-end Space workloads on Azure](https://youtu.be/JTt4De5FRtg)
 - Read Microsoft and Partner blogs for the latest Azure Space updates:
-  - [Connecting to the ISS](https://azure.microsoft.com/en-us/blog/connecting-azure-to-the-international-space-station-with-hewlett-packard-enterprise/)
-  - [Geospatial partnerships and capabilities](https://azure.microsoft.com/en-us/blog/new-satellite-connectivity-and-geospatial-capabilities-with-azure-space/)
+  - [Connecting to the ISS](https://azure.microsoft.com/blog/connecting-azure-to-the-international-space-station-with-hewlett-packard-enterprise/)
+  - [Geospatial partnerships and capabilities](https://azure.microsoft.com/blog/new-satellite-connectivity-and-geospatial-capabilities-with-azure-space/)
   - [Space connectivity partnerships](https://news.microsoft.com/transform/azure-space-partners-bring-deep-expertise-to-new-venture/)
   - [Airbus partnership and geospatial scenarios](https://azure.microsoft.com/en-us/blog/geospatial-imagery-unlocks-new-cloud-computing-scenarios-on-azure/)
-  - [5G core for Gov with Lockheed Martin](https://azure.microsoft.com/en-us/blog/new-azure-for-operators-solutions-and-services-built-for-the-future-of-telecommunications/)
+  - [5G core for Gov with Lockheed Martin](https://azure.microsoft.com/blog/new-azure-for-operators-solutions-and-services-built-for-the-future-of-telecommunications/)
   - [Private network based on SATCOM with Intelsat](https://www.intelsat.com/newsroom/intelsat-collaborates-with-microsoft-to-demonstrate-private-cellular-network-using-intelsats-global-satellite-and-ground-network/)
 - [Read this public deck on Microsoft Space offerings](https://azurespace.blob.core.windows.net/docs/Azure_Space_Public_Deck.pdf)
 - Reach out to [SpacePartnerProgram@microsoft.com](mailto:SpacePartnerProgram@microsoft.com) to learn more and sign a non-disclosure agreement
