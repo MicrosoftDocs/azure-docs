@@ -18,7 +18,7 @@ ms.date: 03/22/2022
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you how to use T-SQL and PowerShell scripts to set up an [Azure SQL Managed Instance link](link-feature.md). You'll use that link to replicate your database from SQL Server to Azure SQL Managed Instance.
+This article teaches you how to use Transact-SQL (T-SQL) and PowerShell scripts to set up an [Azure SQL Managed Instance link](link-feature.md). You'll use that link to replicate your database from SQL Server to Azure SQL Managed Instance.
 
 > [!NOTE]
 > A SQL Managed Instance link is a feature of SQL Server and is currently in preview. You can also use a [SQL Server Management Studio (SSMS) wizard](managed-instance-link-use-ssms-to-replicate-database.md) to set up the link feature for database replication.
@@ -288,7 +288,7 @@ FROM
 
 If the output shows that the existing `DATABASE_MIRRORING` endpoint `connection_auth_desc` isn't `CERTIFICATE`, or `encryption_algorthm_desc` isn't `AES`, the *endpoint needs to be altered to meet the requirements*.
 
-On SQL Server, one database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability group, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This change will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
+On SQL Server, the same database mirroring endpoint is used for both availability groups and distributed availability groups. If your `connection_auth_desc` endpoint is `NTLM` (Windows authentication) or `KERBEROS`, and you need Windows authentication for an existing availability group, it's possible to alter the endpoint to use multiple authentication methods by switching the authentication option to `NEGOTIATE CERTIFICATE`. This change will allow the existing availability group to use Windows authentication, while using certificate authentication for SQL Managed Instance. 
 
 Similarly, if encryption doesn't include AES and you need RC4 encryption, it's possible to alter the endpoint to use both algorithms. For details about possible options for altering endpoints, see the [documentation page for sys.database_mirroring_endpoints](/sql/relational-databases/system-catalog-views/sys-database-mirroring-endpoints-transact-sql).
 

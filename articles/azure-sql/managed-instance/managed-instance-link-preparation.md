@@ -53,7 +53,7 @@ To check your SQL Server version, run the following Transact-SQL (T-SQL) script 
 SELECT @@VERSION
 ```
 
-If your SQL Server version is earlier than CU15 (15.0.4198.2), install [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6) or the latest cumulative update. Your SQL Server instance will be restarted during the update. 
+If your SQL Server version is earlier than CU15 (15.0.4198.2), install [CU15](https://support.microsoft.com/topic/kb5008996-cumulative-update-15-for-sql-server-2019-4b6a8ee9-1c61-482d-914f-36e429901fb6) or the latest cumulative update. You must restart your SQL Server instance during the update. 
 
 ### Create a database master key in the master database
 
@@ -81,7 +81,7 @@ To confirm that the Always On availability groups feature is enabled, run the fo
 
 ```sql
 -- Run on SQL Server
--- Is HADR enabled on this SQL Server instance?
+-- Is Always On enabled on this SQL Server instance?
 declare @IsHadrEnabled sql_variant = (select SERVERPROPERTY('IsHadrEnabled'))
 select
     @IsHadrEnabled as IsHadrEnabled,
@@ -111,7 +111,7 @@ If the availability groups feature isn't enabled, follow these steps to enable i
 
 To optimize the performance of your SQL Managed Instance link, we recommend enabling the following trace flags at startup: 
 
-- `-T1800`: This trace flag optimizes performance when the log files for the primary and secondary replicas in an availability group are hosted on disks with different sector sizes, such as 512 bytes and 4 kilobytes (KB). If both primary and secondary replicas have a disk sector size of 4 KB, this trace flag isn't required. To learn more, review [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
+- `-T1800`: This trace flag optimizes performance when the log files for the primary and secondary replicas in an availability group are hosted on disks with different sector sizes, such as 512 bytes and 4K. If both primary and secondary replicas have a disk sector size of 4K, this trace flag isn't required. To learn more, review [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c).
 - `-T9567`: This trace flag enables compression of the data stream for availability groups during automatic seeding. The compression increases the load on the processor but can significantly reduce transfer time during seeding.
 
 To enable these trace flags at startup, use the following steps: 
@@ -122,7 +122,7 @@ To enable these trace flags at startup, use the following steps:
 
    :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-properties.png" alt-text="Screenshot that shows SQL Server Configuration Manager.":::
 
-1. Go to the **Startup Parameters** tab. In **Specify a startup parameter**, enter **-T1800** and select **Add** to add the startup parameter. Then enter **-T9567** and select **Add** to add the other trace flag. Select **Apply** to save your changes. 
+1. Go to the **Startup Parameters** tab. In **Specify a startup parameter**, enter `-T1800` and select **Add** to add the startup parameter. Then enter `-T9567` and select **Add** to add the other trace flag. Select **Apply** to save your changes. 
 
    :::image type="content" source="./media/managed-instance-link-preparation/startup-parameters-properties.png" alt-text="Screenshot that shows startup parameter properties.":::
 
@@ -140,7 +140,7 @@ After you've ensured that you're on a supported version of SQL Server, enabled t
 
     :::image type="content" source="./media/managed-instance-link-preparation/sql-server-configuration-manager-sql-server-restart.png" alt-text="Screenshot that shows the SQL Server restart command call.":::
 
-After the restart, run the following Transact-SQL script on SQL Server to validate the configuration of your SQL Server instance: 
+After the restart, run the following T-SQL script on SQL Server to validate the configuration of your SQL Server instance: 
 
 ```sql
 -- Run on SQL Server
@@ -177,17 +177,17 @@ GO
 
 For the SQL Managed Instance link to work, you must have network connectivity between SQL Server and SQL Managed Instance. The network option that you choose depends on where your SQL Server instance resides - whether it's on-premises or on a virtual machine (VM). 
 
-### Set up network connectivity for SQL Server on an Azure VM 
+### SQL Server on Azure Virtual Machines 
 
-Deploying your SQL Server instance to an Azure VM in the same Azure virtual network that hosts SQL Managed Instance is the simplest method, because network connectivity will automatically exist between the two instances. To learn more, see the detailed tutorial [Deploy and configure an Azure VM to connect to Azure SQL Managed Instance](./connect-vm-instance-configure.md). 
+Deploying SQL Server on Azure Virtual Machines in the same Azure virtual network that hosts SQL Managed Instance is the simplest method, because network connectivity will automatically exist between the two instances. To learn more, see the detailed tutorial [Deploy and configure an Azure VM to connect to Azure SQL Managed Instance](./connect-vm-instance-configure.md). 
 
-If your SQL Server instance on an Azure VM is in a different virtual network from your managed instance, either connect the two Azure virtual networks by using [global virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) or configure [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
+If your SQL Server on Azure Virtual Machines instance is in a different virtual network from your managed instance, either connect the two Azure virtual networks by using [global virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) or configure [VPN gateways](../../vpn-gateway/tutorial-create-gateway-portal.md). 
 
 >[!NOTE]
 > Global virtual network peering is enabled by default on managed instances provisioned after November 2020. [Raise a support ticket](../database/quota-increase-request.md) to enable global virtual network peering on older instances. 
 
 
-### Set up network connectivity for SQL Server outside Azure 
+### SQL Server outside Azure 
 
 If your SQL Server instance is hosted outside Azure, establish a VPN connection between SQL Server and SQL Managed Instance by using either of these options: 
 
@@ -197,9 +197,9 @@ If your SQL Server instance is hosted outside Azure, establish a VPN connection 
 > [!TIP]
 > We recommend ExpressRoute for the best network performance when you're replicating data. Provision a gateway with enough bandwidth for your use case. 
 
-### Open network ports between the environments
+### Network ports between the environments
 
-Port 5022 needs to allow inbound and outbound traffic between SQL Server and SQL Managed Instance. Port 5022 is the standard port for availability groups, and it can't be changed or customized. 
+Port 5022 needs to allow inbound and outbound traffic between SQL Server and SQL Managed Instance. Port 5022 is the standard database mirroring endpoint port for availability groups. It can't be changed or customized. 
 
 The following table describes port actions for each environment: 
 

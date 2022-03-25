@@ -57,7 +57,7 @@ Use the following PowerShell script to call a REST API that changes the replicat
 $SubscriptionID = "<SubscriptionID>"
 # Enter your managed instance name – for example, "sqlmi1"
 $ManagedInstanceName = "<ManagedInstanceName>"
-# Enter the distributed availability group name
+# Enter the distributed availability group name (the link name)
 $DAGName = "<DAGName>"
 
 # ====================================================================================
