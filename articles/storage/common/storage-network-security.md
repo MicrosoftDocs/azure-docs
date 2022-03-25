@@ -47,7 +47,7 @@ You can use unmanaged disks in storage accounts with network rules applied to ba
 
 ## Change the default network access rule
 
-By default, storage accounts accept connections from clients on any network. You can limit access to selected networks or allow access only through the use of a private link. 
+By default, storage accounts accept connections from clients on any network. You can limit access to selected networks or allow access only with a [private endpoint](storage-private-endpoints.md).
 
 ### Managing default network access rules
 
@@ -57,17 +57,21 @@ You can manage default network access rules for storage accounts through the Azu
 
 1. Go to the storage account you want to secure.
 
-2. Select on the settings menu called **Networking**.
+2. Locate the **Networking** settings under **Security + networking**. 
 
-3. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
+3. Choose which type of public network access you want to allow.
 
-   > [!WARNING]
-   > Running this command blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+   - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
+   
+     > [!WARNING]
+     > This option can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks using network rules before you set this option. 
+     
+   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), select **Disabled**.
+   
+     > [!WARNING]
+     > This option can impact your application's ability to connect to Azure Storage. Consider setting up access through a [private endpoint](storage-private-endpoints.md) before you select this option. 
 
-5. To allow access only through the use of a private link, choose **Disabled**.
-
-   > [!WARNING]
-   > Running this command blocks all access to the data unless a private link that grants access is distributed. Be sure to create a private link to your storage account before you disable public network access.
+   - To allow traffic from all networks, select **Enabled from all networks**.
 
 4. Select **Save** to apply your changes.
 
@@ -77,69 +81,61 @@ You can manage default network access rules for storage accounts through the Azu
 
 1. Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-2. Display the status of the default rule for the storage account.
+2. Choose which type of public network access you want to allow.
 
-    ```powershell
-    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
-    ```
+   - To allow traffic only from specific virtual networks, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`.
 
-3. Set the default rule to deny network access by default.
+     ```powershell
+     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+     ```
 
-    ```powershell
-    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
-    ```
+     > [!WARNING]
+     > This option can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks using network rules before you set this option.
 
-   > [!WARNING]
-   > Running this command blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`.
+   
+     ```powershell
+     Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
+     ```
 
-4. Set the default rule to allow network access by default.
+     > [!WARNING]
+     > This option can impact your application's ability to connect to Azure Storage. Consider setting up access through a [private endpoint](storage-private-endpoints.md) before you select this option. 
+
+   - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
-5. Allow access only through the use of a private link. 
-
-   ```powershell
-   Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
-   ```
-
-   > [!WARNING]
-   > Running this command blocks all access to the data unless a private link that grants access is distributed. Be sure to create a private link to your storage account before you disable public network access.
-
 #### [Azure CLI](#tab/azure-cli)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-2. Display the status of the default rule for the storage account.
+2. Choose which type of public network access you want to allow.
 
-    ```azurecli
-    az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
-    ```
-
-3. Set the default rule to deny network access by default.
+    - To allow traffic only from specific virtual networks, use the `az storage account update` command and set the `--default-action` parameter to `Deny`.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
-   > [!WARNING]
-   > Running this command blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+    > [!WARNING]
+    > This option can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks using network rules before you set this option.
 
-4. Set the default rule to allow network access by default.
+   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`.
+
+   ```azurecli
+   az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
+   ```
+
+    > [!WARNING]
+    > This option can impact your application's ability to connect to Azure Storage. Consider setting up access through a [private endpoint](storage-private-endpoints.md) before you select this option. 
+
+   - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
-
-5. Allow access only through the use of a private link. 
-
-   ```azurecli
-   az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Enabled
-   ```
-
-   > [!WARNING]
-   > Running this command blocks all access to the data unless a private link that grants access is distributed. Be sure to create a private link to your storage account before you disable public network access.
 
 ---
 
