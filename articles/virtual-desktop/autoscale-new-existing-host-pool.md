@@ -23,7 +23,7 @@ To assign a scaling plan to an existing host pool:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-2. Go to **Windows Virtual Desktop**.
+2. Go to **Azure Virtual Desktop**.
 
 3. Select **Host pools**, then go to **Scaling plan** and select **New**.
 

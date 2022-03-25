@@ -88,7 +88,7 @@ To prepare your PowerShell environment:
     Import-Module <Full path to the location of the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
 
-6. Once you're done, sign into Windows Virtual Desktop (classic) in your PowerShell window:
+6. Once you're done, sign into Azure Virtual Desktop (classic) in your PowerShell window:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com

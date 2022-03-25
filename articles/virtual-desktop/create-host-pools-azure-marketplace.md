@@ -82,7 +82,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
+After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
 
 ```azurecli
 az desktopvirtualization hostpool create --name "MyHostPool" \
@@ -202,7 +202,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az vm create](/cli/azure/vm#az_vm_create) command to create a new Azure virtual machine:
+Use the [az vm create](/cli/azure/vm#az-vm-create) command to create a new Azure virtual machine:
 
 ```azurecli
 az vm create --name "MyVMName" \
@@ -252,7 +252,7 @@ To register the desktop app group to a workspace:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az_desktopvirtualization_workspace_create) command to create the new workspace:
+Use the [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az-desktopvirtualization-workspace-create) command to create the new workspace:
 
 ```azurecli
 az desktopvirtualization workspace create --name "MyWorkspace" \
