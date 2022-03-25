@@ -347,6 +347,9 @@ Then, use the following script to create the availability group on SQL Server. R
 
 - `<SQLServerName>` with the name of your SQL Server instance. 
 - `<AGName>` with the name of your availability group. For multiple databases, you'll need to create multiple availability groups. A Managed Instance link requires one database per availability group. Consider naming each availability group so that its name reflects the corresponding database - for example, `AG_<db_name>`. 
+
+  > [!NOTE]
+  > The link feature supports one database per link. To replicate multiplate databases on an instance, create a link for each individual database. For example, to replicate 10 databases to SQL Managed Instance, create 10 individual links.
 - `<DatabaseName>` with the name of database that you want to replicate.
 - `<SQLServerIP>` with the SQL Server IP address. You can use a resolvable SQL Server host machine name as an alternative, but you need to make sure that the name is resolvable from the SQL Managed Instance virtual network.
 
