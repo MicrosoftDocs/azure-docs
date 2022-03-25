@@ -30,7 +30,7 @@ In summary, for SDKs in Gateway mode, you can expect HTTP traffic, while for SDK
 
 ## Client instances and connections
 
-Regardless of the connectivity mode, it's critical to maintain a Singleton instance of the SDK client per account your application connects to. Connections, both HTTP and TCP, are scoped to the client instance and not shared with other client instances. Most compute environments have limitations in terms of the number of connections that can be open at the same time and when these limits are reached, connectivity will be affected.
+Regardless of the connectivity mode, it's critical to maintain a Singleton instance of the SDK client per account per application. Connections, both HTTP and TCP, are scoped to the client instance. Most compute environments have limitations in terms of the number of connections that can be open at the same time and when these limits are reached, connectivity will be affected.
 
 ## Distributed applications and networks
 
