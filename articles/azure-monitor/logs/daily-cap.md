@@ -2,7 +2,8 @@
 title: Set daily cap on Log Analytics workspace
 description: Set a 
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.reviewer: Dale.Koetke
+ms.date: 03/24/2022
 ---
  
 # Set daily cap on Log Analytics workspace

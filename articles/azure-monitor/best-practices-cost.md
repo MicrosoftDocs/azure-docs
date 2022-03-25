@@ -84,6 +84,9 @@ See the following table for methods to apply transformations to different workfl
 | Other data sources | Built-in tables | Includes resource logs from diagnostic settings and other Azure Monitor features such as Application insights, Container insights and VM insights. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. |
 
 ## Monitor workspace for high data collection
+You should regularly monitor your workspace to understand its usage patterns and be proactively alerted whenever usage abruptly increases. This is particularly important when you add a new set of data sources, such as a new set of virtual machines or onboard a new service. 
+
+You should regularly 
 
 ## Limit logs used for troubleshooting
 
@@ -115,6 +118,8 @@ The volume of data you send can be managed using the following techniques:
 
 * **Pre-aggregate metrics**: If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
+
+The Application Insights option to [Enable alerting on custom metric dimensions](app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of more pre-aggregation metrics. Learn more about log-based and pre-aggregated metrics in Application Insights and about pricing for Azure Monitor custom metrics.
 ## Next steps
 
 - See [Configure data collection](best-practices-data-collection.md) for steps and recommendations to configure data collection in Azure Monitor.

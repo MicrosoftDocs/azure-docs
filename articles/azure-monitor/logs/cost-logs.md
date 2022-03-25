@@ -2,23 +2,18 @@
 title: Azure Monitor Logs pricing details
 description: Cost details for data stored in a Log Analytics workspace in Azure Monitor, including commitment tiers and data size calculation.
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.reviewer: Dale.Koetke
+ms.date: 03/24/2022
 ---
  
 # Azure Monitor Logs pricing details
-The most significant charges for most Azure Monitor implementations will be ingestion and retention of data in a Log Analytics workspace. Several features in Azure Monitor do not have a direct cost but add to the data collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
-
-Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors: 
-
-  - The set of insights and services enabled and their configuration
-  - The number and type of monitored resources
-  - Type of data collected from each monitored resource
+The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor do not have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
 ## Data size calculation
-Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). An event's data size is calculated from a string representation of the properties that are stored in the Log Analytics workspace for that event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
+Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 ### Excluded columns
-The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the event size. All other columns stored in Log Analytics are included in the calculation of the event size. To determine whether an event was excluded from billing for data ingestion, you can use the [_IsBillable](log-standard-columns.md#_isbillable) property as shown in the log queries below. 
+The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. The [_IsBillable](log-standard-columns.md#_isbillable) column indicates whether a record was excluded from billing for data ingestion. 
 
 - `_ResourceId`
 - `_SubscriptionId`
@@ -37,7 +32,7 @@ The following tables are free from data ingestion charges altogether.
 - [Operation](/azure/azure-monitor/reference/tables/operation)
 
 ### Charges for other solutions and services
-Some solutions have more specific policies about free data ingestion, for example [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. Services such as [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/azure-defender/), [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
+Some solutions have more specific policies about free data ingestion. For example [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. Services such as [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/azure-defender/), [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
 See the documentation for different services and solutions for any unique billing calculations.
 
@@ -49,38 +44,51 @@ In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, 
  
 Billing for the commitment tiers is done on a daily basis. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
 
+> [!TIP]
+> The **Usage and estimated costs** menu item for each Log Analytics workspace hows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.
+
 
 > [!NOTE]
 > Starting June 2, 2021, **Capacity Reservations** were renamed to **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Three new commitment tiers were also added: 1000, 2000, and 5000 GB/day. 
 
 ## Dedicated clusters
-[Azure Monitor Logs dedicated clusters](logs-dedicated-clusters.md) are collections of workspaces in a single managed Azure Data Explorer cluster to support advanced scenarios, like [customer-managed keys](customer-managed-keys.md). Dedicated clusters use the same commitment tier pricing model as workspaces, except that a cluster must have a commitment level of at least 500 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  There is no Pay-As-You-Go option for clusters. 
+An [Azure Monitor Logs dedicated cluster](logs-dedicated-clusters.md) is a collection of workspaces in a single managed Azure Data Explorer cluster. Dedicated clusters support advanced features such as [customer-managed keys](customer-managed-keys.md) and use the same commitment tier pricing model as workspaces although they must have a commitment level of at least 500 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  There is no Pay-As-You-Go option for clusters. 
 
 The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level can't be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. 
 
-There are two modes of billing for a cluster:  
+There are two modes of billing for a cluster that you specify when you create the cluster.  
 
 - **Cluster (default)**: Billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
 - **Workspaces**: Commitment tier costs for your cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.)<br><br>If the total data volume ingested into a cluster for a day is less than the commitment tier, each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier. The unused part of the commitment tier is then billed to the cluster resource.<br><br>If the total data volume ingested into a cluster for a day is more than the commitment tier, each workspace is billed for a fraction of the commitment tier, based on its fraction of the ingested data that day and each workspace for a fraction of the ingested data above the commitment tier. If the total data volume ingested into a workspace for a day is above the commitment tier, nothing is billed to the cluster resource.
 
+In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces are associated with the cluster.
+
 When you link workspaces to a cluster, the pricing tier is changed to cluster, and ingestion is billed based on the cluster's commitment tier.  Workspaces associated to a cluster no longer have their own pricing tier. Workspaces can be unlinked from a cluster at any time, and pricing tier change to per-GB.
 
 If your linked workspace is using legacy Per Node pricing tier, it will be billed based on data ingested against the cluster's Commitment Tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
 
-In cluster billing options, data retention is billed for each workspace. Cluster billing starts when the cluster is created, regardless of whether workspaces are associated with the cluster.
-
 See [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster) for details on creating a dedicated cluster and specifying its billing type.
 
+## Basic Logs
+You can configure certain tables in a Log Analytics workspace to use [Basic Logs](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge and a limited retention period. There is a charge though to query against these tables. Basic Logs are intended for high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts.
+
+See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
+## Data retention and Archive Logs
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, but there is a charge to restore or search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+
+See [Configure data retention and archive policies in Azure Monitor Logs](data-retnetion-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
 ## Application insights billing
-Since [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables you to leverage all options of the Log Analytics [pricing model](cost-logs.md), including [commitment tiers](#commitment-tiers) in addition to Pay-As-You-Go.
+Since [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables you to leverage all options of the Log Analytics pricing model, including [commitment tiers](#commitment-tiers) in addition to Pay-As-You-Go.
 
 Data ingestion and data retention for a [classic Application Insights resource](../app/create-new-resource.md) follow the same Pay-As-You-Go pricing as workspace-based resources, but they can't leverage commitment tiers.
 
-[Multi-step web tests (deprecated)](../app/availability-multistep.md) incur extra charges. There's no separate charge for [ping tests](../app/monitor-web-app-availability.md) of a single page. Telemetry from ping tests and multi-step tests is charged the same as data usage for other telemetry from your app. Use of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. There's no data volume charge for using the [Live Metrics Stream](../app/live-stream.md). 
+Telemetry from ping tests and multi-step tests is charged the same as data usage for other telemetry from your app. Use of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. There's no data volume charge for using the [Live Metrics Stream](../app/live-stream.md).
+
+See [Application Insights legacy enterprise (per node) pricing tier](../app/legacy-pricing.md) for details about legacy tiers that are available to early adopters of Application Insights.
 
 ## Workspaces with Microsoft Sentinel
-When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Sentinel charges in addition to Log Analytics charges. For this reason, you will often separate your security and operational data in different workspaces so that you don't incur Sentinel charges for operational data. There may be particular situations though where combining this data  can actually result in a cost savings. This is typically when you aren't collecting enough security and operational data to each reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. See **Combining your SOC and non-SOC data** in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree) for details and a sample cost calculation.
+When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Sentinel charges in addition to Log Analytics charges. For this reason, you will often separate your security and operational data in different workspaces so that you don't incur [Sentinel charges](../../sentinel/billing.md) for operational data. There may be particular situations though where combining this data  can actually result in a cost savings. This is typically when you aren't collecting enough security and operational data to each reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. See **Combining your SOC and non-SOC data** in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree) for details and a sample cost calculation.
 ## Workspaces with Microsoft Defender for Cloud
 [Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml)  [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/azure-defender/) and provides 500 MB/server/day data allocation that is applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
@@ -140,7 +148,7 @@ None of the legacy pricing tiers have regional-based pricing.
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite, or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
 ## Evaluate the legacy Per Node pricing tier
-It's often not difficult to determine whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier.
+It's often difficult to determine whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier.
 
 The following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns. This query looks at the monitored nodes and data ingested into a workspace in the last seven days, and for each day, it evaluates which pricing tier would have been optimal. To use the query, you need to specify:
 
@@ -235,3 +243,7 @@ This query isn't an exact replication of how usage is calculated, but it provide
 
 
 ## Next steps
+- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
+- See [Analyze usage in Log Analytics workspace](analyze-usage.md) for details on analyzing the data in your workspace to determine to source of any higher than expected usage and opportunities to reduce your amount of data collected.
+- See [Set daily cap on Log Analytics workspace](daily-cap.md) to control your costs by configuring a maximum volume that may be ingested in a workspace each day.
+- See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
