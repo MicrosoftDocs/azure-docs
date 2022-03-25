@@ -19,8 +19,6 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled blob soft delete, you can restore deleted blobs.
-
 ## Set and retrieve index tags
 
 You can set and get index tags if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).

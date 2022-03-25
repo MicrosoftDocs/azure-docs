@@ -36,9 +36,7 @@ To filter the list of blobs, specify a string for the `prefix` parameter. The pr
 
 ### Return metadata
 
-You can return blob metadata with the results.
-
-Specify the **Metadata** value for the [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
+You can return blob metadata with the results by specifying the **Metadata** value for the [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
 
 ### Flat listing versus hierarchical listing
 
