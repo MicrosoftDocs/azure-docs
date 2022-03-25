@@ -40,8 +40,8 @@ The `RestoreParameters` resource contains the restore operation details includin
 |restoreSource   |  The instanceId of the source account from which the restore will be initiated.       |
 |restoreTimestampInUtc  | Point in time in UTC to which the account should be restored to. |
 |databasesToRestore   | List of `DatabaseRestoreResource` objects to specify which databases and containers should be restored. Each resource represents a single database and all the collections under that database, see the [restorable SQL resources](#restorable-sql-resources) section for more details. If this value is empty, then the entire account is restored.   |
-|gremlinDatabasesToRestore | List of `GremlinDatabaseRestoreResource` objects to specify which databases and graphs should be restored. Each resource represents a single database and all the graphs under that database, see the [restorable Gremlin  resources](#restorable-graph-resources) section for more details. If this value is empty, then the entire account is restored. |
-|tablesToRestore  |List of `TableRestoreResource` objects to specify which tables should be restored. Each resource represents a table under that database, see the [restorable Table  resources](#restorable-table-resources) section for more details. If this value is empty, then the entire account is restored. |
+|gremlinDatabasesToRestore | List of `GremlinDatabaseRestoreResource` objects to specify which databases and graphs should be restored. Each resource represents a single database and all the graphs under that database. See the [restorable Gremlin resources](#restorable-graph-resources) section for more details. If this value is empty, then the entire account is restored. |
+|tablesToRestore  | List of `TableRestoreResource` objects to specify which tables should be restored. Each resource represents a table under that database, see the [restorable Table resources](#restorable-table-resources) section for more details. If this value is empty, then the entire account is restored. |
 
 ### Sample resource
 
@@ -86,6 +86,7 @@ The following JSON is a sample database account resource with continuous backup 
     }
 }
 ```
+
 
 ## Restorable resources
 
