@@ -140,21 +140,6 @@ You may add KMS etcd encryption to an existing AKS cluster.
 az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
 ```
 
-## Verify secret encryption
-
-Get the kubeconfig of the cluster.
-```azurecli-interactive
-az aks get-credentials --name $CLUSTER_NAME --resource-group $RG_NAME -f /tmp/$CLUSTER_NAME
-```
-Create a secret in the default namespace.
-```azurecli-interactive
-kubectl --kubeconfig /tmp/$CLUSTER_NAME create secret generic secret1 -n default --from-literal=mykey=mydata
-```
-Verify the secret is decrypted correctly when retrieved via the Kubernetes API.
-```azurecli-interactive
-kubectl --kubeconfig /tmp/$CLUSTER_NAME get secrets secret1 -o yaml
-```
-
 ## Next steps
 
 In this article, you learned how to create an AKS cluster with a KMS. 
