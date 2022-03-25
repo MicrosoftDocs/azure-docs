@@ -773,7 +773,7 @@ az cosmosdb table restorable-resource list \
     "table2" 
   ] 
 } 
-
+```
 
 
 ## <a id="restore-arm-template"></a>Restore using the Resource Manager template
