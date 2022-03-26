@@ -17,8 +17,8 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 ## Next steps
 
-Learn about provisioning your BareMetal instances for Nutanix workloads.
+Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [Provision BareMetal Infrastructure for Nutanix](nutanix-baremetal-provision.md)
+> [About the Public Preview](about-the-public-preview.md)
 
