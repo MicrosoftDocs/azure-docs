@@ -1,11 +1,17 @@
 ### YamlMime:Hub
 
-title: Microsoft identity platform for developers
-summary: Use Azure Active Directory (Azure AD) and Microsoft's open-source authentication libraries to add identity and access management (IAM) support to your apps and APIs. Sign in users with Azure AD accounts, Microsoft accounts (outlook.com, live.com, xbox.com), and social accounts like Facebook, Twitter, and Google.
+## FRONT MATTER START
+title: Microsoft identity platform documentation
+summary: >
+  Use Azure Active Directory (Azure AD) and Microsoft's open-source authentication libraries to add identity and access management support to your apps and APIs.
+  Sign in users with Azure AD accounts, Microsoft accounts (outlook.com, live.com, xbox.com), and social accounts like Facebook, Twitter, and Google.
+  Protect your web APIs by requiring authorized access and access other protected APIs like Microsoft Graph to work with your users' and organization's data.
 
 metadata:
   title: Microsoft identity platform documentation
-  description: Learn how to build modern, standards-based authentication solutions with our quickstarts, tutorials, code samples, and API reference documentation.
+  description: >
+   Use Azure Active Directory (Azure AD) and OAuth 2.0 and Open ID Connect (OIDC) to protect the web apps and APIs you build. Learn how to sign in users and
+   manage their access through our quickstarts, tutorials, code samples, and API reference documentation.
   ms.service: active-directory
   ms.topic: hub-page
   ms.collection:
@@ -13,15 +19,17 @@ metadata:
   ms.author: marsma
   manager: CelesteDG
   ms.date: 03/31/2022
+## FRONT MATTER END
 
-## BAND 1 ####################################################################################################################################################
+
+## BAND 1 - HIGHLIGHTED CONTENT #############################################################################################################################
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What is the Microsoft identity platform?
       itemType: overview # controls the icon image and super-title text
       url: v2-overview.md
-    - title: Authentication basics
+    - title: Authentication & authorization basics
       url: authentication-vs-authorization.md
       itemType: concept
     - title: Authentication flows and app scenarios
@@ -32,11 +40,12 @@ highlightedContent:
       itemType: sample
 ## BAND 1 - HIGHLIGHTED CONTENT END ##########################################################################################################################
 
+
 ## BAND 2 ####################################################################################################################################################
 productDirectory:
   sections:
-    - title: Auth for any application
-      summary: Select the type of app you're building or extending with IAM support.
+    - title: Authentication and authorization for any app
+      summary: Select the type of application you're building or extending with identity and access management (IAM) support.
       items:
         ## ROW 1 ######################
         - title: Single-page app (SPA)
@@ -66,11 +75,11 @@ productDirectory:
           summary: A application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
 
+
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
   title: Get started
-  #summary: Add support for common identity features like signing in users and calling web APIs to work with their or your organization's data. Connect your app to Azure or third-party services and build for security and resilience.
-  summary: Learn how to add core identity features to the apps you build. Use the identity platform's features and best practices to help ensure security and resiliency.
+  summary: Add identity and access management features to your applications and learn the best practices for keeping them secure and available.
   items:
     ## CARD 1 ######################
     - title: Sign in users
@@ -122,6 +131,7 @@ conceptualContent:
           itemType: concept
 ## BAND 3 - CONCEPTUAL CONTENT END ##########################################################################################################################
 
+
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
   title: Microsoft authentication libraries on GitHub
@@ -157,9 +167,10 @@ tools:
   - title: React
     url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react
     imageSrc: ./media/hub/react.svg
-## BAND 4 - TOOLS END ##########################################################################################################################
+## BAND 4 - TOOLS END #######################################################################################################################################
 
-## BAND 5 - ADDITIONAL CONTENT END ##########################################################################################################################
+
+## BAND 5 - ADDITIONAL CONTENT ##############################################################################################################################
 additionalContent:
   sections:
     - items:
@@ -187,3 +198,4 @@ additionalContent:
         links:
           - url: https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning
             text: About app provisioning
+## BAND 5 - ADDITIONAL CONTENT END ##########################################################################################################################
