@@ -5,12 +5,12 @@ title: Microsoft identity platform documentation
 summary: >
   Use Azure Active Directory (Azure AD) and Microsoft's open-source authentication libraries to add identity and access management support to your apps and APIs.
   Sign in users with Azure AD accounts, Microsoft accounts (outlook.com, live.com, xbox.com), and social accounts like Facebook, Twitter, and Google.
-  Protect your web APIs by requiring authorized access and access other protected APIs like Microsoft Graph to work with your users' and organization's data.
+  Protect your web APIs and access other protected APIs like Microsoft Graph to work with your users' and organization's data.
 
 metadata:
   title: Microsoft identity platform documentation
   description: >
-   Use Azure Active Directory (Azure AD) and OAuth 2.0 and Open ID Connect (OIDC) to protect the web apps and APIs you build. Learn how to sign in users and
+   Use Azure Active Directory (Azure AD) and OAuth 2.0 and OpenID Connect (OIDC) to protect the web apps and APIs you build. Learn how to sign in users and
    manage their access through our quickstarts, tutorials, code samples, and API reference documentation.
   ms.service: active-directory
   ms.topic: hub-page
@@ -32,8 +32,8 @@ highlightedContent:
     - title: Authentication & authorization basics
       url: authentication-vs-authorization.md
       itemType: concept
-    - title: Authentication flows and app scenarios
-      url: authentication-flows-app-scenarios.md
+    - title: OAuth 2.0 and OpenID Connect (OIDC) on the identity platform
+      url: active-directory-v2-protocols.md
       itemType: concept
     - title: Code samples
       url: sample-v2-code.md
@@ -45,7 +45,7 @@ highlightedContent:
 productDirectory:
   sections:
     - title: Authentication and authorization for any app
-      summary: Select the type of application you're building or extending with identity and access management (IAM) support.
+      summary: Select an app type to focus on the documentation for the type of application you're building or extending with identity and access management (IAM) support.
       items:
         ## ROW 1 ######################
         - title: Single-page app (SPA)
@@ -64,7 +64,7 @@ productDirectory:
         - title: Desktop app
           url: index-desktop.yml
           imageSrc: ./media/hub/app-type-desktop.svg
-          summary: Applications with a UI whose code runs on a user's desktop, laptop, or notebook computer.
+          summary: Applications with a user interface (UI) whose code runs on a user's desktop, laptop, or notebook computer.
         - title: Mobile app
           url: index-mobile.yml
           imageSrc: ./media/hub/app-type-mobile.svg
@@ -99,13 +99,13 @@ conceptualContent:
     ## CARD 2 ######################
     - title: Protect a web API
       links:
-        - text: Register API with identity platform
+        - text: Register an API with the identity platform
           url: quickstart-configure-app-expose-web-apis.md
           itemType: quickstart
-        - text: Protect API in code
+        - text: Protect an API in code
           url: web-api-quickstart.md?pivots=devlang-aspnet-core
           itemType: quickstart
-        - text: Call API from background (non-interactive) app or script
+        - text: Call an API from a non-interactive app or script
           url: console-app-quickstart.md
           itemType: quickstart
     ## CARD 3 ######################
@@ -117,6 +117,9 @@ conceptualContent:
         - text: Run integration tests
           url: test-automate-integration-testing.md
           itemType: tutorial
+        #- text: Deploy a web app with auth to Azure App Service
+        #  url: ../../app-service/scenario-secure-app-overview.md
+        #  itemType: tutorial
     ## CARD 4 ######################
     - title: Build for security and resiliency
       links:
