@@ -57,7 +57,7 @@ jobs:
 ```
 
 ## Use strict sync
-By default the GitHub action does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
+By default the GitHub Actions does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
 
 ```json
 on: 
@@ -210,7 +210,7 @@ Developers using Azure Key Vault with AppConfiguration should use two separate f
   "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret"}"
 }
 
-The GitHub Action can then be configured to do a strict sync on the appsettings.json, followed by a non-strict sync on secretreferences.json. The following sample will trigger a sync when either file is updated:
+The GitHub Actions can then be configured to do a strict sync on the appsettings.json, followed by a non-strict sync on secretreferences.json. The following sample will trigger a sync when either file is updated:
 
 ```json
 on:
@@ -317,4 +317,4 @@ Input parameters specify data used by the action during runtime.  The following 
 
 ## Next steps
 
-In this article, you learned about the App Configuration Sync GitHub Action and how it can be used to automate updates to your App Configuration instance. To learn how Azure App Configuration reacts to changes in key-value pairs, continue to the next [article](./concept-app-configuration-event.md).
+In this article, you learned about the App Configuration Sync GitHub Actions and how it can be used to automate updates to your App Configuration instance. To learn how Azure App Configuration reacts to changes in key-value pairs, continue to the next [article](./concept-app-configuration-event.md).
