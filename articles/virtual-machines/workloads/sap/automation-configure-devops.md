@@ -12,7 +12,6 @@ ms.service: virtual-machines-sap
 # Use SAP Deployment Automation Framework from Azure DevOps Services
 
 You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application. 
-
 ## Sign up for Azure DevOps Services
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. Record the URL of the project.
@@ -28,7 +27,9 @@ Open (https://dev.azure.com) and create a new project by clicking on the _New Pr
 
 ### Import the repository
 
-Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
+Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. 
+
+Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
 > [!NOTE]
 > Most of the pipelines will add files to the Azure Repos and therefore require pull permissions. Assign "Contribute" permissions to the 'Build Service' using the Security tab of > the source code repository in the Repositories section in Project settings. 
@@ -40,12 +41,15 @@ If you are unable to import a repository, you can create the 'sap-automation' re
 ### Create the repository for manual import
 
 > [!NOTE]
-> Only to this step if you are unable to import the repository directly 
+> Only do this step if you are unable to import the repository directly. 
 
-Create the 'sap-automation' repository by navigating to the 'Repositories' section in 'Project Settings' and clicking the _Create_ button. Choose the repository type 'Git' and provide a name for the repository, for example 'sap-automation'. Click -Create_ to create the repository.
+Create the 'sap-automation' repository by navigating to the 'Repositories' section in 'Project Settings' and clicking the _Create_ button. 
+
+Choose the repository type 'Git' and provide a name for the repository, for example 'sap-automation'.
 ### Cloning the repository
 
-In order to provide a more comprehensive editing capability of the content, you can clone the repository to a local folder and edit the contents locally. Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal.
+In order to provide a more comprehensive editing capability of the content, you can clone the repository to a local folder and edit the contents locally. 
+Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal. For more info see [Cloning a repository](/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio-2019#clone-an-azure-repos-git-repo)
 
 :::image type="content" source="./media/automation-devops/automation-repo-clone.png" alt-text="Picture showing how to clone the repository":::
 
@@ -57,9 +61,6 @@ Navigate to 'https://github.com/Azure/SAP-automation' repository and download th
 
 Copy the content from the zip file to the root folder of your local clone.
 
-> [!NOTE]
-> This guide will use Visual Studio Code as the git client.
-
 Open the local folder in Visual Studio code, you should see that there are changes that need to be synchronized by the indicator by the source control icon as is shown in the picture below.
 
 :::image type="content" source="./media/automation-devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
@@ -67,16 +68,15 @@ Open the local folder in Visual Studio code, you should see that there are chang
 Select the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 ### Create configuration root folder
 
-Go to the new repository and create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. In the dialog, enter 'WORKSPACES' as folder name and 'readme.md' as file name. 
+Using your local clone create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'.
 
-Optionally enter some content in the file and save it by clicking the _commit_ button.
+Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you just created, this will allow you to experiment with sample deployments.
 
-> [!NOTE]
-> In order to create the folder using Git you must also create a file. 
+Push the changes to Azure DevOps Repos by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
 ## Set up the Azure Pipelines
 
-To remove the Azure resources, you need an Azure Resource Manager service connection.
+To remove the Azure resources, you need an Azure Resource Manager service connection. For more information see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 
 To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
@@ -84,7 +84,7 @@ To create the service connection, go to Project settings and navigate to the Ser
 
 Choose _Azure Resource Manager_ as the service connection type and _Service principal (manual)_ as the authentication method. Enter the target subscription, typically the control plane subscription, and provide the service principal details (verify that they're valid using the _Verify_ button). For more information on how to create a service principal, see [Creating a Service Principal](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
-Enter a Service connection name, for instance 'Connection to DEV subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Verify and save_ to save the service connection.
+Enter a Service connection name, for instance 'Connection to MGMT subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Select _Verify and save_ to save the service connection.
 
 ## Create Azure Pipelines
 
@@ -214,10 +214,10 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.                    |
 | Branch                             | main                                    |                                                                  |
 | S-Username                         | `<SAP Support user account name>`       |                                                                  |
-| S-Password                         | `<SAP Support user password>`           |  Change variable type to secret by clicking the lock icon        |
+| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon        |
 | `advice.detachedHead`              | false                                   |                                                                  |
 | `skipComponentGovernanceDetection` | true                                    |                                                                  |
-| `tf_version`                       | 1.1.4                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)                                            |
+| `tf_version`                       | 1.1.7                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)                                            |
 
 Save the variables.
 
@@ -240,13 +240,13 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
 | sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
 
-
-Clone the group for each environment 'SDAF-DEV', 'SDAF-QA', ... and update the values to reflect the environment.
-
 Save the variables.
 
 > [!NOTE]
 > Remember to assign permissions for all pipelines using _Pipeline permissions_.
+>
+> You can use the clone functionality to create the next environment variable group.
+
 
 ## Register the Deployer as a self-hosted agent for Azure DevOps
 
