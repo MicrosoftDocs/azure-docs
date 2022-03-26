@@ -107,8 +107,8 @@ To learn about your usage trends and choose the most cost-effective [commitment 
 
 This view includes the following:
 
-A. Estimated monthly charges based on usage from the past 31 days using the current pricing tier.
-B. Estimated monthly charges using different commitment tiers.
+A. Estimated monthly charges based on usage from the past 31 days using the current pricing tier.<br>
+B. Estimated monthly charges using different commitment tiers.<br>
 C. Billable data ingestion by solution from the past 31 days.
 
 To explore the data in more detail, click on the icon in the upper-right corner of either chart to work with the query in Log Analytics.  
@@ -122,7 +122,7 @@ To learn about your usage trends for your classic Application Insights resource,
 
 This view includes the following:
 
-A. Estimated monthly charges based on usage from the past month.
+A. Estimated monthly charges based on usage from the past month.<br>
 B. Billable data ingestion by table from the past month.
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type".

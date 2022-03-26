@@ -314,22 +314,22 @@ items:
           href: logs/move-workspace-region.md
         - name: Delete and recover a workspace
           href: logs/delete-workspace.md
-      - name: Log Analytics
-        items:
-        - name: Overview
-          displayName: Log Analytics, log query, log queries, query, queries
-          href: logs/log-analytics-overview.md
-        - name: Tutorial
-          displayName: Log Analytics workspace, log query, log queries, query, queries
-          href: logs/log-analytics-tutorial.md
-        - name: Query scope
-          href: logs/scope.md
-        - name: Saving queries
-          href: logs/save-query.md
-        - name: Using queries
-          href: logs/queries.md
-        - name: Query packs
-          href: logs/query-packs.md
+    - name: Log Analytics
+      items:
+      - name: Overview
+        displayName: Log Analytics, log query, log queries, query, queries
+        href: logs/log-analytics-overview.md
+      - name: Tutorial
+        displayName: Log Analytics workspace, log query, log queries, query, queries
+        href: logs/log-analytics-tutorial.md
+      - name: Query scope
+        href: logs/scope.md
+      - name: Saving queries
+        href: logs/save-query.md
+      - name: Using queries
+        href: logs/queries.md
+      - name: Query packs
+        href: logs/query-packs.md
     - name: Log queries
       items:
       - name: Overview
@@ -1257,7 +1257,6 @@ items:
         href: containers/container-insights-update-metrics.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
-
     - name: Monitor
       items:
       - name: Monitor performance
