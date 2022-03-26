@@ -1,6 +1,6 @@
 ---
 title: Create a virtual network and subnet in Azure
-description: Public Preview documentation
+description: 
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021
@@ -39,7 +39,7 @@ the **Delegate subnet to a service** list.
 > [!NOTE]
 > Add a custom DNS to the VNet. You can use any of the following DNS servers:
 * On-prem DNS server
-  > [!NOTE] You need to create a Cluster VNet and set up VPN or ExpressRoute connectivity to the on-prem DNS server.
+> [!NOTE] You need to create a Cluster VNet and set up VPN or ExpressRoute connectivity to the on-prem DNS server.
 * Public DNS server, such as 1.1.1.1 or 8.8.8.8
 * Azure DNS server deployed from Microsoft Marketplace
 * Nutanix provisioned DNS server with the IP address 20.106.145.8

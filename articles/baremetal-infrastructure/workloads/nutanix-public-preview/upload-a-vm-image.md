@@ -1,6 +1,6 @@
 ---
 title: Upload a VM image
-description: Public Preview documentation
+description: 
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021

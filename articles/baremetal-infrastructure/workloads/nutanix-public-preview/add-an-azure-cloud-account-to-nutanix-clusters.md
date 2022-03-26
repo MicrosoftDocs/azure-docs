@@ -1,6 +1,6 @@
 ---
 title: Add an Azure Cloud Account to Nutanix Clusters
-description: Public Preview documentation
+description: 
 ms.topic: how-to
 ms.subservice: 
 ms.date: 03/31/2021

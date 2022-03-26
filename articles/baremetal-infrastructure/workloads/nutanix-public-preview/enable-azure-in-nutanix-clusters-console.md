@@ -1,6 +1,6 @@
 ---
 title: Enable Azure in Nutanix Clusters Console
-description: Public Preview documentation
+description: 
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021

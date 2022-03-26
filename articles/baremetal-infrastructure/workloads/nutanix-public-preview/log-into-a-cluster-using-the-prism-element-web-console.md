@@ -1,6 +1,6 @@
 ---
 title: Log into a cluster using the Prism Element Web Console
-description: Public Preview documentation
+description: 
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021
