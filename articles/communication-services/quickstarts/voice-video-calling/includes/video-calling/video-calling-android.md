@@ -80,7 +80,7 @@ dependencies {
 In order to request permissions required to make a call, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
 
 ```xml
-    <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.contoso.acsquickstart">
 
@@ -767,6 +767,206 @@ private void hangUp() {
 
 The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
 
-Completed application             |  Call
+Completed application             |  1:1 Call
 :-------------------------:|:-------------------------:
 :::image type="content" source="../../media/android/video-quickstart-1-1-screen.png" alt-text="Screenshot showing the completed application.":::  |  :::image type="content" source="../../media/android/video-quickstart-1-1-call.png" alt-text="Screenshot showing the application on a call.":::
+
+## Add group call capability 
+
+Now app will be updated to let the user choose between 1:1 calls or group calls.
+### Update layout
+
+It gonna use RadioButtons to select if the SDK need to create a 1:1 call or if should join a group call,  those will be at the top so `app/src/main/res/layout/activity_main.xml` will ends this way.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/one_to_one_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="One to one call" />
+
+            <RadioButton
+                android:id="@+id/group_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group call" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/call_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Callee ID"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/call_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.064" />
+.
+.
+.
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+### Update MainActivity.Java
+
+Now is time to update the elements and logic to decide when to create a 1:1 call and when to join a group call first portion of code will require updates to add dependencies, items and additional configurations.
+
+Dependencies
+
+```java
+import android.widget.RadioButton;
+import com.azure.android.communication.calling.GroupCallLocator;
+import com.azure.android.communication.calling.JoinCallOptions;
+import java.util.UUID;
+```
+
+Global elements
+
+```java
+RadioButton oneToOneCall, groupCall;
+```
+
+Update `onCreate()`
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    getAllPermissions();
+    createAgent();
+
+    handleIncomingCall();
+
+    Button callButton = findViewById(R.id.call_button);
+    callButton.setOnClickListener(l -> startCall());
+    Button hangupButton = findViewById(R.id.hang_up);
+    hangupButton.setOnClickListener(l -> hangUp());
+    Button startVideo = findViewById(R.id.show_preview);
+    startVideo.setOnClickListener(l -> turnOnLocalVideo());
+    Button stopVideo = findViewById(R.id.hide_preview);
+    stopVideo.setOnClickListener(l -> turnOffLocalVideo());
+
+    switchSourceButton = findViewById(R.id.switch_source);
+    switchSourceButton.setOnClickListener(l -> switchSource());
+
+    setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+
+    oneToOneCall = findViewById(R.id.one_to_one_call);
+    oneToOneCall.setOnClickListener(this::onCallTypeSelected);
+    oneToOneCall.setChecked(true);
+    groupCall = findViewById(R.id.group_call);
+    groupCall.setOnClickListener(this::onCallTypeSelected);
+
+}
+```
+
+Update `startCall()`
+
+```java
+private void startCall() {
+        Context context = this.getApplicationContext();
+        EditText callIdView = findViewById(R.id.call_id);
+        String callId = callIdView.getText().toString();
+        ArrayList<CommunicationIdentifier> participants = new ArrayList<CommunicationIdentifier>();
+        List<VideoDeviceInfo> cameras = deviceManager.getCameras();
+
+
+        if(oneToOneCall.isChecked()){
+        StartCallOptions options = new StartCallOptions();
+        if(!cameras.isEmpty()) {
+            currentCamera = getNextAvailableCamera(null);
+            currentVideoStream = new LocalVideoStream(currentCamera, context);
+            LocalVideoStream[] videoStreams = new LocalVideoStream[1];
+            videoStreams[0] = currentVideoStream;
+            VideoOptions videoOptions = new VideoOptions(videoStreams);
+            options.setVideoOptions(videoOptions);
+            showPreview(currentVideoStream);
+        }
+        participants.add(new CommunicationUserIdentifier(callId));
+
+        call = callAgent.startCall(
+                context,
+                participants,
+                options);
+        }
+        else{
+
+            JoinCallOptions options = new JoinCallOptions();
+            if(!cameras.isEmpty()) {
+                currentCamera = getNextAvailableCamera(null);
+                currentVideoStream = new LocalVideoStream(currentCamera, context);
+                LocalVideoStream[] videoStreams = new LocalVideoStream[1];
+                videoStreams[0] = currentVideoStream;
+                VideoOptions videoOptions = new VideoOptions(videoStreams);
+                options.setVideoOptions(videoOptions);
+                showPreview(currentVideoStream);
+            }
+            GroupCallLocator groupCallLocator = new GroupCallLocator(UUID.fromString(callId));
+
+            call = callAgent.join(
+                    context,
+                    groupCallLocator,
+                    options);
+        }
+
+
+
+        remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+        onStateChangedListener = this::handleCallOnStateChanged;
+        call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+        call.addOnStateChangedListener(onStateChangedListener);
+    }
+```
+
+Add `onCallTypeSelected()`
+
+```java
+public void onCallTypeSelected(View view) {
+    boolean checked = ((RadioButton) view).isChecked();
+    EditText callIdView = findViewById(R.id.call_id);
+
+    switch(view.getId()) {
+        case R.id.one_to_one_call:
+            if (checked){
+                callIdView.setHint("Callee id");
+            }
+            break;
+        case R.id.group_call:
+            if (checked){
+                callIdView.setHint("Group Call GUID");
+            }
+            break;
+    }
+}
+```
+
+## Run the code
+
+The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
+
+Screen update             |  Group call
+:-------------------------:|:-------------------------:
+:::image type="content" source="../../media/android/video-quickstart-groupcall-screen-update.png" alt-text="Screenshot showing the application updated.":::  |  :::image type="content" source="../../media/android/video-quickstart-groupcall.png" alt-text="Screenshot showing the application on a call.":::
