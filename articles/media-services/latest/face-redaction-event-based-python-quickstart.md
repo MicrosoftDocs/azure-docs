@@ -83,7 +83,7 @@ Make sure to copy the output and have it available for the next step.
 ## Add Service Principal details to GitHub Secrets 
 
 The Service Principal details should be stored as a [GitHub Secret](https://docs.github.com/en/actions/reference/encrypted-secrets) so that GitHub Actions can deploy and configure the necessary services within Azure. Go to the Repo Settings -> Secrets of your forked repo and click on 'Create New Secrets'. Create the following secrets:
- - Create 'AZURE_CREDENTIALS' and paste the output from the previous step (full json). In the GitHub Action workflow this secret will be used to create a connection to Azure. 
+ - Create 'AZURE_CREDENTIALS' and paste the output from the previous step (full json). In the GitHub Actions workflow this secret will be used to create a connection to Azure. 
  - Create 'CLIENT_ID' and paste the value of 'clientId' from the previous step.
  - Create 'CLIENT_SECRET' and paste the value of 'clientSecret' from the previous step.
  - Create 'TENANT_ID' and paste the value of 'tenantId' from the previous step.
