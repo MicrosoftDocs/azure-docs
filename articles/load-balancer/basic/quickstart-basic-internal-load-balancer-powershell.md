@@ -346,7 +346,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 --     ----            -------------   -----         -----------     --------             -------
 8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-10     Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 ```
 
 ## Create the test virtual machine
