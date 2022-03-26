@@ -380,7 +380,7 @@ $sg = {
     Name = 'myNSG'
     ResourceGroupName = 'CreateIntLBQS-rg' @sg
 }
-$nsg = Get-AzNetworkSecurityGroup
+$nsg = Get-AzNetworkSecurityGroup @sg
 
 ## Command to create network interface for VM ##
 $nic = @{
