@@ -766,3 +766,7 @@ private void hangUp() {
 ## Run the code
 
 The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
+
+Completed application             |  Call
+:-------------------------:|:-------------------------:
+:::image type="content" source="../../media/android/video-quickstart-1-1-screen.png" alt-text="Screenshot showing the completed application.":::  |  :::image type="content" source="../../media/android/video-quickstart-1-1-call.png" alt-text="Screenshot showing the application on a call.":::
