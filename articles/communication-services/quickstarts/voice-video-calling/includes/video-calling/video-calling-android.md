@@ -6,7 +6,7 @@ ms.date: 03/10/2021
 ms.author: rifox
 ---
 
-Get started with Azure Communication Services by using the Communication Services calling client library to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for Android.
+Get started with Azure Communication Services by using the Communication Services calling client library to add video calling to your app, the first section shows how to include 1:1 video calling and the second shows how to create and join into group calls. You'll learn how to start, answer and join a video call using the Azure Communication Services Calling SDK for Android.
 
 ## Sample Code
 
@@ -115,7 +115,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 ```
 ### Set up the layout for the app
 
-We need a text input for the callee ID, a button for placing the call and another for hanging up the call. We also need two buttons to turn on and turn off the local video. We need to place two containers for local and remote video streams. These can be added through the designer or by editing the layout xml. Navigate to `app/src/main/res/layout/activity_main.xml` and replace the content of file with the following:
+We need a text input for the callee ID or group call ID, a button for placing the call and another for hanging up the call. We also need two buttons to turn on and turn off the local video. We need to place two containers for local and remote video streams. These can be added through the designer or by editing the layout xml. Navigate to `app/src/main/res/layout/activity_main.xml` and replace the content of file with the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -125,88 +125,100 @@ We need a text input for the callee ID, a button for placing the call and anothe
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/call_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/callee_id"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Callee ID"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/call_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.064" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/call_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="Call"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/show_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="Show Video"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/hide_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="Hide Video"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/hang_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="Hang Up"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <GridLayout
+                android:id="@+id/remotevideocontainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:padding="10dp"></GridLayout>
+        </ScrollView>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/localvideocontainer"
+            android:layout_width="180dp"
+            android:layout_height="300dp"
+            android:layout_gravity="right|bottom"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <Button
+                android:id="@+id/switch_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="Callee Id"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/call_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.064" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/call_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center"
-                    android:text="Call"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-                <Button
-                    android:id="@+id/show_preview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center"
-                    android:text="Show Video"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-                <Button
-                    android:id="@+id/hide_preview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center"
-                    android:text="Hide Video"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-                <Button
-                    android:id="@+id/hang_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center"
-                    android:text="Hang Up"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </LinearLayout>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:id="@+id/remotevideocontainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:orientation="horizontal"
-                    android:padding="10dp"></LinearLayout>
-                <LinearLayout
-                    android:id="@+id/localvideocontainer"
-                    android:layout_width="180dp"
-                    android:layout_height="320dp"
-                    android:layout_gravity="right|bottom"
-                    android:orientation="horizontal"
-                    android:padding="10dp"></LinearLayout>
-
-            </FrameLayout>
+                android:text="Switch Source"
+                android:visibility="invisible" />
         </LinearLayout>
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
@@ -217,7 +229,7 @@ With the layout created the bindings can be added as well as the basic scaffoldi
 Navigate to **MainActivity.java** and replace the content with the following code:
 
 ```java
-package com.example.acsquickstart;
+package com.example.videocallingquickstart;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -226,24 +238,26 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.Toast;
 import android.widget.LinearLayout;
 import android.content.Context;
 import com.azure.android.communication.calling.CallState;
 import com.azure.android.communication.calling.CallingCommunicationException;
-import com.azure.android.communication.calling.CameraFacing;
 import com.azure.android.communication.calling.ParticipantsUpdatedListener;
 import com.azure.android.communication.calling.PropertyChangedEvent;
 import com.azure.android.communication.calling.PropertyChangedListener;
+import com.azure.android.communication.calling.StartCallOptions;
 import com.azure.android.communication.calling.VideoDeviceInfo;
-import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationIdentifier;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.calling.CallAgent;
 import com.azure.android.communication.calling.CallClient;
-import com.azure.android.communication.calling.StartCallOptions;
 import com.azure.android.communication.calling.DeviceManager;
 import com.azure.android.communication.calling.VideoOptions;
 import com.azure.android.communication.calling.LocalVideoStream;
@@ -259,9 +273,21 @@ import com.azure.android.communication.calling.RemoteParticipant;
 import com.azure.android.communication.calling.RemoteVideoStream;
 import com.azure.android.communication.calling.RemoteVideoStreamsEvent;
 import com.azure.android.communication.calling.RendererListener;
-
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.MicrosoftTeamsUserIdentifier;
+import com.azure.android.communication.common.PhoneNumberIdentifier;
+import com.azure.android.communication.common.UnknownIdentifier;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -271,6 +297,7 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
 
     private CallAgent callAgent;
+    private VideoDeviceInfo currentCamera;
     private LocalVideoStream currentVideoStream;
     private DeviceManager deviceManager;
     private IncomingCall incomingCall;
@@ -281,6 +308,10 @@ public class MainActivity extends AppCompatActivity {
     private boolean renderRemoteVideo = true;
     private ParticipantsUpdatedListener remoteParticipantUpdatedListener;
     private PropertyChangedListener onStateChangedListener;
+
+    final HashSet<String> joinedParticipants = new HashSet<>();
+
+    Button switchSourceButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -300,11 +331,14 @@ public class MainActivity extends AppCompatActivity {
         startVideo.setOnClickListener(l -> turnOnLocalVideo());
         Button stopVideo = findViewById(R.id.hide_preview);
         stopVideo.setOnClickListener(l -> turnOffLocalVideo());
-        
+
+        switchSourceButton = findViewById(R.id.switch_source);
+        switchSourceButton.setOnClickListener(l -> switchSource());
+
         setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
-
-    /**
+	
+	/**
      * Request each required permission if the app doesn't already have it.
      */
     private void getAllPermissions() {
@@ -317,8 +351,15 @@ public class MainActivity extends AppCompatActivity {
     private void createAgent() {
         // See section on creating the call agent
     }
-
-    /**
+	
+	/**
+     * Handle incoming calls
+     */
+    private void handleIncomingCall() {
+        // See section on answering incoming call
+    }
+	
+	/**
      * Place a call to the callee id provided in `callee_id` text input.
      */
     private void startCall() {
@@ -326,28 +367,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Handle incoming calls
-     */
-    private void handleIncomingCall() {
-        // See section on answering incoming call
-    }
-
-    /**
-     * Mid-call operations
-     */
-    public void turnOnLocalVideo() {
-        // See setion on 
-    }
-    public void turnOffLocalVideo() {
-        
-    }
-
-    /**
      * End calls
      */
     private void hangUp() {
         // See section on ending the call
-    }    
+    }
+	
+	/**
+     * Mid-call operations
+     */
+    public void turnOnLocalVideo() {
+        // See section
+    }
+	
+    public void turnOffLocalVideo() {
+        // See section
+    }
+	
+	/**
+     * Change the active camera for the next available
+     */
+	public void switchSource() {
+		// See section
+    }
 }
 ```
 
@@ -399,7 +441,7 @@ For the quickstart, replace `<User_Access_Token>` with a user access token gener
  */
 private void createAgent() {
     Context context = this.getApplicationContext();
-    String userToken = "<User_Access_Token>";
+    String userToken = "<USER_ACCESS_TOKEN>";
     try {
         CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         CallClient callClient = new CallClient();
@@ -419,28 +461,30 @@ To place a call with video you have to enumerate local cameras using the `device
 ```java
 private void startCall() {
     Context context = this.getApplicationContext();
-    EditText calleeIdView = findViewById(R.id.callee_id);
-    String calleeId = calleeIdView.getText().toString();
+    EditText callIdView = findViewById(R.id.call_id);
+    String callId = callIdView.getText().toString();
     ArrayList<CommunicationIdentifier> participants = new ArrayList<CommunicationIdentifier>();
-    StartCallOptions options = new StartCallOptions();
     List<VideoDeviceInfo> cameras = deviceManager.getCameras();
+
+
+    StartCallOptions options = new StartCallOptions();
     if(!cameras.isEmpty()) {
-        VideoDeviceInfo camera = chooseCamera(cameras);
-        currentVideoStream = new LocalVideoStream(camera, context);
+        currentCamera = getNextAvailableCamera(null);
+        currentVideoStream = new LocalVideoStream(currentCamera, context);
         LocalVideoStream[] videoStreams = new LocalVideoStream[1];
         videoStreams[0] = currentVideoStream;
         VideoOptions videoOptions = new VideoOptions(videoStreams);
         options.setVideoOptions(videoOptions);
         showPreview(currentVideoStream);
     }
-    participants.add(new CommunicationUserIdentifier(calleeId));
+    participants.add(new CommunicationUserIdentifier(callId));
 
     call = callAgent.startCall(
             context,
             participants,
             options);
-    
-    //Subcribe to events on updates of call state and remote participants
+
+    //Subscribe to events on updates of call state and remote participants
     remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
     onStateChangedListener = this::handleCallOnStateChanged;
     call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
@@ -448,16 +492,24 @@ private void startCall() {
 }
 ```
 
-In this quickstart, we prefer using the front camera of the device. The function `chooseCamera` takes the enumeration of cameras as input. If the front camera is not available we will use the first camera available. If there is no available cameras when we tap `Start Call`, it will start an audio call. But if the remote participant answered with video we can still see the remote video stream. 
+In this quickstart, we rely on the function `getNextAvailableCamera` to pick the camera that the call will use, it takes the enumeration of cameras as input and iterates the list to get the next camera available, if the argument is null the function picks the first device on the list. If there is no available cameras when we tap `Start Call`, it will start an audio call. But if the remote participant answered with video we can still see the remote video stream.
 
 ```java
-VideoDeviceInfo chooseCamera(List<VideoDeviceInfo> cameras) {
-    for (VideoDeviceInfo camera : cameras) {
-        if (camera.getCameraFacing() == CameraFacing.FRONT) {
-            return camera;
+private VideoDeviceInfo getNextAvailableCamera(VideoDeviceInfo camera) {
+    List<VideoDeviceInfo> cameras = deviceManager.getCameras();
+    int currentIndex = 0;
+    if (camera == null) {
+        return cameras.isEmpty() ? null : cameras.get(0);
+    }
+
+    for (int i = 0; i < cameras.size(); i++) {
+        if (camera.getId().equals(cameras.get(i).getId())) {
+            currentIndex = i;
+            break;
         }
     }
-    return cameras.get(0);
+    int newIndex = (currentIndex + 1) % cameras.size();
+    return cameras.get(newIndex);
 }
 ```
 
@@ -465,12 +517,31 @@ Once we constructed a `LocalVideoStream` instance we can create a renderer to di
 
 ```java
 private void showPreview(LocalVideoStream stream) {
-    previewRenderer = new VideoStreamRenderer(stream, this);
-    LinearLayout layout = ((LinearLayout)findViewById(R.id.localvideocontainer));
-    preview = previewRenderer.createView(new CreateViewOptions(ScalingMode.FIT));
-    runOnUiThread(() -> {
-        layout.addView(preview);
-    });
+        previewRenderer = new VideoStreamRenderer(stream, this);
+        LinearLayout layout = findViewById(R.id.localvideocontainer);
+        preview = previewRenderer.createView(new CreateViewOptions(ScalingMode.FIT));
+        preview.setTag(0);
+        runOnUiThread(() -> {
+            layout.addView(preview);
+            switchSourceButton.setVisibility(View.VISIBLE);
+        });
+    }
+```
+
+To allow the user to toggle the local video source we use `switchSource`, this method picks gets the next available camera and defines it as the local stream.
+
+```java
+public void switchSource() {
+    if (currentVideoStream != null) {
+        try {
+            currentCamera = getNextAvailableCamera(currentCamera);
+            currentVideoStream.switchSource(currentCamera).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -497,8 +568,8 @@ private void answerIncomingCall() {
     AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
     List<VideoDeviceInfo> cameras = deviceManager.getCameras();
     if(!cameras.isEmpty()) {
-        VideoDeviceInfo camera = chooseCamera(cameras);
-        currentVideoStream = new LocalVideoStream(camera, context);
+        currentCamera = getNextAvailableCamera(null);
+        currentVideoStream = new LocalVideoStream(currentCamera, context);
         LocalVideoStream[] videoStreams = new LocalVideoStream[1];
         videoStreams[0] = currentVideoStream;
         VideoOptions videoOptions = new VideoOptions(videoStreams);
@@ -535,17 +606,27 @@ If you try to pass the listener in directly as an argument, you'll lose the refe
 
 ### Remote participant and remote video stream update
 
-In this quickstart we only handle added participants because we are implementing 1:1 calling. When the remote participant is removed the call will be ended. For added participant we subscribe to `addOnVideoStreamsUpdatedListener` to handle video stream updates. 
+1:1 calling just requires to handle added participants. When the remote participant is removed the call will be ended. For added participant we subscribe to `addOnVideoStreamsUpdatedListener` to handle video stream updates.
 
 ```java
 public void handleRemoteParticipantsUpdate(ParticipantsUpdatedEvent args) {
-    LinearLayout participantVideoContainer = findViewById(R.id.remotevideocontainer);
-    handleAddedParticipants(args.getAddedParticipants(),participantVideoContainer);
+    handleAddedParticipants(args.getAddedParticipants());
 }
 
-private void handleAddedParticipants(List<RemoteParticipant> participants, LinearLayout participantVideoContainer) {
+private void handleAddedParticipants(List<RemoteParticipant> participants) {
     for (RemoteParticipant remoteParticipant : participants) {
-        remoteParticipant.addOnVideoStreamsUpdatedListener(videoStreamsEventArgs -> videoStreamsUpdated(videoStreamsEventArgs));
+        if(!joinedParticipants.contains(getId(remoteParticipant))) {
+            joinedParticipants.add(getId(remoteParticipant));
+
+            if (renderRemoteVideo) {
+                for (RemoteVideoStream stream : remoteParticipant.getVideoStreams()) {
+                    StreamData data = new StreamData(stream, null, null);
+                    streamData.put(stream.getId(), data);
+                    startRenderingVideo(data);
+                }
+            }
+            remoteParticipant.addOnVideoStreamsUpdatedListener(videoStreamsEventArgs -> videoStreamsUpdated(videoStreamsEventArgs));
+        }
     }
 }
 
@@ -562,6 +643,21 @@ private void videoStreamsUpdated(RemoteVideoStreamsEvent videoStreamsEventArgs) 
         stopRenderingVideo(stream);
     }
 }
+
+
+public String getId(final RemoteParticipant remoteParticipant) {
+    final CommunicationIdentifier identifier = remoteParticipant.getIdentifier();
+    if (identifier instanceof PhoneNumberIdentifier) {
+        return ((PhoneNumberIdentifier) identifier).getPhoneNumber();
+    } else if (identifier instanceof MicrosoftTeamsUserIdentifier) {
+        return ((MicrosoftTeamsUserIdentifier) identifier).getUserId();
+    } else if (identifier instanceof CommunicationUserIdentifier) {
+        return ((CommunicationUserIdentifier) identifier).getId();
+    } else {
+        return ((UnknownIdentifier) identifier).getId();
+    }
+}
+
 ```
 
 ### Render remote videos
@@ -573,7 +669,7 @@ void startRenderingVideo(StreamData data){
     if (data.renderer != null) {
         return;
     }
-    LinearLayout layout = ((LinearLayout)findViewById(R.id.remotevideocontainer));
+    GridLayout layout = ((GridLayout)findViewById(R.id.remotevideocontainer));
     data.renderer = new VideoStreamRenderer(data.stream, this);
     data.renderer.addRendererListener(new RendererListener() {
         @Override
@@ -589,8 +685,14 @@ void startRenderingVideo(StreamData data){
         }
     });
     data.rendererView = data.renderer.createView(new CreateViewOptions(ScalingMode.FIT));
+    data.rendererView.setTag(data.stream.getId());
     runOnUiThread(() -> {
-        layout.addView(data.rendererView);
+        GridLayout.LayoutParams params = new GridLayout.LayoutParams(layout.getLayoutParams());
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        params.height = (int)(displayMetrics.heightPixels / 2.5);
+        params.width = displayMetrics.widthPixels / 2;
+        layout.addView(data.rendererView, params);
     });
 }
 
@@ -600,7 +702,13 @@ void stopRenderingVideo(RemoteVideoStream stream) {
         return;
     }
     runOnUiThread(() -> {
-        ((LinearLayout) findViewById(R.id.remotevideocontainer)).removeAllViews();
+        GridLayout layout = findViewById(R.id.remotevideocontainer);
+        for(int i = 0; i < layout.getChildCount(); ++ i) {
+            View childView =  layout.getChildAt(i);
+            if ((int)childView.getTag() == data.stream.getId()) {
+                layout.removeViewAt(i);
+            }
+        }
     });
     data.rendererView = null;
     // Dispose renderer
@@ -625,16 +733,18 @@ In this quickstart we will handle the changes of `CallState`. When the call is c
 
 ```groovy
 private void handleCallOnStateChanged(PropertyChangedEvent args) {
-    if (call.getState() == CallState.CONNECTED) {
-        LinearLayout participantVideoContainer = findViewById(R.id.remotevideocontainer);
-        handleAddedParticipants(call.getRemoteParticipants(),participantVideoContainer);
-    }
-    if (call.getState() == CallState.DISCONNECTED) {
-        if (previewRenderer != null) {
-            previewRenderer.dispose();
+        if (call.getState() == CallState.CONNECTED) {
+            runOnUiThread(() -> Toast.makeText(this, "Call is CONNECTED", Toast.LENGTH_SHORT).show());
+            handleCallState();
+        }
+        if (call.getState() == CallState.DISCONNECTED) {
+            runOnUiThread(() -> Toast.makeText(this, "Call is DISCONNECTED", Toast.LENGTH_SHORT).show());
+            if (previewRenderer != null) {
+                previewRenderer.dispose();
+            }
+            switchSourceButton.setVisibility(View.INVISIBLE);
         }
     }
-}
 ```
 
 ## End a call
@@ -643,6 +753,7 @@ End the call by calling the `hangUp()` function on call instance and dispose the
 private void hangUp() {
     try {
         call.hangUp().get();
+        switchSourceButton.setVisibility(View.INVISIBLE);
     } catch (ExecutionException | InterruptedException e) {
         e.printStackTrace();
     }
