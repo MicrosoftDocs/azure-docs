@@ -38,7 +38,7 @@ List the image definitions in your gallery, including information about OS type 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the ContosoImage gallery in West US and lists them by name, the unique ID needed to create a VM, OS and OS state.
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the ContosoImage gallery in West US and lists them by name, the unique ID that is needed to create a VM, OS and OS state. 
 
 ```azurecli-interactive 
  az sig image-definition list-community \
@@ -68,7 +68,7 @@ az sig image-version list-community \
    -o table
 ```
 
-**Get the image version **
+**Get a specific image version **
 
 Get the ID of a specific image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).  
 
@@ -79,18 +79,6 @@ az sig image-version show \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --query "id" 
-```
-
-To create a VM using a specific version of an image in a community gallery, you need the `uniqueId` of the version. Get the `uniqueId` using [az sig image-version list-community](/cli/azure/sig/image-version#az_sig_image_version_list_community). The following example returns the name and unique ID of a specific image version:
-
-```azurecli-interactive
-az sig image-version list-community \
-   --location westus \
-   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
-   --gallery-image-definition myImageDefinition \
-   --gallery-image-version 1.0.0 \
-   --query [*]."{Name:name,UniqueId:uniqueId}" \
-   -o table
 ```
 
 

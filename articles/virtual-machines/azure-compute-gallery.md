@@ -98,7 +98,7 @@ Community Galleries is a new capability in Azure Compute Gallery to support maki
 
 1. You create a gallery resource under `Microsoft.Compute/Galleries` and choose community gallery as a sharing option. 
 
-2. When you are ready, you flag your gallery to as ready to share publicly. Only an owner of a subscription can enable their gallery to go Public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries` which are public. This is similar to the process that publishers got through when creating resources under `Microsoft.Compute/Publishers` for the Azure marketplace.
+2. When you are ready, you flag your gallery to as ready to share publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries` which are public. This is similar to the process that publishers got through when creating resources under `Microsoft.Compute/Publishers` for the Azure marketplace.
 
 3. The end-users only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
 

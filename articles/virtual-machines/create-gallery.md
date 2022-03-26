@@ -113,7 +113,7 @@ During the preview, make sure that you create your gallery, image definitions, a
 
 ### Prerequisites
 
-The user or service principal that will enable community sharing needs to be a member of the `Owner` role definition. Only the `Owner` at the scope of the gallery or higher will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+The user or service principal that will enable community sharing needs to be a member of the `Owner` or `Compute Gallery Sharing Admin` role definition. Only the `Owner` at the scope of the gallery or higher, or someone with the `Compute Gallery Sharing Admin` role assignment will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
 ### [CLI](#tab/cli)
 
