@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: cloudmelon
 ms.author: melqin
 ms.reviewer: mikeray
-ms.date: 12/10/2021
+ms.date: 03/26/2022
 ms.topic: how-to
 ---
 
@@ -106,7 +106,8 @@ the Active Directory domain and provide to the deployment.
 
    To generate the keytab file specifically for SQL Managed Instance, use a bash shell script we have published. It wraps `ktutil` and `adutil` together. It is for use on Linux.
 
-   The script can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
+   A bash script works on Linux-based OS can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
+   A PowerShell script works on Windows server based OS can be found here: [create-sql-keytab.ps1](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.ps1).
 
    This script accepts several parameters and will output a keytab file and a yaml spec file for the Kubernetes secret containing the keytab.
 
@@ -171,7 +172,7 @@ To support Active Directory authentication on SQL Managed Instance, new spec fie
    - **spec.security.activeDirectory.accountName** 
       Name of the Active Directory account pre-created for this SQL Managed Instance.
   - **spec.security.activeDirectory.keytabSecret**
-     Name of the Kubernetes secret hosting the pre-created keytab file by users. This secret must be in the same namespace as the SQL Managed Instance.
+     Name of the Kubernetes secret hosting the pre-created keytab file by users. This secret must be in the same namespace as the SQL Managed Instance.This parameter is only required for the AD deployment in BOYK mode. 
   - **spec.services.primary.dnsName**
      DNS name for the primary endpoint.
   - **spec.services.primary.port**
