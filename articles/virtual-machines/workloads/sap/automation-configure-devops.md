@@ -233,10 +233,10 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | Variable              | Value                                          | Notes                                                    |
 | --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
 | Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'MGMT-WEEU-POOL' Note, this pool will be created in a later step. |
-| ARM_CLIENT_ID         | <Service principal application id>             |                                                          |
-| ARM_CLIENT_SECRET     | <Service principal password>                   | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | <Target subscription ID>                       |                                                          |
-| ARM_TENANT_ID         | <Tenant ID for service principal>              |                                                          |
+| ARM_CLIENT_ID         | Enter the Service principal application id.          |                                                          |
+| ARM_CLIENT_SECRET     | Enter the Service principal password.                   | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID   | Enter the target subscription id.                       |                                                          |
+| ARM_TENANT_ID         | Enter the Tenant id for the service principal.              |                                                          |
 | AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
 | sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
 
