@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 03/24/2022
+ms.date: 03/26/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
