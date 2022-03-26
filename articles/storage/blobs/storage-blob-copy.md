@@ -136,7 +136,7 @@ Aborting a copy operation results in a destination blob of zero length. However,
 
 # [.NET v12 SDK](#tab/dotnet)
 
-Check the [BlobProperties.CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
+Check the BlobProperties.CopyStatus property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
 When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
 
