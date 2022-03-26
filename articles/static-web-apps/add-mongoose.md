@@ -72,7 +72,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
     - Name: **aswa-mongoose-tutorial**
     - Region: **West US 2**
     - Click **Sign in with GitHub**
-    - Click **Authorize** if prompted to allow Azure Static Web Apps to create the GitHub Action to enable deployment
+    - Click **Authorize** if prompted to allow Azure Static Web Apps to create the GitHub Actions to enable deployment
     - Organization: Your GitHub account name
     - Repository: **aswa-mongoose-tutorial**
     - Branch: **main**
