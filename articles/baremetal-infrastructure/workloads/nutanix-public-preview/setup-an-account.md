@@ -15,11 +15,11 @@ Perform the following steps to set up your Azure account and subscription:
 > In this Azure account, you must have permissions to register an app.  
 > [!NOTE]
 > Record your Azure subscription ID (GUID), a unique 32-digit GUID associated with your subscription.  
-For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).  
+For up-to-date and detailed instructions on how to create a free Azure account, see [Create your Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).  
 
 2.	Configure an Azure Active Directory (Azure AD) tenant with groups and users.  
 To build Nutanix Clusters as an application that uses the Microsoft identity platform for identity and access management, you need access to an Azure Active Directory (Azure AD) tenant.  
-For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant. full](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant). 
+For up-to-date and detailed instructions about how to set up a tenant, see the Microsoft Azure documentation at [Quickstart: Set up a tenant. full](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
 
 3. Set up a new Azure subscription. Work with Nutanix to get your subscription allowlisted.
 > [!NOTE]
@@ -57,11 +57,10 @@ This registers the Microsoft network provider for your account. See RegisterAzRe
 6. Create a resource group in Azure.  
 See the Microsoft Azure documentation at Manage Azure Resource Manager resource groups by using the Azure portal.  
 Create all the resources (virtual networks and VMs) required for Nutanix Clusters in the resource group you created.  
-> [!NOTE] Ensure that you note down the Directory ID, Application ID, Client Secret, and Azure Subscription ID. 
-> You will need these IDs later while adding your Azure account to the Nutanix Clusters console. 
+> [!NOTE] 
+> Ensure that you note down the Directory ID, Application ID, Client Secret, and Azure Subscription ID. 
+You will need these IDs later while adding your Azure account to the Nutanix Clusters console. 
 
-
- 
 ## Next steps
 
 Learn more about Nutanix:
