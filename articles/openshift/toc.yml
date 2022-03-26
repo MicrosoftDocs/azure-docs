@@ -18,6 +18,8 @@
   items:
     - name: Deploy an ARO cluster with Azure portal 
       href: quickstart-portal.md
+    - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
+      href: quickstart-openshift-arm-bicep-template.md
 - name: How-to guides
   items:
     - name: Cluster operations

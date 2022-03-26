@@ -246,7 +246,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [pack_array](/azure/data-explorer/kusto/query/packarrayfunction)
 - [pack](/azure/data-explorer/kusto/query/packfunction)
 - [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)
-- [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction.html)
+- [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)
 - [zip](/azure/data-explorer/kusto/query/zipfunction)
 
 #### Mathematical functions

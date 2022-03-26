@@ -1,15 +1,14 @@
 ---
 title: Media Services v3 offline FairPlay Streaming for iOS
 description: This topic gives an overview and shows how to use Azure Media Services v3 to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay in offline mode.
-services: media-services
 author: willzhan
 manager: femila
 ms.service: media-services
-ms.devlang: csharp
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
+
 # Offline FairPlay Streaming for iOS with Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -52,6 +51,8 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 * Clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git. 
 
     You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM) to add FairPlay configurations.  
+
+## [.NET](#tab/net/)
 
 ## Configure content protection in Azure Media Services
 
@@ -193,6 +194,8 @@ Three test samples in Media Services cover the following three scenarios:
 
 You can find these samples at [this demo site](https://aka.ms/poc#22), with the corresponding application certificate hosted in an Azure web app.
 With either the version 3 or version 4 sample of the FPS Server SDK, if a master playlist contains alternate audio, during offline mode it plays audio only. Therefore, you need to strip the alternate audio. In other words, the second and third samples listed previously work in online and offline mode. The sample listed first plays audio only during offline mode, while online streaming works properly.
+
+---
 
 ## Offline Fairplay questions
 

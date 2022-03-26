@@ -16,12 +16,12 @@ ms.author: pafarley
 
 Use the OCR client library to read printed and handwritten text from images.
 
-[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
+[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The latest version of [Go](https://golang.org/dl/)
+* The latest version of [Go](https://go.dev/dl/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -44,7 +44,7 @@ Your workspace will contain three folders:
 * **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
 > [!TIP]
-> To learn more about the structure of a Go workspace, see the [Go language documentation](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
+> To learn more about the structure of a Go workspace, see the [Go language documentation](https://go.dev/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
 
 ### Install the client library for Go
 

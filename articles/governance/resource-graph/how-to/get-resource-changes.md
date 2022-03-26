@@ -112,7 +112,7 @@ or `-Subscription` parameters.
 1. Run your first Azure Resource Graph query:
 
 # [Azure CLI](#tab/azure-cli)
-  ```azurecli-interactive
+  ```azurecli
   # Login first with az login if not using Cloud Shell
 
   # Run Azure Resource Graph query
@@ -155,7 +155,7 @@ or `-Subscription` parameters.
 2. Update the query to specify a more user-friendly column name for the **timestamp** property: 
 
 # [Azure CLI](#tab/azure-cli)
-   ```azurecli-interactive
+   ```azurecli
    # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
    az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
    ```
@@ -181,7 +181,7 @@ or `-Subscription` parameters.
 3. To get the most recent changes, update the query to `order by` the user-defined **changeTime** property:
  
 # [Azure CLI](#tab/azure-cli)
-   ```azurecli-interactive
+   ```azurecli
    # Run Azure Resource Graph query with 'order by'
    az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
    ```

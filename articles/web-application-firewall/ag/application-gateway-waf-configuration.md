@@ -22,7 +22,7 @@ Exclusion lists are global in scope.
 
 To set exclusion lists in the Azure portal, configure **Exclusions** in the WAF policy resource's **Policy settings** page:
 
-![Screenshot of the Azure portal that shows the exclusions configuration for the W A F policy.](../media/application-gateway-waf-configuration/waf-policy-exclusions.png)
+:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions.png" alt-text="Screenshot of the Azure portal that shows the exclusions configuration for the W A F policy.":::
 
 ## Attributes
 
