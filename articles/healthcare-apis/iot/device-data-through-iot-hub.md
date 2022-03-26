@@ -39,7 +39,7 @@ For more information on Azure role-based access control, see [Azure role-based a
 
 ## Connect IoT Hub with the MedTech service
 
-Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: Event Hubs, Storage Accounts, and Service Buses). MedTech service uses this feature to allow an IoT Hub to connect and send device messages to the MedTech service device message event hub endpoint.
+Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: event hub, Storage Accounts, and Service Buses). MedTech service uses this feature to allow an IoT Hub to connect and send device messages to the MedTech service device message event hub endpoint.
 
 Follow these directions to grant access to the IoT Hub user-assigned managed identity to your MedTech service device message event hub and set up message routing: [Configure message routing with managed identities](../../iot-hub/iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources). 
 
