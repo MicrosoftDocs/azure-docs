@@ -387,7 +387,7 @@
     items:
     - name: GitHub - Community Policy repo
       href: https://github.com/Azure/Community-Policy
-    - name: GitHub Action for Azure Policy Compliance Scan
+    - name: GitHub Actions for Azure Policy Compliance Scan
       href: https://github.com/marketplace/actions/azure-policy-compliance-scan
     - name: CCO Azure Governance Dashboard
       href: https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages
