@@ -291,7 +291,6 @@ $vm = @{
     ResourceGroupName = 'CreateIntLBQS-rg'
     Location = 'eastus'
     VM = $vmConfig
-    Zone = "$i"
 }
 New-AzVM @vm -AsJob
 }
