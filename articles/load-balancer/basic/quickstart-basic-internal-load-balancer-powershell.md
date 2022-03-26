@@ -378,7 +378,7 @@ $vnet = Get-AzVirtualNetwork @net
 ## Place the network security group into a variable. ##
 $sg = {
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg' @sg
+    ResourceGroupName = 'CreateIntLBQS-rg'
 }
 $nsg = Get-AzNetworkSecurityGroup @sg
 
