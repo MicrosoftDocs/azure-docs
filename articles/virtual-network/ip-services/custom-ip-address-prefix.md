@@ -50,7 +50,7 @@ When you are ready, you can issue the command to have your range advertised from
 
 * IPv6 is currently not supported for custom IP prefixes.
 
-* In regions with [availability zones](../../availability-zones/az-overview), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
+* In regions with [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute are not currently supported.
 
