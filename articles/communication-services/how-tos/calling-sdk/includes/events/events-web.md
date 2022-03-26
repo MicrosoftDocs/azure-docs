@@ -318,7 +318,7 @@ An HTML example code that can use a bundle generated from the above JavaScript e
         <br>
         <input id="callee-acs-user-id"
             type="text"
-            placeholder="Enter callee's ACS user identity in format: '8:acs:resourceId_userId'"
+            placeholder="Enter callee's Azure Communication Services user identity in format: '8:acs:resourceId_userId'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="accept-call-button" type="button" disabled="true">Accept Call</button>

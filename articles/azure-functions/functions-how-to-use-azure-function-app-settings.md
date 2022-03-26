@@ -180,7 +180,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 1. Run the following command to migrate the existing function app to the new Consumption plan.
 
     ```azurecli-interactive
-    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN> --force
     ```
 
 1. Delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
