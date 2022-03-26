@@ -46,6 +46,8 @@ After you approve the request, a private IP address gets assigned from Front Doo
 
 Azure Front Door private endpoints are available in the following regions during public preview: East US, West US 2, South Central US, UK South, and Japan East.
 
+The backends that support direct private end point connectivity are now limited to Storage (Azure Blobs) and App Services. All other backends will have to be put behind an Internal Load Balancer as explained in the Next Steps below.
+
 For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Front Door private link endpoint.
 
 ## Next steps

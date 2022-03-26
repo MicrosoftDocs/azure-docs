@@ -69,7 +69,7 @@ items:
   - name: Azure Private 5G Core product page
     href: https://azure.microsoft.com/services/private-5g-core/
   - name: Azure private MEC documentation
-    href: https://docs.microsoft.com/azure/private-multi-access-edge-compute-mec/
+    href: ../private-multi-access-edge-compute-mec/index.yml
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog

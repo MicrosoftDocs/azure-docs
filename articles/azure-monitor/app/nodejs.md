@@ -36,6 +36,8 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 1. Sign in to the [Azure portal][portal].
 2. [Create an Application Insights resource](create-new-resource.md)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ### <a name="sdk"></a> Set up the Node.js client library
 
 Include the SDK in your app, so it can gather data.

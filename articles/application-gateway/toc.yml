@@ -18,6 +18,8 @@
   - name: Create Application Gateway - ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Create Application Gateway - Terraform
+    href: /azure/developer/terraform/application-gateway-quickstart?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Secure with SSL

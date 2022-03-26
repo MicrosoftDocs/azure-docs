@@ -116,10 +116,13 @@ You can modify the default target settings used by Site Recovery.
     - If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened according to guidance for the specific Linux version.
 ![Screenshot that shows the Multi-VM consistency settings.](./media/azure-to-azure-how-to-enable-replication/multi-vm-settings.PNG)
 
-5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings.
+5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
+
+    Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group, or use an existing one. For more information on how capacity reservation works, [read here](../virtual-machines/capacity-reservation-overview.md).
+
    ![Screenshot that shows the Capacity Reservation settings.](./media/azure-to-azure-how-to-enable-replication/capacity-reservation-edit-button.png)
-6. Click **Create target resource** > **Enable Replication**.
-7. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
+1. Click **Create target resource** > **Enable Replication**.
+1. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
 >[!NOTE]
 >

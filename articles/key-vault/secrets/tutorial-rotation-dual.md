@@ -312,7 +312,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Disable rotation for secret
 
-You can disable rotation of a secret simply by deleting event grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az_eventgrid_event_subscription_delete) command.
+You can disable rotation of a secret simply by deleting event grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
 
 
 ## Key Vault rotation functions for two sets of credentials

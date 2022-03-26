@@ -45,7 +45,7 @@ Use the Language Understanding (LUIS) client libraries for Python to:
 
 ### Install the client library with Pip
 
-Within the application directory, install the Language Understanding (LUIS) client library for python with the following command:
+Within the application directory, install the Language Understanding (LUIS) client library for Python with the following command:
 
 ```console
 pip install azure-cognitiveservices-language-luis
@@ -83,9 +83,9 @@ Once the client is created, use this client to access functionality including:
 
 ## Add the dependencies
 
-Add the client libraries to the python file.
+Add the client libraries to the Python file.
 
-[!code-python[Add python libraries to code file](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=Dependencies)]
+[!code-python[Add Python libraries to code file](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=Dependencies)]
 
 
 ## Add boilerplate code

@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 03/07/2022
 ms.devlang: csharp
 ---
 
@@ -113,7 +113,7 @@ The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` 
 
 `FeedOptions.EnableCrossPartitionQuery` has been removed and the default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically.
 
-`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the diagnostics property of the response.
+`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the `FeedResponse.Diagnostics` property of the response.
 
 `FeedOptions.RequestContinuation` has now been promoted to the query methods themselves.
 
@@ -146,10 +146,10 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 ### Exceptions
 
-Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosClientException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
+Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
 
 ```csharp
-catch (CosmosClientException ex)
+catch (CosmosException ex)
 {
     HttpStatusCode statusCode = ex.StatusCode;
     CosmosDiagnostics diagnostics = ex.Diagnostics;

@@ -49,7 +49,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
-    It can take 15 to 45 minutes to update the API Management instance.
+It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process. 
 
 ### Enable connectivity using a Resource Manager template (`stv2` compute platform)
 
@@ -76,8 +76,9 @@ The API Management service depends on several Azure services. When API Managemen
 * For guidance on custom DNS setup, including forwarding for Azure-provided hostnames, see [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
 * Outbound network access on port `53` is required for communication with DNS servers. For more settings, see [Virtual network configuration reference](virtual-network-reference.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT] 
 > If you plan to use a custom DNS server(s) for the VNet, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
+
 
 ## Routing
 

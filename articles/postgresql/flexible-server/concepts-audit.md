@@ -4,8 +4,8 @@ description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: niklarin
 ms.author: nlarin
+author: niklarin
 ms.date: 11/30/2021
 ---
 
