@@ -8,8 +8,31 @@ ms.author: eur
 
 ### 2022-March release
 
-#### New styles public preview for fr-FR Denise
-Introducing 2 new styles for public preview on fr-FR Denise: Cheerful and Sad
+#### Prebuilt Neural TTS Voice
+
+* Added support in public preview for the `Cheerful` and `Sad` styles with `fr-FR-DeniseNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
+
+#### Custom Neural Voice
+
+* Supported role based access control. Learn more on [Azure role-based access control in Speech Studio](../../speech-studio-role-based-access-control.md)
+* Supported private endpoints and virtual network service endpoints. Learn more on [how to use private endpoints with speech service](../../speech-services-private-link.md).
+
+#### Audio Content Creation tool
+
+* Updated the file size and concurrency limit for free-tier (F0) resources to make the experience consistent with the Speech SDK and APIs. See [speech service quotas and limits](../../speech-services-quotas-and-limits.md#audio-content-creation-tool).
+ 
+### 2022-February release
+
+#### Custom Neural Voice
+
+* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
+* Extended language support to 49 locales. See [language support](../../language-support.md#custom-neural-voice).
+* Supported more regions/datacenters. See [region support](../../regions.md#custom-neural-voices).
+
+#### Audio Content Creation tool
+
+* Removed the output length limit for downloading audios.
 
 ### 2022-January release
 

@@ -20,32 +20,38 @@ You can manage your Azure Compute Gallery (formerly known as Shared Image Galler
 
 ### [CLI](#tab/cli)
 
-Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/sig#az_sig_list).
+Get the location, status and other information about your image galleries using [az sig list](/cli/azure/sig#az-sig-list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
 > [!NOTE]
-> To get the name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+> To get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 **List the image definitions**
 
-See all of image definitions in your gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list):
+List the image definitions in your gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
+
 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community):
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the ContosoImage gallery in West US and lists them by name, the unique ID needed to create a VM, OS and OS state.
 
 ```azurecli-interactive 
-az sig image-definition list-community --resource-group myGalleryRG --gallery-name myGallery -o table
+ az sig image-definition list-community \
+   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --location westus \
+   --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
 ```
+
 
 **List image versions** 
 
 List image versions in your gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list):
+
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
@@ -54,14 +60,17 @@ az sig image-version list --resource-group myGalleryRG --gallery-name myGallery 
 List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az_sig_image_version_list_community):
 
 ```azurecli-interactive
-az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
+az sig image-version list-community \
+   --location westus \
+   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --gallery-image-definition myImageDefinition \
+   --query [*]."{Name:name,UniqueId:uniqueId}" \
+   -o table
 ```
 
-**Get the image version ID**
+**Get the image version **
 
-Get the ID of an image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show). Like the other `list` and `show` commands, you can use `list-shared` to see image versions shared to your subscription, or `list-community` to see images shared into a community gallery. 
-
-In this example, we are querying for the image ID of an image version in our *myGallery** image gallery:
+Get the ID of a specific image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).  
 
 ```azurecli-interactive
 az sig image-version show \
@@ -72,6 +81,17 @@ az sig image-version show \
    --query "id" 
 ```
 
+To create a VM using a specific version of an image in a community gallery, you need the `uniqueId` of the version. Get the `uniqueId` using [az sig image-version list-community](/cli/azure/sig/image-version#az_sig_image_version_list_community). The following example returns the name and unique ID of a specific image version:
+
+```azurecli-interactive
+az sig image-version list-community \
+   --location westus \
+   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --query [*]."{Name:name,UniqueId:uniqueId}" \
+   -o table
+```
 
 
 ### [PowerShell](#tab/powershell)
@@ -133,7 +153,7 @@ Image version:
 
 If you plan on adding replica regions, do not delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
-Update the description of a gallery using ([az sig update](/cli/azure/sig#az_sig_update). 
+Update the description of a gallery using ([az sig update](/cli/azure/sig#az-sig-update). 
 
 ```azurecli-interactive
 az sig update \
@@ -143,7 +163,7 @@ az sig update \
 ```
 
 
-Update the description of an image definition using [az sig image-definition update](/cli/azure/sig/image-definition#az_sig_image_definition_update).
+Update the description of an image definition using [az sig image-definition update](/cli/azure/sig/image-definition#az-sig-image-definition-update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -153,7 +173,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Update an image version to add a region to replicate to using [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update). This change will take a while as the image gets replicated to the new region.
+Update an image version to add a region to replicate to using [az sig image-version update](/cli/azure/sig/image-definition#az-sig-image-definition-update). This change will take a while as the image gets replicated to the new region.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -164,7 +184,7 @@ az sig image-version update \
    --add publishingProfile.targetRegions  name=eastus
 ```
 
-This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) to exclude this image version from being used as the *latest* image.
+This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az-sig-image-definition-update) to exclude this image version from being used as the *latest* image.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -175,7 +195,7 @@ az sig image-version update \
    --set publishingProfile.excludeFromLatest=true
 ```
 
-This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) to include this image version in being considered for *latest* image.
+This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az-sig-image-definition-update) to include this image version in being considered for *latest* image.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -261,7 +281,7 @@ Before you can delete a community shared gallery, you need to use [az sig share 
 
 ### [CLI](#tab/cli)
 
-Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az_sig_image_version_delete).
+Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az-sig-image-version-delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -271,7 +291,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Delete an image definition using [az sig image-definition delete](/cli/azure/sig/image-definition#az_sig_image_definition_delete).
+Delete an image definition using [az sig image-definition delete](/cli/azure/sig/image-definition#az-sig-image-definition-delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -281,7 +301,11 @@ az sig image-definition delete \
 ```
 
 
+<<<<<<< HEAD
 Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete). 
+=======
+Delete a gallery using [az sig delete](/cli/azure/sig#az-sig-delete).
+>>>>>>> a847006dc61dacef5cb2c11d169e423a250d1bed
 
 ```azurecli-interactive
 az sig delete \

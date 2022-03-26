@@ -34,12 +34,11 @@ This procedure describes how to run a test failover for a recovery plan. If you 
 	- Site Recovery attempts to create test VMs in a subnet with the same name and same IP address as that provided in the **Compute and Network** settings of the VM.
 	- If a subnet with the same name isn't available in the Azure virtual network used for test failover, then the test VM is created in the first subnet alphabetically.
 	- If same IP address isn't available in the subnet, then the VM receives another available IP address in the subnet. [Learn more](#create-a-network-for-test-failover).
-4. If you're failing over to Azure and data encryption is enabled, in **Encryption Key**, select the certificate that was issued when you enabled encryption during Provider installation. You can ignore this step if encryption isn't enabled.
-5. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
-6. To initiate an RDP connection to the Azure VM, you need to [add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) on the network interface of the failed over VM. 
+4. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
+5. To initiate an RDP connection to the Azure VM, you need to [add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) on the network interface of the failed over VM. 
    If you don't want to add a public IP address to the virtual machine, check the recommended alternatives [here](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking#best-practice-control-public-ip-addresses).
-7. When everything is working as expected, click **Cleanup test failover**. This deletes the VMs that were created during test failover.
-8. In **Notes**, record and save any observations associated with the test failover.
+6. When everything is working as expected, click **Cleanup test failover**. This deletes the VMs that were created during test failover.
+7. In **Notes**, record and save any observations associated with the test failover.
 
 
 ![Screenshot of the Test failover Jobs tab.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)

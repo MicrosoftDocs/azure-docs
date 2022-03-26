@@ -40,7 +40,7 @@ If the user is outside of your organization, they will get an email invitation t
 
 ### [CLI](#tab/cli)
 
-To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az_sig_show).
+To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
 az sig show \
@@ -49,7 +49,7 @@ az sig show \
    --query id
 ```
 
-Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give a user access to the Azure Compute Gallery. Replace `<email-address>` and `<gallery iD>` with your own information.
+Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to give a user access to the Azure Compute Gallery. Replace `<email-address>` and `<gallery iD>` with your own information.
 
 ```azurecli-interactive
 az role assignment create \

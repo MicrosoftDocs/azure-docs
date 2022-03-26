@@ -28,7 +28,7 @@ In this article, you subscribe to Event Grid events in your API Management insta
 
 In this section, you use a Resource Manager template to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your API Management instance's Event Grid events and specify this app as the endpoint to which the events are sent.
 
-To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command in the Azure CLI.
+To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command in the Azure CLI.
 
 * Set `RESOURCE_GROUP_NAME` to the name of an existing resource group
 * Set `SITE_NAME` to a unique name for your web app
