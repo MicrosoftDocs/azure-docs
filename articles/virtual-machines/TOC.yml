@@ -677,7 +677,7 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Capacity reservation (preview)
+  - name: Capacity reservation 
     items:
     - name: Overview
       displayName: on-demand capacity reservation
@@ -697,9 +697,12 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a virtual machine scale set
+    - name: Associate a virtual machine scale set Uniform orchestration
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Associate a virtual machine scale set Flexible orchestration (preview)
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
     - name: Remove a virtual machine scale set
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-virtual-machine-scale-set.md
