@@ -35,7 +35,7 @@ Start by importing the SAP Deployment Automation Framework GitHub repository int
 
 :::image type="content" source="./media/automation-devops/automation-repo-permissions.png" alt-text="Picture showing repository permissions":::
 
-If you are unable to import a repository you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
+If you are unable to import a repository, you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
@@ -45,7 +45,7 @@ If you are unable to import a repository you can create the 'sap-automation' rep
 Create the 'sap-automation' repository by navigating to the 'Repositories' section in 'Project Settings' and clicking the _Create_ button. Choose the repository type 'Git' and provide a name for the repository, for example 'sap-automation'. Click -Create_ to create the repository.
 ### Cloning the repository
 
-In order to provide a more comprehensive editing capability of the content you can clone the repository to a local folder and edit the contents locally. Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal.
+In order to provide a more comprehensive editing capability of the content, you can clone the repository to a local folder and edit the contents locally. Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal.
 
 :::image type="content" source="./media/automation-devops/automation-repo-clone.png" alt-text="Picture showing how to clone the repository":::
 
@@ -64,7 +64,7 @@ Open the local folder in Visual Studio code, you should see that there are chang
 
 :::image type="content" source="./media/automation-devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
 
-Click the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter
+Select the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 ### Create configuration root folder
 
 Go to the new repository and create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. In the dialog, enter 'WORKSPACES' as folder name and 'readme.md' as file name. 
