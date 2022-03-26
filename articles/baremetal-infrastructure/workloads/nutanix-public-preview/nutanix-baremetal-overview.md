@@ -36,4 +36,4 @@ Servers are pre-loaded with operating system RHEL 7.6.
 Learn about the SKUs for Nutanix BareMetal workloads.
 
 > [!div class="nextstepaction"]
-> [BareMetal SKUs for Nutanix workloads](nutanix-baremetal-skus.md)
+> [About the Public Preview](about-the-public-preview.md)
