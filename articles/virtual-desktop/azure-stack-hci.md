@@ -92,13 +92,13 @@ Downloading a Windows VHD without deploying a VM has several extra steps. To dow
 
 Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands via the Azure CLI.
 
-If you're using a local installation, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure.
+If you're using a local installation, run the [az login](/cli/azure/reference-index#az-login) command to sign into Azure.
 
 After that, follow any other prompts you see to finish signing in. For additional sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 If this is your first time using Azure CLI, install any required extensions by following the instructions in [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-Finally, run the [az version](/cli/azure/reference-index?#az_version) command to make sure your client is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az_upgrade) command to upgrade to the latest version.
+Finally, run the [az version](/cli/azure/reference-index?#az-version) command to make sure your client is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az-upgrade) command to upgrade to the latest version.
 
 ### Search Azure Marketplace for Azure Virtual Desktop images
 
