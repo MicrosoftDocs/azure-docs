@@ -1,6 +1,6 @@
 ---
 title: User VM (UVM) Network Management 
-description: tba
+description:  
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021

@@ -1,6 +1,6 @@
 ---
 title: Requirements
-description: tba
+description:  
 ms.topic: how-to
 ms.subservice: baremetal-oracle
 ms.date: 03/31/2021

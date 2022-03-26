@@ -1,8 +1,8 @@
 ---
 title: About the Public Preview
-description: tba
+description: 
 ms.topic: how-to
-ms.subservice: baremetal
+ms.subservice: 
 ms.date: 03/31/2021
 ---
 
