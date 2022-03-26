@@ -30,10 +30,41 @@ Open (https://dev.azure.com) and create a new project by clicking on the _New Pr
 
 Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-Some of the pipelines will add files to the Azure Repos and therefore require pull permissions. Assign "Contribute" permissions to the 'Build Service' using the Security tab of the source code repository in the Repositories section in Project settings. 
+> [!NOTE]
+> Most of the pipelines will add files to the Azure Repos and therefore require pull permissions. Assign "Contribute" permissions to the 'Build Service' using the Security tab of > the source code repository in the Repositories section in Project settings. 
 
 :::image type="content" source="./media/automation-devops/automation-repo-permissions.png" alt-text="Picture showing repository permissions":::
 
+If you are unable to import a repository you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
+
+### Create the repository for manual import
+
+> [!NOTE]
+> Only to this step if you are unable to import the repository directly 
+
+Create the 'sap-automation' repository by navigating to the 'Repositories' section in 'Project Settings' and clicking the _Create_ button. Choose the repository type 'Git' and provide a name for the repository, for example 'sap-automation'. Click -Create_ to create the repository.
+### Cloning the repository
+
+In order to provide a more comprehensive editing capability of the content you can clone the repository to a local folder and edit the contents locally. Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal.
+
+:::image type="content" source="./media/automation-devops/automation-repo-clone.png" alt-text="Picture showing how to clone the repository":::
+
+### Manually importing the repository content using a local clone
+
+In case you were not able to import the content from the SAP Deployment Automation Framework GitHub repository you can download the content manually and add it to the folder of your local clone of the Azure DevOps repository.
+
+Navigate to 'https://github.com/Azure/SAP-automation' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_. 
+
+Copy the content from the zip file to the root folder of your local clone.
+
+> [!NOTE]
+> This guide will use Visual Studio Code as the git client.
+
+Open the local folder in Visual Studio code, you should see that there are changes that need to be synchronized by the indicator by the source control icon as is shown in the picture below.
+
+:::image type="content" source="./media/automation-devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
+
+Click the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter
 ### Create configuration root folder
 
 Go to the new repository and create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. In the dialog, enter 'WORKSPACES' as folder name and 'readme.md' as file name. 
@@ -188,7 +219,10 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | `skipComponentGovernanceDetection` | true                                    |                                                                  |
 | `tf_version`                       | 1.1.4                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)                                            |
 
-Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
+Save the variables.
+
+> [!NOTE]
+> Remember to assign permissions for all pipelines using _Pipeline permissions_.
 
 ### Environment specific variables
 
@@ -199,28 +233,20 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | Variable              | Value                                          | Notes                                                    |
 | --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
 | Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'MGMT-WEEU-POOL' Note, this pool will be created in a later step. |
-| ARM_CLIENT_ID         | Service principal application id               |                                                          |
-| ARM_CLIENT_SECRET     | Service principal password                     | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |
-| ARM_TENANT_ID         | Tenant ID for service principal                |                                                          |
+| ARM_CLIENT_ID         | <Service principal application id>             |                                                          |
+| ARM_CLIENT_SECRET     | <Service principal password>                   | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID   | <Target subscription ID>                       |                                                          |
+| ARM_TENANT_ID         | <Tenant ID for service principal>              |                                                          |
 | AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
 | sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
 
 
 Clone the group for each environment 'SDAF-DEV', 'SDAF-QA', ... and update the values to reflect the environment.
 
-| Variable              | Value                                          | Notes                                                    |
-| --------------------- | ---------------------------------------------- | -------------------------------------------------------- |
-| Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'MGMT-WEEU-POOL' Note, this pool will be created in a later step. |
-| ARM_CLIENT_ID         | Service principal application id               |                                                          |
-| ARM_CLIENT_SECRET     | Service principal password                     | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |                                                          |
-| ARM_TENANT_ID         | Tenant ID for service principal                |                                                          |
-| AZURE_CONNECTION_NAME | Previously created connection name             |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
+Save the variables.
 
-
-Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
+> [!NOTE]
+> Remember to assign permissions for all pipelines using _Pipeline permissions_.
 
 ## Register the Deployer as a self-hosted agent for Azure DevOps
 
