@@ -310,44 +310,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
-## Install IIS
-
-Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
-
-The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
-
-> [!IMPORTANT]
-> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
-
-```azurepowershell-interactive
-## For loop with variable to install custom script extension on virtual machines. ##
-for ($i=1; $i -le 2; $i++)
-{
-$ext = @{
-    Publisher = 'Microsoft.Compute'
-    ExtensionType = 'CustomScriptExtension'
-    ExtensionName = 'IIS'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    VMName = "myVM$i"
-    Location = 'eastus'
-    TypeHandlerVersion = '1.8'
-    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
-}
-Set-AzVMExtension @ext -AsJob
-}
-```
-
-The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
-
-```azurepowershell-interactive
-Get-Job
-
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-```
-
 ## Create the test virtual machine
 
 Create the virtual machine with:
@@ -420,6 +382,47 @@ $vm = @{
 }
 New-AzVM @vm
 ```
+
+## Install IIS
+
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
+
+The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
+
+> [!IMPORTANT]
+> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
+
+```azurepowershell-interactive
+## For loop with variable to install custom script extension on virtual machines. ##
+for ($i=1; $i -le 2; $i++)
+{
+$ext = @{
+    Publisher = 'Microsoft.Compute'
+    ExtensionType = 'CustomScriptExtension'
+    ExtensionName = 'IIS'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    VMName = "myVM$i"
+    Location = 'eastus'
+    TypeHandlerVersion = '1.8'
+    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+}
+Set-AzVMExtension @ext -AsJob
+}
+```
+
+The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+
+```azurepowershell-interactive
+Get-Job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+```
+
+> [!IMPORTANT]
+> Ensure the custom script extension deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the deployment jobs.
 
 ## Test the load balancer
 
