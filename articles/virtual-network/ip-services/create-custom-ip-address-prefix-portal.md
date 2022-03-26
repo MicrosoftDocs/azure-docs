@@ -128,7 +128,7 @@ The following steps display the procedure for provisioning a sample customer ran
     | **Instance details** |   |
     | Name | Enter **myCustomIPPrefix**. |
     | Region | Select **West US 2**. |
-    | Availability Zone | Select **Zone-redundant**. |
+    | Availability Zones | Select **Zone-redundant**. |
     | IPv4 Prefix (CIDR) | Enter **1.2.3.0/24**. |
     | ROA expiration date | Enter in your ROA expiration date in yyyymmdd format. |
     | Signed message | Paste in the output of $byoipauthsigned from the earlier section. |
@@ -155,13 +155,19 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
 
-4. In **Overview** of **myCustomIPPrefix**, select **+ Add IP prefix**.
+4. In **Overview** of **myCustomIPPrefix**, select **+ Add a public IP prefix**.
 
-5. Enter **myPublicIPPrefix** in **Name** and choose the desired size of the prefix (note it can be as large as the Custom IP Prefix).
+5. Enter **myPublicIPPrefix** in **Name**.
+ 
+6. Ensure the **Subscription** and **Region** match the region of the **myCustomIPPrefix**.
 
-6. Select **Add**.
+7. Ensure for **Prefix ownership** that "Custom IP Prefix" is selected, and that in the **Custom IP Prefix** menu that **myCustomIPPrefix** is selected.
+ 
+8. Use the **Prefix size** menu to specify the desired size of the prefix (note it can be as large as the Custom IP Prefix).
 
-7. Select **Public IP prefixes** in **Settings** to view the created prefix.  You can now allocate Public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)].
+9. Select **Review + create**, and then **Create** on the following page.
+
+10. Repeat steps 1-3 as necessary to return to the **Overview** page for **myCustomIPPrefix**.  You should now see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate Standard SKU Public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)].
 
 ## Commission the custom IP address prefix
 
@@ -185,5 +191,5 @@ As before, the operation is asynchronous. You can check the status by reviewing 
 
 ## Next steps
 
-- Learn how to [create public IP address prefixes](manage-custom-ip-address-prefix.md) from your provisioned IP address range.
+- Learn how to further [manage custom IP address prefixes](manage-custom-ip-address-prefix.md).
 - Learn about scenarios and benefits of using a [custom IP address prefix](custom-ip-address-prefix.md) to bring your IP address ranges to Azure.

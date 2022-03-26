@@ -30,7 +30,7 @@ Bringing an IP prefix to Azure is a three phase process -- validation, provision
 
 ### Validation
 
-In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as ARIN or RIPE.  When bringing an IP range to use on Azure, it remains under your ownership, so you must authorize Microsoft to advertise it.  Your ownership of the range and associated with your Azure subscription must also be verified.  Note that some of these steps will be done outside of Azure.
+In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as [ARIN](https://www.arin.net/) or [RIPE](https://www.ripe.net/).  When bringing an IP range to use on Azure, it remains under your ownership, so you must authorize Microsoft to advertise it.  Your ownership of the range and associated with your Azure subscription must also be verified.  Note that some of these steps will be done outside of Azure.
 
 ### Provisioning
 
@@ -38,7 +38,7 @@ After the above steps are completed, the public IP range can complete the "provi
 
 ### Commissioning
 
-When you are ready, you can issue the command to have your range advertised from Azure and enter the "commissioning" phase.  The range will be advertised first from the Azure region where the custom IP prefix is located, and subsequently by Microsoft's Wide Area Network (WAN).
+When you are ready, you can issue the command to have your range advertised from Azure and enter the "commissioning" phase.  The range will be advertised first from the Azure region where the custom IP prefix is located, and subsequently by Microsoft's Wide Area Network (WAN) to the Internet.
 
 ## Limitations
 
@@ -50,19 +50,19 @@ When you are ready, you can issue the command to have your range advertised from
 
 * IPv6 is currently not supported for custom IP prefixes.
 
-* A custom IP prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
-
-* The number of overall prefixes that can be provisioned is limited to 5 per region.  If additional custom IP prefixes are required, please open a support ticket.
+* In regions with [availability zones](../../availability-zones/az-overview), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over Azure ExpressRoute are not currently supported.
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription.  Note that it is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
 
+* Any IP addresses utilized from a Custom IP Prefix currently count against the Standard Public IP quota for the given subscription and region.  Please reach out to Azure support to have quotas increased when required.
+
 ## Pricing
 
 * There is no charge to provision or utilize custom IP prefixes. This applies to all public IP prefixes and public IP addresses that are derived from custom IP prefixes.
 
-* All traffic destined to a custom prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers sending traffic to a custom IP prefix address are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
+* All traffic destined to a custom IP prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers sending traffic to a custom IP prefix address from within Azure are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure Public IP from the same region.
 
 ## Next steps
 
