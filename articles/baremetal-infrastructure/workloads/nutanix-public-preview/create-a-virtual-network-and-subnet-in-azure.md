@@ -15,8 +15,7 @@ after the VNets are created.
 navigate to **Subscriptions**.
 2. Open the resource group that you have created.
 3. Click **+Add**.
-4. On the New page, in the search box, enter **Virtual Network**. Select **Virtual Network** in the 
-search results.
+4. On the New page, in the search box, enter **Virtual Network**. Select **Virtual Network** in the search results.
 5. On the Virtual Network page, click **Create**.
 6. In Create virtual network, enter, or select the following information on the Basics tab:
 a. Project details: Select your subscription and the resource group.
@@ -39,7 +38,8 @@ the **Delegate subnet to a service** list.
 > [!NOTE]
 > Add a custom DNS to the VNet. You can use any of the following DNS servers:
 * On-prem DNS server
-> [!NOTE] You need to create a Cluster VNet and set up VPN or ExpressRoute connectivity to the on-prem DNS server.
+> [!NOTE]
+> You need to create a Cluster VNet and set up VPN or ExpressRoute connectivity to the on-prem DNS server.
 * Public DNS server, such as 1.1.1.1 or 8.8.8.8
 * Azure DNS server deployed from Microsoft Marketplace
 * Nutanix provisioned DNS server with the IP address 20.106.145.8
