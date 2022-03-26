@@ -6,7 +6,7 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 03/24/2022
+ms.date: 03/25/2022
 ms.reviewer: wiassaf
 ms.devlang: csharp
 ms.custom: devx-track-csharp, cosmos-db-video
@@ -19,7 +19,7 @@ This tutorial shows how to build a .NET console application that optimizes provi
 >
 > [!VIDEO https://aka.ms/docs.learn-live-dotnet-bulk]
 
-In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
+In this article, you'll read data from a sample data source and import it into an Azure Cosmos container.
 This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which can be targeted to .NET Framework or .NET Core.
 
 This tutorial covers:
@@ -46,7 +46,7 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 2: Set up your .NET project
 
-Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. 
+Open the Windows command prompt or a Terminal window from your local computer. You'll run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. 
 
    ```bash
    dotnet new console -n bulk-import-demo
@@ -88,13 +88,13 @@ The sample application needs to authenticate to your Azure Cosmos account. To au
 1.    Navigate to your Azure Cosmos account.
 1.    Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
-If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
+If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
 
 ## Step 5: Initialize the CosmosClient object with bulk execution support
 
-Open the generated `Program.cs` file in a code editor. You will create a new instance of CosmosClient with bulk execution enabled and use it to do operations against Azure Cosmos DB. 
+Open the generated `Program.cs` file in a code editor. You'll create a new instance of CosmosClient with bulk execution enabled and use it to do operations against Azure Cosmos DB. 
 
-Let's start by overwriting the default `Main` method and defining the global variables. These global variables will include the endpoint and authorization keys, the name of the database, container that you will create, and the number of items that you will be inserting in bulk. Make sure to replace the endpointURL and authorization key values according to your environment. 
+Let's start by overwriting the default `Main` method and defining the global variables. These global variables will include the endpoint and authorization keys, the name of the database, container that you'll create, and the number of items that you'll be inserting in bulk. Make sure to replace the endpointURL and authorization key values according to your environment. 
 
 
    ```csharp
@@ -197,5 +197,5 @@ You can now proceed to the next tutorial:
 >[Query Azure Cosmos DB by using the SQL API](tutorial-query-sql-api.md)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
