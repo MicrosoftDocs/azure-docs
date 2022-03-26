@@ -3,12 +3,11 @@ metadata:
   title: Azure Monitor FAQ | Microsoft Docs
   description: Answers to frequently asked questions about Azure Monitor.
   services: azure-monitor
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-monitor
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-    
 title: Azure Monitor Frequently Asked Questions
 summary: |
   This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -270,11 +269,11 @@ sections:
       - question: 
           Why should I use the AMA or migrate from Log Analytics agent (MMA) to AMA?
         answer: |
-          The AMA replaces the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent), the [Azure Diagnostics extension](/azure/azure-monitor/agents/diagnostics-extension-overview), and the [Telegraf Agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf). The AMA offers a higher rate of EPS with a lower footprint, providing enhanced filtering features, scalable deployment management and configuration using DCRs and Azure policies.
+          The AMA replaces the [Log Analytics agent](./agents/log-analytics-agent.md), the [Azure Diagnostics extension](./agents/diagnostics-extension-overview.md), and the [Telegraf Agent](./essentials/collect-custom-metrics-linux-telegraf.md). The AMA offers a higher rate of EPS with a lower footprint, providing enhanced filtering features, scalable deployment management and configuration using DCRs and Azure policies.
           
           While the AMA has not yet reached full parity with the MMA, we continue to add features and support and the MMA will be retired on August 31, 2024.
           
-          For more information, see the [Azure Monitor Agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview).
+          For more information, see the [Azure Monitor Agent overview](./agents/azure-monitor-agent-overview.md).
 
 
       - question: |
@@ -352,7 +351,7 @@ sections:
       - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
-          Any on-premises server, or non-Azure cloud server, must be on Azure Arc to run the AMA. For more information, see [About Azure Arc](/azure/azure-arc/overview).
+          Any on-premises server, or non-Azure cloud server, must be on Azure Arc to run the AMA. For more information, see [About Azure Arc](../azure-arc/overview.md).
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use AMA?
@@ -389,7 +388,7 @@ sections:
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
         answer: |
-          See [Permissions required to create data collection rules and associations](agents/data-collection-rule-azure-monitor-agent.md#permissions-required-to-create-data-collection-rules-and-associations)
+          See [Permissions required to create data collection rules and associations](essentials/data-collection-rule-overview.md#permissions)
 
       - question: |
           If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?
@@ -982,7 +981,7 @@ sections:
         answer: |
           Currently Container insights doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
           
-          For example, you can wrap your log as a JSON object as shown in the example below for a sample node.js application:
+          For example, you can wrap your log as a JSON object as shown in the example below for a sample Node.js application:
           
           ```
           console.log(json.stringify({ 
@@ -1151,7 +1150,7 @@ sections:
       - question: |
           What operating systems for the virtual machine running SQL Server are supported?
         answer: |
-          We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
+          We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#getting-started) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
           
       - question: |
           What operating system for the monitoring virtual machine are supported?

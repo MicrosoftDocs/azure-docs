@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Install and run the Spatial Analysis container (Preview)
@@ -39,7 +39,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 4 GB system RAM
 * 4 GB of GPU RAM
 * 8 core CPU
-* 1 NVIDIA Tesla T4 GPU
+* 1 NVIDIA CUDA Compute Capable devices 6.0 or higher ( e.g.: NVIDIA Tesla T4, 1080Ti, or 2080Ti )
 * 20 GB of HDD space
 
 #### Recommended hardware
@@ -252,20 +252,20 @@ Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
-```bash
+```azurecli
 sudo az login
 ```
-```bash
+```azurecli
 sudo az account set --subscription "<name or ID of Azure Subscription>"
 ```
-```bash
+```azurecli
 sudo az group create --name "<resource-group-name>" --location "<your-region>"
 ```
 See [Region Support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) for available regions.
-```bash
+```azurecli
 sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
-```bash
+```azurecli
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
@@ -306,7 +306,7 @@ Next, register the host computer as an IoT Edge device in your IoT Hub instance,
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
-```bash
+```azurecli
 sudo az iot hub device-identity connection-string show --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
@@ -418,20 +418,20 @@ Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
-```bash
+```azurecli
 sudo az login
 ```
-```bash
+```azurecli
 sudo az account set --subscription "<name or ID of Azure Subscription>"
 ```
-```bash
+```azurecli
 sudo az group create --name "<resource-group-name>" --location "<your-region>"
 ```
 See [Region Support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) for available regions.
-```bash
+```azurecli
 sudo az iot hub create --name "<iothub-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
-```bash
+```azurecli
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
@@ -472,7 +472,7 @@ Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [c
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
-```bash
+```azurecli
 sudo az iot hub device-identity connection-string show --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 

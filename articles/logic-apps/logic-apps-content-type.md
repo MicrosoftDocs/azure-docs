@@ -1,10 +1,10 @@
 ---
 title: Handle content types
-description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps
+description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 07/20/2018
 ---
 

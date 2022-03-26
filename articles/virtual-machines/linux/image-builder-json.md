@@ -207,7 +207,7 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
 The properties here are the same that are used to create VM's, using AZ CLI, run the below to get the properties: 
  
 ```azurecli-interactive
-az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
+az vm image list -l westus -f UbuntuServer -p Canonical --output table --all 
 ```
 
 You can use `latest` in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
@@ -258,7 +258,7 @@ Sets the source image an existing image version in an Azure Compute Gallery.
         } 
 ```
 
-The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) to list image versions.
+The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 
 ## Properties: buildTimeoutInMinutes

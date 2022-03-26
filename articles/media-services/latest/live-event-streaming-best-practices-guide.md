@@ -56,7 +56,7 @@ latency:
 
 5. **Send content that is no higher in resolution than what you plan to
     stream.** For example, if you're using 720p standard encoding live
-    events, you send files that are already at 720p.
+    events, you a stream that is already at 720p.
 
 6. **Keep your framerate at 30fps or lower unless using pass-through
     live events.** While we support 60 fps input for live events, our

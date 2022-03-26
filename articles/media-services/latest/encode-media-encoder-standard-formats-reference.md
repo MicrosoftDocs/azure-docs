@@ -20,7 +20,7 @@ ms.reviewer: johndeu
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](transform-custom-presets-how-to.md).
+This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](transform-custom-transform-how-to.md).
 
 ## Input container/file formats
 
@@ -96,7 +96,3 @@ The following table lists the codecs and file formats that are supported for exp
 | --- | --- | --- |
 | MP4 <br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles), HEVC (H.265) 8-bit |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main, and Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
-
-## Next steps
-
-[Create a transform with a custom preset](transform-custom-presets-how-to.md)

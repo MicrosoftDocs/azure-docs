@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 01/10/2022
-ms.author: memildin
+ms.author: elkrieger
 ---
 ## Enable the plan
 
@@ -25,13 +25,18 @@ ms.author: memildin
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
     > [!NOTE]
-    > If you choose to **disable the plan** at any time after enabling if through the portal as shown above, you'll need to manually disable auto provisioning of the Defender for Containers components. This will not remove the components from machines on which they've already been deployed.
+    > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually disable auto provisioning of the Defender for Containers components. This will not remove the components from machines on which they've already been deployed.
 
 1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
     - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
     - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
     - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+
+    > [!Note]
+    >Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the auto provisioning capabilities.
+    >
+    > If you choose to disable all of the auto provision configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers. 
 
 ## Deploy the Defender profile
 
@@ -84,7 +89,7 @@ Request query parameters:
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
 | ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
-|                |                                    |           |
+
  
 Request Body:
  
@@ -109,14 +114,14 @@ Request body parameters:
 | location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
 | properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
-|                                                                          |                                                                                          |           |
+
 
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
 ### Use Azure Resource Manager to deploy the Defender profile
 
-To use Azure Resource Manager to deploy the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use Azure Resource Manager to deploy the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../../azure-resource-manager/templates/overview.md)

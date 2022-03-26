@@ -301,7 +301,7 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 
 ## Delete a node pool
 
-If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynoodepool* created in the previous steps:
+If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
 
 > [!CAUTION]
 > There are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications are unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster.
@@ -543,48 +543,7 @@ Only pods that have this toleration applied can be scheduled on nodes in *taintn
 
 ### Setting nodepool labels
 
-You can also add labels to a node pool during node pool creation. Labels set at the node pool are added to each node in the node pool. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes.
-
-To create a node pool with a label, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *labelnp* and use the `--labels` parameter to specify *dept=IT* and *costcenter=9999* for labels.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name labelnp \
-    --node-count 1 \
-    --labels dept=IT costcenter=9999 \
-    --no-wait
-```
-
-> [!NOTE]
-> Labels must be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
-
-The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
-
-```azurecli
-az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
-
-```output
-[
-  {
-    ...
-    "count": 1,
-    ...
-    "name": "labelnp",
-    "orchestratorVersion": "1.15.7",
-    ...
-    "provisioningState": "Creating",
-    ...
-    "nodeLabels":  {
-      "dept": "IT",
-      "costcenter": "9999"
-    },
-    ...
-  },
- ...
-]
-```
+For more details on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
 ### Setting nodepool Azure tags
 
@@ -916,3 +875,4 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2
 [use-tags]: use-tags.md
+[use-labels]: use-labels.md

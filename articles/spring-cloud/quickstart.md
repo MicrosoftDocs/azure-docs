@@ -528,10 +528,13 @@ For advanced logs analytics features, visit the **Logs** tab in the menu on the 
 
 ## Clean up resources
 
-In the above steps, you created Azure resources that will continue to accrue charges while they remain in your subscription. If you don't expect to need these resources in the future, delete the resource group from the portal or by running the following command in the Azure CLI:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
-az group delete --name <your resource group name> --yes
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
@@ -547,6 +550,6 @@ In this quickstart, you learned how to:
 To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Cloud:
 
 > [!div class="nextstepaction"]
-> [Build and Run Apps](./quickstart-sample-app-introduction.md)
+> [Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

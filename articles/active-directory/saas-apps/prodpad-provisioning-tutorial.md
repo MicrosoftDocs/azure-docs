@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/09/2022
 ms.author: Thwimmer
 ---

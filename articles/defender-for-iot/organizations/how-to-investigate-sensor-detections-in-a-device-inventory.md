@@ -1,7 +1,7 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 02/02/2022
+ms.date: 03/09/2022
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
 
-:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="screen capture shows the Device inventory main screen":::
+:::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
 Options are available to:
 
@@ -40,27 +40,32 @@ This section describes device details available from the inventory and describes
 
 **To view the device inventory:**
 
-- In the console left pane, select **Device inventory**.  The following attributes appear in the inventory.
+In the console left pane, select **Device inventory**.
 
-| Parameter | Description |
+The following columns are available for each device.
+
+| Name | Description |
 |--|--|
-| Name | The name of the device as the sensor discovered it, or as entered by the user. |
-| Type | The type of device as determined by the sensor, or as entered by the user. |
-| Vendor | The name of the device's vendor, as defined in the MAC address. |
-| Operating System | The OS of the device, if detected. |
-| Firmware version | The device's firmware, if detected. |
-| IP Address | The IP address of the device. |
-| VLAN | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
-| MAC Address | The MAC address of the device. |
-| Protocols | The protocols that the device uses. |
-| Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
-| Is Authorized | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
-| Is Known as Scanner | Defined as a network scanning device by the user. |
-| Is Programming device | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
-| Groups | The groups that this device participates in. |
-| Last Activity | The last activity that the device performed. |
-| Discovered | When this device was first seen in the network. |
-| PLC mode (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
+| **Description** | A description of the device |
+| **Discovered** | When this device was first seen in the network. |
+| **Firmware version** | The device's firmware, if detected. |
+| **FQDN** | The device's FQDN value |
+| **FQDN lookup time** | The device's FQDN lookup time |
+| **Groups** | The groups that this device participates in. |
+| **IP Address** | The IP address of the device. |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Known as Scanner** | Defined as a network scanning device by the user. |
+| **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
+| **Last Activity** | The last activity that the device performed. |
+| **MAC Address** | The MAC address of the device. |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
+| **Operating System** | The OS of the device, if detected. |
+| **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
+| **Protocols** | The protocols that the device uses. |
+| **Type** | The type of device as determined by the sensor, or as entered by the user. |
+| **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
 
 **To hide and display columns:**
 
@@ -101,7 +106,7 @@ The filters that you save are also saved as Device map groups. This feature prov
 1. Select the double arrow >> on the left side of the page.
 The filters you create appear in the **Saved Views** pane.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Screen capture shows the saved Device inventory filter":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-views.png" alt-text="Screenshot that shows the saved Device inventory filter.":::
 
 
 ### View filtered information as a map group
@@ -228,7 +233,7 @@ Don't update file names.
 
 **To import:**
 
-1. Select **System Settings** > **Import Settings**> **Windows Information**.
+1. Select **System Settings** > **Import Settings** > **Windows Information**.
 
 2. Select **Import File**, and then select all the files (Ctrl+A).
 
@@ -265,7 +270,7 @@ You can filter the inventory to display devices that are inactive:
 1. Select **Last Activity** in the column field.
 1. Choose the time period in the **Filter** field.
 
-    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Screen capture shows last activity filter in Inventory":::
+    :::image type="content" source="media/how-to-inventory-sensor/save-filter.png" alt-text="Screenshot that shows the last activity filter in Inventory.":::
 
 ### Delete inactive devices
 
@@ -279,18 +284,20 @@ You'll be prompted to record a reason for deleting devices. This information, as
 1. Select a filter option.
 1. Select **Apply**.
 1. Select **Delete Inactive Devices**.
-1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you  delete a large number of devices, the delete process may take a few minutes.
+1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
 
 ## Export device inventory information
 
-You can export device inventory information to .csv file.
+You can export device inventory information to a .csv file.
 
 **To export:**
 
 - Select **Export file** from the Device Inventory page. The report is generated and downloaded.
 
-## See also
+## Next steps
 
-[Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+For more information, see:
 
-[Manage your IoT devices with the device inventory](../device-builders/how-to-manage-device-inventory-on-the-cloud.md#manage-your-iot-devices-with-the-device-inventory)
+- [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+
+- [Manage your IoT devices with the device inventory](../device-builders/how-to-manage-device-inventory-on-the-cloud.md#manage-your-iot-devices-with-the-device-inventory)

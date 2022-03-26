@@ -59,6 +59,7 @@ The OSS component versions associated with HDInsight 3.6 are listed in the follo
 - [Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0](interactive-query/apache-hive-migrate-workloads.md).
 - [Migrate Apache Kafka workloads to Azure HDInsight 4.0](kafka/migrate-versions.md).
 - [Migrate an Apache HBase cluster to a new version](hbase/apache-hbase-migrate-new-version.md).
+- [Migrate Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark](storm/migrate-storm-to-spark.md).
 
 ## Next steps
 

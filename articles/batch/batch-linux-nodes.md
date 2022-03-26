@@ -36,11 +36,7 @@ Not all Marketplace images are compatible with the currently available Batch nod
 
 ### Node agent SKU
 
-The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
-
-- batch.node.ubuntu 18.04
-- batch.node.centos 7
-- batch.node.windows amd64
+The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. To view supported Marketplace VM images with their corresponding node agent SKUs, you can refer to [Account - List Supported Images - REST API (Azure Batch Service) | Microsoft Docs](/rest/api/batchservice/account/list-supported-images).
 
 ## Create a Linux pool: Batch Python
 

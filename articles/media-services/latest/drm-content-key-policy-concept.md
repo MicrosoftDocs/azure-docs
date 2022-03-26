@@ -47,7 +47,7 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 
 ## Example
 
-To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [Get a signing key from the existing policy](drm-get-content-key-policy-dotnet-how-to.md#get-contentkeypolicy-with-secrets) example.
+To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [Get a signing key from the existing policy](drm-get-content-key-policy-how-to.md#get-contentkeypolicy-with-secrets) example.
 
 ## Filtering, ordering, paging
 

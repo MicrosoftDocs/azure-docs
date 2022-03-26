@@ -1,5 +1,5 @@
 ---
-title: 'Connect Azure Front Door Premium to a web app origin with Private Link'
+title: 'Connect Azure Front Door Premium to an app service origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a webapp privately.
 services: frontdoor
@@ -10,9 +10,9 @@ ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# Connect Azure Front Door Premium to a Web App origin with Private Link
+# Connect Azure Front Door Premium to a App Service origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium SKU to connect to your Web App privately using the Azure Private Link service.
+This article will guide you through how to configure Azure Front Door Premium SKU to connect to your App Service privately using the Azure Private Link service.
 
 ## Prerequisites
 
@@ -26,15 +26,15 @@ This article will guide you through how to configure Azure Front Door Premium SK
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Enable Private Link to a Web App in Azure Front Door Premium
+## Enable Private Link to an App Service in Azure Front Door Premium
  
 In this section, you'll map the Private Link service to a private endpoint created in Azure Front Door's private network. 
 
 1. Within your Azure Front Door Premium profile, under *Settings*, select **Origin groups**.
 
-1. Select the origin group that contains the Web App origin you want to enable Private Link for.
+1. Select the origin group that contains the App Service origin you want to enable Private Link for.
 
-1. Select **+ Add an origin** to add a new web app origin or select a previously created web app origin from the list.
+1. Select **+ Add an origin** to add a new app service origin or select a previously created app service origin from the list.
 
     :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-web-app.png" alt-text="Screenshot of enabling private link to a Web App.":::
 
@@ -50,9 +50,9 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Then select **Add** to save your configuration.
 
-## Approve Azure Front Door Premium private endpoint connection from Web App
+## Approve Azure Front Door Premium private endpoint connection from App Service
 
-1. Go to the Web App you configure Private Link for in the last section. Select **Networking** under **Settings**.
+1. Go to the App Service you configured Private Link for in the last section. Select **Networking** under **Settings**.
 
 1. In **Networking**, select **Configure your private endpoint connections**.
 
@@ -62,10 +62,6 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-pending-approval.png" alt-text="Screenshot of pending private endpoint request.":::
 
-1. Once approved, it should look like the screenshot below. It will take a few minutes for the connection to fully establish. You can now access your web app from Azure Front Door Premium. Direct access to the Web App from the public internet gets disabled after private endpoint gets enabled.
+1. Once approved, it should look like the screenshot below. It will take a few minutes for the connection to fully establish. You can now access your app service from Azure Front Door Premium. Direct access to the App Service from the public internet gets disabled after private endpoint gets enabled.
 
     :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-approved.png" alt-text="Screenshot of approved endpoint request.":::
-
-## Next steps
-
-Learn about [Private Link service with Azure Web App](../../app-service/networking/private-endpoint.md).

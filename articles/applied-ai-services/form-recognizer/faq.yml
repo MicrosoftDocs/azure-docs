@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/15/2022
   ms.author: lajanuar
 
@@ -22,7 +22,7 @@ sections:
           What is Form Recognizer?
         answer: |
 
-          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
+          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
           Form Recognizer use cases include automating your data processing in applications and workflows, enhancing data-driven strategies, and enriching document search capabilities.
 
@@ -43,7 +43,7 @@ sections:
         answer: |
 
            Form Recognizer's deep-learning-based universal models support many languages that can extract multi-lingual text from your images and documents, including text lines with mixed languages.
-         
+
            Language support varies by Form Recognizer service functionality. See [language support](language-support.md) for a complete list of the handwritten and printed text supported by Form Recognizer.
 
       - question: |
@@ -62,7 +62,7 @@ sections:
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
 
-          - [Azure Cognitive Search](/azure/search/cognitive-search-custom-skill-form)
+          - [Azure Cognitive Search](../../search/cognitive-search-custom-skill-form.md)
 
           - [Azure Functions](tutorial-azure-function.md)
 
@@ -78,13 +78,13 @@ sections:
 
           Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 
-          Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
+          Learn more about [Form Recognizer and Applied AI Services](../what-are-applied-ai-services.md).
 
       - question: |
            What is the accuracy score and how is it calculated?
-        answer: |   
-           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. 
-           
+        answer: |
+           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
+
            Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
 
            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores)
@@ -92,7 +92,7 @@ sections:
       - question: |
           How can I improve accuracy scores?
         answer: |
-          The accuracy of a model is influenced by variances in the visual structure of your documents. 
+          The accuracy of a model is influenced by variances in the visual structure of your documents.
 
           - Ensure that all variations of a document are included in the training dataset. Variations include different formats, for example, digital versus scanned PDFs.
 
@@ -176,16 +176,16 @@ sections:
 
             | Supported Language | Azure SDK client-library|API reference |Supported API version|
             | ----------- | --------|--------|:---------------------: |
-            | C#/.NET| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html)|[.NET API](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
-            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java API](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true )|2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
-            | JavaScript| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html)|[JavaScript API](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
-            | Python | [3.2.0b3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html) |[Python API](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
+            | C#/.NET| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html)|[.NET SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
+            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
+            | JavaScript| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html)|[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
+            | Python | [3.2.0b3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html) |[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
 
       - question: |
            What is the difference between Form Recognizer v3.0 and v2.1 and how do I migrate to the latest version?
         answer:  |
 
-          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer—the most recent SDK is required and your application code must be updated to use the new clients.
+          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer, the most recent SDK is required and your application code must be updated to use the new clients.
 
           This table provides links to detailed instructions for migrating to the newest version of Form Recognizer:
 
@@ -252,6 +252,18 @@ sections:
           - Increase the workload gradually. Avoid sharp changes.
 
           Learn more about Form Recognizer [service quotas and limits](service-limits.md)
+
+      - question: |
+         How can I reduce request latency for my API calls?
+        answer: |
+          - Latency is defined as the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
+
+          - Try applying longer timeouts to account for random latency spikes. A timeout of 1 to 2 minutes should be sufficient to catch all responses. If not, try the call again after a short delay.
+
+          - Consider using [Proximity placement groups](../../virtual-machines/co-location.md) for workloads where low latency is a requirement.
+          
+          - Enable a backup resource in another region to mitigate the latency impact.
+
 
   - name: Custom models
     questions:
@@ -354,7 +366,7 @@ sections:
       - question: |
            If my storage account is behind a VNet or firewall, how do I give Form Recognizer access to my storage account data?
         answer: |
-            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
+            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 
             If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the VNet or firewall.
 
@@ -367,7 +379,7 @@ sections:
         answer: |
 
           Yes, Form Recognizer containers require internet connectivity to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
-          Learn more about [Azure container security](/azure/container-instances/container-instances-image-security#security-recommendations-for-azure-container-instances).
+          Learn more about [Azure container security](../../container-instances/container-instances-image-security.md#security-recommendations-for-azure-container-instances).
 
   - name: Security and Privacy
     questions:
@@ -378,9 +390,9 @@ sections:
 
           - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-api-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription key.
 
-          - [Authenticate](/azure/cognitive-services/authentication?context=%2Fazure%2Fapplied-ai-services%2Fform-recognizer%2Fcontext%2Fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
-          - [Enable](/azure/applied-ai-services/form-recognizer/encrypt-data-at-rest#enable-customer-managed-keys-for-your-resource) customer-managed keys.
+          - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 
           - [Authorize](managed-identities.md#enable-a-system-assigned-managed-identity) managed identities.
 
@@ -396,9 +408,9 @@ sections:
       - question: |
             Where can I find more solutions to my Azure Form Recognizer questions?
         answer: |
-             [Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specifically related to Form Recognizer.
+             [Microsoft Q & A](/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specific to Form Recognizer.
 
       - question: |
             What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?
         answer: |
-            We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.
+            We continually update and improve the Form Recognizer OCR model. You can reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.

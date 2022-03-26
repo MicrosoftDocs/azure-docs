@@ -51,9 +51,9 @@ Before you can install an extension, you must enable guest management on the VMw
 
 1. Make sure your target machine:
 
-   - is running a [supported operating system](../servers/agent-overview.md#supported-operating-systems).
+   - is running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
 
-   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/agent-overview.md#networking-configuration) are not blocked.
+   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/network-requirements.md#urls) are not blocked.
 
    - has VMware tools installed and running.
 

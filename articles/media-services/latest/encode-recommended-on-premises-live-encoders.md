@@ -6,7 +6,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/17/2022
+ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: media-services
 ---
@@ -55,10 +55,10 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
 - Haivision KB
 - Haivision Makito X HEVC
-- [Restream.io](https://restream.io/)
-- OBS Studio
+- [OBS Studio](https://obsproject.com/download)
 - [Osprey Talon hardware encoders](https://www.ospreyvideo.com/talon-encoders), Talon 4K-SC, Talon UHD-SC
-- [Streamlabs OBS](https://streamlabs.com/)
+- [Restream.io](https://restream.io/)
+- [Streamlabs](https://streamlabs.com/)
 - [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 - Telestream Wirecast S (only RTMP is supported. No RTMPS support due to lack of TLS 1.2+)
@@ -103,7 +103,7 @@ To play back content, both an audio and video stream must be present. Playback o
 - Whenever possible, use a hardwired internet connection.
 - When you're determining bandwidth requirements, double the streaming bitrates. Although not mandatory, this simple rule helps to mitigate the impact of network congestion.
 - When using software-based encoders, close out any unnecessary programs.
-- Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. If you change your encoder configuration, you need to reset [Live Events](https://docs.microsoft.com/rest/api/media/live-events/reset) and restart the live event in order for the change to take place. If you stop and start the live event without resetting it, the live event will preserve the previous configuration.
+- Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. If you change your encoder configuration, you need to reset [Live Events](/rest/api/media/live-events/reset) and restart the live event in order for the change to take place. If you stop and start the live event without resetting it, the live event will preserve the previous configuration.
 - Always test and validate newer versions of encoder software for continued compatibility with Azure Media Services. Microsoft does not re-validate encoders on this list, and most validations are done by the software vendors directly as a "self-certification."
 - Ensure that you give yourself ample time to set up your event. For high-scale events, we recommend starting the setup an hour before your event.
 - Use the H.264 video and AAC-LC audio codec output.
@@ -114,7 +114,7 @@ To play back content, both an audio and video stream must be present. Playback o
 
 > [!IMPORTANT]
 > Watch the physical condition of the machine (CPU / Memory / etc) as uploading fragments to cloud involves CPU and IO operations. 
-> If you change any encoder configurations, reset [Live Events](https://docs.microsoft.com/rest/api/media/live-events/reset) the channels and the live event for the change to take place. If you stop and start the live event without resetting it, the live event will preserve the previous configuration.
+> If you change any encoder configurations, reset [Live Events](/rest/api/media/live-events/reset) the channels and the live event for the change to take place. If you stop and start the live event without resetting it, the live event will preserve the previous configuration.
 
 ## See also
 

@@ -26,14 +26,14 @@ This document focuses on enabling security key based passwordless authentication
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Enable [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN requires Windows 10 version 1903 or higher**
+- WebAuthN requires Windows 10 version 1903 or higher
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
 These include Microsoft Edge, Chrome, Firefox, and Safari.
 
 ## Prepare devices
 
-For Azure AD joined devices the best experience is on Windows 10 version 1903 or higher.
+For Azure AD joined devices, the best experience is on Windows 10 version 1903 or higher.
 
 Hybrid Azure AD joined devices must run Windows 10 version 2004 or higher.
 

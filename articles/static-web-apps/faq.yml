@@ -4,11 +4,10 @@ metadata:
   description: Find answers to the frequently asked questions about Azure Static Web Apps.
   keywords: azure static web apps, frequently asked questions
   author: craigshoemaker
-  ms.topic: article
+  ms.topic: faq
   ms.service: static-web-apps
   ms.date: 10/23/2021
   ms.author: cshoe
-    
 title: Azure Static Web Apps Frequently Asked Questions
   
 sections:

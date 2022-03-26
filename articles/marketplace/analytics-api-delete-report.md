@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Delete report API
@@ -29,11 +29,11 @@ On execution, this API deletes all of the report and report execution records.
 | Content Type | string | `Application/JSON` |
 ||||
 
-**Path Parameter**
+**Path parameter**
 
 None
 
-**Query Parameter**
+**Query parameter**
 
 | Parameter name | Required | string | Description |
 | ------------ | ------------- | ------------- | ------------- |

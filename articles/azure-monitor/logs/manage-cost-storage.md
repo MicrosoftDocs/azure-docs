@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 03/05/2022
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,9 +45,11 @@ Billing for the commitment tiers is done on a daily basis. [Learn more](https://
 > [!NOTE]
 > Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Three new commitment tiers were also added: 1000, 2000, and 5000 GB/day. 
 
+### Data size calculation
+
 <a name="data-size"></a>
 <a name="free-data-types"></a>
-In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in Log Analytics for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage) and [Operation](/azure/azure-monitor/reference/tables/operation) types. Some solutions have more solution-specific policies about free data ingestion, for instance [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. To determine whether an event was excluded from billing for data ingestion, you can use the [_IsBillable](log-standard-columns.md#_isbillable) property as shown [below]Fdata-volume-for-specific-events). Usage is reported in GB (10^9 bytes). 
+In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in Log Analytics for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage) and [Operation](/azure/azure-monitor/reference/tables/operation) types. Some solutions have more solution-specific policies about free data ingestion, for instance [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. To determine whether an event was excluded from billing for data ingestion, you can use the [_IsBillable](log-standard-columns.md#_isbillable) property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (10^9 bytes). 
 
 Also, some solutions, such as [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/azure-defender/), [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
@@ -151,7 +153,7 @@ Changes to a workspace's pricing pier are recorded in the [Activity Log](../esse
 
 ## Legacy pricing tiers
 
-Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)) and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.  Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)) and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.  Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days. Creating new workspaces in (or moving existing workspaces into) the Free Trial pricing tier is possible until July 1, 2022.
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
@@ -208,7 +210,7 @@ The **Data Retention** page allows retention settings of 30, 31, 60, 90, 120, 18
 
 Workspaces with 30 days retention might actually retain data for 31 days. If it's imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
 
-By default, two data types - `Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
+By default, two data types - `Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types, and you'll be charged for retaining this data beyond the 90-day period. These data types are also free from data ingestion charges. 
 
 Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents`, and `AppTraces`) are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
 
@@ -273,7 +275,7 @@ Soon after the daily limit is reached, the collection of billable data types sto
 > The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. For a query that is helpful in studying the daily cap behavior, see the [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) section in this article. 
 
 > [!WARNING]
-> The daily cap doesn't stop the collection of data types **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary**, except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017. 
+> For workspaces with Microsoft Defender for Cloud, the daily cap doesn't stop the collection of data types **WindowsEvent**, **SecurityAlert**, **SecurityBaseline**, **SecurityBaselineSummary**, **SecurityDetection**, **SecurityEvent**, **WindowsFirewall**, **MaliciousIPCommunication**, **LinuxAuditLog**, **SysmonEvent**, **ProtectionStatus**, **Update**, and **UpdateSummary**, except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017. 
 
 ### Identify what daily data limit to define
 
@@ -656,13 +658,14 @@ To facilitate this assessment, the following query can be used to make a recomme
 Here is the pricing tier recommendation query:
 
 ```kusto
-// Set these parameters before running query
-// Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
+// Set these parameters before running query.
+// For Pay-As-You-Go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
+// You can see your per-node costs in your Azure usage and charge data. For more information, see https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage.  
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
 let workspaceHasSecurityCenter = false;  // Specify if the workspace has Defender for Cloud (formerly known as Azure Security Center)
-let PerNodePrice = 15.; // Enter your monthly price per monitored nodes
-let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
-let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
+let PerNodePrice = 15.; // Montly price per monitored node
+let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
+let PerGBPrice = 2.30; // Enter the Pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)
 let CommitmentTier100Price = 196.; // Enter your price for the 100 GB/day commitment tier
 let CommitmentTier200Price = 368.; // Enter your price for the 200 GB/day commitment tier
 let CommitmentTier300Price = 540.; // Enter your price for the 300 GB/day commitment tier
