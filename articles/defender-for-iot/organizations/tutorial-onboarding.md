@@ -408,7 +408,7 @@ Once registration is complete for the sensor, you will be able to download an ac
 
 1. Go to the sensor console from your browser by using the IP defined during the installation.
 
-    :::image type="content" source="media/tutorial-onboarding/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Screenshot of the Microsoft Defender for IoT sensor.":::
+    :::image type="content" source="media/tutorial-onboarding/defender-for-iot-sensor-log-in-screen.png" alt-text="Screenshot of the Microsoft Defender for IoT sensor.":::
 
 1. Enter the credentials defined during the sensor installation.
 
