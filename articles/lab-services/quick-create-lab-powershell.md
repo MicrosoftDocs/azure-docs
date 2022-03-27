@@ -15,7 +15,18 @@ In this quickstart, you, as the educator, create a lab using PowerShell and the 
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2&preserve-view=true).
-- [Azure AzPreview PowerShell module](https://www.powershellgallery.com/packages/AzPreview). Must be version 7.2 or higher.
+- [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az). Must be version 7.2 or higher.
+
+    ```powershell
+    Install-Module 'Az'
+    ```
+
+- [Az.LabServices PowerShell module](/powershell/module/az.labservices/).
+
+    ```powershell
+    Install-Module 'Az.LabServices'
+    ```
+
 - Lab plan. To create a lab plan, see [Quickstart: Create a lab plan using PowerShell and the Azure modules](quick-create-lab-plan-powershell.md).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure and verify an active subscription.
