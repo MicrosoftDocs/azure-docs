@@ -25,6 +25,8 @@
   items:
     - name: System architecture
       href: architecture.md
+    - name: Network monitoring best practices
+      href: plan-network-monitoring.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: OT security system architecture

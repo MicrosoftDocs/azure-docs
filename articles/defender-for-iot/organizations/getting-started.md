@@ -37,7 +37,7 @@ Later on, you'll need the following permissions to use Defender for IoT:
 
 Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *Central US* regional datacenter.
 
-If you are using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for you. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+If you are using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 ## Identify and plan your solution architecture
 
