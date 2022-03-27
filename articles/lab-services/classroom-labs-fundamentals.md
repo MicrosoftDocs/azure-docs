@@ -13,7 +13,7 @@ ms.author: enewman
 
 Azure Lab Services is a SaaS (software as a service) solution, which means that the resources needed by Lab Services are handled for you. This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.
 
-Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  If using the January 2022 update, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) to use virtual network injection instead of virtual network peering.  To reuse images from an Azure Compute Gallery, see how to [attach a compute gallery](how-to-attach-detach-shared-image-gallery.md).
+Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  If using the April 2022 Update, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) to use virtual network injection instead of virtual network peering.  To reuse images from an Azure Compute Gallery, see how to [attach a compute gallery](how-to-attach-detach-shared-image-gallery.md).
 
 Below is the basic architecture of a lab.  The lab account or lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
 

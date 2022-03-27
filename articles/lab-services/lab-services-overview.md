@@ -42,9 +42,9 @@ You can set up labs for several types of classes with Azure Lab Services. See th
 
 Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services) page to learn where Azure Lab Services is available.
 
-[Azure Lab Services January 2022 Update (preview](lab-services-whats-new.md)) doesn’t move or store customer data outside the region it’s deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
+[Azure Lab Services April 2022 Update (preview](lab-services-whats-new.md)) doesn’t move or store customer data outside the region it’s deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
 
-There are no guarantees customer data will stay in the region it’s deployed to when using Azure Lab Services previous to the January 2022 Update (preview).
+There are no guarantees customer data will stay in the region it’s deployed to when using Azure Lab Services previous to the April 2022 Update (preview).
 
 ## Next steps
 

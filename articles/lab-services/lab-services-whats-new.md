@@ -1,11 +1,11 @@
 ---
 title: What's New in Azure Lab Services | Microsoft Docs
-description: Learn what's new in the Azure Lab Services January 2022 Updates. 
+description: Learn what's new in the Azure Lab Services April 2022 Updates. 
 ms.topic: overview
 ms.date: 01/06/2022
 ---
 
-# What's new in Azure Lab Services January 2022 Updates (preview)
+# What's new in Azure Lab Services April 2022 Updates (preview)
 
 We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this preview!
 
@@ -61,9 +61,9 @@ Lab accounts and labs have a parental relationship.  By moving to a sibling rela
 
 ### Migrate from lab account to lab plan
 
-To use the new features provided in the public preview, you'll need to create new lab plans and labs. When you create a lab plan, you can reuse the same Azure Compute Gallery and images.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a time when you're using both the January 2022 Update (preview) and the current version of Azure Lab Services. You might have both lab accounts and lab plans that coexist in your subscription and that access the same external resources.
+To use the new features provided in the public preview, you'll need to create new lab plans and labs. When you create a lab plan, you can reuse the same Azure Compute Gallery and images.  Likewise, you can reuse the same licensing server. As you migrate, there likely will be a time when you're using both the April 2022 Update (preview) and the current version of Azure Lab Services. You might have both lab accounts and lab plans that coexist in your subscription and that access the same external resources.
 
-With all the new enhancements in the January 2022 Update (preview), it's a good time to revisit your overall lab structure. More than one lab plan might be needed depending on your scenario.  For example, the math department may only require one lab plan in one resource group.  The computer science department might require multiple lab plans.  One lab plan can enable advanced networking and enable a few custom images from an Azure Compute Gallery.  Another lab plan can use basic networking and not enable custom images.  Both lab plans can be kept in the same resource group.
+With all the new enhancements in the April 2022 Update (preview), it's a good time to revisit your overall lab structure. More than one lab plan might be needed depending on your scenario.  For example, the math department may only require one lab plan in one resource group.  The computer science department might require multiple lab plans.  One lab plan can enable advanced networking and enable a few custom images from an Azure Compute Gallery.  Another lab plan can use basic networking and not enable custom images.  Both lab plans can be kept in the same resource group.
 
 ### Configure a lab plan
 
