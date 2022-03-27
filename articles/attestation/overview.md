@@ -50,6 +50,10 @@ Client applications can be designed to take advantage of TPM attestation by dele
 
 Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (CVM) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-solutions-amd.md) and aims to improve VM security posture by removing trust in host, hypervisor and Cloud Service Provider (CSP). To achieve this, CVM offers VM OS disk encryption option with platform-managed keys and binds the disk encryption keys to the virtual machine's TPM. When a CVM boots up, SNP report containing the guest VM firmware measurements will be sent to Azure Attestation. The service validates the measurements and issues an attestation token that is used to release keys from [Managed-HSM](../key-vault/managed-hsm/overview.md) or [Azure Key Vault](../key-vault/general/basic-concepts.md). These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. The attestation and key release process is performed automatically on each CVM boot, and the process ensures the CVM boots up only upon successful attestation of the hardware.
 
+### Trusted Launch attestation 
+
+Azure customers can [prevent bootkit and rootkit infections](https://www.youtube.com/watch?v=CQqu_rTSi0Q) by enabling [Trusted launch](../virtual-machines/trusted-launch) for their virtual machines (VMs). When the VM is Secure Boot and vTPM enabled with guest attestation extension installed, vTPM measurements get submitted to Azure Attestation periodically for monitoring of boot integrity. An attestation failure indicates potential malware, which is surfaced to customers via Microsoft Defender for Cloud, through Alerts and Recommendations. 
+
 ## Azure Attestation can run in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
