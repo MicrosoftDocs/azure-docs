@@ -301,6 +301,8 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |
 
+> [!NOTE]
+> This connector was designed to import only those alerts whose status is "open." Alerts that have been closed in Azure AD Identity Protection will not be imported to Microsoft Sentinel.
 
 ## Azure Activity
 
@@ -379,7 +381,7 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 > [!NOTE]
 > The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 18, 2022**, we are sunsetting the AIP analytics and audit logs public preview, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview). Full retirement is scheduled for **September 30, 2022**.
 >
-> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services.md#azure-information-protection-analytics).
+> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
 >
 
 ## Azure Key Vault

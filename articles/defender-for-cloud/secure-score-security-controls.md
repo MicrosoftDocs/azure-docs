@@ -1,8 +1,10 @@
 ---
 title: Security posture for Microsoft Defender for Cloud
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
+author: bmansheim
+ms.author: benmansheim
 ms.topic: article
-ms.date: 03/06/2022
+ms.date: 03/23/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
@@ -20,13 +22,15 @@ The central feature in Defender for Cloud that enables you to achieve those goal
 
 Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
-The secure score is shown in the Azure portal pages as a percentage value, but the underlying values are also clearly presented:
+- In the Azure portal pages, the secure score is shown as a percentage value and the underlying values are also clearly presented:
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal.":::
+    :::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal.":::
 
-To increase your security, review Defender for Cloud's recommendations page for the outstanding actions necessary to raise your score. Each recommendation includes instructions to help you remediate the specific issue.
+- In the Azure mobile app, the secure score is shown as a percentage value and you can tap the secure score to see the details that explain the score:
 
-Recommendations are grouped into **security controls**. Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. Your score only improves when you remediate *all* of the recommendations for a single resource within a control. To see how well your organization is securing each individual attack surface, review the scores for each security control.
+    :::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-mobile.png" alt-text="Overall secure score as shown in the Azure mobile app.":::
+
+To increase your security, review Defender for Cloud's recommendations page and remediate the recommendation by implementing the remediation instructions for each issue. Recommendations are grouped into **security controls**. Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. Your score only improves when you remediate *all* of the recommendations for a single resource within a control. To see how well your organization is securing each individual attack surface, review the scores for each security control.
 
 For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
@@ -55,11 +59,11 @@ You can view the owners, and their overdue recommendations by selecting the owne
 
 ## How your secure score is calculated 
 
-The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
+The contribution of each security control towards the overall secure score is shown on the recommendations page.
 
 :::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
-To get all the possible points for a security control, all your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
+To get all the possible points for a security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
 ### Example scores for a control
 
@@ -103,22 +107,22 @@ The grace period does not affect your overall score. However, if the recommendat
 
 ## Improve your secure score
 
-To improve your secure score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **Fix** option (when available) to resolve an issue on multiple resources quickly. For more information, see [Remediate recommendations](implement-security-recommendations.md).
+To improve your secure score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or use the **Fix** option (when available) to resolve an issue on multiple resources quickly. For more information, see [Remediate recommendations](implement-security-recommendations.md).
 
-Another way to improve your score and ensure your users don't create resources that negatively impact your score is to configure the Enforce and Deny options on the relevant recommendations. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
+You can also configure the Enforce and Deny options on the relevant recommendations to improve your score and ensure your users don't create resources that negatively impact your score. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
 
 ## Security controls and their recommendations
 
 The table below lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
 
-The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. The recommendations can be further customized by [disabling policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempting specific resources from a recommendation](exempt-resource.md). 
+The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations. 
  
-We recommend every organization carefully review their assigned Azure Policy initiatives. 
+We recommend every organization carefully reviews their assigned Azure Policy initiatives.
 
 > [!TIP]
-> For details of reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
+> For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
 
-Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it'll sometimes be necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks you're obligated to meet.<br><br>
+Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it is sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
@@ -127,13 +131,13 @@ Even though Defender for Cloud's default security initiative is based on industr
 ## FAQ - Secure score
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
-No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
+No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations for all resources.
 
 ### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
 ### If a security control offers me zero points towards my secure score, should I ignore it?
-In some cases, you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations as they still bring security improvements. The only exception is the "Additional Best Practice" control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
+In some cases, you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations because they still bring security improvements. The only exception is the "Additional Best Practice" control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
 
 ## Next steps
 

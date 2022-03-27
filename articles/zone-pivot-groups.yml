@@ -1618,16 +1618,16 @@ groups:
   - id: iot-toolset-stm32cube
     title: STM32Cube IDE
 # Owner: v-amallick
-- id: backup-client-powershelltier-clitier-portaltier
+- id: backup-client-portaltier-powershelltier-clitier
   title: Clients
   prompt: Choose a client
   pivots:
+  - id: client-portaltier
+    title: Azure portal
   - id: client-powershelltier
     title: PowerShell
   - id: client-clitier
     title: CLI
-  - id: client-portaltier
-    title: Azure portal
 # Owner: prakulka
 - id: acs-tollfree-shortcode
   title: Number Type
@@ -1729,3 +1729,4 @@ groups:
     title: Azure Resouce Manager
   - id: aro-bicep
     title: Bicep   
+

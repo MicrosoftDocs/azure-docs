@@ -375,7 +375,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=securityS
+    href: /learn/browse/?term=defender%20for%20cloud
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

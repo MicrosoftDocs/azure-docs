@@ -72,7 +72,7 @@ You can use any of the following ways to enable enhanced security for your subsc
 | Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
 | PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
 | Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
-|                                                 |                                                                                                                                                    |
+
 
 ### Can I enable Microsoft Defender for servers on a subset of servers in my subscription?
 No. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, all the machines in the subscription will be protected by Defender for servers.
