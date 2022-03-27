@@ -70,6 +70,8 @@ items:
       href: virtual-network-network-interface-addresses.md
     - name: Custom IP address prefix (BYOIP)
       items:
+      - name: Create a custom IP address prefix (BYOIP) - Portal
+        href: create-custom-ip-address-prefix-portal.md      
       - name: Create a custom IP address prefix (BYOIP) - PowerShell
         href: create-custom-ip-address-prefix-powershell.md
       - name: Create a custom IP address prefix (BYOIP) - Azure CLI

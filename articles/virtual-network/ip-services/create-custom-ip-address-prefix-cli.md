@@ -45,7 +45,7 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
 
 * The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
 
-* Thee address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
+* The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
 * A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry website. ARIN, RIPE, and APNIC.  
     
@@ -53,7 +53,7 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
         
     * The Origin AS must be listed as 8075
     
-    * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Note some RIRs don't present validity end date as an option and or choose the date for you.
+    * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Note that some RIRs don't present validity end date as an option and or choose the date for you.
     
     * The prefix length should exactly match the prefixes that can be advertised by Microsoft. For example, if you plan to bring 1.2.3.0/24 and 2.3.4.0/23 to Microsoft, they should both be named.
   

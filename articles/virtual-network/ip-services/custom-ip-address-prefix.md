@@ -26,7 +26,7 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 Bringing an IP prefix to Azure is a three phase process -- validation, provisioning, and commissioning.
 
-:::image type="content" source="./media/custom-ip-address-prefix/byoip-onboarding-process.png" alt-text="Illustration of the Custom IP Prefix onboarding process" border="false":::
+:::image type="content" source="./media/custom-ip-address-prefix/byoip-onboarding-process.png" alt-text="Illustration of the Custom I P Prefix onboarding process." border="false":::
 
 ### Validation
 

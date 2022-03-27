@@ -24,7 +24,7 @@ This article explains how to:
 
 * Deprovision/delete a custom IP prefix
 
-For information on provisioning a IP address, please refer to [Create a custom IP address prefix - Azure portal](create-custom-ip-address-prefix-portal.md), [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md), or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
+For information on provisioning an IP address, please refer to [Create a custom IP address prefix - Azure portal](create-custom-ip-address-prefix-portal.md), [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md), or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
 ## Create a public IP prefix from a custom IP prefix
 
@@ -33,7 +33,7 @@ When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissio
 > [!NOTE]
 > A public IP prefix can be derived from a custom IP prefix in another subscription with the appropriate permissions.
 
-:::image type="content" source="./media/manage-custom-ip-address-prefix/custom-public-ip-prefix.png" alt-text="Illustration of Custom IP Prefix showing derived Public IP Prefixes across multiple subscriptions" border="false":::
+:::image type="content" source="./media/manage-custom-ip-address-prefix/custom-public-ip-prefix.png" alt-text="Illustration of Custom I P Prefix showing derived Public I P Prefixes across multiple subscriptions." border="false":::
 
 Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix.
 

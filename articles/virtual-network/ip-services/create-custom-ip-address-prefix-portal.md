@@ -53,7 +53,7 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
         
     * The Origin AS must be listed as 8075
     
-    * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Note some RIRs don't present validity end date as an option and or choose the date for you.
+    * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Note that some RIRs don't present validity end date as an option and or choose the date for you.
     
     * The prefix length should exactly match the prefixes that can be advertised by Microsoft. For example, if you plan to bring 1.2.3.0/24 and 2.3.4.0/23 to Microsoft, they should both be named.
   
