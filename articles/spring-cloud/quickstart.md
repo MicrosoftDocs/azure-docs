@@ -489,7 +489,7 @@ Once deployment has completed, you can access the app at `https://<service insta
 [![Access app from browser](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 
 #### [Visual Studio Code](#tab/vscode)
-To deploy a simple Spring Boot Getting Started web app to Azure Spring Cloud, follow the steps in [Build and Deploy Java Sping Boot Apps to Azure Spring Cloud with Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-cloud#_download-and-test-the-spring-boot-app).
+To deploy a simple Spring Boot Getting Started web app to Azure Spring Cloud, follow the steps in [Build and Deploy Java Spring Boot Apps to Azure Spring Cloud with Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-cloud#_download-and-test-the-spring-boot-app).
 
 
 ## Streaming logs in real time
