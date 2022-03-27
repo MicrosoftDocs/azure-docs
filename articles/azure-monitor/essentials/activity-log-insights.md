@@ -7,9 +7,10 @@ ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: guywild-ms
 
+
 #Customer intent: As an IT administrator, I want to track changes to resource groups or specific resources in a subscription and to see which administrators or services make these changes. 
 ---
-  
+
 # Activity log insights (Preview)
 
 Activity log insights let you view information about changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to view Activity log insights in the Azure portal.
