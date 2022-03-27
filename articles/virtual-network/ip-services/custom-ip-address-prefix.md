@@ -30,7 +30,7 @@ Bringing an IP prefix to Azure is a three phase process -- validation, provision
 
 ### Validation
 
-In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as [ARIN](https://www.arin.net/) or [RIPE](https://www.ripe.net/).  When bringing an IP range to use on Azure, it remains under your ownership, so you must authorize Microsoft to advertise it.  Your ownership of the range and associated with your Azure subscription must also be verified.  Note that some of these steps will be done outside of Azure.
+In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as [ARIN](https://www.arin.net/) or [RIPE](https://www.ripe.net/).  When bringing an IP range to use on Azure, it remains under your ownership, so you must authorize Microsoft to advertise it.  Your ownership of the range and its association with your Azure subscription must also be verified.  Note that some of these steps will be done outside of Azure.
 
 ### Provisioning
 
