@@ -98,10 +98,11 @@ When you select an alert, this alert details pane provides details of the alert 
 
 The Alert details pane includes:
 
-| Section | Description |
-|:---|:---|
-| Summary | Displays the properties and other significant information about the alert. |
-| History | Lists each action on the alert and any changes made to the alert.|
+
+|Section  |Description  |
+|---------|---------|
+|Summary     | Displays the properties and other significant information about the alert.        |
+|History     |  Lists all actions on the alert and any changes made to the alert.       |
 ## Manage alerts
 
 You can set the user response of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All user response changes are stored in the history of the alert.
