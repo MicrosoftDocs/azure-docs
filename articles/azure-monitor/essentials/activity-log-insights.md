@@ -24,9 +24,9 @@ Activity log insights is a curated [Log Analytics workbook](/articles/azure-moni
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
 
-## View Activity log insights
+## View Activity log insights - Resource group / Subscription level
 
-To view Activity log insights:
+To view Activity log insights on a resource group or a subscription level:
 
 1. In the Azure portal, select **Monitor** > **Workbooks**.
 1. Select **Activity Logs Insights** in the **Insights** section. 
@@ -37,7 +37,21 @@ To view Activity log insights:
     1. One or more subscriptions from the **Subscriptions** dropdown.
     1. Resources and resource groups from the **CurrentResource** dropdown.
     1. A time range for which to view data from the **TimeRange** dropdown.
+## View Activity log insights on any Azure resource
 
+>[!Note]
+> * Currently Applications Insights resources are not supported for this workbook.
+
+To view Activity log insights on a resource level:
+
+1. In the Azure portal, go to your resource, select **Workbooks**.
+1. Select **Activity Logs Insights** in the **Activity Logs Insights** section. 
+
+    :::image type="content" source="media/activity-log/activity-log-resource-level.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook":::
+
+1. At the top of the **Activity Logs Insights** page, select:
+    
+    1. A time range for which to view data from the **TimeRange** dropdown.
     * **Azure Activity Log Entries** shows the count of Activity log records in each [activity log category](/articles/azure-monitor/essentials/activity-log-schema#categories).
      
         :::image type="content" source="media/activity-log/activity-logs-insights-categoryvalue.png" alt-text="Azure Activity Logs by Category Value":::
