@@ -10,7 +10,7 @@ summary: >
 metadata:
   title: Microsoft identity platform documentation
   description: >
-   Use Azure Active Directory (Azure AD) and OAuth 2.0 and OpenID Connect (OIDC) to protect the web apps and APIs you build. Learn how to sign in users and
+   Use Azure Active Directory (Azure AD) with OAuth 2.0 and OpenID Connect (OIDC) to protect the apps and web APIs you build. Learn how to sign in users and
    manage their access through our quickstarts, tutorials, code samples, and API reference documentation.
   ms.service: active-directory
   ms.topic: hub-page
@@ -24,7 +24,6 @@ metadata:
 
 ## BAND 1 - HIGHLIGHTED CONTENT #############################################################################################################################
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What is the Microsoft identity platform?
       itemType: overview # controls the icon image and super-title text
@@ -44,14 +43,14 @@ highlightedContent:
 ## BAND 2 ####################################################################################################################################################
 productDirectory:
   sections:
-    - title: Authentication and authorization for any app
-      summary: Select an app type to focus on the documentation for the type of application you're building or extending with identity and access management (IAM) support.
+    - title: Authentication and authorization for any application
+      summary: Focus on documentation for the app you're building or extending with identity and access management (IAM) support by selecting its type.
       items:
         ## ROW 1 ######################
         - title: Single-page app (SPA)
           url: index-spa.yml
           imageSrc: ./media/hub/app-type-spa.svg
-          summary: An web application whose code is downloaded and run in the browser itself.
+          summary: A web application whose code is downloaded and run in the browser itself.
         - title: Web app
           url: index-web-app.yml
           imageSrc: ./media/hub/app-type-web.svg
@@ -72,14 +71,14 @@ productDirectory:
         - title: Background service, daemon, or script
           url: index-service.yml
           imageSrc: ./media/hub/app-type-daemon-console.svg
-          summary: A application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
+          summary: An application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
 
 
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
   title: Get started
-  summary: Add identity and access management features to your applications and learn the best practices for keeping them secure and available.
+  summary: Quick access to documentation for adding core IAM features to your applications and guidance on the best practices for keeping your apps secure and available.
   items:
     ## CARD 1 ######################
     - title: Sign in users
@@ -103,7 +102,7 @@ conceptualContent:
           url: quickstart-configure-app-expose-web-apis.md
           itemType: quickstart
         - text: Protect an API in code
-          url: web-api-quickstart.md?pivots=devlang-aspnet-core
+          url: web-api-quickstart.md
           itemType: quickstart
         - text: Call an API from a non-interactive app or script
           url: console-app-quickstart.md
@@ -138,7 +137,7 @@ conceptualContent:
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
   title: Microsoft authentication libraries on GitHub
-  summary: The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft, we recommend MSAL for any app that uses the Microsoft identity platform for auth.
+  summary: The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft, we recommend MSAL for any app that uses the Microsoft identity platform for authentication and authorization.
   items:
   ## ROW 1 ######################
   - title: .NET
@@ -185,7 +184,7 @@ additionalContent:
             text: External Identities documentation
       # Card
       - title: Connect to Microsoft Graph
-        summary: Access your organization's and users' data stored in Microsoft Graph. Use the Microsoft Graph API to get and modify your user's profiles, calendars, email, and more.
+        summary: Programmatic access to organizational, user, and application data stored in Microsoft Graph. Call the Microsoft Graph API from your application to create and manage Azure AD users and groups, get and modify your users' data like profiles, calendars, email, and more.
         links:
         - url: microsoft-graph-intro.md
           text: Use the Microsoft Graph API
