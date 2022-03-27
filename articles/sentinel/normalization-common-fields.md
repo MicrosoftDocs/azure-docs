@@ -93,6 +93,7 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Vectra AI | Vectra Steam |
 | Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
 
+
 If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
 
 ## Next steps
