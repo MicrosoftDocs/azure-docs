@@ -39,9 +39,11 @@ Defender for IoT routes all traffic from all European regions to the *West Europ
 
 If you are using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## Identify and plan your solution architecture
+## Identify and plan your OT solution architecture
 
-Before start working with Defender for IoT, especially if you plan to start with a trial subscription, we recommend identifying your system requirements and planning your system architecture.
+If you are working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
+
+When working with an OT network:
 
 - To deploy Defender for IoT, you'll need network switches that support traffic monitoring via a SPAN port and hardware appliances for NTA sensors.
 
@@ -57,13 +59,13 @@ For more information, see:
 
 - [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
 - [Sensor connection methods](architecture-connections.md)
-- [Prepare your network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
+- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
 - [Predeployment checklist](predeployment-checklist.md)
 - [Identify required appliances](how-to-identify-required-appliances.md).
 
 ## Add a subscription to Defender for IoT
 
-This procedure describes how to add a new Azure subscription to Defender for IoT.
+This procedure describes how to add a new Azure subscription to Defender for IoT. If you are planning to monitor both OT and enterprise IoT networks, we recommend adding separate subscriptions.
 
 **To add your subscription**
 

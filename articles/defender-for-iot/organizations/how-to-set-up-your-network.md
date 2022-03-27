@@ -1,12 +1,12 @@
 ---
-title: Prepare your network for Microsoft Defender for IoT
+title: Prepare your OT network for Microsoft Defender for IoT
 Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Microsoft Defender for IoT appliances.
 ms.date: 02/22/2022
 ms.topic: how-to
 ---
 
-# Prepare your network for Microsoft Defender for IoT
+# Prepare your OT network for Microsoft Defender for IoT
 
 This article describes how to set up your network to work with Microsoft Defender for IoT components, including the network sensors, the Azure portal, and an on-premises management console.
 
