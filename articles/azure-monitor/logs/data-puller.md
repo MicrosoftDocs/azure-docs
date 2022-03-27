@@ -17,16 +17,21 @@ This tutorial explains how to ingest data from a file into a Log Analytics works
 
 ## Prerequisites
 
-To complete this tutorial, you need the following a [Log Analytics workspace](quick-create-workspace.md).
+To complete this tutorial, you need a [Log Analytics workspace](quick-create-workspace.md).
 
 ## Create a custom log table
 
-From the Azure portal, go to the Log Analytics Workspace and choose Custom logs from the table of content and choose **Add custom log**
+Before you can send data to the workspace, you need to create the custom table that the data will be sent to:
 
-:::image type="content" source="media/data-puller/datapuller-addcustomlog.png" alt-text="Screenshot that shows how to add custom log.":::
-
-For more information, see [Defining a custom log](/articles/azure-monitor/agents/data-sources-custom-logs#defining-a-custom-log).
-
+1. Go to the **Log Analytics workspaces** menu in the Azure portal and select a workspace. 
+1. Select **Custom Log** > **Add custom log**.
+1. Upload a sample log file.
+1. Select a record delimiter.
+1. Set a collection path:
+    1. Select Windows or Linux to specify which path format you are adding.
+    1. Set the path on to the custom log file on your machine.  
+1. Specify a name for the table. Azure Monitor automatically adds the *_CL* (custom log) suffix to the table name. 
+1. Select **Create**.
 ## Create a Data Collection Rule (DCR)
 1. Make sure the name of the stream is `Custom-{TableName}`. 
 
