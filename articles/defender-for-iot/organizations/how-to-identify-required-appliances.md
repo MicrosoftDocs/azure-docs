@@ -117,7 +117,7 @@ The management console is available as a virtual deployment.
 
 After you acquire an on-premises management console, go to **Defender for IoT** > **On-premises management console** > **ISO Installation** to download the ISO.
 
-:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-iso-download-screen.png" alt-text="On-premises management console.":::
+:::image type="content" source="media/how-to-prepare-your-network/defender-for-iot-iso-download-screen.png" alt-text="On-premises management console.":::
 
 ## Appliance specifications
 
