@@ -38,7 +38,7 @@ After the above steps are completed, the public IP range can complete the "provi
 
 ### Commissioning
 
-When you are ready, you can issue the command to have your range advertised from Azure and enter the "commissioning" phase.  The range will be advertised first from the Azure region where the custom IP prefix is located, and subsequently by Microsoft's Wide Area Network (WAN) to the Internet.
+When you are ready, you can issue the command to have your range advertised from Azure and enter the "commissioning" phase.  The range will be advertised first from the Azure region where the custom IP prefix is located, and subsequently by Microsoft's Wide Area Network (WAN) to the Internet.  Also note that the specific region where the range was onboarded will be posted publicly on [Microsoft's IP Range GeoLocation page](https://www.microsoft.com/download/details.aspx?id=53601).
 
 ## Limitations
 
