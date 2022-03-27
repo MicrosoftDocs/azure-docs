@@ -101,27 +101,7 @@ module stgModule  'ts/CoreSpecs:storage:v1' = {
 
 ## Credentials for publishing/restoring modules
 
-To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, add `cloud` and `credentialPrecedence` elements to the config file.
-
-```json
-{
-    "cloud": {
-      "credentialPrecedence": [
-        "AzureCLI",
-        "AzurePowerShell"
-      ]
-    }
-}
-```
-
-The available credentials are:
-
-- AzureCLI
-- AzurePowerShell
-- Environment
-- ManagedIdentity
-- VisualStudio
-- VisualStudioCode
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, see [Add credential precedence to Bicep config](bicep-config.md#credential-precedence).
 
 ## Next steps
 

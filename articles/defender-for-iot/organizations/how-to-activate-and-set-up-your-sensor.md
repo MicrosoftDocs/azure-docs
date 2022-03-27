@@ -46,7 +46,7 @@ Your sensor was onboarded to Microsoft Defender for IoT in a specific management
 
 A locally connected, or cloud-connected activation file was generated and downloaded for this sensor during onboarding. The activation file contains instructions for the management mode of the sensor. *A unique activation file should be uploaded to each sensor you deploy.*  The first time you sign in, you need to upload the relevant activation file for this sensor.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Screenshot of the download activation file for Defender for IoT sensors in the Azure portal.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/defender-for-iot-activation-file-download-button.png" alt-text="Screenshot of the download activation file for Defender for IoT sensors in the Azure portal.":::
 
 ### About certificates
 
