@@ -224,3 +224,6 @@ For more information, see:
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
 - [Defender for IoT installation](how-to-install-software.md)
+- [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
+- [Microsoft Defender for IoT system architecture](architecture.md)
+- [Sensor connection methods](architecture-connections.md)

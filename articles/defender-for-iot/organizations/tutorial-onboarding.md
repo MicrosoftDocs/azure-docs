@@ -414,10 +414,17 @@ Once registration is complete for the sensor, you will be able to download an ac
 
 1. Select **Log in** and follow the instructions described in [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
+## Connect sensors to Defender for IoT
 
+This section is required only when you are using a Defender for IoT sensor version 22.1.x or higher.
+
+Connect your sensors to Defender for IoT to ensure that sensors send alert and device inventory information to Defender for IoT on the Azure portal.
+
+For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
 ## Next steps
 
-Learn how to set up [other appliances](how-to-install-software.md#about-defender-for-iot-appliances).
+For more information, see:
 
-Read about the [agentless architecture](architecture.md).
+- [Defender for IoT installation](how-to-install-software.md)
+- [Microsoft Defender for IoT system architecture](architecture.md)
