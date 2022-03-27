@@ -9,7 +9,7 @@ ms.date: 03/22/2022
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists Microsoft Defender for IoT's new features and enhancements for organizations from the last 6 months. 
+This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last 6 months. 
 
 Features released earlier than 6 months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
@@ -23,9 +23,11 @@ The Defender for IoT architecture uses on-premises sensors and management server
 
 - Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
+For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
+
 **Important**: Manual changes to software pacakges may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
 
-Current versions of the sensor and on-premises management console softare include:
+Current versions of the sensor and on-premises management console software include:
 
 | Version | Date released | End support date |
 |--|--|--|
