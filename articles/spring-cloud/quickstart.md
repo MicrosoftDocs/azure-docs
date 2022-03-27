@@ -488,6 +488,10 @@ Once deployment has completed, you can access the app at `https://<service insta
 
 [![Access app from browser](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 
+#### [Visual Studio Code](#tab/vscode)
+To deploy a simple Spring Boot Getting Started web app to Azure Spring Cloud, follow the steps in [Build and Deploy Java Sping Boot Apps to Azure Spring Cloud with Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-cloud#_download-and-test-the-spring-boot-app).
+
+
 ## Streaming logs in real time
 
 #### [CLI](#tab/Azure-CLI)
@@ -523,6 +527,10 @@ Logs appear in the results:
 For advanced logs analytics features, visit the **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
 [![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png)](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
+
+#### [Visual Studio Code](#tab/vscode)
+
+To get real-time application logs with Visual Studio Code, follow the steps in [Stream your application logs](https://code.visualstudio.com/docs/java/java-spring-cloud#_stream-your-application-logs).
 
 ::: zone-end
 
