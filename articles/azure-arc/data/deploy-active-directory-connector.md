@@ -160,7 +160,7 @@ data:
   password: <your base64 encoded password>
   username: <your base64 encoded username>
 ---
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta2
 kind: ActiveDirectoryConnector
 metadata:
   name: adarc

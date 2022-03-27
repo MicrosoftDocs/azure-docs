@@ -196,7 +196,7 @@ metadata:
   name: my-login-secret
 type: Opaque
 ---
-apiVersion: sql.arcdata.microsoft.com/v2
+apiVersion: sql.arcdata.microsoft.com/v3
 kind: SqlManagedInstance
 metadata:
   name: <name>

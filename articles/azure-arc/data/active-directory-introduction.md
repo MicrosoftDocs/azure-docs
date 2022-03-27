@@ -54,7 +54,7 @@ The following are the steps for user to set up:
 ## Automatic 
 The following are the steps for user to set up:
 1. Create an organizational unit (OU). 
-2. User only need to Providing an Active Directory Domain service AD name and password for each SQL Managed Instance that must accept AD authentication.
+2. User only need to Providing an Active Directory Domain service AD name and password for each SQL Managed Instance that must accept AD authentication. Domain service account is an AD account with specific permissions to create users, groups, and machine accounts automatically inside the provided organizational unit (OU) in the active directory. 
 3. Providing a port number for the SQL Managed Instance endpoint.
 
 
@@ -64,7 +64,7 @@ To enable Active Directory Authentication for Arc-enabled SQL Managed Instances,
 
 In the automatic mode, system will take care of the following work : 
 
-- The service domain AD account is automatically generated based on the user input.
+- The service domain AD account is automatically generated.
 - The system sets SPNs automatically on that account.
 - A keytab file is generated then transport to the SQL Managed instance.
 
