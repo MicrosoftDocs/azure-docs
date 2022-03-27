@@ -137,7 +137,9 @@ conceptualContent:
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
   title: Microsoft authentication libraries on GitHub
-  summary: The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft, we recommend MSAL for any app that uses the Microsoft identity platform for authentication and authorization.
+  summary: >
+    The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft,
+    we recommend MSAL for any app that uses theMicrosoft identity platform for authentication and authorization.
   items:
   ## ROW 1 ######################
   - title: .NET
@@ -176,28 +178,36 @@ tools:
 additionalContent:
   sections:
     - items:
-      # Card
-      - title: Authenticate business partners and customers
-        summary: Sign in users from partner organizations or let your customers sign up and sign in with their social accounts from Facebook and Google, an email address and password, or even their phone number.
+      ## CARD 1 ######################
+      - title: Authenticate partners and customers
+        summary: >
+          Sign in users from partner organizations in a business-to-business (B2B) scenario or create custom sign-up and sign-in experiences for your customers
+          in a business-to-customer (B2C) scenario.
+
+          Azure AD B2C supports signing in customers using their social accounts from services like Facebook and Google, an email address and password, or a phone number.
         links:
           - url: /azure/active-directory/external-identities/
             text: External Identities documentation
-      # Card
+      ## CARD 2 ######################
       - title: Connect to Microsoft Graph
-        summary: Programmatic access to organizational, user, and application data stored in Microsoft Graph. Call the Microsoft Graph API from your application to create and manage Azure AD users and groups, get and modify your users' data like profiles, calendars, email, and more.
+        summary: >
+          Programmatic access to organizational, user, and application data stored in Microsoft Graph. Call the Microsoft Graph API from your application to
+          create and manage Azure AD users and groups, get and modify your users' data like their profiles, calendars, email, and more.
         links:
         - url: microsoft-graph-intro.md
-          text: Use the Microsoft Graph API
-      # Card
+          text: Microsoft Graph API documentation
+      ## CARD 3 ######################
       - title: Manage and market your apps
-        summary: Make SaaS applications available to your users, configure SSO, manage security, and learn about marketing your own apps as an independent software vendor (ISV).
+        summary: >
+          Make existing SaaS applications like Dropbox, Salesforce, and ServiceNow available to your organization's users, configure SSO, and manage security.
+          Or, become an independent software vendor (ISV) by publishing your own SaaS application for use by _other_ organizations that use Azure AD.
         links:
         - url: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-management
-          text: About app management
-    # Card
+          text: Application management documentation
+      ## CARD 4 ####################
       - title: Manage application users and their access
-        summary: Create user identities and roles in the cloud applications that users need access to.
+        summary: Automatically create user identities and their roles in your organization's installed SaaS applications. HR-driven provisioning, System for Cross-domain Identity Management (SCIM), and more.
         links:
           - url: https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning
-            text: About app provisioning
+            text: Application user and role provisioning documentation
 ## BAND 5 - ADDITIONAL CONTENT END ##########################################################################################################################
