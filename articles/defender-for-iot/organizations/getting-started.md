@@ -53,7 +53,12 @@ Before start working with Defender for IoT, especially if you plan to start with
 
 Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified appliances with software pre-installed, or download software to install yourself.
 
-For more information, see [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md) and [Identify required appliances](how-to-identify-required-appliances.md).
+For more information, see:
+
+- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Prepare your network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
+- [Predeployment checklist](predeployment-checklist.md)
+- [Identify required appliances](how-to-identify-required-appliances.md).
 
 ## Add a subscription to Defender for IoT
 

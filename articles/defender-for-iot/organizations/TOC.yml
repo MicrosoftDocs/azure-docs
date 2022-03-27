@@ -184,8 +184,8 @@
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
-  - name: Pre-deployment checklist
-    href: resources-sensor-deployment-checklist.md
+  - name: OT network pre-deployment checklist
+    href: predeployment-checklist.md
   - name: Microsoft Defender for IoT ninja training
     href: resources-training-sessions.md
   - name: Regional availability
