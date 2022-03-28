@@ -266,7 +266,6 @@ Select one of the following tabs to implement your SPAN port configuration worka
 
 1. Select **OK**.
 
----
 ### Attach a SPAN virtual interface to the virtual switch
 
 Use PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch.
