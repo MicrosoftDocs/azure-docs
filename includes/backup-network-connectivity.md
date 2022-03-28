@@ -19,12 +19,13 @@ If your machine has limited internet access, ensure that firewall, proxy, and ne
 
 **FQDNs**
 
-- `www.msftncsi.com`
-- `www.msftconnecttest.com`
 - `*.microsoft.com`
 - `*.windowsazure.com`
 - `*.microsoftonline.com`
 - `*.windows.net`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 **IP addresses**
 

@@ -75,6 +75,11 @@ To start creating your new host pool:
 10. Select **Next: Virtual Machines >**.
 
 11. If you've already created virtual machines and want to use them with the new host pool, select **No**, select **Next: Workspace >** and jump to the [Workspace information](#workspace-information) section. If you want to create new virtual machines and register them to the new host pool, select **Yes**.
+ 
+12. Once you create your host pool, you can get the host pool's registration key by going to the host pool's **Overview** page and selecting **Registration key**. Use this key when adding virtual machines created outside of Azure Virtual Desktop to your host pool.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot showing the registration key option in the host pool overview blade, highlighted with a red border.](media/registration-key-host-pool-page.png)
 
 ### [Azure CLI](#tab/azure-cli)
 

@@ -406,7 +406,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "type": "PowerShell",
              "name":   "<name>",  
              "scriptUri": "<path to script>",
-             "runElevated": "<true false>",
+             "runElevated": <true false>,
              "sha256Checksum": "<sha256 checksum>" 
         }, 	
         { 
@@ -414,7 +414,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
              "validExitCodes": "<exit code>",
-             "runElevated": "<true or false>" 
+             "runElevated": <true or false> 
          } 
      ], 
 ```
