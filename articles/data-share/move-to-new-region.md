@@ -1,10 +1,10 @@
 ---
 title: Move Azure Data Share Accounts to another Azure region using the Azure portal
 description: Use Azure Resource Manager template to move Azure Data Share account from one Azure region to another using the Azure portal.
-ms.service: datashare
+ms.service: data-share
 ms.topic: how-to
 ms.date: 03/17/2022
-ms.author: marodewa
+ms.author: sidontha
 
 #Customer intent: As an Azure Data Share User, I want to move my Data Share account to a new region.
 ---
@@ -103,13 +103,14 @@ The following steps show how to deploy a new Data Share account using a Resource
                         "targetEmail": "jsmith@microsoft.com"
                     }
                 }
-            ]```
+            ]
+        ```
     
     * **Datasets** - You can edit which datasets are deployed into the target Data Share account by adding or removing datasets from the resources secton in the **template.json** file. Below is an example of a BlobFolder dataset. 
     
     * If you are also moving the resources contained in the datasets to a new region, you will have to remove the datasets from the **template.json** file and manually re-add them once the Data Share account and resources referenced in the datasets are moved to the new region.
     
-    **Important:** datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](https://docs.microsoft.com/azure/data-share/how-to-share-from-sql#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](https://docs.microsoft.com/azure/data-share/how-to-share-from-storage#prerequisites-for-the-source-storage-account). 
+    **Important:** datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
 
         ```json
             "resources": [
@@ -130,7 +131,8 @@ The following steps show how to deploy a new Data Share account using a Resource
                         "storageAccountName": "<storage-account-name>"
                     }
                 }
-            ]```
+            ]
+        ```
             
 
 13. Click **Save** in the online editor.
