@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/27/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -188,7 +188,8 @@ Microsoft Defender for Containers brings threat detection, and advanced defences
     - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
     - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md), and [extensions](../azure-arc/kubernetes/extensions.md).
 
-If you choose to disable all of available configuration options, no agents, or components will be deployed to your clusters. Learn more about the [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+> [!Note]
+> If you choose to disable the available configuration options, no agents, or components will be deployed to your clusters. Learn more about the [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 **To configure the Containers plan**:
 
