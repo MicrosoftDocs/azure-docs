@@ -62,14 +62,14 @@ We announced in April 2020 General Availability of our new combined registration
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-[AlexisHR](../saas-apps/alexishr-provisioning-tutorial.md)
-[embed signage](../saas-apps/embed-signage-provisioning-tutorial.md)
-[Joyn FSM](../saas-apps/joyn-fsm-provisioning-tutorial.md)
-[KPN Grip](../saas-apps/kpn-grip-provisioning-tutorial.md)
-[MURAL Identity](../saas-apps/mural-identity-provisioning-tutorial.md)
-[Palo Alto Networks SCIM Connector](../saas-apps/palo-alto-networks-scim-connector-provisioning-tutorial.md)
-[Tap App Security](../saas-apps/tap-app-security-provisioning-tutorial.md)
-[Yellowbox](../saas-apps/yellowbox-provisioning-tutorial.md)
+- [AlexisHR](../saas-apps/alexishr-provisioning-tutorial.md)
+- [embed signage](../saas-apps/embed-signage-provisioning-tutorial.md)
+- [Joyn FSM](../saas-apps/joyn-fsm-provisioning-tutorial.md)
+- [KPN Grip](../saas-apps/kpn-grip-provisioning-tutorial.md)
+- [MURAL Identity](../saas-apps/mural-identity-provisioning-tutorial.md)
+- [Palo Alto Networks SCIM Connector](../saas-apps/palo-alto-networks-scim-connector-provisioning-tutorial.md)
+- [Tap App Security](../saas-apps/tap-app-security-provisioning-tutorial.md)
+- [Yellowbox](../saas-apps/yellowbox-provisioning-tutorial.md)
 
 For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
  
@@ -102,7 +102,7 @@ Azure AD Recommendations is now in public preview. This feature provides persona
 **Product capability:** Identity Security & Protection  
  
 
-Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
  
 
 ---
@@ -131,10 +131,10 @@ Administrative units now support dynamic membership rules for user and device me
 **Type:** New feature  
 **Service category:** RBAC  
 **Product capability:** AuthZ/Access Delegation  
-**Clouds impacted:** Public (M365,GCC)
+**Clouds impacted:** Public (Microsoft 365,GCC)
  
 
-Devices can now be added as members of administrative units. This enables scoped delegation of device permissions to a specific set of devices in the tenant. Built-in and custom roles are also supported. For more information, see:[Administrative units in Azure Active Directory](../roles/administrative-units.md).
+Devices can now be added as members of administrative units. This enables scoped delegation of device permissions to a specific set of devices in the tenant. Built-in and custom roles are also supported. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
  
 
 ---
