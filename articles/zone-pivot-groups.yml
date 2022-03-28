@@ -1735,6 +1735,6 @@ groups:
   prompt: Choose a Client Library
   pivots:
   - id: framework-dotnet
-    title: DotNet
+    title: .Net
   - id: framework-spring
     title: Spring
