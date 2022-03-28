@@ -36,8 +36,8 @@
   - name: Nutanix Clusters Console Workflow
     href: nutanix-clusters-console-workflow.md
     items:
-    - name: Create a virtual network and subnet in Azure
-      href: create-a-virtual-network-and-subnet-in-azure.md
+    - name: Enable Asure in Nutanix Clusters Console
+      href: enable-azure-in-nutanix-clusters-console.md
     - name: Create an Organization in the Nutanix Clusters Console
       href: create-an-org-in-the-nutanix-clusters-console.md
     - name: Add an Azure Cloud Account to Nutanix Clusters
