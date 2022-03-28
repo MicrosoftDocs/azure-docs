@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Private 5G Core Preview with Log Analytics
+title: Monitor Azure Private 5G Core Preview with Log Analytics
 description: Information on using Log Analytics to monitor and analyze activity in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
@@ -9,18 +9,18 @@ ms.date: 03/08/2022
 ms.custom: template-concept
 ---
 
-# Monitoring Azure Private 5G Core Preview with Log Analytics
+# Monitor Azure Private 5G Core Preview with Log Analytics
 
 Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network.
 
-## Enabling Log Analytics
+## Enable Log Analytics
 
 You'll need to carry out the steps in [Enabling Log Analytics for Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md) before you can use Log Analytics with Azure Private 5G Core.
 
 > [!IMPORTANT] 
-> Log Analytics is part of Azure Monitor and is chargeable. [Estimating costs](#estimating-costs) provides information on estimating the cost of using Log Analytics to monitor your private mobile network. You shouldn't enable Log Analytics if you don't want to incur any costs. If you don't enable Log Analytics, you can still monitor your packet core instances from the local network using the [packet core dashboards](packet-core-dashboards.md). 
+> Log Analytics is part of Azure Monitor and is chargeable. [Estimate costs](#estimate-costs) provides information on estimating the cost of using Log Analytics to monitor your private mobile network. You shouldn't enable Log Analytics if you don't want to incur any costs. If you don't enable Log Analytics, you can still monitor your packet core instances from the local network using the [packet core dashboards](packet-core-dashboards.md). 
 
-## Accessing Log Analytics for a packet core instance
+## Access Log Analytics for a packet core instance
 
 Once you've enabled Log Analytics, you can begin working with it in the Azure portal. Navigate to the Log Analytics workspace you assigned to the Kubernetes cluster on which a packet core instance is running. Select **Logs** from the left hand menu.
 
@@ -32,7 +32,7 @@ You'll then be shown the Log Analytics tool where you can enter your queries.
 
 For detailed information on using the Log Analytics tool, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md).
 
-## Constructing queries
+## Construct queries
 
 You can find a tutorial for writing queries using the Log Analytics tool at [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md). Each packet core instance streams the following logs to the Log Analytics tool. You can use these logs to construct queries that will allow you to monitor your private mobile network. You'll need to run all queries at the scope of the **Kubernetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
 
@@ -102,7 +102,7 @@ Log Analytics dashboards can visualize all of your saved log queries, giving you
 
 You can find information on how to create a Log Analytics dashboard in [Create and share dashboards of Log Analytics data](../azure-monitor/visualize/tutorial-logs-dashboards.md).
 
-## Estimating costs
+## Estimate costs
 
 Log Analytics will ingest an average of 8GB of data a day for each log streamed to it by a single packet core instance. [Monitor usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) provides information on how to estimate the cost of using Log Analytics to monitor Azure Private 5G Core.
 

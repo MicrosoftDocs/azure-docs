@@ -14,7 +14,7 @@ ms.custom: template-concept
 
 Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
 
-## Accessing the distributed tracing web GUI
+## Access the distributed tracing web GUI
 
 To sign in to the distributed tracing web GUI:
 
@@ -31,7 +31,7 @@ To sign in to the distributed tracing web GUI:
 
 Once you're signed in to the distributed tracing web GUI, you can use the top-level menu to sign out or change your credentials. Select **Logout** to end your current session, and **Change Password** to update your password.
 
-## Searching for specific information
+## Search for specific information
 
 The distributed tracing web GUI provides two search tabs to allow you to search for diagnostics.
 
@@ -59,7 +59,7 @@ Once you’ve entered your chosen search parameters, select **Search**. The foll
 
 You can select an entry in the search results to view detailed information for that call flow or error. 
 
-## Viewing diagnostics details
+## View diagnostics details
 
 When you select a specific result, the display shows the following tabs containing different categories of information.
 
@@ -76,7 +76,7 @@ The **Summary** view displays a description of the flow or error.
 
 The **Detailed Timeline** view shows the sequence of operations and events that occurred during the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-detailed-timeline.png" alt-text="Screenshot of the Detailed Timeline view of the distributed tracing web G U I. It shows messages sent between Network Functions and other components.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-detailed-timeline.png" alt-text="Screenshot of the Detailed Timeline view of the distributed tracing web G U I. It shows messages sent between Network Functions and other components." lightbox="media/distributed-tracing/distributed-tracing-detailed-timeline.png":::
 
 Each entry in the list shows summary information for a specific event that occurred during the flow or error. Each entry includes the date and time at which the event occurred and the name of the component on which it occurred. When you select a specific entry in this list, the panel at the bottom of the screen provides more detail about the selected event.
 
@@ -130,7 +130,7 @@ The messages appear in the diagram in the order in which they occurred. An axis 
 
 If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal scrollbars to move around the display.
 
-## Viewing help information
+## View help information
 
 To view help information, select the **Options** symbol in the upper-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select the **X** symbol at the upper-right corner of the panel.
 
