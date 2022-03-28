@@ -41,7 +41,7 @@ Multiple Azure services can fulfill the above requirements. Each service has its
   - Azure Automation
   - Azure Policy Guest Config (to take an action when there's a change in the compliance state of resource.)
 
-**Complex Orchestration and integration with 1st or 3rd party products** 
+**Complex orchestration and integration with 1st or 3rd party products** 
   - Azure Logic Apps
   - Azure Functions or Azure Automation. (Azure Logic app has over 400+ connectors to other services, including Azure Automation and Azure Functions, which could be used to meet complex automation scenarios.)
 
