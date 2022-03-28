@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 03/28/2022
 ms.author: helohr
 manager: femila
 ---
@@ -29,6 +29,22 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Fox Sports
 - IMDB
 - Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
+- Teams Live Events (on web)
+  - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
+
+### How to use MMR for Teams live events 
+
+To use MMR for Teams live events:
+
+1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser.
+
+2. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
+
+3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the Teams app, MMR won't work.
+
+The following screenshot highlights the areas described in the previous steps:
+
+:::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
 ## Requirements
 
