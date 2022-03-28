@@ -32,7 +32,7 @@ Some example commands:
 # To list all the labs in your subscription:
 Get-AzLabAccount | Get-AzLab
 
-#To stop all running VMs in all labs
+# To stop all running VMs in all labs
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
