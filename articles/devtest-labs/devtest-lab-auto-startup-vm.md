@@ -7,11 +7,11 @@ ms.date: 03/28/2022
 
 # Start up DevTest Labs virtual machines automatically
 
-This article shows how to configure and apply an auto-start policy for Azure DevTest Labs virtual machines (VMs). Auto start automatically starts up lab VMs at a specified time of day.
+This article shows how to configure and apply an auto-start policy for Azure DevTest Labs virtual machines (VMs). Auto start automatically starts up lab VMs at specified times and days.
 
-To implement auto start, you first configure an auto-start policy for the lab, then enable the policy for individual lab VMs. Requiring individual VMs to enable auto start helps prevent unintentional startups that could increase costs.
+To implement auto start, you configure an auto-start policy for the lab first. Then, you can enable the policy for individual lab VMs. Requiring individual VMs to enable auto start helps prevent unnecessary startups that could increase costs.
 
-You can also configure auto-shutdown policies for lab VMs. For more information, see [Manage auto shutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
+You can also configure auto-shutdown policies for lab VMs. For more information, see [Manage auto shutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md).
 
 ## Configure lab auto-start settings
 
