@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create an internal load balancer - Azure PowerShell'
+title: 'Quickstart: Create an internal basic load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer using Azure PowerShell
+description: This quickstart shows how to create an internal basic load balancer using Azure PowerShell
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
@@ -11,9 +11,12 @@ ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 
-# Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell
+# Quickstart: Create an internal basic load balancer to load balance VMs using Azure PowerShell
 
 Get started with Azure Load Balancer by using Azure PowerShell to create an internal load balancer and two virtual machines.
+
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](../skus.md)**.
 
 ## Prerequisites
 
@@ -43,7 +46,7 @@ Create a network security group to define inbound connections to your virtual ne
 
 Create an Azure Bastion host to securely manage the virtual machines in the backend pool
 
-### Create virtual network, network security group, bastion host, and NAT gateway
+### Create virtual network, network security group and bastion host
 
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 
@@ -51,37 +54,11 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 
 * Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
-* Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
-
-* Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
-
 ```azurepowershell-interactive
-## Create public IP address for NAT gateway ##
-$ip = @{
-    Name = 'myNATgatewayIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-}
-$publicIP = New-AzPublicIpAddress @ip
-
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Name = 'myNATgateway'
-    IdleTimeoutInMinutes = '10'
-    Sku = 'Standard'
-    Location = 'eastus'
-    PublicIpAddress = $publicIP
-}
-$natGateway = New-AzNatGateway @nat
-
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
     AddressPrefix = '10.1.0.0/24'
-    NatGateway = $natGateway
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -199,14 +176,14 @@ $lbrule = @{
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
 }
-$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset
+$rule = New-AzLoadBalancerRuleConfig @lbrule
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
     ResourceGroupName = 'CreateIntLBQS-rg'
     Name = 'myLoadBalancer'
     Location = 'eastus'
-    Sku = 'Standard'
+    Sku = 'Basic'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
     LoadBalancingRule = $rule
@@ -223,6 +200,8 @@ In this section, you'll create the two virtual machines for the backend pool of 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 
 * Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)
+
+* Use [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) to create an availability set for the virtual machines.
 
 * Create the virtual machines with:
     
@@ -255,11 +234,22 @@ $lb = @{
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
-$sg = {
+$sg = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg' @sg
+    ResourceGroupName = 'CreateIntLBQS-rg'
 }
-$nsg = Get-AzNetworkSecurityGroup 
+$nsg = Get-AzNetworkSecurityGroup @sg
+
+## Create availability set for the virtual machines. ##
+$set = @{
+    Name = 'myAvailabilitySet'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Aligned'
+    PlatformFaultDomainCount = '2'
+    PlatformUpdateDomainCount =  '2'
+}
+$avs = New-AzAvailabilitySet @set
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 2; $i++)
@@ -278,7 +268,8 @@ $nicVM = New-AzNetworkInterface @nic
 ## Create a virtual machine configuration for VMs ##
 $vmsz = @{
     VMName = "myVM$i"
-    VMSize = 'Standard_DS1_v2'  
+    VMSize = 'Standard_DS1_v2'
+    AvailabilitySetId = $avs.Id 
 }
 $vmos = @{
     ComputerName = "myVM$i"
@@ -300,7 +291,6 @@ $vm = @{
     ResourceGroupName = 'CreateIntLBQS-rg'
     Location = 'eastus'
     VM = $vmConfig
-    Zone = "$i"
 }
 New-AzVM @vm -AsJob
 }
@@ -318,45 +308,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-## Install IIS
-
-Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
-
-The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
-
-> [!IMPORTANT]
-> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
-
-```azurepowershell-interactive
-## For loop with variable to install custom script extension on virtual machines. ##
-for ($i=1; $i -le 2; $i++)
-{
-$ext = @{
-    Publisher = 'Microsoft.Compute'
-    ExtensionType = 'CustomScriptExtension'
-    ExtensionName = 'IIS'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    VMName = "myVM$i"
-    Location = 'eastus'
-    TypeHandlerVersion = '1.8'
-    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
-}
-Set-AzVMExtension @ext -AsJob
-}
-```
-
-The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
-
-```azurepowershell-interactive
-Get-Job
-
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-```
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Create the test virtual machine
 
@@ -386,11 +338,11 @@ $net = @{
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place the network security group into a variable. ##
-$sg = {
+$sg = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg' @sg
+    ResourceGroupName = 'CreateIntLBQS-rg'
 }
-$nsg = Get-AzNetworkSecurityGroup
+$nsg = Get-AzNetworkSecurityGroup @sg
 
 ## Command to create network interface for VM ##
 $nic = @{
@@ -431,6 +383,47 @@ $vm = @{
 New-AzVM @vm
 ```
 
+## Install IIS
+
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
+
+The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
+
+> [!IMPORTANT]
+> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
+
+```azurepowershell-interactive
+## For loop with variable to install custom script extension on virtual machines. ##
+for ($i=1; $i -le 2; $i++)
+{
+$ext = @{
+    Publisher = 'Microsoft.Compute'
+    ExtensionType = 'CustomScriptExtension'
+    ExtensionName = 'IIS'
+    ResourceGroupName = 'CreateIntLBQS-rg'
+    VMName = "myVM$i"
+    Location = 'eastus'
+    TypeHandlerVersion = '1.8'
+    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+}
+Set-AzVMExtension @ext -AsJob
+}
+```
+
+The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+
+```azurepowershell-interactive
+Get-Job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+```
+
+> [!IMPORTANT]
+> Ensure the custom script extension deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the deployment jobs.
+
 ## Test the load balancer
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
@@ -448,8 +441,6 @@ New-AzVM @vm
 7. Open **Internet Explorer** on **myTestVM**.
 
 8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Create a standard internal load balancer" border="true":::
    
 To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
@@ -475,4 +466,4 @@ In this quickstart:
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md)
+> [What is Azure Load Balancer?](../load-balancer-overview.md)
