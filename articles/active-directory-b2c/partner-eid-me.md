@@ -27,7 +27,7 @@ In this sample article, we provide guidance on how to integrate Azure Active Dir
 
 To get started, you'll need:
 
-- [A Relying Party account with eID-Me](https://bluink.ca/eid-me/solutions/id-verification#contact-form)
+- [A Relying Party account with eID-Me](https://bluink.ca/eid-me/solutions/id-verification#contact-form).
 
 - An Azure subscription. If you don't have one, get a [free
 account](https://azure.microsoft.com/free).
@@ -244,14 +244,14 @@ You can define eID-Me as a claims provider by adding it to the **ClaimsProvider*
 
 3. Add a new **ClaimsProvider** as follows:
 
-```xml
-    <ClaimsProvider>
+   ```xml
+      <ClaimsProvider>
       <Domain>eID-Me</Domain>
       <DisplayName>eID-Me</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="eID-Me-OIDC">
           <!-- The text in the following DisplayName element is shown to the user on the claims provider 
- selection screen. -->
+   selection screen. -->
           <DisplayName>eID-Me for Sign In</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
@@ -292,7 +292,7 @@ You can define eID-Me as a claims provider by adding it to the **ClaimsProvider*
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
-```
+   ```
 
 4. Set **eid_me_rp_client_id** with your eID-Me Relying Party Client ID.
 
@@ -304,10 +304,10 @@ There are additional identity claims that eID-Me supports and can be added.
 
 2. Find the `BuildingBlocks` element.  This is where additional identity claims that eID-Me supports can be added. Full lists of supported eID-Me identity claims with descriptions are mentioned at [http://www.oid-info.com/get/1.3.6.1.4.1.50715](http://www.oid-info.com/get/1.3.6.1.4.1.50715) with the OIDC identifiers used here [https://eid-me.bluink.ca/.well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
 
-```xml
-<BuildingBlocks>
+   ```xml
+   <BuildingBlocks>
    <ClaimsSchema>
- <ClaimType Id="IAL">
+    <ClaimType Id="IAL">
         <DisplayName>Identity Assurance Level</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -318,7 +318,7 @@ There are additional identity claims that eID-Me supports and can be added.
         <UserInputType>Readonly</UserInputType>
       </ClaimType>
  
- <ClaimType Id="picture">
+   <ClaimType Id="picture">
         <DisplayName>Portrait Photo</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -329,7 +329,7 @@ There are additional identity claims that eID-Me supports and can be added.
         <UserInputType>Readonly</UserInputType>
       </ClaimType>
  
- <ClaimType Id="middle_name">
+    <ClaimType Id="middle_name">
         <DisplayName>Portrait Photo</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -339,7 +339,7 @@ There are additional identity claims that eID-Me supports and can be added.
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
  
- <ClaimType Id="birthdate">
+   <ClaimType Id="birthdate">
         <DisplayName>Date of Birth</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -350,7 +350,7 @@ There are additional identity claims that eID-Me supports and can be added.
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
  
- <ClaimType Id="gender">
+    <ClaimType Id="gender">
         <DisplayName>Gender</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -360,8 +360,8 @@ There are additional identity claims that eID-Me supports and can be added.
         <UserHelpText>Your gender.</UserHelpText>
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
- 
- <ClaimType Id="street_address">
+    
+    <ClaimType Id="street_address">
         <DisplayName>Locality/City</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -372,7 +372,7 @@ There are additional identity claims that eID-Me supports and can be added.
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
  
- <ClaimType Id="locality">
+   <ClaimType Id="locality">
         <DisplayName>Locality/City</DisplayName>
         <DataType>string</DataType>
         <DefaultPartnerClaimTypes>
@@ -428,7 +428,7 @@ There are additional identity claims that eID-Me supports and can be added.
       </ClaimType>
     </ClaimsSchema>
 
-```
+   ```
 
 ### Step 4 - Add a user journey
 
@@ -454,7 +454,7 @@ Now that you have a user journey, add the new identity provider to the user jour
 
 The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
 
-```xml
+   ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -531,13 +531,13 @@ The following XML demonstrates **7** orchestration steps of a user journey with 
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
 
-```
+   ```
 
 ### Step 6 - Configure the relying party policy
 
 The relying party policy specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **eID-Me-OIDC-Signup** TechnicalProfile element. In this sample, the application will receive the user’s postal code, locality, region, IAL, portrait, middle name, and birth date. It also receives the boolean **signupConditionsSatisfied** claim, which indicates whether an account has been created or not:
 
-```xml
+   ```xml
     <RelyingParty>
         <DefaultUserJourney ReferenceId="eIDMe-SignUpOrSignIn" />
         <TechnicalProfile Id="PolicyProfile">
@@ -564,7 +564,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
         </TechnicalProfile>
       </RelyingParty>
 
-```
+   ```
 
 ### Step 7 - Upload the custom policy
 
