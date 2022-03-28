@@ -505,7 +505,7 @@ To restore the entire VM, complete these steps:
 
     ![Restore VM command](./media/oracle-backup-recovery/recover-vm-03.png)
 
-1.  On the **Restore Virtual Machine** blade, choose **Create New** and **Create New Virtual Machine**. Enter the virtual machine name **vmoracle19c** and choose the VNet **vmoracle19cVNET**, the subnet will be automatically populated for you based on your VNet selection. The restore VM process requires an Azure storage account in the same resource group and region. You can choose the storage account **or a restore** you setup earlier.
+1.  On the **Restore Virtual Machine** blade, choose **Create New** and **Create New Virtual Machine**. Enter the virtual machine name **vmoracle19c** and choose the VNet **vmoracle19cVNET**, the subnet will be automatically populated for you based on your VNet selection. The restore VM process requires an Azure storage account in the same resource group and region. You can choose the storage account **or a restore** you set up earlier.
 
     ![Restore configuration values](./media/oracle-backup-recovery/recover-vm-04.png)
 
