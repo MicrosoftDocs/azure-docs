@@ -5,13 +5,13 @@ description: Learn about the link feature for Azure SQL Managed Instance to cont
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
-ms.custom: sqldbrb=1, ignite-fall-2021
+ms.custom: ignite-fall-2021
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 03/21/2022
+ms.date: 03/28/2022
 ---
 # Link feature for Azure SQL Managed Instance (preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

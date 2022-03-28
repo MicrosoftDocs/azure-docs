@@ -11,7 +11,7 @@ ms.topic: guide
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 03/11/2022
+ms.date: 03/28/2022
 ---
 # Best practices with link feature for Azure SQL Managed Instance (preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: references_regions, ignite-fall-2021
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 03/28/2022
 ---
 # What's new in Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -73,7 +73,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 | --- | --- |
 | **Data virtualization preview** | It's now possible to query data in external sources such as Azure Data Lake Storage Gen2 or Azure Blob Storage, joining it with locally stored relational data. This feature is currently in preview. To learn more, see [Data virtualization](data-virtualization-overview.md). |  
 | **Log Replay Service migration** | Use the Log Replay Service to migrate from SQL Server to Azure SQL Managed Instance. This feature is currently in preview. To learn more, see [Migrate with Log Replay Service](log-replay-service-migrate.md). | 
-| **Managed Instance link guidance** | We've published a number of guides for using the [Managed Instance link feature](managed-instance-link-feature-overview.md), including how to [prepare your environment](managed-instance-link-preparation.md), [configure replication by using SSMS](managed-instance-link-use-ssms-to-replicate-database.md), [configure replication via scripts](managed-instance-use-scripts-to-replicate-database.md),  [fail over your database by using SSMS](managed-instance-link-use-ssms-to-failover-database.md), [fail over your database via scripts](managed-instance-use-scripts-to-failover-database.md) and some [best practices](managed-instance-link-best-practices.md) when using the link feature (currently in preview). |
+| **Managed Instance link guidance** | We've published a number of guides for using the [Managed Instance link feature](managed-instance-link-feature-overview.md), including how to [prepare your environment](managed-instance-link-preparation.md), [configure replication by using SSMS](managed-instance-link-use-ssms-to-replicate-database.md), [configure replication via scripts](managed-instance-link-use-scripts-to-replicate-database.md),  [fail over your database by using SSMS](managed-instance-link-use-ssms-to-failover-database.md), [fail over your database via scripts](managed-instance-link-use-scripts-to-failover-database.md) and some [best practices](managed-instance-link-best-practices.md) when using the link feature (currently in preview). |
 | **Maintenance window GA, advance notifications preview** | The [maintenance window](../database/maintenance-window.md) feature is now generally available, allowing you to configure a maintenance schedule for your Azure SQL Managed Instance. It's also possible to receive advance notifications for planned maintenance events, which is currently in preview. Review [Maintenance window advance notifications (preview)](../database/advance-notifications.md) to learn more. |
 | **Windows Auth for Azure Active Directory principals preview** | Windows Authentication for managed instances empowers customers to move existing services to the cloud while maintaining a seamless user experience, and provides the basis for infrastructure modernization. Learn more in [Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance](winauth-azuread-overview.md). |
 
