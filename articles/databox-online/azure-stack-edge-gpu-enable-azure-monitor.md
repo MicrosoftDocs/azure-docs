@@ -236,7 +236,7 @@ Take the following steps to enable Container Insights on your workspace.
     `Set-HcsKubernetesAzureMonitorConfiguration -WorkspaceId <> -WorkspaceKey <>`
 
     > [!NOTE]
-    > By default, this cmdlet configures the Azure public cloud. To configure a govt cloud or non-public cloud, use the parameter `AzureCloudDomainName`. 
+    > By default, this cmdlet configures the Azure public cloud. To configure a government cloud or non-public cloud, use the parameter `AzureCloudDomainName`. 
 
 1. After the Azure Monitor is enabled, you should see logs in the Log Analytics workspace. To view the status of the Kubernetes cluster deployed on your device, go to **Azure Monitor > Insights > Containers**. For the environment option, select **All**. 
 
