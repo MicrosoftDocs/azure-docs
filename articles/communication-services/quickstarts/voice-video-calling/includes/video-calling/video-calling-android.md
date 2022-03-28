@@ -1006,10 +1006,10 @@ public void onCallTypeSelected(View view) {
 }
 ```
 
-## Run the code
+## Run the upgraded app
 
 The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
 
 Screen update             |  Group call
 :-------------------------:|:-------------------------:
-:::image type="content" source="../../media/android/video-quickstart-groupcall-screen-update.png" alt-text="Screenshot showing the application updated.":::  |  :::image type="content" source="../../media/android/video-quickstart-groupcall.png" alt-text="Screenshot showing the application on a call.":::
+:::image type="content" source="../../media/android/video-quickstart-groupcall-screen-update.png" alt-text="Screenshot showing the application updated.":::  |  :::image type="content" source="../../media/android/video-quickstart-groupcall.png" alt-text="Screenshot showing the application on a group call.":::
