@@ -255,7 +255,7 @@ For a sample template that allows an Azure function to connect to Azure Digital 
 
 This template creates an Azure Digital Twins instance, a virtual network, an Azure function connected to the virtual network, and a Private Link connection to make the Azure Digital Twins instance accessible to the Azure function through a private endpoint.
 
-## Troubleshooting Private Link with Azure Digital Twins
+## Troubleshoot Private Link with Azure Digital Twins
 
 Here are some common issues experienced with Private Link for Azure Digital Twins.
 

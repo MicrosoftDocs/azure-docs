@@ -27,6 +27,10 @@ The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced int
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
+## Limitations
+
+[!INCLUDE [public network access](../../includes/machine-learning-cli-public-network-access.md)]
+
 ## Installation
 
 The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. Ensure this requirement is met:

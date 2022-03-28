@@ -146,7 +146,7 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 
 ```
-## Create standard load balancer
+## Create load balancer
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -356,7 +356,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 --     ----            -------------   -----         -----------     --------             -------
 8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
-10     Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 ```
 
 ## Create the test virtual machine
