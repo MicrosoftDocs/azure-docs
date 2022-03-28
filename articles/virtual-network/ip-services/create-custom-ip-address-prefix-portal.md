@@ -58,9 +58,10 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
 
 In order to authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
 
+The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
+
 Execute the following commands in PowerShell with OpenSSL installed.  
 
-The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
     
 1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
 
