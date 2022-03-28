@@ -451,6 +451,8 @@
     - name: Identity verification and proofing partners
       href: identity-verification-proofing.md
       displayName: id verify, id verification, azure ad b2c proofing, id proofing
+    - name: eID-Me
+      href: partner-eid-me.md
     - name: Experian
       href: partner-experian.md
     - name: IDology

@@ -258,7 +258,7 @@ However, if you have many models to upload—or if they have many interdependenc
 
 ### Model visualizer 
 
-Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
+Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
 
 ## Next steps
 

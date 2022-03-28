@@ -160,8 +160,6 @@
           items:
             - name: GitHub deployment
               href: ./scripts/functions-cli-create-function-app-github-continuous.md
-            - name: DevOps deployment
-              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
     - name: Best practices

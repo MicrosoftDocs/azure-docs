@@ -279,7 +279,7 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 
 ### Creating custom roles 
 
-[az role definition create command](/cli/azure/role/definition#az_role_definition_create)
+[az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
