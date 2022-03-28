@@ -59,6 +59,10 @@
     items:
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: DevOps
+    items:
+    - name: DevTest Labs
+      href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
     - name: Content Delivery Network
