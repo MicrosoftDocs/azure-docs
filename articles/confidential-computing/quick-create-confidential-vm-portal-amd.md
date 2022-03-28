@@ -105,8 +105,8 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. Under **Key Vault**, select **Create new** to create a new key.
 
-    > [!NOTE]
-    > If you selected an Azure managed HSM previously, [use PowerShell or the Azure CLI to create the new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md) instead.
+        > [!NOTE]
+        > If you selected an Azure managed HSM previously, [use PowerShell or the Azure CLI to create the new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md) instead.
 
     1. For **Name**, enter a name for the key.
 
