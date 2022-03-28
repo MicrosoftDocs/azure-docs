@@ -10,12 +10,11 @@ ms.date: 02/03/2022
 ms.author: allensu
 
 ---
-
 # Create a custom IP address prefix using the Azure portal
 
 Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
-The steps in this article detail the full process to:
+The steps in this article detail the process to:
 
 * Prepare a range to provision
 
@@ -68,8 +67,8 @@ The following steps show the steps required to prepare sample customer range (1.
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
     
     ```powershell
-    openssl genrsa -out byoipprivate.key 2048
-    Set-Content -Path byoippublickey.cer (openssl req -new -x509 -key byoipprivate.key -days 180) -NoNewline
+    ./openssl genrsa -out byoipprivate.key 2048
+    Set-Content -Path byoippublickey.cer (./openssl req -new -x509 -key byoipprivate.key -days 180) -NoNewline
     ```
    
 2. After the certificate is created, update the public comments section of the Whois/RDAP record for the prefix. In order to display for copying, including the BEGIN/END header/footer with dashes, use the command `cat byoippublickey.cer` You should be able to perform this procedure via your Routing Internet Registry.  
@@ -87,7 +86,7 @@ The following steps show the steps required to prepare sample customer range (1.
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 
     ```output
-    Comment:-----BEGIN CERTIFICATE-----abcdefghijklmnopqrstuvwxyz1234567890-----END CERTIFICATE----
+    Comment:-----BEGIN CERTIFICATE-----MIIECTCCAvGgAwIBAgIUJp9dQ+IW2W7JrJgUR4jBlDYvbtYwDQYJKoZIhvcNAQELBQAwgZMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApXYXNoaW5ndG9uMRAwDgYDVQQHDAdSZWRtb25kMRAwDgYDVQQKDAdDb250b3NvMQswCQYDVQQLDAJJVDEdMBsGA1UEAwwUY3VzdG9taXAuY29udG9zby5jb20xHzAdBgkqhkiG9w0BCQEWEHVzZXJAY29udG9zby5jb20wHhcNMjIwMzI4MTkzMzMxWhcNMjIwOTI0MTkzMzMxWjCBkzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xEDAOBgNVBAcMB1JlZG1vbmQxEDAOBgNVBAoMB0NvbnRvc28xCzAJBgNVBAsMAklUMR0wGwYDVQQDDBRjdXN0b21pcC5jb250b3NvLmNvbTEfMB0GCSqGSIb3DQEJARYQdXNlckBjb250b3NvLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALQTbyVmqO9dN9eOpuKyd+5hUM9l0RBsBTsi4vuIyxglh/5dr+/S+G2I3mlZIoqXIVOogLuGvCpNjzXrf0Q6dfDdycwDvrb12EJSD70afpe1mXGXjnrmrxUe+cNo6y///gI3g1gbnl65Vs6VFyXXLPY6EfeXBSS9kAksfv2c0Zj3XRJvqcPqcdMpdPeHwKQqZdZNDe2bVYOG/Lbj/I1+H7i4JtYXzGdOOk6UCYggnWjQpd0QYNj2HzhtFaw57ZBWAy1MvOIXd/NtpXNOel8EahzBKaLaOqDrNHHR85b07V8EI0V/I5kgvXhceEmJQb77P5CibZkLCNJdS48T5qHXJzECAwEAAaNTMFEwHQYDVR0OBBYEFKrvzRzToN0Lf5dKwCL9NgQ9kKQTMB8GA1UdIwQYMBaAFKrvzRzToN0Lf5dKwCL9NgQ9kKQTMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAKYYsyvMgF4MuHd3uvFQi7SoakLVGsWIALniu3bswsaMTGOqjhRHPDFMhqR+D4YMY0wC4sPN1+dCfDbMN4fN3WW5bTkpNDUrFTbncV6bl+Ih/gvrEn5bNwlVOixl2g9CZPoxUfPyu3VWtM/PeDikufQd21EagrgDHK4mRGB+778UEwGjXgt1fb7BKyiR7dWcnepUE70iZTcthlEmmoW3rVcoZRChmH0vcB15XNdQ+a5TDd4ci43YLdffDkyfUsuMEHQSag0q9yJjsF7B1II64EitjVO/sdJhaYvc9Fb4EmjbVpplxp0BYOcix2EUKrmvgEyycVpQoV9FRAkFRqVhpYU=-----END CERTIFICATE-----
     ```
 
 3. To create the message that will be passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
@@ -100,8 +99,15 @@ The following steps show the steps required to prepare sample customer range (1.
     ```powershell
     $byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"
     Set-Content -Path byoipauth.txt -Value $byoipauth -NoNewline
-    openssl dgst -sha256 -sign byoipprivate.key -keyform PEM -out byoipauthsigned.txt byoipauth.txt
-    $byoipauthsigned=(openssl enc -base64 -in byoipauthsigned.txt) -join ''
+    ./openssl dgst -sha256 -sign byoipprivate.key -keyform PEM -out byoipauthsigned.txt byoipauth.txt
+    $byoipauthsigned=(./openssl enc -base64 -in byoipauthsigned.txt) -join ''
+    ```
+
+4. To view the contents of the signed message, enter the variable created from the signed message created previously and select **Enter** at the PowerShell prompt:
+
+    ```powershell
+    $byoipauthsigned
+    dIlwFQmbo9ar2GaiWRlSEtDSZoH00I9BAPb2ZzdAV2A/XwzrUdz/85rNkXybXw457//gHNNB977CQvqtFxqqtDaiZd9bngZKYfjd203pLYRZ4GFJnQFsMPFSeePa8jIFwGJk6JV4reFqq0bglJ3955dVz0v09aDVqjj5UJx2l3gmyJEeU7PXv4wF2Fnk64T13NESMeQk0V+IaEOt1zXgA+0dTdTLr+ab56pR0RZIvDD+UKJ7rVE7nMlergLQdpCx1FoCTm/quY3aiSxndEw7aQDW15+rSpy+yxV1iCFIrUa/4WHQqP4LtNs3FATvLKbT4dBcBLpDhiMR+j9MgiJymA==
     ```
 
 ## Sign in to Azure
@@ -113,7 +119,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West 2 region.
 
 > [!NOTE]
-> Clean up or delete steps aren't shown on this page, given the nature of the resource. For information on removing a provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
+> Clean up or delete steps aren't shown on this page given the nature of the resource. For information on removing a provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
 
 ## Create and provision a custom IP address prefix
 
@@ -123,7 +129,7 @@ The following steps display the procedure for provisioning a sample customer ran
 
 3. Select **+ Create**.
 
-4. In **Create custom IP prefix**, enter, or select the following information in the **Basics** tab:
+4. In **Create a custom IP prefix**, enter or select the following information in the **Basics** tab:
 
     | Setting | Value |
     | ------- | ----- |
@@ -135,17 +141,16 @@ The following steps display the procedure for provisioning a sample customer ran
     | Region | Select **West US 2**. |
     | Availability Zones | Select **Zone-redundant**. |
     | IPv4 Prefix (CIDR) | Enter **1.2.3.0/24**. |
-    | ROA expiration date | Enter in your ROA expiration date in yyyymmdd format. |
+    | ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
     | Signed message | Paste in the output of **$byoipauthsigned** from the earlier section. |
 
     :::image type="content" source="./media/create-custom-ip-address-prefix-portal/create-custom-ip-prefix.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
-
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
 6. Select **Create**.
 
-The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous.  You can check the status by reviewing the **Commissioned state** field for the custom IP prefix.
+The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix.
 
 > [!NOTE]
 > The estimated time to complete the provisioning process is 30 minutes.
@@ -169,17 +174,17 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
  
 6. Ensure the **Subscription** and **Region** match the region of the **myCustomIPPrefix**.
 
-7. Ensure for **Prefix ownership** that "Custom IP Prefix" is selected, and that in the **Custom IP Prefix** menu that **myCustomIPPrefix** is selected.
+7. Ensure for **Prefix ownership** that **Custom IP Prefix** is selected, and that in the **Custom IP Prefix** menu that **myCustomIPPrefix** is selected.
  
-8. Use the **Prefix size** menu to specify the desired size of the prefix (note it can be as large as the Custom IP Prefix).
+8. Use the **Prefix size** menu to specify the desired size of the prefix. The size can be as large as the custom IP prefix.
 
 9. Select **Review + create**, and then **Create** on the following page.
 
-10. Repeat steps 1-3 as necessary to return to the **Overview** page for **myCustomIPPrefix**.  You should now see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)].
+10. Repeat steps 1-3 as necessary to return to the **Overview** page for **myCustomIPPrefix**.  You should now see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
 ## Commission the custom IP address prefix
 
-Once the custom IP prefix is in “Provisioned” state, update the prefix to begin the process of advertising the range from Azure.
+Once the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
 
 1. In the search box at the top of the portal, enter **Custom IP**.
 
@@ -189,13 +194,13 @@ Once the custom IP prefix is in “Provisioned” state, update the prefix to be
 
 4. In **Overview** of **myCustomIPPrefix**, select **Commission**.
 
-As before, the operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the Custom IP Prefix, which will initially show the prefix as “Commissioning”, followed in the future by “Commissioned”. The advertisement rollout isn't binary and the range will be partially advertised while still in "Commissioning".
+The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. The status which will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.
 
 > [!IMPORTANT]
-> As the custom IP prefix transitions to a "Commissioned" state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
+> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
 
 ## Next steps
 
