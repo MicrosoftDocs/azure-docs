@@ -3,7 +3,7 @@ title: Azure CLI script sample - Subscribe to Azure subscription | Microsoft Doc
 description: This article provides a sample Azure CLI script that shows how to subscribe to Azure Event Grid events using Azure CLI. 
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 09/15/2021 
+ms.date: 03/28/2022 
 ms.custom: devx-track-azurecli
 ---
 
@@ -15,15 +15,9 @@ This script creates an Event Grid subscription to the events for an Azure subscr
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
-
-## Sample script - stable
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.sh "Subscribe to Azure subscription")]
-
-## Sample script - preview extension
-
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.sh "Subscribe to Azure subscription")]
 
 ## Script explanation
 
