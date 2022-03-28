@@ -24,7 +24,9 @@ Before you start, make sure that you have:
 
 If you are using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
-Later on, you'll need the following permissions to use Defender for IoT:
+### Permissions
+
+Defender for IoT users require the following permissions:
 
 | Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
@@ -87,7 +89,7 @@ This procedure describes how to add a new Azure subscription to Defender for IoT
 
 Your subscription is shown in the **Pricing** grid. For example:
 
-:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Pricing page in Defender for IoT.":::
+:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png"::::::
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 

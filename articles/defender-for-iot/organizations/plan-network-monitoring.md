@@ -21,6 +21,8 @@ For example:
 
 :::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="Diagram of a managed switch with port mirroring." border="false" :::
 
+### Purdue reference model and Defender for IoT
+
 The Purdue Reference Model is a model for Industrial Control System (ICS)/OT network segmentation that defines six layers, components and relevant security controls for those networks.
 
 Each device type in your OT network falls in a specific level of the Purdue model. The following image shows how devices in your network spread across the Purdue model and connect to Defender for IoT services.
@@ -28,7 +30,6 @@ Each device type in your OT network falls in a specific level of the Purdue mode
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model." border="false" lightbox="media/how-to-set-up-your-network/purdue-model.png":::
 
 The following table describes each level of the Purdue model when applied to Defender for IoT devices:
-
 
 |Name  |Description  |
 |---------|---------|

@@ -58,13 +58,13 @@ Defender for IoT provides hybrid network support using the following management 
 
     Also use the Azure portal to obtain new appliances and software updates, onboard and maintain your sensors in Defender for IoT, and update threat intelligence packages.
 
-    :::image type="content" source="media/architecture/portal.png" alt-text="Screenshot of the Defender for I O T default view on the Azure portal.":::
+    :::image type="content" source="media/architecture/portal.png" alt-text="Screenshot of the Defender for I O T default view on the Azure portal."lightbox="media/architecture/portal.png":::
 
 - **The sensor console**. You can also view detections for devices connected to a specific sensor from the sensor's console. Use the sensor console to view a network map, an extensive range of reports, forward information to partner systems, and more.
 
     :::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
-- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console. The on-premises management console also provides extra maintenance tools and reporting featurs.
+- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console. The on-premises management console also provides extra maintenance tools and reporting features.
 
 ## Next steps
 
