@@ -122,7 +122,7 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
 The default plan for Defender for servers (Plan 2) includes comprehensive server protection with all of the features available for each platform. If you just need Microsoft Defender for Endpoint, you can enable Defender for servers and configure it to Plan 1. This lets you take advantage of the benefits of licensing, deploying and integrating Microsoft Defender for Endpoint through Microsoft Defender for Cloud in a pricing model optimized for dynamic consumption.
 
-Learn more about the [comparison between Plan 1 and Plan 2](#what-are-the-defender-for-server-plans).
+Learn more about the [comparison between Plan 1 and Plan 2](#what-are-the-microsoft-defender-for-server-plans).
 
 To enable Defender for servers Plan 1:
 
