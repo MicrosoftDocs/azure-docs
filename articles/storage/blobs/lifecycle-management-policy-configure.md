@@ -210,6 +210,7 @@ To define a lifecycle management policy with an Azure Resource Manager template,
 ---
 
 A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
 > [!NOTE]
 > Each rule can have up to 10 case-sensitive prefixes and upto 10 blob index tag conditions.
 
