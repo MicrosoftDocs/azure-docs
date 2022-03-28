@@ -29,7 +29,7 @@ Azure Cosmos DB is a multi-model database service that lets you quickly create a
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=cassandrago-docs-abhishgu). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/?WT.mc_id=cassandrago-docs-abhishgu) without an Azure subscription.
-- [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
+- [Go](https://go.dev/) installed on your computer, and a working knowledge of Go.
 - [Git](https://git-scm.com/downloads).
 
 ## Create a database account
