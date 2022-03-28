@@ -37,7 +37,7 @@ You can see in the connection string, there are two main information:
 2. `AccessKey=<access_key>` is the key to authenticate with the service. When access key is specified in connection string, SignalR service SDK will use it to generate a token that can be validated by the service.
 
 >[!NOTE]
-> For more information about how access tokens are generated and validated, please refer to this [article](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#authenticate-via-azure-signalr-service-accesskey).
+> For more information about how access tokens are generated and validated, see this [article](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#authenticate-via-azure-signalr-service-accesskey).
 
 ## Other authentication types
 
@@ -53,7 +53,7 @@ To use AAD authentication, you need to remove `AccessKey` from connection string
 Endpoint=https://<resource_name>.service.signalr.net;AuthType=aad;ClientId=<client_id>;ClientSecret=<client_secret>;TenantId=<tenant_id>;Version=1.0;
 ```
 
-For more information about how to authenticate using AAD application, refer to [this article](signalr-howto-authorize-application.md).
+For more information about how to authenticate using AAD application, see this [article](signalr-howto-authorize-application.md).
 
 ### Managed identity
 
@@ -73,7 +73,7 @@ To use user assigned identity, you also need to specify the client ID of the man
 Endpoint=https://<resource_name>.service.signalr.net;AuthType=aad;ClientId=<client_id>;Version=1.0;
 ```
 
-For more information about how to configure managed identity, refer to [this article](signalr-howto-authorize-managed-identity.md).
+For more information about how to configure managed identity, see this [article](signalr-howto-authorize-managed-identity.md).
 
 > [!NOTE]
 > It's highly recommended to use AAD to authenticate with SignalR service as it's a more secure way comparing to using access key. If you don't use access key authentication at all, consider to completely disable it (go to Azure portal -> Keys -> Access Key -> Disable). If you still use access key, it's highly recommended to rotate them regularly (more information can be found [here](signalr-howto-key-rotation.md)).
@@ -93,7 +93,7 @@ Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;Clie
 Then app server will return the right endpoint url in negotiate response for client to connect.
 
 > [!NOTE]
-> For more information about how clients get service url through negotiate, please refer to this [article](signalr-concept-internals.md#client-connections).
+> For more information about how clients get service url through negotiate, see this [article](signalr-concept-internals.md#client-connections).
 
 Similarly, when server wants to make [server connections](signalr-concept-internals.md#server-connections) or call [REST APIs](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to service, SignalR service may also be behind another service like Application Gateway. In that case, you can use `ServerEndpoint` to specify the actual endpoint for server connections and REST APIs:
 
@@ -131,14 +131,14 @@ In a local development environment, the config is usually stored in file (appset
 1. Use .NET secret manager (`dotnet user-secrets set Azure:SignalR:ConnectionString "<connection_string>"`)
 2. Set connection string to environment variable named `Azure__SignalR__ConnectionString` (colon needs to replaced with double underscore in [environment variable config provider](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider)).
 
-In production environment, you can use other Azure services to manage config/secrets like Azure [Key Vault](/azure/key-vault/general/overview) and [App Configuration](/azure/azure-app-configuration/overview). Please refer to their documentation to learn how to set up config provider for those services.
+In production environment, you can use other Azure services to manage config/secrets like Azure [Key Vault](/azure/key-vault/general/overview) and [App Configuration](/azure/azure-app-configuration/overview). See their documentation to learn how to set up config provider for those services.
 
 > [!NOTE]
 > Even you're directly setting connection string using code, it's not recommended to hardcode the connection string in source code, so you should still first read the connection string from a secret store like key vault and pass it to `AddAzureSignalR()`.
 
 ### Configure multiple connection strings
 
-Azure SignalR Service also allows server to connect to multiple service endpoints at the same time, so it can handle more connections which are beyond one service instance's limit. Also if one service instance is down, other service instances can be used as backup. For more information about how to use multiple instances, refer to [this article](signalr-howto-scale-multi-instances.md).
+Azure SignalR Service also allows server to connect to multiple service endpoints at the same time, so it can handle more connections which are beyond one service instance's limit. Also if one service instance is down, other service instances can be used as backup. For more information about how to use multiple instances, see this [article](signalr-howto-scale-multi-instances.md).
 
 There are also two ways to configure multiple instances:
 
