@@ -8,41 +8,24 @@ ms.date: 03/31/2021
 
 # Add an Azure Cloud Account to Nutanix Clusters
 
-Note: Ensure that you add the tags fastpathenabled: True while creating the VNets, and not 
-after the VNets are created.
-1. Sign into the Azure portal with your Azure account created for Private Preview and then 
-navigate to Subscriptions.
-2. Open the resource group that you have created.
-3. Click +Add.
-4. In the New page, in the search box, enter Virtual Network. Select Virtual Network in the 
-search results.
-5. In the Virtual Network page, click Create.
-6. In Create virtual network, enter, or select the following information in the Basics tab:
-a. Project details: Select your subscription and the resource group.
-b. Instance details: add a name for the VNet and select (US) East US from the 
-Region list.
-7. Click Next: IP Addresses at the bottom of the page.
-8. In the IPv4 address space, select the IPv4 address space, and then click + Add 
-subnet.
-9. In the Add subnet page, add a name for the subnet (such as Host-Subnet) and enter 
-the subnet address range. Click Add.
-21
-10. Click Next: Security and Next: Tags at the bottom of the page.
-11. Add the tag fastpathenabled and set its value as True.
-12. Click Create in the Review + create page.
-13. When the deployment is complete, click Go to resource. You will be redirected to the 
-VNet that is created.
-14. Click Subnets. In the Subnets page, click the name of the Host-Subnet.
-15. Under SUBNET DELEGATION, select Microsoft.BareMetal/AzureHostedService from 
-the Delegate subnet to a service list.
-16. Click Save.
-Note: Add a custom DNS to the VNet. You can use any of the following DNS servers:
-• On-prem DNS server
-Note: You need to create a Cluster VNet and set up VPN or ExpressRoute 
-connectivity to the on-prem DNS server.
-• Public DNS server, such as 1.1.1.1 or 8.8.8.8
-• Azure DNS server deployed from Microsoft Marketplace
-• Nutanix provisioned DNS server with the IP address 20.106.145.8
+To add your Azure account to Nutanix Clusters, you must specify your Azure cloud account name, cloud account ID, create and verify a Resource Manager in the Azure console, and select an Azure region in which you want to create Nutanix clusters. 
+
+> [!NOTE]
+> You can add one Azure account to multiple organizations within the same customer entity. However, you cannot add the same Azure account to two or more different Customer (tenant) entities.  
+
+If you have already added an Azure account to an organization and want to add the same Azure account to another organization, follow the same process but you do not need to create the CloudFormation template. 
+
+ 
+Perform the following procedure to add an Azure account to Nutanix Clusters. 
+
+> [!NOTE]
+> Before performing these steps, copy the credentials of your Azure Account from the Microsoft Azure portal. 
+
+1. Log on to Nutanix Clusters from the My Nutanix dashboard.
+2. In the navigation pane on the left, click the Organizations tab, click the ellipsis next to the organization you want to add the cloud account to, and click Cloud Accounts. 
+1. In the Cloud accounts page, click Add Cloud Account. The Add a Cloud Account dialog box appears.  
+To create and manage resources in your Azure account, Nutanix Clusters requires 
+several IAM resources.
 
 ## Next steps
 
