@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,7 +41,7 @@ There are two scenarios that make up continuous access evaluation, critical even
 
 ### Critical event evaluation
 
-Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it is available in any tenant. The following events are currently evaluated:
+Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it's available in any tenant. The following events are currently evaluated:
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
@@ -191,6 +191,10 @@ CAE only has insight into [IP-based named locations](../conditional-access/locat
 
 > [!IMPORTANT]
 > If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+
+### Named location limitations
+
+When the sum of all IP ranges specified in location policies exceeds 5,000 for policies that will be enforced on the Resource provider, user change location flow isn't enforced. In this case, Azure AD will issue a one-hour CAE token and won't enforce client location change; security is improved compared to traditional one-hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
 
 ### Office and Web Account Manager settings
 

@@ -108,6 +108,10 @@ items:
       href: concept-workflow.md
   - name: Data Share
     href: concept-data-share.md
+  - name: Data policies
+    items:
+    - name: Data owner policies
+      href: concept-data-owner-policies.md
   - name: Data insights
     href: concept-insights.md
 - name: How-to guides
