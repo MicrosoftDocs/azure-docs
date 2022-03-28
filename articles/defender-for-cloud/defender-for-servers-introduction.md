@@ -19,7 +19,7 @@ To protect machines in hybrid and multi-cloud environments, Defender for Cloud u
 > [!TIP]
 > For details of which Defender for servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
 
-## What are the Defender for server plans?
+## What are the Microsoft Defender for server plans?
 
 Microsoft Defender for servers adds threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, on-premises, or in a multi-cloud environment. Two plans are available to enhance the security features that Microsoft Defender for Cloud provides:
 
@@ -29,6 +29,8 @@ Microsoft Defender for servers adds threat detection and advanced defenses to yo
     - Analytics and insight reporting within Microsoft Defender for Cloud
 
 - **Microsoft Defender for servers Plan 2** - complete support for Microsoft Defender for servers features.
+
+For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 To enable Microsoft Defender for servers:
 
@@ -40,7 +42,7 @@ To enable Microsoft Defender for servers:
    1. In the **Plan/Pricing** column, click **configure**.
    1. Select **Plan 1**.
 
-The following table describes what's included in each plan at a high level. <br/><br/>
+The following table describes what's included in each plan at a high level.
 
 | Feature | Free in Microsoft Defender for Cloud | Defender for servers Plan 1 | Defender for servers Plan 2 |
 |:---|:---|:---|:---|
@@ -60,7 +62,7 @@ The following table describes what's included in each plan at a high level. <br/
 <!-- | Future – TVM P2 | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Future – disk scanning insights | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
 
-## What are the benefits of Microsoft Defender for servers?
+## What are the benefits of Defender for servers?
 
 The threat detection and protection capabilities provided with Microsoft Defender for servers include:
 
