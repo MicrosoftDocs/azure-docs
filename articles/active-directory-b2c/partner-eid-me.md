@@ -452,9 +452,9 @@ Now that you have a user journey, add the new identity provider to the user jour
 
 2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
 
-  The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
+   The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
 
-  ```xml
+   ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -531,7 +531,7 @@ Now that you have a user journey, add the new identity provider to the user jour
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
 
-  ```
+   ```
 
 ### Step 6 - Configure the relying party policy
 
