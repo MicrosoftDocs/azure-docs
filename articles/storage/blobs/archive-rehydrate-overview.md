@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 03/01/2022
+ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -61,14 +61,16 @@ To learn how to rehydrate a blob by copying it to an online tier, see [Rehydrate
 > [!IMPORTANT]
 > Do not delete the source blob until the rehydration has completed successfully. If the source blob is deleted, then the destination blob may not finish copying. You can handle the event that is raised when the copy operation completes to know when it is safe to delete the source blob. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
-Copying an archived blob to an online destination tier is supported within the same storage account only. You cannot copy an archived blob to a destination blob that is also in the Archive tier.
+Copying an archived blob to an online destination tier is supported within the same storage account. Beginning with service version 2021-02-12, you can copy an archived blob to a different storage account, as long as the destination account is in the same region as the source account.
+
+The target blob for the copy operation must be in an online tier (Hot or Cool). You cannot copy an archived blob to a destination blob that is also in the Archive tier.
 
 The following table shows the behavior of a blob copy operation, depending on the tiers of the source and destination blob.
 
 |  | **Hot tier source** | **Cool tier source** | **Archive tier source** |
 |--|--|--|--|
-| **Hot tier destination** | Supported | Supported | Supported within the same account. Requires blob rehydration. |
-| **Cool tier destination** | Supported | Supported | Supported within the same account. Requires blob rehydration. |
+| **Hot tier destination** | Supported | Supported | Supported within the same storage account. Supported across accounts in the same region with version 2021-02-12 and later. Requires blob rehydration. |
+| **Cool tier destination** | Supported | Supported | Supported within the same account. Supported across accounts in the same region with version 2021-02-12 and later. Requires blob rehydration. |
 | **Archive tier destination** | Supported | Supported | Unsupported |
 
 ## Change a blob's access tier to an online tier

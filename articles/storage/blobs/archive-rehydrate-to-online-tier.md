@@ -33,7 +33,9 @@ To rehydrate a blob from the Archive tier by copying it to an online tier, use P
 
 After the copy operation is complete, the destination blob appears in the Archive tier. The destination blob is then rehydrated to the online tier that you specified in the copy operation. When the destination blob is fully rehydrated, it becomes available in the new online tier.
 
-The following examples show how to copy an archived blob with PowerShell or Azure CLI.
+### Rehydrate a blob to the same storage account
+
+The following examples show how to copy an archived blob with the Azure portal, PowerShell, or Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -84,6 +86,10 @@ az storage blob copy start \
 ```
 
 ---
+
+### Rehydrate a blob to a different storage account in the same region
+
+TBD
 
 ## Rehydrate a blob by changing its tier
 
@@ -139,6 +145,8 @@ az storage blob set-tier \
 ```
 
 ---
+
+
 
 ## Bulk rehydrate a set of blobs
 
