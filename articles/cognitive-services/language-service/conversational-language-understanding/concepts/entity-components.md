@@ -44,7 +44,7 @@ The prebuilt component allows you to select from a library of common types such 
 
 ## Overlap methods
 
-When multiple components are defined for an entity, their predictions may overlap. When an overlap occurs, each entity's final prediction is determined determined by one of the following options.
+When multiple components are defined for an entity, their predictions may overlap. When an overlap occurs, each entity's final prediction is determined by one of the following options.
 
 ### Longest overlap
 

@@ -10,27 +10,27 @@ ms.topic: how-to
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
-ms.date: 08/20/2021
+ms.date: 03/25/2022
 ---
 
 # Delete a subnet after deleting an Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Managed Instance residing in it.
+This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Managed Instance residing in it. You can [delete a virtual network subnet](../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet) only if there are no resources in the subnet.
 
-SQL Managed Instances are deployed into [virtual clusters](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture). Each virtual cluster is associated with a subnet and deployed together with first instance creation. In the same way, a virtual cluster is automatically removed together with last instance deletion leaving the subnet empty and ready for removal. There is no need for any manual action on the virtual cluster in order to release the subnet. Once the last virtual cluster is deleted, you can go and delete the subnet
+SQL Managed Instances are deployed into [virtual clusters](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture). Each virtual cluster is associated with a subnet and **automatically deployed** together with first instance creation. In the same way, a virtual cluster is **automatically removed** together with last instance deletion leaving the subnet empty and ready for removal. 
 
-There are rare circumstances in which create operation can fail and result with deployed empty virtual cluster. Additionally, as instance creation [can be canceled](management-operations-cancel.md), it is possible for a virtual cluster to be deployed with instances residing inside, in a failed state. Virtual cluster removal will automatically be initiated in these situations and removed in the background.
+>[!IMPORTANT]
+>There is no need for any manual action on the virtual cluster in order to release the subnet. Once the last virtual cluster is deleted, you can go and delete the subnet.
 
-> [!NOTE]
-> There are no charges for keeping an empty virtual cluster or instances that have failed to create.
+There are rare circumstances in which create operation can fail and result with deployed empty virtual cluster. Additionally, as instance creation [can be canceled](management-operations-cancel.md), it is possible for a virtual cluster to be deployed with instances residing inside, in a failed to deploy state. Virtual cluster removal will automatically be initiated in these situations and removed in the background.
 
 > [!IMPORTANT]
-> - The virtual cluster should contain no SQL Managed Instances for the deletion to be successful. This does not include instances that have failed to create. 
+> - There are no charges for keeping an empty virtual cluster or instances that have failed to create.
 > - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [SQL Managed Instance management operations](management-operations-overview.md) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
 > - Only one delete operation can be run on the virtual cluster. All subsequent customer-initiated delete requests will result with an error as delete operation is already in progress.
 
-## Delete a virtual cluster from the Azure portal
+## Delete a virtual cluster from the Azure portal [DEPRECATED]
 
 > [!IMPORTANT]
 > Starting September 1, 2021. all virtual clusters are automatically removed when last instance in the cluster has been deleted. Manual removal of the virtual cluster is not required anymore.
@@ -50,7 +50,10 @@ Azure portal notifications will show you a confirmation that the request to dele
 > [!TIP]
 > If there are no SQL Managed Instances shown in the virtual cluster, and you are unable to delete the virtual cluster, ensure that you do not have an ongoing instance deployment in progress. This includes started and canceled deployments that are still in progress. This is because these operations will still use the virtual cluster, locking it from deletion. Review the **Deployments** tab of the resource group where the instance was deployed to see any deployments in progress. In this case, wait for the deployment to complete, then delete the SQL Managed Instance. The virtual cluster will be synchronously deleted as part of the instance removal.
 
-## Delete a virtual cluster by using the API
+## Delete a virtual cluster by using the API [DEPRECATED]
+
+> [!IMPORTANT]
+> Starting September 1, 2021. all virtual clusters are automatically removed when last instance in the cluster has been deleted. Manual removal of the virtual cluster is not required anymore.
 
 To delete a virtual cluster through the API, use the URI parameters specified in the [virtual clusters delete method](/rest/api/sql/virtualclusters/delete).
 

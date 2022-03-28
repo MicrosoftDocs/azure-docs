@@ -40,7 +40,7 @@ To return the Azure Resource Manager resource ID for a storage account with Powe
 
 # [Azure CLI](#tab/azure-cli)
 
-To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command and query the resource ID:
+To return the Azure Resource Manager resource ID for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command and query the resource ID:
 
 ```azurecli
 az storage account show \
@@ -82,7 +82,7 @@ $account.Kind
 
 # [Azure CLI](#tab/azure-cli)
 
-To view the account type, location, or replication SKU for a storage account with PowerShell, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command and query the properties:
+To view the account type, location, or replication SKU for a storage account with PowerShell, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command and query the properties:
 
 ```azurecli
 az storage account show \
