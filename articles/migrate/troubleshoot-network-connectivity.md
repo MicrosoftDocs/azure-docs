@@ -22,12 +22,11 @@ Make sure the private endpoint is an approved state.
 2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Migrate.  
 
 3. Select the private endpoint you want to diagnose.  
-      a. Validate that the connection state is Approved.           
-      b. If the connection is in a Pending state, you need to get it  approved.                         
-      c. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
+   a. Validate that the connection state is Approved.           
+   b. If the connection is in a Pending state, you need to get it  approved.                         
+   c. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
 
-     ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
-
+      ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
 
 ## Validate the data flow through the private endpoints
 Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Server Migration Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
@@ -37,7 +36,7 @@ Review the data flow metrics to verify the traffic flow through private endpoint
 The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You may require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [See this article](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
 
 To validate the private link connection, perform a DNS resolution of the Azure Migrate resource endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address.
-The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list.   
+The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list.
 
  ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
 
@@ -45,7 +44,7 @@ The private endpoint details and private link resource FQDNs' information is ava
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
--  Enter _nslookup ```<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+-  Enter _nslookup ```<storage-account-name>_.blob.core.windows.net.``` Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate. 
 
     You'll receive a message like this:  
 
@@ -58,12 +57,9 @@ You can verify the DNS resolution for other Azure Migrate artifacts using a simi
 If the DNS resolution is incorrect, follow these steps:  
 
 **Recommended** for testing: You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses.
-- If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
-- If you use Azure-provided DNS servers, refer to the below section for further troubleshooting.  
 
 > [!Tip]
-> You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses. This option is recommended only for testing. <br/>  
-
+> You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses. This option is recommended only for testing. <br/>
 
 ## Validate the Private DNS Zone   
 If the DNS resolution is not working as described in the previous section, there might be an issue with your Private DNS Zone.  
