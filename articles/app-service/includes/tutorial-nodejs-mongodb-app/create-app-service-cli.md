@@ -35,7 +35,7 @@ az group create `
 
 ---
 
-Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
+Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
 * The `--is-linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
@@ -66,7 +66,7 @@ az appservice plan create `
 
 ---
 
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
+Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
 * The runtime specifies what version of Node your app is running. This example uses Node 14 LTS. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table` for Linux and `az webapp list-runtimes --os windows --output table` for Windows.

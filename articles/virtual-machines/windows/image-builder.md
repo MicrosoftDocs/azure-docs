@@ -184,7 +184,7 @@ az resource delete \
 ```
 
 ## Start the image build
-Start the image building process using [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action).
+Start the image building process using [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \

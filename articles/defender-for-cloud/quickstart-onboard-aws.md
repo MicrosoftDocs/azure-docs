@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 03/27/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -95,19 +95,6 @@ If you have any existing connectors created with the classic cloud connectors ex
 1. On AWS, delete the role ARN, or the credentials created for the integration.
 
 ### Create a new connector
-
-Ensure that all relevant pre-requisites are enabled in order to use all of the available capabilities of Defender for servers on AWS
-Also, the Defender for Servers plan should be enabled on the subscription.
-
-Deploy Azure Arc on your EC2 instances to use as the vehicle to Azure. You can deploy Azure Arc on your EC2 instance in 3 different ways:
-- (Recommended) Use the Defender for Servers Arc auto-provisioning process. Azure Arc is enabled by default in the onboarding process. The process requires owner permissions on the subscription.
-- Manual installation through Arc for servers.
-- Through a recommendation, which will appear on the Microsoft Defender for Cloud's Recommendations page.
-
-Additional extensions should be enabled on Arc-connected machines. These extensions are currently configured on the subscription level, and will be applied to all the multi-cloud accounts, and projects (from both AWS and GCP)
-    - Microsoft Defender for Endpoint
-    - VA solution (TVM/ Qualys)
-    - LA agent on Arc machines (Ensure that the selected workspace has the security solution installed)
 
 **To create a new connector**:
 

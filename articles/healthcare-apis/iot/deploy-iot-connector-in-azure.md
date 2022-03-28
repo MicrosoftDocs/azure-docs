@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -175,7 +175,7 @@ To ensure that your MedTech service works properly, it must have granted access 
 
    The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive data from this Event Hub.
 
-   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs](.././authentication-authorization.md).
+   For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
 
 5. Select **Assign access to**, and keep the default option selected **User, group, or service principal**.
 
@@ -207,7 +207,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
    The FHIR Data Writer role provides read and write access that the MedTech service uses to function. Because the MedTech service is deployed as a separate resource, the FHIR service will receive requests from the MedTech service. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
 
-   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs](.././authentication-authorization.md).
+   For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
 
 5. In the **Select** field, enter the security principal for your MedTech service.  
 
