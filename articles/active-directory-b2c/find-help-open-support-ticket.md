@@ -28,7 +28,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 ## Open a support ticket
 
-If you're unable to find answers by using self-help resources, you can open an online support ticket. You should open each support ticket for only a single problem to enable us connect you to the support engineers who are subject matter experts for your problem. Also, Azure AD B2C engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
+If you're unable to find answers by using self-help resources, you can open an online support ticket. You should open each support ticket for only a single problem to enable us to connect you to the support engineers who are subject matter experts for your problem. Also, Azure AD B2C engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
 
 ### How to open a support ticket for Azure AD B2C in the Azure portal
 
@@ -55,7 +55,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
     1. For **Service type**, select **Azure Active Directory Business to Consumer (B2C)**. This action shows **Summary** and **Problem type** fields. 
     
-    1. For **Summary**, write a descriptive summary for your request. The summary needs be under 140 characters.
+    1. For **Summary**, write a descriptive summary for your request. The summary needs to be under 140 characters.
   
     1. For **Problem type**, and then select a category for that type. 
 
@@ -78,13 +78,13 @@ If you're unable to find answers by using self-help resources, you can open an o
     1. Select a **[Severity](https://azure.microsoft.com/support/plans/response)**, and your preferred contact method.
     
 
-    :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket.png" alt-text="Find help and submit support ticket.":::
+    :::image type="content" source="media/find-help-and-submit-support-ticket/find-help-and-submit-support-ticket.png" alt-text="Screenshot of how to find help and submit support ticket.":::
  
 1. Select **Next**. Under **4. Review + create**, you'll see a summary of your support ticket. 
 
 1. If the details of your support ticket are accurate, select **Create** to submit the support ticket. Otherwise, select **Previous** to make corrections. 
 
-    :::image type="content" source="media/find-help-and-submit-support-ticket/review-and-create.png" alt-text="Find help and submit support ticket review and create tab.":::
+    :::image type="content" source="media/find-help-and-submit-support-ticket/review-and-create.png" alt-text="Screenshot of how to find help and submit support ticket Review and create tab.":::
 
 
 ##  Next steps
