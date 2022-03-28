@@ -178,7 +178,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, ***only if***  your scenario requires basic load balancer (internal), follow these configuraton steps instead to create basic load balancer:  
+1. Alternatively, ***only if***  your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.7 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
