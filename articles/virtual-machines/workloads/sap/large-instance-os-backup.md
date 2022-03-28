@@ -22,7 +22,7 @@ This article walks through the steps to do an operating system (OS) file-level b
 
 ## OS backup and restore for Type II SKUs of Revision 3 stamps
 
-Refer this documentation: [OS backup and restore for Type II SKUs of Revision 3 stamps])https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-machines/workloads/sap/os-backup-hli-type-ii-skus.md)
+Refer this documentation: [OS backup and restore for Type II SKUs of Revision 3 stamps](./os-backup-hli-type-ii-skus.md)
 
 
 ## OS backup and restore for all other SKUs
