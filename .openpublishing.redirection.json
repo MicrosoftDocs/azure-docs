@@ -849,17 +849,17 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rule-set-actions.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rules-set.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rules-set.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-caching.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-caching.md",
       "redirect_url": "/azure/frontdoor/front-door-caching",
       "redirect_document_id": false
     },
@@ -869,8 +869,48 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-backend-pool.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-origin.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-private-link.md",
+      "redirect_url": "/azure/frontdoor/private-link",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-end-to-end-tls.md",
+      "redirect_url": "/azure/frontdoor/end-to-end-tls",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-routing-methods.md",
+      "redirect_url": "/azure/frontdoor/routing-methods",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-health-probes.md",
+      "redirect_url": "/azure/frontdoor/health-probes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-portal.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
       "redirect_url": "/azure/frontdoor/front-door-url-redirect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/index.yml",
+      "redirect_url": "/azure/frontdoor/",
       "redirect_document_id": false
     },
     {
