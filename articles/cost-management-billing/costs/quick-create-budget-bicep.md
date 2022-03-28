@@ -77,18 +77,19 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters rgName=<rg-name> rgLocation=centralus startDate=<start-date> endDate=<end-date>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -rgName "<rg-name>" -rgLocation centralus -startDate "<start-date>" -endDate "<end-date>"
     ```
 
     ---
+
+    > [!NOTE]
+    > Replace **\<rg-name\>** with the name of the resource group that will hold your budget. Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -112,18 +113,19 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters parameters rgName=<rg-name> rgLocation=centralus startDate=<start-date> endDate=<end-date>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -rgName "<rg-name>" -rgLocation centralus -startDate "<start-date>" -endDate "<end-date>"
     ```
 
     ---
+
+    > [!NOTE]
+    > Replace **\<rg-name\>** with the name of the resource group that will hold your budget. Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -147,22 +149,21 @@ One Azure resource is defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
+    az deployment sub create --name demoSubDeployment --location centralus --template-file main.bicep --parameters rgName=<rg-name> rgLocation=centralus startDate=<start-date> endDate=<end-date>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -rgName "<rg-name>" -rgLocation centralus -startDate "<start-date>" -endDate "<end-date>"
     ```
 
     ---
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    > [!NOTE]
+    > Replace **\<rg-name\>** with the name of the resource group that will hold your budget. Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
 
----
+    When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
