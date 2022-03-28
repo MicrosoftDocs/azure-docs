@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer JavaScript SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer JavaScript SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer JavaScript client library SDKs v3.0 (preview)
 author: laujan
@@ -13,10 +13,10 @@ recommendations: false
 ms.custom: ignite-fall-2021, mode-api
 ---
 <!-- markdownlint-disable MD025 -->
-# Get Started: Form Recognizer JavaScript SDK v3.0 | Preview
+# Get Started: Form Recognizer JavaScript SDK (beta)
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
 
@@ -98,13 +98,15 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
+1. [Run your program](#run-your-application)
+
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## Run your application
 
-Once you've added a code sample to your application, build and run your application:
+Once you've added a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
 

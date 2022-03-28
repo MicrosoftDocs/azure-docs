@@ -12,6 +12,8 @@
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md
+    - name: Get started with Advisor
+      href: advisor-get-started.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
@@ -29,11 +31,7 @@
       href: advisor-reference-performance-recommendations.md
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
-- name: Tutorials
-  items:
-  - name: Get started with Advisor
-    href: advisor-get-started.md
-- name: Samples
+- name: Samples 
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md

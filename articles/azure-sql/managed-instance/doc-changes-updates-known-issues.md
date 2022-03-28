@@ -23,7 +23,7 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
 |[Querying external table fails with 'not supported' error message](#querying-external-table-fails-with-not-supported-error-message)|Jan 2022|Has Workaround||
-|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|||
+|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|Resolved|Feb 2022|
 |[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021||Oct 2021|
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
@@ -284,10 +284,6 @@ using (var scope = new TransactionScope())
 
 ## No resolution
 
-### When using SQL Server authentication, usernames with '@' are not supported
-
-Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to log in using SQL Server authentication.
-
 ### Azure AD logins and users are not supported in SSDT
 
 SQL Server Data Tools don't fully support Azure AD logins and users.
@@ -312,6 +308,10 @@ The `tempdb` database is always split into 12 data files, and the file structure
 Error logs that are available in SQL Managed Instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because SQL Managed Instance was moved several times on several virtual machines.
 
 ## Resolved
+
+### When using SQL Server authentication, usernames with '@' are not supported
+
+Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to log in using SQL Server authentication.
 
 ### Restoring manual backup without CHECKSUM might fail
 

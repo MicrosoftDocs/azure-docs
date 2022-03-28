@@ -1947,6 +1947,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/vm-images-to-managed-disks-faq.md",
+            "redirect_url": "/azure/marketplace/azure-vm-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/preferred-solutions.md",
             "redirect_url": "/marketplace/appsource-overview#microsoft-preferred-solutions",
             "redirect_document_id": false
