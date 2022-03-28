@@ -31,7 +31,8 @@ In the list of quotas, you can toggle the arrow shown next to **Quota** to expan
 
 You can request quota increases directly from **My quotas**. The process for requesting an increase will depend on the type of quota.
 
-> [!NOTE] If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](view-quotas.md#request-a-quota-increase).
+> [!NOTE] 
+> If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](view-quotas.md#request-a-quota-increase).
 
 ### Request a quota increase
 
