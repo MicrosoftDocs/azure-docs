@@ -20,11 +20,13 @@ This article describes how to create the Azure Arc data controller in direct con
 
 Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
-Creating an Azure Arc data controller in direct connectivity mode involves the following steps:
+- Creating an Azure Arc data controller in direct connectivity mode involves the following steps:
 
-1. Create an Azure Arc-enabled data services extension. 
-1. Create a custom location.
-1. Create the data controller.
+  1. Create an Azure Arc-enabled data services extension.
+  1. Create a custom location.
+  1. Create the data controller.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Step 1: Create an Azure Arc-enabled data services extension
 
@@ -81,14 +83,14 @@ The following command creates the Arc data services extension.
 
 #### [Linux](#tab/linux)
 
-```console
+```azurecli
 az k8s-extension create --cluster-name ${clusterName} --resource-group ${resourceGroup} --name ${adsExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace ${namespace} --config Microsoft.CustomLocation.ServiceAccount=sa-arc-bootstrapper
 az k8s-extension show --resource-group ${resourceGroup} --cluster-name ${resourceName} --name ${adsExtensionName} --cluster-type connectedclusters
 ```
 
 #### [Windows (PowerShell)](#tab/windows)
 
-```PowerShell
+```azurecli
 az k8s-extension create --cluster-name $ENV:clusterName --resource-group $ENV:resourceGroup --name $ENV:adsExtensionName --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace $ENV:namespace --config Microsoft.CustomLocation.ServiceAccount=sa-arc-bootstrapper
 az k8s-extension show --resource-group $ENV:resourceGroup --cluster-name $ENV:clusterName --name $ENV:adsExtensionName --cluster-type connectedclusters
 ```
@@ -120,7 +122,7 @@ You can verify the status of the deployment of Azure Arc-enabled data services e
 #### Check status from Azure portal
 
 1. Log in to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
-1. Select the Azure Arc-enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
+1. Select the Azure Arc-enabled Kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
 1. In the navigation on the left side, under **Settings**, select **Extensions**.
 1. The portal shows the extension that was created earlier in an installed state.
 
@@ -151,7 +153,7 @@ When the Arc data services extension is created, Azure creates a managed identit
 
 ### Retrieve managed identity of the Arc data controller extension
 
-```powershell
+```azurecli
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
 #Example
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
@@ -174,7 +176,7 @@ A custom location is an Azure resource that is equivalent to a namespace in a Ku
 
 #### [Linux](#tab/linux)
 
-```bash
+```azurecli
 export clName=mycustomlocation
 export hostClusterId=$(az connectedk8s show --resource-group ${resourceGroup} --name ${clusterName} --query id -o tsv)
 export extensionId=$(az k8s-extension show --resource-group ${resourceGroup} --cluster-name ${clusterName} --cluster-type connectedClusters --name ${adsExtensionName} --query id -o tsv)
@@ -183,7 +185,7 @@ az customlocation create --resource-group ${resourceGroup} --name ${clName} --na
 
 #### [Windows (PowerShell)](#tab/windows)
 
-```PowerShell
+```azurecli
 $ENV:clName="mycustomlocation"
 $ENV:hostClusterId=(az connectedk8s show --resource-group $ENV:resourceGroup --name $ENV:clusterName --query id -o tsv)
 $ENV:extensionId=(az k8s-extension show --resource-group $ENV:resourceGroup --cluster-name $ENV:clusterName --cluster-type connectedClusters --name $ENV:adsExtensionName --query id -o tsv)

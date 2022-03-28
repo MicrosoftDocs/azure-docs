@@ -703,6 +703,7 @@ After the VM is restored, you should reassign the original IP address to the new
    ```azurecli
    az vm nic remove --nics vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf --resource-group rg-oracle --vm-name vmoracle19c
    ```
+  
 1. Start the VM:
 
    ```azurecli

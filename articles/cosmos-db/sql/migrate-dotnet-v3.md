@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 03/07/2022
 ms.devlang: csharp
 ---
 
@@ -76,6 +76,7 @@ The following are some of the main class name changes:
 |`Microsoft.Azure.Documents.Client.FeedOptions`|`Microsoft.Azure.Cosmos.QueryRequestOptions`|
 |`Microsoft.Azure.Documents.Client.StoredProcedure`|`Microsoft.Azure.Cosmos.StoredProcedureProperties`|
 |`Microsoft.Azure.Documents.Client.Trigger`|`Microsoft.Azure.Cosmos.TriggerProperties`|
+|`Microsoft.Azure.Documents.SqlQuerySpec`|`Microsoft.Azure.Cosmos.QueryDefinition`|
 
 ### Classes replaced on .NET v3 SDK
 
@@ -112,7 +113,7 @@ The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` 
 
 `FeedOptions.EnableCrossPartitionQuery` has been removed and the default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically.
 
-`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the diagnostics property of the response.
+`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the `FeedResponse.Diagnostics` property of the response.
 
 `FeedOptions.RequestContinuation` has now been promoted to the query methods themselves.
 
@@ -145,10 +146,10 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 ### Exceptions
 
-Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosClientException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
+Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
 
 ```csharp
-catch (CosmosClientException ex)
+catch (CosmosException ex)
 {
     HttpStatusCode statusCode = ex.StatusCode;
     CosmosDiagnostics diagnostics = ex.Diagnostics;
@@ -634,6 +635,11 @@ private static async Task ReadAllItems(DocumentClient client)
 ---
 
 ### Query items
+#### Changes to SqlQuerySpec (QueryDefinition in v3.0 SDK)
+
+The `SqlQuerySpec` class in SDK v2 has now been renamed to `QueryDefinition` in the SDK v3.
+
+`SqlParameterCollection` and `SqlParameter` has been removed. Parameters are now added to the `QueryDefinition` with a builder model using `QueryDefinition.WithParameter`. Users can access the parameters with `QueryDefinition.GetQueryParameters`
 
 # [.NET SDK v3](#tab/dotnet-v3)
 

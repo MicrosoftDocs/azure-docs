@@ -38,7 +38,7 @@ If you already have an App Service app and want to configure local Git deploymen
 
 # [Azure CLI](#tab/cli)
 
-Run [`az webapp create`](/cli/azure/webapp#az_webapp_create) with the `--deployment-local-git` option. For example:
+Run [`az webapp create`](/cli/azure/webapp#az-webapp-create) with the `--deployment-local-git` option. For example:
 
 ```azurecli-interactive
 az webapp create --resource-group <group-name> --plan <plan-name> --name <app-name> --runtime "<runtime-flag>" --deployment-local-git
@@ -68,7 +68,7 @@ If you haven't created an app yet, see [Create a Git enabled app](#create-a-git-
 
 # [Azure CLI](#tab/cli)
 
-Run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git). For example:
+Run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git). For example:
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>

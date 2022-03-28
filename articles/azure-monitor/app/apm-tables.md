@@ -3,14 +3,19 @@ title: Azure Monitor Application Insights workspace-based resource schema
 description: Learn about the new table structure and schema for Azure Monitor Application Insights workspace-based resources.
 ms.topic: conceptual
 ms.date: 05/09/2020
-
 ---
 
 # Workspace-based resource changes
 
-Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). This is described in [Logs in Azure Monitor](../logs/data-platform-logs.md).
+Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). With workspace-based Application Insights resources data is stored in a Log Analytics workspace with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
 
-With workspace-based Application Insights resources data is stored in a Log Analytics workspace with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
+## Classic data structure
+The structure of a Log Analytics workspace is described in [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md). For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
+
+> [!NOTE]
+> The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](../app/apm-tables.md), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
+
+[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](../logs/media/data-platform-logs/logs-structure-ai.png)](../logs/media/data-platform-logs/logs-structure-ai.png#lightbox)
 
 ## Table structure
 
@@ -368,7 +373,7 @@ Legacy table: requests
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-### AppSystemEvents
+### AppExceptions
 
 Legacy table: exceptions
 

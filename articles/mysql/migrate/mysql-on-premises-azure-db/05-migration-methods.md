@@ -4,8 +4,8 @@ description: "Getting the data from the source to target will require using tool
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags
-ms.author: arthiaga
+author: rothja
+ms.author: jroth
 ms.reviewer: maghan
 ms.custom:
 ms.date: 06/21/2021

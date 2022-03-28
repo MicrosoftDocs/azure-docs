@@ -4,11 +4,10 @@ description: This article shows you how to do the basic steps for delivering vid
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: quickstart
 ms.workload: media
-ms.date: 02/16/2022
+ms.date: 03/01/2022
 ms.author: inhenkel
 ---
 
@@ -21,75 +20,32 @@ This article shows you how to do the basic steps for delivering a basic video on
 - [Create a Media Services account](account-create-how-to.md). When you set up the Media Services account, a storage account, a user managed identity, and a default streaming endpoint will also be created.
 - One MP4 video to use for this exercise.
 - Create a GitHub account if you don't have one already, and stay logged in.
-- Create an Azure [Static Web App](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript).
+- Create an Azure [Static Web App](../../static-web-apps/get-started-portal.md?tabs=vanilla-javascript).
 
 > [!NOTE]
 > You will be switching between several browser tabs or windows during this process. The below steps assume that you have your browser set to open tabs.  Keep them all open.
 
-## Upload videos
+[!INCLUDE [task-create-asset-portal](includes/task-create-asset-portal.md)]
 
-You should have a media services account, a storage account, and a default streaming endpoint.  
+<!-- ## Create a transform -->
 
-1. In the portal, navigate to the Media Services account that you just created.
-1. Select **Assets**. Assets are the containers that are used to house your media content.
-1. Select **Upload**. The Upload new assets screen will appear.
-1. Select the storage account you created for the Media Services account from the **Storage account** dropdown menu. It should be selected by default.
-1. Select the **file folder icon** next to the Upload files field.
-1. Select the media files you want to use. An asset will be created for every video you upload. The name of the asset will start with the name of the video and will be appended with a unique identifier. You *could* upload the same video twice and it will be located in two different assets.
-1. You must agree to the statement "I have all the rights to use the content/file, and agree that it will be handled per the Online Services Terms and the Microsoft Privacy Statement." Select **I agree and upload.**
-1. Select **Continue upload and close**, or **Close** if you want to watch the video upload progress.
-1. Repeat this process for each of the files you want to stream.
-
-## Create a transform
-
-> [!IMPORTANT] 
-> You must encode your files with a transform in order to stream them, even if they have been encoded locally.  The Media Services encoding process creates the manifest files needed for streaming.
-
-You'll now create a transform that uses a Built-in preset, which is like a recipe for encoding.
-
-1. Select **Transforms + jobs**.
-1. Select **Add transform**. The Add transform screen will appear.
-1. Enter a transform name in the **Transform name** field.
-1. Select the **Encoding** radio button.
-1. Select ContentAwareEncoding from the **Built-in preset name** dropdown list.
-1. Select **Add**.
+[!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
 
 Stay on this screen for the next steps.
 
-## Create a job
+<!-- ## Create a job -->
 
 Next, you'll create a job which is for telling Media Services which transform to run on files within an asset.  The asset you choose will be the input asset.  The job will create an output asset to contain the encoded files as well as the manifest.
 
-1. Select **Add job**. The Create a job screen will appear.
-1. For the **Input source**, the **Asset** radio button should be selected by default.  If not, select it now.
-1. Select **Select an existing asset** and choose one of the assets that was just created when you uploaded your videos. The Select an asset screen will appear.
-1. Select one of the assets in the list. You can only select one at a time for the job.
-1. Select the **Use existing** radio button.
-1. Select the transform that you created earlier from the **Transform** dropdown list.
-1. Under Configure output, default settings will be autopopulated, for this exercise leave them as they are.
-1. Select **Create**.
-1. Select **Transforms + Jobs**.
-1. You'll see the name of the transform you chose for the job. Select the transform to see the status of the job.
-1. Select the job listed under **Name** in the table of jobs. The job detail screen will open.
-1. Select the output asset from the **Outputs** list. The asset screen will open.
-1. Select the link for the asset next to Storage container.  A new browser tab will open and You'll see the results of the job that used the transform.  There should be several files in the output asset including:
-    1. Encoded video files with.mpi and .mp4 extensions.
-    1. A *XXXX_metadata.json* file.
-    1. A *XXXX_manifest.json* file.
-    1. A *XXXX_.ism* file.
-    1. A *XXXX.isc* file.
-    1. A *ThumbnailXXXX.jpg* file.
-1. Once you've viewed what is in the output asset, close the tab. Go back to the asset browser tab.
+[!INCLUDE [task-create-asset-portal](includes/task-create-job-portal.md)]
 
-## Create a streaming locator
+Once you've viewed what is in the output asset, close the tab. Go back to the asset browser tab.
 
 In order to stream your videos you need a streaming locator.
 
-1. Select **New streaming locator**. The Add streaming locator screen will appear and a default name for the locator will appear. You can change it or leave it as is.
-1. Select *Predefined_ClearStreamingOnly* from the Streaming policy dropdown list. This is a streaming policy that says that the video will be streamed using DASH, HLS and Smooth with no content protection restrictions except that the video can’t be downloaded by the viewer. No content key policy is required.
-1. Leave the rest of the settings as they are.
-1. Select **Add**. The video will start playing in the player on the screen, and the **Streaming URL** field will be populated.
-1. Select **Show URLs** in the Streaming locator list. The Streaming URLs screen will appear.
+<!-- ## Create a streaming locator -->
+
+[!INCLUDE [task-create-asset-portal](includes/task-create-streaming-locator-portal.md)]
 
 On this screen, you'll see that the streaming endpoint that was created when you created your account is in the Streaming endpoint dropdown list along with other data about the streaming locator.
 

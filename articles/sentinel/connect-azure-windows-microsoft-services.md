@@ -85,6 +85,8 @@ To ingest data into Microsoft Sentinel:
 
 1. Select **Save** at the top of the screen.
 
+For more information, see also [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) in the Azure Monitor documentation.
+
 # [Azure Policy](#tab/AP)
 
 ### Prerequisites
@@ -171,7 +173,7 @@ See below how to create data collection rules.
 
 1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
-    Learn more about [data collection rules](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
+    Learn more about [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 
     > [!NOTE]
     >
@@ -248,7 +250,7 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
 }
 ```
 
-See this [complete description of data collection rules](../azure-monitor/agents/data-collection-rule-overview.md) from the Azure Monitor documentation.
+See this [complete description of data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
@@ -273,7 +275,7 @@ See this [complete description of data collection rules](../azure-monitor/agents
     | --------- | --------- |
     | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
     | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  <br><br>4. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links in the previous step. |
-    | | |
+
 
 > [!NOTE]
 >

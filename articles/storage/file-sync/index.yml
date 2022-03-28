@@ -11,8 +11,8 @@ metadata:
   ms.subservice: files
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: roygara #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rogarana #Required; microsoft alias of author; optional team alias.
+  author: khdownie #Required; your GitHub user alias, with correct capitalization.
+  ms.author: kendownie #Required; microsoft alias of author; optional team alias.
   ms.date: 04/19/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -58,3 +58,13 @@ landingContent:
             url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Azure File Sync troubleshooting
             url: file-sync-troubleshoot.md
+
+  # Card
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migration overview
+            url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json
+          - text: Migration guides
+            url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json#migration-guides

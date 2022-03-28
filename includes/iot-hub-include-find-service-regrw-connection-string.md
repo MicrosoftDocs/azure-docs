@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: include file
 ---
 <!-- This tells how to create a custom shared access policy that has service connect and registry RW permissions for your IoT hub and get the connection string for it-->

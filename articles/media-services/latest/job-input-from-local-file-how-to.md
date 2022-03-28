@@ -1,15 +1,11 @@
 ---
 title: Create a job input from a local file
 description: This article demonstrates how to create an Azure Media Services job input from a local file.
-services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: 
+ms.service: media-services 
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
 
@@ -22,6 +18,8 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 ## Prerequisites
 
 * [Create a Media Services account](./account-create-how-to.md).
+
+## [.NET](#tab/net/)
 
 ## .NET sample
 
@@ -45,6 +43,4 @@ The following code snippet submits an encoding job:
 
 See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
-## Next steps
-
-[Create a job input from an HTTPS URL](job-input-from-http-how-to.md).
+---

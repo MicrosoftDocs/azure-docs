@@ -38,14 +38,15 @@ This article lists some of the most common Microsoft Azure Media Services limits
 
 ## Storage limits
 
-| Resource | Default Limit | 
-| --- | --- | 
-| File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
-| [Storage accounts](storage-account-concept.md) | 100<sup>(2)</sup> (fixed) |
+Azure Storage block blog limits apply to storage accounts used with Media Services.  See [Azure Blob Storage limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-blob-storage-limits).
 
-<sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. Additional limits apply in Media Services based on the VM sizes that are used by the service. The size limit applies to the files that you upload and also the files that get generated as a result of Media Services processing (encoding or analyzing). If your source file is larger than 260-GB, your Job will likely fail. 
+These limit includes the total stored data storage size of the files that you upload for encoding and the file sizes of the encoded files.  The limit for file size for encoding is a different limit. See [File size for encoding](#file-size-for-encoding-limit).
 
-<sup>2</sup> The storage accounts must be from the same Azure subscription.
+### Storage account limit
+You can have up to 100 storage accounts. All storage accounts must be in the same Azure subscription.
+
+## File size for encoding limit
+An individual file that you upload to be encoded should be no larger than 260 GB.
 
 ## Jobs (encoding & analyzing) limits
 

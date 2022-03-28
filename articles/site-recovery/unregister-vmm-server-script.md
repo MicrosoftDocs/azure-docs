@@ -39,7 +39,7 @@ try
         }
         catch
         {
-            Write-Host "Error occured" -ForegroundColor "Red"
+            Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
             return
         }
@@ -651,7 +651,7 @@ try
             catch
             {
                 $transaction.Rollback()
-                Write-Host "Error occured" -ForegroundColor "Red"
+                Write-Host "Error occurred" -ForegroundColor "Red"
                 $error[0]
                 Write-Error "FAILED"
                 "All updates to the VMM database have been rolled back."
@@ -667,7 +667,7 @@ try
 
 catch
 {
-    Write-Error "Error occured"
+    Write-Error "Error occurred"
     $error[0]
     Write-Error "FAILED"
 }

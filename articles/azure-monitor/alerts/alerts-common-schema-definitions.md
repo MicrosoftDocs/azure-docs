@@ -373,14 +373,17 @@ Any alert instance describes the resource that was affected and the cause of the
 ```json
 {
   "alertContext": {
-    "properties": null,
+    "properties": {
+      "name1": "value1",
+      "name2": "value2"
+    },
     "conditionType": "LogQueryCriteria",
     "condition": {
       "windowSize": "PT10M",
       "allOf": [
         {
           "searchQuery": "Heartbeat",
-          "metricMeasure": null,
+          "metricMeasureColumn": "CounterValue",
           "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
           "operator": "LowerThan",
           "threshold": "1",

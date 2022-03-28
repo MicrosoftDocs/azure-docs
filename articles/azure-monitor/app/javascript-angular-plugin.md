@@ -6,8 +6,6 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
-author: mattmccleary
-ms.author: mmcc
 ms.devlang: javascript
 ---
 

@@ -104,7 +104,7 @@ items:
   items:
   - name: FHIR service autoscale
     href: fhir-service-autoscale.md
-  - name: FHIR Rest API capabilities
+  - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
 - name: Resources
   expanded: true

@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Troubleshooting and Q and A for Application Insights for Java SDK
@@ -36,6 +34,8 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During development you can place ApplicationInsights.xml in resources folder of your web project.
 * Please also look at [GitHub issues page](https://github.com/microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 #### I used to see data, but it has stopped
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).

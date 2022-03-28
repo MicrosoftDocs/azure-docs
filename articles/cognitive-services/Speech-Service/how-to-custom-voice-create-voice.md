@@ -7,8 +7,8 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: how-to
-ms.date: 01/23/2022
+ms.topic: conceptual
+ms.date: 02/18/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -16,6 +16,9 @@ ms.custom: references_regions
 # Train your voice model
 
 In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice, and the different format requirements. After you've prepared your data and the voice talent verbal statement, you can start to upload them to [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal.
+
+> [!NOTE]
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects. This article focuses on the creation of a professional Custom Neural Voice using the Pro project.
 
 ## Prerequisites
 
@@ -75,7 +78,7 @@ All data you upload must meet the requirements for the data type that you choose
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
-> - The maximum number of data files allowed to be imported per subscription is 10 .zip files for free subscription (F0) users, and 500 for standard subscription (S0) users.
+> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users.
 
 Data files are automatically validated when you select **Submit**. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. If there are any errors, fix them and submit again. 
 
@@ -85,9 +88,15 @@ A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You ca
 
 Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your data.
 
+### Typical data issues
+
 On **Data details**, you can check the data details of the training set. If there are any typical issues with the data, follow the instructions in the message that appears, to fix them before training.
 
-The issues are divided into three types. Refer to the following tables to check the respective types of errors. Data with these errors will be excluded during training.
+The issues are divided into three types. Refer to the following tables to check the respective types of errors. 
+
+**Auto-rejected**
+
+Data with these errors will be excluded during training.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -103,12 +112,16 @@ The issues are divided into three types. Refer to the following tables to check 
 | Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio into multiple files. It's a good idea to make utterances shorter than 15 seconds.|
 | Audio | No valid audio| No valid audio is found in this dataset. Check your audio data and upload again.|
 
+**Auto-fixed**
+
 The following errors are fixed automatically, but you should confirm that the fixes have been made.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
 | Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
+
+**Manual check required**
 
 Unresolved errors listed in the next table affect the quality of training, but data with these errors won't be excluded during training. For higher-quality training, it's a good idea to fix these errors manually. 
 

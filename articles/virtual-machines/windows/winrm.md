@@ -2,11 +2,9 @@
 title: Set up WinRM access for an Azure VM
 description: Setup WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
 author: mimckitt
-manager: vashan
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/16/2016
+ms.date: 3/25/2022
 ms.author: mimckitt 
 ms.custom: devx-track-azurepowershell
 
@@ -54,15 +52,14 @@ Before uploading the certificate to the Key Vault created in step 1, it needs to
 $fileName = "<Path to the .pfx file>"
 $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-
 [System.Collections.HashTable]$TableForJSON = @{
     "data"     = $fileContentEncoded;
     "dataType" = "pfx";
     "password" = "<password>";
 }
 [System.String]$jsonObject = $TableForJSON | ConvertTo-Json
-$jsonEncoded = [System.Convert]::ToBase64String($jsonObject)
-
+$encoding = [System.Text.Encoding]::UTF8
+$jsonEncoded = [System.Convert]::ToBase64String($encoding.GetBytes($jsonObject))
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```

@@ -2,15 +2,11 @@
 title: Signal descriptive audio tracks with Media Services v3
 description: Follow the steps of this tutorial to upload a file, encode the video, add descriptive audio tracks, and stream your content with Media Services v3.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: 
 ms.topic: how-to
-ms.custom: devx-track-csharp
-ms.date: 08/31/2020
+ms.date: 03/09/2022
 ms.author: inhenkel
 ---
 
@@ -29,7 +25,9 @@ This article shows how to encode a video, upload an audio-only MP4 file (AAC cod
 - Review [Dynamic packaging](encode-dynamic-packaging-concept.md).
 - Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
-## Create an input asset and upload a local file into it 
+## [.NET](#tab/net/)
+
+## Create an input asset and upload a local file into it
 
 The **CreateInputAsset** function creates a new input [Asset](/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding Job. In Media Services v3, the input to a **Job** can either be an **Asset**, or it can be content that you make available to your Media Services account via HTTPS URLs. 
 
@@ -238,6 +236,4 @@ To test the stream, this article uses Azure Media Player.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
 
-## Next steps
-
-[Analyze videos](analyze-videos-tutorial.md)
+---

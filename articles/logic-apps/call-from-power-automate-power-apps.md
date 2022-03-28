@@ -3,8 +3,8 @@ title: Call logic apps from Power Automate and Power Apps
 description: Call logic apps from Microsoft Power Automate flows by exporting logic apps as connectors.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 10/05/2020
 ---
 
@@ -28,7 +28,7 @@ If you want to migrate your flow from Power Automate or Power to Logic Apps inst
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * A Power Automate or Power Apps license.
 

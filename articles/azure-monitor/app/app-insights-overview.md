@@ -1,8 +1,6 @@
 ---
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
-author: bwren
-ms.author: bwren
 ms.topic: overview
 ms.date: 01/10/2022
 ms.custom: mvc
@@ -201,7 +199,7 @@ There are many ways to explore Application Insights telemetry. For more informat
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 

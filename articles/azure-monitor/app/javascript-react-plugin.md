@@ -2,7 +2,6 @@
 title: React plugin for Application Insights JavaScript SDK 
 description: How to install and use React plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
@@ -32,14 +31,13 @@ npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsigh
 Initialize a connection to Application Insights:
 
 ```javascript
-// AppInsights.js
+import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
-import { createBrowserHistory } from 'history';
-
+import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
+import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
-const reactPlugin = new ReactPlugin();
-const appInsights = new ApplicationInsights({
+var reactPlugin = new ReactPlugin();
+var appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [reactPlugin],
@@ -49,7 +47,6 @@ const appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
-export { reactPlugin, appInsights };
 ```
 
 Wrap your component with the higher-order component function to enable Application Insights on it:
@@ -70,6 +67,21 @@ class MyComponent extends React.Component {
 // the first two are required and the other two are optional.
 
 export default withAITracking(reactPlugin, MyComponent);
+```
+
+For `react-router v6` or other scenarios where router history is not exposed, appInsights config `enableAutoRouteTracking` can be used to auto track router changes:
+
+```javascript
+var reactPlugin = new ReactPlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        enableAutoRouteTracking: true,
+        extensions: [reactPlugin]
+        }
+    }
+});
+appInsights.loadAppInsights();
 ```
 
 ## Configuration

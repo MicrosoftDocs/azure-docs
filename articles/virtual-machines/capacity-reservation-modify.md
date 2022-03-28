@@ -7,7 +7,7 @@ ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Modify a Capacity Reservation (preview)
