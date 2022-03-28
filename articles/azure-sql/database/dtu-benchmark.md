@@ -118,6 +118,7 @@ The key metrics in the benchmark are throughput and response time.
 Learn more about purchasing models and related concepts in the following articles:
 
 - [DTU-based purchasing model overview](service-tiers-dtu.md)
+- [vCore purchasing model - Azure SQL Database](service-tiers-sql-database-vcore.md)
 - [Compare vCore and DTU-based purchasing models of Azure SQL Database](purchasing-models.md)
 - [Migrate Azure SQL Database from the DTU-based model to the vCore-based model](migrate-dtu-to-vcore.md)
 - [Resource limits for single databases using the DTU purchasing model - Azure SQL Database](resource-limits-dtu-single-databases.md)

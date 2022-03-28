@@ -1636,7 +1636,7 @@
     displayName: samples, policies, definitions
     href: ./database/policy-reference.md
   - name: DTU benchmark
-    href: database/dtu-benchmark
+    href: database/dtu-benchmark.md
 
 - name: Resources
   items:

@@ -77,9 +77,9 @@ In the DTU-based purchasing model, customers cannot choose the hardware generati
 
 For example, a database can be moved to a different hardware generation if it's scaled up or down to a different service objective, or if the current infrastructure in a datacenter is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
 
-If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](dtu-benchmark) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same.
+If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](dtu-benchmark.md) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same.
 
-However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than the [DTU benchmark](dtu-benchmark), it's possible to see performance differences if the database moves from one hardware generation to another.
+However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than the [DTU benchmark](dtu-benchmark.md), it's possible to see performance differences if the database moves from one hardware generation to another.
 
 For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware versus Gen5 due to a higher memory per core ratio on Gen4.
 
@@ -155,7 +155,7 @@ Learn about the schema, transaction types used, workload mix, users and pacing, 
 
 ## Compare DTU-based and vCore purchasing models
 
-While the DTU-based purchasing model is based on a bundled measure of compute, storage, and I/O resources, by comparison the [vCore-based purchasing model](../includes/vcore-overview.md) allows you to independently choose and scale compute and storage resources.
+While the DTU-based purchasing model is based on a bundled measure of compute, storage, and I/O resources, by comparison the [vCore purchasing model for Azure SQL Database](service-tiers-sql-database-vcore.md) allows you to independently choose and scale compute and storage resources.
 
 The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to save costs, and offers [Serverless](serverless-tier-overview.md) and [Hyperscale](service-tier-hyperscale.md) options for Azure SQL Database that are not available in the DTU-based purchasing model.
 
