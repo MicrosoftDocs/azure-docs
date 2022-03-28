@@ -85,7 +85,7 @@ To configure the integration of Google Cloud (G Suite) Connector into Azure AD, 
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Google Cloud (G Suite) Connector** in the search box.
+1. In the **Add from the gallery** section, type **Google Cloud / G Suite Connector by Microsoft** in the search box.
 1. Select **Google Cloud (G Suite) Connector** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for Google Cloud (G Suite) Connector
