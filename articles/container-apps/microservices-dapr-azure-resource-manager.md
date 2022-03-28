@@ -6,7 +6,7 @@ author: asw101
 ms.service: container-apps
 ms.topic: conceptual
 ms.date: 01/31/2022
-ms.author: aawislan, keroden
+ms.author: keroden
 ms.custom: ignite-fall-2021, devx-track-azurecli
 zone_pivot_groups: container-apps
 ---
@@ -753,4 +753,5 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Application lifecycle management](application-lifecycle-management.md)
+> [!div class="nextstepaction"]
+> [Application lifecycle management](application-lifecycle-management.md)
