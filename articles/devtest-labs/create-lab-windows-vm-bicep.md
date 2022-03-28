@@ -15,7 +15,6 @@ This quickstart uses Bicep to create a lab in Azure DevTest Labs that has one Wi
 In this quickstart, you take the following actions:
 
 > [!div class="checklist"]
-
 > * Review the Bicep file.
 > * Deploy the Bicep file to create a lab and VM.
 > * Verify the deployment.
@@ -59,7 +58,7 @@ The Bicep file defines the following resource types:
     ---
 
     > [!NOTE]
-    > Replace **\<lab-name\>** with the name of the new lab instance. Replace **\<vm-name\>** with the name of the new VM. Replace **\<user-name\>** with username of the local account that will be created on the new VM. You'll also be prompted to enter a secure **password** for the local account.
+    > Replace **\<lab-name\>** with the name of the new lab instance. Replace **\<vm-name\>** with the name of the new VM. Replace **\<user-name\>** with username of the local account that will be created on the new VM. You'll also be prompted to enter a password for the local account.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
