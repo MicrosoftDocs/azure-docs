@@ -144,7 +144,7 @@ Backup strategies for Very large databases (VLDB) require careful consideration 
 
 Using Azure services that provide snapshot capabilities such as Azure Backup service or Azure NetApp Files (ANF) is the recommended approach for VLDB's. Application consistent snapshots, where the databases are automatically placed in and out of backup mode, take only seconds to create regardless of the size of the database.
 
-Your backup strategy may be also tied to the overall storage solution used for the Oracle database. Extreme IO throughput database workloads often use Azure NetApp Files or third party Azure marketplace solutions such as Silk, to underpin the database storage throughput and IOPS requirements. These solutions also provide application consistent snapshots that can be used for fast database backup and restore operations. 
+Your backup strategy may be also tied to the overall storage solution used for the Oracle database. Extreme IO throughput database workloads often use Azure NetApp Files or third party Azure Marketplace solutions such as Silk, to underpin the database storage throughput and IOPS requirements. These solutions also provide application consistent snapshots that can be used for fast database backup and restore operations. 
 
 ## Next steps
 
