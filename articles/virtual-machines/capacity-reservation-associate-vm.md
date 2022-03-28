@@ -1,5 +1,5 @@
 ---
-title: Associate a virtual machine to a Capacity Reservation group (preview)
+title: Associate a virtual machine to a Capacity Reservation group
 description: Learn how to associate a new or existing virtual machine to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
@@ -10,14 +10,11 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Associate a VM to a Capacity Reservation group (preview) 
+# Associate a VM to a Capacity Reservation group
+
+**Applies to:** :heavy_check_mark: Windows Virtual Machines :heavy_check_mark: Linux Virtual Machines 
 
 This article walks through the steps of associating a new or existing virtual machine to a Capacity Reservation group. To learn more about Capacity Reservations, see the [overview article](capacity-reservation-overview.md). 
-
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Associate a new VM
 
@@ -125,7 +122,12 @@ If your environment meets the prerequisites and you are familiar with using ARM 
 
 ## Associate an existing VM 
 
-During public preview, you are first required to deallocate your scale set. Then you can associate the existing Uniform virtual machine scale set to the Capacity Reservation group at the time of reallocation. This ensures that all the scale set VMs consume Capacity Reservation at the time of reallocation. 
+For the initial release of Capacity Reservation, a virtual machine must be allocated to a capacity reservation. 
+
+- If not already complete, follow guidance to create a capacity reservation group and capacity reservation. Or increment the quantity of an existing capacity reservation so there is unused reserved capacity. 
+- Deallocate the VM. 
+- Update the capacity reservation group property. 
+- Restart the VM. 
 
 ### [API](#tab/api2)
 
