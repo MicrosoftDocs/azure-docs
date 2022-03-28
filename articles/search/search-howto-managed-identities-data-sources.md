@@ -13,17 +13,17 @@ ms.date: 03/22/2022
 
 # Connect a search service to other Azure resources using a managed identity
 
-You can configure an Azure Cognitive Search connection to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment on the remote service. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection strings or code.
+You can configure an Azure Cognitive Search service to connect to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
 
 ## Prerequisites
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
 
-+ An Azure resource that accepts incoming requests from a managed identity having a valid role assignment.
++ An Azure resource that accepts incoming requests from an Azure AD login that has a valid role assignment.
 
 ## Supported scenarios
 
-Cognitive Search can use a system-assigned and user-assigned managed identity on outbound connections to Azure resources. A user-assigned managed identity is specified through an "identity" property.
+Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of an Azure AD-aware service or application. A user managed identity is specified through an "identity" property.
 
 | Scenario | System managed identity | User managed identity (preview) |
 |----------|-------------------------|---------------------------------|
@@ -172,7 +172,7 @@ If your Azure resource is behind a firewall, make sure there's an inbound rule t
 
 + For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use the  [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) to admit requests.
 
-+ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md). See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for more detail.
++ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for more detail.
 
 ## Assign a role
 
@@ -180,7 +180,7 @@ A managed identity must be paired with an Azure role that determines permissions
 
 + Data reader permissions are needed for indexer data connections and for accessing a customer-managed key in Azure Key Vault.
 
-+ Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting session data, caching, and long-term content storage. These features include: enrichment cache and knowledge store.
++ Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting debug session data, enrichment caching, and long-term content storage in a knowledge store. 
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps are similar.
 
