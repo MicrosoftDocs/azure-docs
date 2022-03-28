@@ -43,7 +43,9 @@ If you are using a legacy version of the sensor traffic  are connecting sensors 
 
 If you are working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
 
-When working with an OT network:
+If you are setting up network monitoring for enterprise IoT systems, you can skip directly to [Add a subscription to Defender for IoT](#add-a-subscription-to-defender-for-iot).
+
+**When working with an OT network**:
 
 - To deploy Defender for IoT, you'll need network switches that support traffic monitoring via a SPAN port and hardware appliances for NTA sensors.
 

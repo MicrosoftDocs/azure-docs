@@ -25,7 +25,7 @@ The Purdue Reference Model is a model for Industrial Control System (ICS)/OT net
 
 Each device type in your OT network falls in a specific level of the Purdue model. The following image shows how devices in your network spread across the Purdue model and connect to Defender for IoT services.
 
-:::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model." border="false" :::
+:::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model." border="false" lightbox="media/how-to-set-up-your-network/purdue-model.png":::
 
 The following table describes each level of the Purdue model when applied to Defender for IoT devices:
 
@@ -37,8 +37,6 @@ The following table describes each level of the Purdue model when applied to Def
 |**Level 2**: Supervisory     |  Level 2 represents the systems and functions associated with the runtime supervision and operation of an area of a production facility. These usually include the following: <br><br>- Operator interfaces or human-machine interfaces (HMIs) <br>- Alarms or alerting systems <br> - Process historian and batch management systems <br>- Control room workstations <br><br>These systems communicate with the PLCs and RTUs in Level 1. In some cases, they communicate or share data with the site or enterprise (Level 4 and Level 5) systems and applications. These systems are primarily based on standard computing equipment and operating systems (Unix or Microsoft Windows).       |
 |**Levels 3 and 3.5**: Site-level and industrial perimeter network     | The site level represents the highest level of industrial automation and control systems. The systems and applications that exist at this level manage site-wide industrial automation and control functions. Levels 0 through 3 are considered critical to site operations. The systems and functions that exist at this level might include the following: <br><br>- Production reporting (for example, cycle times, quality index, predictive maintenance) <br>- Plant historian <br>- Detailed production scheduling<br>- Site-level operations management <br>-0 Device and material management <br>- Patch launch server <br>- File server <br>- Industrial domain, Active Directory, terminal server <br><br>These systems communicate with the production zone and share data with the enterprise (Level 4 and Level 5) systems and applications.          |
 |**Levels 4 and 5**: Business and enterprise networks     |  Level 4 and Level 5 represent the site or enterprise network where the centralized IT systems and functions exist. The IT organization directly manages the services, systems, and applications at these levels.       |
-
-We recommend that you plan for traffic going through layers 1 and 2 for monitoring with Defender for IoT, and sometimes layer 3.
 
 ## Plan your sensor connections
 
@@ -124,7 +122,7 @@ Cisco2960# running-copy startup-config
 1. Verify the port mirroring configuration
 1. Save the configuration
 
-### Monitoring multiple VLANs
+#### Monitoring multiple VLANs
 
 Defender for IoT allows monitoring VLANs configured in your network without any extra configuration, as long as the network switch is configured to send VLAN tags to Defender for IoT.
 
@@ -197,7 +195,7 @@ For example, use the following steps to set up a RSPAN for a Cisco 2960 switch w
 
 1. Save the configuration.
 
-# [Active and passive aggregation TA)](#tab/TAP)
+# [Active and passive aggregation (TAP)](#tab/TAP)
 
 An active or passive aggregation TAP is installed inline to the network cable and duplicates both RX and TX to the monitoring sensor.
 
@@ -217,27 +215,27 @@ The following diagram shows an example of a network setup with an active and pas
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagram of active and passive TAPs.":::
 
-### Common TAP models
+#### Common TAP models
 
 The following TAP models have been tested for compatibility with Defender for IoT. Other vendors and models might also be compatible.
 
-**Garland P1GCCAS**
+- **Garland P1GCCAS**
 
-:::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS.":::
+    :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS." border="false":::
 
-When using a Garland TAP, make sure jumpers are set as follows:
+    When using a Garland TAP, make sure jumpers are set as follows:
 
-:::image type="content" source="media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
+    :::image type="content" source="media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
 
-**IXIA TPA2-CU3**
+- **IXIA TPA2-CU3**
 
-:::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3.":::
+    :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3." border="false":::
 
-**US Robotics USR 4503**
+- **US Robotics USR 4503**
 
-:::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::
+    :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::
 
-When using a US Robotics TAP, make sure **Aggregation mode** is active.
+    When using a US Robotics TAP, make sure **Aggregation mode** is active.
 
 ---
 

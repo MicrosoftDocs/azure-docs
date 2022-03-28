@@ -190,6 +190,7 @@ The validation is available to both the **Support**, and **CyberX** user.
 1. Select a command.
 
 For post-installation validation, test that:
+
 - the system is running
 - you have the right version
 - all of the input interfaces that were configured during the installation process are running
@@ -208,7 +209,9 @@ A virtual switch does not have mirroring capabilities. However, you can use prom
 
 :::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
-### Configure a SPAN port with ESXi
+Select one of the following tabs to configure a SPAN port for your sensor.
+
+# [VMWare ESXi](#tab/vmware)
 
 **To configure a SPAN port with ESXi**:
 
@@ -236,9 +239,9 @@ A virtual switch does not have mirroring capabilities. However, you can use prom
 
 1. Connect to the sensor, and verify that mirroring works.
 
-### Configure a SPAN port with Hyper-V
+# [Hyper-V hypervisor](#tab/hyper-v)
 
-Prior to starting you will need to:
+**Prerequisites**:
 
 - Ensure that there is no instance of a virtual appliance running.
 
@@ -264,7 +267,7 @@ Prior to starting you will need to:
 
 1. Select **OK**.
 
-#### Attach a SPAN Virtual Interface to the virtual switch
+### Attach a SPAN Virtual Interface to the virtual switch
 
 You are able to attach a SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
 
