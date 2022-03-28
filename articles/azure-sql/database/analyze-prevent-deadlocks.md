@@ -127,18 +127,18 @@ You can collect deadlock graphs with XEvents using either the [ring buffer targe
 
 |Approach  |Pros  |Cons  |Best for  |
 |---------|---------|---------|---------|
-|Ring buffer target | Simple setup with Transact-SQL only. | Trace data is cleared when the XEvents trace is stopped for any reason, including database failover. | Learning and short term needs if you cannot set up a trace to an event file target immediately. |
-|Event file target  | Persists trace data to a file so that they are available even after failovers. | Setup is more complex and requires configuration of an Azure Store container and configuration of a database scoped credential.  |  Long term use.       |
+|Ring buffer target | Simple setup with Transact-SQL only. | Session data is cleared when the XEvents session is stopped for any reason, including database failover. | Learning and short term needs if you cannot set up a session using an event file target immediately. |
+|Event file target  | Persists session data to a file so that they are available even after failovers. | Setup is more complex and requires configuration of an Azure Store container and configuration of a database scoped credential.  |  Long term use.       |
 
 Select the target type you would like to use:
 
 # [Ring buffer target](#tab/ring-buffer)
 
-The ring buffer target is convenient and easy to set up, but it does not persist events to storage and the ring buffer target is cleared when the XEvents trace is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. The ring buffer target is best suited to learning and short-term needs if you do not have the ability to set up an XEvents trace to an event file target immediately.
+The ring buffer target is convenient and easy to set up, but it does not persist events to storage and the ring buffer target is cleared when the XEvents session is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. The ring buffer target is best suited to learning and short-term needs if you do not have the ability to set up an XEvents session to an event file target immediately.
 
-This sample code creates an XEvents trace which captures deadlock graphs in memory using the [ring buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target). The maximum memory allowed for the ring buffer target is 4MB, and the trace will automatically run when the database comes online, such as after a failover.
+This sample code creates an XEvents session which captures deadlock graphs in memory using the [ring buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target). The maximum memory allowed for the ring buffer target is 4MB, and the session will automatically run when the database comes online, such as after a failover.
 
-To create and then start a XEvents trace for the `sqlserver.database_xml_deadlock_report` event which writes to the ring buffer target, connect to your user database and run the following Transact-SQL:
+To create and then start a XEvents session for the `sqlserver.database_xml_deadlock_report` event which writes to the ring buffer target, connect to your user database and run the following Transact-SQL:
 
 ```sql
 CREATE EVENT SESSION [deadlocks] ON DATABASE 
@@ -156,13 +156,14 @@ GO
 
 The event file target persists deadlock graphs to a file so that they are available even after failovers. The event file target also allows you to capture more deadlock graphs without utilizing more memory in your database. The event file target is suitable for long term use.
 
-To create an XEvents trace which writes to an event file target, we will:
+To create an XEvents session which writes to an event file target, we will:
 
 1. Configure an Azure Storage container to hold the trace files using the Azure Portal.
 1. Create a database scoped credential with Transact-SQL.
-1. Create the XEvents trace with Transact-SQL.
+1. Create the XEvents session with Transact-SQL.
 
-> [!NOTE] If you wish to create and configure the Azure Storage container with PowerShell, see [Event File target code for extended events in Azure SQL Database](xevent-code-event-file.md).
+> [!NOTE] 
+> If you wish to create and configure the Azure Storage container with PowerShell, see [Event File target code for extended events in Azure SQL Database](xevent-code-event-file.md).
 
 ### Configure an Azure Storage container
 
@@ -252,9 +253,9 @@ CREATE
 GO
 ```
 
-### Create the XEvents trace
+### Create the XEvents session
 
-Create and start the XEvents trace with the following Transact-SQL. Before running the statement:
+Create and start the XEvents session with the following Transact-SQL. Before running the statement:
 - Replace the filename value to reflect your storage account name and your container name. This URL will be the first part of the *Blob SAS URL* you copied when you created the shared access token.
 - Optionally change the name of the filename stored.
 
@@ -332,15 +333,15 @@ After a few seconds, the deadlock monitor will identify that the transactions in
 
 If you [set up deadlock alerts in the Azure portal](#set-up-deadlock-alerts-in-the-azure-portal), you should receive a notification shortly after the deadlock occurs.
 
-## View deadlock graphs from an XEvents trace
+## View deadlock graphs from an XEvents session
 
-If you have [set up an XEvents trace to collect deadlocks](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events) and a deadlock has occurred after the trace was started, you can view an interactive graphic display of the deadlock graph as well as the XML for the deadlock graph.
+If you have [set up an XEvents session to collect deadlocks](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events) and a deadlock has occurred after the session was started, you can view an interactive graphic display of the deadlock graph as well as the XML for the deadlock graph.
 
-Different methods are available to obtain deadlock information for the ring buffer target and event file targets. Select the target you used for your Xevents trace:
+Different methods are available to obtain deadlock information for the ring buffer target and event file targets. Select the target you used for your Xevents session:
 
 # [Ring buffer target](#tab/ring-buffer)
 
-If you set up an XEvents trace named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL. Before running the query, replace the value of `@tracename` with the name of your xEvents trace.
+If you set up an XEvents session named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL. Before running the query, replace the value of `@tracename` with the name of your xEvents session.
 
 ```sql
 declare @tracename sysname = N'deadlocks';
@@ -372,7 +373,9 @@ GO
 
 # [Event file target](#tab/event-file)
 
-If you set up an XEvents trace writing to an event file, you can download files from the Azure portal and view them locally, or you can query event files with Transact-SQL. Downloading the files is recommended as this does not have any performance impact on your database.
+If you set up an XEvents session writing to an event file, you can download files from the Azure portal and view them locally, or you can query event files with Transact-SQL. 
+
+Downloading files from the Azure portal is recommended as this does not have any performance impact on your database.
 
 ### Download trace files from the Azure portal
 
@@ -380,9 +383,10 @@ To view deadlock events that have been collected across multiple files, download
 
 1. Navigate to the storage account hosting your container in the Azure Portal.
 1. Under **Data storage**, select **Containers**.
-1. Select the container holding your Xevent trace files.
+1. Select the container holding your XEvent trace files.
 
-    If an Extended Events session is currently running and writing to an event file target, that target will have a **Lease state** of *Leased* in the Azure portal. The size will be the maximum size of the file. To download a smaller file, you may wish to stop and restart the Extended Events trace. This will cause the file to change its **Lease state** to *Available*, and the file size will be the space used by events in the file.
+    > [!NOTE]
+    > If an Extended Events session is currently running and writing to an event file target, that target will have a **Lease state** of *Leased* in the Azure portal. The size will be the maximum size of the file. To download a smaller file, you may wish to stop and restart the Extended Events session. This will cause the file to change its **Lease state** to *Available*, and the file size will be the space used by events in the file.
     
     To stop and restart an XEvents session, connect to your database and run the following Transact-SQL. Before running the code, replace the name of the xEvents session with the appropriate value.
     
@@ -405,7 +409,7 @@ To view deadlock events that have been collected across multiple files, download
 
 To query XEvents trace files from an Azure Storage container with Transact-SQL, you must provide the exact file name for the trace file. 
 
-Run the following Transact-SQL to query the currently active XEvents trace file. Before running the query, replace `@tracename` with the name of your XEvents trace.
+Run the following Transact-SQL to query the currently active XEvents trace file. Before running the query, replace `@tracename` with the name of your XEvents session.
 
 ```sql
 declare @tracename sysname = N'deadlocks_eventfile',
@@ -477,7 +481,7 @@ GO
 
 Viewing a deadlock graph in XML format allows you to copy the `inputbuffer` of Transact-SQL statements involved in the deadlock. You may also prefer to analyze deadlocks in a text-based format.
 
-To view the deadlock graph XML, select the value in the `deadlock_xml` column from any row to open the deadlock graph's XML in a new window in SSMS.
+If you have used a Transact-SQL query to return deadlock graph information, to view the deadlock graph XML, select the value in the `deadlock_xml` column from any row to open the deadlock graph's XML in a new window in SSMS.
 
 The XML for this example deadlock graph is:
 
@@ -766,11 +770,13 @@ Find more ways to [minimize deadlocks in the Transaction locking and row version
 > [!NOTE]
 > In some cases, you may wish to [adjust the deadlock priority](/sql/t-sql/statements/set-deadlock-priority-transact-sql) of one or more sessions involved in a deadlock if it is important for one of the sessions to complete successfully without retrying, or when one of the queries involved in the deadlock is not critical and should be always chosen as the victim. While this does not prevent the deadlock from reoccurring, it may reduce the impact of future deadlocks.
 
-## Stop and remove XEvents traces
+## Drop an XEvents session
 
-You may wish to leave an XEvents trace collecting deadlock information running on critical databases for long periods. However, in cases where you wish to stop and and delete your XEvents trace, you can do so.
+You may wish to leave an XEvents session collecting deadlock information running on critical databases for long periods. 
 
-# [Ring buffer target](#tab/ring-buffer)
+When you wish to remove an Xevents session, the Transact-SQL drop the session is the same, regardless of the target type selected. 
+
+To remove an XEvents session, run the following Transact-SQL. Before running the code, replace the name of the session with the appropriate value.
 
 ```sql
 ALTER EVENT SESSION [deadlocks] ON DATABASE
@@ -780,14 +786,6 @@ GO
 DROP EVENT SESSION [deadlocks] ON DATABASE;
 GO
 ```
-
-# [Event file target](#tab/event-file)
-
-
-<!--todo: add content here -->
-
----
-
 
 ## Next steps
 
