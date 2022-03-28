@@ -15,8 +15,7 @@ This tutorial describes how to set up your network for OT system security monito
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Onboard with Microsoft Defender for IoT
-> * Download the ISO for the virtual sensor
+> * Download software for a virtual sensor
 > * Create a VM for the sensor
 > * Install the virtual sensor software
 > * Configure a SPAN port
@@ -32,11 +31,14 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- Either VMWare, ESXi 5.5 or later, or Hyper-V hypervisor, Windows 10 Pro or Enterprise, installed and operational.
+- One of the following, installed and operational:
+
+    - VMWare, ESXi 5.5 or later
+    - Hyper-V hypervisor, Windows 10 Pro or Enterprise
 
 - Available hardware resources for your VM. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
 
-- The following network parameters to use for your sensor appliance:
+- Details for the following network parameters to use for your sensor appliance:
 
     - A management network IP address
     - A sensor subnet mask
@@ -49,7 +51,7 @@ Before you start, make sure that you have the following:
 
 Defender for IoT's solution for OT security includes on-premises network sensors, which connect to Defender for IoT and send device data for analysis.
 
-You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This procedure uses your own machine, with either VMWare or Hyper-V hypervisor, and describes how to download and install the sensor software yourself.
+You can either purchase pre-configured appliances or bring your own appliance and install the software yourself. This tutorial uses your own machine, with either VMWare or Hyper-V hypervisor, and describes how to download and install the sensor software yourself.
 
 **To download software for your virtual sensors**:
 
@@ -77,7 +79,7 @@ Select one of the following tabs to create a VM for your sensor.
 
 1. Select **Create new virtual machine**, and then select **Next**.
 
-1. Add a sensor name and choose:
+1. Add a sensor name and then define the following options:
 
    - Compatibility: **&lt;latest ESXi version&gt;**
 
@@ -177,39 +179,30 @@ This procedure describes how to install the sensor software on your VM, whether 
 
 ### Post-installation validation
 
-To validate the installation of a physical appliance, you need to perform many tests.
+This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the **Support** and **CyberX** sensor users.
 
-The validation is available to both the **Support**, and **CyberX** user.
-
-**To access the post validation tool**:
+**To validate your installation**:
 
 1. Sign in to the sensor.
 
-1. Select **System Settings**> **Health and troubleshooting** > **System Health Check**.
+1. Select **System Settings**> **Sensor management** > **System Health Check**.
 
-1. Select a command.
+1. Select the following commands:
 
-For post-installation validation, test that:
-
-- the system is running
-- you have the right version
-- all of the input interfaces that were configured during the installation process are running
-
-**To verify that the system is running**:
-
-1. Select **Appliance**, and ensure that each line item shows `Running` and the bottom line states `System is up`.
-
-1. Select **Version**, and ensure that the correct version appears.
-
-1. Select **ifconfig** to display the parameters for the appliance's physical interfaces, and ensure that they are correct.
+    - **Appliance** to check that the system is running. Verify that each line item shows **Running** and that the last line states that the **System is up**.
+    - **Version** to verify that you have the correct version installed.
+    - **ifconfig** to verify that all input interfaces configured during installation are running.
 
 ## Configure a SPAN port
 
-A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the VM’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
+Virtual switches do not have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
 
-:::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
-Select one of the following tabs to configure a SPAN port for your sensor.
+> [!NOTE]
+> Promiscuous mode is an operating mode and a security monitoring technique for a VM's interfaces in the same portgroup level as the virtual switch to view the switch's network traffic. Promiscuous mode is disabled by default but can be defined at the virtual switch or portgroup level.
+>
+
+Select one of the following tabs to implement your SPAN port configuration workaround.
 
 # [VMWare ESXi](#tab/vmware)
 
@@ -267,33 +260,33 @@ Select one of the following tabs to configure a SPAN port for your sensor.
 
 1. Select **OK**.
 
-### Attach a SPAN Virtual Interface to the virtual switch
+---
+### Attach a SPAN virtual interface to the virtual switch
 
-You are able to attach a SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
+Use PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch.
 
 **To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
 
-1. Select the newly added SPAN virtual switch, and add a new network adapter with the following command:
+The examples in this procedure use the following parameter definitions. Replace their values with the correct values for your system.
+
+- **CPPM VA name** = `VK-C1000V-LongRunning-650`
+- **Name of the newly added SPAN virtual switch** = `vSwitch_Span`
+- **Name of the newly added adapter** = `Monitor`. If you are using Hyper-V Manager, use `Network Adapter` instead.
+
+1. Select the newly added SPAN virtual switch, and add a new network adapter. For example, run:
 
     ```bash
     ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
     ```
 
-1. Enable port mirroring for the selected interface as the span destination with the following command:
+1. Enable port mirroring for the selected interface as the span destination. For example, run:
 
     ```bash
     Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
     ```
 
-    | Parameter | Description |
-    |--|--|
-    | VK-C1000V-LongRunning-650 | CPPM VA name |
-    |vSwitch_Span |Newly added SPAN virtual switch name |
-    |Monitor |Newly added adapter name |
-
 1. Select **OK**.
 
-These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
 **To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
 
@@ -357,7 +350,9 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 | Parameter | Description |
 |--|--|
 | vSwitch_Span | Newly added SPAN virtual switch name |
-## Onboard, and activate the virtual sensor
+
+---
+## Onboard and activate the virtual sensor
 
 Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
 
