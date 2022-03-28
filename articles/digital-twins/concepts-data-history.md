@@ -38,6 +38,8 @@ Data moves through these resources in this order:
 1. The event hub forwards the message to the target Azure Data Explorer cluster. 
 1. The Azure Data Explorer cluster maps the message fields to the data history schema, and stores the data as a timestamped record in a data history table.
 
+When working with data history, you'll also need to use the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the APIs.
+
 ### Required permissions
 
 In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
@@ -51,7 +53,7 @@ Later, your Azure Digital Twins instance must have the following permission on t
 
 Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
 
-For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer (preview)](how-to-use-data-history.md).
 
 ## Data schema
 
@@ -60,7 +62,7 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `SourceTimeStamp` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
+| `SourceTimeStamp` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2021-06-30-preview** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
 | `Id` | String | The twin ID |
 | `ModelId` | String | The DTDL model ID (DTMI) |
