@@ -31,7 +31,7 @@ To view Activity log insights on a resource group or a subscription level:
 1. In the Azure portal, select **Monitor** > **Workbooks**.
 1. Select **Activity Logs Insights** in the **Insights** section. 
 
-    :::image type="content" source="media/activity-log/open-activity-log-insights-workbook.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook":::
+    :::image type="content" source="media/activity-log/open-activity-log-insights-workbook.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook on a scale level":::
 
 1. At the top of the **Activity Logs Insights** page, select:
     1. One or more subscriptions from the **Subscriptions** dropdown.
@@ -47,7 +47,7 @@ To view Activity log insights on a resource level:
 1. In the Azure portal, go to your resource, select **Workbooks**.
 1. Select **Activity Logs Insights** in the **Activity Logs Insights** section. 
 
-    :::image type="content" source="media/activity-log/activity-log-resource-level.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook":::
+    :::image type="content" source="media/activity-log/activity-log-resource-level.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook on a resource level":::
 
 1. At the top of the **Activity Logs Insights** page, select:
     
