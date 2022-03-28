@@ -879,8 +879,6 @@
           items:
             - name: Use Power BI
               href: sql/powerbi-visualize.md
-            - name: Create a live weather dashboard
-              href: sql/create-real-time-weather-dashboard-powerbi.md
             - name: Use Qlik Sense
               href: visualize-qlik-sense.md
         - name: Built-in analytics with Apache Spark
