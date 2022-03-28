@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ❌ C#
 
-The Azure Spring Cloud Maven plug-in helps developer configure and deploy microservices applications to Azure Spring Cloud.
+The Azure Spring Cloud Maven plugin helps developer configure and deploy microservices applications to Azure Spring Cloud.
 
 ## Prerequisites
 * [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
