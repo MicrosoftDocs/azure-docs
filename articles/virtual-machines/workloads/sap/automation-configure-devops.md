@@ -49,7 +49,7 @@ Choose the repository type 'Git' and provide a name for the repository, for exam
 ### Cloning the repository
 
 In order to provide a more comprehensive editing capability of the content, you can clone the repository to a local folder and edit the contents locally. 
-Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal. For more info see [Cloning a repository](/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio-2019#clone-an-azure-repos-git-repo)
+Clone the repository to a local folder by clicking the  _Clone_ button in the Files view in the Repos section of the portal. For more info see [Cloning a repository](/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio-2019#clone-an-azure-repos-git-repo&preserve-view=true)
 
 :::image type="content" source="./media/automation-devops/automation-repo-clone.png" alt-text="Picture showing how to clone the repository":::
 
@@ -76,7 +76,7 @@ Push the changes to Azure DevOps Repos by selecting the source control icon and 
 
 ## Set up the Azure Pipelines
 
-To remove the Azure resources, you need an Azure Resource Manager service connection. For more information see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+To remove the Azure resources, you need an Azure Resource Manager service connection. For more information see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true )
 
 To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
