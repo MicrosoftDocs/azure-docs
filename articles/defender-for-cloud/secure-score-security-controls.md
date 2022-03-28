@@ -47,6 +47,8 @@ On the Security posture page, you are able to see the secure score for your enti
 
 The bottom half of the page allows you to view, and manage all of your individual subscriptions, accounts, and projects, by viewing their individual secure scores, number of unhealthy resources and even view their recommendations.
 
+You can group this section by environment by selecting the Group by Environment checkbox.
+
 :::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
 
 ## How your secure score is calculated 
@@ -65,37 +67,35 @@ In this example:
 
 :::image type="icon" source="media/secure-score-security-controls/remediate-vulnerabilities.png" border="false":::
 
-**Remediate vulnerabilities security control** - This control groups multiple recommendations related to discovering and resolving known vulnerabilities.
+- **Remediate vulnerabilities security control** - This control groups multiple recommendations related to discovering and resolving known vulnerabilities.
 
-**Max score** - :::image type="icon" source="media/secure-score-security-controls/max-score.png" border="false":::
+- **Max score** - :::image type="icon" source="media/secure-score-security-controls/max-score.png" border="false":::
 
  The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.<br>For a list of all controls and their max scores, see [Security controls and their recommendations](#security-controls-and-their-recommendations).
 
-**Current score** - :::image type="icon" source="media/secure-score-security-controls/current-score.png" border="false":::
+- **Current score** - :::image type="icon" source="media/secure-score-security-controls/current-score.png" border="false":::
 
-The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]. 
+    The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]. 
 
-Each control contributes towards the total score. In this example, the control is contributing 2.00 points to current total secure score.
+    Each control contributes towards the total score. In this example, the control is contributing 2.00 points to current total secure score.
 
-**Potential score increase** - :::image type="icon" source="media/secure-score-security-controls/potential-increase.png" border="false":::
+- **Potential score increase** - :::image type="icon" source="media/secure-score-security-controls/potential-increase.png" border="false":::
 
-The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.
+    The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.
 
-For example, Potential score increase=[Score per resource]*[Number of unhealthy resources] or 0.1714 x 30 unhealthy resources = 5.14.
+    For example, Potential score increase=[Score per resource]*[Number of unhealthy resources] or 0.1714 x 30 unhealthy resources = 5.14.
 
-**Insights** - :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: 
+- **Insights** - :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: 
 
-Gives you additional details for each recommendation. Which can be; 
+    Gives you additional details for each recommendation. Which can be; 
 
-- :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation will not affect your secure score until it's GA.
+    - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation will not affect your secure score until it's GA.
 
-- :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue.
+    - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue.
 
-- :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: Enforce - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.
+    - :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: Enforce - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.
 
-- :::image type="icon" source="media/secure-score-security-controls/grace-period-icon.png" border="false"::: Grace Period - This recommendation is within it's grace period and will not affect your score.
-
-- :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: Deny - From within the recommendation details page, you can prevent new resources from being created with this issue.
+    - :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: Deny - From within the recommendation details page, you can prevent new resources from being created with this issue.
 
 ### Calculations - understanding your score
 
@@ -114,8 +114,6 @@ Recommendations flagged as **Preview** aren't included in the calculations of yo
 An example of a preview recommendation:
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
-
-You will know that a recommendation is in its grace period when you see the hour glass icon :::image type="icon" source="media/secure-score-security-controls/grace-period-icon.png" border="false":::.
 
 ## Improve your secure score
 
