@@ -53,7 +53,7 @@ touch osm.aks.bicep && touch osm.aks.parameters.json
 
 Open the *osm.aks.bicep* file and copy the following example content to it. Then save the file.
 
-```azurecli-interactive
+```bicep
 // https://docs.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
 @minLength(3)
 @maxLength(63)
@@ -178,7 +178,7 @@ kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 
 Here's an example output of MeshConfig:
 
-```
+```yaml
 apiVersion: config.openservicemesh.io/v1alpha1
 kind: MeshConfig
 metadata:
