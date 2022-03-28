@@ -32,7 +32,7 @@ If you don't see the *account picker*, you are part of one account only. You can
 1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 1. In the left-menu, under **Organization profile**, select **Legal info**. Then select the **Developer** tab.
 
-You can then select any of account on the list to switch to that account. After you switch, everything in Partner Center appears in the context of that account.
+You can then select any of the accounts on the list to switch to that account. After you switch, everything in Partner Center appears in the context of that account.
 
 > [!NOTE]
 > Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
