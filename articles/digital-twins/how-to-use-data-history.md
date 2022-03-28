@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use data history with Azure Data Explorer
+title: Use data history (preview) with Azure Data Explorer
 titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins data history
+# Use Azure Digital Twins data history (preview)
 
-[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history (preview)](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
@@ -25,6 +25,9 @@ This article shows how to set up a working data history connection between Azure
 * an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database
 
 It also contains a sample twin graph and telemetry scenario that you can use to see the historized twin updates in Azure Data Explorer. 
+
+>[!NOTE]
+>You can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs. That process isn't shown in this article.
 
 ## Prerequisites
 
@@ -324,10 +327,10 @@ The results should show the outflow numbers changing over time.
 
 :::image type="content"  source="media/how-to-use-data-history/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-use-data-history/data-history-run-query-2.png":::
 
-To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
+## Next steps 
 
-For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md) and [blog](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987).
+To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
-## Next steps
+To build Grafana dashboards that visualize the performance of the dairy operation, read [Creating dashboards with Azure Digital Twins, Azure Data Explorer, and Grafana](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries/Dairy_operation_with_data_history/Visualize_with_Grafana).
 
-After historizing twin data to Azure Data Explorer, you can continue to query the data using the Azure Digital Twins query plugin for Azure Data Explorer. Read more about the plugin here: [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md).
+For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md) and [this blog post](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987). You can also read more about the plugin here: [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md).
