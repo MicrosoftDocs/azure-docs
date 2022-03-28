@@ -13,7 +13,7 @@ ms.reviewer: vanto
 ms.date: 01/26/2022 
 ---
 
-# Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
+# Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
@@ -31,7 +31,7 @@ This sample requires an existing Managed Instance, see [Use Azure CLI to create 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.sh" range="4-41":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.sh" id="FullScript":::
 
 ## Clean up resources
 

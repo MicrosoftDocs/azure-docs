@@ -19,9 +19,9 @@ ms.author: danlep
   > [!IMPORTANT]
   > After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the `stv1` platform).
 
-* **Verify network connectivity status**  
+* **Verify network status**  
   * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
-  * In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network connectivity status**.
+  * In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network** > **Network status**.
 
    :::image type="content" source="../articles/api-management/media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
 

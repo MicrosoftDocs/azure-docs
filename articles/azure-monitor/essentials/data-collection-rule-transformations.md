@@ -59,9 +59,7 @@ Transformations don't currently support [has](/azure/data-explorer/kusto/query/h
 
 
 ### Handling dynamic data
-Since the properties of type [dynamic](/azure/data-explorer/kusto/query/scalar-data-types/dynamic) aren't supported in the input stream schema, you need alternate methods for strings containing JSON. 
-
-Consider the following input:
+Consider the following input with [dynamic data](/azure/data-explorer/kusto/query/scalar-data-types/dynamic):
 
 ```json
 {
@@ -74,7 +72,7 @@ Consider the following input:
 }
 ```
 
-In order to access the properties in *AdditionalContext*, define it as string-typed column in the input stream:
+In order to access the properties in *AdditionalContext*, define it as dynamic-typed column in the input stream:
 
 ```json
 "columns": [
@@ -88,7 +86,7 @@ In order to access the properties in *AdditionalContext*, define it as string-ty
     }, 
     {
         "name": "AdditionalContext",
-        "type": "string"
+        "type": "dynamic"
     }
 ]
 ```
@@ -103,15 +101,13 @@ source
 ```
 
 ### Dynamic literals
-[Dynamic literals](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals) aren't supported, but you can use the [parse_json function](/azure/data-explorer/kusto/query/parsejsonfunction) as a workaround.
+Use the [parse_json function](/azure/data-explorer/kusto/query/parsejsonfunction) to handle [dynamic literals](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals).
 
-For example, the following query isn't supported:
+For example, the following queries provide the same functionality:
 
 ```kql
 print d=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
-    ```
-
-The following query is supported and provides the same functionality:
+```
 
 ```kql
 print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
@@ -210,9 +206,9 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [tobool](/azure/data-explorer/kusto/query/toboolfunction)
 - [todatetime](/azure/data-explorer/kusto/query/todatetimefunction)
 - [todouble/toreal](/azure/data-explorer/kusto/query/todoublefunction)
-- [toguid](/azure/data-explorer/kusto/query/toguid)
-- [toint](/azure/data-explorer/kusto/query/toint)
-- [tolong](/azure/data-explorer/kusto/query/tolong)
+- [toguid](/azure/data-explorer/kusto/query/toguidfunction)
+- [toint](/azure/data-explorer/kusto/query/tointfunction)
+- [tolong](/azure/data-explorer/kusto/query/tolongfunction)
 - [tostring](/azure/data-explorer/kusto/query/tostringfunction)
 - [totimespan](/azure/data-explorer/kusto/query/totimespanfunction)
 
@@ -250,7 +246,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [pack_array](/azure/data-explorer/kusto/query/packarrayfunction)
 - [pack](/azure/data-explorer/kusto/query/packfunction)
 - [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)
-- [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction.html)
+- [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)
 - [zip](/azure/data-explorer/kusto/query/zipfunction)
 
 #### Mathematical functions

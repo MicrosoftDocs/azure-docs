@@ -331,6 +331,8 @@
         displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
+        - name: Transmit Security
+          href: partner-bindid.md
         - name: BlokSec
           href: partner-bloksec.md
         - name: Haventec
@@ -449,6 +451,8 @@
     - name: Identity verification and proofing partners
       href: identity-verification-proofing.md
       displayName: id verify, id verification, azure ad b2c proofing, id proofing
+    - name: eID-Me
+      href: partner-eid-me.md
     - name: Experian
       href: partner-experian.md
     - name: IDology

@@ -68,13 +68,13 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| *Max number of transactions per second (TPS) per Speech service resource* |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 200<sup>4</sup> | 200<sup>4</sup> |
+| **Max number of transactions per second (TPS) per Speech service resource** |  |  |
+| Real-time API. Prebuilt neural voices and custom neural voices. | 20 per 60 seconds | 200<sup>4</sup> |
 | Adjustable | No<sup>4</sup> | Yes<sup>4</sup> |
-| *HTTP-specific quotas* |  |  |
+| **HTTP-specific quotas** |  |  |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
-| *Websocket specific quotas* |  |  |
+| **Websocket specific quotas** |  |  |
 | Max audio length produced per turn | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
 | Max SSML message size per turn | 64 KB | 64 KB |
@@ -91,16 +91,23 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| Max number of transactions per second (TPS) per Speech service resource | See [General](#general) | See [General](#general) |
-| Max number of datasets per Speech service resource | 10 | 500 |
-| Max number of simultaneous dataset uploads per Speech service resource | 2 | 5 |
-| Max data file size for data import per dataset | 2 GB | 2 GB |
-| Upload of long audios or audios without script | No | Yes |
+| Max number of transactions per second (TPS) per Speech service resource | Not available for F0 | See [General](#general) |
+| Max number of datasets per Speech service resource | N/A | 500 |
+| Max number of simultaneous dataset uploads per Speech service resource | N/A | 5 |
+| Max data file size for data import per dataset | N/A | 2 GB |
+| Upload of long audios or audios without script | N/A | Yes |
 | Max number of simultaneous model trainings per Speech service resource | N/A | 3 |
 | Max number of custom endpoints per Speech service resource | N/A | 50 |
 | *Concurrent request limit for Custom Neural Voice* |  |  |
 | Default value | N/A | 10 |
 | Adjustable | N/A | Yes<sup>5</sup> |
+
+#### Audio Content Creation tool 
+
+| Quota | Free (F0)| Standard (S0) |
+|--|--|--|
+| File size  | 3,000 characters per file | 20,000 characters per file |
+| Export to audio library | 1 concurrent task | N/A |
 
 <sup>3</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>

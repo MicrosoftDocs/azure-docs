@@ -1,8 +1,6 @@
 ---
 title: Restore logs in Azure Monitor (Preview) 
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
-author: bwren
-ms.author: bwren
 ms.topic: conceptual
 ms.date: 01/19/2022
 
@@ -24,13 +22,17 @@ The restore operation creates the restore table and allocates additional compute
 
 The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
-## Restore data using API
+## Restore data
+
+# [API](#tab/api-1)
 To restore data from a table, call the **Tables - Create or Update** API. The name of the destination table must end with *_RST*.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
 ```
-### Request body
+
+**Request body**
+
 The body of the request must include the following values:
 
 |Name | Type | Description |
@@ -39,7 +41,8 @@ The body of the request must include the following values:
 |properties.restoredLogs.startRestoreTime | string  | Start of the time range to restore. |
 |properties.restoredLogs.endRestoreTime | string  | End of the time range to restore. |
 
-### Restore table status
+**Restore table status**
+
 The **provisioningState** property indicates the current state of the restore table operation. The API returns this property when you start the restore, and you can retrieve this property later using a GET operation on the table. The **provisioningState** property has one of the following values:
 
 | Value | Description 
@@ -48,7 +51,8 @@ The **provisioningState** property indicates the current state of the restore ta
 | Succeeded | Restore operation completed. |
 | Deleting | Deleting the restored table. |
 
-#### Sample request
+**Sample request**
+
 This sample restores data from the month of January 2020 from the *Usage* table to a table called *Usage_RST*. 
 
 **Request**
@@ -69,21 +73,43 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
   }
 }
 ```
+# [CLI](#tab/cli-1)
 
+To restore data from a table, run the [az monitor log-analytics workspace table restore create](/cli/azure/monitor/log-analytics/workspace/table/restore#az-monitor-log-analytics-workspace-table-restore-create) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
+```
+
+---
 ## Dismiss restored data
 
 To save costs, dismiss restored data when you no longer need it by deleting the restored table.
 
+Deleting the restored table does not delete the data in the source table.
+
+> [!NOTE]
+> Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly. 
+
+# [API](#tab/api-2)
 To delete a restore table, call the **Tables - Delete** API:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
 ```
-Deleting the restored table does not delete the data in the source table.
+# [CLI](#tab/cli-2)
 
-> [!NOTE]
-> Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly.   
+To delete a restore table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
+For example:
+
+```azurecli
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Heartbeat_RST
+```
+
+---
 ## Limitations
 Restore is subject to the following limitations. 
 

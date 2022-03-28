@@ -90,7 +90,11 @@ Be aware of the following considerations when you're deploying:
   |A simple instance of Azure Arc-enabled PostgreSQL Hyperscale that is ready to scale out when you need it.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. It isn't yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes, and distribute the data.   |*0*.   |The Citus extension that provides the Hyperscale capability is present on your deployment, but isn't yet loaded.   |
   |   |   |   |   |
 
-  Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
+    This table is demonstrated in the following figure:
+
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts Postgres Hyperscale worker node parameters and associated architecture." border="false":::  
+
+    Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
 
 - **The storage classes you want your server group to use.** It's important to set the storage class right at the time you deploy a server group. You can't change this setting after you deploy. If you don't indicate storage classes, you get the storage classes of the data controller by default.    
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd`, followed by the name of the storage class.

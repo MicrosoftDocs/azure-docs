@@ -15,7 +15,7 @@ ms.subservice: pstn
 # Azure direct routing infrastructure requirements 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 
@@ -121,17 +121,18 @@ The port range of the Media Processors is shown in the following table:
 ## Media traffic: Media processors geography
 
 The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies:
-- US (two in US West and US East datacenters)
-- Europe (Amsterdam and Dublin datacenters)
-- Asia (Singapore and Hong Kong SAR datacenters)
-- Australia (AU East and Southeast datacenters)
+- NOAM (US South Central, two in US West and US East datacenters)
+- Europe (UK South, France Central, Amsterdam and Dublin datacenters)
+- Asia (Singapore datacenter)
 - Japan (JP East and West datacenters)
-
+- Australia (AU East and Southeast datacenters)
+- LATAM (Brazil South)
+- Africa (South Africa North)
 
 
 ## Media traffic: Codecs
 
-### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
+### Leg between SBC and Cloud Media Processor.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 

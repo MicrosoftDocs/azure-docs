@@ -116,7 +116,7 @@ You can opt out of getting your invoice by email by following the steps above an
 
 Azure Government users use the same agreement types as other Azure users.
 
-Azure Government billing owners can opt in to receive invoices by email. However, they can't allow others to get invoices by email.
+Azure Government customers can’t request their invoice by email. They can only download it.
 
 To download your invoice, follow the steps above at [Download invoices for an individual subscription](#download-invoices-for-an-individual-subscription).
 

@@ -1,10 +1,10 @@
 ---
-title: Receive and respond to calls by using HTTPS
-description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
+title: Receive and respond to HTTPS requests
+description: Handle inbound HTTPS calls from external services using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/04/2021
 tags: connectors
 ---
@@ -31,7 +31,7 @@ For more information about security, authorization, and encryption for inbound c
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/08/2022
+ms.date: 03/22/2022
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -683,7 +683,8 @@ Appending data is the default behavior of this Azure SQL Database sink connector
 
 ### Upsert data
 
-Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data.
+Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data. To learn more about upsert settings in copy activities, see [Azure SQL Database as the sink](#azure-sql-database-as-the-sink).
+
 
 ### Overwrite the entire table
 
@@ -786,6 +787,8 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 - None (ignore isolation level)
 
 :::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
+
+**Enable incremental extract (preview)**: If your table has a timestamp column, you can enable incremental extract. ADF will prompt you to choose a timestamp field that will be used to query for changed rows from the last time the pipeline ran. ADF will handle storing the watermark and querying changed rows for you. This feature is currently in public preview.
 
 ### Sink transformation
 

@@ -28,23 +28,21 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 [Create a Media Services account](./account-create-how-to.md).
 
+## Methods
+
+You can use the following methods to create a transform.
+
+## [Portal](#tab/portal/)
+
+[!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
+
 ## [CLI](#tab/cli/)
 
-> [!NOTE]
-> You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), see the [encode with a custom transform](transform-custom-preset-cli-how-to.md) example.
->
-> You cannot pass a file name when using [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
-
-## Example script
-
-[!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-transform/Create-Transform.sh "Create a transform")]
+[!INCLUDE [task-create-asset-portal](includes/task-create-transform-cli.md)]
 
 ## [REST](#tab/rest/)
 
-[!INCLUDE [task general transform creation](./includes/task-create-basic-audio-rest.md)]
+See the Media Services [REST API](/rest/api/media/transforms/create-or-update).
 
 ---
 
-## Next steps
-
-[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]
