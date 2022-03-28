@@ -31,7 +31,7 @@ When you create a workspace, it must be configured for an Azure region, which ca
 
 Once the Azure Health Data Services workspace is created, you’re now ready to create one or more service instances from the Azure portal. You can create multiple service instances of the same type or different types in one workspace. Within the workspace, you can apply shared configuration settings to child service instances, which are covered in the workspace and configuration settings section.
 
-[ ![Azure Resource Group](media/azure-resource-group.png) ](media/azure-resource-group.png#lightbox)
+[ ![Screenshot of Health Data Services Azure Resource Group diagram.](media/azure-resource-group.png) ](media/azure-resource-group.png#lightbox)
 
 Additionally, workspaces can be created using Azure Resource Manager deployment templates, a process commonly known as infrastructure as code (IaC). This option offers the ability to customize the ARM templates and complete the workspace creation and service instance creation in a combined step. 
 
