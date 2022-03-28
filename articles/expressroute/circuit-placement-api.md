@@ -53,10 +53,10 @@ The ExpressRoute partner can list all port pairs within the target provider subs
 ### To get a list of all port pairs for a provider
 
 ```rest
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?api-version={api-version}
 {
     "parameters": {
-      "api-version": "2020-03-01",
+      "api-version": "2021-12-01",
       "subscriptionId": "subid"
     },
     "responses": {
@@ -114,10 +114,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 ### To get a list of all port pairs by location
 
 ```rest
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}?api-version={api-version}
 {
   "parameters": {
-    "api-version": "2020-03-01",
+    "api-version": "2021-12-01",
     "locationName": "SiliconValley",
     "subscriptionId": "subid"
   },
@@ -157,11 +157,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 ### To get a specific port pair using the port pair descriptor ID.
 
 ```rest
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts/{portPairDescriptor}?api-version={api-version}
 
 {
   "parameters": {
-    "api-version": "2020-03-01",
+    "api-version": "2021-12-01",
     "portPairDescriptor": " bvtazureixpportpair1",
     "subscriptionId": "subid"
   },
@@ -208,10 +208,10 @@ Currently this API is used by providers to update provisioning state of circuit.
 Currently the primaryAzurePort and secondaryAzurePort are read-only properties. Now we've disabled the read-only properties for these ports.
 
 ```rest
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version=2021-02-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version={api-version}
 {
 "parameters": {
-    "api-version": "2020-03-01",
+    "api-version": "2021-12-01",
     "crossConnectionName": "The name of the cross connection",
     "subscriptionId": "subid"
   }
