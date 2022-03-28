@@ -14,7 +14,7 @@ This article discusses solutions to problems that you might encounter when you u
 
 ### Issue
 
-The following error displays when creating an Automation account with a provided name (a GUID) that's not used as the Automation account name in the same subscription.
+The following error displays when creating an Automation account with a provided name (GUID) that's not used as the Automation account name in the same subscription.
 
     ```error
     {
