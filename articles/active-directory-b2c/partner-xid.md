@@ -101,7 +101,7 @@ Use the following steps to add xID as a claims provider:
     i. Download the .zip file or clone the repository:
 
        ```
-        git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+          https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
         
        ```
     ii. In all of the files in the **LocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is `contoso`, all instances of `yourtenant.onmicrosoft.com` become `contoso.onmicrosoft.com`. 
