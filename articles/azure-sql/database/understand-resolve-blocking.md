@@ -103,7 +103,6 @@ To counteract the difficulty of troubleshooting blocking problems, a database ad
 
 The first is to query dynamic management objects (DMOs) and store the results for comparison over time. Some objects referenced in this article are dynamic management views (DMVs) and some are dynamic management functions (DMFs). The second method is to use XEvents to capture what is executing. 
 
-
 ## Gather information from DMVs
 
 Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (session ID) at the head of the blocking chain and the SQL Statement. Look for victim SPIDs that are being blocked. If any SPID is being blocked by another SPID, then investigate the SPID owning the resource (the blocking SPID). Is that owner SPID being blocked as well? You can walk the chain to find the head blocker then investigate why it is maintaining its lock.
@@ -364,7 +363,7 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
 
     Reports from the [Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store) in SSMS are also a highly recommended and valuable tool for identifying the most costly queries, suboptimal execution plans. Also review the [Intelligent Performance](intelligent-insights-overview.md) section of the Azure portal for the Azure SQL database, including [Query Performance Insight](query-performance-insight-use.md).
 
-    If the runtime of the blocking query is not a concern and the query performs only SELECT operations, consider [running the statement under snapshot isolation](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) if it is enabled in your database, especially if RCSI has been disabled. As when RCSI is enabled, queries reading data do not require shared (S) locks under snapshot isolation level. Additionally, snapshot isolation provides transaction level consistency for all statements in an explicit multi-statement transaction. Snapshot isolation may [already be enabled in your database](#understand-blocking). Snapshot isolation may also be used with queries performing modifications, but you must handle [update conflicts](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-in-summary).
+    If the query performs only SELECT operations, consider [running the statement under snapshot isolation](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) if it is enabled in your database, especially if RCSI has been disabled. As when RCSI is enabled, queries reading data do not require shared (S) locks under snapshot isolation level. Additionally, snapshot isolation provides transaction level consistency for all statements in an explicit multi-statement transaction. Snapshot isolation may [already be enabled in your database](#understand-blocking). Snapshot isolation may also be used with queries performing modifications, but you must handle [update conflicts](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-in-summary).
 
     If you have a long-running query that is blocking other users and cannot be optimized, consider moving it from an OLTP environment to a dedicated reporting system, a [synchronous read-only replica of the database](read-scale-out.md).
 

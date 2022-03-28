@@ -28,7 +28,7 @@ Each new database in Azure SQL Database has the [read committed snapshot](/sql/t
 
 ### An example deadlock
 
-A deadlock occurs when two or more tasks permanently block each other by each task having a lock on a resource that the other tasks are trying to lock. A deadlock is also called a cyclic dependency: transaction A has a dependency on transaction B, and transaction B closes the circle by having a dependency on transaction A.
+A deadlock occurs when two or more tasks permanently block one other by each task having a lock on a resource another of the tasks is trying to lock. A deadlock is also called a cyclic dependency: in the case of a two-task deadlock, transaction A has a dependency on transaction B, and transaction B closes the circle by having a dependency on transaction A.
 
 For example:
 
@@ -40,7 +40,7 @@ For example:
 
 :::image type="content" source="media/analyze-prevent-deadlocks/deadlock-overview.png" alt-text="A diagram showing two sessions in a deadlock. Each session owns a resource that the other process needs in order to continue.":::
 
-All transactions in a deadlock will wait indefinitely unless one of participating transactions is canceled or rolled back, for example because its session was terminated.
+All transactions in a deadlock will wait indefinitely unless one of participating transactions is rolled back, for example because its session was terminated.
 
 The database engine deadlock monitor periodically checks for tasks that are in a deadlock. If the deadlock monitor detects a cyclic dependency, it chooses one of the tasks as a victim and terminates its transaction with error 1205. Breaking the deadlock in this way allows the other task or tasks in the deadlock to complete their transactions.
 
@@ -341,7 +341,7 @@ Different methods are available to obtain deadlock information for the ring buff
 
 # [Ring buffer target](#tab/ring-buffer)
 
-If you set up an XEvents session named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL. Before running the query, replace the value of `@tracename` with the name of your xEvents session.
+If you set up an XEvents session writing to the ring buffer, you can query deadlock information with the following Transact-SQL. Before running the query, replace the value of `@tracename` with the name of your xEvents session.
 
 ```sql
 declare @tracename sysname = N'deadlocks';
@@ -630,7 +630,7 @@ Query text may be truncated in the input buffer. The input buffer is limited to 
 
 Additionally, some statements involved in the deadlock may not be included in the deadlock graph. In our example, **Session A** ran two update statements within a single transaction. Only the second update statement, the update that caused the deadlock, is included in the deadlock graph. The first update statement run by **Session A** played a part in the deadlock by blocking **Session B**. The input buffer, `query_hash`, and related information for the first statement run by **Session A** is not included in the deadlock graph.
 
-To identify the full Transact-SQL run in a multi-statement transaction involved in a deadlock, you will need to either find the relevant information in the stored procedure or application code that ran the query, or run a trace using [Extended Events](/sql/relational-databases/extended-events/extended-events) to capture full statements run by sessions involved in a deadlock while it occurs.
+To identify the full Transact-SQL run in a multi-statement transaction involved in a deadlock, you will need to either find the relevant information in the stored procedure or application code that ran the query, or run a trace using [Extended Events](/sql/relational-databases/extended-events/extended-events) to capture full statements run by sessions involved in a deadlock while it occurs. If a statement involved in the deadlock has been truncated and only partial Transact-SQL appears in the input buffer, you can find the [Transact-SQL for the statement in Query Store with the Execution Plan](#find-query-execution-plans-in-query-store).
 
 ### Deadlock resource list
 
