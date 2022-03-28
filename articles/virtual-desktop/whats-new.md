@@ -40,7 +40,7 @@ Here's what's changed in the Azure Virtual Desktop Agent:
     - Fixes an issue with arithmetic overflow casting exceptions.
     - Updated the agent to now start the Azure Instance Metadata Service (IMDS) when the agent starts.
     - Fixes an issue that caused Sandero name pipe service start ups to be slow when the VM has no registration information.
-    - Gneral bug fixes and agent improvements.
+    - General bug fixes and agent improvements.
 - Version 1.0.4009.1500: This update was released in January 2022 and includes the following changes:
     - Added logging to better capture agent update telemetry.
     - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
@@ -114,11 +114,11 @@ The PowerShell commands that migrate metadata from Azure Virtual Desktop (classi
 
 ### Increased application group limit
 
-We've increased number of Azure Virtual Desktop application groups you can have on each Azure Active Directory (Azure AD) tenant from 200 to 500. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/increase-in-avd-application-group-limit-to-500/m-p/3094678).
+We've increased number of Azure Virtual Desktop application groups you can have on each Azure Active Directory tenant from 200 to 500. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/increase-in-avd-application-group-limit-to-500/m-p/3094678).
 
 ### Updates to required URLs
 
-We've updated the required URL list for Azure Virtual Desktop to accomodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
+We've updated the required URL list for Azure Virtual Desktop to accommodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
 
 ## December 2021
 
@@ -130,7 +130,7 @@ You can now automatically create trusted launch virtual machines through the hos
  
 ### Azure Active Directory Join VMs with FSLogix profiles on Azure Files
 
-Azure AD-joined session hosts for FSLogix profiles on Azure Files in Windows 10 and 11 multi-session is now in public preview. We've updated Azure Files to use a Kerberos protocol for Azure AD that lets you secure folders in the file share to individual users. This new feature also allows FSLogix to function within your deployment without an Active Directory Domain Controller. For more information, check out [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-fslogix-profiles-for-azure-ad/ba-p/3019855).
+Azure Active Directory-joined session hosts for FSLogix profiles on Azure Files in Windows 10 and 11 multi-session is now in public preview. We've updated Azure Files to use a Kerberos protocol for Azure Active Directory that lets you secure folders in the file share to individual users. This new feature also allows FSLogix to function within your deployment without an Active Directory Domain Controller. For more information, check out [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-fslogix-profiles-for-azure-ad/ba-p/3019855).
 
 ### Azure Virtual Desktop pricing calculator updates
 
@@ -203,7 +203,7 @@ You can also now set host pool, app group, and workspace diagnostic settings whi
 
 ### Azure Active Directory domain join
 
-Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory. Domain join also lets you autoenroll into Intune as part of Microsoft Endpoint Manager. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Intune as part of Microsoft Endpoint Manager. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
 
 ### Azure China
 
@@ -229,9 +229,9 @@ Multimedia redirection gives you smooth video playback while watching videos in 
 
 Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on Windows virtual machines (VMs), and Azure Disk Encryption, which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
  
-### Signing into Azure AD using smart cards are now supported in Azure Virtual Desktop
+### Signing into Azure Active Directory using smart cards are now supported in Azure Virtual Desktop
 
-While this isn't a new feature for Azure AD, Azure Virtual Desktop now supports configuring Active Directory Federation Services to sign in with smart cards. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671).
+While this isn't a new feature for Azure Active Directory, Azure Virtual Desktop now supports configuring Active Directory Federation Services to sign in with smart cards. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671).
 
 ### Screen capture protection is now generally available
 
@@ -727,7 +727,7 @@ Here's what this change does for you:
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 
-- You're no longer required to complete Azure Active Directory (Azure AD) consent to use Azure Virtual Desktop. In this update, the Azure AD tenant on your Azure subscription authenticates your users and provides Azure RBAC controls for your admins.
+- You're no longer required to complete Azure Active Directory consent to use Azure Virtual Desktop. In this update, the Azure Active Directory tenant on your Azure subscription authenticates your users and provides Azure RBAC controls for your admins.
 
 ### PowerShell support
 

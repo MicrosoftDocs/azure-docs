@@ -334,7 +334,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
 
-    * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](/azure/machine-learning/tutorial-1st-experiment-bring-data#upload) section of the tutorial.
+    * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
     * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
 
 ## Next steps

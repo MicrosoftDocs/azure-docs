@@ -201,7 +201,7 @@ Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' sep
 Find all hotels where all rooms have the tag 'wifi' or 'tub':
 
 ```odata-filter-expr
-    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
 ```
 
 Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags.

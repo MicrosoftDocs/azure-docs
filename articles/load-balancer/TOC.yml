@@ -6,34 +6,39 @@
     href: load-balancer-overview.md
 - name: Quickstarts
   items:
-  - name: Create public load balancer - Portal
-    href: quickstart-load-balancer-standard-public-portal.md
-  - name: Create public load balancer - PowerShell
-    href: quickstart-load-balancer-standard-public-powershell.md
-  - name: Create public load balancer - Azure CLI
-    href: quickstart-load-balancer-standard-public-cli.md
-  - name: Create public load balancer - ARM template
-    displayName: Resource Manager
-    href: quickstart-load-balancer-standard-public-template.md
-  - name: Create internal load balancer - Portal
-    href: quickstart-load-balancer-standard-internal-portal.md
-  - name: Create internal load balancer - PowerShell
-    href: quickstart-load-balancer-standard-internal-powershell.md
-  - name: Create internal load balancer - Azure CLI
-    href: quickstart-load-balancer-standard-internal-cli.md
-  - name: Create internal load balancer - ARM template
-    displayName: Resource Manager
-    href: quickstart-load-balancer-standard-internal-template.md
-  expanded: true
+  - name: Create a public load balancer
+    items:
+    - name: Portal 
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: PowerShell
+      href: quickstart-load-balancer-standard-public-powershell.md
+    - name: CLI
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-load-balancer-standard-public-template.md
+    expanded: true
+  - name: Create an internal load balancer
+    items:
+    - name: Portal
+      href: quickstart-load-balancer-standard-internal-portal.md
+    - name: PowerShell
+      href: quickstart-load-balancer-standard-internal-powershell.md
+    - name: CLI
+      href: quickstart-load-balancer-standard-internal-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-load-balancer-standard-internal-template.md
+    expanded: true
 - name: Tutorials
   items:
-  - name: Load balance VM within a specific availability zone
+  - name: Load balance a VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Load balance VMs with multiple availability sets
     href: tutorial-multi-availability-sets-portal.md
-  - name: Create a single instance inbound NAT rule
+  - name: Create a single VM inbound NAT rule
     href: tutorial-load-balancer-port-forwarding-portal.md
-  - name: Create a multiple instance inbound NAT rule
+  - name: Create a multiple VMs inbound NAT rule
     href: tutorial-nat-rule-multi-instance-portal.md
   - name: Load balance multiple IP configurations
     href: load-balancer-multiple-ip.md
@@ -66,7 +71,17 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Overview
+      href: cli-samples.md
+    - name: Load balance traffic to VMs for high availability
+      href: ./scripts/load-balancer-linux-cli-sample-nlb.md
+    - name: Load balance VMs across availability zones
+      href: ./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md
+    - name: Load balance VMs within a specific availability zone
+      href: ./scripts/load-balancer-linux-cli-sample-zonal-frontend.md
+    - name: Load balance multiple websites on VMs
+      href: ./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Python
@@ -83,6 +98,8 @@
     href: concepts.md
   - name: Distribution modes
     href: distribution-mode-concepts.md
+  - name: Inbound NAT rules
+    href: inbound-nat-rules.md
   - name: SKUs
     href: skus.md
   - name: Health monitoring
@@ -147,17 +164,17 @@
       href: configure-vm-scale-set-powershell.md
     - name: Use with an existing Azure Load Balancer - CLI
       href: configure-vm-scale-set-cli.md
-  - name: Upgrade from Basic to Standard Load Balancer
+  - name: Upgrade from a basic to standard load balancer
     items:
-    - name: Upgrade a Basic Public Load Balancer
+    - name: Upgrade a basic public load balancer
       href: upgrade-basic-standard.md
-    - name: Upgrade an Internal Load Balancer - No Outbound Connection Required
-      href: upgrade-basicInternal-standard.md
-    - name: Upgrade an Internal Load Balancer - Outbound Connection Required
-      href: upgrade-InternalBasic-To-PublicStandard.md
+    - name: Upgrade an internal load balancer - Outbound connections not required
+      href: upgrade-basicinternal-standard.md
+    - name: Upgrade an internal load balancer - Outbound connections required
+      href: upgrade-internalbasic-to-publicstandard.md
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
-  - name: Configure distribution mode for Load Balancer
+  - name: Configure distribution mode for a load balancer
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
     items:

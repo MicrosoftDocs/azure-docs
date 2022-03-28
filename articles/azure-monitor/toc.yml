@@ -408,13 +408,13 @@ items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
       href: essentials/platform-logs-overview.md
-    - name: Activity log
-      href: essentials/activity-log.md
-    - name: Resource logs
-      href: essentials/resource-logs.md
     - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
+    - name: Resource logs
+      href: essentials/resource-logs.md
+    - name: Activity log
+      href: essentials/activity-log.md
   - name: Data collection
     items:
     - name: Data collection rules
@@ -674,14 +674,8 @@ items:
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
-      - name: About smart groups
-        href: alerts/alerts-smartgroups-overview.md
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
-      - name: Manage smart groups
-        href: alerts/alerts-managing-smart-groups.md
-      - name: Manage alert and smart group states
-        href: alerts/alerts-managing-alert-states.md
     - name: Alert API
       href: alerts/api-alerts.md
     - name: Troubleshoot alerts
@@ -760,6 +754,10 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
+    - name: Troubleshooting
+      items:
+      - name: Error retrieving data in Portal
+        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items: 
       - name: Overview
@@ -1144,11 +1142,11 @@ items:
   - name: Change Analysis
     items:
     - name: Overview
-      href: app/change-analysis.md
+      href: change/change-analysis.md
     - name: Visualizations
-      href: app/change-analysis-visualizations.md
+      href: change/change-analysis-visualizations.md
     - name: Troubleshoot
-      href: app/change-analysis-troubleshoot.md
+      href: change/change-analysis-troubleshoot.md
   - name: VM insights
     items:
     - name: Overview
@@ -1590,8 +1588,6 @@ items:
     href: policy-reference.md
   - name: Feature and API Retirement 
     items:
-    - name: OperationalInsights API
-      href: logs/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: Classic alerting & monitoring 

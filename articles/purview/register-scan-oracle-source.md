@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 03/28/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -42,6 +42,8 @@ When scanning Oracle source, Azure Purview supports:
 - Fetching static lineage on assets relationships among tables, views and stored procedures. Stored procedure lineage is supported for static SQL returning result set.
 
 When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+
+Currently, the Oracle service name is not captured in the metadata or hierarchy.
 
 ## Prerequisites
 
@@ -180,6 +182,13 @@ To create and run a new scan, do the following:
 
         > [!Note]
         > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+
+    1. **Stored procedure details**: Controls the amount of details imported from stored procedures:
+
+        - Signature: The name and parameters of stored procedures.
+        - Code, signature: The name, parameters and code of stored procedures.
+        - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
+        - None: Stored procedure details are not included.
 
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Oracle source to be scanned.
 

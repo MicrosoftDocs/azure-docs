@@ -502,6 +502,9 @@ Allows you to set the timezone for your function app.
 
 ## WEBSITE\_VNET\_ROUTE\_ALL
 
+> [!IMPORTANT]
+> WEBSITE_VNET_ROUTE_ALL is a legacy app setting that has been replaced by the [vnetRouteAllEnabled configuration setting](../app-service/configure-vnet-integration-routing.md).
+
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
 
 |Key|Sample value|

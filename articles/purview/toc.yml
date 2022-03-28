@@ -24,13 +24,15 @@ items:
     href: quickstart-data-share.md
 - name: Tutorials
   items:
+  - name: Azure Purview deployment checklist
+    href: tutorial-azure-purview-checklist.md
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Data owner access policies
+  - name: Data policies
     items:
     - name: Data owner policies for Azure Storage
       href: tutorial-data-owner-policies-storage.md
@@ -106,6 +108,10 @@ items:
       href: concept-workflow.md
   - name: Data Share
     href: concept-data-share.md
+  - name: Data policies
+    items:
+    - name: Data owner policies
+      href: concept-data-owner-policies.md
   - name: Data insights
     href: concept-insights.md
 - name: How-to guides
@@ -297,16 +303,22 @@ items:
         href: catalog-private-link-troubleshoot.md                     
       - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
-    - name: Azure policy exceptions
+    - name: Azure Purview deployment exceptions
       href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
-  - name: Data owner policies
+  - name: Data policies
     items:
+    - name: Registering data sources for Data use governance
+      href: how-to-enable-data-use-governance.md
     - name: Authoring and publishing data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
-    - name: Data use governance
-      href: how-to-enable-data-use-governance.md
+    - name: Self-service data access policy
+      href: concept-self-service-data-access-policy.md
+    - name: View Self-service data access policy
+      href: how-to-view-self-service-data-access-policy.md
+    - name: Delete Self-service data access policy
+      href: how-to-delete-self-service-data-access-policy.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access

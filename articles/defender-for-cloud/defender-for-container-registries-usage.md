@@ -3,6 +3,8 @@ title: How to use Defender for Containers
 description: Learn how to use  Defender for Containers to scan Linux images in your Linux-hosted registries
 ms.date: 03/07/2022
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 
 # Use Defender for Containers to scan your ACR images for vulnerabilities

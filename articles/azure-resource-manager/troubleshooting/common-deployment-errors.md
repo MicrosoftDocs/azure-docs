@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot common Azure deployment errors
-description: Describes common errors for Azure resources deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
+description: Describes common deployment errors for Azure resources that are deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 02/23/2022
+ms.date: 03/17/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 This article describes common Azure deployment errors, and provides information about solutions. Azure resources can be deployed with Azure Resource Manager templates (ARM templates) or Bicep files. If you can't find the error code for your deployment error, see [Find error code](find-error-code.md).
 
-If your error code isn't listed, submit a GitHub issue. On the right side of the page, select **Feedback**. At the bottom of the page, under **Feedback** select **This page**.
+If your error code isn't listed, submit a GitHub issue. On the right side of the page, select **Feedback**. At the bottom of the page, under **Feedback** select **This page**. Provide your documentation feedback but **don't include confidential information** because GitHub issues are public.
 
 ## Error codes
 
@@ -63,6 +63,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [Private IP addresses](../../virtual-network/ip-services/private-ip-addresses.md)
 | PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [Private IP addresses](../../virtual-network/ip-services/private-ip-addresses.md) |
 | PropertyChangeNotAllowed | Some properties can't be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
+| PublicIPCountLimitReached | You've reached the limit for the number of running public IPs. Shut down unneeded resources or contact Azure support to request an increase. For example, in Azure Databricks, see [Unexpected cluster termination](/azure/databricks/kb/clusters/termination-reasons) and [IP address limit prevents cluster creation](/azure/databricks/kb/clusters/azure-ip-limit). | [Public IP address limits](../management/azure-subscription-service-limits.md#publicip-address) |
 | RegionDoesNotAllowProvisioning | Select a different region or submit a quota support request for **Region access**. | |
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you're trying to do during deployment. Find the policy that blocks the action. If possible, change your deployment to meet the limitations from the policy. | [Resolve policies](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](error-reserved-resource-name.md) |
@@ -82,6 +83,6 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 
 ## Next steps
 
-- [Find error codes](find-error-code.md)
-- [Enable debug logging](enable-debug-logging.md)
-- [Create troubleshooting template](create-troubleshooting-template.md)
+- For information about validation or deployment errors, see [Find error codes](find-error-code.md).
+- To get more details to troubleshoot a deployment, see [Enable debug logging](enable-debug-logging.md).
+- To isolate the cause of a deployment error, see [Create a troubleshooting template](create-troubleshooting-template.md).
