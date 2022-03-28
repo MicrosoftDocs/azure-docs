@@ -70,28 +70,27 @@ Once service principal is created, you need to assign Data plane roles of your p
 
 1. Select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment** to open the Add role assignment page.|
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.|
 
     ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-1. Select the Role assignments tab. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Select the **Role** tab.
 
-1. Assign the following roles to the service principal created previously to access various data planes in Azure Purview:
+1. Assign the following roles to the service principal created previously to access various data planes in Azure Purview. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
     * Data Curator role to access Catalog Data plane.
     * Data Source Administrator role to access Scanning Data plane.
-    * Collection Admin role to access Account Data Plane.
-    * Collection Admin role to access Metadata policy Data Plane.
+    * Collection Admin role to access Account Data Plane and Metadata policy Data Plane.
 
-   > [!Note]
-   > Only Collection Admin can assign data plane roles in Azure Purview [Access Control in Azure Purview](./catalog-permissions.md).
+    > [!Note]
+    > Only members of the Collection Admin role can assign data plane roles in Azure Purview [Access Control in Azure Purview](./catalog-permissions.md).
 
 ## Get token
 You can send a POST request to the following URL to get access token.
 
 https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
 
-The following parameters needs to be passed to the above URL.
+The following parameters need to be passed to the above URL.
 
 - **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Azure Purview account.
 - **client_secret**: client secret created for the above application.
