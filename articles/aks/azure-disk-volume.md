@@ -81,6 +81,7 @@ Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the 
 
 ```yaml
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
   name: pvc-azuredisk
 spec:
