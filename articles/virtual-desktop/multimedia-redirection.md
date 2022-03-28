@@ -36,7 +36,7 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 
 To use MMR for Teams live events:
 
-1. First, make sure you can see a green check mark next to the Azure Virtual Desktop extension icon in your web browser. If the check mark is there, you can set up MMR for Teams live events.
+1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, you can set up MMR for Teams live events.
 
 2. Open the link to the Teams live event in a Microsoft Edge or Google Chrome browser.
 
