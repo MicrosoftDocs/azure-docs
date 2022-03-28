@@ -82,7 +82,7 @@ You'll now generate a shared access signature (SAS) URL for your trace. Once you
 
 1. Select **Generate SAS token and URL**.
 
-    :::image type="content" source="media\distributed-tracing-share-traces\generate-shared-access-signature-token-url.png" alt-text="Screenshot of the Azure portal showing the Generate S A S tab in the trace blob information window. The Generate S A S token and U R L button is highlighted." lightbox="media\distributed-tracing-share-traces\generate-shared-access-signature-token-and-url.png":::
+    :::image type="content" source="media\distributed-tracing-share-traces\generate-shared-access-signature-token-url.png" alt-text="Screenshot of the Azure portal showing the Generate S A S tab in the trace blob information window. The Generate S A S token and U R L button is highlighted." lightbox="media\distributed-tracing-share-traces\generate-shared-access-signature-token-url.png":::
 
 1. Copy the contents of the **Blob SAS URL** field and share the URL with your support representative.
 
