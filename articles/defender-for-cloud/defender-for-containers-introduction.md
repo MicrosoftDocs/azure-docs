@@ -228,8 +228,8 @@ The following describes the components necessary in order to receive the full pr
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 
 
-### Does Microsoft Defender for Containers support AKS with virtual machines?
-No. If your cluster is deployed on an Azure Kubernetes Service (AKS) virtual machines, it's not recommended to enable the Microsoft Defender for Containers plan.
+### Does Microsoft Defender for Containers support AKS without scale set (default) ?
+No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported. 
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension is not needed and may result in additional charges.
