@@ -2,7 +2,7 @@
 title: Transition from Event Grid on Azure IoT Edge to Azure IoT Edge
 description: This article explains transition from Event Grid on Azure IoT Edge to Azure IoT Edge MQTT Broker or IoT Hub message routing.
 ms.topic: overview
-ms.date: 02/16/2022
+ms.date: 03/28/2022
 ms.subservice: iot-edge
 ---
 
