@@ -57,7 +57,7 @@ On the **Create a storage account** page, enter the following values:
 Select **Review + Create** at the bottom and Azure will validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the storage account, which might take a moment.
 
 ### Create the container
-After the storage account is provisioned, select **Go to Resource**. We need to create a storage container inside of the account to hold uploaded images for analysis. 
+After the storage account is provisioned, select **Go to Resource**. The next step is to create a storage container inside of the account to hold uploaded images for analysis. 
 
 On the navigation panel, choose **Containers**.
 
@@ -299,7 +299,7 @@ On the **Function App** screen, select the Function App you created in Visual St
 
 On the **Function App** overview page, click **Configuration** on the left navigation.  This will open up a page where we can manage various types of configuration settings for our app.  For now, we are interested in **Application Settings** section.
 
-We need to add settings for our storage account name and connection string, the Computer Vision secret key, and the Computer Vision endpoint.
+The next step is to add settings for our storage account name and connection string, the Computer Vision secret key, and the Computer Vision endpoint.
 
 On the **Application settings** tab, select **+ New application setting**. In the flyout that appears, enter the following values:
 
@@ -346,11 +346,11 @@ At the top of the **ImageAnalysis** page, select  **Upload**.  In the flyout tha
 
 :::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to a storage container." :::
 
-The file should appear inside of your blob container. Next you can verify that the upload triggered the Azure Function, and that the text in the  image was analyzed and saved to Table Storage properly.
+The file should appear inside of your blob container. Next, you can verify that the upload triggered the Azure Function, and that the text in the  image was analyzed and saved to Table Storage properly.
 
 Using the breadcrumbs at the top of the page, navigate up one level in your storage account.  Locate and select **Storage browser** on the left nav, and then click on **Tables**.
 
-We should see the **ImageText** table we created earlier.  Click on this table to navigate to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
+An **ImageText** table should now be available.  Click on the table to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
 
 :::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing a text entry in Azure Table Storage." :::
 
