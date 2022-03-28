@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 03/14/2022
 ---
 # How to connect Azure Data Share and Azure Purview
 
