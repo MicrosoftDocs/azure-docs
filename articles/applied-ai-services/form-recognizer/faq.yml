@@ -201,7 +201,7 @@ sections:
             Which file formats does Form Recognizer support? Are there size limitations for input documents?
         answer:  |
 
-            - Form Recognizer extracts data from document images JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output. 
+            - Form Recognizer extracts data from document images JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output.
             - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
             - Your file size must be less than 50 MB.
             - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
@@ -261,7 +261,7 @@ sections:
           - Try applying longer timeouts to account for random latency spikes. A timeout of 1 to 2 minutes should be sufficient to catch all responses. If not, try the call again after a short delay.
 
           - Consider using [Proximity placement groups](../../virtual-machines/co-location.md) for workloads where low latency is a requirement.
-          
+
           - Enable a backup resource in another region to mitigate the latency impact.
 
 
@@ -385,9 +385,9 @@ sections:
           What's the difference between disconnected and connected container?
         answer: |
 
-          - Form Recognizer connected containers send billing information to Azure using a Form Recognizer resource on your Azure account. You need to have internet connectivity to send the [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. 
-          
-          - [Disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use APIs disconnected from the internet. Currently disconnected container usage is available for **Form Recognizer custom and invoice models. The model capabilities provided in connected and disconnected containers are the same the v2.1 online version.
+          - Form Recognizer connected containers send billing information to Azure using a Form Recognizer resource on your Azure account. Internet connectivity is used to send the [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
+
+          - [Disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use APIs disconnected from the internet. Billing information isn't sent via the internet, you're charged based upon a purchased commitment tier. See [disconnected containers—billing]()../../containers/disconnected-container-faq.yml#how-does-billing-work) Currently, disconnected container usage is available for Form Recognizer custom and invoice models. The model capabilities provided in connected and disconnected containers are the same and supported by Form Recognizer v2.1.
 
       - question: |
           What data do connected containers send to the cloud?
