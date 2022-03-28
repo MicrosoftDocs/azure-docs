@@ -24,7 +24,7 @@ This article explains how to provision an account with continuous backup and poi
 >
 > * If the account is of type SQL API or API for MongoDB.
 > * If the account has a single write region.
-> * If the account isn't enabled with customer managed keys(CMK).
+
 
 ## <a id="provision-portal"></a>Provision using Azure portal
 
