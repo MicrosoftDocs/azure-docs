@@ -306,6 +306,10 @@ namespace MyNamespace
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
                 .AddEnvironmentVariables();
         }
+        
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+        }
     }
 }
 ```
