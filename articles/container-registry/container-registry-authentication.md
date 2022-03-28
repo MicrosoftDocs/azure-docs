@@ -111,6 +111,7 @@ Using `Connect-AzContainerRegistry` with Azure identities provides [Azure role-b
 ## Service principal
 
 If you assign a [service principal](../active-directory/develop/app-objects-and-service-principals.md) to your registry, your application or service can use it for headless authentication. Service principals allow [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
+ACR authentication token gets created upon login to the ACR, and is refreshed upon subsequent operations. The time to live for that token is 3 hours.
 
 The available roles for a container registry include:
 
