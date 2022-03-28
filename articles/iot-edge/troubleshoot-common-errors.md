@@ -1,9 +1,9 @@
 ---
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
-author: PatAltimore
+author: kgremban
 
-ms.author: patricka
+ms.author: kgremban
 ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
@@ -490,10 +490,6 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
-
-## MTU mismatch problem!
-
-Lorem Ipsum
 
 :::moniker-end
 <!-- end 1.2 -->
