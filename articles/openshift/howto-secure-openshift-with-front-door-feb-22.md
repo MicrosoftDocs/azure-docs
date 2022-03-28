@@ -84,9 +84,9 @@ In the Azure portal, enter the Azure Private Link service that was deployed. Ret
 
 This section explains how to register a domain in Azure DNS.
 
-1. Create a public [Azure DNS](https://portal.azure.com/#create/Microsoft.DnsZone) zone for example.com.
+1. Create a global [Azure DNS](https://portal.azure.com/#create/Microsoft.DnsZone) zone for example.com.
 
-2. Create a public [Azure DNS](https://portal.azure.com/#create/Microsoft.DnsZone) zone for apps.example.com.
+2. Create a global [Azure DNS](https://portal.azure.com/#create/Microsoft.DnsZone) zone for apps.example.com.
 
 3. Note the four nameservers that are present in Azure DNS for apps.example.com.
 
