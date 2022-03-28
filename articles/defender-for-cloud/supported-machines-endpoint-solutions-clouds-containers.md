@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 03/15/2022
+ms.date: 03/27/2022
 ms.custom: references_regions
 ---
 
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
+The **tabs** below show the features that are available, by environment, for Microsoft Defender for Containers.
 
 ## Supported features by environment 
 
@@ -68,7 +68,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### [**On-prem/IasS (ARC)**](#tab/iass-arc)
+### [**On-prem/IasS (Arc)**](#tab/iass-arc)
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 

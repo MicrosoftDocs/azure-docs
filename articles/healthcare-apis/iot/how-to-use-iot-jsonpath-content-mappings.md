@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/22/2022
 ms.author: jasteppe
 ---
 
@@ -25,7 +25,7 @@ The assumption, when using this template, is the messages being evaluated were s
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
 >[!IMPORTANT]
->Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifer for a device resource on the destination FHIR service.
+>Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContentTemplate, assuming that you're using custom properties in the message body for the device identity or measurement timestamp
 
