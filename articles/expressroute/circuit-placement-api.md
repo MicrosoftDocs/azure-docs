@@ -15,6 +15,25 @@ The ExpressRoute partner circuit placement API allows ExpressRoute partners to p
 
 This API uses the expressRouteCrossConnection resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
 
+## Register provider subscription to the expressRouteProviderPort resource type
+To use the circuit placement API, you first need to enroll your subscription to access the port resource type.
+
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+1. Register your subscription.
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
+
 ## Workflow
 
 1. ExpressRoute customers share the service key of the target ExpressRoute circuit.
