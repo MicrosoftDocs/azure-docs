@@ -362,7 +362,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-firewall-limits](../../../includes/firewall-limits.md)]
 
-### Azure Front Door Service limits
+### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 

@@ -24,7 +24,7 @@ On this page, you'll learn how you can use Defender for Containers to improve, m
 | Pricing: | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Required roles and permissions: | • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md) |
 | Clouds: | **Azure**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National clouds (Azure Government, Azure China 21Vianet) (Except for preview features))<br><br>**Non Azure**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview) <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects (Preview) <br> :::image type="icon" source="./media/icons/yes-icon.png"::: On-prem/IaaS supported via Arc enabled Kubernetes (Preview). <br> <br>For more details, see the [availability section](supported-machines-endpoint-solutions-clouds-containers.md#defender-for-containers-feature-availability). |
-|  |  |
+
 
 ## What are the benefits of Microsoft Defender for Containers?
 
@@ -228,8 +228,8 @@ The following describes the components necessary in order to receive the full pr
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 
 
-### Does Microsoft Defender for Containers support AKS with virtual machines?
-No. If your cluster is deployed on an Azure Kubernetes Service (AKS) virtual machines, it's not recommended to enable the Microsoft Defender for Containers plan.
+### Does Microsoft Defender for Containers support AKS without scale set (default) ?
+No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale sets for the nodes is supported. 
 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension is not needed and may result in additional charges.

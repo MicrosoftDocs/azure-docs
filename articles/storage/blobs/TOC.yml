@@ -297,6 +297,8 @@ items:
         items:
         - name: Overview
           href: secure-file-transfer-protocol-support.md
+        - name: Performance considerations
+          href: secure-file-transfer-protocol-performance.md
         - name: Limitations and known issues
           href: secure-file-transfer-protocol-known-issues.md
     - name: Event handling

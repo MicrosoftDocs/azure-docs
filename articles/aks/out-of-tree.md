@@ -87,9 +87,9 @@ az aks upgrade -n aks -g myResourceGroup -k <version> --aks-custom-headers Enabl
 
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [csi-docs]: csi-storage-drivers.md
 
 <!-- LINKS - External -->
