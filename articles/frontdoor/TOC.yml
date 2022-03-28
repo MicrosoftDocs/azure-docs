@@ -99,15 +99,17 @@
       href: standard-premium/how-to-compression.md
     - name : Classic
       items:
-      - name: Create a Front Door (classic) - Portal
-        href: quickstart-create-front-door.md
-      - name: Create a Front Door (classic) - PowerShell
-        href: quickstart-create-front-door-powershell.md
-      - name: Create a Front Door (classic) - CLI
-        href: quickstart-create-front-door-cli.md
-      - name: Create a Front Door (classic) - ARM Template
-        displayName: Resource Manager
-        href: quickstart-create-front-door-template.md
+      - name: Create a Front Door (classic)
+        items:
+        - name: Portal
+          href: quickstart-create-front-door.md
+        - name: PowerShell
+          href: quickstart-create-front-door-powershell.md
+        - name: CLI
+          href: quickstart-create-front-door-cli.md
+        - name: ARM Template
+          displayName: Resource Manager
+          href: quickstart-create-front-door-template.md
       - name: Add a custom domain
         href: front-door-custom-domain.md
       - name: Configure HTTPS on a custom domain
