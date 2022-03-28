@@ -19,7 +19,8 @@ sys.correlationid like 'abc-%'
 ```
 
 > [!NOTE]
-> Use system property names from [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties) in your filters even when you use [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) from the new [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) namespace to send and receive messages. The `Subject` from [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
+> - For a list of system properties, see [Messages, payloads, and serialization](service-bus-messages-payloads.md). 
+> - Use system property names from [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties) in your filters even when you use [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) from the new [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) namespace to send and receive messages. The `Subject` from [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
 
 ## Filter on message properties
 Here are the examples of using message properties in a filter. You can access message properties using `user.property-name` or just `property-name`.
