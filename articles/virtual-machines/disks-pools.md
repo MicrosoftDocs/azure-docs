@@ -12,7 +12,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Azure disk pools (preview)
 
-An Azure disk pool (preview) is an Azure resource that allows your applications and workloads to access a group of managed disks from a single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to Azure VMware Solution hosts as datastores. This allows you to scale your storage independent of your Azure VMware Solution hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances.
+An Azure disk pool (preview) is an Azure resource that allows your applications and workloads to access a group of managed disks from a single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to Azure VMware Solution hosts as datastores. This allows you to scale your storage independent of your Azure VMware Solution hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances.  Disk pools supports Azure VMware Solution only.
 
 ## How it works
 
