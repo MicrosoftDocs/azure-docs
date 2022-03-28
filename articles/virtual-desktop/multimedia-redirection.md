@@ -36,9 +36,9 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 
 To use MMR for Teams live events:
 
-1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, you can set up MMR for Teams live events.
+1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser.
 
-2. Open the link to the Teams live event in a Microsoft Edge or Google Chrome browser.
+2. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
 
 3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the Teams app, MMR won't work.
 
