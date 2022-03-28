@@ -169,6 +169,8 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
+            - name: Go app
+              href: sql/create-sql-api-go.md 
     - name: Tutorials
       items:
         - name: Create and manage data
