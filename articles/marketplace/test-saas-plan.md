@@ -64,7 +64,7 @@ When you test metered usage, we recommend that you send more than the number of 
 
 ### Send a request
 
-Using Postman or another API tool, send a request body like the one shown in this example.
+Using an API tool such as Postman, send a request body like the one shown in this example.
 
 _Request body example:_
 
