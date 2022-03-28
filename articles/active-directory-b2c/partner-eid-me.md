@@ -454,7 +454,7 @@ Now that you have a user journey, add the new identity provider to the user jour
 
   The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
 
-    ```xml
+  ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -531,7 +531,7 @@ Now that you have a user journey, add the new identity provider to the user jour
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
 
-    ```
+  ```
 
 ### Step 6 - Configure the relying party policy
 
