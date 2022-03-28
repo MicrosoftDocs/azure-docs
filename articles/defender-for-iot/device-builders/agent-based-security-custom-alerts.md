@@ -2,14 +2,14 @@
 title: Agent based security custom alerts
 description: Learn about customizable security alerts and recommended remediation using Defender for IoT device's features and service.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 
 # Defender for IoT devices custom security alerts
 
 > [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 >
 
 

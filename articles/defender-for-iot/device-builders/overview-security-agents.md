@@ -2,13 +2,13 @@
 title: Security agents
 description: Get started with understanding, configuring, deploying, and using Microsoft Defender for IoT security service agents on your IoT devices.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Get started with Microsoft Defender for IoT device micro agents
 
 > [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
 >
 
 

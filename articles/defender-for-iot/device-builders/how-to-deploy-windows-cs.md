@@ -2,13 +2,13 @@
 title: Install C# agent on Windows device 
 description: Learn about how to install Defender for IoT agent on 32-bit or 64-bit Windows devices.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy a Defender for IoT C#-based security agent for Windows
 
 > [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
 >
 
 

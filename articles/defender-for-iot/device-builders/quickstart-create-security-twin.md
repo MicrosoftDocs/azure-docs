@@ -2,16 +2,15 @@
 title: 'Quickstart: Create a security module twin'
 description: In this quickstart, learn how to create a Defender for IoT module twin for use with Microsoft Defender for IoT.
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ms.custom: mode-other
 ---
 
 # Quickstart: Create an azureiotsecurity module twin
 
 > [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Configure a micro agent twin](how-to-configure-micro-agent-twin.md).
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Configure a micro agent twin](how-to-configure-micro-agent-twin.md).
 >
-
 
 This quickstart explains how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.
 

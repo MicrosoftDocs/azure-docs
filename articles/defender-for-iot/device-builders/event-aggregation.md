@@ -2,13 +2,13 @@
 title: Defender-IoT-micro-agent legacy event aggregation
 description: Learn about Defender for IoT event aggregation.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Defender-IoT-micro-agent legacy event aggregation
 
 > [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
 >
 
 

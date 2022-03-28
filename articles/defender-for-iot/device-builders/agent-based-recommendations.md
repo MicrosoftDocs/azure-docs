@@ -2,13 +2,13 @@
 title: Agent based recommendations
 description: Learn about the concept of security recommendations and how they are used for Defender for IoT devices.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Security recommendations for IoT devices
 
 > [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience. For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md).
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md).
 >
 
 
