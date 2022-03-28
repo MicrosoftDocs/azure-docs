@@ -150,7 +150,7 @@ func listEntities(client *aztables.Client) {
 }
 
 func queryEntity(client *aztables.Client) {
-	filter := fmt.Sprintf("PartitionKey eq '%v' or RowKey eq '%v'", "pk001", "rk001")
+        filter := fmt.Sprintf("PartitionKey eq '%s' or RowKey eq '%s'", "pk001", "rk001")
 	options := &aztables.ListEntitiesOptions{
 		Filter: &filter,
 		Select: to.StringPtr("RowKey,Price,Inventory,ProductName,OnSale"),
