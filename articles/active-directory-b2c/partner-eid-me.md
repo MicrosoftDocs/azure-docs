@@ -442,7 +442,7 @@ At this point, the identity provider has been set up, but it's not yet available
 
 5. Rename the ID of the user journey. For example,  ID=`CustomSignUpSignIn`
 
-### Step 5 - Add the identity provider to a user journey
+## Step 5: Add the identity provider to a user journey
 
 Now that you have a user journey, add the new identity provider to the user journey. 
 
