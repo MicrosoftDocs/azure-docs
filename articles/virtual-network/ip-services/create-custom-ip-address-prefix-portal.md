@@ -86,10 +86,8 @@ Execute the following commands in PowerShell with OpenSSL installed.
      
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 
-    ```output
     Comment:-----BEGIN CERTIFICATE-----MIIECTCCAvGgAwIBAgIUJp9dQ+IW2W7JrJgUR4jBlDYvbtYwDQYJKoZIhvcNAQELBQAwgZMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApXYXNoaW5ndG9uMRAwDgYDVQQHDAdSZWRtb25kMRAwDgYDVQQKDAdDb250b3NvMQswCQYDVQQLDAJJVDEdMBsGA1UEAwwUY3VzdG9taXAuY29udG9zby5jb20xHzAdBgkqhkiG9w0BCQEWEHVzZXJAY29udG9zby5jb20wHhcNMjIwMzI4MTkzMzMxWhcNMjIwOTI0MTkzMzMxWjCBkzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xEDAOBgNVBAcMB1JlZG1vbmQxEDAOBgNVBAoMB0NvbnRvc28xCzAJBgNVBAsMAklUMR0wGwYDVQQDDBRjdXN0b21pcC5jb250b3NvLmNvbTEfMB0GCSqGSIb3DQEJARYQdXNlckBjb250b3NvLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALQTbyVmqO9dN9eOpuKyd+5hUM9l0RBsBTsi4vuIyxglh/5dr+/S+G2I3mlZIoqXIVOogLuGvCpNjzXrf0Q6dfDdycwDvrb12EJSD70afpe1mXGXjnrmrxUe+cNo6y///gI3g1gbnl65Vs6VFyXXLPY6EfeXBSS9kAksfv2c0Zj3XRJvqcPqcdMpdPeHwKQqZdZNDe2bVYOG/Lbj/I1+H7i4JtYXzGdOOk6UCYggnWjQpd0QYNj2HzhtFaw57ZBWAy1MvOIXd/NtpXNOel8EahzBKaLaOqDrNHHR85b07V8EI0V/I5kgvXhceEmJQb77P5CibZkLCNJdS48T5qHXJzECAwEAAaNTMFEwHQYDVR0OBBYEFKrvzRzToN0Lf5dKwCL9NgQ9kKQTMB8GA1UdIwQYMBaAFKrvzRzToN0Lf5dKwCL9NgQ9kKQTMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAKYYsyvMgF4MuHd3uvFQi7SoakLVGsWIALniu3bswsaMTGOqjhRHPDFMhqR+D4YMY0wC4sPN1+dCfDbMN4fN3WW5bTkpNDUrFTbncV6bl+Ih/gvrEn5bNwlVOixl2g9CZPoxUfPyu3VWtM/PeDikufQd21EagrgDHK4mRGB+778UEwGjXgt1fb7BKyiR7dWcnepUE70iZTcthlEmmoW3rVcoZRChmH0vcB15XNdQ+a5TDd4ci43YLdffDkyfUsuMEHQSag0q9yJjsF7B1II64EitjVO/sdJhaYvc9Fb4EmjbVpplxp0BYOcix2EUKrmvgEyycVpQoV9FRAkFRqVhpYU=-----END CERTIFICATE-----
-    ```
-
+    
 3. To create the message that will be passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
     Use the following command to create a signed message that will be passed to Microsoft for verification.  
