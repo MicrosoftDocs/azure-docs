@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Overview of Azure Digital Twins, what the service comprises, and how it can be used in a wider cloud solution.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 03/24/2022
 ms.topic: overview
 ms.service: digital-twins
 
@@ -65,7 +65,7 @@ You can also extract insights from the live execution environment, using Azure D
 
 To keep the live execution environment of Azure Digital Twins up to date with the real world, you can use [IoT Hub](../iot-hub/about-iot-hub.md) to connect your solution to IoT and IoT Edge devices. These hub-managed devices are represented as part of your twin graph, and provide the data that drives your model.
 
-You can create a new IoT Hub for this purpose with Azure Digital Twins, or connect an existing IoT Hub along with the devices it already manages.
+You can create a new IoT Hub for this purpose with Azure Digital Twins, or [connect an existing IoT Hub](how-to-ingest-iot-hub-data.md) along with the devices it already manages.
 
 You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
@@ -73,18 +73,18 @@ You can also drive Azure Digital Twins from other data sources, using REST APIs 
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
-To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
+To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history (preview)](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
-To send digital twin data to other Azure services, you can create *event routes*, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
+To send digital twin data to other Azure services or ultimately outside of Azure, you can create *event routes*, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
 
 Here are some things you can do with event routes in Azure Digital Twins:
 * [Connect Azure Digital Twins to Time Series Insights](how-to-integrate-time-series-insights.md) to track time series history of each twin
-* Align a Time Series Model in Time Series Insights with a source in Azure Digital Twins
 * Store Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
 * Analyze Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
-* Integrate larger workflows with Logic Apps​
+* Integrate larger workflows with [Logic Apps​](../logic-apps/logic-apps-overview.md)
+* Send data to custom applications for flexible and customized actions
 
-Flexible egress of data to other Azure services is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
+Flexible egress of data is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
 
 ## Azure Digital Twins in a solution context
 
