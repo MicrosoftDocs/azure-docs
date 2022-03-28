@@ -6,14 +6,16 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 01/27/2022
+ms.date: 03/28/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every pull request and/or deployment by using GitHub Actions.
 ---
 
 # Tutorial: Identify performance regressions with Azure Load Testing Preview and GitHub Actions
 
-This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and GitHub Actions. You'll configure a GitHub Actions CI/CD workflow and use the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) to run a load test for a sample web application. You'll then use the test results to identify performance regressions.
+This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and GitHub Actions. You'll set up a GitHub Actions CI/CD workflow to deploy a sample Node.js application on Azure and trigger a load test using the [Azure Load Testing action](https://github.com/marketplace/actions/azure-load-testing). Once the load test finishes, you'll use the Azure Load Testing dashboard to identify performance issues.
+
+You'll deploy a sample Node.js web app on Azure App Service. The web app uses Azure Cosmos DB for storing the data. The sample application also contains an Apache JMeter script to load test three APIs.
 
 If you're using Azure Pipelines for your CI/CD workflows, see the corresponding [Azure Pipelines tutorial](./tutorial-cicd-azure-pipelines.md).
 
@@ -37,21 +39,9 @@ You'll learn how to:
 
 ## Set up your repository
 
-To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure a GitHub Actions workflow to run the load test.
+To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application contains a GitHub Actions workflow definition to deploy the application on Azure and trigger a load test.
 
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
-
-1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
-
-    The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database.
-
-1. Select **Fork** to fork the sample application's repository to your GitHub account.
-
-    :::image type="content" source="./media/tutorial-cicd-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
+[!INCLUDE [azure-load-testing-set-up-sample-application](../../includes/azure-load-testing-set-up-sample-application.md)]
 
 ## Set up GitHub access permissions for Azure
 
