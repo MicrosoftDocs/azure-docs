@@ -89,4 +89,4 @@ To ensure your Azure Virtual Desktop environment follows best practices:
 
 ## Next steps
 
-To learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile).
+To learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
