@@ -76,7 +76,7 @@ Push the changes to Azure DevOps Repos by selecting the source control icon and 
 
 ## Set up the Azure Pipelines
 
-To remove the Azure resources, you need an Azure Resource Manager service connection. For more information see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops)
+To remove the Azure resources, you need an Azure Resource Manager service connection. For more information see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true)
 
 To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
