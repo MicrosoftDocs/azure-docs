@@ -2,13 +2,34 @@
 title: Troubleshoot Azure Automation account issues
 description: This article tells how to troubleshoot and resolve issues with an Azure account.
 services: automation
-ms.date: 03/24/2020
+ms.date: 03/28/2022
 ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Automation account issues
 
 This article discusses solutions to problems that you might encounter when you use an Azure Automation account. For general information about Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md).
+
+## Unable to create an Automation account with a unique account name in a subscription
+
+### Issue
+
+The following error displays when creating an Automation account with a provided name (a GUID) that's not used as the Automation account name in the same subscription.
+
+    ```error
+    {
+
+    "code": "BadRequest",
+
+    "message": Automation account already exists with this account id. AccountId: 8a2f48c1-9e99-472c-be1b-dcc11429c9ff. 
+
+    }
+
+    ```
+### Cause
+
+This error appears when the Automation account name (that's GUID) is used as the *accountId* for other Automation account. The *accountId* is a unique identifier across all Automation accounts in a region. For example, if you try to create an Automation account with the name *123abc-123abc-123abc-123abc-123abc*. The creation will fail if this is already used as the *accountid* for an existing Automation account (with a different account name) in that region.
+
 
 ## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
 
