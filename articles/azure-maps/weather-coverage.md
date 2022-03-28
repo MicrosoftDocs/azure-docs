@@ -47,7 +47,7 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 - **Historical Weather**. The Historical Weather service includes [Daily Historical Records][dh-records], [Daily Historical Actuals][dh-actuals] and [Daily Historical Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
 - **Hourly Forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
 - **Quarter-day Forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
-- **Tropical Storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forcasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
+- **Tropical Storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
 - **Weather Along Route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
 
 <!--{No links, just list what is returned.
