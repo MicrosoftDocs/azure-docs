@@ -29,7 +29,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Updates to student experience](how-to-manage-vm-pool.md#redeploy-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
 
-**SDKs**. The Azure Lab Services PowerShell is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps?view=azps-7.2.0). Also, check out the C# SDK.
+**SDKs**. The Azure Lab Services PowerShell is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps). Also, check out the C# SDK.
 
 In this release, there are a few known issues:
 
