@@ -92,9 +92,7 @@ The following architecture diagram shows the implementation.
 
 [Contact eID-Me](https://bluink.ca/contact) and configure a test or production environment to set up Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
 
-## Integrate eID-Me with Azure AD B2C
-
-### Step 1 - Configure an application in eID-Me
+## Step 1: Configure an application in eID-Me
 
 To configure your tenant application as a Relying Party in eID-Me the following information should be supplied to eID-Me:
 
@@ -114,7 +112,7 @@ eID-Me will provide a Client ID and a Client Secret once the Relying Party has b
 
 ::: zone pivot="b2c-user-flow"
 
-### Step 2 - Add a new Identity provider in Azure AD B2C
+## Step 2: Add a new Identity provider in Azure AD B2C
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
 
@@ -128,7 +126,7 @@ eID-Me will provide a Client ID and a Client Secret once the Relying Party has b
 
 6. Select **Add**.
 
-### Step 3 - Configure an Identity provider
+## Step 3: Configure an Identity provider
 
 To configure an identity provider, follow these steps:
 
@@ -161,11 +159,11 @@ To configure an identity provider, follow these steps:
 
 6. Select **Save** to complete the setup for your new OIDC Identity provider.
 
-### Step 4 - Configure multi-factor authentication
+## Step 4: Configure multi-factor authentication
 
 eID-Me is a decentralized digital identity with strong two-factor user authentication built in. Since eID-Me is already a multi-factor authenticator, you don't need to configure any multi-factor authentication settings in your user flows when using eID-Me. eID-Me offers a fast and simple user experience, which also eliminates the need for any additional passwords.
 
-### Step 5 - Create a user flow policy
+## Step 5: Create a user flow policy
 
 You should now see eID-Me as a new OIDC Identity provider listed within your B2C identity providers.  
 
@@ -206,7 +204,7 @@ For additional information, review the following articles:
 >[!NOTE]
 >In Azure AD B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
 
-### Step 2 - Create a policy key
+## Step 2: Create a policy key
 
 Store the client secret that you previously recorded in your Azure AD B2C tenant.
 
@@ -232,7 +230,7 @@ Store the client secret that you previously recorded in your Azure AD B2C tenant
 
 11. Select **Create**.
 
-### Step 3- Configure eID-Me as an Identity provider
+## Step 3: Configure eID-Me as an Identity provider
 
 To enable users to sign in using eID-Me decentralized identity, you need to define eID-Me as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital ID available on their device, proving the user’s identity.
 
@@ -430,7 +428,7 @@ There are additional identity claims that eID-Me supports and can be added.
 
    ```
 
-### Step 4 - Add a user journey
+## Step 4: Add a user journey
 
 At this point, the identity provider has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.  
 
@@ -533,7 +531,7 @@ Now that you have a user journey, add the new identity provider to the user jour
 
    ```
 
-### Step 6 - Configure the relying party policy
+## Step 6: Configure the relying party policy
 
 The relying party policy specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **eID-Me-OIDC-Signup** TechnicalProfile element. In this sample, the application will receive the user’s postal code, locality, region, IAL, portrait, middle name, and birth date. It also receives the boolean **signupConditionsSatisfied** claim, which indicates whether an account has been created or not:
 
@@ -566,7 +564,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
    ```
 
-### Step 7 - Upload the custom policy
+## Step 7: Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
@@ -579,7 +577,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 5. Under Policies, select **Identity Experience Framework**.
 Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `SignUp.xml`.
 
-### Step 8 - Test your custom policy
+## Step 8: Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup`.
 
