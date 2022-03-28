@@ -373,8 +373,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
         -ResourceGroupName $resourceGroup `
         -Stream Output
     ```
-
-   The output should look similar to the following:
+   When you trigger a webhook created in the previous step, it will create a job and the output should look similar to the following:
 
    :::image type="content" source="media/automation-webhooks/webhook-job-output.png" alt-text="Output from webhook job.":::
 
