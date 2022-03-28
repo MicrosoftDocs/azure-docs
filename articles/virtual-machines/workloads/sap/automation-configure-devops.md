@@ -72,7 +72,7 @@ Using your local clone create a top level folder called 'WORKSPACES', this folde
 
 Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you just created, this will allow you to experiment with sample deployments.
 
-Push the changes to Azure DevOps Repos by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
+Push the changes to Azure DevOps repos by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
 ## Set up the Azure Pipelines
 
