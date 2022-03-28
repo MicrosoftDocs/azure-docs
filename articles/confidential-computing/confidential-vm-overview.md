@@ -9,7 +9,7 @@ ms.date: 11/15/2021
 ms.author: edcohen
 ---
 
-# About Azure DCasv5/DCadsv5/ECasv5/ECadsv5-series confidential virtual machines (preview)
+# DCasv5 and ECasv5 series confidential VMs (preview)
 
 > [!IMPORTANT]
 > Confidential virtual machines (confidential VMs) in Azure confidential computing is currently in PREVIEW.
