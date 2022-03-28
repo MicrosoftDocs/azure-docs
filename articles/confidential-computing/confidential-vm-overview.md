@@ -1,5 +1,5 @@
 ---
-title: About Azure DCasv5/DCadsv5/ECasv5/ECadsv5-series confidential virtual machines (preview)
+title: DCasv5 and ECasv5 series confidential VMs (preview)
 description: Learn about Azure DCasv5, DCadsv5, ECasv5, and ECadsv5 series confidential virtual machines (confidential VMs). These series are for tenants with high security and confidentiality requirements.```
 author: edendcohen
 ms.service: container-service
