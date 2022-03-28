@@ -1,7 +1,7 @@
 ---
 title: Deploy Log Analytics agent on Arc-enabled servers
 description: This article reviews the different methods to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
-ms.date: 10/22/2021
+ms.date: 3/18/2022
 ms.topic: conceptual
 ---
 
@@ -34,7 +34,7 @@ This method supports managing the installation, management, and removal of VM ex
 
 #### Disadvantages
 
-* Limited automation when using an Azure Resource Manager template, otherwise it is time consuming.
+* Limited automation when using an Azure Resource Manager template.
 * Can only focus on a single Arc-enabled server, and not multiple instances.
 * Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to four workspaces.
 * Doesn't support deploying the Dependency agent from the portal. You can only use PowerShell, the Azure CLI, or ARM template.
