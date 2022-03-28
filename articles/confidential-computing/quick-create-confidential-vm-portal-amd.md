@@ -83,7 +83,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     
     1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM. 
 
-1. (Optional) If necessary, create a **Confidential disk encryption set**:
+1. (Optional) If necessary, create a **Confidential disk encryption set** as follows.
 
     1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md). For the pricing tier, select **Premium (includes support for HSM backed keys)**. Or, create [create an Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
         
