@@ -196,7 +196,7 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
    |------|-------|
    | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
    | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
-   | **Storage Blob Data Contributor** | Grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache. To support both read and write operations, create an assignment for both contributor and reader roles.|
+   | **Storage Blob Data Contributor** | Grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache. |
    | **Storage Table Data Contributor** | Grants write permissions necessary for knowledge store table projections. |
 
 1. On the **Members** page, select **Managed Identity**.
