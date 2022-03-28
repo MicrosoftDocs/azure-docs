@@ -1,16 +1,16 @@
 ---
-title: Configure customer-managed keys for your Azure Load Testing resource
+title: Configure customer-managed keys for encryption
 titleSuffix: Azure Load Testing
 description: Learn how to configure customer-managed keys for your Azure Load Testing resource with Azure Key Vault
 services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 02/25/2022
+ms.date: 04/07/2022
 ms.topic: how-to
 ---
 
-# Configure customer-managed keys for your Azure Load Testing resource with Azure Key Vault
+# Configure customer-managed keys for your Azure Load Testing Preview resource with Azure Key Vault
 
 Data stored in your Azure Load Testing resource is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to access controls and rotate them according to your own policies.
 
@@ -23,6 +23,9 @@ You must store customer-managed keys in [Azure Key Vault](/azure/key-vault/gener
 
 > [!NOTE]
 > Currently, customer-managed keys are available only for new Azure Load Testing resources. You should configure them during resource creation.
+
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configure your Azure Key Vault
 
@@ -66,7 +69,7 @@ When you enable customer-managed keys for a resource, you must specify a managed
 
 To configure customer-managed keys for a new Azure Load Testing resource, follow these steps:
 
-# [Azure portal](#tab/linux)
+# [Azure portal](#tab/portal)
 
 1. In the Azure portal, navigate to the Azure Load Testing page, and select the Create button to create a new resource.
 
@@ -93,7 +96,7 @@ You can use an ARM template to automate the deployment of your Azure resources. 
 }
 ```
 
-By adding the system-assigned type, you're telling Azure to create and manage the identity for your resource. For example, an Azure Load Testing resource might look like the following:
+For example, an Azure Load Testing resource might look like the following:
 
 ```json
 {
@@ -122,7 +125,7 @@ To change the managed identity for customer-managed keys on an existing resource
 1. If the selected encryption type is *Customer-managed keys*, select the type of identity to use to authenticate access to the key vault. The options include System-assigned (the default) or User-assigned. To learn more about each type of managed identity, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
     - If you select System-assigned, the system-assigned managed identity for the resource is created under the covers, if it does not already exist.
-    - If you select User-assigned, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+    - If you select User-assigned, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Use managed identities for Azure Load Testing Preview](how-to-use-a-managed-identity.md).
 
 1. Save your changes.
 
@@ -131,7 +134,7 @@ To change the managed identity for customer-managed keys on an existing resource
 
 ## Key rotation
 
-Azure Load Testing can automatically update the customer-managed key that is used for encryption to use the latest key version if the key version is omitted from the key URI. When the customer-managed key is rotated in Azure Key Vault, Azure Load Testing will automatically begin using the latest version of the key for encryption.
+Azure Load Testing can automatically update the customer-managed key that is used for encryption to use the latest key version if the key version is omitted from the key URI. When the customer-managed key is rotated in Azure Key Vault, Azure Load Testing will automatically begin using the latest version of the key for encryption. To configure automatic key rotation, omit the key version from the key URI while configuring customer managed key on your Azure Load Testing resource.
 
 ## Frequently asked questions
 
@@ -154,3 +157,7 @@ Key revocation is done by disabling the latest version of the key. Alternatively
 ### What operations are available after a customer-managed key is revoked?
 
 The only operation possible when the encryption key has been revoked is resource deletion.
+
+## Next steps
+
+- Start using Azure Load Testing [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
