@@ -25,8 +25,8 @@
 - name: Reference
   items:
   - name: Azure CLI
-     items:
-     - name: Azure Arc-enabled VMware vSphere
-       href: /cli/azure/connectedvmware
-     - name: Azure Arc resource bridge
-       href:  /cli/azure/arcappliance
+    items:
+    - name: Azure Arc-enabled VMware vSphere
+      href: /cli/azure/connectedvmware
+    - name: Azure Arc resource bridge
+      href:  /cli/azure/arcappliance

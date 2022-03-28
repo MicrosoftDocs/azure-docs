@@ -3,10 +3,8 @@ title: Deboard from Azure Arc-enabled VMware vSphere
 description: This topic explains the steps to cleanly deboard your VMware vCenter from Azure Arc-enabled VMware vSphere and delete related Azure Arc resources from Azure.
 author: snehithm
 ms.author: snmuvva
-ms.service: arc
 ms.topic: how-to 
 ms.date: 3/28/2022
-ms.custom: template-how-to
 # Customer intent: As an infrastructure admin, I want to cleanly deboard my VMware vCenter from Azure Arc-enabled VMware vSphere.
 ---
 
