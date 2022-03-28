@@ -275,7 +275,7 @@ On September 30th, 2021, the Azure Virtual Desktop web client will no longer sup
 
 We've started the public preview for Microsoft Endpoint Manager support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
-### FSLogix agent public preview
+### FSLogix version 2105 public preview
 
 We have released a public preview of the latest version of the FSLogix agent. Check out our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) for more information and to submit the form you'll need to access the preview.
 
@@ -367,7 +367,7 @@ The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and 
 
 ### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
 
-Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Azure Virtual Desktop deployment easier.
+Based on customer feedback, we've released a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Azure Virtual Desktop deployment easier.
 
 ### Azure Monitor for Azure Virtual Desktop is now in General Availability
 
@@ -481,16 +481,6 @@ We've added new built-in roles for Azure Virtual Desktop for admin permissions. 
 
 We've increased the default application group limit per Azure Active Directory tenant to 200 groups.
 
-### Client updates for December 2020
-
-We've released new versions of the following clients: 
-
-- Android
-- macOS
-- Windows
-
-For more information about client updates, see [Client updates](whats-new.md#client-updates).
-
 ## November 2020
 
 ### Azure portal experience
@@ -522,9 +512,10 @@ Here's what changed in October 2020:
 
 ### Improved performance
 
-- We've optimized performance by reducing connection latency in the following Azure geographies:
-    - Switzerland
-    - Canada
+We've optimized performance by reducing connection latency in the following Azure geographies:
+
+- Switzerland
+- Canada
 
 You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
 
@@ -548,15 +539,6 @@ We've made some updates to the Azure Virtual Desktop Azure portal:
 - The "Applications" tab now has pages.
 - Fixed an issue where the "requires command line" text didn't display correctly in the "Application list" tab.
 - Fixed an issue when the portal couldn't deploy host pools or virtual machines while using the German-language version of the Shared Image Gallery.
-
-### Client updates for October 2020
-
-We've released new versions of the clients. See these articles to learn more:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-
-For more information about the other clients, see [Client updates](#client-updates).
 
 ## September 2020
 
