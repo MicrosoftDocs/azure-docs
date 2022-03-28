@@ -1,6 +1,6 @@
 ---
-title: Configure F5 BIG-IP Easy Button for SSO to SAP ERP
-description: Learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+title: Configure F5 BIG-IP Easy Button for SSO to SAP ERP using AAD
+description: Learn to secure SAP ERP using Azure AD, through F5’s BIG-IP Easy Button guided configuration.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.date: 03/28/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
+# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP using AAD
 
 In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
