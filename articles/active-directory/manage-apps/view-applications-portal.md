@@ -62,7 +62,7 @@ Select options according to what you're looking for:
 1. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
 1. After choosing the options you want, select **Apply**.
-1. Select **Add filters** to add more options for filtering the search results. The other that exist are:
+1. Select **Add filters** to add more options for filtering the search results. The other options are:
    - **Application ID**
    - **Created on**
    - **Assignment required**
