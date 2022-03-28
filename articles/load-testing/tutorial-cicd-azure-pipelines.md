@@ -95,9 +95,11 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 ## Configure the Azure Pipelines workflow to run a load test
 
-In this section, you'll set up an Azure Pipelines workflow that triggers the load test. 
+In this section, you'll set up an Azure Pipelines workflow that triggers the load test. The sample application repository already contains a pipelines definition file *azure-pipeline.yml*. 
 
-The sample application repository already contains a pipelines definition file. This pipeline first deploys the sample web application to Azure App Service, and then invokes the load test by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing). The pipeline uses an environment variable to pass the URL of the web application to the Apache JMeter script.
+The pipeline first deploys the sample web application to Azure App Service and Azure Cosmos DB. Next, the pipeline invokes the load test by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing).
+
+Follow these steps to configure the Azure Pipelines workflow for your environment:
 
 1. Install the **Azure Load Testing** task extension from the Azure DevOps Marketplace.
 
@@ -148,6 +150,8 @@ The sample application repository already contains a pipelines definition file. 
     |`<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
+
+    These variables are used to configure the Azure Pipelines tasks for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
 
 1. Select **Save and run**, enter text for **Commit message**, and then select **Save and run**.
 
