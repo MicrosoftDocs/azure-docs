@@ -20,7 +20,7 @@ On the **Properties** page, you’ll define the categories applicable to your of
 
 Under **Categories**, select the **Categories** link and then choose at least one and up to two categories for grouping your offer into the appropriate commercial marketplace search areas. Select up to two subcategories for each primary and secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
-If you’re working with a Microsoft product engineering team, select one of the options from the list to enable product specific certification and a custom Azure portal experience, such as Microsoft Sentinel Solutions or Azure Quantum Workspace.
+If you’re working with a Microsoft product engineering team, select an option from the list to enable product specific certification and a custom Azure portal experience, such as Microsoft Sentinel Solutions.
 
 ## Provide terms and conditions
 
