@@ -15,7 +15,7 @@ Features released earlier than 6 months ago are listed in [What's new archive fo
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for sensor software versions
+## Versioning and support for on-premises software versions
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
@@ -25,9 +25,11 @@ The Defender for IoT architecture uses on-premises sensors and management server
 
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
-**Important**: Manual changes to software pacakges may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+> [!IMPORTANT]
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+>
 
-Current versions of the sensor and on-premises management console software include:
+**Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
 |--|--|--|

@@ -432,7 +432,7 @@ If you're an existing customer with a production deployment and sensors connecte
         - **EventHub**: `*.servicebus.windows.net`
 
 
-While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-sensor-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
+While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-on-premises-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 
 ## Next steps
 
