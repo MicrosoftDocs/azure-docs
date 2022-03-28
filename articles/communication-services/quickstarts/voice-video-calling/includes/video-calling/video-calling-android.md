@@ -763,6 +763,49 @@ private void hangUp() {
 }
 ```
 
+
+## Hide and show local video
+Once the call has started, local video render and stream can be stopped with  `turnOffLocalVideo()`, this method will remove the view that wraps the local render and dispose the current stream. To resume the stream and render again the local preview use `turnOnLocalVideo()` which will show the video preview and start streaming.
+
+
+```java
+public void turnOnLocalVideo() {
+    List<VideoDeviceInfo> cameras = deviceManager.getCameras();
+    if(!cameras.isEmpty()) {
+        try {
+            currentVideoStream = new LocalVideoStream(currentCamera, this);
+            showPreview(currentVideoStream);
+            call.startVideo(this, currentVideoStream).get();
+            switchSourceButton.setVisibility(View.VISIBLE);
+        } catch (CallingCommunicationException acsException) {
+            acsException.printStackTrace();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+public void turnOffLocalVideo() {
+    try {
+        LinearLayout container = findViewById(R.id.localvideocontainer);
+        for (int i = 0; i < container.getChildCount(); ++i) {
+            Object tag = container.getChildAt(i).getTag();
+            if (tag != null && (int)tag == 0) {
+                container.removeViewAt(i);
+            }
+        }
+        switchSourceButton.setVisibility(View.INVISIBLE);
+        previewRenderer.dispose();
+        previewRenderer = null;
+        call.stopVideo(this, currentVideoStream).get();
+    } catch (CallingCommunicationException acsException) {
+        acsException.printStackTrace();
+    } catch (ExecutionException | InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+```
+
 ## Run the code
 
 The app can now be launched using the `Run 'App'` button on the toolbar of Android Studio. 
@@ -776,7 +819,7 @@ Completed application             |  1:1 Call
 Now app will be updated to let the user choose between 1:1 calls or group calls.
 ### Update layout
 
-It gonna use RadioButtons to select if the SDK need to create a 1:1 call or if should join a group call,  those will be at the top so `app/src/main/res/layout/activity_main.xml` will ends this way.
+It gonna use RadioButtons to select if the SDK need to create a 1:1 call or if should join a group call,  those will be at the top so the first section of `app/src/main/res/layout/activity_main.xml` will ends this way.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
