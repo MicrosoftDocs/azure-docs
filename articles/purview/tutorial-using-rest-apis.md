@@ -70,7 +70,7 @@ Once service principal is created, you need to assign Data plane roles of your p
 
 1. Select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.|
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
     ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
