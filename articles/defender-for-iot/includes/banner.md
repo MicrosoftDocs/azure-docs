@@ -1,7 +1,6 @@
 ---
 title: include
-author: ElazarK
-ms.author: v-ekrieg
+author: batamig
 ms.date: 11/09/2021
 ms.topic: include
 ---
