@@ -84,7 +84,7 @@ For more information about how to better secure your organization by using autom
 **Type:** New feature  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting  
-**Clouds impacted:** Public (M365,GCC)
+**Clouds impacted:** Public (Microsoft 365,GCC)
  
 
 Azure AD Recommendations is now in public preview. This feature provides personalized insights with actionable guidance to help you identify opportunities to implement Azure AD best practices, and optimize the state of your tenant. For more information, see: [What is Azure Active Directory recommendations](../reports-monitoring/overview-recommendations.md)
