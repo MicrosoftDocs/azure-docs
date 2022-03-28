@@ -176,7 +176,7 @@
       href: ../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md?toc=%2fazure%2fload-balancer%2ftoc.json
     - name: Outbound only load balancer configuration
       href: egress-only.md
- - name: Virtual machine scale sets
+  - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
       href: update-load-balancer-with-vm-scale-set.md
@@ -212,9 +212,9 @@
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
- - name: IPv6
+  - name: IPv6
     items:
-  - name: Add IPv6 to an IPv4 application- PowerShell
+    - name: Add IPv6 to an IPv4 application- PowerShell
       href: ipv6-add-to-existing-vnet-powershell.md
     - name: Add IPv6 to an IPv4 application - Azure CLI
       href: ipv6-add-to-existing-vnet-cli.md 
@@ -246,7 +246,7 @@
       href: troubleshoot-load-balancer-imds.md
     - name: Common deployment errors
       href: load-balancer-common-deployment-errors.md
- - name: Reference
+- name: Reference
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
