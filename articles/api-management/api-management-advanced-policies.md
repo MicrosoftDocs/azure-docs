@@ -51,7 +51,7 @@ The `choose` policy applies enclosed policy statements based on the outcome of e
     </when>
     <otherwise>
         <!— one or more policy statements to be applied if none of the above conditions are true  -->
-</otherwise>
+    </otherwise>
 </choose>
 ```
 
