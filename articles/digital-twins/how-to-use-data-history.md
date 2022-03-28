@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/18/2022
+ms.date: 03/23/2022
 ms.topic: how-to
 ms.service: digital-twins
 
