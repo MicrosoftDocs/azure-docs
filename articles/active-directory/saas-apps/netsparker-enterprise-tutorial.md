@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/25/2022
+ms.date: 03/28/2022
 ms.author: jeedes
 
 ---
@@ -138,13 +138,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. Paste the **Identifier** value, which you have copied from the Azure portal into the **IdP Identifier** field.
 
-    e. Paste the **Reply URL** value, which you have copied from the Azure portal into the **SAML 2.0 Endpoint** field.
+    d. Paste the **Reply URL** value, which you have copied from the Azure portal into the **SAML 2.0 Endpoint** field.
 
-    f. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
+    e. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
 
-    g. Check **Enable Auto Provisioning** and **Require SAML assertions to be encrypted** as required.
+    f. Check **Enable Auto Provisioning** and **Require SAML assertions to be encrypted** as required.
 
-    h. Click **Save Changes**.
+    g. Click **Save Changes**.
 
 ### Create Invicti test user
 
@@ -156,7 +156,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Invicti Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Invicti Sign-on URL where you can initiate the login flow.  
 
 * Go to Invicti Sign-on URL directly and initiate the login flow from there.
 
