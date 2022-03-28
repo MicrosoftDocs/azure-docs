@@ -78,12 +78,12 @@ To enable the Profiler, you'll need:
 - NuGet package to be installed.
 - Proper environment variables need to be set. 
 
-In the sample project, you'll accomplish this with the following lines in the Dockerfile.
+In the sample project, you'll notice we accomplished this with the following lines in the Dockerfile.
 
-1. Navigate to the Dockerfile in your `EnableServiceProfilerForContainerApp` sample project.
+1. Open the project in your code editor and navigate to the Dockerfile in your `EnableServiceProfilerForContainerApp` sample project.
 
    ```bash
-   cd Dockerfile .
+   code .
    ```
 
 1. Verify the Dockerfile contains the following lines:
@@ -107,7 +107,9 @@ To make your build context as small as possible, the sample includes a `.dockeri
 
 ## Review your Application Insights key
 
-Verify you've saved your Application Insights instrumentation key.
+Via your Application Insights resource in the Azure portal, take note of your Application Insights instrumentation key.
+
+:::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Find instrumentation key in Azure portal":::
 
 ## Set the Profiler log level to "Information" (optional)
 
