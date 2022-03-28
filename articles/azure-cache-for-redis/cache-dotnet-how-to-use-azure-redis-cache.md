@@ -148,13 +148,13 @@ private static async Task RunRedisCommandsAsync(string prefix)
 
 Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
 
-The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
-
-In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and command.
 
 ### Work with .NET objects in the cache
 
-Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. 
+The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
+
+Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized.
 
 This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
