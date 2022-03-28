@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 03/28/2022
 ms.author: jeedes
 
 ---
@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. Select **Allowed sign-in methods** from the dropdown.
 
-    e. Click **Save**.
+    f. Click **Save**.
 
 ### Create Swit test user
 
