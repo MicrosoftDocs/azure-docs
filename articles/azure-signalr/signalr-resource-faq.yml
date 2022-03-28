@@ -4,11 +4,10 @@ metadata:
   description: Get answers to frequently asked questions about Azure SignalR Service, including troubleshooting and typical usage scenarios.
   author: vicancy
   ms.service: signalr
-  ms.topic: overview
+  ms.topic: faq
   ms.custom: devx-track-dotnet
   ms.date: 11/13/2019
   ms.author: lianwei
-    
 title: Azure SignalR Service FAQ
 summary: |
 

@@ -19,7 +19,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
 ## Prerequisites
 
-To use the [Custom Translator](https://preview.portal.customtranslator.azure.ai/) preview portal, you will need the following:
+To use the [Custom Translator](https://portal.customtranslator.azure.ai/) preview portal, you will need the following:
 
 * A [Microsoft account](https://signup.live.com).
 
@@ -31,12 +31,12 @@ To use the [Custom Translator](https://preview.portal.customtranslator.azure.ai/
 
   See [how to create a Translator resource](../../translator-how-to-signup.md).
 
-Once you have the above prerequisites, sign in to the [Custom Translator](https://preview.portal.customtranslator.azure.ai/) preview portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
+Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) preview portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 
 You can read an overview of translation and custom translation, learn some tips, and watch a getting started video in the [Azure AI technical blog](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956).
 
 >[!Note]
->Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](/azure/api-management/api-management-using-with-vnet?tabs=stv2).
+>Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
 
 ## Process summary
 

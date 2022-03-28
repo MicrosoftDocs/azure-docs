@@ -2,6 +2,8 @@
 title: File integrity monitoring in Microsoft Defender for Cloud
 description: Learn how to configure file integrity monitoring (FIM) in Microsoft Defender for Cloud using this walkthrough.
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 # File integrity monitoring in Microsoft Defender for Cloud
@@ -19,7 +21,7 @@ Learn how to configure file integrity monitoring (FIM) in Microsoft Defender for
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md).<br>Using the Log Analytics agent, FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.|
 |Required roles and permissions:|**Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Reader** can view results.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) enabled devices.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
-|||
+
 
 ## What is FIM in Defender for Cloud?
 File integrity monitoring (FIM), also known as change monitoring, examines operating system files, Windows registries, application software, Linux system files, and more, for changes that might indicate an attack. 

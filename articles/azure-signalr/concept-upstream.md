@@ -150,7 +150,7 @@ POST
 
 #### Connected
 
-Content-Type: application/json
+Content-Type: `application/json`
 
 #### Disconnected
 

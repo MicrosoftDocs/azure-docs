@@ -1,7 +1,6 @@
 ---
 title: Resource classes for workload management 
 description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics

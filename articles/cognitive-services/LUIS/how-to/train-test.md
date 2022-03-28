@@ -53,7 +53,7 @@ Testing an app is an iterative process. After training your LUIS app, test it wi
 
 Interactive testing is done from the  **Test**  panel of the LUIS portal. You can enter an utterance to see how intents and entities are identified and scored. If LUIS isn't predicting an utterance's intents and entities as you would expect, copy the utterance to the  **Intent**  page as a new utterance. Then label parts of that utterance for entities to train your LUIS app.
 
-See [batch testing](/azure/cognitive-services/luis/luis-how-to-batch-test) if you are testing more than one utterance at a time, and the [Prediction scores](/azure/cognitive-services/luis/luis-concept-prediction-score) article to learn more about prediction scores.
+See [batch testing](../luis-how-to-batch-test.md) if you are testing more than one utterance at a time, and the [Prediction scores](../luis-concept-prediction-score.md) article to learn more about prediction scores.
 
 
 ## Test an utterance
@@ -102,7 +102,7 @@ If you are using [Patterns](/azure/cognitive-services/luis/luis-concept-patterns
 
 ## Compare with published version
 
-You can test the active version of your app with the published [endpoint](/azure/cognitive-services/luis/luis-glossary#endpoint) version. In the  **Inspect**  panel, select  **Compare with published**. 
+You can test the active version of your app with the published [endpoint](../luis-glossary.md#endpoint) version. In the  **Inspect**  panel, select  **Compare with published**. 
 > [!NOTE]
 > Any testing against the published model is deducted from your Azure subscription quota balance.
 
@@ -115,9 +115,9 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 ## Next steps
 
-If testing requires testing a batch of utterances, See [batch testing](/azure/cognitive-services/luis/luis-how-to-batch-test).
+If testing requires testing a batch of utterances, See [batch testing](../luis-how-to-batch-test.md).
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features.
 
-* [Improve your application](/azure/cognitive-services/luis/how-to/improve-application?branch=pr-en-us-181263)
-* [Publishing your application](/azure/cognitive-services/luis/how-to/publish?branch=pr-en-us-181263)
+* [Improve your application](./improve-application.md?branch=pr-en-us-181263)
+* [Publishing your application](./publish.md?branch=pr-en-us-181263)

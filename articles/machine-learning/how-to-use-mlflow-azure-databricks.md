@@ -80,11 +80,11 @@ To link your ADB workspace to a new or existing Azure Machine Learning workspace
 1. Select the **Link Azure Machine Learning workspace** button on the bottom right. 
 
  ![Link Azure DB and Azure Machine Learning workspaces](./media/how-to-use-mlflow-azure-databricks/link-workspaces.png)
+ 
 
 ## MLflow Tracking in your workspaces
 
-After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in
-all of the following places:
+After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in all of the following places:
 
 * The linked Azure Machine Learning workspace.
 * Your original ADB workspace. 
@@ -127,6 +127,9 @@ experimentName = "/Users/{user_name}/{experiment_folder}/{experiment_name}"
 mlflow.set_experiment(experimentName) 
 
 ```
+
+> [!NOTE]
+> MLflow Tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported.
 
 ### Set MLflow Tracking to only track in your Azure Machine Learning workspace
 

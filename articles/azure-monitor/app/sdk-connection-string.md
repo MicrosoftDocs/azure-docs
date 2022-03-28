@@ -2,8 +2,6 @@
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
 ms.topic: conceptual
-author: CourtGoodson
-ms.author: cogoodson
 ms.date: 01/17/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mbullwin
@@ -22,6 +20,8 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 
 > [!TIP]
 > We recommend the use of connection strings over instrumentation keys.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Scenario overview 
 
@@ -98,22 +98,6 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 ## Connection string examples
 
 
-### Minimal valid connection string
-
-`InstrumentationKey=00000000-0000-0000-0000-000000000000;`
-
-In this example, only the Instrumentation Key has been set.
-
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs) and will connect to the public global Azure:
-   - Ingestion: `https://dc.services.visualstudio.com/`
-   - Live metrics: `https://rt.services.visualstudio.com/`
-   - Profiler: `https://profiler.monitor.azure.com/`
-   - Debugger: `https://snapshot.monitor.azure.com/`
-
-
-
 ### Connection string with endpoint suffix
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
@@ -148,7 +132,7 @@ In this example, this connection string specifies explicit overrides for every s
 ## How to set a connection string
 
 Connection Strings are supported in the following SDK versions:
-- .NET and .NET Core v2.12.0
+- .NET v2.12.0
 - Java v2.5.1 and Java 3.0
 - JavaScript v2.3.0
 - NodeJS v1.5.0
@@ -185,7 +169,7 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
-NetCore Explicitly Set:
+.NET Core Explicitly Set:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -194,7 +178,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-NetCore config.json: 
+.NET Core config.json: 
 
 ```json
 {
@@ -215,7 +199,7 @@ You can set the connection string in the `applicationinsights.json` configuratio
 }
 ```
 
-See [connection string configuration](./java-standalone-config.md#connection-string) for more details.
+For more information, [connection string configuration](./java-standalone-config.md#connection-string).
 
 For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
 

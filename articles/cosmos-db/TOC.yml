@@ -169,6 +169,8 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
+            - name: Go app
+              href: sql/create-sql-api-go.md 
     - name: Tutorials
       items:
         - name: Create and manage data
@@ -217,10 +219,22 @@
           href: sql/sql-api-nodejs-samples.md
         - name: Python samples
           href: sql/sql-api-python-samples.md
-        - name: PowerShell
+        - name: PowerShell samples
           href: sql/powershell-samples.md
-        - name: Azure CLI
-          href: sql/cli-samples.md
+        - name: Azure CLI samples
+          items:
+          - name: Overview SQL API samples
+            href: sql/cli-samples.md
+          - name: Create account, keyspace, and table
+            href: scripts/cli/sql/create.md
+          - name: Create serverless
+            href: scripts/cli/sql/serverless.md
+          - name: Create with autoscale
+            href: ./scripts/cli/sql/autoscale.md
+          - name: Perform throughput operations
+            href: scripts/cli/sql/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/sql/lock.md
         - name: Azure Resource Manager
           href: sql/templates-samples-sql.md
         - name: Bicep
@@ -666,8 +680,12 @@
               href: partial-document-update-getting-started.md
             - name: Partial document update FAQ
               href: partial-document-update-faq.yml
-        - name: Connectivity modes
-          href: sql/sql-sdk-connection-modes.md
+        - name: SQL SDKs
+          items:
+          - name: Designing resilient applications
+            href: sql/conceptual-resilient-sdk-applications.md
+          - name: Connectivity modes
+            href: sql/sql-sdk-connection-modes.md
     - name: How-to guides
       items:
         - name: Global distribution
@@ -1020,6 +1038,22 @@
         - name: 4 - Migrate data
           displayName: import
           href: cassandra/migrate-data.md
+    - name: Samples
+      items:
+        - name: Azure CLI samples
+          items:
+          - name: Overview Cassandra API samples
+            href: cassandra/cli-samples.md
+          - name: Create account, keyspace, and table
+            href: scripts/cli/cassandra/create.md
+          - name: Create serverless
+            href: scripts/cli/cassandra/serverless.md
+          - name: Create with autoscale
+            href: ./scripts/cli/cassandra/autoscale.md
+          - name: Perform throughput operations
+            href: scripts/cli/cassandra/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/cassandra/lock.md
     - name: Concepts
       items:
         - name: FAQ
@@ -1105,10 +1139,12 @@
           href: cassandra/cli-samples.md
         - name: Glowroot using Cassandra API
           href: cassandra/glowroot-cassandra.md
-        - name: Error codes definitions
+        - name: Understand Cassandra API error codes
           href: cassandra/error-codes-solution.md
         - name: Lightweight Transactions in Cassandra API
           href: cassandra/lwt-cassandra-api.md
+        - name: Cassandra API extensions overview
+          href: cassandra/cassandra-driver-extensions.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1167,8 +1203,26 @@
           href: mongodb/tutorial-query-mongodb.md
         - name: 3 - Distribute data globally
           href: mongodb/tutorial-global-distribution-mongodb.md
+    - name: Samples
+      items:
+        - name: Azure CLI samples
+          items: 
+          - name: Overview MongoDB API samples
+            href: mongodb/cli-samples.md
+          - name: Create account, keyspace, and table
+            href: scripts/cli/mongodb/create.md
+          - name: Create serverless
+            href: scripts/cli/mongodb/serverless.md
+          - name: Create with autoscale
+            href: ./scripts/cli/mongodb/autoscale.md
+          - name: Perform throughput operations
+            href: scripts/cli/mongodb/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/mongodb/lock.md
     - name: Concepts
       items:
+        - name: API version 4.2
+          href: mongodb/feature-support-42.md
         - name: API version 4.0
           href: mongodb/feature-support-40.md
         - name: API version 3.6
@@ -1195,7 +1249,7 @@
               href: mongodb/migrate-databricks.md
             - name: Post-migration guide
               href: mongodb/post-migration-optimization.md
-        - name: Upgrade to API version 4.0 or 3.6
+        - name: Upgrade API version
           href: mongodb/upgrade-mongodb-version.md
         - name: Get the connection string
           href: mongodb/connect-mongodb-account.md
@@ -1290,6 +1344,22 @@
       items:
         - name: 1 - Query data
           href: graph/tutorial-query-graph.md
+    - name: Samples
+      items:
+        - name: Azure CLI samples
+          items:
+          - name: Overview Gremlin API samples
+            href: graph/cli-samples.md
+          - name: Create account, keyspace, and table
+            href: scripts/cli/gremlin/create.md
+          - name: Create serverless
+            href: scripts/cli/gremlin/serverless.md
+          - name: Create with autoscale
+            href: ./scripts/cli/gremlin/autoscale.md
+          - name: Perform throughput operations
+            href: scripts/cli/gremlin/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/gremlin/lock.md
     - name: Concepts
       items:
         - name: FAQ
@@ -1399,6 +1469,20 @@
         - name: F#
           href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           maintainContext: true
+        - name: Azure CLI
+          items:
+          - name: Overview Table API samples
+            href: table/cli-samples.md
+          - name: Create account, keyspace, and table
+            href: scripts/cli/table/create.md
+          - name: Create serverless
+            href: scripts/cli/table/serverless.md
+          - name: Create with autoscale
+            href: ./scripts/cli/table/autoscale.md
+          - name: Perform throughput operations
+            href: scripts/cli/table/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/table/lock.md
     - name: Concepts
       items:
         - name: FAQ
@@ -1439,8 +1523,22 @@
           href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Samples
   items:
-    - name: Azure Resource Graph queries
-      href: ./resource-graph-samples.md
+     - name: Azure Resource Graph queries
+       href: ./resource-graph-samples.md
+     - name: Common Azure CLI samples
+       items:
+         - name: Overview common API samples
+           href: common-cli-samples.md
+         - name: Add or fail over regions
+           href: scripts/cli/common/regions.md
+         - name: Perform account key operations
+           href: scripts/cli/common/keys.md
+         - name: Secure with IP firewall
+           href: scripts/cli/common/ipfirewall.md
+         - name: Secure new account with service endpoints
+           href: scripts/cli/common/service-endpoints.md
+         - name: Secure existing account with service endpoints
+           href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
 - name: How-to guides
   items:
     - name: Free tier

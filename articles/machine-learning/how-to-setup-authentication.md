@@ -247,13 +247,13 @@ You can use a service principal for Azure CLI commands. For more information, se
 The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/) (preview). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
 > [!IMPORTANT]
-> If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration). ADAL support is scheduled to end on June 30, 2022.
+> If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-migration.md). ADAL support is scheduled to end on June 30, 2022.
 
 For information and samples on authenticating with MSAL, see the following articles:
 
-* JavaScript - [How to migrate a Javascript app from ADAL.js to MSAL.js](/azure/active-directory/develop/msal-compare-msal-js-and-adal-js).
-* Node.js - [How to migrate a Node.js app from ADAL to MSAL](/azure/active-directory/develop/msal-node-migration).
-* Python - [ADAL to MSAL migration guide for Python](/azure/active-directory/develop/migrate-python-adal-msal).
+* JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
+* Node.js - [How to migrate a Node.js app from ADAL to MSAL](../active-directory/develop/msal-node-migration.md).
+* Python - [ADAL to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
 
 ## Use managed identity authentication
 

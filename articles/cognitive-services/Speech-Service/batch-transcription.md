@@ -8,7 +8,7 @@ author: eric-urban
 ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp

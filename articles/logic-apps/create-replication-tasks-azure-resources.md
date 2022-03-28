@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/29/2022
+ms.date: 02/22/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -109,6 +109,18 @@ For Event Hubs, replication between the same number of [partitions](../event-hub
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
+> [!IMPORTANT]
+> Replication tasks don't track which messages have already been processed when the source experiences 
+> a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
+> track the already processed messages so that processing resumes only with the unprocessed messages.
+>
+> For example, you can set up a database that stores the proccessing state for each message. 
+> When a message arrives, check the message's state and process only when the message is unprocessed. 
+> That way, no processing happens for an already processed message. 
+>
+> This pattern demonstrates the *idempotence* concept where repeating an action on an input produces 
+> the same result without other side effects or won't change the input's value. 
+
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
 - [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
@@ -189,8 +201,8 @@ The examples in this section use 800 as the default value for the prefetch count
 |-------|-------------|
 | **Maximum bursts** | The *maximum* number of elastic workers to scale out under load. If your underlying app requires instances beyond the *always ready instances* in the next table row, your app can continue to scale out until the number of instances hits the maximum burst limit. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *only* when they are running and allocated to you on a per-second basis. The platform makes a best effort to scale out your app to the defined maximum limit. <p>**Tip**: As a recommendation, select a maximum value that's higher than you might need so that the platform can scale out to handle a larger load, if necessary, as unused instances aren't billed. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: <p>- [Plan and SKU settings - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#plan-and-sku-settings) <br>- [What is cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting/)? |
 | **Always ready instances** | The minimum number of instances that are always ready and warm for hosting your app. The minimum number is always 1. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *whether or not* they are running when allocated to you. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: [Always ready instances - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#always-ready-instances). |
-| **Prefetch count** | The default value for `AzureFunctionsJobHost__extensions__serviceBus__prefetchCount` app setting in your logic app resource that determines the pre-fetch count used by the underlying `ServiceBusProcessor` class. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__prefetchCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `prefetchCount` property, review the following documentation: <p>- [host.json settings - Azure Service Bus bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) <br>- [ServiceBusProcessor.PrefetchCount property](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount) <br>- [ServiceBusProcessor Class](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) |
-| **Maximum message count** | The default value for the `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` app setting in your logic app resource that determines the maximum number of messages to send when triggered. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `maxMessageCount` property, review the following documentation: [host.json settings - Azure Event Hubs bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).|
+| **Prefetch count** | The default value for `AzureFunctionsJobHost__extensions__serviceBus__prefetchCount` app setting in your logic app resource that determines the pre-fetch count used by the underlying `ServiceBusProcessor` class. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__prefetchCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `prefetchCount` property, review the following documentation: <p>- [host.json settings - Azure Service Bus bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md) <br>- [ServiceBusProcessor.PrefetchCount property](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount) <br>- [ServiceBusProcessor Class](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) |
+| **Maximum message count** | The default value for the `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` app setting in your logic app resource that determines the maximum number of messages to send when triggered. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `maxMessageCount` property, review the following documentation: [host.json settings - Azure Event Hubs bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md).|
 |||
 
 ## Prerequisites
@@ -373,7 +385,7 @@ This example shows how to view a task's history of workflow runs along with thei
 
    | Status label | Description |
    |--------------|-------------|
-   | **Cancelled** | The task was canceled while running. |
+   | **Canceled** | The task was canceled while running. |
    | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
    | **Running** | The task is currently running. |
    | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |

@@ -34,6 +34,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Automation                | [Azure Automation account authentication overview](../../automation/automation-security-overview.md#managed-identities)                                       |
 | Azure Batch                     | [Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity](../../batch/batch-customer-managed-key.md)  </BR> [Configure managed identities in Batch pools](../../batch/managed-identity-pools.md)          |
 | Azure Blueprints                | [Stages of a blueprint deployment](../../governance/blueprints/concepts/deployment-stages.md)                              |
+| Azure Cache for Redis           | [Managed identity for storage accounts with Azure Cache for Redis](../../azure-cache-for-redis/cache-managed-identity.md) |
 | Azure Container Instance        | [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)                                                                                          |
 | Azure Container Registry        | [Use an Azure-managed identity in ACR Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)                                                                       |
 | Azure Cognitive Services        | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
@@ -41,7 +42,8 @@ The following Azure services support managed identities for Azure resources:
 | Azure Data Explorer             | [Configure managed identities for your Azure Data Explorer cluster](/azure/data-explorer/configure-managed-identities-cluster?tabs=portal)                                                                                                     |
 | Azure Data Factory              | [Managed identity for Data Factory](../../data-factory/data-factory-service-identity.md)                                                                                                           |
 | Azure Data Lake Storage Gen1    | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md)                                                                                                  |
-| Azure Data Share                | [Roles and requirements for Azure Data Share](../../data-share/concepts-roles-permissions.md)                                                                                                             |
+| Azure Data Share                | [Roles and requirements for Azure Data Share](../../data-share/concepts-roles-permissions.md)   |
+| Azure DevTest Labs             | [Enable user-assigned managed identities on lab virtual machines in Azure DevTest Labs](../../devtest-labs/enable-managed-identities-lab-vms.md) |
 | Azure Digital Twins             | [Enable a managed identity for routing Azure Digital Twins events](../../digital-twins/how-to-enable-managed-identities-portal.md)                                                                                            |
 | Azure Event Grid                | [Event delivery with a managed identity](../../event-grid/managed-service-identity.md)
 | Azure Image Builder             | [Azure Image Builder overview](../../virtual-machines/image-builder-overview.md#permissions)                                                                                                    |
@@ -71,6 +73,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure VM image builder          | [Configure Azure Image Builder Service permissions using Azure CLI](../../virtual-machines/linux/image-builder-permissions-cli.md#using-managed-identity-for-azure-storage-access)|
 | Azure Virtual Machine Scale Sets      | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
 | Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)                                                                  |
+| Azure Web PubSub Service           | [Managed identities for Azure Web PubSub Service](../../azure-web-pubsub/howto-use-managed-identity.md)     |
 
 ## Next steps
 

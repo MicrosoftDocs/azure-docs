@@ -13,10 +13,10 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * Console redirection (not supported in Linux or Windows production clusters)
 * The Fault Analysis Service (FAS) on Linux
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
-* CLI command equivalents of certain Powershell commands (list below, most of which apply only to standalone clusters)
+* CLI command equivalents of certain PowerShell commands (list below, most of which apply only to standalone clusters)
 * [Differences in log implementation that may affect scalability](service-fabric-concepts-scalability.md#choosing-a-platform)
 
-## Powershell cmdlets that do not work against a Linux Service Fabric cluster
+## PowerShell cmdlets that do not work against a Linux Service Fabric cluster
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario

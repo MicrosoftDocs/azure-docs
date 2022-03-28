@@ -174,7 +174,7 @@ To establish connectivity from an on-premises environment to the database in SQL
 - [Site-to-Site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
-Consider [DNS configuration scenarios](/azure/private-link/private-endpoint-dns#dns-configuration-scenarios) as well, as the FQDN of the service can resolve to the public IP address.
+Consider [DNS configuration scenarios](../../private-link/private-endpoint-dns.md#dns-configuration-scenarios) as well, as the FQDN of the service can resolve to the public IP address.
 
 ## Connecting from Azure Synapse Analytics to Azure Storage using Polybase and the COPY statement
 

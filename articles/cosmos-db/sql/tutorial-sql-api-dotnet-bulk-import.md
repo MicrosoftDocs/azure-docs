@@ -42,10 +42,10 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 2: Set up your .NET project
 
-Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. The `--langVersion` parameter sets the *LangVersion* property in the created project file.
+Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. 
 
    ```bash
-   dotnet new console –langVersion:8 -n bulk-import-demo
+   dotnet new console -n bulk-import-demo
    ```
 
 Change your directory to the newly created app folder. You can build the application with:

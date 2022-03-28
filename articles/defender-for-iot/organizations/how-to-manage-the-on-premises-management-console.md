@@ -233,8 +233,10 @@ To define:
    `mail.sender=`
 1. Enter the SMTP server name  and sender and select enter.
 
-## See also
+## Next steps
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+For more information, see:
 
-[Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+
+- [Manage individual sensors](how-to-manage-individual-sensors.md)
