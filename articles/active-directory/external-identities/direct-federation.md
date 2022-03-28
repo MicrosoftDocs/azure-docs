@@ -24,6 +24,8 @@ ms.collection: M365-identity-device-management
 This article describes how to set up federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol. When you set up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
 
 > [!IMPORTANT]
+> 
+> We no longer support any allowlist of IdPs for any new SAML/Ws-Fed based Identity provider federations being created. Refer to [determine if the partner needs to update their DNS text record](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records) section below for setting up your new external federtion.
 > - In the SAML request sent by Azure AD for external federations, the Issuer URL is a tenanted endpoint. For any new federations, we recommend that all our partners set the audience of the SAML or WS-Fed based IdP to a tenanted endpoint. Refer to the [SAML 2.0](#required-saml-20-attributes-and-claims) and [WS-Fed](#required-ws-fed-attributes-and-claims) required attributes and claims sections below. Any existing federations configured with the global endpoint will continue to work, but new federations will stop working if your external IdP is expecting a global issuer URL in the SAML request.
 > - We've removed the limitation that required the authentication URL domain to match the target domain or be from an allowed IdP. For details, see [Step 1: Determine if the partner needs to update their DNS text records](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
 
@@ -88,26 +90,15 @@ Currently, the Azure AD SAML/WS-Fed federation feature doesn't support sending a
 
 Depending on the partner's IdP, the partner might need to update their DNS records to enable federation with you. Use the following steps to determine if DNS updates are needed.
 
-1. If the partner's IdP is one of these allowed IdPs, no DNS changes are needed (this list is subject to change):
+> [!NOTE]
+> We no longer support any allowlist of IdPs for any new SAML/Ws-Fed based Identity provider federations being created. Follow the steps below to determine if you need to update the DNS text records to enable federation
 
-     - accounts.google.com
-     - pingidentity.com
-     - login.pingone.com
-     - okta.com
-     - oktapreview.com
-     - okta-emea.com
-     - my.salesforce.com
-     - federation.exostar.com
-     - federation.exostartest.com
-     - idaptive.app
-     - idaptive.qa
+1. Check the partner's IdP passive authentication URL to see if the domain matches the target domain or a host within the target domain. In other words, when setting up federation for `fabrikam.com`:
 
-2. If the IdP is not one of the allowed providers listed in the previous step, check the partner's IdP passive authentication URL to see if the domain matches the target domain or a host within the target domain. In other words, when setting up federation for `fabrikam.com`:
+     - If the passive authentication endpoint is `https://fabrikam.com` or `https://sts.fabrikam.com/adfs` (a host in the same domain), no DNS changes are needed.
+     - If the passive authentication endpoint is `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs`, the domain doesn't match the fabrikam.com domain, so the partner will need to add a text record for the authentication URL to their DNS configuration.
 
-     - If the authentication URL is `https://fabrikam.com` or `https://sts.fabrikam.com/adfs` (a host in the same domain), no DNS changes are needed.
-     - If the authentication URL is `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs`, the domain doesn't match the fabrikam.com domain, so the partner will need to add a text record for the authentication URL to their DNS configuration.
-
-3. If DNS changes are needed based on the previous step, ask the partner to add a TXT record to their domain's DNS records, like the following example:
+2. If DNS changes are needed based on the previous step, ask the partner to add a TXT record to their domain's DNS records, like the following example:
 
    `fabrikam.com.  IN   TXT   DirectFedAuthUrl=https://fabrikamconglomerate.com/adfs`
 
