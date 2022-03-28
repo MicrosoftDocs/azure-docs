@@ -304,7 +304,7 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions:
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. Select **Access control (IAM)**.
 
@@ -314,7 +314,9 @@ To grant permissions:
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. Select your Azure subscription, select **System-assigned managed identity**, select **Data Factory**, and then select a data factory. You can also use the object ID or data factory name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
+1. Select your Azure subscription.
+
+1. Under **System-assigned managed identity**, select **Data Factory**, and then select a data factory. You can also use the object ID or data factory name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
