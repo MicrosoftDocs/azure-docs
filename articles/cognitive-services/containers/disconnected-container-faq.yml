@@ -32,7 +32,7 @@ sections:
 
           Commitment tier pricing is also available for the following Applied AI service:
 
-          *	Form Recognizer - Custom/Invoice
+          *	Form Recognizer
 
           For more information about commitment tier pricing, please reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
       - question: Will containers be available for other Cognitive Services offerings, and what's the next set of containers I should expect?
