@@ -856,7 +856,7 @@
         href: fortes-change-cloud-tutorial.md
       - name: FortiGate SSL VPN
         href: fortigate-ssl-vpn-tutorial.md
-      - name: FortiSASE SIA
+      - name: FortiSASE
         href: fortisase-sia-tutorial.md
       - name: FortiWeb Web Application Firewall
         href: fortiweb-web-application-firewall-tutorial.md 
