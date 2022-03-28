@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
+ms.date: 03/31/2022
 ms.author: allensu
 ms.custom: mode-ui
 ---
