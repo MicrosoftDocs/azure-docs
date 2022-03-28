@@ -97,7 +97,12 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 In this section, you'll set up an Azure Pipelines workflow that triggers the load test. The sample application repository already contains a pipelines definition file *azure-pipeline.yml*. 
 
-The pipeline first deploys the sample web application to Azure App Service and Azure Cosmos DB. Next, the pipeline invokes the load test by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing).
+The Azure Pipelines workflow performs the following steps for every update to the main branch:
+
+- Deploy the sample Node.js application to an Azure App Service web app.
+- Create an Azure Load Testing resource using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template, if the resource doesn't exist yet. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
+- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
+- Invoke Azure Load Testing by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) and the sample Apache JMeter script *SampleApp.jmx* and the load test configuration file *SampleApp.yaml*.
 
 Follow these steps to configure the Azure Pipelines workflow for your environment:
 
@@ -161,13 +166,7 @@ Follow these steps to configure the Azure Pipelines workflow for your environmen
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
 
-## View results of a load test
-
-For every update to the main branch, the Azure pipeline executes the following steps:
-
-- Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the pipeline definition.
-- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
-- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
+## View load test results
 
 To view the results of the load test in the pipeline log:
 
