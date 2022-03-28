@@ -1,6 +1,8 @@
 ---
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: quickstart
 ms.date: 03/27/2022
 zone_pivot_groups: connect-gcp-accounts
@@ -216,7 +218,7 @@ Microsoft Defender for Containers brings threat detection, and advanced defences
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers Plan 2](defender-for-servers-plans-compare.md)|
+|Pricing:|Requires [Microsoft Defender for servers Plan 2](defender-for-servers-introduction.md#what-are-the-defender-for-server-plans)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 

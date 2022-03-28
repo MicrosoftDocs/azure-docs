@@ -1,9 +1,9 @@
 ---
 title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
-ms.topic: how-to
-ms.author: benmansheim
 author: bmansheim
+ms.author: benmansheim
+ms.topic: how-to
 ms.date: 11/09/2021
 ---
 # Improve your network security posture with adaptive network hardening
@@ -18,7 +18,7 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers Plan 2](defender-for-servers-plans-compare.md)|
+|Pricing:|Requires [Microsoft Defender for servers Plan 2](defender-for-servers-introduction.md#what-are-the-defender-for-server-plans)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 
