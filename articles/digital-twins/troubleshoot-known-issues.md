@@ -16,7 +16,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
-**Issue description:** Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: `http://localhost:50342/oauth2/token`", followed by full stack trace. Alternatively, you may see error text of "Failed to connect to MSI. Please make sure MSI is configured correctly."
+**Issue description:** Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: `http://localhost:50342/oauth2/token`", followed by full stack trace.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
