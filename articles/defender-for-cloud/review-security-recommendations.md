@@ -2,13 +2,13 @@
 title: Security recommendations in Microsoft Defender for Cloud
 description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 03/13/2022
+ms.date: 03/28/2022
 ---
 # Review your security recommendations
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This topic explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your Azure resources.
+This topic explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multi-cloud resources.
 
 ## View your recommendations <a name="monitor-recommendations"></a>
 
@@ -31,6 +31,8 @@ Defender for Cloud analyzes the security state of your resources to identify pot
     > [!NOTE]
     > Custom recommendations can be found under the All recommendations tab. Learn how to [Create custom security initiatives and policies](custom-security-policies.md).
 
+    Secure score recommendations affect the secure score and are mapped to the various security controls. The All recommendations tab, allows you to see all of the recommendations including recommendations that are part of different regulatory compliance standards.
+
 1.  (Optional) Select a relevant environment(s).
 
     :::image type="content" source="media/review-security-recommendations/environment-filter.png" alt-text="Screenshot of the environment filter, to select your filters.":::
@@ -50,7 +52,7 @@ Defender for Cloud analyzes the security state of your resources to identify pot
     1. **Severity indicator**.
     1. **Freshness interval** (where relevant).
     1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
-    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. 
+    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
 
         :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
 
@@ -80,9 +82,9 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
 ## Search for a recommendation
 
-You can search for recommendations specific to resource types, severity, environments, or other criteria. The searchbox and filters above the list of recommendations can be used to help located a recommendation. 
+You can search for specific recommendations by name. The searchbox and filters above the list of recommendations can be used to help locate a specific recommendation. 
 
-Custom recommendations will appear under the All recommendations tab.
+Custom recommendations only appear under the All recommendations tab.
 
 **To search for recommendations**:
 
@@ -107,6 +109,8 @@ Custom recommendations will appear under the All recommendations tab.
 1. Select **OK**.
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
+
+You can review recommendations in ARG both on the recommendations page or on an individual recommendation. 
 
 The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
 
