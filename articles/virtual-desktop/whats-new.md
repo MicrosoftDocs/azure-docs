@@ -594,7 +594,7 @@ July was when Azure Virtual Desktop with Azure Resource Management integration b
 
 Here's what changed with this new release: 
 
-- The "Fall 2019 release" is now known as "Azure Virtual Desktop (Classic)," while the "Spring 2020 release" is now just "Azure Virtual Desktop." For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+- The "Fall 2019 release" is now known as "Azure Virtual Desktop (classic)," while the "Spring 2020 release" is now just "Azure Virtual Desktop." For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
 
 To learn more about new features, check out [this blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
 
