@@ -22,7 +22,7 @@ In this article, you'll learn the various ways you can:
 
 ## Pre-requisites
 
-[An Application Insights resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource). Make note of the instrumentation key.
+[An Application Insights resource](./create-new-resource.md). Make note of the instrumentation key.
 
 ## Set up the environment
 
@@ -103,7 +103,7 @@ In the sample project, you'll accomplish this with the following lines in the Do
    ENV ASPNETCORE_HOSTINGSTARTUPASSEMBLIES Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-To make your build context as small as possible, the sample includes a [.dockerignore](./.dockerignore) file.
+To make your build context as small as possible, the sample includes a `.dockerignore` file.
 
 ## Review your Application Insights key
 
@@ -122,7 +122,7 @@ The following settings have been added to the application's `appsettings.json` f
 
 ## Build and run the Docker image
 
-Run the following command, replacing `<YOUR_APPLICATION_INSIGHTS_KEY>` with the real instrumentation key you saved [from the previous step](#create-an-application-insights-resource).
+Run the following command, replacing `<YOUR_APPLICATION_INSIGHTS_KEY>` with the real instrumentation key you saved [from the previous step](#review-your-application-insights-key).
 
 ```powershell
 docker build -t enable-sp-example --build-arg APPINSIGHTS_KEY=<YOUR_APPLICATION_INSIGHTS_KEY> .
@@ -164,7 +164,7 @@ docker container logs myapp
 1. Open the **Performance** blade in your Application Insights resource. 
 1. Once the trace process is complete, you will see the Profiler Traces button like it below:
 
-![Profiler Traces](../../media/performance-blade.png)
+
 
 ## Next Steps
 
