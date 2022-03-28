@@ -54,7 +54,7 @@ On the **Create a storage account** page, enter the following values:
  
 :::image type="content" source="./media/blob-upload-storage-function/portal-storage-create-small.png" alt-text="A screenshot showing how create a storage account in Azure."  lightbox="media/blob-upload-storage-function/portal-storage-create.png":::
  
-Select **Review + Create** at the bottom and Azure will validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the storage account, which make take a moment.
+Select **Review + Create** at the bottom and Azure will validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the storage account, which might take a moment.
 
 ### Create the container
 After the storage account is provisioned, select **Go to Resource**. We need to create a storage container inside of the account to hold uploaded images for analysis. 
@@ -283,15 +283,15 @@ A new dialog will open.  Enter the following values for your new Function App.
 
 :::image type="content" source="./media/blob-upload-storage-function/visual-studio-create-function-app.png" alt-text="A screenshot showing how to create a new Function App in Azure." :::
 
-Once you have filled in all of those values, click **Create**. Visual Studio and Azure will begin provisioning the requested resources, which may take a few moments to complete.
+Once you have filled in all of those values, click **Create**. Visual Studio and Azure will begin provisioning the requested resources, which will take a few moments to complete.
 
 Once the process has finished, click **Finish** to close out the dialog workflow.
 
-The final step to deploy the Azure Function is to click **Publish** in the upper right of the screen. Publishing the function may take a few moments to complete.  Once it finishes, your application will be running on Azure.
+The final step to deploy the Azure Function is to click **Publish** in the upper right of the screen. Publishing the function might also take a few moments to complete.  Once it finishes, your application will be running on Azure.
 
 ## 5) Connect the services
 
-Our Azure Function was deployed successfully, but it cannot connect to our storage account and Computer Vision services yet. To enable this, we need to add the correct keys and connection strings to the configuration settings of the Azure Functions app.
+The Azure Function was deployed successfully, but it cannot connect to our storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
 
 At the top of the Azure Portal, search for *function* and select **Function App** from the results.
 
@@ -299,7 +299,7 @@ On the **Function App** screen, select the Function App you created in Visual St
 
 On the **Function App** overview page, click **Configuration** on the left navigation.  This will open up a page where we can manage various types of configuration settings for our app.  For now, we are interested in **Application Settings** section.
 
-We need to add three settings for our storage account connection string, the Computer Vision secret key, and the Computer Vision endpoint.
+We need to add settings for our storage account name and connection string, the Computer Vision secret key, and the Computer Vision endpoint.
 
 On the **Application settings** tab, select **+ New application setting**. In the flyout that appears, enter the following values:
 
@@ -320,23 +320,23 @@ Repeat this step again for the storage account connection, using the following v
 - **Name**: Enter a value of *StorageConnection*.
 - **Value**: Paste in the connection string you saved from earlier.
 
-Finally, repeat this process one more time for the Endpoint URL of our Computer Vision service, using the following values:
+Finally, repeat this process one more time for the storage account name, using the following values:
 
 - **Name**: Enter a value of *StorageAccountName*.
 - **Value**: Enter in the name of the storage account you created.
 
 After you have added these application settings, make sure to click **Save** at the top of the configuration page.  When the save completes, you can hit **Refresh** as well to make sure the settings are picked up.
 
-All of the required Environment variables to connect our Azure function to different services are now in place.
+All of the required environment variables to connect our Azure function to different services are now in place.
 
 
 ## 6) Upload an image to Blob Storage
 
-We are now ready to test out our application! Let's upload a blob to our container, and then verify that the text in the image was saved to Table Storage.
+You are now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Table Storage.
 
 First, at the top of the Azure portal, search for *Storage* and click on **storage account**.  On the **storage account** page, click on the account you created earlier.
 
-Next, click **Containers** on the left nav, and then navigate into the **ImageAnalysis** container we created earlier.  From here we can upload a test image right inside the browser. 
+Next, click **Containers** on the left nav, and then navigate into the **ImageAnalysis** container you created earlier.  From here you can upload a test image right inside the browser. 
 
 :::image type="content" source="./media/blob-upload-storage-function/storage-container-browse.png" alt-text="A screenshot showing how to navigate to a storage container." :::
 
@@ -346,11 +346,11 @@ At the top of the **ImageAnalysis** page, select  **Upload**.  In the flyout tha
 
 :::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to a storage container." :::
 
-The file should appear inside of your blob container. Next we need to verify that the upload triggered our Azure Function, and that our the text in our image was analyzed and saved to Table Storage properly.
+The file should appear inside of your blob container. Next you can verify that the upload triggered the Azure Function, and that the text in the  image was analyzed and saved to Table Storage properly.
 
 Using the breadcrumbs at the top of the page, navigate up one level in your storage account.  Locate and select **Storage browser** on the left nav, and then click on **Tables**.
 
-We should see the **ImageText** table we created earlier.  Click on this Table to navigate to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
+We should see the **ImageText** table we created earlier.  Click on this table to navigate to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
 
 :::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing a text entry in Azure Table Storage." :::
 
