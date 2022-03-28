@@ -83,9 +83,9 @@ The following list describes the levels at which you can scope access to Azure D
 * Digital Twin relationship: The actions for this resource define control over CRUD operations on [relationships](concepts-twins-graph.md) between digital twins in the twin graph.
 * Event route: The actions for this resource determine permissions to [route events](concepts-route-events.md) from Azure Digital Twins to an endpoint service like [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
-### Troubleshooting permissions
+### Troubleshoot permissions
 
-If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshooting failed service request: Error 403 (Forbidden)](troubleshoot-error-403.md).
+If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot failed service request: Error 403 (Forbidden)](troubleshoot-error-403.md).
 
 ## Managed identity for accessing other resources
 
