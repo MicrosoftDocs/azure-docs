@@ -60,7 +60,7 @@ For example, in an environment running MODBUS, you might want to generate an ale
 
 Use custom, condition-based alert triggering and messaging to help pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
-For more information, see [Horizon proprietary protocol dissector](references-horizon-sdk.md) and [Supported Protocols](concept-supported-protocols.md#supported-protocols).
+For more information, see [Horizon proprietary protocol dissector](references-horizon-sdk.md) and [Supported Protocols](concept-supported-protocols.md).
 
 
 ## Extend Defender for IoT to enterprise networks

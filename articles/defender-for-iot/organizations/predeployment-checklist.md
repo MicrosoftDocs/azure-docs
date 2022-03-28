@@ -10,6 +10,8 @@ ms.topic: reference
 
 Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment. We recommend printing this page or saving it as a PDF file where you can check things off as you go.
 
+Use this checklist together with [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md).
+
 ## Site checklist
 
 Review the following items before deploying your site:

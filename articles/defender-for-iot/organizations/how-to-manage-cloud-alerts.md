@@ -24,7 +24,7 @@ Alerts triggered by Defender for IoT are displayed on the Alerts page in the Azu
 - Learn when an alert was detected.
 - Investigate the alert by reviewing an extensive range of alert information. This may include,  source and destination details, PCAP information, vendor, firmware and OS details, and MITRE ATT&CK information.
 - Manage the alert by taking remediation steps on the device or network process, or changing the device status or severity.
-- Integrate alert details with other Microsoft services. For example, with Microsoft Sentinel playbooks and workbooks. See [About the Defender for IoT and Microsoft Sentinel Integration](concept-sentinel-integration.md#about-the-defender-for-iot-and-microsoft-sentinel-integration).
+- Integrate alert details with other Microsoft services. For example, with Microsoft Sentinel playbooks and workbooks. See [About the Defender for IoT and Microsoft Sentinel Integration](concept-sentinel-integration.md).
 
 ### How is the Alerts page populated?
 
