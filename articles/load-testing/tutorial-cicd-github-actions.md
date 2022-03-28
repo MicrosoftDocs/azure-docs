@@ -140,7 +140,7 @@ You've now authorized your GitHub Actions workflow to access your Azure Load Tes
 
 ## Configure the GitHub Actions workflow to run a load test
 
-In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository already contains a GitHub Actions workflow file *.github/workflows/workflow.yml*. 
+In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file *SampleApp.yaml*. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing). The GitHub Actions uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
 The GitHub Actions workflow performs the following steps for every update to the main branch:
 
