@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 03/28/2022
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: template-how-to

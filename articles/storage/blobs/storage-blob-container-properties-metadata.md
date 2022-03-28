@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 03/28/2022
 ms.author: normesta
 ms.devlang: csharp
 ms.custom: devx-track-csharp
