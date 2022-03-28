@@ -14,11 +14,11 @@ ms.custom: template-how-to, devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Windows Virtual Machines :heavy_check_mark: Linux Virtual Machines 
 
-This article walks through the steps of associating a new or existing virtual machine to a Capacity Reservation group. To learn more about Capacity Reservations, see the [overview article](capacity-reservation-overview.md). 
+Capacity reservation groups can be used with new or existing virtual machines. To learn more about Capacity Reservations, see the [overview article](capacity-reservation-overview.md). 
 
 ## Associate a new VM
 
-To associate a new VM to the Capacity Reservation group, the group must be explicitly referenced as a property of the virtual machine. This reference protects the matching reservation in the group from accidental consumption by less critical applications and workloads that are not intended to use it.  
+To associate a new VM to the Capacity Reservation group, the group must be explicitly referenced as a property of the virtual machine. This reference protects the matching reservation in the group for applications and workloads intended to use it.
 
 ### [API](#tab/api1)
 
@@ -76,7 +76,7 @@ In the request body, include the `capacityReservationGroup` property:
 
 ### [CLI](#tab/cli1)
 
-Use `az vm create` to create a new VM and add the `capacity-reservation-group` property to associate it to an existing Capacity Reservation group. The following example creates a Standard_D2s_v3 VM in the East US location and associate the VM to a Capacity Reservation group.
+Use `az vm create` to create a new VM and add the `capacity-reservation-group` property to associate it to an existing Capacity Reservation group. The following example creates a Standard_D2s_v3 VM in the East US location and associates the VM to a Capacity Reservation group.
 
 ```azurecli-interactive
 az vm create 
@@ -113,7 +113,7 @@ An [ARM template](../azure-resource-manager/templates/overview.md) is a Java
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
 
-If your environment meets the prerequisites and you are familiar with using ARM templates, use this [Create VM with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineWithReservation.json) template. 
+If your environment meets the prerequisites and you're familiar with using ARM templates, use this [Create VM with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineWithReservation.json) template. 
 
 
 --- 
@@ -124,9 +124,9 @@ If your environment meets the prerequisites and you are familiar with using ARM 
 
 For the initial release of Capacity Reservation, a virtual machine must be allocated to a capacity reservation. 
 
-- If not already complete, follow guidance to create a capacity reservation group and capacity reservation. Or increment the quantity of an existing capacity reservation so there is unused reserved capacity. 
+- If not already complete, follow guidance to create a capacity reservation group and capacity reservation. Or increment the quantity of an existing capacity reservation so there's unused reserved capacity. 
 - Deallocate the VM. 
-- Update the capacity reservation group property. 
+- Update the capacity reservation group property on the VM.
 - Restart the VM. 
 
 ### [API](#tab/api2)
