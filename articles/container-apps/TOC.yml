@@ -69,7 +69,7 @@
     - name: ARM API specification
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI reference
-      href: /cli/azure/containerapp?view=azure-cli-latestkdjf
+      href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
     - name: Pricing
