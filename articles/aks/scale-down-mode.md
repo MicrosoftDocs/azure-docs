@@ -1,5 +1,5 @@
 ---
-title: Use Scale-down Mode for your Azure Kubernetes Service (AKS) cluster (preview)
+title: Use Scale-down Mode for your Azure Kubernetes Service (AKS) cluster
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Scale-down Mode in Azure Kubernetes Service (AKS).
 services: container-service
@@ -9,59 +9,23 @@ ms.author: qpetraroia
 author: qpetraroia
 ---
 
-# Use Scale-down Mode to delete/deallocate nodes in Azure Kubernetes Service (AKS) (preview)
+# Use Scale-down Mode to delete/deallocate nodes in Azure Kubernetes Service (AKS)
 
 By default, scale-up operations performed manually or by the cluster autoscaler require the allocation and provisioning of new nodes, and scale-down operations delete nodes. Scale-down Mode allows you to decide whether you would like to delete or deallocate the nodes in your Azure Kubernetes Service (AKS) cluster upon scaling down. 
 
-When an Azure VM is in the `Stopped` (deallocated) state, you will not be charged for the VM compute resources. However, you will still need to pay for any OS and data storage disks attached to the VM. This also means that the container images will be preserved on those nodes. For more information, see [States and billing of Azure Virtual Machines][state-billing-azure-vm]. This behavior allows for faster operation speeds, as your deployment leverages cached images. Scale-down Mode allows you to no longer have to pre-provision nodes and pre-pull container images, saving you compute cost.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+When an Azure VM is in the `Stopped` (deallocated) state, you will not be charged for the VM compute resources. However, you will still need to pay for any OS and data storage disks attached to the VM. This also means that the container images will be preserved on those nodes. For more information, see [States and billing of Azure Virtual Machines][state-billing-azure-vm]. This behavior allows for faster operation speeds, as your deployment leverages cached images. Scale-down Mode removes the need to pre-provision nodes and pre-pull container images, saving you compute cost.
 
 ## Before you begin
 
 > [!WARNING]
 > In order to preserve any deallocated VMs, you must set Scale-down Mode to Deallocate. That includes VMs that have been deallocated using IaaS APIs (Virtual Machine Scale Set APIs). Setting Scale-down Mode to Delete will remove any deallocate VMs.
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster and the latest version of the Azure CLI installed. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ### Limitations
 
 - [Ephemeral OS][ephemeral-os] disks are not supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a cluster or node pool.
 - [Spot node pools][spot-node-pool] are not supported.
-
-### Install aks-preview CLI extension
-
-You also need the *aks-preview* Azure CLI extension version 0.5.30 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `AKS-ScaleDownModePreview` preview feature
-
-To use the feature, you must also enable the `AKS-ScaleDownModePreview` feature flag on your subscription.
-
-Register the `AKS-ScaleDownModePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-ScaleDownModePreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ScaleDownModePreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Using Scale-down Mode to deallocate nodes on scale-down
 
