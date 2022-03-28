@@ -122,7 +122,15 @@ Select **Deadlocks** as the signal name for the alert. Configure the **Action gr
 
 Deadlock graphs are a rich source of information regarding the processes and locks involved in a deadlock. To collect deadlock graphs with Extended Events (XEvents), capture the `sqlserver.database_xml_deadlock_report` event.
 
-This sample code creates an XEvents trace which captures deadlock graphs in memory using the [ring buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target). The maximum memory allowed for the ring buffer target is 4MB, and the trace will automatically run when the database comes online, such as after a failover. 
+You can collect deadlock graphs with XEvents using either the [ring buffer target](xevent-code-ring-buffer.md) or an [event file target](xevent-code-event-file.md).
+
+The ring buffer target is convenient and easy to set up, but it does not persist events to storage and the ring buffer target is cleared when the XEvents trace is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. The ring buffer target is best suited to learning and short-term needs if you do not have the ability to set up an XEvents trace to an event file target immediately.
+
+The event file target persists deadlock graphs to a file so that they are available even after failovers. The event file target also allows you to capture more deadlock graphs without utilizing more memory in your database. The event file target is suitable for general long term use.
+
+# [Ring buffer target](#tab/ring-buffer)
+
+This sample code creates an XEvents trace which captures deadlock graphs in memory using the [ring buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target). The maximum memory allowed for the ring buffer target is 4MB, and the trace will automatically run when the database comes online, such as after a failover.
 
 To create and then start the trace, connect to your user database and run the following Transact-SQL:
 
@@ -138,18 +146,12 @@ ALTER EVENT SESSION [deadlocks] ON DATABASE
 GO
 ```
 
-While the ring buffer target is convenient, it does not persist events to storage, and the ring buffer target is cleared when the trace is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. Use the [Event File target code for extended events in Azure SQL Database](xevent-code-event-file.md) instead of the ring buffer to persist deadlock graphs to a file so that they are available even after failovers. The event file target also allows you to capture more deadlock graphs without utilizing more memory in your database.
+# [Event file target](#tab/event-file)
 
-When you no longer need to collect deadlock information, it is a best practice to stop and delete your XEvents trace. To stop and delete our example trace, you can run the following statements when desired:
 
-```sql
-ALTER EVENT SESSION [deadlocks] ON DATABASE
-    STATE = STOP;
-GO
+<!--todo: add content here -->
 
-DROP EVENT SESSION [deadlocks] ON DATABASE;
-GO
-```
+---
 
 ## Cause a deadlock in AdventureWorksLT
 
@@ -212,6 +214,8 @@ If you [set up deadlock alerts in the Azure portal](#set-up-deadlock-alerts-in-t
 
 If you have set up an [XEvents trace to collect deadlocks](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), you can view an interactive graphic display of the deadlock graph as well as the XML for the deadlock graph.
 
+# [Ring buffer target](#tab/ring-buffer)
+
 If you set up an XEvents trace named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL:
 
 ```sql
@@ -239,6 +243,13 @@ CROSS APPLY deadlock_xml_deadlock_report.nodes('(/event/data/value/deadlock/proc
 ORDER BY [deadlock_timestamp] DESC;
 GO
 ```
+
+# [Event file target](#tab/event-file)
+
+
+<!--todo: add content here -->
+
+---
 
 ### View and save a deadlock graph in XML
 
@@ -532,6 +543,29 @@ Find more ways to [minimize deadlocks in the Transaction locking and row version
 
 > [!NOTE]
 > In some cases, you may wish to [adjust the deadlock priority](/sql/t-sql/statements/set-deadlock-priority-transact-sql) of one or more sessions involved in a deadlock if it is important for one of the sessions to complete successfully without retrying, or when one of the queries involved in the deadlock is not critical and should be always chosen as the victim. While this does not prevent the deadlock from reoccurring, it may reduce the impact of future deadlocks.
+
+## Stop and remove XEvents traces
+
+You may wish to leave an XEvents trace collecting deadlock information running on critical databases for long periods. However, in cases where you wish to stop and and delete your XEvents trace, you can do so.
+
+# [Ring buffer target](#tab/ring-buffer)
+
+```sql
+ALTER EVENT SESSION [deadlocks] ON DATABASE
+    STATE = STOP;
+GO
+
+DROP EVENT SESSION [deadlocks] ON DATABASE;
+GO
+```
+
+# [Event file target](#tab/event-file)
+
+
+<!--todo: add content here -->
+
+---
+
 
 ## Next steps
 
