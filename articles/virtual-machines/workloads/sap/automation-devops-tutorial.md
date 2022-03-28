@@ -33,7 +33,7 @@ You'll perform the following tasks during this lab:
 > [!Note]
 > The free Azure account may not be sufficient to run the deployment.
 
-- A Service Principal with 'Contributor' permissions in the target subscriptions. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+- A Service Principal with 'Contributor' permissions in the target subscriptions. For more information, see [Prepare the deployment credentials](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
 - A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
 
