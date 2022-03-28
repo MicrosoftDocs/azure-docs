@@ -166,12 +166,18 @@
       href: edge-locations-by-region.md
     - name: Edge locations by abbreviation
       href: edge-locations-by-abbreviation.md
-  - name: Azure CLI
-    href: /cli/azure/afd/
-  - name: Azure PowerShell
-    href: /powershell/module/az.frontdoor
   - name: REST API
     href: /rest/api/frontdoor
+  - name: Python SDK
+    href: /python/api/azure-mgmt-cdn
+  - name: Go SDK
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
+  - name: Classic
+    items:
+    - name: Azure CLI
+      href: /cli/azure/afd/
+    - name: Azure PowerShell
+      href: /powershell/module/az.frontdoor
 - name: Resources
   items:
   - name: Azure Roadmap
