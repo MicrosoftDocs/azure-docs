@@ -29,7 +29,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. In the **Search** bar, type *mobile networks* and then select the **Mobile Networks** service from the results that appear.
 
-    :::image type="content" source="media/mobile-networks-search.png" alt-text="Screenshot of the Azure portal showing a search for the Mobile Networks service." lightbox="media/mobile-networks-search.png":::
+    :::image type="content" source="media/mobile-networks-search.png" alt-text="Screenshot of the Azure portal showing a search for the Mobile Networks service.":::
 
 1. On the **Mobile Networks** page, select **Create**.
 
@@ -69,8 +69,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 ## Next steps
 
-You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network. If you provisioned SIMs, you may also want to assign static IP addresses to them.  
+You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network.  
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
-- [Assign static IP addresses to SIMs](provision-sims-azure-portal.md#assign-static-ip-addresses)

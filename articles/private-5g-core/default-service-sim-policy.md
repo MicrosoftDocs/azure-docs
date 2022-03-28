@@ -1,6 +1,6 @@
 ---
 title: Default service and SIM policy
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: Information on the default service and SIM policy that can be created as part of deploying a private mobile network.
 author: djrmetaswitch
 ms.author: drichards

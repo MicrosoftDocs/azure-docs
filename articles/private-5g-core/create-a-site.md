@@ -71,7 +71,7 @@ In this step, you'll create the **Mobile Network Site** resource representing th
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
 
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-and-related-resources.png":::
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-related-resources.png":::
 
 ## Next steps
 
