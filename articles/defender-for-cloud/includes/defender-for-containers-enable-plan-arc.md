@@ -16,9 +16,7 @@ ms.date: 01/24/2022
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. To optionally modify the configuration, select *configure** from the configuration column.
-
-    :::image type="content" source="../media/defender-for-containers/defender-for-containers-provisioning-configuration.gif" alt-text="Viewing the configuration for Defender for Containers.":::
+1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. You can optionally [Configure the Containers plan](../quickstart-onboard-gcp.md#configure-the-containers-plan).
 
     You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
 
