@@ -103,12 +103,20 @@ Below are some general guidelines that you can follow to create a good corpus (r
    
    With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
-   > [!NOTE]
-   > The scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Check the scripts used for training against the recordings of your voice talent, to make sure they match.
-
 - Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
 - Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
+
+### Difference between script for voice talent and script for training
+
+The sample scripts we provided on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) are just defined for voice talent. If you use the sample scripts to upload for traning, you must normalize them in their spoken form. The scripts prepared for voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Make sure the scripts used for training match the recordings of your voice talent, especially scripts contaning digits, symbols, abbreviation, date, and time. We provide a few examples of text normalization rules and explain the difference between script for voice talent and script for training.
+
+| Category |Script for voice talent<br> (non-normalized) | Script for training <br> (normalized) |
+| --------- | --------- | --------------------------- |
+| Digits, for example, '123'. |'123'| Normalize '123' according to the recordings, such as 'one hundred and twenty-three' . |
+| Symbols, for example, '50%'. | '50%' | Normalize '50%' according to the recordings,  such as 'fifty percent'. |
+| Abbreviation, for example, 'ASAP'. | 'ASAP' | Normalize 'ASAP' according to the recordings, such as 'as soon as possible'. |
+| Date or time, for example, '2:30 PM'. | '2:30 PM' | Normalize '2:30 PM' according to the recordings, such as 'two thirty PM'. |
 
 ### Typical defects of a script
 
