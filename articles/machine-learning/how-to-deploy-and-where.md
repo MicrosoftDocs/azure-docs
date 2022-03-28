@@ -504,7 +504,7 @@ To delete a deployed webservice, use `az ml service delete <name of webservice>`
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ml(v1)/computetarget/create#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
+Read more about [deleting a webservice](/cli/azure/ml(v1)/computetarget/create#az-ml-service-delete) and [deleting a model](/cli/azure/ml/model#az-ml-model-delete).
 
 # [Python](#tab/python)
 
