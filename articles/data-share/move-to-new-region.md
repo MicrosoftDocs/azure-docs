@@ -4,7 +4,7 @@ description: Use Azure Resource Manager template to move Azure Data Share accoun
 ms.service: data-share
 ms.topic: how-to
 ms.date: 03/17/2022
-ms.author: sidontha
+ms.author: marodewa
 
 #Customer intent: As an Azure Data Share User, I want to move my Data Share account to a new region.
 ---
