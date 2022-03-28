@@ -18,7 +18,7 @@ Application gateway allows you to have an App Service app or other multi-tenant 
 - The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
 - The second option is to have Application Gateway access App Service using its **default domain**, suffixed as ".azurewebsites.net".
 
-## [Custom Domain (recommended)](#tab/customdomain)
+## [Custom domain (recommended)](#tab/customdomain)
 
 This configuration is recommended for production-grade scenarios and meets the practice of not changing the host name in the request flow.  You are required to have a custom domain (and associated certificate) available to avoid having to rely on the default ".azurewebsites" domain.
 
@@ -26,7 +26,7 @@ By associating the same domain name to both Application Gateway and App Service 
 
 :::image type="content" source="media/configure-web-app/scenario-application-gateway-to-azure-app-service-custom-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the same custom domain for both":::
 
-## [Default Domain](#tab/defaultdomain)
+## [Default domain](#tab/defaultdomain)
 
 This configuration is the easiest and does not require a custom domain.  As such it allows for a quick convenient setup.  
 
@@ -50,7 +50,7 @@ In this article you'll learn how to:
 
 ## Prerequisites
 
-### [Custom Domain (recommended)](#tab/customdomain)
+### [Custom domain (recommended)](#tab/customdomain)
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -58,7 +58,7 @@ In this article you'll learn how to:
 
 - A custom domain name and associated certificate (signed by a well known authority), stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
 
-### [Default Domain](#tab/defaultdomain)
+### [Default domain](#tab/defaultdomain)
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -69,10 +69,10 @@ In this article you'll learn how to:
 ## Configuring DNS
 
 In the context of this scenario, DNS is relevant in two places:
-1. the DNS name, which the user or client is using towards Application Gateway and what is shown in a browser
-2. the DNS name, which Application Gateway is internally using to access the App Service in the backend
+- The DNS name, which the user or client is using towards Application Gateway and what is shown in a browser
+- The DNS name, which Application Gateway is internally using to access the App Service in the backend
 
-### [Custom Domain (recommended)](#tab/customdomain)
+### [Custom domain (recommended)](#tab/customdomain)
 
 Route the user or client to Application Gateway using the custom domain.  Set up DNS using a CNAME alias pointed to the DNS for Application Gateway.  The Application Gateway DNS address is shown on the overview page of the associated Public IP address.  Alternatively create an A record pointing to the IP address directly.  (For Application Gateway V1 the VIP can change if you stop and start the service, which makes this option undesired.)
 
@@ -80,7 +80,7 @@ App Service should be configured so it accepts traffic from Application Gateway 
 
 To accept connections to App Service over HTTPS, configure its TLS binding.  For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  Configure App Service to pull the certificate for the custom domain from Azure Key Vault.
 
-### [Default Domain](#tab/defaultdomain)
+### [Default domain](#tab/defaultdomain)
 
 When no custom domain is available, the user or client can access Application Gateway using either the IP address of the gateway or its DNS address.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Not having a custom domain available implies that no publicly signed certificate will be available for TLS on Application Gateway. Clients are restricted to use HTTP or HTTPS with a self-signed certificate, both of which are undesired.
 
@@ -143,7 +143,9 @@ We will connect to the backend using HTTPS.
 3. Select HTTPS as the desired backend protocol using port 443
 4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
 5. Make sure to set "Override with new host name" to "No"
-6. Select the custom HTTPS health probe in the dropdown for "Custom probe".  (Note: it will work with the default probe but for correctness we recommend using a custom probe with the correct domain name.)
+6. Select the custom HTTPS health probe in the dropdown for "Custom probe".  
+   > [!Note] 
+   > It will work with the default probe but for correctness we recommend using a custom probe with the correct domain name.)
 
 :::image type="content" source="./media/configure-web-app/http-settings-custom-domain.png" alt-text="Configure H T T P Settings to use custom domain towards App Service backend using No Override":::
 
@@ -204,7 +206,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ---
 
-## Configure an HTTP Listener
+## Configure an HTTP listener
 
 To accept traffic we need to configure a Listener.  For more info on this see [Application Gateway listener configuration](configuration-listeners.md).
 
@@ -300,7 +302,7 @@ if ($listener -eq $null){
 ```
 
 ---
-## Configure Request Routing Rule
+## Configure request routing rule
 
 Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have an HTTP or HTTPS listener available that is not already bound to an existing routing rule.
 
@@ -438,5 +440,5 @@ The above conditions (explained in more detail in [Architecture Center](/azure/a
 
 The web apps deployed in these examples use public IP addresses that can be  accessed directly from the Internet. This helps with troubleshooting when you are learning about a new feature and trying new things. But if you intend to deploy a feature into production, you'll want to add more restrictions.  Consider the following options:
 
-1. Configure [Access restriction rules based on service endpoints](../app-service/networking-features.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
-2. Use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.
+- Configure [Access restriction rules based on service endpoints](../app-service/networking-features.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
+- Use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.
