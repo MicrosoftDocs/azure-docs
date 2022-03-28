@@ -22,6 +22,13 @@ By using NFS datastores backed by Azure NetApp Files you can expand your storage
 
 ## Prerequisites
 
+1.    Azure VMware Solution private cloud deployed with a [virtual network configured](/azure/azure-vmware/deploy-azure-vmware-solution). For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
+    a. Verify the subscription is registered to Microsoft.AVS 
+    `az provider show -n "Microsoft.AVS" -- query registrationState`
+    b. If it's not already registered, register it.
+        `az provider register -n "Microsoft.AVS"`
+1. Create a [Network File System (NFS) volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud.
+
 ## Delete an Azure NetApp Files datastore from your private cloud
 
 ## Next steps
