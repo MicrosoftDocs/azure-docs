@@ -17,7 +17,7 @@ Azure Blob Storage is Microsoft's massively scalable object storage solution for
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page]("/azure-functions/functions-overview).
 
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Upload images and files to Blob Storage
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Visual Studio 2022](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com) installed.
+- [Visual Studio 2022](https://visualstudio.microsoft.com) installed.
  
 
 ## 1) Create the storage account and container
@@ -39,9 +39,9 @@ The first step is to create the storage account that will hold the uploaded blob
 
 Sign in to the [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
 
-In the search bar at the top of the portal, search for *Storage* and select the result labeled **storage accounts**.
+In the search bar at the top of the portal, search for *Storage* and select the result labeled **Storage accounts**.
 
-On the **storage accounts** page, select **+ Create** in the top left.
+On the **Storage accounts** page, select **+ Create** in the top left.
 
 On the **Create a storage account** page, enter the following values:
 
@@ -54,18 +54,16 @@ On the **Create a storage account** page, enter the following values:
  
 :::image type="content" source="./media/blob-upload-storage-function/portal-storage-create-small.png" alt-text="A screenshot showing how create a storage account in Azure."  lightbox="media/blob-upload-storage-function/portal-storage-create.png":::
  
-Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the storage account, which make take a moment.
+Select **Review + Create** at the bottom and Azure will validate the information you entered.  Once the  settings are validated, choose **Create** and Azure will begin provisioning the storage account, which make take a moment.
 
 ### Create the container
-After the storage account is provisioned, select **Go to Resource**. We need to create a storage container inside of it to hold our uploaded images for analysis. 
+After the storage account is provisioned, select **Go to Resource**. We need to create a storage container inside of the account to hold uploaded images for analysis. 
 
-On the left navigation, choose **Containers**.
+On the navigation panel, choose **Containers**.
 
-:::image type="content" source="./media/blob-upload-storage-function/portal-storage-containers-small.png" lightbox="./media/blob-upload-storage-function/portal-storage-containers.png" alt-text="A screenshot showing how to navigate to the storage account containers." :::
+On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *imageanalysis*, and make sure the **Public access level** is set to **Blob (anonymous read access for blobs only**.  Then click **Create**.
 
-On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *ImageAnalysis*, and make sure the **Public access level** is set to **Blob (anonymous read access for blobs only**.  Then click **Create**.
-
-:::image type="content" source="./media/blob-upload-storage-function/portal-container-create.png" alt-text="A screenshot showing how to create a new storage container." :::
+:::image type="content" source="./media/blob-upload-storage-function/portal-container-create-small.png" alt-text="A screenshot showing how to create a new storage container." lightbox="media/blob-upload-storage-function/portal-storage-container-create.png":::
 
 You should see your new container appear in the list of containers.
 
@@ -75,9 +73,9 @@ The last step is to retrieve our connection string for the storage account.
 
 On the left navigation panel, select **Access Keys**.
 
-On the **Access Keys page**, select **Show keys**.  Copy the value of the **Connection String** under the key1 section and paste this somewhere to use for later.  You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well.
+On the **Access Keys page**, select **Show keys**.  Copy the value of the **Connection String** under the **key1** section and paste this somewhere to use for later.  You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well.
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-account-access.png" alt-text="A screenshot showing how to create a new storage container." :::
+:::image type="content" source="./media/blob-upload-storage-function/storage-account-access-small.png" alt-text="A screenshot showing how to access the storage container." lightbox="media/blob-upload-storage-function/portal-storage-access.png":::
 
 These values will be necessary when we need to connect our Azure Function to this storage account.
 
@@ -97,7 +95,7 @@ az storage container create --name imageanalysis --account-name msdocsstorageacc
 
 You may need to wait a few moments for Azure to provision these resources.
 
-After the commands complete, we also need to retrieve the connection string for our storage account.  This will be used later to connect our Azure Function to the storage account.
+After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string will be used later to connect our Azure Function to the storage account.
 
 ```azurecli-interactive
 az storage account show-connection-string -g msdocs-storage-function -n msdocsstoragefunction
@@ -108,7 +106,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 ---
 
 ## 2) Create the Computer Vision service
-Next, let's create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/services/cognitive-services/computer-vision/#overview).
+Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/services/cognitive-services/computer-vision/#overview).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -119,7 +117,7 @@ On the **Computer vision** page, select **+ Create**.
 On the **Create Computer Vision** page, enter the following values:
 
  1) **Subscription**: Choose your desired Subscription.
- 1) **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier..
+ 1) **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier.
  1) **Region**: Select the region that is closest to you.
  1) **Name**: Enter in a name of `msdocscomputervision`.
  1) **Pricing Tier**: Choose **Free** if it is available, otherwise choose **Standard S1**.
