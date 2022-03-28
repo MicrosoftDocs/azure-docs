@@ -387,7 +387,7 @@ sections:
 
           - Form Recognizer connected containers send billing information to Azure using a Form Recognizer resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
 
-          - [Disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use APIs disconnected from the internet. [Billing information](../../containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet, instead you're charged based upon a purchased commitment tier. Currently, disconnected container usage is available for Form Recognizer custom and invoice models. The model capabilities provided in connected and disconnected containers are the same and supported by Form Recognizer v2.1.
+          - [Disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use APIs disconnected from the internet. [Billing information](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet, instead you're charged based upon a purchased commitment tier. Currently, disconnected container usage is available for Form Recognizer custom and invoice models. The model capabilities provided in connected and disconnected containers are the same and supported by Form Recognizer v2.1.
 
       - question: |
           What data do connected containers send to the cloud?
