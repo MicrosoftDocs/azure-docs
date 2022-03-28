@@ -29,7 +29,7 @@
     items:
     - name: What is an ontology?
       href: concepts-ontologies.md
-    - name: Adopting industry-standard ontologies
+    - name: Adopting DTDL-based industry ontologies
       href: concepts-ontologies-adopt.md
     - name: Converting ontologies
       href: concepts-ontologies-convert.md
@@ -134,15 +134,15 @@
   - name: Monitor and troubleshoot
     items:
     - name: Metrics
-      href: troubleshoot-metrics.md
+      href: how-to-monitor-metrics.md
     - name: Diagnostics logs
-      href: troubleshoot-diagnostics.md
+      href: how-to-monitor-diagnostics.md
     - name: Alerts
-      href: troubleshoot-alerts.md
-    - name: Performance
-      href: troubleshoot-performance.md
+      href: how-to-monitor-alerts.md
     - name: Resource health
-      href: troubleshoot-resource-health.md
+      href: how-to-monitor-resource-health.md
+    - name: Troubleshoot performance
+      href: troubleshoot-performance.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
@@ -321,6 +321,8 @@
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: 'Microsoft Learn: Extend IoT solutions by using Azure Digital Twins'
     href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+  - name: 'Microsoft Learn: Set up a mixed reality project for Azure Digital Twins in Unity'
+    href: /learn/modules/set-up-mixed-reality-azure-digital-twins-unity/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

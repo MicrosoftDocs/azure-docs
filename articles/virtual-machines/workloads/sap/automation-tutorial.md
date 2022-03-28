@@ -226,7 +226,8 @@ The SAP automation deployment framework uses service principals for deployment. 
     export appId="<appId>"
 
     az role assignment create --assignee ${appId} \
-      --role "User Access Administrator"
+      --role "User Access Administrator" \
+      --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
     ```
 
 

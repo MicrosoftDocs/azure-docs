@@ -10,6 +10,11 @@
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
 
+- name: Security posture management
+  items:
+  - name: Zero Trust
+    href: zero-trust.md
+
 - name: Detect and mitigate threats
   items:
   - name: Protect against ransomware and extortion 
@@ -131,6 +136,8 @@
     href: key-management.md
   - name: Double encryption
     href: double-encryption.md
+  - name: Sunset for SHA-1 OCSP signing
+    href: ocsp-sha-1-sunset.md
   - name: TLS certificate changes
     href: tls-certificate-changes.md
   - name: Disk encryption

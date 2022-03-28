@@ -20,7 +20,7 @@ This article shows you how to do the basic steps for delivering a basic video on
 - [Create a Media Services account](account-create-how-to.md). When you set up the Media Services account, a storage account, a user managed identity, and a default streaming endpoint will also be created.
 - One MP4 video to use for this exercise.
 - Create a GitHub account if you don't have one already, and stay logged in.
-- Create an Azure [Static Web App](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript).
+- Create an Azure [Static Web App](../../static-web-apps/get-started-portal.md?tabs=vanilla-javascript).
 
 > [!NOTE]
 > You will be switching between several browser tabs or windows during this process. The below steps assume that you have your browser set to open tabs.  Keep them all open.

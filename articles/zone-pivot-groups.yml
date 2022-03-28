@@ -1618,16 +1618,16 @@ groups:
   - id: iot-toolset-stm32cube
     title: STM32Cube IDE
 # Owner: v-amallick
-- id: backup-client-powershelltier-clitier-portaltier
+- id: backup-client-portaltier-powershelltier-clitier
   title: Clients
   prompt: Choose a client
   pivots:
+  - id: client-portaltier
+    title: Azure portal
   - id: client-powershelltier
     title: PowerShell
   - id: client-clitier
     title: CLI
-  - id: client-portaltier
-    title: Azure portal
 # Owner: prakulka
 - id: acs-tollfree-shortcode
   title: Number Type
@@ -1678,12 +1678,12 @@ groups:
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
-  prompt: Select the Azure Front Door tier
+  prompt: "Select the Azure Front Door tier:"
   pivots:
-  - id: front-door-classic
-    title: Front Door
   - id: front-door-standard-premium
     title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -1711,3 +1711,22 @@ groups:
     title: PowerShell
   - id: graph-hrd
     title: Graph
+# Owner: juliakm
+- id: pipelines-version
+  title: Pipelines version
+  prompt: Choose a Pipelines version
+  pivots:
+  - id: pipelines-yaml
+    title: YAML
+  - id: pipelines-classic
+    title: Classic
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift
+  title: ARM and Bicep-OpenShift
+  prompt: Choose an option
+  pivots:
+  - id: aro-arm
+    title: Azure Resouce Manager
+  - id: aro-bicep
+    title: Bicep   
+

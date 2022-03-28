@@ -105,7 +105,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
     ```
 
 > [!IMPORTANT]
->  If your existing virtual network is already connected to an ExpressRoute circuit, you'll need to delete and recreate the ExpressRoute connection after applying the custom BGP community value. See [link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md), to learn how.
+>  If your virtual network is peered with other virtual networks, you'll need to delete and recreate each vnet peering after applying the custom BGP community value. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how.
 >
 
 ## Next steps

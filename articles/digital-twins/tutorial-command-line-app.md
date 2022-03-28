@@ -96,21 +96,9 @@ Rerun the `CreateModels` command to try re-uploading one of the same models you 
 CreateModels Room
 ```
 
-As models cannot be overwritten, this command will now return a service error.
+As models cannot be overwritten, this command will now return a service error indicating that some of the model IDs you are trying to create already exist.
+ 
 For the details on how to delete existing models, see [Manage DTDL models](how-to-manage-model.md).
-```cmd/sh
-Response 409: Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Could not add model dtmi:example:Room;2 as it already exists. Use Model_List API to view models that already exist. See the Swagger example.(http://aka.ms/ModelListSwSmpl)"}}
-
-Headers:
-Strict-Transport-Security: REDACTED
-Date: Wed, 20 May 2020 00:53:49 GMT
-Content-Length: 223
-Content-Type: application/json; charset=utf-8
-```
 
 ## Create digital twins
 
