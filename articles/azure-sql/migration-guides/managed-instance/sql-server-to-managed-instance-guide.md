@@ -152,14 +152,15 @@ activities to the platform as they are built in. Therefore, some instance-level 
 need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as 
 [high availability](../../database/high-availability-sla.md) is built in.
 
-SQL Managed Instance supports the following database migration options (currently these are the 
-only supported migration methods):
+This article covers two of the recommended migration options: 
 
 - Azure Database Migration Service - migration with near-zero downtime.
 - Native `RESTORE DATABASE FROM URL` - uses native backups from SQL Server and requires some 
 downtime.
 
-This guide describe the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
+This guide describes the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
+
+For other migration tools, see [Compare migration options](sql-server-to-managed-instance-migration-overview.md#compare). 
 
 ### Database Migration Service
 
@@ -233,15 +234,6 @@ To learn more about this migration option, see [Restore a database to Azure SQL 
 > [!NOTE]
 > A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
 
-## Migation tools
-
-While using [Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md), or [native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) to migrate a database to Managed Instance, consider as well the following migration tools:
-
-|Migration option  |When to use  |Considerations  |
-|---------|---------|---------|
-|[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | - Migrate single databases or multiple databases at scale. </br> - Can run in both online (minimal downtime) and offline (acceptable downtime) modes. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Easy to setup and get started. </br> - Requires setup of self-hosted integration runtime to access on-premises SQL Server and backups. </br> - Includes both assessment and migration capabilities. |
-|[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> </br> Supported sources: </br> - SQL Server (2008 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - The migration entails making full database backups on SQL Server and copying backup files to Azure Blob Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance. </br> - Databases being restored during the migration process will be in a restoring mode and can't be used to read or write until the process has finished.| 
-|[Link feature for Managed Instance](../../managed-instance/managed-instance-link-feature-overview.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> - Minimum downtime migration is needed.  </br> </br> Supported sources: </br> - SQL Server (2016 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - GCP Compute SQL Server VM | - The migration entails establishing a VPN connectivity between SQL Server and Managed Instance, and opening inbound communication ports. </br> - Always On technology is used to replicate database near real-time, making an exact replica of SQL Server database on Managed Instance. </br> - Database can be used for R/O access on Managed Instance while migration is in progress. </br> - Provides the best performance minimum downtime migration. | 
 
 ## Data sync and cutover
 
