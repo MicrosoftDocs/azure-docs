@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 03/28/2022
 ms.author: danlep
 ---
 
@@ -17,7 +17,7 @@ API Management provides the ability to configure email notifications for specifi
 
 ## Prerequisites
 
-If you do not have an API Management service instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+If you don't have an API Management service instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -42,14 +42,14 @@ If you do not have an API Management service instance, complete the following qu
 
 1. Select a notification, and specify one or more email addresses to be notified:
     * To add the administrator email address, select **+ Add admin**.
-    * To add another email address, select **+ Add**, enter an email address, and select **Add**. 
+    * To add another email address, select **+ Add email**, enter an email address, and select **Add**. 
     * Continue adding email addresses as needed.
 
     :::image type="content" source="media/api-management-howto-configure-notifications/api-management-email-addresses.png" alt-text="Screenshot showing how to add notification recipients in the portal":::
 
 ## <a name="email-templates"> </a>Configure notification templates
 
-API Management provides notification templates for the adminitrative email messages that are sent automatically to developers when they access and use the service. The following notification templates are provided:
+API Management provides notification templates for the administrative email messages that are sent automatically to developers when they access and use the service. The following notification templates are provided:
 
 -   (Deprecated) Application gallery submission approved
 -   Developer farewell letter
@@ -80,6 +80,22 @@ To view and configure a notification template in the portal:
     * To insert a parameter, place the cursor where you wish the parameter to go, and select the parameter name.
 
 1. To save the changes to the email template, select **Save**, or to cancel the changes select **Discard**.
+
+## Configure email settings
+
+You can modify general e-mail settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notification, and the originating email address.
+
+To modify email settings:
+
+1. In the left menu, select **Notification templates**.
+1. Select **E-mail settings**.
+1. On the **General email settings** page, enter values for:
+    * **Administrator email** - the email address to receive all system notifications and other configured notifications
+    * **Organization name** - the name of your organization for use in the developer portal and notifications 
+    * **Originating email address** - The value of the `From` header for notifications from the API Management instance. API Management sends notifications on behalf of this originating address.
+
+        :::image type="content" source="media/api-management-howto-configure-notifications/configure-email-settings.png" alt-text="Screenshot of API Management email settings in the portal":::
+1. Select **Save**.
 
 ## Next steps
 
