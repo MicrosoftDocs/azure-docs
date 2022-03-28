@@ -12,7 +12,7 @@ ms.date: 3/11/2022
 
 In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You will also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
-Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page]("/storage/blobs/storage-blobs-introduction).
+Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page]("/storage/blobs/storage-blobs-introduction).
 
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page]("/azure-functions/functions-overview).
 
@@ -47,7 +47,7 @@ On the **Create a storage account** page, enter the following values:
 
  1) **Subscription**: Choose your desired subscription.
  2) **Resource Group**: Select **Create new** and enter a name of `msdocs-storage-function`, and then choose **OK**.
- 3) **Storage account name**: Enter a value of `msdocsstoragefunction`.
+ 3) **Storage account name**: Enter a value of `msdocsstoragefunction`. The Storage account name must be unique across Azure.
  4) **Region**: Select the region that is closest to you.
  5) **Performance**: Choose **Standard**.
  6) **Redundancy**: Leave the default value selected.
@@ -67,7 +67,7 @@ On the **Containers** page, select **+ Container** at the top. In the slide out 
 
 You should see your new container appear in the list of containers.
 
-## Retrieve the connection string
+### Retrieve the connection string
 
 The last step is to retrieve our connection string for the storage account. 
 
@@ -185,9 +185,9 @@ The sample project code accomplishes the following tasks:
 
 Once you have downloaded and opened the project, there are a few essential concepts to understand in the main `Run` method shown below. The Azure function utilizes Trigger and Output bindings, which are applied using attributes on the `Run` method signature. 
 
-The `Table` attribute uses two parameters.  The first parameter specifies the name of the table to write the parsed image text value returned by the function. The second Connection parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
+The `Table` attribute uses two parameters.  The first parameter specifies the name of the table to write the parsed image text value returned by the function. The second `Connection` parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
 
-The `BlobTrigger` attribute is used to bind our function to the upload event in Blob Storage, and supplies that uploaded blob to the `Run` function.  The Blob Trigger has two parameters of its own - one for the name of the blob container to monitor for uploads, and one for the Connection String of our storage account again.
+The `BlobTrigger` attribute is used to bind our function to the upload event in Blob Storage, and supplies that uploaded blob to the `Run` function.  The blob trigger has two parameters of its own - one for the name of the blob container to monitor for uploads, and one for the connection string of our storage account again.
 
 
 ```csharp
@@ -218,7 +218,7 @@ public class ImageContent
 }
 ```
 
-This code also retrieves essential configuration values from environment variables, such as the storage account connection string and Computer Vision key. We'll add these Environment variables to our Azure Function environment after it's deployed.
+This code also retrieves essential configuration values from environment variables, such as the storage account connection string and Computer Vision key. We'll add these environment variables to our Azure Function environment after it's deployed.
 
 The `ProcessImage` function also utilizes a second method called `AnalyzeImage`, seen below.  This code uses the URL Endpoint and Key of our Computer Vision account to make a request to that server to process our image.  The request will return all of the text discovered in the image, which will then be written to Table Storage using the output binding on the `Run` method.
 
@@ -258,7 +258,7 @@ Although the Azure Function code will run locally, it will still connect to the 
 
 ## 4) Deploy the code to Azure Functions
 
-We are now ready to deploy our application to Azure by using Visual Studio.  We can also create the Azure Functions app in Azure at the same time as part of the deployment process.
+You are now ready to deploy our application to Azure by using Visual Studio.  You can also create the Azure Functions app in Azure at the same time as part of the deployment process.
 
 To begin, right click on the **ProcessImage** project node and select **Publish**.
 
@@ -287,7 +287,7 @@ Once you have filled in all of those values, click **Create**. Visual Studio and
 
 Once the process has finished, click **Finish** to close out the dialog workflow.
 
-The final step to deploy our Azure Function is to click **Publish** in the upper right of the screen. This may also takes a few moments to complete.  Once it finishes, your application will be running out on Azure.
+The final step to deploy the Azure Function is to click **Publish** in the upper right of the screen. Publishing the function may take a few moments to complete.  Once it finishes, your application will be running on Azure.
 
 ## 5) Connect the services
 
@@ -346,7 +346,7 @@ At the top of the **ImageAnalysis** page, select  **Upload**.  In the flyout tha
 
 :::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to a storage container." :::
 
-The file should appear inside of your blob container. Next we need to verify that the upload triggered our Azure Function, and that our the text in our image was analyzed and saved to table storage properly.
+The file should appear inside of your blob container. Next we need to verify that the upload triggered our Azure Function, and that our the text in our image was analyzed and saved to Table Storage properly.
 
 Using the breadcrumbs at the top of the page, navigate up one level in your storage account.  Locate and select **Storage browser** on the left nav, and then click on **Tables**.
 
@@ -364,7 +364,7 @@ If you're not going to continue to use this application, you can delete the reso
 1) Select **Resource groups** from the main navigation
 1) Select the `msdocs-storage-function` resource group from the list.
 2) Select the **Delete resource group** button at the top of the resource group overview page.
-3) Enter the resource group name *msdocs-storage-function* in the Are you sure you want to delete *msdocs-storage-function* confirmation dialog.
+3) Enter the resource group name *msdocs-storage-function* in the confirmation dialog.
 4) Select Delete.
 The process to delete the resource group may take a few minutes to complete.
 
