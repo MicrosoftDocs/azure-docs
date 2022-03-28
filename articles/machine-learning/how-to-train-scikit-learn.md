@@ -27,7 +27,7 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 Use compute instance, or use your own Jupyter Notebook:
 
  - Compute instance
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance.
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository. 
     - Select the notebook tab in your azure portal. In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
     - You will use the pre-populated code in the sample training folder to complete this tutorial.
 
