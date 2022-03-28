@@ -210,7 +210,7 @@ Using managed identities requires you to deploy your app to an Azure service. Ma
 
 :::zone target="docs" pivot="framework-spring"
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java?tabs=javase&pivots=platform-linux).
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java).
 
 :::zone-end
 
