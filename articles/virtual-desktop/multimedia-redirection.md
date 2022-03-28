@@ -44,7 +44,7 @@ To use MMR for Teams live events:
 
 The following screenshot highlights the areas described in the previous steps:
 
-:::image type="content" source="/media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
+:::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
 ## Requirements
 
