@@ -36,7 +36,7 @@ Use the following steps to build a Power BI report from Azure Cosmos DB data in 
 
    * If you already enabled Synapse Link on some containers, you will see the checkbox next to the container name is selected. You may optionally deselect them, based on the data you'd like to visualize in Power BI.
 
-   * If Synapse Link is not enabled, you can do enable this on your existing containers. 
+   * If Synapse Link is not enabled, you can enable this on your existing containers. 
 
      If enabling Synapse Link is in progress on any of the containers, the data from those containers will not be included. You should come back to this tab later and import data when the containers are enabled.
 
