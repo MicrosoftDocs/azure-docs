@@ -21,3 +21,7 @@ Container Apps support the following probes:
 - [Startup](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes): Delay reporting on a liveness state for slower apps with a startup probe.
 - [Readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes): Signals that a replica is ready to accept traffic.
 
+## Restrictions
+
+- You can only add one of each probe type per container app.
+- exec probes are not supported.
