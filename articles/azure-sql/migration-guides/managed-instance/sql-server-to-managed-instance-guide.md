@@ -160,7 +160,7 @@ downtime.
 
 This guide describes the two most popular options - Azure Database Migration Service (DMS) and native backup and restore.
 
-For other migration tools, see [Compare migration options](sql-server-to-managed-instance-overview.md#compare). 
+For other migration tools, see [Compare migration options](sql-server-to-managed-instance-overview.md#compare-migration-tools). 
 
 ### Database Migration Service
 
