@@ -40,9 +40,11 @@
   - name: Query language
     href: concepts-query-language.md
   - name: Query Units
-    href: concepts-query-units.md
-  - name: Querying with Azure Data Explorer
-    href: concepts-data-explorer-plugin.md   
+    href: concepts-query-units.md 
+  - name: Data history (with Azure Data Explorer) (preview)
+    href: concepts-data-history.md
+  - name: Querying with the Azure Data Explorer plugin
+    href: concepts-data-explorer-plugin.md
   - name: Developer interfaces
     items:
     - name: Azure Digital Twins Explorer
@@ -127,10 +129,12 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Integrate with Azure Maps
-      href: how-to-integrate-maps.md
+    - name: Use data history (preview) with Azure Data Explorer
+      href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
+    - name: Integrate with Azure Maps
+      href: how-to-integrate-maps.md
   - name: Monitor and troubleshoot
     items:
     - name: Metrics

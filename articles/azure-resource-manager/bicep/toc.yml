@@ -264,6 +264,8 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+  - name: Contribute to Bicep
+    href: contribute.md
 - name: Reference
   items:
   - name: Resource reference
