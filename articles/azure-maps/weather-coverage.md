@@ -44,23 +44,11 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 - **Current Conditions**. The [Get Current Conditions](/rest/api/maps/weather/get-current-conditions) service returns detailed current weather conditions such as precipitation, temperature and wind for a given coordinate location.
 - **Daily Forecast**. The [Get Daily Forecast](/rest/api/maps/weather/get-current-air-quality) service returns detailed weather forecasts such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location.
 - **Daily Indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
-- **Historical Weather**. The Historical Weather service includes [Daily Historical Records][dh-records], [Daily Historical Actuals][dh-actuals] and [Daily Historical Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
+- **Historical Weather**. The Historical Weather service includes Daily Historical [Records][dh-records], [Actuals][dh-actuals] and [Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
 - **Hourly Forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
 - **Quarter-day Forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
 - **Tropical Storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
 - **Weather Along Route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
-
-<!--{No links, just list what is returned.
-- **Air Quality**. The [Get Current Air Quality](/rest/api/maps/weather/get-current-air-quality) service returns pollution levels, air quality index values, the dominant pollutant, and a brief statement summarizing risk level and suggested precautions.
-- **Current Conditions**. The [Get Current Conditions](/rest/api/maps/weather/get-current-conditions) service returns detailed current weather conditions such as precipitation, temperature and wind for a given coordinate location
-- **Daily Forecast**. The [Get Daily Forecast](/rest/api/maps/weather/get-current-air-quality) service returns detailed weather forecasts such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location.
-- **Daily Indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
-- **Historical Weather**. The [Get Daily Historical Records](/rest/api/maps/weather/get-daily-historical-records) service returns climatology data such as past daily record temperatures, precipitation and snowfall.
-- **Hourly Forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
-- **Quarter-day Forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
-- **Tropical Storms**. The [Get Tropical Storm Forecast](/rest/api/maps/weather/get-tropical-storm-forecast) Service returns individual government-issued tropical storm forecasts.
-- **Weather Along Route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (one kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
--->
 
 ## Azure Maps Weather coverage tables
 
