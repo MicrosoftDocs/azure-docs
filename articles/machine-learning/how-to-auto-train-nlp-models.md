@@ -70,7 +70,7 @@ For multi-class classification, the dataset can contain several text columns and
 text,labels
 "I love watching Chicago Bulls games.","NBA"
 "Tom Brady is a great player.","NFL"
-"There is a game between Yankees and Orioles tonight","NFL"
+"There is a game between Yankees and Orioles tonight","MLB"
 "Stephen Curry made the most number of 3-Pointers","NBA"
 ```
 
@@ -152,14 +152,18 @@ NER only | - The file should not start with an empty line <br> - Each line must 
 
 Automated ML's NLP capability is triggered through `AutoMLConfig`, which is the same workflow for submitting automated ML experiments for classification, regression and forecasting tasks. You would set most of the parameters as you would for those experiments, such as `task`, `compute_target` and data inputs. 
 
-However, there are key differences include: 
+However, there are key differences: 
 * You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
+* If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your `AutoMLConfig`. Doing so, helps improve model performance but requires a longer training times.
+   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
+   * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 
 
 ```python
 automl_settings = {
     "verbosity": logging.INFO,
+    "enable_long_range_text": True, # # You only need to set this parameter if you want to enable the long-range text setting
 }
 
 automl_config = AutoMLConfig(

@@ -25,7 +25,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 **Type:** New feature
 
-Azure Automation can send runbook job status and job streams to your Log Analytics workspace. Read [here](automation-manage-send-joblogs-log-analytics.md) for more information.
+Azure Automation can send diagnostic audit logs in addition to runbook job status and job streams to your Log Analytics workspace. Read [here](automation-manage-send-joblogs-log-analytics.md) for more information.
 
 ## February 2022
 
