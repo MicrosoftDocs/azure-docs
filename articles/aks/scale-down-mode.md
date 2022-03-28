@@ -25,7 +25,6 @@ This article assumes that you have an existing AKS cluster and the latest versio
 ### Limitations
 
 - [Ephemeral OS][ephemeral-os] disks aren't supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a cluster or node pool.
-- [Spot node pools][spot-node-pool] aren't supported.
 
 ## Using Scale-down Mode to deallocate nodes on scale-down
 
