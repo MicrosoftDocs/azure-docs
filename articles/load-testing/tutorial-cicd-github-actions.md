@@ -82,7 +82,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
 
 1. Copy this JSON object, which you can use to authenticate from GitHub.
 
-1. Grant permissions to the service principal to create and run tests with Azure Load Testing. The Load Test Contributor role grants permissions to create, manage and run tests in an Azure Load Testing resource.
+1. Grant permissions to the service principal to create and run tests with Azure Load Testing. The **Load Test Contributor** role grants permissions to create, manage and run tests in an Azure Load Testing resource.
 
     First, retrieve the ID of the service principal object by running this Azure CLI command:
 
@@ -103,13 +103,13 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
 
 ### Configure the GitHub secret
 
-You'll add a GitHub secret to your repository for the service principal you created in the previous step. The Azure Login action uses this secret to authenticate with Azure.
+You'll add a GitHub secret **AZURE_CREDENTIALS** to your repository for the service principal you created in the previous step. The Azure Login action in the GitHub Actions workflow uses this secret to authenticate with Azure.
 
 1. In [GitHub](https://github.com), browse to your forked repository, select **Settings** > **Secrets** > **New repository secret**.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret.png" alt-text="Screenshot that shows selections for adding a new repository secret to your GitHub repo.":::
 
-1. Paste the JSON role assignment credentials that you copied previously, as the value of secret variable *AZURE_CREDENTIALS*.
+1. Paste the JSON role assignment credentials that you copied previously, as the value of secret variable **AZURE_CREDENTIALS**.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret-details.png" alt-text="Screenshot that shows the details of the new GitHub repository secret.":::
 
@@ -136,7 +136,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
-You've now authenticated with Azure from the GitHub. You'll now configure the CI/CD workflow to run a load test by using Azure Load Testing.
+You've now authorized your GitHub Actions workflow to access your Azure Load Testing resource. You'll now configure the CI/CD workflow to run a load test by using Azure Load Testing.
 
 ## Configure the GitHub Actions workflow to run a load test
 
