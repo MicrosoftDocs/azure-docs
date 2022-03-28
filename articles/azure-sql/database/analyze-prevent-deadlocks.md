@@ -334,19 +334,23 @@ If you [set up deadlock alerts in the Azure portal](#set-up-deadlock-alerts-in-t
 
 ## View deadlock graphs from an XEvents trace
 
-If you have set up an [XEvents trace to collect deadlocks](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events), you can view an interactive graphic display of the deadlock graph as well as the XML for the deadlock graph.
+If you have [set up an XEvents trace to collect deadlocks](#collect-deadlock-graphs-in-azure-sql-database-with-extended-events) and a deadlock has occurred after the trace was started, you can view an interactive graphic display of the deadlock graph as well as the XML for the deadlock graph.
+
+Different methods are available to obtain deadlock information for the ring buffer target and event file targets. Select the target you used for your Xevents trace:
 
 # [Ring buffer target](#tab/ring-buffer)
 
-If you set up an XEvents trace named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL:
+If you set up an XEvents trace named 'Deadlocks` writing to the ring buffer, you can query deadlock information with the following Transact-SQL. Before running the query, replace the value of `@tracename` with the name of your xEvents trace.
 
 ```sql
+declare @tracename sysname = N'deadlocks';
+
 with ring_buffer AS (
 	SELECT CAST(target_data AS XML) as rb
 	FROM sys.dm_xe_database_sessions AS s 
 	JOIN sys.dm_xe_database_session_targets AS t 
 		ON CAST(t.event_session_address AS BINARY(8)) = CAST(s.address AS BINARY(8))
-	WHERE s.name = N'Deadlocks' and
+	WHERE s.name = @tracename and
 	t.target_name = N'ring_buffer'
 ), dx AS (
 	SELECT 
@@ -368,8 +372,104 @@ GO
 
 # [Event file target](#tab/event-file)
 
+If you set up an XEvents trace writing to an event file, you can download files from the Azure portal and view them locally, or you can query event files with Transact-SQL. Downloading the files is recommended as this does not have any performance impact on your database.
 
-<!--todo: add content here -->
+### Download trace files from the Azure portal
+
+To view deadlock events that have been collected across multiple files, download the trace files to your local computer and view the files in SSMS.
+
+1. Navigate to the storage account hosting your container in the Azure Portal.
+1. Under **Data storage**, select **Containers**.
+1. Select the container holding your Xevent trace files.
+
+    If an Extended Events session is currently running and writing to an event file target, that target will have a **Lease state** of *Leased* in the Azure portal. The size will be the maximum size of the file. To download a smaller file, you may wish to stop and restart the Extended Events trace. This will cause the file to change its **Lease state** to *Available*, and the file size will be the space used by events in the file.
+    
+    To stop and restart an XEvents session, connect to your database and run the following Transact-SQL. Before running the code, replace the name of the xEvents session with the appropriate value.
+    
+    ```sql
+    ALTER EVENT SESSION [deadlocks_eventfile] ON DATABASE
+        STATE = STOP;
+    GO
+    ALTER EVENT SESSION [deadlocks_eventfile] ON DATABASE
+        STATE = START;
+    GO
+    ```
+
+1. If you have restarted an XEvents session, select **Refresh** in the container page in the Azure portal.
+1. For each file you wish to download, select **...**, then **Download**.
+1. To view files after downloading, navigate to the directory where you downloaded the files in Windows Explorer.
+1. Right-click each file and select **Open with**, then **SSMS**. This will open the XEvents viewer in SSMS.
+1. Navigate between events collected by selecting the relevant timestamp. To view the XML for a deadlock, double-click the `xml_report` row in the lower pane.
+
+### Query trace files with Transact-SQL
+
+To query XEvents trace files from an Azure Storage container with Transact-SQL, you must provide the exact file name for the trace file. 
+
+Run the following Transact-SQL to query the currently active XEvents trace file. Before running the query, replace `@tracename` with the name of your XEvents trace.
+
+```sql
+declare @tracename sysname = N'deadlocks_eventfile',
+	@filename nvarchar(2000);
+
+with eft as (SELECT CAST(target_data AS XML) as rb
+	FROM sys.dm_xe_database_sessions AS s 
+	JOIN sys.dm_xe_database_session_targets AS t 
+		ON CAST(t.event_session_address AS BINARY(8)) = CAST(s.address AS BINARY(8))
+	WHERE s.name = @tracename and
+	t.target_name = N'event_file'
+)
+SELECT @filename = ft.evtdata.value('(@name)[1]','nvarchar(1028)') 
+FROM eft
+CROSS APPLY rb.nodes('EventFileTarget/File') as ft(evtdata);
+
+with xevents AS (
+	SELECT cast(event_data as XML) as ed
+	FROM sys.fn_xe_file_target_read_file(@filename, null, null, null )
+), dx AS (
+	SELECT 
+		dxdr.evtdata.query('.') as deadlock_xml_deadlock_report
+	FROM xevents
+	CROSS APPLY ed.nodes('/event[@name=''database_xml_deadlock_report'']') AS dxdr(evtdata)
+) 
+SELECT 
+	d.query('/event/data[@name=''deadlock_cycle_id'']/value').value('(/value)[1]', 'int') AS [deadlock_cycle_id],
+	d.value('(/event/@timestamp)[1]', 'DateTime2') AS [deadlock_timestamp],
+	d.query('/event/data[@name=''database_name'']/value').value('(/value)[1]', 'nvarchar(256)') AS [database_name],
+	d.query('/event/data[@name=''xml_report'']/value/deadlock') AS deadlock_xml,
+	LTRIM(RTRIM(REPLACE(REPLACE(d.value('.', 'nvarchar(2000)'),CHAR(10),' '),CHAR(13),' '))) as query_text
+FROM dx
+CROSS APPLY deadlock_xml_deadlock_report.nodes('(/event/data/value/deadlock/process-list/process/inputbuf)') AS ib(d)
+ORDER BY [deadlock_timestamp] DESC;
+GO
+```
+
+To query non-active files, navigate to the Storage Account and container in the Azure portal to identify the filenames. 
+
+Run the following Transact-SQL query against your database to query a specific XEvents file. Before running the query, substitute the storage account name, container name, and filename in the URL for `@filename`:
+
+```sql
+declare @filename nvarchar(2000) = N'https://yourstorageaccountname.blob.core.windows.net/yourcontainername/yourfilename.xel';
+
+with xevents AS (
+	SELECT cast(event_data as XML) as ed
+	FROM sys.fn_xe_file_target_read_file(@filename, null, null, null )
+), dx AS (
+	SELECT 
+		dxdr.evtdata.query('.') as deadlock_xml_deadlock_report
+	FROM xevents
+	CROSS APPLY ed.nodes('/event[@name=''database_xml_deadlock_report'']') AS dxdr(evtdata)
+) 
+SELECT 
+	d.query('/event/data[@name=''deadlock_cycle_id'']/value').value('(/value)[1]', 'int') AS [deadlock_cycle_id],
+	d.value('(/event/@timestamp)[1]', 'DateTime2') AS [deadlock_timestamp],
+	d.query('/event/data[@name=''database_name'']/value').value('(/value)[1]', 'nvarchar(256)') AS [database_name],
+	d.query('/event/data[@name=''xml_report'']/value/deadlock') AS deadlock_xml,
+	LTRIM(RTRIM(REPLACE(REPLACE(d.value('.', 'nvarchar(2000)'),CHAR(10),' '),CHAR(13),' '))) as query_text
+FROM dx
+CROSS APPLY deadlock_xml_deadlock_report.nodes('(/event/data/value/deadlock/process-list/process/inputbuf)') AS ib(d)
+ORDER BY [deadlock_timestamp] DESC;
+GO
+```
 
 ---
 
