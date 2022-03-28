@@ -252,7 +252,7 @@ This section details additional appliances that were certified by Microsoft but 
 
 | Deployment type | Enterprise |
 |--|--|
-| Image | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-defender-for-iot-v2.png" alt-text="Enterprise deployment type."::: |
+| Image | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Enterprise deployment type."::: |
 | Model | Dell PowerEdge R340 XL |
 | Monitoring ports | Up to nine RJ45 or six OPT |
 | Max bandwidth [1](#anchortext2)| 1 Gb/sec |
