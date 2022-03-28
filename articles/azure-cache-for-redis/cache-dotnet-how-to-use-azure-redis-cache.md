@@ -49,19 +49,19 @@ Clone the repo from [(https://github.com/Azure-Samples/azure-cache-redis-samples
 ## Configure the cache client
 
 <!-- this section was removed from the core sample -->
-In this section, you configure the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
+In this section, you prepare the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
 
-In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
+1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
-```powershell
-Install-Package StackExchange.Redis
-```
-
-Once the installation is completed, the *StackExchange.Redis* cache client is available to use with your project.
+    ```powershell
+    Install-Package StackExchange.Redis
+    ```
+    
+1. Once the installation is completed, the *StackExchange.Redis* cache client is available to use with your project.
 
 ## Connect to the Secrets cache
 
-In Visual Studio, open your *App.config* file and update it to include an `appSettings` `file` attribute that references the *CacheSecrets.config* file.
+In Visual Studio, open your *App.config* file to verify it contains an `appSettings` `file` attribute that references the *CacheSecrets.config* file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -85,6 +85,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 
 ```
+
 The value of the *CacheConnection* appSetting is used to reference the cache connection string from the Azure portal as the password parameter.
 
 In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
@@ -102,55 +103,75 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ## Executing cache commands
 
-Add the following code for the `Main` procedure of the `Program` class for your console application:
+In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
 
 ```csharp
-    // Simple get and put of integral data types into the cache
-    string key = "Message";
-    string value = "Hello! The cache is working from a .NET console app!";
+private static async Task RunRedisCommandsAsync(string prefix)
+    {
+        // Simple PING command
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
+        RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
+        Console.WriteLine($"{prefix}: Cache response: {pingResult}");
 
-    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-    RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-    Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+        // Simple get and put of integral data types into the cache
+        string key = "Message";
+        string value = "Hello! The cache is working from a .NET console app!";
 
-    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
-    bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
-    Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+        RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
 
-    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-    getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-    Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
+        bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
+        Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
+
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+
+        // Store serialized object to cache
+        Employee e007 = new Employee("007", "Davide Columbo", 100);
+        stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
+
+        // Retrieve serialized object from cache
+        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
+        Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult);
+        Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
+        Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
+        Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
+        Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
+    }
 
 
 ```
-
-Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
 
 The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
-Press **Ctrl+F5** to build and run the console app.
+In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+### Work with .NET objects in the cache
 
-:::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Console app partial":::
+Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. 
 
-## Work with .NET objects in the cache
-
-Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
+This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
 One simple way to serialize objects is to use the `JsonConvert` serialization methods in `System.text.Json`.
 
-In this section, you  add a .NET object to the cache.
+Add the `System.text.Json` namespace to Visual Studio:
 
-In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
+1. Select **Tools** > **NuGet Package Manager** > *Package Manager Console**.
 
-```powershell
-Install-Package system.text.json
-```
+1. Then, run the following command from the Package Manager Console window.
+    ```powershell
+    Install-Package system.text.json
+    ```
+    
+<!-- :::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Console app partial"::: -->
 
-See the following `Employee` class definition to *Program.cs*:
+The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object :
 
 ```csharp
 class Employee
@@ -168,22 +189,7 @@ class Employee
 }
 ```
 
-At the bottom of `Main()` procedure in *Program.cs*, see the following lines of code to cache and retrieve a serialized .NET object:
-
-```csharp
-    // Store serialized object to cache
-    Employee e007 = new Employee("007", "Davide Columbo", 100);
-    stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
-    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
-
-    // Retrieve serialized object from cache
-    getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
-    Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult.ToString());
-    Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
-    Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
-    Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
-    Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
-```
+## Run the sample
 
 Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects.
 
