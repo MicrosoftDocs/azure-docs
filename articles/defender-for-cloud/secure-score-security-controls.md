@@ -49,10 +49,6 @@ The bottom half of the page allows you to view, and manage all of your individua
 
 :::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
 
-You can view the owners, and their overdue recommendations by selecting the owners tab.
-
-:::image type="content" source="media/secure-score-security-controls/owner-security.png" alt-text="Screenshot of the security posture page by owner.":::
-
 ## How your secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown on the recommendations page.
@@ -71,25 +67,25 @@ In this example:
 
 **Remediate vulnerabilities security control** - This control groups multiple recommendations related to discovering and resolving known vulnerabilities.
 
-:::image type="icon" source="media/secure-score-security-controls/max-score.png" border="false":::
+**Max score** - :::image type="icon" source="media/secure-score-security-controls/max-score.png" border="false":::
 
-**Max score** - The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.<br>For a list of all controls and their max scores, see [Security controls and their recommendations](#security-controls-and-their-recommendations).
+ The maximum number of points you can gain by completing all recommendations within a control. The maximum score for a control indicates the relative significance of that control and is fixed for every environment. Use the max score values to triage the issues to work on first.<br>For a list of all controls and their max scores, see [Security controls and their recommendations](#security-controls-and-their-recommendations).
 
-:::image type="icon" source="media/secure-score-security-controls/current-score.png" border="false":::
+**Current score** - :::image type="icon" source="media/secure-score-security-controls/current-score.png" border="false":::
 
-**Current score** - The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]. 
+The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]. 
 
 Each control contributes towards the total score. In this example, the control is contributing 2.00 points to current total secure score.
 
-:::image type="icon" source="media/secure-score-security-controls/potential-increase.png" border="false":::
+**Potential score increase** - :::image type="icon" source="media/secure-score-security-controls/potential-increase.png" border="false":::
 
-**Potential score increase** - The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.
+The remaining points available to you within the control. If you remediate all the recommendations in this control, your score will increase by 9%.
 
 For example, Potential score increase=[Score per resource]*[Number of unhealthy resources] or 0.1714 x 30 unhealthy resources = 5.14.
 
-:::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: 
+**Insights** - :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: 
 
-**Insights** - Gives you additional details for each recommendation. Which can be; 
+Gives you additional details for each recommendation. Which can be; 
 
 - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation will not affect your secure score until it's GA.
 
@@ -113,17 +109,13 @@ For example, Potential score increase=[Score per resource]*[Number of unhealthy 
 
 Only built-in recommendations have an impact on the secure score.
 
-Recommendations flagged as **Preview**, or as **Grace period** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 An example of a preview recommendation:
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
 
 You will know that a recommendation is in its grace period when you see the hour glass icon :::image type="icon" source="media/secure-score-security-controls/grace-period-icon.png" border="false":::.
-
-The grace period does not affect your overall score. However, if the recommendations are not resolved before the grace period is over, your score may drop.
-
-:::image type="content" source="media/secure-score-security-controls/grace-period-info-bubble.png" alt-text="Screenshot showing the information bubble with the warning that if grace period recommendations are not handled, your score may drop.":::
 
 ## Improve your secure score
 
