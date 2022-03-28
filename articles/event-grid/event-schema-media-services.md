@@ -399,7 +399,7 @@ The data object has the following properties:
 | `encoderPort` | string | Port of the encoder from where this stream is coming. |
 | `resultCode` | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes-reference.md).
+You can find the error result codes in [live Event error codes](/media-services/latest/live-event-error-codes-reference).
 
 ### LiveEventEncoderConnected
 
