@@ -674,14 +674,8 @@ items:
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
-      - name: About smart groups
-        href: alerts/alerts-smartgroups-overview.md
       - name: Manage alert instances
         href: alerts/alerts-managing-alert-instances.md
-      - name: Manage smart groups
-        href: alerts/alerts-managing-smart-groups.md
-      - name: Manage alert and smart group states
-        href: alerts/alerts-managing-alert-states.md
     - name: Alert API
       href: alerts/api-alerts.md
     - name: Troubleshoot alerts
@@ -760,6 +754,10 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
+    - name: Troubleshooting
+      items:
+      - name: Error retrieving data in Portal
+        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items: 
       - name: Overview

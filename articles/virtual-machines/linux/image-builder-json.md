@@ -258,7 +258,7 @@ Sets the source image an existing image version in an Azure Compute Gallery.
         } 
 ```
 
-The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) to list image versions.
+The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 
 ## Properties: buildTimeoutInMinutes
@@ -406,7 +406,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "type": "PowerShell",
              "name":   "<name>",  
              "scriptUri": "<path to script>",
-             "runElevated": "<true false>",
+             "runElevated": <true false>,
              "sha256Checksum": "<sha256 checksum>" 
         }, 	
         { 
@@ -414,7 +414,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
              "validExitCodes": "<exit code>",
-             "runElevated": "<true or false>" 
+             "runElevated": <true or false> 
          } 
      ], 
 ```

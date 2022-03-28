@@ -252,7 +252,7 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
 - An Azure storage account to use with your logic app for data and run history retention.
 
-  If you don't have this storage account, follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
+  If you don't have this storage account, follow the [steps to create a storage account](/cli/azure/storage/account#az-storage-account-create).
 
 <a name="check-environment-cli-version"></a>
 
