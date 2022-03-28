@@ -37,7 +37,7 @@ You'll learn how to:
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 * A GitHub account where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
 
-## Set up your repository
+## Set up the sample application repository
 
 To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application contains a GitHub Actions workflow definition to deploy the application on Azure and trigger a load test.
 
