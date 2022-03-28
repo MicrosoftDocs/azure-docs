@@ -17,7 +17,7 @@ When a video is indexed, Azure Video Analyzer for Media (formerly Video Indexer)
 
 You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website. 
 
-You can also use the Get Video Index API. If the response status is **OK**, you get a detailed JSON output as the response content.
+You can also use the Get Video Index API. If the response status is `OK`, you get a detailed JSON output as the response content.
 
 ![Screenshot of the Insights tab in Azure Video Analyzer for Media.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -43,7 +43,7 @@ To get insights produced by the API:
 - To retrieve the JSON file, call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
 - If you're interested in specific artifacts, call the [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
 
-  In the API call, specify the requested artifact type (for example, OCR, faces, or keyframes).
+  In the API call, specify the requested artifact type (for example, OCR, face, or keyframe).
 
 ## Root elements of the insights
 
@@ -83,7 +83,7 @@ To get insights produced by the API:
 }
 ```
 
-## Summarized insights
+## summarizedInsights
 
 This section shows a summary of the insights.
 
@@ -342,7 +342,7 @@ If faces (not animated characters) are present, Video Analyzer for Media uses th
 |`knownPersonId`|If it's a known person, the internal ID.|
 |`referenceId`|If it's a Bing celebrity, the Bing ID.|
 |`referenceType`|Currently, just Bing.|
-|`title`|If it's a celebrity, the person's title (for example, `Microsoft's CEO`).|
+|`title`|If it's a celebrity, the person's title. For example: `Microsoft's CEO`.|
 |`imageUrl`|If it's a celebrity, the image URL.|
 |`instances`|Instances of where the face appeared in the time range. Each instance also has a `thumbnailsIds` value. |
 
@@ -380,7 +380,7 @@ If faces (not animated characters) are present, Video Analyzer for Media uses th
 |Name|Description|
 |---|---|
 |`id`|The label's ID.|
-|`name`|The label's name (for example, `Computer` or `TV`).|
+|`name`|The label's name. For example: `Computer` or `TV`.|
 |`language`|The language of the label's name (when translated), in the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |`instances`|A list of time ranges where this label appeared. (A label can appear multiple times.) Each instance has a confidence field. |
 
