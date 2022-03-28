@@ -140,7 +140,7 @@ Azure Backup is now providing an [enhanced pre-script and post-script framework]
 
 ## VLDB considerations
 
-Backup strategies for Very large databases (VLDB) require careful consideration due to their size. Using RMAN to backup to Azure Blob or Azure Files storage may not provide the required throughput to backup a VLDB in the target time frame. RMAN incremental backup can be used to reduce backup sizes which may allow Azure Storage to be used as the backup medium for VLDB's, however for VLDB's with high volumes of changes this might not be effective. 
+Backup strategies for Very large databases (VLDB) require careful consideration due to their size. Using RMAN to back up to Azure Blob or Azure Files storage may not provide the required throughput to backup a VLDB in the target time frame. RMAN incremental backup can be used to reduce backup sizes which may allow Azure Storage to be used as the backup medium for VLDB's, however for VLDB's with high volumes of changes this might not be effective. 
 
 Using Azure services that provide snapshot capabilities such as Azure Backup service or Azure NetApp Files (ANF) is the recommended approach for VLDB's. Application consistent snapshots, where the databases are automatically placed in and out of backup mode, take only seconds to create regardless of the size of the database.
 
