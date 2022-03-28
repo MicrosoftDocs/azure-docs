@@ -97,7 +97,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     
     1. For **Disk encryption set name**, enter a name for the set.
 
-    1. For **Region**, select an available region. 
+    1. For **Region**, select an available Azure region. 
 
     1. For **Encryption type**, select **Confidential disk encryption with a customer-managed key**.
 
