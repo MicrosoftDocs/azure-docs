@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 03/24/2022
 ms.reviewer: cynthn
 
---
+---
 
 # Store and share resources in an Azure Compute Gallery
 
