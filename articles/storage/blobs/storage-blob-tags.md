@@ -1,6 +1,6 @@
 ---
 title: Use blob index tags to find data in Azure Blob Storage (.NET)
-description: Learn how to categorize, manage, and query for blob objects by using using the .NET client library.  
+description: Learn how to categorize, manage, and query for blob objects by using the .NET client library.  
 services: storage
 author: normesta
 
@@ -89,7 +89,7 @@ You can use index tags to find and filter data if your code has authorized acces
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
 
-You can  by using either of the following methods: 
+You can find data by using either of the following methods: 
 
 - [FindBlobsByTags](/dotnet/api/azure.storage.blobs.blobserviceclient.findblobsbytags)
 - [FindBlobsByTagsAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.findblobsbytagsasync)
