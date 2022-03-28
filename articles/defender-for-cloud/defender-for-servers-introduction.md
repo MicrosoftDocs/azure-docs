@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for servers.
-ms.date: 03/08/2022
+ms.date: 03/28/2022
 ms.topic: overview
 ms.author: benmansheim
 author: bmansheim
@@ -19,6 +19,47 @@ To protect machines in hybrid and multi-cloud environments, Defender for Cloud u
 > [!TIP]
 > For details of which Defender for servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
 
+## What are the Defender for server plans?
+
+Microsoft Defender for servers adds threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, on-premises, or in a multi-cloud environment. Two plans are available to enhance the security features that Microsoft Defender for Cloud provides:
+
+- [**Microsoft Defender for servers Plan 1**](defender-for-servers-introduction.md#defender-for-servers-plan-1-for-microsoft-defender-for-endpoint) - adds support for Microsoft Defender for Endpoint optimized for cloud workloads with:
+    - Per hour licensing to lower costs for protecting virtual machines
+    - Automatic deployment to cloud workloads
+    - Analytics and insight reporting within Microsoft Defender for Cloud
+
+- **Microsoft Defender for servers Plan 2** - complete support for Microsoft Defender for servers features.
+
+To enable Microsoft Defender for servers:
+
+1. Go to **Environment settings** and select your subscription.
+1. If Microsoft Defender for servers is not enabled, set it to **On**.
+    Plan 2 is selected by default.
+
+    If you want to enable Defender for server Plan 1:
+   1. In the **Plan/Pricing** column, click **configure**.
+   1. Select **Plan 1**.
+
+The following table describes what's included in each plan at a high level. <br/><br/>
+
+| Feature | Free in Microsoft Defender for Cloud | Defender for servers Plan 1 | Defender for servers Plan 2 |
+|:---|:---|:---|:---|
+| Automatic onboarding for resources in Azure, AWS, GCP | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Cloud security posture management (CSPM) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| MDC/MDE integration – onboarding, alerts, software inventory, VA | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Log-analytics (500MB free) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Security Policy & Regulatory Compliance | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Vulnerability Assessment using Qualys | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Threat detections: OS level, network layer, control plane | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Adaptive application controls | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| File integrity monitoring | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Just-in time VM access | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Adaptive Network Hardening | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+<!-- | Future – TVM P2 | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Future – disk scanning insights | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
+
 ## What are the benefits of Microsoft Defender for servers?
 
 The threat detection and protection capabilities provided with Microsoft Defender for servers include:
@@ -34,7 +75,7 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
     - **Microsoft threat and vulnerability management** - Discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of additional agents or periodic scans. [Threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) prioritizes vulnerabilities based on the threat landscape, detections in your organization, sensitive information on vulnerable devices, and business context. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
-    - **Vulnerability scanner powered by Qualys** - Qualys' scanner is one of the leading tools for real-time identification of vulnerabilities in your Azure and hybrid virtual machines. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. Learn more in [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
+    - **Vulnerability scanner powered by Qualys** - The Qualys scanner is one of the leading tools for real-time identification of vulnerabilities in your Azure and hybrid virtual machines. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. Learn more in [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
 
 - **Just-in-time (JIT) virtual machine (VM) access** - Threat actors actively hunt accessible machines with open management ports, like RDP or SSH. All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
 
@@ -79,14 +120,20 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
 The default plan for Defender for servers (Plan 2) includes comprehensive server protection with all of the features available for each platform. If you just need Microsoft Defender for Endpoint, you can enable Defender for servers and configure it to Plan 1. This lets you take advantage of the benefits of licensing, deploying and integrating Microsoft Defender for Endpoint through Microsoft Defender for Cloud in a pricing model optimized for dynamic consumption.
 
-Learn more about the [comparison between Plan 1 and Plan 2](defender-for-servers-plans-compare.md).
+Learn more about the [comparison between Plan 1 and Plan 2](#what-are-the-defender-for-server-plans).
 
 To enable Defender for servers Plan 1:
 
 1. Go to **Environment settings** and select your subscription.
 1. If Microsoft Defender for servers is not enabled, set it to **On**.
-1. In the Plan/Pricing column, click **configure**.
+1. In the **Plan/Pricing** column, click **configure**.
 1. Select **Plan 1**.
+
+If after you enable Defender for servers Plan 1 you want to enable all of the Defender for servers capabilities, configure Defender for servers Plan 2:
+
+1. Go to **Environment settings** and select your subscription.
+2. In the **Plan/Pricing** column, click **configure**.
+3. Select **Plan 2**.
 
 ## How does Defender for servers collect data?
 
