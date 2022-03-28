@@ -614,7 +614,7 @@ Also, if your workflow also uses any [managed connectors](../connectors/managed.
 
 #### Multi-tenant & single-tenant - Outbound IP addresses
 
-This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's region to communicate through your firewall. Also, if your workflow uses any managed connectors or has any custom connectors that use the on-premises data gateway, your firewall has to allow traffic for [*all the connector outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps) in your logic app's Azure region.
+This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's Azure region to communicate through your firewall. Also, if your workflow uses any managed connectors or custom connectors, your firewall has to allow traffic in your logic app's Azure region for [*all the managed connectors' outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If you have custom connectors that access on-premises resources through the on-premises data gateway resource in Azure, set up your *gateway installation* to allow access for the corresponding managed connector outbound IP addresses. 
 
 | Region | Logic Apps IP |
 |--------|---------------|
