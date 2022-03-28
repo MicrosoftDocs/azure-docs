@@ -18,7 +18,7 @@ Application gateway allows you to have an App Service app or other multi-tenant 
 - The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
 - The second option is to have Application Gateway access App Service using its **default domain**, suffixed as ".azurewebsites.net".
 
-## [Custom Domain (recommended)](#tab/customdomain)
+## [Custom domain (recommended)](#tab/customdomain)
 
 This configuration is recommended for production-grade scenarios and meets the practice of not changing the host name in the request flow.  You are required to have a custom domain (and associated certificate) available to avoid having to rely on the default ".azurewebsites" domain.
 
