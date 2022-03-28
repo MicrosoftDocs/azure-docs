@@ -14,6 +14,13 @@ ms.date: 03/25/2022
 
 This article explains how to test a software as a service (SaaS) offer in preview.
 
+Here are some general guidelines to be aware of when you’re testing your offer.
+
+- If your SaaS offer supports metered billing using the commercial marketplace metering service, review and follow the testing best practices detailed in [Marketplace metered billing APIs](/partner-center-portal/saas-metered-billing.md).
+- Review and follow the testing instructions in [Implementing a webhook on the SaaS service](/partner-center-portal/pc-saas-fulfillment-webhook#development-and-testing.md) to ensure your offer is successfully integrated with the APIs.
+- If the Offer validation step resulted in warnings, a **View validation report** link appears on the **Offer overview** page. Be sure to review the report and address the issues before you select the **Go live** button. Otherwise, certification will most likely fail and delay your offer from going Live.
+- If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](update-existing-offer.md).
+
 > [!NOTE]
 > In this example we will use the [SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2190938) for the landing page.
 
@@ -134,15 +141,6 @@ For more details about sending metered usage events, see [Marketplace metered bi
     [ ![Screenshot of the Download Reports.](./media/review-publish-offer/download-reports.png) ](./media/review-publish-offer/download-reports.png#lightbox)
 
 1. Download the .CSV file and verify that the new subscription for your test plan is shown in the report.
-
-## General testing guidelines
-
-Here are some general guidelines to be aware of when you’re testing your offer.
-
-- If your SaaS offer supports metered billing using the commercial marketplace metering service, review and follow the testing best practices detailed in [Marketplace metered billing APIs](/partner-center-portal/saas-metered-billing.md).
-- Review and follow the testing instructions in [Implementing a webhook on the SaaS service](/partner-center-portal/pc-saas-fulfillment-webhook#development-and-testing.md) to ensure your offer is successfully integrated with the APIs.
-- If the Offer validation step resulted in warnings, a **View validation report** link appears on the **Offer overview** page. Be sure to review the report and address the issues before you select the **Go live** button. Otherwise, certification will most likely fail and delay your offer from going Live.
-- If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](update-existing-offer.md).
 
 ## Next steps
 
