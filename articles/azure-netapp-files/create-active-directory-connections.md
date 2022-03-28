@@ -325,7 +325,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Reset Active Directory 
 
-If you accidentally delete the computer account on your AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
+If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
 
 ### Register the feature
 
