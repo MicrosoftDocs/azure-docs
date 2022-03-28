@@ -175,7 +175,7 @@ The Image Builder Build VM User Assigned Identity:
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
 * Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
-To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
 
 ## Properties: source
 
@@ -406,7 +406,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "type": "PowerShell",
              "name":   "<name>",  
              "scriptUri": "<path to script>",
-             "runElevated": "<true false>",
+             "runElevated": <true false>,
              "sha256Checksum": "<sha256 checksum>" 
         }, 	
         { 
@@ -414,7 +414,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
              "validExitCodes": "<exit code>",
-             "runElevated": "<true or false>" 
+             "runElevated": <true or false> 
          } 
      ], 
 ```

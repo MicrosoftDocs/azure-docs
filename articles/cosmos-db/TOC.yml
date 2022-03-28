@@ -678,8 +678,12 @@
               href: partial-document-update-getting-started.md
             - name: Partial document update FAQ
               href: partial-document-update-faq.yml
-        - name: Connectivity modes
-          href: sql/sql-sdk-connection-modes.md
+        - name: SQL SDKs
+          items:
+          - name: Designing resilient applications
+            href: sql/conceptual-resilient-sdk-applications.md
+          - name: Connectivity modes
+            href: sql/sql-sdk-connection-modes.md
     - name: How-to guides
       items:
         - name: Global distribution
