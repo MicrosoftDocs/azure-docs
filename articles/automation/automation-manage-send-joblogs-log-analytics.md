@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
-# Forward Azure Automation diagnostic logs to Azure monitor
+# Forward Azure Automation diagnostic logs to Azure Monitor
 
 Azure Automation can send runbook job status and job streams to your Log Analytics workspace. This process does not involve workspace linking and is completely independent and allows you to perform simple investigations. Job logs and job streams are visible in the Azure portal, or with PowerShell for individual jobs. With Azure Monitor logs for your Automation account, you can:
 
@@ -19,14 +19,14 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
   - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics through an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
   - Get the audit logs related to Automation accounts, runbooks, and other asset create, modify and delete operations. 
 
-Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyse the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyse the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
+Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyze the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
 
 Azure Monitor uses a version of the [Kusto query language (KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
 
 
 ## Azure Automation diagnostic settings
 
-You can forward the following platform logs and metric data using Automation diagnostic settings support :
+You can forward the following platform logs and metric data using Automation diagnostic settings support:
 
 | Data types | Description |
 | --- | --- |
@@ -53,25 +53,25 @@ You can configure diagnostic settings in the Azure portal from the menu for the 
     
    You can also view all categories of Logs and metrics. 
 
-   :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/view-diagnostic-setting.png" alt-text="Image alt text.":::
+   :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/view-diagnostic-setting.png" alt-text="Screenshot showing all categories of logs and metrics.":::
 
     - **Logs and metrics to route** : For logs, choose a category group or select the individual checkboxes for each category of data you want to send to the destinations specified. Choose **AllMetrics** if you want to store metrics into Azure Monitor logs.
     - **Destination details** : Select the checkbox for each destination. As per the selection of each box, the options appear to allow you to add additional information. 
     
-       :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/destination-details-options-inline.png" alt-text="Screenshot showing selections in destination details section" lightbox="media/automation-manage-send-joblogs-log-analytics/destination-details-options-expanded.png":::
+       :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/destination-details-options-inline.png" alt-text="Screenshot showing selections in destination details section." lightbox="media/automation-manage-send-joblogs-log-analytics/destination-details-options-expanded.png":::
 
        -  **Log Analytics** : Enter the Subscription ID and workspace name. If you don't have a workspace, you must [create one before proceeding](/azure/azure-monitor/logs/quick-create-workspace).
        
-       - **Event hubs** : Specify the following criteria:
-          - Subscription : The same subscription as that of the event hub.
-          - Event hub namespace - [Create event hub](/azure/event-hubs/event-hubs-create) if you don't have one yet.
-          - Event hub name (optional) : If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas) for details.
-          - Event Hub policy (optional) A policy defines the permissions that the streaming mechanism has. See [Event hubs feature](/azure/event-hubs/event-hubs-features#publisher-policy).
+       - **Event Hubs**: Specify the following criteria:
+          - Subscription: The same subscription as that of the Event Hub.
+          - Event Hub namespace: [Create Event Hub](/azure/event-hubs/event-hubs-create) if you don't have one yet.
+          - Event Hub name (optional): If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, specify a name to limit the number of Event Hubs created. See [Azure Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas) for details.
+          - Event Hub policy (optional): A policy defines the permissions that the streaming mechanism has. See [Event Hubs feature](/azure/event-hubs/event-hubs-features#publisher-policy).
         
-        - **Storage** : Choose the subscription, storage account, and retention policy.
-          :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/storage-account-details-inline.png" alt-text="Screenshot showing the storage account" lightbox="media/automation-manage-send-joblogs-log-analytics/storage-account-details-expanded.png":::
+        - **Storage**: Choose the subscription, storage account, and retention policy.
+          :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/storage-account-details-inline.png" alt-text="Screenshot showing the storage account." lightbox="media/automation-manage-send-joblogs-log-analytics/storage-account-details-expanded.png":::
 
-        - **Partner integration** : You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure monitor integration](/azure/partner-solutions/overview).
+        - **Partner integration**: You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure Monitor integration](/azure/partner-solutions/overview).
         
 1. Click **Save**.
 
@@ -91,9 +91,9 @@ To query the generated logs:
    
     The output of the query is displayed in **Results** pane.
 
-1. Click **New alert rule** to configure an Azure monitor alert for this query.
+1. Click **New alert rule** to configure an Azure Monitor alert for this query.
 
-   :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/custom-query-inline.png" alt-text="Screenshot showing how to query logs" lightbox="media/automation-manage-send-joblogs-log-analytics/custom-query-expanded.png":::
+   :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/custom-query-inline.png" alt-text="Screenshot showing how to query logs." lightbox="media/automation-manage-send-joblogs-log-analytics/custom-query-expanded.png":::
 
 
 ## Azure Monitor log records
@@ -226,7 +226,7 @@ AzureDiagnostics
 | where StreamType_s == "Error" 
 | project TimeGenerated, Category, JobId_g, OperationName, RunbookName_s, ResultDescription, _ResourceId 
 ```
-### Find Azure Automation jobs that are Completed
+### Find Azure Automation jobs that are completed
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType == "Completed" 
@@ -269,7 +269,7 @@ To create an alert rule, create a log search for the runbook job records that sh
 
 ## Azure Automation diagnostic audit logs
 
-You can now send audit logs also to the Azure monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the Automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also [configure the alerts](#send-an-email-when-a-runbook-job-fails-or-suspends) for audit log conditions as part of your security monitoring requirements.
+You can now send audit logs also to the Azure Monitor workspace. This allows enterprises to monitor key automation account activities for security & compliance. When enabled through the Azure Diagnostics settings, you will be able to collect telemetry about create, update and delete operations for the Automation runbooks, jobs and automation assets like connection, credential, variable & certificate. You can also [configure the alerts](#send-an-email-when-a-runbook-job-fails-or-suspends) for audit log conditions as part of your security monitoring requirements.
 
 
 ## Difference between activity logs and audit logs
@@ -278,7 +278,7 @@ Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs
 
 Audit logs for Automation accounts capture the name and ID of the resource such as automation variable, credential, connection and so on, along with the type of the operation performed for the resource and Azure Automation would scrub some details like client IP data conforming to the GDPR compliance.
 
-Activity logs would show details such as client IP because an Activity log is a platform log that provide detailed diagnostic and auditing information for Azure resources. They are automatically generated for activities that occur in ARM and gets pushed to the activity log resource provider. Since Activity logs are part of Azure monitoring, it would show some client data to provide insights into the client activity.   
+Activity logs would show details such as client IP because an Activity log is a platform log that provides detailed diagnostic and auditing information for Azure resources. They are automatically generated for activities that occur in ARM and gets pushed to the activity log resource provider. Since Activity logs are part of Azure monitoring, it would show some client data to provide insights into the client activity.   
 
 ## Sample queries for audit logs
  
@@ -289,28 +289,28 @@ AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" 
 ```
 
-### Query to monitor any variable update, create or delete operation
+### Query to Monitor any variable update, create or delete operation
 
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s == "Variable" 
 ```
 
-### Query to monitor any runbook operation like create, draft or update
+### Query to Monitor any runbook operation like create, draft or update
 
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Runbook" 
 ```
 
-### Query to monitor any certificate creation, updating or deletion
+### Query to Monitor any certificate creation, updating or deletion
 
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "AuditEvent" and targetResources_Resource_s contains "Certificate" 
 ```
 
-### Query to monitor any credentials creation, updating or deletion
+### Query to Monitor any credentials creation, updating or deletion
 
 ```kusto
 AzureDiagnostics 

@@ -21,7 +21,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## March 2022
 
-###  Forward diagnostic audit data to Azure monitor logs
+###  Forward diagnostic audit data to Azure Monitor logs
 
 **Type:** New feature
 
