@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 11/15/2021
+ms.date: 3/27/2022
 ms.author: RunCai
 ms.custom: mode-ui
 ---
