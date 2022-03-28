@@ -59,7 +59,7 @@ To prepare the environment, complete these steps:
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-### Setup Azure Files Storage for the Oracle archived redo log files
+### Set up Azure Files Storage for the Oracle archived redo log files
 
 The Oracle database archive redo logfiles play a crucial role in database recovery as they store the committed transactions needed to roll forward from a database snapshot taken in the past. When in archivelog mode, the database archives the contents of online redo logfiles when they become full and switch. Together with a backup, they are required to achieve point-in-time recovery when the database has been lost.  
    
@@ -67,7 +67,7 @@ Oracle provides the capability to archive redo logfiles to different locations, 
 
 An Azure Files fileshare is storage which can be attached to a Linux or Windows VM as a regular filesystem component, using SMB or NFS protocols. 
    
-To setup an Azure Files fileshare on Linux, using SMB 3.0 protocol, for use as archive log storage, please follow the [Use Azure Files with Linux how-to guide](../../../storage/files/storage-how-to-use-files-linux.md). When you have completed the setup, return to this guide and complete all remaining steps.
+To set up an Azure Files fileshare on Linux, using SMB 3.0 protocol, for use as archive log storage, please follow the [Use Azure Files with Linux how-to guide](../../../storage/files/storage-how-to-use-files-linux.md). When you have completed the setup, return to this guide and complete all remaining steps.
 
 ### Prepare the databases
 
@@ -240,7 +240,7 @@ To use Azure Backup to back up the database, complete these steps:
    ```
 
    > [!IMPORTANT] 
-   > If you the output does not match the Oracle operating system group value retrieved in Step 3 you will need to create the operating system group representing the Oracle SYSBACKUP role. Please substitute `<group name>` for the group name retrieved in step 3 :
+   > If the output does not match the Oracle operating system group value retrieved in Step 3 you will need to create the operating system group representing the Oracle SYSBACKUP role. Please substitute `<group name>` for the group name retrieved in step 3 :
    >   ```bash
    >   sudo groupadd <group name>
    >   ```
@@ -437,7 +437,7 @@ To use Azure Backup to back up the database, complete these steps:
 
 ## Restore the VM
 
-Restoring the entire VM allows you restore the VM and its attached disks to a new VM from a selected restore point. This will restore all databases that run on the VM and each database will need to be recovered afterwards. 
+Restoring the entire VM allows you to restore the VM and its attached disks to a new VM from a selected restore point. This will restore all databases that run on the VM and each database will need to be recovered afterwards. 
 
 To restore the entire VM, complete these steps:
 
@@ -505,7 +505,7 @@ To restore the entire VM, complete these steps:
 
     ![Restore VM command](./media/oracle-backup-recovery/recover-vm-03.png)
 
-1.  On the **Restore Virtual Machine** blade, choose **Create New** and **Create New Virtual Machine**. Enter the virtual machine name **vmoracle19c** and choose the VNet **vmoracle19cVNET**, the subnet will be automatically populated for you based on your VNet selection. The restore VM process requires an Azure storage account in the same resource group and region. You can choose the storage account **orarestore** you setup earlier.
+1.  On the **Restore Virtual Machine** blade, choose **Create New** and **Create New Virtual Machine**. Enter the virtual machine name **vmoracle19c** and choose the VNet **vmoracle19cVNET**, the subnet will be automatically populated for you based on your VNet selection. The restore VM process requires an Azure storage account in the same resource group and region. You can choose the storage account **or a restore** you setup earlier.
 
     ![Restore configuration values](./media/oracle-backup-recovery/recover-vm-04.png)
 
@@ -713,7 +713,7 @@ After the VM is restored, you should reassign the original IP address to the new
 ---
 
 ## Restore an individual database
-As multiple Oracle databases can be run on an Azure VM, there may be times when you want to restore and recover an indiviual database without disrupting the other databases running on the VM. 
+As multiple Oracle databases can be run on an Azure VM, there may be times when you want to restore and recover an individual database without disrupting the other databases running on the VM. 
 
 To restore an individual database, complete these steps:
 
