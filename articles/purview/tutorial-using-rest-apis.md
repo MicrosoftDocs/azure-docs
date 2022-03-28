@@ -83,7 +83,7 @@ Once service principal is created, you need to assign Data plane roles of your p
     * Collection Admin role to access Account Data Plane and Metadata policy Data Plane.
 
     > [!Note]
-    > Only members of the Collection Admin role can assign data plane roles in Azure Purview [Access Control in Azure Purview](./catalog-permissions.md).
+    > Only members of the Collection Admin role can assign data plane roles in Azure Purview. For more information about Azure Purview roles, see [Access Control in Azure Purview](./catalog-permissions.md).
 
 ## Get token
 You can send a POST request to the following URL to get access token.
