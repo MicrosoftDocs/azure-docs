@@ -47,9 +47,9 @@ Outbound requests from a search service to other applications are typically made
 + A custom skill connects to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](earch-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
+Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
-If your Azure resource is behind a firewall, you'll need to create rules that admit search service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
+If your Azure resource is behind a firewall, you'll need to [create rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). For resources protected by Azure Private Link, you can [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
 ### Internal traffic
 
