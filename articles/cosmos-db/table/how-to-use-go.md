@@ -30,7 +30,7 @@ Follow this article to learn how to manage Azure Table storage using the Azure S
 You need the following:
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.17 or [above](https://golang.org/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Setup your environment
@@ -51,6 +51,9 @@ az storage table create --account-name <storageAccountName> --account-key 'stora
 go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
+
+To learn more about the ways to authenticate to Azure, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
+
 
 ## Create the sample application
 
