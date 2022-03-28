@@ -195,19 +195,25 @@ The `BlobTrigger` attribute is used to bind our function to the upload event in 
 [FunctionName("ProcessImageUpload")]
 [return: Table("ImageText", Connection = "StorageConnection")]
 // Trigger binding runs when an image is uploaded to the blob container below
-public async Task<ImageContent> Run([BlobTrigger("imageanalysis/{name}", Connection = "StorageConnection")]Stream myBlob, string name, ILogger log)
+public async Task<ImageContent> Run([BlobTrigger("imageanalysis/{name}", 
+        Connection = "StorageConnection")]Stream myBlob, string name, ILogger log)
 {
     // Get connection configurations
     string subscriptionKey = Environment.GetEnvironmentVariable("ComputerVisionKey");
     string endpoint = Environment.GetEnvironmentVariable("ComputerVisionEndpoint");
-    string imgUrl = $"https://{ Environment.GetEnvironmentVariable("StorageAccountName")}.blob.core.windows.net/imageanalysis/{name}";
+    string imgUrl = $"https://{ Environment.GetEnvironmentVariable("StorageAccountName")}
+                        .blob.core.windows.net/imageanalysis/{name}";
 
-    ComputerVisionClient client = new ComputerVisionClient(new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = endpoint };
+    ComputerVisionClient client = new ComputerVisionClient(
+        new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = endpoint };
 
     // Get the analyzed image contents
     var textContext = await AnalyzeImageContent(client, imgUrl);
 
-    return new ImageContent { PartitionKey = "Images", RowKey = Guid.NewGuid().ToString(), Text = textContext };
+    return new ImageContent { 
+        PartitionKey = "Images",
+        RowKey = Guid.NewGuid().ToString(), Text = textContext 
+    };
 }
 
 public class ImageContent
