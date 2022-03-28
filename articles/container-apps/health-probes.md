@@ -24,4 +24,4 @@ Container Apps support the following probes:
 ## Restrictions
 
 - You can only add one of each probe type per container app.
-- exec probes are not supported.
+- `exec` probes are not supported.
