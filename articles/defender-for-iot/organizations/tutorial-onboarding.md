@@ -36,7 +36,12 @@ Before you start, make sure that you have the following:
     - VMWare, ESXi 5.5 or later
     - Hyper-V hypervisor, Windows 10 Pro or Enterprise
 
-- Available hardware resources for your VM. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+- <a name="hw"></a>Available hardware resources for your VM as follows:
+
+    | Deployment type | Corporate | Enterprise | SMB |
+    |--|--|--|--|
+    | **Maximum bandwidth** | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
+    | **Maximum protected devices** | 12,000 | 10,000 | 800 |
 
 - Details for the following network parameters to use for your sensor appliance:
 
@@ -46,6 +51,7 @@ Before you start, make sure that you have the following:
     - A DNS address
     - A default gateway
     - Any input interfaces
+
 
 ## Download software for your virtual sensor
 
@@ -91,7 +97,7 @@ Select one of the following tabs to create a VM for your sensor.
 
 1. Choose the relevant datastore and select **Next**.
 
-1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see the [table in the Prerequisites](#hw) section above.
 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
@@ -113,7 +119,7 @@ Select one of the following tabs to create a VM for your sensor.
 
 1. Enter the name and location for the VHD.
 
-1. Enter the required size. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+1. Enter the required size, as defined in the [table in the Prerequisites](#hw) section above.
 
 1. Review the summary and select **Finish**.
 
@@ -123,7 +129,7 @@ Select one of the following tabs to create a VM for your sensor.
 
 1. Select **Specify Generation** > **Generation 1**.
 
-1. Specify the memory allocation and select the check box for dynamic memory. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+1. Specify the memory allocation and select the check box for dynamic memory, as defined in the [table in the Prerequisites](#hw) section above.
 
 1. Configure the network adaptor according to your server network topology.
 
@@ -137,7 +143,7 @@ Select one of the following tabs to create a VM for your sensor.
 
 1. Select the virtual switch that will connect to the sensor management network.
 
-1. Allocate CPU resources. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+1. Allocate CPU resources, as defined in the [table in the Prerequisites](#hw) section above.
 
 1. Start the VM.
 
@@ -155,13 +161,13 @@ This procedure describes how to install the sensor software on your VM, whether 
 
 1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
 
-1. Select the required specifications for your needs. For more information, see [virtual sensor system requirements](how-to-identify-required-appliances.md#virtual-sensors).
+1. Select the required specifications for your needs, as defined in the [table in the Prerequisites](#hw) section above.
 
 1. Define the appliance profile and network properties as follows:
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Depending on your [system specifications](how-to-identify-required-appliances.md#virtual-sensors).  |
+    | **Hardware profile** | Depending on your [system specifications](#hw).  |
     | **Management interface** | **ens192** |
     | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
 
@@ -320,11 +326,11 @@ Microsoft NDIS Capture Extensions will need to be enabled for the new virtual sw
 
 1. Select **OK**.
 
-#### Set the Mirroring Mode on the external port
+#### Define the mirroring mode on the external port
 
-Mirroring mode will need to be set on the external port of the new virtual switch to be the source.
+You'll need to define the mirroring mode on the external port of the new virtual switch to be the source.
 
-You will need to configure the Hyper-V virtual switch (vSwitch_Span) to forward any traffic that comes to the external source port, to the virtual network adapter that you configured as the destination.
+To do this, configure the Hyper-V virtual switch, for example named **vSwitch_Span** to forward any traffic that comes to the external source port, to the virtual network adapter that you configured as the destination.
 
 Use the following PowerShell commands to set the external virtual switch port to source mirror mode:
 
@@ -360,63 +366,88 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
 **To onboard the virtual sensor:**
 
-1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
+1. In the Azure portal, go to the [**Defender for IoT > Getting started**](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) page.
 
-1. Select **Onboard sensor**.
+1. At the bottom left, select **Set up OT/ICS Security**.
 
    :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of selecting to onboard the sensor to start the onboarding process for your sensor.":::
 
-1. Enter a name for the sensor.
+    In the **Set up OT/ICS Security** page, you can leave the **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP** steps collapsed, because you've completed these tasks earlier in this tutorial.
 
-   We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.
+1. In **Step 3: Register this sensor with Microsoft Defender for IoT**, define the following values:
 
-1. Select a subscription from the drop-down menu.
+    |Name  |Description  |
+    |---------|---------|
+    |**Sensor name**     |  Enter a name for the sensor. <br><br>We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.       |
+    |**Subscription**     |  Select the Azure subscription where you want to add your sensors.      |
+    |**Cloud connected**     |  Select to connect your sensor to Azure. Leave this option toggled off to use an on-premises management console. For more information, see [Cloud connected vs local sensors](#cloud-connected-vs-local-sensors) and [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).       |
+    |**Automatic threat intelligence updates**     |   Displayed only when the **Cloud connected** option is toggled on.  Select to have Microsoft threat intelligence packages automatically updated on your sensor.  For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md).   |
+    |**Sensor version**     | Displayed only when the **Cloud connected** option is toggled on. Select the software version installed on your sensor.        |
+    |**Site**     | Define the site where you want to associate your sensor, or select **Create site** to create a new site. Define a display name for your site and optional tags to help identify the site later.       |
+    |**Zone**     |  Define the zone where you want to deploy your sensor, or select **Create zone** to create a new one.       |
 
-    :::image type="content" source="media/tutorial-onboarding/name-subscription.png" alt-text="Screenshot of entering a meaningful name, and connect your sensor to a subscription.":::
+1. Select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
 
-1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
+1. Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time.
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered to Defender for Cloud on Azure and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from Defender for IoT to sensors. Conversely when, the sensor is not cloud connected, you must download threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 
-        For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
-        For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
+### Activate your sensor
 
-   - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
+This procedure describes how to use the sensor activation file downloaded from Defender for IoT in the Azure portal to activate your newly added sensor.
 
-1. Select a site to associate your sensor to. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+**To activate your sensor**:
 
-1. Select **Register**.
+1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
-### Download the sensor activation file
-
-Once registration is complete for the sensor, you will be able to download an activation file for the sensor. The sensor activation file contains instructions about the management mode of the sensor. The activation file you download, will be unique for each sensor that you deploy. The user who signs in to the sensor console for the first time, will uploads the activation file to the sensor.
-
-**To download an activation file:**
-
-1. On the **Onboard Sensor** page, select **Register**
-
-1. Select **download activation file**.
-
-1. Make the file accessible to the user who's signing in to the sensor console for the first time.
-
-### Sign in and activate the sensor
-
-**To sign in and activate:**
-
-1. Go to the sensor console from your browser by using the IP defined during the installation.
-
-    :::image type="content" source="media/tutorial-onboarding/defender-for-iot-sensor-log-in-screen.png" alt-text="Screenshot of the Microsoft Defender for IoT sensor.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign in page.":::
 
 1. Enter the credentials defined during the sensor installation.
 
-1. Select **Log in** and follow the instructions described in [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
+1. Select **Login/Next**.  The **Sensor Network Settings** tab opens.
+
+      :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate.png" alt-text="Screenshot of the sensor network settings options when signing into the sensor.":::
+
+1. In the **Sensor Network Settings** tab, you can modify the sensor network configuration defined during installation. For the sake of this tutorial, leave the default values as they are, and select **Next**.
+
+1. In the **Activation** tab, select **Upload**, and then browse to and select your activation file.
+
+1. Approve the terms and conditions and then select **Activate**.
+
+1. In the **SSL/TLS Certificates** tab, you can import a trusted CA certificate, which is the recommended process for production environments. However, for the sake of the tutorial, you can select **Use Locally generated self-signed certificate**, and then select **Finish**.
+
+Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
+
+### Cloud-connected vs local sensors
+
+Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
+
+When you have a cloud connected sensor:
+
+- All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
+
+- Microsoft threat intelligence packages can also be automatically pushed to cloud-connected sensors.
+
+- The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
+
+In contrast, when working with locally managed sensors:
+
+- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
+
+- You must manually upload any threat intelligence packages
+
+- Sensor names can be updated in the sensor console.
 
 ## Connect sensors to Defender for IoT
 
-This section is required only when you are using a Defender for IoT sensor version 22.1.x or higher.
+Starting with sensor software versions 22.1.x, use one of the following methods to ensure secure connections between your sensors and Defender for IoT:
 
-Connect your sensors to Defender for IoT to ensure that sensors send alert and device inventory information to Defender for IoT on the Azure portal.
+- Connect via an Azure proxy
+- Connect via proxy chaining
+- Connect directly
+- Connect using multiple cloud vendors
 
 For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
