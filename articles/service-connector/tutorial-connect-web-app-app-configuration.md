@@ -21,14 +21,14 @@ In this tutorial, use the Azure CLI to complete the following tasks:
 > [!div class="checklist"]
 > * Set up Azure resources
 > * Create a connection between a web app and App Configuration
-> * Build and deploy your app to Azure Azure App Service
+> * Build and deploy your app to Azure App Service
 
 ## Prerequisites
 
 - An Azure account with an active subscription. Your access role within the subscription must be "Contributor" or "Owner". [Create an account for free](https://azure.microsoft.com/free/dotnet). 
 - The Azure CLI. You can use it in [Azure Cloud Shell](https://shell.azure.com/) or [install it locally](/cli/azure/install-azure-cli).
 - Git
-- A code editor. For example [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download).
+- A code editor. For example, [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## Sign in to Azure
 
@@ -182,7 +182,7 @@ Start by creating your Azure resources using a system-assigned managed identity 
 Create a connection between your web application and your App Configuration store.
 
 ### [SMI](#tab/smi)
-Create a connection between your web application and your App Configuration store, using a system-assigned managed identity authentication. This is done through Service Connector.
+Create a connection between your web application and your App Configuration store, using a system-assigned managed identity authentication. This connection is done through Service Connector.
 
 ```azurecli
 az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --system-identity
@@ -191,7 +191,7 @@ az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName>
 `system-identity` refers to the system-assigned managed identity (SMI) authentication type. Service Connector also supports the following authentications: user-assigned managed identity (UMI), connection string (secret) and service principal.
 
 ### [UMI](#tab/umi)
-Create a connection between your web application and your App Configuration store, using a user-assigned managed identity authentication. This is done through Service Connector.
+Create a connection between your web application and your App Configuration store, using a user-assigned managed identity authentication. This connection is done through Service Connector.
 
 ```azurecli
 az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --user-identity client-id=<myIdentityClientId> subs-id=<myTestSubsId>
@@ -205,15 +205,17 @@ Create a connection between your web application and your App Configuration stor
 az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --service-principal client-id=<mySPClientId>  secret=<mySPSecret>
 ```
 
-`service-principal` refers to the service principal authentication type. Service Connector also supports the following authentications: system-assigned managed identity (UMI), user-assigned managed identity (UMI)and connection string (secret).
+`service-principal` refers to the service principal authentication type. Service Connector also supports the following authentications: system-assigned managed identity (UMI), user-assigned managed identity (UMI) and connection string (secret).
 
 ### [Connection string](#tab/connectionstring)
-Create a connection between your web application and your App Configuration store, using a connection string. This is done through Service Connector.
+Create a connection between your web application and your App Configuration store, using a connection string. This connection is done through Service Connector.
 
 ```azurecli
 az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --secret
 ```
 `secret` refers to the connection-string authentication type. Service Connector also supports the following authentications: system-assigned managed identity, user-assigned managed identity, and service principal.
+
+---
 
 ## Build and deploy to Azure
 
@@ -229,9 +231,9 @@ Use the following steps or any other approach you're familiar with to build and 
     ### [SMI](#tab/smi)
     
     Deploy your Azure web app with SMI using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, click Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, click **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
-    3. Azure CLI: 
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
+    1. Azure CLI: 
         ```azurecli
         # Set up the deployment of the web app in Microsoft Azure App Service
         az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
@@ -250,9 +252,9 @@ Use the following steps or any other approach you're familiar with to build and 
     ### [UMI](#tab/umi)
     
     Deploy your Azure web app with UMI using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, click Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, click **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
-    3. Azure CLI: 
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, select **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service)
+    1. Azure CLI: 
         ```azurecli
         # Set up the deployment of the web app in Microsoft Azure App Service
         az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
@@ -271,9 +273,9 @@ Use the following steps or any other approach you're familiar with to build and 
     ### [Service principal](#tab/serviceprincipal)
     
     Deploy your Azure web app with a service principal using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, click Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, click **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
-    3. Azure CLI: 
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, select **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
+    1. Azure CLI: 
         ```azurecli
         # Set up the deployment of the web app in Microsoft Azure App Service
         az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=service-principal/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
@@ -292,10 +294,10 @@ Use the following steps or any other approach you're familiar with to build and 
     ### [Connection string](#tab/connectionstring)
 
     Deploy your Azure web app with a connection string using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, click Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, click **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project, select **Deploy to WebApp**, and follow the wizard to publish to Azure. [Go to detailed instructions](/app-service/tutorial-dotnetcore-sqldb-app?toc=%2Faspnet%2Fcore%2Ftoc.json&bc=%2Faspnet%2Fcore%2Fbreadcrumb%2Ftoc.json&view=aspnetcore-6.0&tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azcli%2Cazure-portal-logs%2Cazure-portal-resources#4---deploy-to-the-app-service).
    
-    3. Azure CLI: 
+    1. Azure CLI:
         ```azurecli
         # Set up the deployment of the web app in Microsoft Azure App Service
         az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=connection-string/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
@@ -313,7 +315,7 @@ Use the following steps or any other approach you're familiar with to build and 
 
 ---
 
-To check if the connection is working, navigate to your web app at `https://<myWebAppName>.azurewebsites.net/` from your browser. Once the website is up, you will see it displaying "Hello. Your Azure WebApp is connected to App Configuration by ServiceConnector now".
+To check if the connection is working, navigate to your web app at `https://<myWebAppName>.azurewebsites.net/` from your browser. Once the website is up, you'll see it displaying "Hello. Your Azure WebApp is connected to App Configuration by ServiceConnector now".
 
 ## How it works
 
@@ -322,26 +324,26 @@ Find below what Service Connector manages behind the scenes for each authenticat
 ### [SMI](#tab/smi)
 
 Service Connector manages the connection configuration for you:
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let he application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role, to let the application authenticate to the App Configuration, using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
+- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
 
 ### [UMI](#tab/umi)
 
 Service Connector manages the connection configuration for you:
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let he application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role, to let the application authenticate to the App Configuration, using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
+- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
 
 ### [Service principal](#tab/serviceprincipal)
 
 Service Connector manages the connection configuration for you:
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let he application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role, to let the application authenticate to the App Configuration, using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
+- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
 
 ### [Connection string](#tab/connectionstring)
 
 Service Connector manages the connection configuration for you:
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let he application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role, to let the application authenticate to the App Configuration, using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
+- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
 
 ---
 
