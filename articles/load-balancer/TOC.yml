@@ -130,7 +130,7 @@
     items:
     - name: Inbound NAT rules
       href: inbound-nat-rules.md
-     - name: High Availability ports
+    - name: High Availability ports
       href: load-balancer-ha-ports-overview.md
     - name: Multiple frontends
       href: load-balancer-multivip-overview.md
