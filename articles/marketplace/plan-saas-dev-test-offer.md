@@ -86,9 +86,9 @@ This table describes the differences between the settings for DEV offers and PRO
 
 ### Plan visibility
 
-We recommend that you configure your test plan as a private plan, so it’s visible only to targeted people. This provides an extra level of protection from exposing your test plan to customers if you accidentally publish the offer live.
+We recommend that you configure your test plan as a private plan, so it’s visible only to targeted developers and testers. This provides an extra level of protection from exposing your test plan to customers if you accidentally publish the offer live.
 
-If you choose to test your plan in a production offer instead of a DEV offer, this is especially important, so that customers will not be able to purchase the plan. We recommend that you create a separate private test plan and never publish the private test plan live. You’ll use your private test plan to do your testing in preview. When you’ve completed your testing, you will create a production plan for publishing live. Then, you can then stop the test plan.
+If you choose to test your plan in a production offer instead of a DEV offer, this is especially important, so that customers will not be able to purchase the plan. We recommend that you create a separate private test plan and never publish the private test plan live. You’ll use your private test plan to do your testing in preview. When you’ve completed your testing, you will create a production plan for publishing live. Then, you can then stop distribution of the test plan.
 
 ### Plan overview page
 
@@ -119,7 +119,7 @@ You’ll set the prices you want to charge the customer in the separate producti
 
 #### Pricing model
 
-Use the same Pricing model in the plans of the DEV and PROD offers. For example, if the plan in the PROD offer is Flat rate, with a monthly billing term, then configure the plan in the DEV offer using the same model.
+Use the same plan structure in the plans of the DEV and PROD offers. For example, if the plan in the PROD offer is Flat rate, with a monthly billing term, then configure the plan in the DEV offer using the same model.
 
 To reduce your cost for testing the pricing models, including Marketplace custom meter dimensions, we recommend that you configure the **Pricing** section of the **Pricing and availability** tab, in the DEV offer with lower prices than the PROD offer. Here are some guidelines you can follow when setting prices for plans in the DEV offer.
 
@@ -145,7 +145,7 @@ Don’t configure the **Co-sell with Microsoft** tab of the DEV offer.
 
 ### Resell through CSPs
 
-Don’t configure the **Resell through CSPs** tab of the DEV offer.
+On the **Resell through CSPs** tab of the DEV offer, select **No partners in the CSP program**.
 
 ## Next steps
 
