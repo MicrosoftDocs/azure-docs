@@ -455,34 +455,15 @@ The following XML snippet is an example of a RESTful technical profile configure
 </ClaimsProvider>
 ```
 
+Add the validation technical profile reference to the sign-up technical profile, which calls the REST-AcquireAccessToken. The new validation technical profile will be added to the top of the <ValidationTechnicalProfiles> collection defined in the base policy. This behavior means that only after successful validation, Azure AD B2C moves on to create the account in the directory.
+
+For example
+    ```
+   <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+    ```
+    
+
 ::: zone-end
-
-1.In TrustFrameworkExtensions.xml ,  under the claim provider section , reference to REST-AcquireAccessToken in Technical Profile.
-
- <ClaimsProvider>
-  <DisplayName>Local Account</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
-        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
-        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
-        <OutputClaim ClaimTypeReferenceId="displayName"/>
-        <OutputClaim ClaimTypeReferenceId="givenName"/>
-        <OutputClaim ClaimTypeReferenceId="surName"/>
-        <!-- Required to present the text box to collect the data from the user -->
-        <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
-        <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
-        to subsequent orchestration steps and token issuance-->
-        <OutputClaim ClaimTypeReferenceId="promoCode" />
-      </OutputClaims>
-      <ValidationTechnicalProfiles>
-        <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
-      </ValidationTechnicalProfiles>
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
-
 
 ## API key authentication
 
