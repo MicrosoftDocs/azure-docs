@@ -178,6 +178,8 @@
       href: /cli/azure/afd/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor
+    - name: Rest API
+      href: /rest/api/frontdoor/#front-door-classic
 - name: Resources
   items:
   - name: Azure Roadmap
