@@ -18,17 +18,17 @@ Using these services, you can shift effort from manually performing operational 
 - Standardize operations
 
 ## Categories in Automation operations
-Automation is mainly required in three broad categories of operations:
+Automation is required in three broad categories of operations:
 
-- **Deployment and management of resources** — create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules are created using an Azure Resource Manager template or an automation script.
+- **Deployment and management of resources** —create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules are created using an Azure Resource Manager template or an automation script.
 
-- **Response to external events** — based on a critical external event such as responding to database changes, acting as per the  inputs given to a web page and so on, you can diagnose and resolve issues.
+- **Response to external events** —based on a critical external event such as responding to database changes, acting as per the  inputs given to a web page, and so on, you can diagnose and resolve issues.
 
-- **Complex Orchestration** — by integrating with first or third party products, you can define an end to end automation workflows.
+- **Complex Orchestration** —by integrating with first or third party products, you can define an end to end automation workflows.
 
 ## Azure services for Automation
 
-Multiple Azure services can fulfil the above requirements. Each service has its benefits and limitations, and customers can use multiple services to meet their automation requirements.  
+Multiple Azure services can fulfill the above requirements. Each service has its benefits and limitations, and customers can use multiple services to meet their automation requirements.  
 
 **Deployment and management of resources**
   - Azure Resource Manager (ARM) templates with Bicep
@@ -39,11 +39,11 @@ Multiple Azure services can fulfil the above requirements. Each service has its 
 **Responding to external events** 
   - Azure Functions
   - Azure Automation
-  - Azure Policy Guest Config (to take an action when there is a change in the compliance state of resource.)
+  - Azure Policy Guest Config (to take an action when there's a change in the compliance state of resource.)
 
 **Complex Orchestration and integration with 1st or 3rd party products** 
   - Azure Logic Apps
-  - Azure Functions or Azure Automation. (Azure Logic app has over 400+ connectors to other services, including Azure Automation and Azure Functions which could be leveraged to meet complex automation scenarios.)
+  - Azure Functions or Azure Automation. (Azure Logic app has over 400+ connectors to other services, including Azure Automation and Azure Functions, which could be used to meet complex automation scenarios.)
 
 
   :::image type="content" source="media/automation-services/automation-services-overview.png" alt-text="Screenshot shows an Overview of Automation services.":::
@@ -53,13 +53,13 @@ Multiple Azure services can fulfil the above requirements. Each service has its 
 
 ### Azure Resource Manager (ARM) template
 
-ARM provides a language to develop repeatable and consistent deployment templates for Azure resources. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. It uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. [Learn more](/azure/azure-resource-manager/templates/overview).
+Azure Resource Manager provides a language to develop repeatable and consistent deployment templates for Azure resources. The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. It uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. [Learn more](/azure/azure-resource-manager/templates/overview).
 
 ### Bicep
 
 We've introduced a new language named [Bicep](/azure/azure-resource-manager/bicep/overview) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend Bicep. For more information, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
 
-The following table describes the scenarios and users for ARM and Bicep:
+The following table describes the scenarios and users for ARM template and Bicep:
 
   **Scenarios** | **Users**
   --- | ---
@@ -79,11 +79,11 @@ The following table describes the scenarios and users for ARM and Bicep:
 ### [Azure Automation](/azure/automation/overview)
 
 Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. 
-It provides a persistent shared assets including variables, connections, objects that allows orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
+It provides a persistent shared assets including variables, connections, objects that allow orchestration of complex jobs. [Learn more](/azure/automation/automation-runbook-gallery).
 
   **Scenarios** | **Users**
   --- | ---
-  | Schedule tasks, for example – Stop dev/test VMs or services at night and turn on during the day. </br> </br> Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation where you can manage automate on-premises servers such as SQL Server, Active Directory and so on. </br> </br> Azure resource life-cycle management and governance includes resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure administrators manage the on-premises infrastructure using scripts or executing long-running jobs such as month-end operations on servers running on-premises. 
+  | Schedule tasks, for example – Stop dev/test VMs or services at night and turn on during the day. </br> </br> Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, and so on. </br> </br> Hybrid automation where you can manage to automate on-premises servers such as SQL Server, Active Directory and so on. </br> </br> Azure resource life-cycle management and governance include resource provisioning, de-provisioning, adding correct tags, locks, NSGs and so on. | IT administrators, System administrators, IT operations administrators who are skilled at using PowerShell or Python based scripting. </br> </br> Infrastructure administrators manage the on-premises infrastructure using scripts or executing long-running jobs such as month-end operations on servers running on-premises. 
 
 ### Azure Automation based in-guest management
 
@@ -106,7 +106,7 @@ Replaces repetitive, day-to-day operational tasks with an exception-only managem
   - It allows you to configure each service per Azure best practices automatically.
   - It supports customization of best practice services through VM Best practices template for Dev\Test and Production workload.
   - You can monitor for drift and correct it when detected.
-  - It provides a simple experience (point, click, set, and forget). 
+  - It provides a simple experience (point, select, set, and forget). 
 
   **Scenarios** | **Users**
   --- | ---
@@ -151,7 +151,7 @@ Provides a serverless automation platform that allows you to write code to react
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to events on resources: such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts to send the team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as M365. </br> </br> Respond to database changes. | The Application developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
+  | Respond to events on resources: such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts to send the team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br> Respond to database changes. | The Application developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
 
 
 ## Orchestrate complex jobs in Azure Automation
@@ -190,7 +190,7 @@ A serverless automation platform that allows you to write code to react to criti
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as M365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
+  | Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts where you can send team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br>Executes Azure Function as part of Logic apps workflow through Azure Function Connector. | Application Developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications.
 
 ## Next steps
 - To learn on how to securely execute the automation jobs, see [best practices for security in Azure Automation](/azure/automation/automation-security-guidelines).
