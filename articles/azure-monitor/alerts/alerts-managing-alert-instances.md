@@ -31,14 +31,13 @@ You can go to the alerts page in any of the following ways:
 
 ## The alerts page
 
-The **Alerts** page summarizes all your alert instances across Azure. You can modify the results by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more.
+The **Alerts** page summarizes all your alert instances across Azure. You can modify the results by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more. You can select an alert instance to open the **Alert Details** page and see more details about the specific alert instance.
 > [!NOTE]
 > If you navigated to the alerts page by selecting a specific alert severity, the list is pre-filtered for that severity.   
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot of alerts page.":::
  
-Select an alert instance to open the **Alert Details** page and see more details about the specific alert instance.   
+## The alerts details page
+ The **Alerts details** page provides details about the selected alert. Select **Change user response** to change the user response to the alert. You can see all closed alerts in the **History** tab.  
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::
-
-Select **Change user response** to change the user response to the alert. You can see all closed alerts in the **History** tab. 
