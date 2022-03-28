@@ -1635,6 +1635,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./database/policy-reference.md
+  - name: DTU benchmark
+    href: database/dtu-benchmark
 
 - name: Resources
   items:
