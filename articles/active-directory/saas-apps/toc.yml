@@ -2276,6 +2276,8 @@
         href: uservoice-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
+      - name: Vault Platform
+        href: vault-platform-tutorial.md  
       - name: V-Client
         href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
