@@ -47,7 +47,7 @@ On the **Create a storage account** page, enter the following values:
 
  1) **Subscription**: Choose your desired subscription.
  2) **Resource Group**: Select **Create new** and enter a name of `msdocs-storage-function`, and then choose **OK**.
- 3) **Storage account name**: Enter a value of `msdocsstoragefunction`. The Storage account name must be unique across Azure.
+ 3) **Storage account name**: Enter a value of `msdocsstoragefunction`. The Storage account name must be unique across Azure, so you may need to add numbers after the name, such as `msdocsstoragefunction123`.
  4) **Region**: Select the region that is closest to you.
  5) **Performance**: Choose **Standard**.
  6) **Redundancy**: Leave the default value selected.
