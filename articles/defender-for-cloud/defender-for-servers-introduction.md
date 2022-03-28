@@ -26,21 +26,21 @@ Microsoft Defender for servers adds threat detection and advanced defenses to yo
 - [**Microsoft Defender for servers Plan 1**](defender-for-servers-introduction.md#defender-for-servers-plan-1-for-microsoft-defender-for-endpoint) - adds support for Microsoft Defender for Endpoint optimized for cloud workloads with:
     - Per hour licensing to lower costs for protecting virtual machines
     - Automatic deployment to cloud workloads
-    - Analytics and insight reporting within Microsoft Defender for Cloud
+    - Alerts and vulnerability data within Microsoft Defender for Cloud
 
-- **Microsoft Defender for servers Plan 2** - complete support for Microsoft Defender for servers features.
+- **Microsoft Defender for servers Plan 2** - includes the benefits of Plan 1 and support for all of the other Microsoft Defender for servers features.
 
 For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 To enable Microsoft Defender for servers:
 
 1. Go to **Environment settings** and select your subscription.
-1. If Microsoft Defender for servers is not enabled, set it to **On**.
+2. If Microsoft Defender for servers is not enabled, set it to **On**.
     Plan 2 is selected by default.
 
     If you want to enable Defender for server Plan 1:
    1. In the **Plan/Pricing** column, click **configure**.
-   1. Select **Plan 1**.
+   2. Select **Plan 1**.
 
 The following table describes what's included in each plan at a high level.
 
@@ -50,7 +50,7 @@ The following table describes what's included in each plan at a high level.
 | Microsoft threat and vulnerability management | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Cloud security posture management (CSPM) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| MDC/MDE integration – onboarding, alerts, software inventory, VA | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Log-analytics (500MB free) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Security Policy & Regulatory Compliance | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Vulnerability Assessment using Qualys | | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
