@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/28/2022
 ms.custom: references_regions
-ms.author: mikewill4
+ms.author: michawil
 ms.reviewer: ylunagaria
 
 ---
