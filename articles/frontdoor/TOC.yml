@@ -75,8 +75,6 @@
     items:
     - name: HTTP/2
       href: front-door-http2.md
-  - name: Load-balancing with Azure's application delivery
-    href: front-door-lb-with-azure-app-delivery-suite.md
   - name: FAQ
     href: front-door-faq.yml
 - name: How-to guides
