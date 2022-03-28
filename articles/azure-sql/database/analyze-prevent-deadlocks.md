@@ -120,19 +120,25 @@ Select **Deadlocks** as the signal name for the alert. Configure the **Action gr
 
 ## Collect deadlock graphs in Azure SQL Database with Extended Events
 
-Deadlock graphs are a rich source of information regarding the processes and locks involved in a deadlock. To collect deadlock graphs with Extended Events (XEvents), capture the `sqlserver.database_xml_deadlock_report` event.
+Deadlock graphs are a rich source of information regarding the processes and locks involved in a deadlock. To collect deadlock graphs with Extended Events (XEvents) in Azure SQL Database, capture the `sqlserver.database_xml_deadlock_report` event.
 
-You can collect deadlock graphs with XEvents using either the [ring buffer target](xevent-code-ring-buffer.md) or an [event file target](xevent-code-event-file.md).
+You can collect deadlock graphs with XEvents using either the [ring buffer target](xevent-code-ring-buffer.md) or an [event file target](xevent-code-event-file.md). Considerations for selecting the appropriate target type are summarized in the following table:
 
-The ring buffer target is convenient and easy to set up, but it does not persist events to storage and the ring buffer target is cleared when the XEvents trace is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. The ring buffer target is best suited to learning and short-term needs if you do not have the ability to set up an XEvents trace to an event file target immediately.
 
-The event file target persists deadlock graphs to a file so that they are available even after failovers. The event file target also allows you to capture more deadlock graphs without utilizing more memory in your database. The event file target is suitable for general long term use.
+|Approach  |Pros  |Cons  |Best for  |
+|---------|---------|---------|---------|
+|Ring buffer target | Simple setup with Transact-SQL only. | Trace data is cleared when the XEvents trace is stopped for any reason, including database failover. | Learning and short term needs if you cannot set up a trace to an event file target immediately. |
+|Event file target  | Persists trace data to a file so that they are available even after failovers. | Setup is more complex and requires configuration of an Azure Store container and configuration of a database scoped credential.  |  Long term use.       |
+
+Select the target type you would like to use:
 
 # [Ring buffer target](#tab/ring-buffer)
 
+The ring buffer target is convenient and easy to set up, but it does not persist events to storage and the ring buffer target is cleared when the XEvents trace is stopped. This means that any XEvents collected will not be available after incidents that take the database offline, such as a failover. The ring buffer target is best suited to learning and short-term needs if you do not have the ability to set up an XEvents trace to an event file target immediately.
+
 This sample code creates an XEvents trace which captures deadlock graphs in memory using the [ring buffer target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#ring_buffer-target). The maximum memory allowed for the ring buffer target is 4MB, and the trace will automatically run when the database comes online, such as after a failover.
 
-To create and then start the trace, connect to your user database and run the following Transact-SQL:
+To create and then start a XEvents trace for the `sqlserver.database_xml_deadlock_report` event which writes to the ring buffer target, connect to your user database and run the following Transact-SQL:
 
 ```sql
 CREATE EVENT SESSION [deadlocks] ON DATABASE 
@@ -148,8 +154,124 @@ GO
 
 # [Event file target](#tab/event-file)
 
+The event file target persists deadlock graphs to a file so that they are available even after failovers. The event file target also allows you to capture more deadlock graphs without utilizing more memory in your database. The event file target is suitable for long term use.
 
-<!--todo: add content here -->
+To create an XEvents trace which writes to an event file target, we will:
+
+1. Configure an Azure Storage container to hold the trace files using the Azure Portal.
+1. Create a database scoped credential with Transact-SQL.
+1. Create the XEvents trace with Transact-SQL.
+
+> [!NOTE] If you wish to create and configure the Azure Storage container with PowerShell, see [Event File target code for extended events in Azure SQL Database](xevent-code-event-file.md).
+
+### Configure an Azure Storage container
+
+To configure an Azure Storage container, first create or select an existing Azure Storage account, then create the container. Configure the container with a security policy, then generate a Shared Access Signature (SAS) token.
+
+#### Create or select an Azure Storage account
+
+You can use an existing Azure Storage account or create a new Azure Storage account to host a container for trace files.
+
+To use an existing Azure Storage account:
+1. Navigate to the resource group you want to work with in the Azure Portal.
+1. On the **Overview** pane, Under **Resources**, set the **Type** dropdown to *Storage account*.
+1. Select the storage account you want to use.
+
+To create a new Azure Storage account, follow the steps in [Create an Azure storage account](/azure/media-services/latest/storage-create-how-to). Complete the process by selecting **Go to resource** in the final step.
+
+#### Create a container
+
+From the storage account page in the Azure portal:
+
+1. Under **Data storage**, select **Containers**.
+1. Select **+ Container** to create a new container. The New container pane will appear.
+1. Enter a name for the container under **Name**.
+1. Select **Create**.
+1. Select the container from the list after it has been created.
+
+#### Configure a security policy
+
+From the container page in the Azure portal:
+
+1. Under **Settings**, select **Access policy**.
+1. Under **Stored access policies** select **+ Add policy**.
+1. Specify a name under **Identifier**, such as XEvents
+1. Under the **Permissions** dropdown, select the **Read**, **Write**, and **List** permissions.
+1. Set **Start time** to the date and time you would like to be able to write trace files.
+1. Set **Expiry time** to the date and time you would like these permissions to expire. You are able to set this to a date far in the future, such as ten years, if you wish.
+1. Select **OK**.
+1. Select **Save**.
+
+#### Create a shared access token
+
+From the container page in the Azure portal:
+
+1. Under **Settings**, select **Shared access tokens**.
+1. Set the **Signing method** radio button to **Account key**.
+1. Set **Stored access policy** to the policy you created for XEvents.
+1. Select **Generate SAS token and URL**. The Blob SAS token and Blob SAS URL will be displayed on the screen.
+1. Copy and preserve the *Blob SAS token* and *Blob SAS URL* values for use in further steps.
+
+### Create a database scoped credential
+
+Connect to your database in Azure SQL Database with SSMS to run the following steps.
+
+To create a database scoped credential, you must first create a [master key](/sql/t-sql/statements/create-master-key-transact-sql) in the database if one does not exist.
+
+Run the following Transact-SQL to check if a master key exists:
+
+```sql
+SELECT name, principal_id, create_date, modify_date
+FROM sys.symmetric_keys
+WHERE symmetric_key_id = 101;
+GO
+```
+
+If the master key exists, one row will be returned with the name *##MS_DatabaseMasterKey##*.
+
+If the master key does not exist, use the following Transact-SQL create one. Before running the statement, modify the Transact-SQL to contain a secure password of your choice in the `CREATE MASTER KEY` statement. Store the master key password in a secure location.
+
+```sql
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '0C34C960-6621-4682-A123-C7EA08E3FC46'
+GO
+```
+
+Create a database scoped credential with the following Transact-SQL. Before running the code: 
+- Modify the URL to reflect your storage account name and your container name. This URL will be the first part of the *Blob SAS URL* you copied when you created the shared access token.
+- Modify the `SECRET` to contain the *Blob SAS token* value you copied when you created the shared access token.
+
+```sql
+CREATE
+    DATABASE SCOPED
+    CREDENTIAL
+        [https://yourstorageaccountname.blob.core.windows.net/yourcontainername]
+    WITH
+        IDENTITY = 'SHARED ACCESS SIGNATURE', 
+        SECRET = 'si=XEvents&spr=https&sv=2020-08-04&sr=c&sig=aBcD1Edo6lMim0KNf8jdVJq%2F90z%2BsvcnMc6iwiDAUZw%3D'
+    ;
+GO
+```
+
+### Create the XEvents trace
+
+Create and start the XEvents trace with the following Transact-SQL. Before running the statement:
+- Replace the filename value to reflect your storage account name and your container name. This URL will be the first part of the *Blob SAS URL* you copied when you created the shared access token.
+- Optionally change the name of the filename stored.
+
+```sql
+CREATE EVENT SESSION [deadlocks_eventfile] ON DATABASE 
+ADD EVENT sqlserver.database_xml_deadlock_report
+ADD TARGET package0.event_file
+	(SET filename =
+	'https://yourstorageaccountname.blob.core.windows.net/yourcontainername/deadlocks.xel'
+	)
+WITH (STARTUP_STATE=ON, MAX_MEMORY=4 MB)
+GO
+
+ALTER EVENT SESSION [deadlocks_eventfile] ON DATABASE
+    STATE = START;
+GO
+```
 
 ---
 
