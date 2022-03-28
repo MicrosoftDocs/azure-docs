@@ -135,7 +135,6 @@ The Insights column of the page gives you additional details for each recommenda
 | :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | *Preview recommendation** | This recommendation will not affect your secure score until it's GA. |
 | :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: | **Fix** | From within the recommendation details page, you can use 'Fix' to resolve this issue. |
 | :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: | **Enforce** | From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource. |
-| :::image type="icon" source="media/secure-score-security-controls/grace-period-icon.png" border="false"::: | **Grace Period** | This recommendation is within it's grace period and will not affect your score. |
 | :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: | **Deny** | From within the recommendation details page, you can prevent new resources from being created with this issue. |
 
 Recommendations that aren't included in the calculations of your secure score, should still be remediated wherever possible, so that when the period ends they'll contribute towards your score instead of against it.
