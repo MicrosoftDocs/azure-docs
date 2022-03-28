@@ -365,7 +365,7 @@ If you're not going to continue to use this application, you can delete the reso
 1) Select the `msdocs-storage-function` resource group from the list.
 2) Select the **Delete resource group** button at the top of the resource group overview page.
 3) Enter the resource group name *msdocs-storage-function* in the confirmation dialog.
-4) Select Delete.
+4) Select delete.
 The process to delete the resource group may take a few minutes to complete.
 
 
