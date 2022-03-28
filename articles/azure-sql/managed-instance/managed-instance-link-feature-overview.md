@@ -46,7 +46,7 @@ Data replicated through the link feature from SQL Server to Azure SQL Managed In
 - **Offload read-only workloads to Azure** 
 - **Migrate to Azure**
 
-![Managed Instance link main scenario](./media/managed-instance-link/mi-link-main-scenario.png)
+![Managed Instance link main scenario](./media/managed-instance-link-feature-overview/mi-link-main-scenario.png)
 
 ### Use Azure services 
 
@@ -71,7 +71,7 @@ Since the link feature enables minimum downtime migration, you can migrate to yo
 
 The underlying technology behind the link feature for SQL Managed Instance is distributed availability groups. The solution supports single-node systems without existing availability groups, or multiple node systems with existing availability groups.  
 
-![How does the link feature for SQL Managed Instance work](./media/managed-instance-link/mi-link-ag-dag.png)
+![How does the link feature for SQL Managed Instance work](./media/managed-instance-link-feature-overview/mi-link-ag-dag.png)
 
 Secure connectivity, such as VPN or Express Route is used between an on-premises network and Azure. If SQL Server is hosted on an Azure VM, the internal Azure backbone can be used between the VM and managed instance – such as, for example, global VNet peering. The trust between the two systems is established using certificate-based authentication, in which SQL Server and SQL Managed Instance exchange their public keys.
 
@@ -90,7 +90,7 @@ Once you have ensured the pre-requirements have been met, you can create the lin
 
 Once the link has been created, ensure that you follow the best practices for maintaining the link, by following instructions described at this page:
 
-* [Best practices with link feature for Azure SQL Managed Instance](link-feature-best-practices.md)
+* [Best practices with link feature for Azure SQL Managed Instance](managed-instance-link-best-practices.md)
 
 If and when you are ready to migrate a database to Azure with a minimum downtime, you can do this using an automated wizard in SSMS, or you can choose to do this manually with scripts. Migrate database to Azure link using one of the following instructions:
 

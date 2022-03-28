@@ -430,7 +430,7 @@ Functional limitations of LRS are:
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 
 > [!NOTE]
-> If you require database to be R/O accessible during the migration, and if you require migration window larger than 36 hours, please consider an alternative online migrations solution [link feature for Managed Instance](link-feature.md) providing such capability.
+> If you require database to be R/O accessible during the migration, and if you require migration window larger than 36 hours, please consider an alternative online migrations solution [link feature for Managed Instance](managed-instance-link-feature-overview.md) providing such capability.
 
 ## Troubleshooting
 
@@ -445,7 +445,7 @@ After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogrep
 - If you started LRS in autocomplete mode, was a valid filename for the last backup file specified?
 
 ## Next steps
-- Learn more about [migrating to Managed Instance using the link feature](link-feature.md).
+- Learn more about [migrating to Managed Instance using the link feature](managed-instance-link-feature-overview.md).
 - Learn more about [migrating from SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 - Learn more about [differences between SQL Server and SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
 - Learn more about [best practices to cost and size workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).

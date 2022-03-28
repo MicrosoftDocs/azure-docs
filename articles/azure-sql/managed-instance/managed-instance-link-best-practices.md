@@ -73,5 +73,5 @@ To get started with the link feature, [prepare your environment for replication]
 
 For more information on the link feature, see the following articles:
 
-- [Managed Instance link – overview](link-feature.md)
+- [Managed Instance link – overview](managed-instance-link-feature-overview.md)
 - [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog)
