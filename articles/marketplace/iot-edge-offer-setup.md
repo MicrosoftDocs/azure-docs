@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 03/27/2022
+ms.date: 03/28/2022
 ---
 
 # Create an IoT Edge Module offer

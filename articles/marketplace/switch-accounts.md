@@ -32,7 +32,6 @@ If you don't see the *account picker*, you are part of one account only. You can
 1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 1. In the left-menu, under **Organization profile**, select **Legal info**. Then select the **Developer** tab.
 
-
 You can then select any of account on the list to switch to that account. After you switch, everything in Partner Center appears in the context of that account.
 
 > [!NOTE]
