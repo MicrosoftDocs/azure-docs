@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use an Azure Automation account. For general information about Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md).
 
-## Unable to create an Automation account with a unique account name in a subscription
+## Scenario: Unable to create an Automation account with a unique account name in a subscription
 
 ### Issue
 
 The following error displays when creating an Automation account with a provided name (GUID) that's not used as the Automation account name in the same subscription.
 
-    ```error
+```error
     {
 
     "code": "BadRequest",
@@ -25,7 +25,7 @@ The following error displays when creating an Automation account with a provided
 
     }
 
-    ```
+```
 ### Cause
 
 This error appears when the Automation account name (that's GUID) is used as the *accountId* for other Automation account. The *accountId* is a unique identifier across all Automation accounts in a region. For example, if you try to create an Automation account with the name *123abc-123abc-123abc-123abc-123abc*. The creation will fail if this is already used as the *accountid* for an existing Automation account (with a different account name) in that region.
