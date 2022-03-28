@@ -267,7 +267,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```azurecli
         $KeyName = <name of key>
         $KeySize = 3072
-        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --policy "@.\skr-policy.json"   
+        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"   
         ```
 
     1. Get information about the key that you created.
