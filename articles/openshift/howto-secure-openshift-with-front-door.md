@@ -5,7 +5,7 @@ author: rahulm23
 ms.author: rahulmehta
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 12/07/2021  
 keywords: azure, openshift, red hat, front, door
 #Customer intent: I need to understand how to secure access to Azure Red Hat OpenShift applications with Azure Front Door.
 ---
