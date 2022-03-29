@@ -29,9 +29,28 @@ By using NFS datastores backed by Azure NetApp Files you can expand your storage
         `az provider register -n "Microsoft.AVS"`
 1. Create a [Network File System (NFS) volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
     1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
-    1. Verify the subscription is registered to `AMFAvsDataStore` feature in the Microsoft.NetApp namespace to confirm the volume is for Azure VMware Solution NFS datastore.
+    1. Verify the subscription is registered to `ANFAvsDataStore` feature in the **Microsoft.NetApp** namespace to confirm the volume is for Azure VMware Solution NFS datastore.
     1. The registration isn't auto approved. You'll need to send an email to the support DL and provide the subscription ID if it wasn't registered when you signed up for preview.
 
 ## Delete an Azure NetApp Files datastore from your private cloud
 
 ## Next steps
+
+## FAQs
+
+- **Are there any special permissions required to create the datastore with the Azure NetApp Files volume and attach it onto the clusters in a private cloud?**
+    
+    No other special permissions are needed. The datastore creation and attachment is implemented via Azure VMware Solution RP.
+
+- **Which NFS versions are supported?**
+  
+     NFSv3 is supported for datastores on Azure NetApp Files.
+
+- **Should Azure NetApp Files be in the same subscription as the private cloud?** 
+
+    It's recommended to use the Premium or Ultra tier for optimal performance.
+
+- **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
+
+    We are currently validating and working on the benchmarking. However, for Azure NetApp Files volumes with "Basic" network features, the connectivity from Azure VMware Solution is bound by the bandwidth of the ExpressRoute circuit and the ExpressRoute Gateway along with the latency that comes with tat architecture.
+
