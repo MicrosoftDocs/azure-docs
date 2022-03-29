@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 01/20/2022 
+ms.date: 03/29/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -155,11 +155,35 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
 ## Create a service principal (an Azure AD application) in Azure AD
 
-1. Follow the guide here to [register your app](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
+Register your application if you have not already done so. To register an app, you need to either be an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-2. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+Completing an app registration generates and displays an **Application ID**.
 
-3. Record the following from your application registration. It should be available from your **Overview** pane:
+To register and set necessary permissions for your application:
+
+1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New registration**.
+
+    ![App registration](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+
+    After the app registration is created, the **Application ID** value is generated and displayed.
+
+    ![App ID displayed](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
+
+2. Select **API permissions** > **Add a permission**.
+
+    ![Permissions settings for registered app](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+
+3. Select **APIs my organization uses** > type **Azure SQL Database** into the search > and select **Azure SQL Database**.
+
+    ![Add access to API for Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+
+4. Select **Delegated permissions** > **user_impersonation** > **Add permissions**.
+
+    ![Delegate permissions to API for Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+
+5. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+
+6. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
     - **Tenant ID** - This should be the same as before
 
