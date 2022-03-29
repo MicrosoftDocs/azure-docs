@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/02/2022
+ms.date: 03/30/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,22 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## March 2022
+
+Here's what changed in March 2022:
+
+### Live Captions with Teams on Azure Virtual Desktop now generally available
+
+Accessibility has always been important to us, so we are pleased to announce that Teams for Azure Virtual Desktop now supports real-time captions. Learn how to use live captions at [Use live captions in a Teams meeting](https://support.microsoft.com/en-us/office/use-live-captions-in-a-teams-meeting-4be2d304-f675-4b57-8347-cbd000a21260). For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-live-captions-is-now-generally-available-on/ba-p/3264148).
+
+### Multimedia redirection enhancements now in public preview
+
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.mdon.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
+
+### FSLogix version 2201 is now generally available
+
+FSLogix version 2201 is now generally available. This version includes improved sign-in and sign-out times, cloud cache performance improvements, and accessibility updates. For more information, see [the FSLogix release notes](/fslogix/whats-new?context=/azure/virtual-desktop/context/context#fslogix-2201-29811153415) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-fslogix-2201-2-9-8111-53415/m-p/3270742).
 
 ## February 2022
 
