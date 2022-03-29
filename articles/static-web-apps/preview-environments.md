@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/29/2022
 ms.custom: template-how-to
 ---
 
@@ -126,5 +126,7 @@ jobs:
 
 Here, the preview environments are defined for the `dev`, `feature1`, and `feature2` branches. Since the `deployment_environment` value isn't set, then each branch is deployed to its own environment.
 
-## Next steps
+## Next Steps
 
+> [!div class="nextstepaction"]
+> [Review pull requests in pre-production environments](./review-publish-pull-requests.md)
