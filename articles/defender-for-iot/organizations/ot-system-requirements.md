@@ -5,7 +5,7 @@ ms.date: 03/28/2022
 ms.topic: how-to
 ---
 
-# OT System Requirements
+# OT system hardware and virtual appliance requirements
 
 ## Identify required OT appliances – Revision March 2022
 
