@@ -58,7 +58,7 @@ You can start LRS in either *autocomplete* or *continuous* mode. When you start 
 
 We recommend that you manually cut over after the final log-tail backup is shown as restored on SQL Managed Instance. The final cutover step makes the database come online and available for read and write use on SQL Managed Instance.
 
-After LRS is stopped, either automatically through autocomplete, or manually through cutover, you can't resume the restore process for a database that was brought online on SQL Managed Instance. For example, once migration has been completed you are no longer able to restore additional differential backups for an online database. To restore more backup files after migration completes, you need to delete the database from the managed instance and restart the migration from the beginning. 26644444
+After LRS is stopped, either automatically through autocomplete, or manually through cutover, you can't resume the restore process for a database that was brought online on SQL Managed Instance. For example, once migration has been completed you are no longer able to restore additional differential backups for an online database. To restore more backup files after migration completes, you need to delete the database from the managed instance and restart the migration from the beginning. 
 
 :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Diagram that explains the Log Replay Service orchestration steps for SQL Managed Instance." border="false":::
 	
@@ -380,7 +380,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
-PowerShell and CLI clients that start LRS in continuous mode are synchronous. This means that clients wait for the API response to report on success or failure to start the job. 
+PowerShell and CLI clients that start LRS in continuous mode are synchronous. This means the client waits for the API response to report on success or failure to start the job. 
 
 During this wait, the command won't return control to the command prompt. If you're scripting the migration experience, and you need the LRS start command to give back control immediately to continue with rest of the script, you can run PowerShell as a background job with the `-AsJob` switch. For example:
 
