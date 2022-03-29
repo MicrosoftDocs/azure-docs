@@ -90,7 +90,7 @@ The following steps show the steps required to prepare sample customer range (1.
      
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 
-    :::image type="content" source="./media/create-custom-ip-address-prefix-portal/certificate-example.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
+    :::image type="content" source="./media/create-custom-ip-address-prefix-portal/certificate-example.png" alt-text="Screenshot of example certificate comment":::
     
 3. To create the message that will be passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
