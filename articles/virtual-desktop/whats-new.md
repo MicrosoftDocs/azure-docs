@@ -18,71 +18,7 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Improvements to existing features
 - Bug fixes
 
-This article is updated monthly. Make sure to check back here often to keep up with new updates.
-
-## Client updates
-
-Check out these articles to learn about updates for our clients for Azure Virtual Desktop and Remote Desktop Services:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
-
-## Azure Virtual Desktop Agent updates
-
-The Azure Virtual Desktop agent updates at least once per month.
-
-Here's what's changed in the Azure Virtual Desktop Agent:
-
-- Version 1.0.4119.1500: This update was released in February 2022 and includes the following changes:
-    - Fixes an issue with arithmetic overflow casting exceptions.
-    - Updated the agent to now start the Azure Instance Metadata Service (IMDS) when the agent starts.
-    - Fixes an issue that caused Sandero name pipe service start ups to be slow when the VM has no registration information.
-    - General bug fixes and agent improvements.
-- Version 1.0.4009.1500: This update was released in January 2022 and includes the following changes:
-    - Added logging to better capture agent update telemetry.
-    - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
-- Version 1.0.3855.1400: This update was released December 2021 and has the following changes:
-    - Fixes an issue that caused an unhandled exception.
-    - This version now supports Azure Stack HCI by retrieving VM metadata from the Azure Arc service.
-    - This version now allows built-in stacks to be automatically updated if its version number is beneath a certain threshold.
-    - The UrlsAccessibleCheck health check now only gets the URL until the path delimiter to prevent 404 errors.
-- Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
-    - Updated agent error messages.
-    - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
-    - General agent improvements.
-- Version 1.0.3583.2600: This update was released October 2021 and it fixes an issue where upgrading from Windows 10 to Windows 11 disabled the side-by-side stack.
-- Version 1.0.3373.2605: This update was released September 2021 and it fixes an issue with package deregistration getting stuck when using MSIX App Attach.
-- Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
-    - General agent improvements.
-    - Fixes issues with restarting the agent on Windows 7 VMs.
-    - Fixes an issue with fields in the WVDAgentHealthStatus table not showing up correctly.
-- Version 1.0.3130.2900: This update was released July 2021 and has the following changes:
-    - General improvements and bug fixes.
-    - Fixes an issue with getting the host pool path for Intune registration.
-    - Added logging to better diagnose agent issues.
-    - Fixes an issue with orchestration timeouts.
-- Version 1.0.3050.2500: This update was released July 2021 and has the following changes:
-    - Updated internal monitors for agent health.
-    - Updated retry logic for stack health.
-- Version 1.0.2990.1500: This update was released April 2021 and has the following changes:
-    - Updated agent error messages.
-    - Added an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
-    - Has updated heartbeat service logic.
-- Version 1.0.2944.1400: This update was released April 2021 and has the following changes:
-    - Placed links to the Azure Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
-    - Added an additional exception for better error handling.
-    - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
--	Version 1.0.2866.1500: This update was released March 2021 and it fixes an issue with the stack health check.
--	Version 1.0.2800.2802: This update was released March 2021 and it has general improvements and bug fixes.
--	Version 1.0.2800.2800: This update was released March 2021 and it fixes a reverse connection issue.
--	Version 1.0.2800.2700: This update was released February 2021 and it fixes an access denied orchestration issue.
-
-## FSLogix updates
-
-Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+Make sure to check back here often to keep up with new updates.
 
 ## February 2022
 
@@ -339,7 +275,7 @@ On September 30th, 2021, the Azure Virtual Desktop web client will no longer sup
 
 We've started the public preview for Microsoft Endpoint Manager support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
-### FSLogix agent public preview
+### FSLogix version 2105 public preview
 
 We have released a public preview of the latest version of the FSLogix agent. Check out our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) for more information and to submit the form you'll need to access the preview.
 
@@ -431,7 +367,7 @@ The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and 
 
 ### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
 
-Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Azure Virtual Desktop deployment easier.
+Based on customer feedback, we've released a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Azure Virtual Desktop deployment easier.
 
 ### Azure Monitor for Azure Virtual Desktop is now in General Availability
 
@@ -545,16 +481,6 @@ We've added new built-in roles for Azure Virtual Desktop for admin permissions. 
 
 We've increased the default application group limit per Azure Active Directory tenant to 200 groups.
 
-### Client updates for December 2020
-
-We've released new versions of the following clients: 
-
-- Android
-- macOS
-- Windows
-
-For more information about client updates, see [Client updates](whats-new.md#client-updates).
-
 ## November 2020
 
 ### Azure portal experience
@@ -586,9 +512,10 @@ Here's what changed in October 2020:
 
 ### Improved performance
 
-- We've optimized performance by reducing connection latency in the following Azure geographies:
-    - Switzerland
-    - Canada
+We've optimized performance by reducing connection latency in the following Azure geographies:
+
+- Switzerland
+- Canada
 
 You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
 
@@ -612,15 +539,6 @@ We've made some updates to the Azure Virtual Desktop Azure portal:
 - The "Applications" tab now has pages.
 - Fixed an issue where the "requires command line" text didn't display correctly in the "Application list" tab.
 - Fixed an issue when the portal couldn't deploy host pools or virtual machines while using the German-language version of the Shared Image Gallery.
-
-### Client updates for October 2020
-
-We've released new versions of the clients. See these articles to learn more:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-
-For more information about the other clients, see [Client updates](#client-updates).
 
 ## September 2020
 
@@ -676,7 +594,7 @@ July was when Azure Virtual Desktop with Azure Resource Management integration b
 
 Here's what changed with this new release: 
 
-- The "Fall 2019 release" is now known as "Azure Virtual Desktop (Classic)," while the "Spring 2020 release" is now just "Azure Virtual Desktop." For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+- The "Fall 2019 release" is now known as "Azure Virtual Desktop (classic)," while the "Spring 2020 release" is now just "Azure Virtual Desktop." For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
 
 To learn more about new features, check out [this blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
 
@@ -748,7 +666,3 @@ We've added a new gateway cluster in South Africa to reduce connection latency.
 We've made some improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and visual redirection for calls. Redirection improves latency by creating direct paths between users when they call using audio or video. Less distance means fewer hops, which makes calls look and sound smoother.
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
-
-## Next steps
-
-Learn about future plans at the [Microsoft 365 Azure Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
