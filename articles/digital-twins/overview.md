@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Overview of Azure Digital Twins, what the service comprises, and how it can be used in a wider cloud solution.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 03/24/2022
 ms.topic: overview
 ms.service: digital-twins
 
@@ -65,34 +65,37 @@ You can also extract insights from the live execution environment, using Azure D
 
 To keep the live execution environment of Azure Digital Twins up to date with the real world, you can use [IoT Hub](../iot-hub/about-iot-hub.md) to connect your solution to IoT and IoT Edge devices. These hub-managed devices are represented as part of your twin graph, and provide the data that drives your model.
 
-You can create a new IoT Hub for this purpose with Azure Digital Twins, or connect an existing IoT Hub along with the devices it already manages.
+You can create a new IoT Hub for this purpose with Azure Digital Twins, or [connect an existing IoT Hub](how-to-ingest-iot-hub-data.md) along with the devices it already manages.
 
 You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-### Output to ADX, Time Series Insights, storage, and analytics
+### Output data for storage and analytics
 
-The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. This functionality is provided through *event routes*, which use [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to drive your data flows.
+The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
-Some things you can do with event routes include:
-* Sending digital twin data to ADX for querying with the [Azure Digital Twins query plugin for Azure Data Explorer (ADX)](concepts-data-explorer-plugin.md)
-* [Connecting Azure Digital Twins to Time Series Insights](how-to-integrate-time-series-insights.md) to track time series history of each twin
-* Aligning a Time Series Model in Time Series Insights with a source in Azure Digital Twins
-* Storing Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
-* Analyzing Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
-* Integrating larger workflows with Logic Apps​
+To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history (preview)](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
-This option is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
+To send digital twin data to other Azure services or ultimately outside of Azure, you can create *event routes*, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
+
+Here are some things you can do with event routes in Azure Digital Twins:
+* [Connect Azure Digital Twins to Time Series Insights](how-to-integrate-time-series-insights.md) to track time series history of each twin
+* Store Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
+* Analyze Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
+* Integrate larger workflows with [Logic Apps​](../logic-apps/logic-apps-overview.md)
+* Send data to custom applications for flexible and customized actions
+
+Flexible egress of data is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
 
 ## Azure Digital Twins in a solution context
 
 Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution. 
 
-A sample architecture of a complete solution using Azure Digital Twins may look like the following:
+A sample architecture of a complete solution using Azure Digital Twins may contain the following components:
 * The Azure Digital Twins service instance. This service stores your twin models and your twin graph with its state, and orchestrates event processing.
 * One or more client apps that drive the Azure Digital Twins instance by configuring models, creating topology, and extracting insights from the twin graph.
 * One or more external compute resources to process events generated by Azure Digital Twins, or connected data sources such as devices. One common way to provide compute resources is via [Azure Functions](../azure-functions/functions-overview.md).
 * An IoT hub to provide device management and IoT data stream capabilities.
-* Downstream services to handle tasks such as workflow integration (like [Logic Apps](../logic-apps/logic-apps-overview.md), cold storage, Azure Data Explorer, time series integration, or analytics).
+* Downstream services to provide things like workflow integration (like Logic Apps), cold storage (like Azure Data Lake), or analytics (like Azure Data Explorer or Time Series Insights).
 
 The following diagram shows where Azure Digital Twins lies in the context of a larger Azure IoT solution.
 
