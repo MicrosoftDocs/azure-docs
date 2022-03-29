@@ -36,7 +36,7 @@ It's a three phase process to bring an IP prefix to Azure:
 
 ### Validation
 
-In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as [ARIN](https://www.arin.net/) or [RIPE](https://www.ripe.net/).  When you bring an IP range to use on Azure, it remains under your ownership. You must authorize Microsoft to advertise the range. Your ownership of the range and its association with your Azure subscription are also verified. Some of these steps will be done outside of Azure.
+A public IP address range that's brought to Azure must be owned by you and registered with a Routing Internet Registry such as [ARIN](https://www.arin.net/) or [RIPE](https://www.ripe.net/).  When you bring an IP range to Azure, it remains under your ownership. You must authorize Microsoft to advertise the range. Your ownership of the range and its association with your Azure subscription are also verified. Some of these steps will be done outside of Azure.
 
 ### Provisioning
 
@@ -54,23 +54,23 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * IPv6 is currently not supported for custom IP prefixes
 
-* In regions with [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It cannot be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+* In regions with [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties
 
-* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
+* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions
 
-* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region.  Contact Azure support to have quotas increased when required.
+* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region.  Contact Azure support to have quotas increased when required
 
 ## Pricing
 
-* There is no charge to provision or utilize custom IP prefixes. This applies to all public IP prefixes and public IP addresses that are derived from custom IP prefixes.
+* There's no charge to provision or utilize custom IP prefixes. There's no charge for all public IP prefixes and public IP addresses that are derived from custom IP prefixes
 
-* All traffic destined to a custom IP prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers traffic to a custom IP prefix address from within Azure are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure public IP from the same region.
+* All traffic destined to a custom IP prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers traffic to a custom IP prefix address from within Azure are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure public IP from the same region
 
 ## Next steps
 
-- To create a custom IP address prefix using the Azure Portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md)
+- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md)
 
 - To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md)
 
