@@ -54,8 +54,8 @@ The following architecture diagram shows the implementation.
 | 9. |xID IdP checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user’s identifier and email address. |
 | 10. |In addition, if the user's customer content is needed, Azure AD B2C calls the xID userdata API. |
 | 11. |The xID userdata API returns the user’s encrypted customer content. User can decrypt it with their private key, which they create when they request the xID client information. |
+| 12. | User is either granted or denied access to the customer application based on the verification results. |
 
-| 12. | User is either granted or denied access to the customer application based on the verification results.
 
 ## Onboard with xID
 
