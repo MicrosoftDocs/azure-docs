@@ -36,7 +36,7 @@ This article demonstrates the use of Azure Backup to take disk snapshots of the 
 To prepare the environment, complete these steps:
 
 1. [Connect to the VM](#connect-to-the-vm).
-1. [Setup Azure Files Storage](#setup-azure-files-storage-for-the-oracle-archived-redo-log-files)
+1. [Setup Azure Files Storage](#set-up-azure-files-storage-for-the-oracle-archived-redo-log-files)
 1. [Prepare the database](#prepare-the-databases).
 
 ### Connect to the VM
