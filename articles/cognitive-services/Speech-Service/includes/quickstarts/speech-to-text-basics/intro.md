@@ -9,4 +9,4 @@ ms.author: eur
 In this quickstart, you run a console app to recognize and transcribe human speech (often called speech-to-text). 
 
 > [!TIP]
-> To try the Speech service without writing any code, create a project in [Speech Studio](../../../speech-studio-overview). 
+> To try the Speech service without writing any code, create a project in [Speech Studio](~/cognitive-services/speech-service/speech-studio-overview). 
