@@ -2,7 +2,7 @@
 title: Set up an app for testing on a lab VM
 description: Learn how to publish an app to an Azure file share for testing from a DevTest Labs virtual machine.
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 03/29/2022
 ---
 
 # Set up an app for testing on an Azure DevTest Labs VM
@@ -15,7 +15,7 @@ This article shows how to set up an application for testing from an Azure DevTes
 - A Windows-based [DevTest Labs VM](devtest-lab-add-vm.md) to use for testing the app.
 - [Visual Studio](https://visualstudio.microsoft.com/free-developer-offers/) installed on a different workstation.
 - A [file share](/azure/storage/files/storage-how-to-create-file-share) created in your lab's [Azure Storage Account](encrypt-storage.md).
-- The [file share mounted](/azure/storage/files/storage-how-to-use-files-windows#mount-the-azure-file-share) to your Visual Studio workstation, and to the test VM.
+- The [file share mounted](/azure/storage/files/storage-how-to-use-files-windows#mount-the-azure-file-share) to your Visual Studio workstation, and to the lab VM you want to use for testing.
 
 ## Publish your app from Visual Studio
 
