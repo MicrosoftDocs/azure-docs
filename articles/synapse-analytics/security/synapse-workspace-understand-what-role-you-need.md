@@ -73,7 +73,7 @@ All Synapse RBAC permissions/actions shown in the table are prefixed `Microsoft/
 
 Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 --|--|--
-|Open Synapse Studio on a workspace|Synapse User, or </br>|read
+|Open Synapse Studio on a workspace|Synapse User, or |read
 | |Azure Owner, Contributor, or Reader on the workspace|none
 |List SQL pools, Data Explorer pools, Apache Spark pools, Integration runtimes and access their configuration details|Synapse User, or|read|
 ||Azure Owner, Contributor, or Reader on the workspace|none
