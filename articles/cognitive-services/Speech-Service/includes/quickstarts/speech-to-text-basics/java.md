@@ -32,19 +32,21 @@ Before you can do anything, you need to install the Speech SDK. Depending on you
 Follow these steps to create a new console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
+1. Copy the following code into `SpeechRecognition.java`:
 
     ```java
     import com.microsoft.cognitiveservices.speech.*;
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.Future;
     
-    public class Program {
-        private static string YourSubscriptionKey = "YourSubscriptionKey";
-        private static string YourServiceRegion = "YourServiceRegion";
+    public class SpeechRecognition {
+        private static String YourSubscriptionKey = "YourSubscriptionKey";
+        private static String YourServiceRegion = "YourServiceRegion";
     
         public static void main(String[] args) throws InterruptedException, ExecutionException {
-            SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+            SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
             speechConfig.setSpeechRecognitionLanguage("en-US");
             recognizeFromMicrophone(speechConfig);
         }
@@ -59,26 +61,24 @@ Follow these steps to create a new console application for speech recognition.
             Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
             SpeechRecognitionResult speechRecognitionResult = task.get();
             
-            switch (speechRecognitionResult.getReason()) {
-                case ResultReason.RecognizedSpeech:
-                    System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
-                    exitCode = 0;
-                    break;
-                case ResultReason.NoMatch:
-                    System.out.println("NOMATCH: Speech could not be recognized.");
-                    break;
-                case ResultReason.Canceled: {
-                    CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
-                    System.out.println("CANCELED: Reason=" + cancellation.getReason());
-        
-                    if (cancellation.getReason() == CancellationReason.Error) {
-                        System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
-                        System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                        System.out.println("CANCELED: Did you update the subscription info?");
-                    }
-                }
-                break;
+            if (speechRecognitionResult.getReason() == ResultReason.RecognizedSpeech) {
+                System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
             }
+            else if (speechRecognitionResult.getReason() == ResultReason.NoMatch) {
+                System.out.println("NOMATCH: Speech could not be recognized.");
+            }
+            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
+                CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
+                System.out.println("CANCELED: Reason=" + cancellation.getReason());
+
+                if (cancellation.getReason() == CancellationReason.Error) {
+                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
+                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
+                    System.out.println("CANCELED: Did you update the subscription info?");
+                }
+            }
+
+            System.exit(0);
         }
     }
     ```
@@ -89,7 +89,7 @@ Follow these steps to create a new console application for speech recognition.
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-java Program
+java SpeechRecognition
 ```
 
 Speak into your microphone when prompted. What you speak should be output as text: 

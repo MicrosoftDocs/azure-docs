@@ -172,14 +172,18 @@
     href: /python/api/azure-mgmt-cdn
   - name: Go SDK
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
+  - name: JavaScript SDK
+    href: /javascript/api/overview/azure/contentdeliverynetwork
   - name: Classic
     items:
     - name: Azure CLI
       href: /cli/azure/afd/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor
-    - name: Rest API
+    - name: REST API
       href: /rest/api/frontdoor/#front-door-classic
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/frontdoor
 - name: Resources
   items:
   - name: Azure Roadmap
