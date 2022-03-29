@@ -356,7 +356,7 @@ items:
           href: storage-blob-index-how-to.md
         - name: Enable blob inventory reports
           href: blob-inventory-how-to.md
-        - name: Calculate blobs count and total size
+        - name: Calculate blob count and total size
           href: calculate-blob-count-size.md
       - name: Authorize access to blob data
         items:
