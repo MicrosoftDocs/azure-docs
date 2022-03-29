@@ -26,7 +26,6 @@ This content applies to the flexible orchestration mode. For uniform orchestrati
 
 > [!IMPORTANT]
 > Capacity Reservations with virtual machine set using flexible orchestration is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > During the preview, always attach reserved capacity during creation of new scale sets using flexible orchestration mode. There are known issues attaching capacity reservations to existing scale sets using flexible orchestration. Microsoft will update this page as more options become enabled during preview. 
 
 ## Associate a new virtual machine scale set to a Capacity Reservation group
