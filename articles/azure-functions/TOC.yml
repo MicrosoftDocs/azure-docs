@@ -469,14 +469,26 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
-            - name: Storage - Python
-              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
-            - name: Storage - portal
-              href: functions-integrate-storage-queue-output-binding.md
-            - name: Storage - Visual Studio Code
-              href: functions-add-output-binding-storage-queue-vs-code.md
-            - name: Storage - Visual Studio
-              href: functions-add-output-binding-storage-queue-vs.md
+            - name: Storage
+              items:
+                - name: Python
+                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+                - name: portal
+                  href: functions-integrate-storage-queue-output-binding.md
+                - name: Visual Studio Code
+                  href: functions-add-output-binding-storage-queue-vs-code.md
+                - name: Visual Studio
+                  href: functions-add-output-binding-storage-queue-vs.md
+            - name: SignalR
+              items:
+                - name: C#
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Java
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: JavaScript
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=%2fazure%2fazure-functions%2ftoc.jso
+                - name: Python
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=%2fazure%2fazure-functions%2ftoc.json                  
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
