@@ -70,5 +70,5 @@ Use the following steps to build a Power BI report from Azure Cosmos DB data in 
 
 ## Next steps
 
-* Learn more about [Azure Synapse Link for Azure Cosmos DB](synapse-link.md)
 * [Connect serverless SQL pool to Power BI Desktop & create report](../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md#prerequisites)
+* [Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md)
