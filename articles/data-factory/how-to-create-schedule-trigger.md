@@ -55,7 +55,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
     1. Specify the time zone that the trigger will be created in. The time zone setting will apply to **Start Date**, **End Date**, and **Schedule Execution Times** in Advanced recurrence options. Changing Time Zone setting will not automatically change your start date. Make sure the Start Date is correct in the specified time zone. Please note that Scheduled Execution time of Trigger will be considered post the Start Date (Ensure Start Date is at least 1 minute lesser than the Execution time else it will trigger pipeline in next recurrence).
 
         > [!NOTE]
-        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
+        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change, if the recurrence is set to _Days_ or above. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
 
         > [!IMPORTANT]
         > Daylight saving adjustment only happens for trigger with recurrence set to _Days_ or above. If the trigger is set to _Hours_ or _Minutes_ frequency, it will continue to fire at regular intervals.
