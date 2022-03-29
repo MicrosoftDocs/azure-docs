@@ -52,15 +52,15 @@ From this example accumulation of Minutes Not Available, here is the calculation
 ## Limitations and restrictions 
 
 - Creating capacity reservations requires quota in the same manner as creating virtual machines. 
-- Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
+- Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](https://docs.microsoft.com/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
     - B 
     - D series, v2 and newer; AMD and Intel 
     - E series, all versions; AMD and Intel 
     - F series, all versions 
-    - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using VM Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
-- Support for additional VM Series is planned but not yet available: 
+    - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
+- Support for additional VM Series isn't currently available: 
     - L series  
     - M series, any version 
     - NC-series, v3 and newer 
@@ -79,10 +79,10 @@ From this example accumulation of Minutes Not Available, here is the calculation
 - Other deployment constraints are not supported. For example: 
     - Proximity Placement Group 
     - Update domains 
-    - VM Scale Sets with single placement group set 'true' 
-    - UltraSSD storage  (coming soon) 
+    - Virtual Machine Scale Sets with single placement group set 'true' 
+    - UltraSSD storage
     - VMs resuming from hibernation 
-    - VMs requiring vnet encryption (in progress) 
+    - VMs requiring vnet encryption
 - Only the subscription that created the reservation can use it. 
 - Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students are not eligible to use this feature. 
 
@@ -116,7 +116,7 @@ The group specifies the Azure location:
 
 - The group sets the region in which all reservations will be created. For example, East US, North Europe, or Southeast Asia. 
 - The group sets the eligible zones. For example, AZ1, AZ2, AZ3 in any combination. 
-- If no zones are specified, Azure will select the placement for the group somewhere in the region. Each reservations will specify the region and may not set a zone. 
+- If no zones are specified, Azure will select the placement for the group somewhere in the region. Each reservation will specify the region and may not set a zone. 
 
 Each reservation in a group is for one VM size. If eligible zones were selected for the group, the reservation must be for one of the supported zones. 
 
