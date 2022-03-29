@@ -1,5 +1,5 @@
 ---
-title: Activity log insights 
+title: Activity logs insights 
 description: View the overview of Azure Activity logs of your resources
 author: osalzberg
 services: azure-monitor
