@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.date: 03/31/2022
 ms.author: allensu
 ---
 # Manage a custom IP address prefix
@@ -46,7 +46,7 @@ Once created, the IPs in the child public IP prefix can be associated with resou
 
 ### Migration of active prefixes from outside Microsoft
 
-If the provisioned range is being advertised to the Internet by another network, it's important to plan the migration to Azure to avoid impact. Regardless of the method used, make the transition during a maintenance window. 
+If the provisioned range is being advertised to the Internet by another network, it's important to plan the migration to Azure to avoid unplanned downtime. Regardless of the method used, make the transition during a maintenance window. 
 
 **Method 1: Create public IP prefixes and public IP addresses from the prefixes when the custom IP prefix is in a "Provisioned" state**.
     
@@ -126,9 +126,9 @@ For permissions to manage public IP address prefixes, your account must be assig
 
 This section provides answers for common questions about custom IP prefix resources and the provisioning and removal processes.
 
-### After creating a new custom IP prefix, a "ValidationFailed" error is returned
+### A "ValidationFailed" error is returned after a new custom IP prefix creation
 
-A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the given subscription. To view the specific error, you can use the **JSON view** of a custom IP prefix resource in the **Overview** section to see the "failedReason" field. For example, the Route Origin Authorization, the signed message on the prefix records, and other aspects of the submission. You should delete the custom IP prefix resource and create a new one with the correct information.
+A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the given subscription. To view the specific error, you can use the **JSON view** of a custom IP prefix resource in the **Overview** section to see the **failedReason** field. The JSON view displays the Route Origin Authorization, the signed message on the prefix records, and other details of the submission. You should delete the custom IP prefix resource and create a new one with the correct information.
 
 ### After updating a custom IP prefix to advertise, it transitions to a "CommissioningFailed" status
 
@@ -136,7 +136,7 @@ If a custom IP prefix is unable to be fully advertised, it moves to a **Commissi
 
 ### I’m unable to decommission a custom IP prefix
 
-Before you decommission a custom IP prefix, please ensure it has no public IP prefixes or public IP addresses.
+Before you decommission a custom IP prefix, ensure it has no public IP prefixes or public IP addresses.
 
 ### How can I migrate a range from one region to another
 
