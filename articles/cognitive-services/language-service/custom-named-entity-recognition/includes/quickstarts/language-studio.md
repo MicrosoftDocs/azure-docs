@@ -46,7 +46,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 
 ## Create a custom named entity recognition project
 
-Once your resource and storage container are configured, create a new conversational NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used.
 
 [!INCLUDE [Create custom NER project](../create-project.md)]
 

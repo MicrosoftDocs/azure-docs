@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark
+ms.custom: subject-rbac-steps
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 
@@ -119,14 +120,19 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
     
       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir-open.png" alt-text="ADF Until Activity On-Demand SSIS IR Open":::
 
-7. Assign the managed identity for your ADF a **Contributor** role to itself, so Web activities in its pipelines can call REST API to start/stop Azure-SSIS IRs provisioned in it.  On your ADF page in Azure portal, click **Access control (IAM)**, click **+ Add role assignment**, and then on **Add role assignment** blade, do the following actions:
+7. Assign the managed identity for your ADF a **Contributor** role to itself, so Web activities in its pipelines can call REST API to start/stop Azure-SSIS IRs provisioned in it:  
 
-   1. For **Role**, select **Contributor**. 
-   2. For **Assign access to**, select **Azure AD user, group, or service principal**. 
-   3. For **Select**, search for your ADF name and select it. 
-   4. Click **Save**.
-    
-   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png" alt-text="ADF Managed Identity Role Assignment":::
+   1. On your ADF page in the Azure portal, select **Access control (IAM)**.
+   1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+      | Setting | Value |
+      | --- | --- |
+      | Role | Contributor |
+      | Assign access to | User, group, or service principal |
+      | Members | Your ADF username |
+
+      :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
 
 8. Validate your ADF and all pipeline settings by clicking **Validate all/Validate** on the factory/pipeline toolbar. Close **Factory/Pipeline Validation Output** by clicking **>>** button.  
 

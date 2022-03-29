@@ -50,8 +50,8 @@
           href: howto-use-acr-with-aro.md
     - name: Security and authentication
       items:
-        - name: Configure Azure Active Directory authentication (CLI)
-          href: configure-azure-ad-cli.md
+        - name: Secure OpenShift with Azure Front Door
+          href: howto-secure-openshift-with-front-door-feb-22.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster

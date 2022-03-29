@@ -75,8 +75,6 @@
     items:
     - name: HTTP/2
       href: front-door-http2.md
-  - name: Load-balancing with Azure's application delivery
-    href: front-door-lb-with-azure-app-delivery-suite.md
   - name: FAQ
     href: front-door-faq.yml
 - name: How-to guides
@@ -99,15 +97,17 @@
       href: standard-premium/how-to-compression.md
     - name : Classic
       items:
-      - name: Create a Front Door (classic) - Portal
-        href: quickstart-create-front-door.md
-      - name: Create a Front Door (classic) - PowerShell
-        href: quickstart-create-front-door-powershell.md
-      - name: Create a Front Door (classic) - CLI
-        href: quickstart-create-front-door-cli.md
-      - name: Create a Front Door (classic) - ARM Template
-        displayName: Resource Manager
-        href: quickstart-create-front-door-template.md
+      - name: Create a Front Door (classic)
+        items:
+        - name: Portal
+          href: quickstart-create-front-door.md
+        - name: PowerShell
+          href: quickstart-create-front-door-powershell.md
+        - name: CLI
+          href: quickstart-create-front-door-cli.md
+        - name: ARM Template
+          displayName: Resource Manager
+          href: quickstart-create-front-door-template.md
       - name: Add a custom domain
         href: front-door-custom-domain.md
       - name: Configure HTTPS on a custom domain
@@ -166,12 +166,20 @@
       href: edge-locations-by-region.md
     - name: Edge locations by abbreviation
       href: edge-locations-by-abbreviation.md
-  - name: Azure CLI
-    href: /cli/azure/afd/
-  - name: Azure PowerShell
-    href: /powershell/module/az.frontdoor
   - name: REST API
     href: /rest/api/frontdoor
+  - name: Python SDK
+    href: /python/api/azure-mgmt-cdn
+  - name: Go SDK
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
+  - name: Classic
+    items:
+    - name: Azure CLI
+      href: /cli/azure/afd/
+    - name: Azure PowerShell
+      href: /powershell/module/az.frontdoor
+    - name: Rest API
+      href: /rest/api/frontdoor/#front-door-classic
 - name: Resources
   items:
   - name: Azure Roadmap
