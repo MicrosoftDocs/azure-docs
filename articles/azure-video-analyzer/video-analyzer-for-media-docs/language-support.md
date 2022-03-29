@@ -31,7 +31,7 @@ This section describes language support in Video Analyzer for Media.
     - Frame patterns (Only to Hebrew as of now)
 - Language customization
 
-| **Language**                      | **Code**       | **Transcription** | **LID*   | **MLID**  | **Translation** | **Customization** ("Language Model) |
+| **Language**                      | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** ("Language Model) |
 |:------------:|:------------:|:--------------------:|:-------:|:-------:|:-------------:|:------------------------------:|
 | Afrikaans                        | `af-ZA`      |            |  |  | ✔        | ✔                                |
 | Arabic (Iraq)                    | `ar-IQ`      | ✔               |  |  | ✔        | ✔                                |
