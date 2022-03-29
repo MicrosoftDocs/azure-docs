@@ -98,14 +98,23 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     az webapp identity assign --resource-group <group-name> --name <app-name>
     ```
 
-    # [System-assigned identity / System-assigned identity](#tab/systemassigned/mysql+systemassigned/postgresql)
+    # [System-assigned identity](#tab/systemassigned/mysql)
 
     ```azurecli-interactive
     az webapp identity assign --resource-group <group-name> --name <app-name> --output tsv --query principalId
     az ad sp show --id <output-from-previous-command> --output tsv --query appId
     ```
 
-    The output of [az ad sp show]() is the application ID of the system-assigned identity. You'll need it later. 
+    The output of [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show) is the application ID of the system-assigned identity. You'll need it later. 
+
+    # [System-assigned identity](#tab/systemassigned/postgresql)
+
+    ```azurecli-interactive
+    az webapp identity assign --resource-group <group-name> --name <app-name> --output tsv --query principalId
+    az ad sp show --id <output-from-previous-command> --output tsv --query appId
+    ```
+
+    The output of [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show) is the application ID of the system-assigned identity. You'll need it later. 
 
     # [User-assigned identity](#tab/userassigned)
 
@@ -353,9 +362,17 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
     dotnet add package MySql.Data
     ```
 
+    # [Azure Database for PostgreSQL](#tab/postgresql)
+
+    ```powershell
+    dotnet add package Npgsql
+    ```
+
     -----
 
 1. Connect to the Azure database by adding an access token. If you're using a user-assigned identity, make sure you uncomment the applicable lines.
+
+    # [Azure SQL Database](#tab/sqldatabase)
 
     ```csharp
     using Microsoft.Data.SqlClient;
@@ -427,7 +444,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
 
     This code uses [Azure.Identity.DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to get a useable token for Azure Database for PostgreSQL (`https://ossrdbms-aad.database.windows.net/.default`) from Azure Active Directory and then adds it to the database connection. By default, `DefaultAzureCredential` gets a token from the logged-in user or from a managed identity, depending on whether you run it locally or in App Service. The `if` statement sets the PostgreSQL username based on which identity the token applies to. The token is then passed in to the PostgreSQL connection as the password for the Azure AD user.
 
-    https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity
+    https://docs.microsoft.com/azure/postgresql/howto-connect-with-managed-identity
 
     -----
 
@@ -493,7 +510,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
     connection.connect();
     ```
 
-    https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-nodejs
+    https://docs.microsoft.com/azure/azure-sql/database/connect-query-nodejs
     https://tediousjs.github.io/tedious/ also has an authentication type `azure-active-directory-msi-app-service`, which doesn't require you to retrieve the token yourself, but the above code uses `DefaultAzureCredential`, which works both in App Service and in your local development environment.
 
     # [Azure Database for MySQL](#tab/mysql)
@@ -545,7 +562,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
 
     This code uses [Azure.Identity.DefaultAzureCredential](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) to get a useable token for Azure Database for MySQL (`https://ossrdbms-aad.database.windows.net/.default`) from Azure Active Directory and then adds it to the database connection. By default, `DefaultAzureCredential` gets a token from the logged-in user or from a managed identity, depending on whether you run it locally or in App Service. The `if` statement sets the MySQL username based on which identity the token applies to. The token is then passed in to the MySQL connection as the password for the Azure AD user.
 
-    https://docs.microsoft.com/en-us/azure/mysql/connect-nodejs
+    https://docs.microsoft.com/azure/mysql/connect-nodejs
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
     
@@ -592,7 +609,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
 
     The `if` statement sets the PostgreSQL username based on which identity the token applies to. The token is then passed in to the PostgreSQL connection as the password for the Azure AD user.
 
-    https://docs.microsoft.com/en-us/azure/postgresql/connect-nodejs
+    https://docs.microsoft.com/azure/postgresql/connect-nodejs
 
     -----
 
@@ -614,7 +631,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
     pip install mysql-connector-python
     ```
 
-    https://docs.microsoft.com/en-us/azure/mysql/connect-python
+    https://docs.microsoft.com/azure/mysql/connect-python
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -623,7 +640,8 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
     pip install psycopg2-binary
     ```
 
-    https://docs.microsoft.com/en-us/azure/postgresql/connect-python
+    https://docs.microsoft.com/azure/postgresql/connect-python
+
     -----
 
 1. Connect to the Azure database by using an access token:
@@ -649,7 +667,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
     
     The [ODBC Driver 17 for SQL Server] also has an authentication type `ActiveDirectoryMsi`. You can connect from App Service without getting the token yourself, simply with the connection string `Driver={{ODBC Driver 17 for SQL Server}};SERVER=<database-server-name>.database.windows.net;DATABASE=<database-name>;Authentication=ActiveDirectoryMsi`. The above code gets the token with `DefaultAzureCredential`, which works both in App Service and in your local development environment.
 
-    https://docs.microsoft.com/en-us/sql/connect/python/pyodbc/python-sql-driver-pyodbc
+    https://docs.microsoft.com/sql/connect/python/pyodbc/python-sql-driver-pyodbc
 
     # [Azure Database for MySQL](#tab/mysql)
 
@@ -709,7 +727,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
 
     -----
 
-# [Java](#tab/python)
+# [Java](#tab/java)
 
 1. Add the required dependencies to your project's BOM file.
 
@@ -740,9 +758,10 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.28</version>
-    </dependency>    ```
+    </dependency>
+    ```
 
-    https://docs.microsoft.com/en-us/azure/mysql/connect-java
+    https://docs.microsoft.com/azure/mysql/connect-java
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -855,9 +874,9 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
             token.getToken());
     ```
 
-    https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-    https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-    https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql
+    https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+    https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+    https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql
     -----
 
 -----
