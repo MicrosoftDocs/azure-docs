@@ -30,7 +30,11 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./windows/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./windows/quick-create-template.md
   expanded: true
 - name: Tutorials
@@ -701,9 +705,12 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a virtual machine scale set
+    - name: Associate a virtual machine scale set with uniform orchestration
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Associate a virtual machine scale set
+      displayName: on-demand capacity reservation with flexible orchestration
+      href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
     - name: Remove a virtual machine scale set
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-virtual-machine-scale-set.md

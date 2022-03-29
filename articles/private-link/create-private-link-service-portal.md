@@ -73,7 +73,7 @@ In this section, you create a virtual network and subnet to host the load balanc
 
 ### Create NAT gateway
 
-In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously.
+In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously. The NAT gateway is used by the resources in the load balancer virtual network for outbound internet access. If the virtual machines in the backend pool of the load balancer don't require outbound internet access, you can proceed to the next section.
 
 1. On the upper-left side of the screen, select **Create a resource > Networking > NAT gateway** or search for **NAT gateway** in the search box.
 

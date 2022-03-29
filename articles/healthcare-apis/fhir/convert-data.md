@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 ms.author: ranku
 ---
 
@@ -139,7 +139,7 @@ Browse to the **Artifacts** blade under **Data transformation** in your FHIR ser
 #### Registering the ACR server using CLI
 You can register up to 20 ACR servers in the FHIR service.
 
-Install the Healthcare APIs CLI from Azure PowerShell if needed:
+Install the Azure Health Data Services CLI from Azure PowerShell if needed:
 
 ```powershell
 az extension add -n healthcareapis
@@ -212,7 +212,7 @@ Make a call to the $convert-data API specifying your template reference in the t
 
 ## Next steps
 
-In this article, you've learned about the $convert-data endpoint and customize-converter templates to convert data in the Healthcare APIs. For more information about how to export FHIR data, see
+In this article, you've learned about the $convert-data endpoint and customize-converter templates to convert data in the Azure Health Data Services. For more information about how to export FHIR data, see
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)

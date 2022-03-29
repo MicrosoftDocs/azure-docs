@@ -121,17 +121,18 @@ The port range of the Media Processors is shown in the following table:
 ## Media traffic: Media processors geography
 
 The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies:
-- US (two in US West and US East datacenters)
-- Europe (Amsterdam and Dublin datacenters)
-- Asia (Singapore and Hong Kong SAR datacenters)
-- Australia (AU East and Southeast datacenters)
+- NOAM (US South Central, two in US West and US East datacenters)
+- Europe (UK South, France Central, Amsterdam and Dublin datacenters)
+- Asia (Singapore datacenter)
 - Japan (JP East and West datacenters)
-
+- Australia (AU East and Southeast datacenters)
+- LATAM (Brazil South)
+- Africa (South Africa North)
 
 
 ## Media traffic: Codecs
 
-### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
+### Leg between SBC and Cloud Media Processor.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 

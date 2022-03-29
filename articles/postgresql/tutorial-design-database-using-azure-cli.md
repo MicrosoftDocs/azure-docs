@@ -1,12 +1,13 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure CLI.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: tutorial
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
+ms.custom: mvc, devx-track-azurecli
 ms.date: 01/26/2022 
 ---
 
@@ -196,7 +197,7 @@ The command is synchronous, and will return after the server is restored. Once t
 
 ## Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az-vm-extension-set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup
