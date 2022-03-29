@@ -2,8 +2,8 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
+ms.author: elkrieger
+author: ElazarK
 ms.date: 02/24/2022
 ---
 
