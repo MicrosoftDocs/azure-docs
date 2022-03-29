@@ -1,5 +1,5 @@
 ---
-title: 'Install Azure Firewall in a Virtual WAN hub'
+title: 'COnfigured forced tunneling for Virtual wAN Point-to-site VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn to configured forced tunneling for P2S VPN in Virtual WAN.
 services: virtual-wan
@@ -80,7 +80,7 @@ For Ikev2 clients, you will **not** be able to directly use the executable profi
 
  Based on the authentication method you have configured on your Point-to-site VPN Gateway, you will have to use a different EAP Configuration file. Samples EAP Configuration files are provided below.
 
-Additionally, for a full list of available options for client-side EAP Configuration files,  visit [EAP configuration document](https://docs.microsoft.com/windows/client-management/mdm/eap-configuration).
+
 
 
 ### Ikev2  with user certificate authentication
