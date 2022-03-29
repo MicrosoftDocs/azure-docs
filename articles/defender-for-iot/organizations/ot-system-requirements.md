@@ -1,5 +1,5 @@
 ---
-title: OT System Requirements 
+title: Microsoft Defender for IoT OT system hardware and virtual appliance requirements
 description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
 ms.date: 03/28/2022
 ms.topic: how-to
