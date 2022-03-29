@@ -19,11 +19,11 @@ To migrate an Azure Arc-enabled server from one Azure region to another, you hav
 > [!NOTE]
 > Performing this operation will result in downtime during the migration.
 
-1. Remove any VM extensions on the machine installed from the [Azure portal](manage-vm-extensions-portal.md#remove-extensions) using the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions) or [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
+1. Remove any VM extensions that are installed on the machine. You can do this by using the [Azure portal](manage-vm-extensions-portal.md#remove-extensions), [Azure CLI](manage-vm-extensions-cli.md#remove-extensions), or [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
-2. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. 
+2. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. You can run this manually while logged on interactively, with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md), or with the service principal you used for onboarding (or with a [new service principal that you create](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)).
 
-    Disconnecting the machine from Azure Arc-enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. You can run this manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents, or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc-enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+    Disconnecting the machine from Azure Arc-enabled servers does not remove the Connected Machine agent, and you don't need to remove the agent as part of this process. 
 
 3. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter to re-register the Connected Machine agent with Azure Arc-enabled servers in the other region.
 
