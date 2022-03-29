@@ -266,7 +266,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 
 A rule such as this one can be used to group all users for whom a Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
-#### Example 2start
+#### Example 2
 
 The following expression selects all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
 
