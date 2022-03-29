@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 03/29/2022
 ---
 
 # What's new
@@ -13,9 +13,15 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support
+## April 2022
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
+**Version 4.22**
+
+- **Proxy connection updates**: Now you can connect your micro-agent to an IoT Hub via a proxy. For more information, see [Connect via a proxy](tutorial-standalone-agent-binary-installation.md#connect-via-a-proxy).
+
+- **Support for TPM-backed certificates**: Now you can use OpenSSL certificates backed by TPM. For more information, see [Authenticate using a certificate](tutorial-standalone-agent-binary-installation.md#authenticate-using-a-certificate).
+
+- **AMQP support**: Now you can add AMQP support after installing your micro-agent. For more information, see [Add AMQP protocol support](tutorial-standalone-agent-binary-installation.md#add-amqp-protocol-support).
 
 ## February 2022
 
