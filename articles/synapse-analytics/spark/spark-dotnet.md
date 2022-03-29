@@ -23,18 +23,36 @@ You can analyze data with .NET for Apache Spark through Spark batch job definiti
 
 Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache Spark job definitions for Synapse Spark pools](apache-spark-job-definitions.md). If you haven't packaged your app to submit to Azure Synapse, complete the following steps.
 
-1. Run the following commands to publish your app. Be sure to replace *mySparkApp* with the path to your app.
+1. Configure your dotnet application dependencies for compatibility with Synapse Spark.
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Spark" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
+```
+
+2. Run the following commands to publish your app. Be sure to replace *mySparkApp* with the path to your app.
    
    ```dotnetcli
    cd mySparkApp
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.18.04-x64
    ```
 
-2. Zip the contents of the publish folder, `publish.zip` for example, that was created as a result of Step 1. All the assemblies should be in the first layer of the ZIP file and there should be no intermediate folder layer. This means when you unzip `publish.zip`, all assemblies are extracted into your current working directory.
+3. Zip the contents of the publish folder, `publish.zip` for example, that was created as a result of Step 1. All the assemblies should be in the first layer of the ZIP file and there should be no intermediate folder layer. This means when you unzip `publish.zip`, all assemblies are extracted into your current working directory.
 
     **On Windows:**
 
-    Use an extraction program, like [7-Zip](https://www.7-zip.org/) or [WinZip](https://www.winzip.com/), to extract the file into the bin directory with all the published binaries.
+    Using Windows PowerShell or PowerShell 7
+    ```PowerShell
+    Compress-Archive publish/* publish.zip -Update
+    ```
 
     **On Linux:**
 
@@ -79,6 +97,12 @@ The following features are available when you use .NET for Apache Spark in the A
 * Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide). We recommend [Write and call UDFs in .NET for Apache Spark Interactive environments](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue) for learning how to use UDFs in .NET for Apache Spark Interactive experiences.
 * Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
+## Troubleshooting
+
+### `DotNetRunner: null` / `Futures timeout` in Synapse Spark Job Definition Run
+Synapse Spark Job Definitions on Spark Pools using Spark 2.4 require `Microsoft.Spark` 1.0.0
+### OutOfMemoryError: java heap space at org.apache.spark...
+Dotnet Spark 1.0.0 uses a different debug architecture than 1.1.1+. You will have to use 1.0.0 and 
 
 ## Next steps
 
