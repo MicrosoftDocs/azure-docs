@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/25/2022
 ms.author: jasteppe
 ---
 
