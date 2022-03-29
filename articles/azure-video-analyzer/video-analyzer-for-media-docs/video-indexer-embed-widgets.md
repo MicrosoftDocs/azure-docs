@@ -27,7 +27,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
-|`search'|A free text for search |Allows you to control the initial search term. Example - https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=vi renders the insights filtered by the word "vi".|
+|`search'|A free text for search |Allows you to control the initial search term. Example - `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=vi` renders the insights filtered by the word "vi".|
 
 ### Player widget
 
