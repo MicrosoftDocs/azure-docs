@@ -1,12 +1,12 @@
 ---
 title: SQL functions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Functions in the Hyperscale (Citus) SQL API
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 02/18/2022
+ms.date: 02/24/2022
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
@@ -547,7 +547,7 @@ name. The translation is useful to determine the distribution column of a
 distributed table.
 
 For a more detailed discussion, see [choosing a distribution
-column](concepts-choose-distribution-column.md).
+column](howto-choose-distribution-column.md).
 
 #### Arguments
 

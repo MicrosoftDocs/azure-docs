@@ -39,9 +39,9 @@ landingContent:
           - text: Why should I start with IoT Central?
             url: core/concepts-faq-start-iot-central.md
           - text: What does it mean for IoT Central to have high availability, disaster recovery, and elastic scale?
-            url: core/concepts-scalability-availability.md
+            url: core/concepts-faq-scalability-availability.md
           - text: What's the difference between aPaaS and PaaS solution offerings?
-            url: ../iot-fundamentals/iot-solution-apaas-paas.md
+            url: ../iot-fundamentals/iot-solution-apaas-paas.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
           - text: How do I move between aPaaS and PaaS solution approaches?
             url: core/concepts-faq-apaas-paas.md
           - text: How do I extend IoT Central if it's missing something I need?
@@ -63,8 +63,10 @@ landingContent:
             url: core/overview-iot-central-developer.md
       - linkListType: concept
         links:
-          - text: How devices connect
-            url: core/concepts-get-connected.md
+          - text: Device implementation
+            url: core/concepts-device-implementation.md
+          - text: Device authentication
+            url: core/concepts-device-authentication.md
           - text: Message payloads sent and received by devices
             url: core/concepts-telemetry-properties-commands.md
       - linkListType: learn

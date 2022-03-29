@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 03/22/2022
 ms.author: jroth
 ms.custom: devx-track-dotnet
 
@@ -51,7 +51,7 @@ Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a
 
 ## <a name="recommended-version"></a> Recommended version
 
-Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.20.1**.
+Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.25.0**.
 
 ## <a name="known-issues"></a> Known issues
 

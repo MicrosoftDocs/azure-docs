@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to on-premises resources by using Azure AD 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust.md)
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust)
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
@@ -98,6 +98,7 @@ Run the following steps in each domain and forest in your organization that cont
 1. Open a PowerShell prompt using the Run as administrator option.
 1. Run the following PowerShell commands to create a new Azure AD Kerberos Server object both in your on-premises Active Directory domain and in your Azure Active Directory tenant.
 
+### Example 1 prompt for all credentials
    > [!NOTE]
    > Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 
@@ -117,6 +118,7 @@ Run the following steps in each domain and forest in your organization that cont
    Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
    ```
 
+### Example 2 prompt for cloud credential
    > [!NOTE]
    > If you're working on a domain-joined machine with an account that has domain administrator privileges, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter isn't provided, the current Windows login credential is used to access your on-premises Active Directory Domain Controller.
 
@@ -134,6 +136,7 @@ Run the following steps in each domain and forest in your organization that cont
    Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred
    ```
 
+### Example 3 prompt for all credentials using modern authentication
    > [!NOTE]
    > If your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator.
    > - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
@@ -154,6 +157,26 @@ Run the following steps in each domain and forest in your organization that cont
    # and then publish it to Azure Active Directory.
    # Open an interactive sign-in prompt with given username to access the Azure AD.
    Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
+   ```
+
+### Example 4 prompt for cloud credentials using modern authentication
+   > [!NOTE]
+   > If you are working on a domain-joined machine with an account that has domain administrator privileges and your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator. And you can skip the "-DomainCredential" parameter.
+   > - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
+   > - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a global administrator.
+
+   ```powershell
+   # Specify the on-premises Active Directory domain. A new Azure AD
+   # Kerberos Server object will be created in this Active Directory domain.
+   $domain = "contoso.corp.com"
+
+   # Enter a UPN of an Azure Active Directory global administrator
+   $userPrincipalName = "administrator@contoso.onmicrosoft.com"
+
+   # Create the new Azure AD Kerberos Server object in Active Directory
+   # and then publish it to Azure Active Directory.
+   # Open an interactive sign-in prompt with given username to access the Azure AD.
+   Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName
    ```
 
 ### View and verify the Azure AD Kerberos Server
@@ -263,6 +286,12 @@ Make sure that enough DCs are patched to respond in time to service your resourc
 > [!NOTE]
 > The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and later.
 
+### What if I have a CloudTGT but it never gets exchange for a OnPremTGT when I am using Windows Hello for Business Cloud Trust?
+
+Make sure that the user you are signed in as, is a member of the groups of users that can use FIDO2 as an authentication method, or enable it for all users.
+
+> [!NOTE]
+> Even if you are not explicitly using a security key to sign-in to your device, the underlying technology is dependent on the FIDO2 infrastructure requirements.
 
 ### Do FIDO2 security keys work in a Windows login with RODC present in the hybrid environment?
 

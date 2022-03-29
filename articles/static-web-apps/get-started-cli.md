@@ -80,6 +80,20 @@ Now that the repository is created, you can create a static web app from the Azu
         --login-with-github
     ```
 
+    # [Blazor](#tab/blazor)
+
+    ```azurecli
+    az staticwebapp create \
+        --name my-first-static-web-app \
+        --resource-group my-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
+        --location "eastus2" \
+        --branch main \
+        --app-location "Client" \
+        --output-location "wwwroot"  \
+        --login-with-github
+    ```
+
     # [React](#tab/react)
 
     ```azurecli
@@ -108,19 +122,6 @@ Now that the repository is created, you can create a static web app from the Azu
         --login-with-github
     ```
 
-    # [Blazor](#tab/blazor)
-
-    ```azurecli
-    az staticwebapp create \
-        --name my-first-static-web-app \
-        --resource-group my-swa-group \
-        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
-        --location "eastus2" \
-        --branch main \
-        --app-location "Client" \
-        --output-location "wwwroot"  \
-        --login-with-github
-    ```
     ---
 
     > [!IMPORTANT]

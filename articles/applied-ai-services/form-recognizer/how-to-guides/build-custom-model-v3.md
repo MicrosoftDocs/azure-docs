@@ -49,7 +49,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
     1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
 
     > [!IMPORTANT]
-    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](https://aka.ms/fr-neural#l#supported-regions).
+    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](/azure/applied-ai-services/form-recognizer/concept-custom-neural#l).
 
     :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 
@@ -83,7 +83,7 @@ You now have all the documents in your dataset labeled. If you look at the stora
 
 With your dataset labeled, you're now ready to train your model. Select the train button in the upper-right corner.
 
-1. On the train model dialog, provide a unique model ID and, optionally, a description.
+1. On the train model dialog, provide a unique model ID and, optionally, a description. The model ID accepts a string data type.
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 

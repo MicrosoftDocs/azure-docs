@@ -1,9 +1,9 @@
 ---
 title: Install on-premises data gateway
-description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
+description: Download and install the on-premises data gateway to access on-premises data in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, azla
 ms.topic: how-to
 ms.date: 03/16/2021
 

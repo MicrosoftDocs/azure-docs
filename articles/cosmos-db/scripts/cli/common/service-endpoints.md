@@ -5,11 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 02/21/2022
 ---
 
 # Create an Azure Cosmos account with virtual network service endpoints using Azure CLI
+
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+
+The script in this article creates a new virtual network with a front and back end subnet and enables service endpoints for `Microsoft.AzureCosmosDB`. It then retrieves the resource ID for this subnet and applies it to the Azure Cosmos account and enables service endpoints for the account.
+
+This script uses a Core (SQL) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -17,36 +24,41 @@ ms.date: 07/29/2020
 
 ## Sample script
 
-This sample creates a new virtual network with a front and back end subnet and enables service endpoints for `Microsoft.AzureCosmosDB`. It then retrieves the resource ID for this subnet and applies it to the Azure Cosmos account and enables service endpoints for the account.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-> [!NOTE]
-> This sample demonstrates using a Core (SQL) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+### Run the script
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints.sh "Create an Azure Cosmos account with service endpoints.")]
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/service-endpoints.sh" id="FullScript":::
 
-## Clean up deployment
+## Clean up resources
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network. |
-| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates a subnet for an Azure virtual network. |
-| [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show) | Returns a subnet for an Azure virtual network. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates an Azure virtual network. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Creates a subnet for an Azure virtual network. |
+| [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) | Returns a subnet for an Azure virtual network. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+For Azure CLI samples for specific APIs see:
+
+- [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
+- [CLI Samples for Gremlin](../../../graph/cli-samples.md)
+- [CLI Samples for MongoDB API](../../../mongodb/cli-samples.md)
+- [CLI Samples for SQL](../../../sql/cli-samples.md)
+- [CLI Samples for Table](../../../table/cli-samples.md)

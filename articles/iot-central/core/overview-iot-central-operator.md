@@ -23,6 +23,12 @@ IoT Central lets you complete device management tasks such as:
 - Troubleshoot and remediate issues with devices.
 - Provision new devices.
 
+## Search your devices
+
+IoT Central lets you search devices by device name, ID, property value or cloud property value.
+
+:::image type="content" source="media/overview-iot-central-operator/search-devices.png" alt-text="Screenshot that shows how to search devices":::
+
 ## Monitor and manage devices
 
 :::image type="content" source="media/overview-iot-central-operator/simulated-telemetry.png" alt-text="Screenshot that shows a device view":::

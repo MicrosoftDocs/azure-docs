@@ -300,6 +300,9 @@ The following columns have been added to *AzureActivity* in the updated schema:
 - Claims_d
 - Properties_d
 
+## Activity Logs Insights
+Activity log insights let you view information about changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to view Activity log insights in the Azure portal.
+
 ## Activity Log Analytics monitoring solution
 > [!Note]
 > The Azure Log Analytics monitoring solution will be deprecated soon and replaced by a workbook using the updated schema in the Log Analytics workspace. You can still use the solution if you already have it enabled, but it can only be used if you're collecting the Activity log using legacy settings. 
