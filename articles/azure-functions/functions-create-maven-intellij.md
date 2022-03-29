@@ -1,6 +1,6 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
-description: Learn how to use IntelliJ to create a simple HTTP-triggered Java function, which you then publish to run in a serverless environment in Azure.
+description: Learn how to use IntelliJ to create an HTTP-triggered Java function and then run it in a serverless environment in Azure.
 author: karlerickson
 ms.topic: how-to
 ms.date: 03/28/2022
@@ -71,11 +71,11 @@ To run the project locally, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-output.png" alt-text="Local run project output." lightbox="media/functions-create-first-java-intellij/local-run-functions-output.png":::
 
-1. You can try the function by accessing the printed endpoint from browser, such as `http://localhost:7071/api/HttpExample?name=Azure`.
+1. You can try the function by accessing the displayed endpoint from browser, such as `http://localhost:7071/api/HttpExample?name=Azure`.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-test.png" alt-text="Local run function test result." lightbox="media/functions-create-first-java-intellij/local-run-functions-test.png":::
 
-1. The log is also printed out in your IDEA. Stop the function app by clicking the **Stop** button.
+1. The log is also displayed in your IDEA. Stop the function app by clicking the **Stop** button.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-log.png" alt-text="Local run function test log." lightbox="media/functions-create-first-java-intellij/local-run-functions-log.png":::
 
@@ -87,7 +87,7 @@ To debug the project locally, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-button.png" alt-text="Local debug function app button." lightbox="media/functions-create-first-java-intellij/local-debug-functions-button.png":::
 
-1. Click on line *31* of the file *src/main/java/org/example/functions/HttpTriggerFunction.java* to add a breakpoint. Access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again and you'll find the breakpoint is hit. You can then try more debug features like **Step**, **Watch**, and **Evaluation**. Stop the debug session by click the **Stop** button.
+1. Click on line *31* of the file *src/main/java/org/example/functions/HttpTriggerFunction.java* to add a breakpoint. Access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again and you'll find the breakpoint is hit. You can then try more debug features like **Step**, **Watch**, and **Evaluation**. Stop the debug session by clicking the **Stop** button.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-break.png" alt-text="Local debug function app break." lightbox="media/functions-create-first-java-intellij/local-debug-functions-break.png":::
 
@@ -99,7 +99,7 @@ To deploy your project to Azure, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/deploy-functions-to-azure.png" alt-text="Deploy project to Azure." lightbox="media/functions-create-first-java-intellij/deploy-functions-to-azure.png":::
 
-1. If you don't have any Function App yet, click **+** in the *Function* line. Type in the function app name and choose proper platform. Here you can simply accept the default value. Click **OK** and the new function app you just created will be automatically selected. Click **Run** to deploy your functions.
+1. If you don't have any Function App yet, click **+** in the *Function* line. Type in the function app name and choose proper platform. Here you can accept the default value. Click **OK** and the new function app you created will be automatically selected. Click **Run** to deploy your functions.
 
    :::image type="content" source="media/functions-create-first-java-intellij/deploy-functions-create-app.png" alt-text="Create function app in Azure." lightbox="media/functions-create-first-java-intellij/deploy-functions-create-app.png":::
 
@@ -119,7 +119,7 @@ To manage your function apps with **Azure Explorer** in your IDEA, follow these 
 
 1. Right click on your **HttpTrigger-Java** function app, then select **Trigger Function in Browser**. You'll see that the browser is opened with the trigger URL.
 
-   :::image type="content" source="media/functions-create-first-java-intellij/explorer-trigger-functions.png" alt-text="Screenshot shows a browser with the U R L.." lightbox="media/functions-create-first-java-intellij/explorer-trigger-functions.png":::
+   :::image type="content" source="media/functions-create-first-java-intellij/explorer-trigger-functions.png" alt-text="Screenshot shows a browser with the U R L." lightbox="media/functions-create-first-java-intellij/explorer-trigger-functions.png":::
 
 ## Add more functions to the project
 
@@ -131,7 +131,7 @@ To add more functions to your project, follow these steps:
 
 1. Fill in the class name **HttpTest** and select **HttpTrigger** in the create function class wizard, then click **OK** to create. In this way, you can create new functions as you want.
 
-   :::image type="content" source="media/functions-create-first-java-intellij/add-functions-trigger.png" alt-text="Screenshot shows the Create Function Class dialog box.." lightbox="media/functions-create-first-java-intellij/add-functions-trigger.png":::
+   :::image type="content" source="media/functions-create-first-java-intellij/add-functions-trigger.png" alt-text="Screenshot shows the Create Function Class dialog box." lightbox="media/functions-create-first-java-intellij/add-functions-trigger.png":::
 
    :::image type="content" source="media/functions-create-first-java-intellij/add-functions-output.png" alt-text="Add functions to the project output." lightbox="media/functions-create-first-java-intellij/add-functions-output.png":::
 
@@ -139,11 +139,11 @@ To add more functions to your project, follow these steps:
 
 Select one of your function apps using **Azure Explorer** in your IDEA, then right-click and select **Delete**. This command might take several minutes to run. When it's done, the status will refresh in **Azure Explorer**.
 
-:::image type="content" source="media/functions-create-first-java-intellij/delete-function.png" alt-text="Screenshot shows Delete selected from a context menu.." lightbox="media/functions-create-first-java-intellij/delete-function.png":::
+:::image type="content" source="media/functions-create-first-java-intellij/delete-function.png" alt-text="Screenshot shows Delete selected from a context menu." lightbox="media/functions-create-first-java-intellij/delete-function.png":::
 
 ## Next steps
 
-You've created a Java project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by continuing to the follow article:
+You've created a Java project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by continuing to the following article:
 
 > [!div class="nextstepaction"]
 > [Adding an Azure Storage queue output binding](./functions-add-output-binding-storage-queue-java.md)
