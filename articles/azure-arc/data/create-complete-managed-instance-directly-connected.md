@@ -139,7 +139,7 @@ The next step is to create the data controller in directly connected mode via th
 
 1. In the portal, locate the resource group from the previous step.
 1. From the search bar in Azure portal, search for *Azure Arc data controllers*, and select **+ Create**.
-1. Click **Create**.
+1. Select **Azure Arc-enabled Kubernetes cluster (Direct connectivity mode)**. Select **Next: Data controller details**.
 1. Specify a name for the data controller.
 1. Specify a custom location (namespace). 
 
