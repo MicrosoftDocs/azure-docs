@@ -81,12 +81,53 @@ armclient post https://centralus.management.azure.com/subscriptions/00000000-000
 ```
 ## Request partner to enable events flow to a partner topic
 
-Here goes a table with all the list of partner and its setup url link.
+Here is the list of partners and a link to submit a request to enable events flow to a partner topic.
+
+- [Auth0](auth0-how-to.md)
+
 
 ## Activate partner topic
 
+1. In the search bar of the Azure portal, search for and select **Event Grid Partner Topics**.
+1. On the **Event Grid Partner Topics** page, select the partner topic in the list. 
+
+    :::image type="content" source="./media/onboard-partner/select-partner-topic.png" alt-text="Select a partner topic in the Event Grid Partner Topics page.":::    
+1. Review the activate message, and select **Activate** on the page or on the command bar to activate the partner topic before the expiration time mentioned on the page. 
+
+    :::image type="content" source="./media/onboard-partner/activate-partner-topic-button.png" alt-text="Image showing the selection of the Activate button on the command bar or on the page.":::    
+1. Confirm that the activation status is set to **Activated** and then create event subscriptions for the partner topic by selecting **+ Event Subscription** on the command bar. 
+
+    :::image type="content" source="./media/onboard-partner/partner-topic-activation-status.png" alt-text="Image showing the activation state as **Activated**.":::   
+
 ## Subscribe to events
+First, create an event handler that will handle events from the partner. For example, create an event hub, Service Bus queue or topic, or an Azure function.
 
+Then, create an event subscription for the partner topic using the event handler you created. 
 
+#### Create an event handler
+To test your partner topic, you'll need an event handler. Go to your Azure subscription and spin up a service that's supported as an [event handler](event-handlers.md) such as an [Azure Function](custom-event-to-function.md). For an example, see [Event Grid Viewer sample](custom-event-quickstart-portal.md#create-a-message-endpoint) that you can as an event handler via webhooks. 
+
+#### Subscribe to the partner topic
+Subscribing to the partner topic tells Event Grid where you want your partner events to be delivered.
+
+1. In the Azure portal, type **Event Grid Partner Topics** in the search box, and select **Event Grid Partner Topics**. 
+1. On the **Event Grid Partner Topics** page, select the partner topic in the list. 
+
+    :::image type="content" source="./media/subscribe-to-partner-events/select-partner-topic.png" alt-text="Image showing the selection of a partner topic in the partner topic list in the Azure portal.":::
+1. On the **Event Grid Partner Topic** page for the partner topic, select **+ Event Subscription** on the command bar. 
+
+    :::image type="content" source="./media/subscribe-to-partner-events/select-add-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription button on the command bar of the Event Grid Partner Topic page.":::    
+1. On the **Create Event Subscription** page, do the following steps:
+    1. Enter a **name** for the event subscription.
+    1. For **Filter to Event Types**, select types of events that you the subscription to receive.
+    1. For **Endpoint Type**, select an Azure service (Azure Function, Storage Queues, Event Hubs, Service Bus Queue, Service Bus Topic, Hybrid Connections. etc.), Web Hook, or Partner Destination.
+    1. Click the **Select an endpoint** link. 
+    1. On the **Select Partner Destination** page, select configurations for the endpoint, and then select **Confirm Selection**. 
+    
+        :::image type="content" source="./media/subscribe-to-partner-events/select-endpoint.png" lightbox="./media/subscribe-to-partner-events/select-endpoint.png" alt-text="Image showing the configuration of an endpoint for an event subscription.":::        
+    1. Now on the **Create Event Subscription** page, select **Create**. 
+    
+        :::image type="content" source="./media/subscribe-to-partner-events/create-event-subscription.png" alt-text="Image showing the Create Event Subscription page with example configurations.":::
+        
 
 
