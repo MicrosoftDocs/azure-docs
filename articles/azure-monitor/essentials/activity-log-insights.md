@@ -5,7 +5,7 @@ author: osalzberg
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2021
-ms.author: guywild-ms
+ms.author: guywild
 
 #Customer intent: As an IT administrator, I want to track changes to resource groups or specific resources in a subscription and to see which administrators or services make these changes. 
 ---
