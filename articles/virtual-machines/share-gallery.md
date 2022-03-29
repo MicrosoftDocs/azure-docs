@@ -1,12 +1,12 @@
 ---
-title: Share a gallery using RBAC
-description: Learn how to share a gallery using role-based access control (RBAC).
+title: Share resources in an Azure Compute Gallery
+description: Learn how to share resources explicitly or to all Azure users using role-based access control or community galleries.
 author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/31/2021
+ms.date: 03/28/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -14,17 +14,17 @@ ms.devlang: azurecli
 
 ---
 
-# Use RBAC to share gallery resources
+# Share gallery resources
+
+There are several way to share resources created in your Azure Compute Gallery. Role-based access control lets you share on a granular level, and community galleries let's you share your entire gallery publicly to all Azure users.
+
+## RBAC
 
 The Azure Compute Gallery, definitions, and versions are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image or application version, they can deploy a VM or a Virtual Machine Scale Set.  
 
 We recommend sharing at the gallery level for the best experience. We do not recommend sharing individual image or application versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
-
-To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community).
-
-## Share a gallery
 
 ### [Portal](#tab/portal)
 
@@ -78,6 +78,23 @@ New-AzRoleAssignment `
 ```
 
 ---
+
+<a href=community></a>
+## Community galleries (preview)
+
+To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community). Community Galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+
+> [!IMPORTANT]
+> Community Galleries is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
+> 
+> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you can't migrate a regular gallery to a community gallery.
+
+To learn more, see [Community Galleries (preview) overview](azure-compute-gallery.md#community-galleries-preview) and [Create a community gallery](create-gallery.md#community).
+
 
 
 ## Next steps

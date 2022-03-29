@@ -98,7 +98,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ---
 
 
-## Create a community gallery
+<a href=community></a>
+
+## Create a community gallery (preview)
 
 A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of pubic instance of your gallery will be the prefix you provide, plus a unique GUID.
 
@@ -109,11 +111,11 @@ During the preview, make sure that you create your gallery, image definitions, a
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish to a community gallery, you need to register for the `Microsoft.Compute/CommunityGalleries` preview feature. For more information, see [Register a preview feature](../azure-resource-manager/management/preview-features.md#register-preview-feature).
+> To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 
 ### Prerequisites
 
-The user or service principal that will enable community sharing needs to be a member of the `Owner` or `Compute Gallery Sharing Admin` role definition. Only the `Owner` at the scope of the gallery or higher, or someone with the `Compute Gallery Sharing Admin` role assignment will be able to enable community sharing. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+ Only the owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
 ### [CLI](#tab/cli)
 
@@ -225,6 +227,8 @@ When you are ready to make the gallery public:
 1. When you are done, select **Save**.
 
 
+> [!IMPORTANT]
+> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
 
 ---
 
