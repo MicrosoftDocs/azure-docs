@@ -7,19 +7,19 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/25/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
 # Composed custom models
 
-**Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model comprised of your form types. When a document is submitted for analysis to a composed model, the service performs a classification to decide which custom model accurately represents the form presented for analysis.
+**Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. When a document is submitted for analysis using a composed model, the service performs a classification to decide which custom model best represents the submitted document.
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It's useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 * ```Custom form```and ```Custom document``` models can be composed together into a single composed model when they're trained with the same API version or an API version later than ```2021-01-30-preview```. For more information on composing custom template and custom neural models, see [compose model limits](#compose-model-limits).
-* With the model compose operation, you can assign up to 100 trained custom models to a single composed model. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model.
+* With the model compose operation, you can assign up to 100 trained custom models to a single composed model. To analyze a document with a composed model, Form Recognizer first classifies the submitted form, chooses the best-matching assigned model, and returns results.
 * For **_custom template models_**, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms may belong to one of several templates.
 * The response will include a ```docType``` property to indicate which of the composed models was used to analyze the document.
 
@@ -36,9 +36,9 @@ With composed models, you can assign multiple custom models to a composed model 
 |**Custom neural**| trained with current API version (2021-01-30-preview) |✓ |✓ | X |
 |**Custom form**| Custom form GA version (v2.1) or earlier | X | X|  ✓|
 
-**Table symbols**: ✔ — supported; **X** — not supported; &#10033; — unsupported for this API version, but will be supported in a future API version.
+**Table symbols**: ✔—supported; **X—not supported; ✱—unsupported for this API version, but will be supported in a future API version.
 
-* To compose a model trained with a prior version of the API (2.1 or earlier), train a model with the 3.0 API using the same labeled dataset to ensure that it can be composed with other models.
+* To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition will ensure that the v2.1 model can be composed with other models.
 
 * Models composed with v2.1 of the API will continue to be supported, requiring no updates.
 

@@ -137,7 +137,7 @@ The following headers are included with each Document Translator API request:
 
 |HTTP header|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 
 ### POST request body

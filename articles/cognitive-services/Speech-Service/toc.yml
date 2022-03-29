@@ -91,7 +91,9 @@ items:
       displayName: tts
     - name: Text-to-speech quickstart
       href: get-started-text-to-speech.md
-    - name: Synthesize long-form speech
+    - name: How to synthesize speech
+      href: how-to-speech-synthesis.md
+    - name: Synthesize from long-form text
       href: long-audio-api.md
     - name: Improve synthesis with SSML
       href: speech-synthesis-markup.md

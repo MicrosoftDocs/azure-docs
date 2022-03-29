@@ -29,7 +29,7 @@ az extension add --name healthcareapis
 az provider register --namespace 'Microsoft.HealthcareApis'
 az provider show --namespace Microsoft.HealthcareApis --query "resourceTypes[?resourceType=='services'].locations"
 ```
-You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](/cli/azure/account#az_account_set). For more information about how to sign in to a specific tenant, see [Azure login](/cli/azure/authenticate-azure-cli).
+You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](/cli/azure/account#az-account-set). For more information about how to sign in to a specific tenant, see [Azure login](/cli/azure/authenticate-azure-cli).
 
 ```
 az login

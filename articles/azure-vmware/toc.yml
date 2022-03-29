@@ -132,6 +132,8 @@
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
+  - name: Deploy Arc
+    href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
     - name: Deploy JetStream DR

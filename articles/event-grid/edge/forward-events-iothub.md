@@ -19,7 +19,7 @@ This article walks through all the steps needed to forward Event Grid events to 
 
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 To complete this tutorial, you need to understand the following concepts:

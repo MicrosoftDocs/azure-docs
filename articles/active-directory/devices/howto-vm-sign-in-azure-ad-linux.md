@@ -134,9 +134,9 @@ Azure Cloud Shell is a free, interactive shell that you can use to run the steps
 
 If you choose to install and use the CLI locally, this article requires that you’re running the Azure CLI version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see the article Install Azure CLI.
 
-1. Create a resource group with [az group create](/cli/azure/group#az_group_create).
-1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create&preserve-view=true) using a supported distribution in a supported region.
-1. Install the Azure AD login VM extension with [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set).
+1. Create a resource group with [az group create](/cli/azure/group#az-group-create).
+1. Create a VM with [az vm create](/cli/azure/vm#az-vm-create&preserve-view=true) using a supported distribution in a supported region.
+1. Install the Azure AD login VM extension with [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set).
 
 The following example deploys a VM and then installs the extension to enable Azure AD login for Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
 
@@ -204,7 +204,7 @@ After a few moments, the security principal is assigned the role at the selected
  
 ### Using the Azure Cloud Shell experience
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your current Azure account is obtained with [az account show](/cli/azure/account#az_account_show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az_vm_show). The scope could also be assigned at a resource group or subscription level, normal Azure RBAC inheritance permissions apply.
+The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your current Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, normal Azure RBAC inheritance permissions apply.
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -217,7 +217,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> If your Azure AD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az_ad_user_list).
+> If your Azure AD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the article [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
@@ -462,6 +462,14 @@ Solution 2: Perform these actions:
 ### Virtual machine scale set Connection Issues
 
 Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade hasn’t been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
+
+### AllowGroups / DenyGroups statements in sshd_config cause first login to fail for Azure AD users
+
+Cause 1: If sshd_config contains either AllowGroups or DenyGroups statements, the very first login fails for Azure AD users. If the statement was added after a user already has a successful login, they can log in.
+
+Solution 1: Remove AllowGroups and DenyGroups statements from sshd_config.
+
+Solution 2: Move AllowGroups and DenyGroups to a "match user" section in sshd_config. Make sure the match template excludes Azure AD users.
 
 ## Next steps
 

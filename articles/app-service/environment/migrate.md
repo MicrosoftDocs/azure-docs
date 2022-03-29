@@ -82,7 +82,7 @@ Once the new IPs are created, you'll have the new default outbound to the intern
 
 ### Delegate your App Service Environment subnet
 
-App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Migration will not succeed if the App Service Environment's subnet isn't delegated or it's delegated to a different resource.
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Migration won't succeed if the App Service Environment's subnet isn't delegated or it's delegated to a different resource.
 
 ### Migrate to App Service Environment v3
 
@@ -124,6 +124,8 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
   If there's an unexpected issue, support teams will be on hand. It's recommended to migrate dev environments before touching any production environments.
 - **What happens to my old App Service Environment?**  
   If you decide to migrate an App Service Environment, the old environment gets shut down and deleted and all of your apps are migrated to a new environment. Your old environment will no longer be accessible.
+- **What will happen to my App Service Environment v1/v2 resources after 31 August 2024?**  
+  After 31 August 2024, if you haven't migrated to App Service Environment v3, your App Service Environment v1/v2s and the apps deployed in them will no longer be available. App Service Environment v1/v2 is hosted on App Service scale units running on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture that will be [retired on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Because of this, App Service Environment v1/v2 will no longer be available after that date. Migrate to App Service Environment v3 to keep your apps running or save or back up any resources or data that you need to maintain.
 
 ## Next steps
 
@@ -131,7 +133,7 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
 > [Migrate App Service Environment v2 to App Service Environment v3](how-to-migrate.md)
 
 > [!div class="nextstepaction"]
-> [Migration Alternatives](migration-alternatives.md)
+> [Manually migrate to App Service Environment v3](migration-alternatives.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 Networking](networking.md)

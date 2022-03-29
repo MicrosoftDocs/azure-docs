@@ -13,7 +13,7 @@ ms.custom: generated
 
 # Azure resource provider operations
 
-This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az_provider_operation_list).
+This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 Click the resource provider name in the following table to see the list of operations.
 
@@ -157,6 +157,7 @@ Click the resource provider name in the following table to see the list of opera
 | **Virtual desktop infrastructure** |
 | [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
 | **Other** |
+| [Microsoft.Chaos](#microsoftchaos) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 | [Microsoft.ServicesHub](#microsoftserviceshub) |
 
@@ -2635,7 +2636,7 @@ Azure service: [Azure Maps](../azure-maps/index.yml)
 
 ### Microsoft.Media
 
-Azure service: [Media Services](../media-services/index.yml)
+Azure service: [Media Services](/media-services/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -12348,7 +12349,7 @@ Azure service: Microsoft Monitoring Insights
 
 ### Microsoft.DesktopVirtualization
 
-Azure service: [Windows Virtual Desktop](../virtual-desktop/index.yml)
+Azure service: [Azure Virtual Desktop](../virtual-desktop/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -12413,6 +12414,38 @@ Azure service: [Windows Virtual Desktop](../virtual-desktop/index.yml)
 > | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |
 
 ## Other
+
+### Microsoft.Chaos
+
+Azure service: [Azure Chaos Studio](../chaos-studio/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Chaos/register/action | Registers the subscription for the Chaos Resource Provider and enables the creation of Chaos resources. |
+> | Microsoft.Chaos/unregister/action | Unregisters the subscription for the Chaos Resource Provider and enables the creation of Chaos resources. |
+> | Microsoft.Chaos/artifactSetDefinitions/write | Creates an Artifact Set Definition which describes the set of artifact to capture for a given Chaos Experiment. |
+> | Microsoft.Chaos/artifactSetDefinitions/read | Gets all Artifact Set Definitions that extend a Chaos Experiment resource. |
+> | Microsoft.Chaos/artifactSetDefinitions/delete | Deletes all Artifact Set Definitions that extend a Chaos Experiment resource. |
+> | Microsoft.Chaos/artifactSetSnapshots/read | Gets all Artifact Set Snapshots that extend a Chaos Experiment resource. |
+> | Microsoft.Chaos/artifactSetSnapshots/artifactSnapshots/read | Gets all Artifact Snapshots that extend a Artifact Set Snapshot. |
+> | Microsoft.Chaos/experiments/write | Creates or updates a Chaos Experiment resource in a resource group. |
+> | Microsoft.Chaos/experiments/delete | Deletes a Chaos Experiment resource in a resource group. |
+> | Microsoft.Chaos/experiments/read | Gets all Chaos Experiments in a resource group. |
+> | Microsoft.Chaos/experiments/start/action | Starts a Chaos Experiment to inject faults. |
+> | Microsoft.Chaos/experiments/cancel/action | Cancels a running Chaos Experiment to stop the fault injection. |
+> | Microsoft.Chaos/experiments/executionDetails/read | Gets all chaos experiment execution details for a given chaos experiment. |
+> | Microsoft.Chaos/experiments/statuses/read | Gets all chaos experiment execution statuses for a given chaos experiment. |
+> | Microsoft.Chaos/locations/targetTypes/read | Gets all TargetTypes. |
+> | Microsoft.Chaos/locations/targetTypes/capabilityTypes/read | Gets all CapabilityType. |
+> | Microsoft.Chaos/operations/read | Read the available Operations for Chaos Studio. |
+> | Microsoft.Chaos/skus/read | Read the available SKUs for Chaos Studio. |
+> | Microsoft.Chaos/targets/write | Creates or update a Target resource that extends a tracked resource. |
+> | Microsoft.Chaos/targets/delete | Deletes a Target resource that extends a tracked resource. |
+> | Microsoft.Chaos/targets/read | Gets all Targets that extend a tracked resource. |
+> | Microsoft.Chaos/targets/capabilities/write | Creates or update a Capability resource that extends a Target resource. |
+> | Microsoft.Chaos/targets/capabilities/delete | Deletes a Capability resource that extends a Target resource. |
+> | Microsoft.Chaos/targets/capabilities/read | Gets all Capabilities that extend a Target resource. |
 
 ### Microsoft.DigitalTwins
 
