@@ -21,6 +21,29 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## February 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=4><b>Data Flow</b></td><td>Parameterized linked services supported in mapping data flows</td><td>You can now use your parameterized linked services in mapping data flows to make your data flow pipelines generic and flexible.<br><a href="parameterize-linked-services.md?tabs=data-factory">Learn more</a></td></tr>
+
+<tr><td>Azure SQL DB incremental source extract available in data flow (Public Preview)</td><td>A new option has been added on mapping data flow Azure SQL DB sources called <i>Enable incremental extract (preview)</i>. Now you can automatically pull only the rows that have changed on your SQL DB sources using data flows.<br><a href="connector-azure-sql-database.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td>Four new connectors available for mapping data flows (Public Preview)</td><td>Azure Data Factory now supports the four following new connectors (Public Preview) for mapping data flows: Quickbase Connector, Smartsheet Connector, TeamDesk Connector, and Zendesk Connector.<br><a href="connector-overview.md?tabs=data-factory">Learn more</a></td></tr> 
+ 
+<tr><td>Azure Cosmos DB (SQL API) for mapping data flow now supports inline mode</td><td>Azure Cosmos DB (SQL API) for mapping data flow can now use inline datasets.<br><a href="connector-azure-cosmos-db.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td rowspan=2><b>Data Movement</b></td><td>Get metadata driven data ingestion pipelines on ADF Copy Data Tool within 10 minutes (GA)</td><td>You can build large-scale data copy pipelines with metadata-driven approach on copy data tool (GA) within 10 minutes.<br><a href="copy-data-tool-metadata-driven.md">Learn more</a></td></tr>
+
+<tr><td>Azure Data Factory Google AdWords Connector API Upgrade Available</td><td>The Azure Data Factory Google AdWords connector now supports the new AdWords API version. No action is required for the new connector user as it is enabled by default.<br><a href="connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api">Learn more</a></td></tr>
+ 
+<tr><td><b>Region Expansion</b></td><td>Azure Data Factory is now available in West US3 and Jio India West</td><td>Azure Data Factory is now available in two new regions: West US3 and Jio India West. You can co-locate your ETL workflow in these new regions if you are utilizing these regions for storing and managing your modern data warehouse. You can also use these regions for BCDR purposes in case you need to failover from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
+ 
+<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory tenant</td><td>You can connect your Azure Data Factory to an Azure DevOps Account in a different Azure Active Directory tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr> 
+</table>
+
+
 ## January 2022
 <br>
 <table>
@@ -103,19 +126,15 @@ This page is updated monthly, so revisit it regularly.
 <tr><td>New Stringify data transformation in mapping data flows</td><td>Mapping data flows adds a new data transformation called Stringify to make it easy to convert complex data types like structs and arrays into string form that can be sent to structured output destinations.<br><a href="data-flow-stringify.md">Learn more</a></td></tr>
   
 <tr>
-  <td rowspan=2><b>Integration Runtime</b></td>
-  <td>Azure Data Factory Managed vNet goes GA</td>
-  <td>You can now provision the Azure Integration Runtime as part of a managed Virtual Network and leverage Private Endpoints to securely connect to supported data stores. Data traffic goes through Azure Private Links which provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet.<br><a href="managed-virtual-network-private-endpoint.md">Learn more</a></td>
- </tr>
- <tr>
-   <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
-   <td>The SSIS integration runtime now supports express VNet injection.<br>
-     Learn more:<br>
-     <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
-     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
-     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
-   </td>
- </tr>
+ <td><b>Integration Runtime</b></td>
+  <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
+  <td>The SSIS integration runtime now supports express VNet injection.<br>
+    Learn more:<br>
+    <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
+    <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
+    <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
+  </td>
+</tr>
 
 <tr><td rowspan=2><b>Security</b></td><td>Azure Key Vault integration improvement</td><td>We have improved Azure Key Vault integration by adding user selectable drop-downs to select the secret values in the linked service, increasing productivity and not requiring users to type in the secrets, which could result in human error.</td></tr>
 <tr><td>Support for user-assigned managed identity in Azure Data Factory</td><td>Credential safety is crucial for any enterprise. With that in mind, the Azure Data Factory (ADF) team is committed to making the data engineering process secure yet simple for data engineers. We are excited to announce the support for user-assigned managed identity (Preview) in all connectors/ linked services that support Azure Active Directory (Azure AD) based authentication.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">Learn more</a></td></tr>

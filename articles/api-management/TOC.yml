@@ -20,6 +20,9 @@
         href: powershell-create-service-instance.md
       - name: Create an instance - Visual Studio Code
         href: vscode-create-service-instance.md
+      - name: Create an instance - Bicep
+        displayName: Resource Manager, ARM, Bicep
+        href: quickstart-bicep.md
       - name: Create an instance - ARM template
         displayName: Resource Manager
         href: quickstart-arm-template.md
@@ -154,6 +157,8 @@
               href: how-to-deploy-self-hosted-gateway-kubernetes.md
             - name: Deploy a self-hosted gateway to Kubernetes (Helm)
               href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
+            - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
+              href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
             - name: Deploy a self-hosted gateway to Docker
               href: how-to-deploy-self-hosted-gateway-docker.md
             - name: Configure custom domain for self-hosted gateway
@@ -216,8 +221,8 @@
                     href: developer-portal-integrate-application-insights.md
                   - name: Integrate Google Tag Manager
                     href: developer-portal-integrate-google-tag-manager.md
-            - name: Self-host developer portal 
-              items:  
+            - name: Self-host developer portal
+              items:
                 - name: Create self-hosted portal
                   href: developer-portal-self-host.md
                 - name: Alternative approaches to self-hosting
@@ -230,8 +235,8 @@
                   href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
-            - name: Monetize APIs 
-              items:  
+            - name: Monetize APIs
+              items:
                 - name: Monetization with Azure API Management
                   href: monetization-overview.md
                 - name: How API Management supports monetization
@@ -386,6 +391,12 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
+      - name: Breaking changes
+        items:
+            - name: Overview
+              href: breaking-changes/overview.md
+            - name: Virtual Network Changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar2023.md
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Videos

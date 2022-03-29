@@ -5,7 +5,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devdivchpfy22
-ms.date: 03/17/2022
+ms.date: 03/29/2022
 ms.author: danlep 
 ms.devlang: azurecli
 ---
@@ -26,7 +26,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 Azure API Management instances, like all Azure resources, must be deployed into a resource group. Resource groups let you organize and manage related Azure resources.
 
-First, create a resource group named *myResourceGroup* in the Central US location with the following [az group create](/cli/azure/group#az_group_create) command:
+First, create a resource group named *myResourceGroup* in the Central US location with the following [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -49,7 +49,7 @@ By default, the command creates the instance in the Developer tier, an economica
 > [!TIP]
 > It can take between 30 and 40 minutes to create and activate an API Management service in this tier. The previous command uses the `--no-wait` option so that the command returns immediately while the service is created.
 
-Check the status of the deployment by running the [az apim show](/cli/azure/apim#az_apim_show) command:
+Check the status of the deployment by running the [az apim show](/cli/azure/apim#az-apim-show) command:
 
 ```azurecli-interactive
 az apim show --name myapim --resource-group myResourceGroup --output table

@@ -13,6 +13,8 @@ ms.date: 09/01/2021
 
 # Enable private access for TSI with Private Link (preview)
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes how to [enable Private Link with a private endpoint for an Azure Time Series Insights Gen2 environment](concepts-private-links.md) (currently in preview). Configuring a private endpoint for your Azure Time Series Insights Gen2 environment enables you to secure your Azure Time Series Insights environment and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
 This article walks through the process using the [**Azure portal**](https://portal.azure.com).
@@ -20,6 +22,9 @@ This article walks through the process using the [**Azure portal**](https://port
 Here are the steps that are covered in this article: 
 1. Turn on Private Link and configure a private endpoint for a Time Series Insights Gen2 environment.
 1. Disable or enable public network access flags, to restrict access to Private Link connections only.
+
+> [!NOTE]
+> Please note that Private Link for an event source is not supported. Do not restrict Public Internet access to a hub or event source used by Time Series Insights.
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 03/10/2022
 ---
 
 # Make indexer connections to Azure Storage as a trusted service
@@ -24,7 +24,7 @@ Indexers in an Azure Cognitive Search service that access blob data in Azure Sto
 + Content in Azure Blob Storage or Azure Data Lake Storage Gen2 (ADLS Gen2) that you want to index.
 
 > [!NOTE]
-> This capability is limited to blobs and ADLS Gen2 on Azure Storage. The trusted service exception is not supported for indexer connections to Azure Table Storage and Azure File Storage.
+> This capability is limited to blobs and ADLS Gen2 on Azure Storage. The trusted service exception is not supported for indexer connections to Azure Table Storage and Azure File Storage. It's also not currently supported for indexers that invoke skillsets that write to Azure Storage (knowledge store, enrichment cache, or debug sessions).
 
 ## Check service identity
 
