@@ -183,8 +183,6 @@ additionalContent:
         summary: >
           Sign in users from partner organizations in a business-to-business (B2B) scenario or create custom sign-up and sign-in experiences for your customers
           in a business-to-customer (B2C) scenario.
-
-          Azure AD B2C supports signing in customers using their social accounts from services like Facebook and Google, an email address and password, or a phone number.
         links:
           - url: /azure/active-directory/external-identities/
             text: External Identities documentation
