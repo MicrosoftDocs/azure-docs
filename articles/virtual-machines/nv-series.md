@@ -19,10 +19,10 @@ ms.author: jushiman
 > 
 > This retirement announcement does not impact the newer NVv3 and NVv4 series virtual machines. 
 > 
-> All NV and NV_Promo VMs will need to be de-allocated by that date.  For recommendations on which VMs to migrate your NV and NV_Promo workloads to or for the creation of net new VMs, please see this [migration guide](https://aka.ms/NVseriesMigration).  Visit the [Azure Virtual Machine pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) for additional information.
+> All NV and NV_Promo VMs will need to be de-allocated by that date.  For recommendations on which VMs to migrate your NV and NV_Promo workloads to or for the creation of net new VMs, please see this [migration guide](https://aka.ms/NVseriesMigration).  Visit the [Azure Virtual Machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/) for additional information.
 > 
 > For more information and support options, please see our blog:  
-> https://azure.microsoft.com/en-us/updates/nvseries-and-nvpromo-azure-virtual-machines-will-be-retired-by-31-august-2022/
+> https://azure.microsoft.com/updates/nvseries-and-nvpromo-azure-virtual-machines-will-be-retired-by-31-august-2022/
 
 The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
 
