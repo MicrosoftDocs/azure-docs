@@ -10,45 +10,45 @@ services: azure-maps
 ms.custom: references_regions
 ---
 
-# Azure Maps Weather services coverage
+# Azure Maps weather services coverage
 
 This article provides coverage information for Azure Maps [Weather services][weather-services].
 
 ## Weather information supported
 
-### Infrared Satellite Tiles
+### Infrared satellite tiles
 <!-- Replace with Minimal Description
 Infrared (IR) radiation is electromagnetic radiation that measures an object's infrared emission, returning information about its temperature. Infrared images can indicate cloud heights (Colder cloud-tops mean higher clouds) and types, calculate land and surface water temperatures, and locate ocean surface features. 
  -->
 
-Infrared satellite imagery, showing clouds by their temperature, is returned when `tilesetID` is set to `microsoft.weather.infrared.main` when making calls to [Get Map Tile][get-map-tile] and can then be overlayed on the map image.
+Infrared satellite imagery, showing clouds by their temperature, is returned when `tilesetID` is set to `microsoft.weather.infrared.main` when making calls to [Get Map Tile][get-map-tile] and can then be overlaid on the map image.
 
-### Minute Forecast
+### Minute forecast
 
-The [Get Minute Forecast][get-minute-forecast] service returns minute-by-minute forecasts for the specified location for the next 120 minutes.
+The [Get Minute forecast][get-minute-forecast] service returns minute-by-minute forecasts for the specified location for the next 120 minutes.
 
-### Radar Tiles
+### Radar tiles
 <!-- Replace with Minimal Description
 Radar imagery is a depiction of the response returned when microwave radiation is sent into the atmosphere. The pulses of radiation reflect back showing its interactions with any precipitation it encounters. The radar technology visually represents those pulses showing where it's clear, raining, snowing or stormy. 
 -->
 
-Radar Tiles, showing areas of rain, snow, ice and mixed conditions, are returned when `tilesetID` is set to `microsoft.weather.radar.main` when making calls to [Get Map Tile][get-map-tile] and can then be overlayed on the map image.
+Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned when `tilesetID` is set to `microsoft.weather.radar.main` when making calls to [Get Map Tile][get-map-tile] and can then be overlaid on the map image.
 
-### Severe Weather Alerts
+### Severe weather alerts
 
-Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
+Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
 
 ### Other
 
-- **Air Quality**. The Air Quality service returns [current][aq-current], [hourly][aq-hourly] or [daily][aq-daily] forecasts that include pollution levels, air quality index values, the dominant pollutant, and a brief statement summarizing risk level and suggested precautions.
-- **Current Conditions**. The [Get Current Conditions](/rest/api/maps/weather/get-current-conditions) service returns detailed current weather conditions such as precipitation, temperature and wind for a given coordinate location.
-- **Daily Forecast**. The [Get Daily Forecast](/rest/api/maps/weather/get-current-air-quality) service returns detailed weather forecasts such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location.
-- **Daily Indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
-- **Historical Weather**. The Historical Weather service includes Daily Historical [Records][dh-records], [Actuals][dh-actuals] and [Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
-- **Hourly Forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
-- **Quarter-day Forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
-- **Tropical Storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
-- **Weather Along Route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
+- **Air quality**. The Air Quality service returns [current][aq-current], [hourly][aq-hourly] or [daily][aq-daily] forecasts that include pollution levels, air quality index values, the dominant pollutant, and a brief statement summarizing risk level and suggested precautions.
+- **Current conditions**. The [Get Current Conditions](/rest/api/maps/weather/get-current-conditions) service returns detailed current weather conditions such as precipitation, temperature and wind for a given coordinate location.
+- **Daily forecast**. The [Get Daily Forecast](/rest/api/maps/weather/get-current-air-quality) service returns detailed weather forecasts such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location.
+- **Daily indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
+- **Historical weather**. The Historical Weather service includes Daily Historical [Records][dh-records], [Actuals][dh-actuals] and [Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
+- **Hourly forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
+- **Quarter-day forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
+- **Tropical storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
+- **Weather along route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
 
 ## Azure Maps Weather coverage tables
 
@@ -57,7 +57,7 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 
 ## Americas
 
-| Country/Region                           | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                           | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
 |------------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Anguilla                                 |            ✓             |                              |                       |   ✓   |
 | Antarctica                               |            ✓             |                              |                       |   ✓   |
@@ -121,7 +121,7 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 
 ## Asia Pacific
 
-| Country/Region                     | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                     | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
 |-----------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Afghanistan                        |            ✓             |                              |                       |   ✓   |
 | American Samoa                     |            ✓             |                              |           ✓           |   ✓   |
@@ -187,7 +187,7 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 
 ## Europe
 
-| Country/Region          | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region          | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
 |-------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Albania                 |            ✓             |                              |                       |   ✓   |
 | Andorra                 |            ✓             |                              |           ✓           |   ✓   |
@@ -249,7 +249,7 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 
 ## Middle East & Africa
 
-| Country/Region                         | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                         | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
 |----------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Algeria                                |            ✓             |                              |                       |   ✓   |
 | Angola                                 |            ✓             |                              |                       |   ✓   |
@@ -330,7 +330,7 @@ Azure Maps [Severe Weather Alerts][severe-weather-alerts] service returns severe
 > [Weather services in Azure Maps](weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services frequently asked questions (FAQ)](weather-services-faq.yml)
+> [Azure Maps weather services frequently asked questions (FAQ)](weather-services-faq.yml)
 
 [weather-services]: /rest/api/maps/weather
 [get-map-tile]: /rest/api/maps/render-v2/get-map-tile
