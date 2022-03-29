@@ -73,7 +73,7 @@
   - name: Azure CLI
     href: cli-samples.md
     items:
-    - name: Subscribe to custom topic
+    - name: Subscribe to events for custom topic
       href: scripts/event-grid-cli-subscribe-custom-topic.md
   - name: Azure PowerShell
     href: powershell-samples.md
