@@ -52,7 +52,7 @@ Idle usage charges are applied when your replicas are running under a specific s
 
 Usage charges are calculated individually for each replica. A replica is considered idle when *all* of the following conditions are true:
 
-- None of the containers in the replicas are in the process of starting up.
+- All of the containers in the replica have started and are running.
 - The replica isn't processing any HTTP requests.
 - The replica is using less than 0.01 vCPU cores.
 - The replica is receiving less than 1,000 bytes per second of network traffic.
