@@ -27,6 +27,10 @@ The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced int
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
+## Limitations
+
+[!INCLUDE [public network access](../../includes/machine-learning-cli-public-network-access.md)]
+
 ## Installation
 
 The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. Ensure this requirement is met:
@@ -115,11 +119,11 @@ The `ml` CLI extension (sometimes called 'CLI v2') for Azure Machine Learning se
 You can increase the security of CLI communications with Azure Resource Manager by using Azure Private Link. The following links provide information on using a Private Link for managing Azure resources:
 
 1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
-2. [Create a Private Link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal). 
-3. [Create a private endpoint](/azure/azure-resource-manager/management/create-private-link-access-portal#create-private-endpoint) for the Private Link created in the previous step.
+2. [Create a Private Link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md). 
+3. [Create a private endpoint](../azure-resource-manager/management/create-private-link-access-portal.md#create-private-endpoint) for the Private Link created in the previous step.
 
 > [!IMPORTANT]
-> To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+> To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).
 
 ## Next steps
 

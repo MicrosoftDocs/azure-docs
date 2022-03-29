@@ -113,7 +113,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name AllowSFTP
@@ -144,7 +144,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFT
 
 #### [Azure CLI](#tab/azure-cli)
 
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name AllowSFTP
@@ -367,3 +367,4 @@ See the documentation of your SFTP client for guidance about how to connect and 
 - [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
 - [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
 - [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

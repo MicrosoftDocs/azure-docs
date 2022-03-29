@@ -1,5 +1,5 @@
 items:
-- name: Azure Healthcare APIs (preview) documentation
+- name: Azure Health Data Services documentation
   href: ../index.yml
 - name: Azure API for FHIR documentation
   href: index.yml
@@ -138,8 +138,6 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-      - name: Copy data to Synapse
-        href: copy-to-synapse.md
     - name: Convert data
       expanded: false
       items:
@@ -149,6 +147,8 @@ items:
       href: patient-everything.md
     - name: $member-match operation
       href: tutorial-member-match.md
+  - name: Copy data to Synapse
+    href: copy-to-synapse.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Get a token for Azure API for FHIR - CLI
@@ -194,8 +194,6 @@ items:
 - name: Reference
   expanded: true
   items:
-  - name: Azure CLI
-    href: /cli/azure/healthcareapis
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

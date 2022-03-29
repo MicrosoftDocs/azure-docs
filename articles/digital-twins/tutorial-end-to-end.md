@@ -84,8 +84,6 @@ You can verify the twins that were created by running the following command, whi
 Query
 ```
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
-
 You can now stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
 ## Set up the sample function app

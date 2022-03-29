@@ -14,6 +14,8 @@ ms.custom: tvilutis
 
 # Migrating to Azure Data Explorer
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 ## Overview
 
 Time Series Insights (TSI) service provides access to historical data ingested through hubs for operational analytics and reporting. Service features are:
@@ -68,4 +70,4 @@ TSI Gen2 stores all data on cold storage using Parquet format as a blob in custo
 Detailed FAQ and engineering experience is outlined in [How to migrate TSI Gen2 to ADX](./how-to-tsi-gen2-migration.md)
 
 > [!NOTE]
-> If you are unable to migrate to Time Series Insights to Azure Data Explorer by 31 March 2025, your Time Series Insights resources will be automatically migrated. You’ll be able to access Gen2 data in your storage account. However, you’ll only be able to perform management operations (such as updating storage account settings, getting storage account properties/keys, and deleting storage accounts) through Azure Resource Manager. For Gen 1 data, if you have a support plan, please create a support ticket to retrieve your Gen1 data. We will keep your Gen 1 data until 30 April 2025. 
+> If you are unable to migrate to Time Series Insights to Azure Data Explorer by 31 March 2025, your Time Series Insights resources will be automatically deleted. You’ll be able to access Gen2 data in your storage account. However, you’ll only be able to perform management operations (such as updating storage account settings, getting storage account properties/keys, and deleting storage accounts) through Azure Resource Manager. For Gen1 data, if you have a support plan, please create a support ticket to retrieve your Gen1 data. We will keep your Gen1 data until 30 April 2025. 

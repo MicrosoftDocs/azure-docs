@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2021
+ms.date: 03/16/2021
 ---
 
 # Overview of Azure Monitor agents
@@ -14,11 +14,11 @@ ms.date: 07/22/2021
 Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
 
 > [!NOTE]
-> Azure Monitor recently launched a new agent, the Azure Monitor agent, that provides all capabilities necessary to collect guest operating system monitoring data. While there are multiple legacy agents that exist due to the consolidation of Azure Monitor and Log Analytics, each with their unique capabilities with some overlap, we recommend that you use the new agent that aims to consolidate features from all existing agents, and provide additional benefits. [Learn More](./azure-monitor-agent-overview.md)
+> Azure Monitor recently launched a new agent, the [Azure Monitor agent](./azure-monitor-agent-overview.md), that provides all capabilities necessary to collect guest operating system monitoring data. **Use this new agent if you don't require [these current limitations](./azure-monitor-agent-overview.md#current-limitations)**, as it consolidates the features of all the legacy agents listed below and provides additional benefits. If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
 
 ## Summary of agents
 
-The following tables provide a quick comparison of the Azure Monitor agents for Windows and Linux. Further detail on each is provided in the section below.
+The following tables provide a quick comparison of the telemetry agents for Windows and Linux. Further detail on each is provided in the section below.
 
 ### Windows agents
 
@@ -61,17 +61,11 @@ Use the Azure Monitor agent if you need to:
 - Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
 
-Limitations of the Azure Monitor Agent include:
-
-- Not yet supported by all features in production. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features).
-- No support yet for networking scenarios involving private links. 
-- No support yet collecting custom logs (files) or IIS log files. 
-- No support yet for Event Hubs and Storage accounts as destinations.
-- No support for Hybrid Runbook workers.
+When compared with the legacy agents, the Azure Monitor Agent has [these limitations currently](./azure-monitor-agent-overview.md#current-limitations).
 
 ## Log Analytics agent
 
-The [Log Analytics agent](./log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
+The legacy [Log Analytics agent](./log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
 
 > [!NOTE]
 > The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.

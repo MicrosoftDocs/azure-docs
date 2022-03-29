@@ -54,8 +54,6 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Create a client certificate
             url: create-client-certificate.md
-          - text: Register a Ledger service principal
-            url: register-ledger-service-principal.md
           - text: Register the Azure confidential ledger resource provider
             url: register-ledger-resource-provider.md
   # Card

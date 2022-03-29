@@ -50,7 +50,7 @@ The following table lists unifying parsers available:
 | Process Event | | | | - imProcess<br> - imProcessCreate<br> - imProcessTerminate |
 | Registry Event | | | | imRegistry |
 | Web Session | _Im_WebSession | _ASim_WebSession | imWebSession | ASimWebSession | 
-| | | | | 
+
 
 
 ## Source-specific parsers
