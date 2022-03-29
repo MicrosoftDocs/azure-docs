@@ -26,6 +26,7 @@ sections:
         answer: |
           You can restrict internet access in a couple of ways:
           
+          * [Private endpoints](./functions-networking-options.md#private-endpoint-connections)Restrict inbound traffic to your function app by private link over your virtual network, effectively blocking inbound traffic from the public internet.
           * [IP restrictions](../app-service/app-service-ip-restrictions.md): Restrict inbound traffic to your function app by IP range.
               * Under IP restrictions, you are also able to configure [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), which restrict your Function to only accept inbound traffic from a particular virtual network.
           * Removal of all HTTP triggers. For some applications, it's enough to simply avoid HTTP triggers and use any other event source to trigger your function.
