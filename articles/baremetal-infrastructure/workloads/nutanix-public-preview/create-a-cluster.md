@@ -8,43 +8,70 @@ ms.date: 03/31/2021
 
 # Create a cluster
 
-Note: Ensure that you add the tags fastpathenabled: True while creating the VNets, and not 
-after the VNets are created.
-1. Sign into the Azure portal with your Azure account created for Private Preview and then 
-navigate to Subscriptions.
-2. Open the resource group that you have created.
-3. Click +Add.
-4. In the New page, in the search box, enter Virtual Network. Select Virtual Network in the 
-search results.
-5. In the Virtual Network page, click Create.
-6. In Create virtual network, enter, or select the following information in the Basics tab:
-a. Project details: Select your subscription and the resource group.
-b. Instance details: add a name for the VNet and select (US) East US from the 
-Region list.
-7. Click Next: IP Addresses at the bottom of the page.
-8. In the IPv4 address space, select the IPv4 address space, and then click + Add 
-subnet.
-9. In the Add subnet page, add a name for the subnet (such as Host-Subnet) and enter 
-the subnet address range. Click Add.
-21
-10. Click Next: Security and Next: Tags at the bottom of the page.
-11. Add the tag fastpathenabled and set its value as True.
-12. Click Create in the Review + create page.
-13. When the deployment is complete, click Go to resource. You will be redirected to the 
-VNet that is created.
-14. Click Subnets. In the Subnets page, click the name of the Host-Subnet.
-15. Under SUBNET DELEGATION, select Microsoft.BareMetal/AzureHostedService from 
-the Delegate subnet to a service list.
-16. Click Save.
-Note: Add a custom DNS to the VNet. You can use any of the following DNS servers:
-• On-prem DNS server
-Note: You need to create a Cluster VNet and set up VPN or ExpressRoute 
-connectivity to the on-prem DNS server.
-• Public DNS server, such as 1.1.1.1 or 8.8.8.8
-• Azure DNS server deployed from Microsoft Marketplace
-• Nutanix provisioned DNS server with the IP address 20.106.145.8
+N
 
 ## Next steps
+
+Create a cluster in Azure by using Nutanix Clusters. Your Nutanix cluster is deployed in an 
+Azure virtual network (VNet) which is an isolated environment in the cloud provider’s region run 
+and maintained by Nutanix.
+Perform the following to create a Nutanix cluster in an Azure environment.
+
+1. Log on to Nutanix Clusters from the My Nutanix dashboard.
+1. In the Clusters page, do one of the following:
+    * If you are creating a cluster for the first time, under **You have no clusters**, click 
+**Create Cluster**.  
+    * If you have created clusters before, click **Create Cluster** in the top-right corner of the Clusters page.
+1. Select one of the following cluster options: 
+    * General Purpose 
+    * Virtual Desktop Infrastructure (VDI)
+1. In the Cloud Provider tab of the Create Cluster dialog box, do the following in the 
+indicated fields and then click **Next**:
+    * **Organization**. Select the organization in which you want to create the cluster.
+    * **Cluster Name**. Type a name for the cluster.
+    * **Cloud provider**. Select Azure.
+    * **Region**. Select the Azure region in which you want to create the cluster.
+1. In the Network and Infrastructure tab, provide the following information in the indicated 
+fields:
+    * Under the Network section, do one of the following:
+        * Click Use an existing VNET to choose an existing Virtual Private Network (VNet) in which you want to create the cluster. Provide the following information:
+            * Resource Group. Select a resource group from the drop-down list.
+            * Virtual Private Network (VNET). Select a VNet in which you want to create the cluster.
+            > [NOTE]
+            > Ensure that you have one private network (subnet) without outward internet access and the VNet you selected has internet connectivity to the portal through an internet gate
+            * Management Subnet
+        * Click Create New VNET if you want to create a new VNet for this cluster and do not want to use any of your existing Azure virtual networks.
+        * > [!NOTE]
+          > If you choose to create a new VNet in the Nutanix Clusters console, Nutanix creates a resource group and delegates a management subnet for your cluster.
+            * VNET CIDR. Enter a range of IP addresses for the resources deployed in the VNET. (Required)
+            * Resource Group. Enter the name of the resource group. (Optional)
+            * DNS Server. Enter the list of IP addresses that you want to use as DNS Servers. (Required)
+    * Under Cluster Capacity and Redundancy, you can increase or decrease the number of hosts and set the redundancy factor here.
+        * Host type. Enter the type of bare metal instance you want your cluster to run on.
+        > [!NOTE] 
+        > There is only one bare metal instance this release called Azure Nutanix Ready Node.
+        * Number of Hosts. Select the number of nodes you want in your cluster.
+        * Redundancy Factor. Select one of the following redundancy factors (RF) for your cluster.
+            * Number of copies of data replicated across the cluster is 1. Number of nodes for RF1 must be 1.
+            * Number of copies of data replicated across the cluster is 2. Minimum number of nodes for RF2 must be 3.
+            * Number of copies of data replicated across the cluster is 3. Minimum number of nodes for RF3 must be 5.
+        Click Next.
+1. In the Nutanix Software Configuration tab, provide the following information in the 
+indicated fields:
+    * AOS Version. Select the AOS version that you want to use for the cluster.
+    * AOS Software Tier. In the Software Tier drop-down list, select the license type (Pro or Ultimate) that you want to apply to your AOS cluster.
+    * Click the View Supported Features list to see the available features in each type of license.
+    * Check the Use Nutanix Files on this Cluster box, if you want to use files for billing clusters running on Azure.
+1. Review your cluster configuration in the Summary page and click Create.
+1. Monitor the cluster creation progress in the Clusters page.
+When the cluster creation is in progress, the status is Creating. After the cluster is 
+created, the status changes to Running.
+The Nutanix cluster is deployed in Azure in approximately 40 to 45 minutes. 
+After the cluster is created, click the name of the cluster to view the cluster details.
+
+
+
+
 
 Learn more about Nutanix:
 
