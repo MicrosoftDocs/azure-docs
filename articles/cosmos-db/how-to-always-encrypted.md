@@ -12,7 +12,7 @@ author: ThomasWeiss
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> A breaking change has been introduced with the 1.0 release of our encryption packages. If you created data encryption keys and encryption-enabled containers with prior versions, you will need to re-create them after migrating your client code to 1.0 packages.
+> A breaking change has been introduced with the 1.0 release of our encryption packages. If you created data encryption keys and encryption-enabled containers with prior versions, you will need to re-create your databases and containers after migrating your client code to 1.0 packages.
 
 Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
 
@@ -341,15 +341,15 @@ database.rewrapClientEncryptionKey(
 
 Performing a rotation of a data encryption key isn't offered as a turnkey capability. This is because updating a DEK requires a scan of all containers where this key is used and a re-encryption of all properties encrypted with this key. This operation can only happen client-side as the Azure Cosmos DB service does not store or ever accesses the plaintext value of the DEK.
 
-In practice, a DEK rotation can be done by performing a data migration from the impacted containers to new ones. The new containers can be created the exact same way as the original ones.
+In practice, a DEK rotation can be done by performing a data migration from the impacted containers to new ones. The new containers can be created the exact same way as the original ones. To help you with such a data migration, you can find [a standalone migration tool on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ReEncryption).
 
 ## Adding additional encrypted properties
 
 Adding additional encrypted properties to an existing encryption policy isn't supported for the same reasons explained in the section just above. This operation requires a full scan of the container to ensure that all instances of the properties are properly encrypted, and this is an operation that can only happen client-side. Just like a DEK rotation, adding additional encrypted properties can be done by performing a data migration to a new container with an appropriate encryption policy.
 
-If you have flexibility in the way new encrypted properties can be added from a schema standpoint, you can also leverage the schema-agnostic nature of Azure Cosmos DB. If you use a property defined in your encryption policy as a "property bag", you can add more properties below with no constraint. For example, let's imagine that `property1` is defined in your encryption policy and you initially write `property1.property2` in your documents. If at a later stage you need to add `property3` as an encrypted property, you can start writing `property1.property3` in your documents and the new property will automatically be encrypted as well. This approach doesn't require any data migration.
+If you have flexibility in the way new encrypted properties can be added from a schema standpoint, you can also leverage the schema-agnostic nature of Azure Cosmos DB. If you use a property defined in your encryption policy as a "property bag", you can add more properties below with no constraint. For example, let's imagine that `property1` is defined in your encryption policy and you initially write `property1.property2` in your documents. If, at a later stage, you need to add `property3` as an encrypted property, you can start writing `property1.property3` in your documents and the new property will automatically be encrypted as well. This approach doesn't require any data migration.
 
 ## Next steps
 
 - Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
-- Learn more about [customer-managed keys](how-to-setup-cmk.md)
+- Learn more about [customer-managed keys for encryption-at-rest](how-to-setup-cmk.md)
