@@ -265,7 +265,7 @@ Update-AzGalleryImageVersion `
 
 You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 
 
-Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) to stop sharing the gallery publicly.
+Before you can delete a community shared gallery, you need to use [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) to stop sharing the gallery publicly.
 
 ### [CLI](#tab/cli)
 
@@ -289,11 +289,7 @@ az sig image-definition delete \
 ```
 
 
-<<<<<<< HEAD
-Delete a gallery using [az sig delete](/cli/azure/sig#az_sig_delete). 
-=======
 Delete a gallery using [az sig delete](/cli/azure/sig#az-sig-delete).
->>>>>>> a847006dc61dacef5cb2c11d169e423a250d1bed
 
 ```azurecli-interactive
 az sig delete \

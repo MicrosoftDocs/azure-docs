@@ -98,7 +98,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ---
 
 
-<a href=community></a>
+<a name=community></a>
 
 ## Create a community gallery (preview)
 
@@ -117,7 +117,7 @@ During the preview, make sure that you create your gallery, image definitions, a
 
  Only the owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli2)
 
 The `--public-name-prefix` value is used to create a name for the public version of your gallery. The `--public-name-prefix` will be the first part of the public name, and the last part will be a GUID, created by the platform, that is unique to your gallery.
 
@@ -156,11 +156,11 @@ az sig share enable-community \
 > [!IMPORTANT]
 > If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
 
-To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share?view=azure-cli-latest#az-sig-share-reset) command.
+To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
 
 To delete a gallery shared to community, you must first run `az sig share reset` to stop sharing, then delete the gallery.
 
-### [REST](#tab/rest)
+### [REST](#tab/rest2)
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName?api-version=2021-10-01
@@ -196,7 +196,7 @@ te/galleries/{galleryName}/share?api-version=2021-07-01
 } 
 ```
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal2)
 
 Making a community gallery available to all Azure users is a two-step process. First you create the gallery with community sharing enabled, when you are ready to make it public, you share the gallery.
 

@@ -79,7 +79,7 @@ New-AzRoleAssignment `
 
 ---
 
-<a href=community></a>
+<a name=community></a>
 ## Community galleries (preview)
 
 To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community). Community Galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
