@@ -1,51 +1,74 @@
 ---
-title: Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance
-description: Automate tasks for SQL databases on premises or in the cloud using Azure Logic Apps.
+title: Connect to SQL databases
+description: Automate workflows for SQL databases on premises or in the cloud with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/30/2022
 tags: connectors
 ---
 
 # Connect to a SQL database from Azure Logic Apps
 
-This article shows how you can access data in your SQL database from inside a logic app with the SQL Server connector. That way, you can automate tasks, processes, or workflows that manage your SQL data and resources by creating logic apps. The SQL Server connector works for [SQL Server](/sql/sql-server/sql-server-technical-documentation) as well as [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+This article shows how to access your SQL database with the SQL Server connector in Azure Logic Apps. You can then create automated workflows that are triggered by events in your SQL database or other systems and manage your SQL data and resources.
 
-You can create logic apps that run when triggered by events in your SQL database or in other systems, such as Dynamics CRM Online. Your logic apps can also get, insert, and delete data along with running SQL queries and stored procedures. For example, you can build a logic app that automatically checks for new records in Dynamics CRM Online, adds items to your SQL database for any new records, and then sends email alerts about the added items.
+For example, you can use actions that get, insert, and delete data along with running SQL queries and stored procedures. You can create workflow that checks for new records in a non-SQL database, does some processing work, creates new records in your SQL database using the results, and sends email alerts about the new records in your SQL database.
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, limitations, and known issues, see the [SQL Server connector reference page](/connectors/sql/).
+ The SQL Server connector supports the following SQL editions:
+
+* [SQL Server](/sql/sql-server/sql-server-technical-documentation)
+* [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
+* [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+
+If you're new to Azure Logic Apps, review the following documentation:
+
+* [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+## Connector technical reference
+
+For technical information about the managed SQL Server connector, such as available trigger and action operations, limits, and known issues, review the [SQL Server connector reference page](/connectors/sql/). This connector is available for both Consumption logic app workflows in multi-tenant Azure Logic Apps 
+
+In 
+For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](/connectors/sql/), which is generated from the Swagger description.
+
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
-  Your tables must have data so that your logic app can return results when calling operations. If you use Azure SQL Database, you can use sample databases, which are included.
+  The SQL connector requires that your tables contain data so that SQL connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL connector operations.
 
-* Your SQL server name, database name, your user name, and your password. You need these credentials so that you can authorize your logic to access your SQL server.
+* The information required to create a SQL database connection, such as your SQL server and database names. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string, for example:
 
-  * For on-premises SQL Server, you can find these details in the connection string:
-
-    `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
-
-  * For Azure SQL Database, you can find these details in the connection string.
-  
-    For example, to find this string in the Azure portal, open your database. On the database menu, select either **Connection strings** or **Properties**:
+  * For a SQL database in Azure, the connection string has the following format: 
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-<a name="multi-tenant-or-ise"></a>
+    1. To find this string in the [Azure portal](https://portal.azure.com), open your database.
 
-* Based on whether your logic apps are going to run in global, multi-tenant Azure or an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), here are other requirements for connecting to on-premises SQL Server:
+    1. On the database menu, under **Properties**, select **Connection strings**.
 
-  * For logic apps in global, multi-tenant Azure that connect to on-premises SQL Server, you need to have the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md).
+  * For an on-premises SQL server, the connection string has the following format:
 
-  * For logic apps in an ISE that connect to on-premises SQL Server and use Windows authentication, the ISE-versioned SQL Server connector doesn't support Windows authentication. So, you still need to use the data gateway and the non-ISE SQL Server connector. For other authentication types, you don't need to use the data gateway and can use the ISE-versioned connector.
+    `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-* The logic app where you need access to your SQL database. To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* The logic app workflow where you want to access your SQL database. If you want to start your workflow with a SQL trigger, you have to start with a blank workflow.
+
+* To connect to an on-premises SQL server, the following extra requirements apply based on whether you have a Consumption logic app workflow, either in multi-tenant Azure Logic Apps or an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), or if you have a Standard logic app workflow in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+
+  * Consumption logic app workflow
+
+    * In multi-tenant Azure Logic Apps, you need the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md).
+
+    * In an ISE, when you have non-Windows or SQL Server Authentication connections, you don't need the on-premises data gateway and can use the ISE-versioned SQL Server connector. For Windows Authentication and SQL Server Authentication, you still have to use the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md). Also, the ISE-versioned SQL Server connector doesn't support Windows authentication, so you have to use the non-ISE SQL Server connector.
+
+  * Standard logic app workflow
+
+    In single-tenant Azure Logic Apps, you can use the built-in SQL Server connector, which requires a connection string. If you want to use the managed SQL Server connector, you need follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
 
 <a name="create-connection"></a>
 
@@ -63,7 +86,6 @@ Now, continue with these steps:
 ### Connect to Azure SQL Database or Managed Instance
 
 To access an Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
-
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
@@ -161,7 +183,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 ## Add a SQL trigger
 
-1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, create a blank logic app, which opens the Logic App Designer. This example continues with the Azure portal.
+1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, create a blank logic app, which opens the workflow designer. This example continues with the Azure portal.
 
 1. On the designer, in the search box, enter `sql server`. From the triggers list, select the SQL trigger that you want. This example uses the **When an item is created** trigger.
 
@@ -195,7 +217,7 @@ To make sure that the recurrence time doesn't shift when DST takes effect, manua
 
 In this example, the logic app starts with the [Recurrence trigger](../connectors/connectors-native-recurrence.md), and calls an action that gets a row from a SQL database.
 
-1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, open your logic app in Logic App Designer. This example continues the Azure portal.
+1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, open your logic app in the workflow designer. This example continues the Azure portal.
 
 1. Under the trigger or action where you want to add the SQL action, select **New step**.
 
@@ -249,7 +271,7 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 When you call a stored procedure by using the SQL Server connector, the returned output is sometimes dynamic. In this scenario, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer.
 
 1. View the output format by performing a test run. Copy and save your sample output.
 
@@ -282,10 +304,6 @@ Connection problems can commonly happen, so to troubleshoot and resolve these ki
 * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
 * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
-
-## Connector-specific details
-
-For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](/connectors/sql/), which is generated from the Swagger description.
 
 ## Next steps
 
