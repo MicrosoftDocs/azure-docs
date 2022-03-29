@@ -47,7 +47,7 @@ To build a Power BI report/dashboard:
    > [!NOTE]
    > Currently, this option is only available for SQL API accounts. You can create T-SQL views directly in Synapse serverless SQL pools and build BI dashboards for Azure Cosmos DB API for MongoDB. See ["Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse"](../synapse-link-power-bi.md) for more information. 
 
-1. From the **Enable Azure Synapse Link** tab, you can enable Synapse Link on your account from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab.This step is a pre-requisite to start enabling Synapse Link on your containers.
+1. From the **Enable Azure Synapse Link** tab, you can enable Synapse Link on your account from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab. This step is a pre-requisite to start enabling Synapse Link on your containers.
 
    > [!NOTE]
    > Enabling Azure Synapse Link has cost implications. See [Azure Synapse Link pricing](../synapse-link.md#pricing) section for more details.
