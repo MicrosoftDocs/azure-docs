@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/01/2022
+ms.date: 03/15/2022
 ---
 
 # Auto-failover groups overview & best practices (Azure SQL Managed Instance)
@@ -184,6 +184,13 @@ Due to the high latency of wide area networks, geo-replication uses an asynchron
 
 > [!NOTE]
 > `sp_wait_for_database_copy_sync` prevents data loss after geo-failover for specific transactions, but does not guarantee full synchronization for read access. The delay caused by a `sp_wait_for_database_copy_sync` procedure call can be significant and depends on the size of the not yet transmitted transaction log on the primary at the time of the call.
+
+## Failover group status
+Auto-failover group reports its status describing the current state of the data replication:
+
+- Seeding - [Initial seeding](auto-failover-group-sql-mi.md#initial-seeding) is taking place after creation of the failover group, until all user databases are initialized on the secondary instance. Failover process cannot be initiated while auto-failover group is in the Seeding status, since user databases are not copied to secondary instance yet.
+- Synchronizing - the usual status of auto-failover group. It means that data changes on the primary instance are being replicated asynchronously to the secondary instance. This status doesn't guarantee that the data is fully synchronized at every moment. There may be data changes from primary still to be replicated to the secondary due to asynchronous nature of the replication process between instances in the auto-failover group. Both automatic and manual failovers can be initiated while the auto-failover group is in the Seeding status.
+- Failover in progress - this status indicates that either automatically or manually initiated failover process is in progress. No changes to the failover group or additional failovers can be initiated while the auto-failover group is in this status.
 
 ## Permissions
 

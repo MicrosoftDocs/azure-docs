@@ -6,7 +6,7 @@ ms.date: 06/18/2020
 ms.custom: ignite-fall-2021
 ---
 
-Use the QnA Maker client library for python to:
+Use the QnA Maker client library for Python to:
 
 * Create a knowledgebase
 * Update a knowledgebase
@@ -42,7 +42,7 @@ After installing Python, you can install the client library with:
 pip install azure-cognitiveservices-knowledge-qnamaker==0.2.0
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file named `quickstart-file.py` and import the following libraries.
 
@@ -175,7 +175,7 @@ The _setTimeout_ call in the following code block is used to simulate asynchrono
 
 ## Run the application
 
-Run the application with the python command on your quickstart file.
+Run the application with the Python command on your quickstart file.
 
 ```console
 python quickstart-file.py

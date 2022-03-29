@@ -12,7 +12,7 @@ ms.custom: mode-other
 
 This getting started quickstart shows how to sign in to the Azure Video Analyzer for Media (formerly Video Indexer) website and how to upload your first video.
 
-When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/). 
+When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## Sign up for Video Analyzer for Media
 
@@ -27,7 +27,7 @@ Once you start using Video Analyzer for Media, all your stored data and uploaded
 
 ### Supported file formats for Video Analyzer for Media
 
-See the [input container/file formats](../../media-services/latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Analyzer for Media.
+See the [input container/file formats](/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Video Analyzer for Media.
 
 ### Upload a video
 
@@ -39,7 +39,7 @@ See the [input container/file formats](../../media-services/latest/encode-media-
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
-1. Once your video has been uploaded, Video Analyzer for Media starts indexing and analyzing the video. You see the progress. 
+1. Once your video has been uploaded, Video Analyzer for Media starts indexing and analyzing the video. You see the progress.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
@@ -57,12 +57,12 @@ For more information, see [supported browsers](video-indexer-overview.md#support
 
 See [Upload and index videos](upload-index-videos.md) for more details.
 
-After you upload and index a video, you can start using [Video Analyzer for Media website](video-indexer-view-edit.md) or [Video Analyzer for Media Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+After you upload and index a video, you can start using [Video Analyzer for Media website](video-indexer-view-edit.md) or [Video Analyzer for Media Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
 
 [Start using APIs](video-indexer-use-apis.md)
 
 ## Next steps
 
-For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
+For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md).
 
 At the end of the workshop you will have a good understanding of the kind of information that can be extracted from video and audio content, you will be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Video Analyzer for Media.

@@ -4,6 +4,7 @@ description: This article describes how to configure the Postgres parameters in 
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

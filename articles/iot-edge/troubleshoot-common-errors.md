@@ -1,9 +1,9 @@
 ---
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge

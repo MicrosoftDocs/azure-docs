@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
-The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
+The Node.js client library can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the client library also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
@@ -36,7 +36,9 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 1. Sign in to the [Azure portal][portal].
 2. [Create an Application Insights resource](create-new-resource.md)
 
-### <a name="sdk"></a> Set up the Node.js SDK
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+### <a name="sdk"></a> Set up the Node.js client library
 
 Include the SDK in your app, so it can gather data.
 
@@ -47,7 +49,7 @@ Include the SDK in your app, so it can gather data.
 
    ![Copy instrumentation key](./media/nodejs/instrumentation-key-001.png)
 
-2. Add the Node.js SDK library to your app's dependencies via package.json. From the root folder of your app, run:
+2. Add the Node.js client library to your app's dependencies via package.json. From the root folder of your app, run:
 
    ```bash
    npm install applicationinsights --save
@@ -224,7 +226,7 @@ appInsights
 
 For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](./api-custom-events-metrics.md).
 
-You can track any request, event, metric, or exception by using the Application Insights Node.js SDK. The following code example demonstrates some of the APIs that you can use:
+You can track any request, event, metric, or exception by using the Application Insights client library for Node.js. The following code example demonstrates some of the APIs that you can use:
 
 ```javascript
 let appInsights = require("applicationinsights");

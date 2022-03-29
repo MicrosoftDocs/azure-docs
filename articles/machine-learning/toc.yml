@@ -76,9 +76,6 @@
             - name: 2. Deploy that model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
-        - name: Label image data
-          displayName: tag, tagging, images
-          href: tutorial-labeling.md
     - name: Visual Studio Code
       items:
         - name: Train a TensorFlow image classification model
@@ -221,6 +218,8 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
         - name: Vulnerability management
           href: concept-vulnerability-management.md
 - name: How-to guides
@@ -327,6 +326,8 @@
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
+          - name: Customer-managed keys
+            href: how-to-setup-customer-managed-keys.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
@@ -533,6 +534,9 @@
           - name: Auto-train a small object detection model
             displayName: computer vision, image, image model
             href: how-to-use-automl-small-object-detect.md
+          - name: Auto-train a natural language processing model
+            displayName: nlp, auto ML, automl, SDK
+            href: how-to-auto-train-nlp-models.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
             href: how-to-configure-cross-validation-data-splits.md

@@ -45,7 +45,7 @@ For more details, review [resource limits](resource-limits.md).
 |**Read-only replicas**| 0 built-in <br> 0 - 4 using [geo-replication](../database/active-geo-replication-overview.md) | 1 built-in, included in price <br> 0 - 4 using [geo-replication](../database/active-geo-replication-overview.md) |
 |**Pricing/billing**| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.
 |**Discount models**| [Reserved instances](../database/reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](../database/reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
-|||
+
 
 > [!NOTE]
 > For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/). 
@@ -109,7 +109,7 @@ Use the following CLI command:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-For more details, check [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) command.
+For more details, check [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) command.
 
 ---
 

@@ -98,7 +98,7 @@ First, use the following code to call the **read** method for the given image. T
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
-As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
+As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
 
 ```python
   # Call API with URL and raw response (allows you to get the operation location)

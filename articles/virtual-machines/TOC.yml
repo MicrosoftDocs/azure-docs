@@ -16,7 +16,11 @@
       href: ./linux/quick-create-portal.md
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./linux/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./linux/quick-create-template.md
   - name: Create a Windows VM
     items:
@@ -26,7 +30,11 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./windows/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./windows/quick-create-template.md
   expanded: true
 - name: Tutorials
@@ -626,6 +634,12 @@
     - name: GPU Optimized SKUs
       displayName: dedicated, packing, dedicated host, GPU optimized
       href: dedicated-host-gpu-optimized-skus.md
+    - name: Dedicated Host SKU Retirement
+      displayName: dedicated, dedicated host, retirement
+      href: dedicated-host-retirement.md
+    - name: Dedicated Host SKU Migration
+      displayName: dedicated, dedicated host, retirement, migration
+      href: dedicated-host-migration-guide.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
@@ -737,7 +751,7 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
-  - name: Delete a VM and it's resources
+  - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
     items:
@@ -981,7 +995,7 @@
       href: ./windows/create-powershell-availability-zone.md
     - name: Portal
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ./windows/create-portal-availability-zone.md
+      href: ./create-portal-availability-zone.md
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1256,7 +1270,29 @@
     - name: Backup and disaster recovery for unmanaged disks
       href: page-blobs-backup-and-disaster-recovery.md
   - name: Ephemeral OS disks
-    href: ephemeral-os-disks.md
+    items:
+    - name: Overview
+      href: ephemeral-os-disks.md
+    - name: Create a VM using ephemeral OS disks
+      href: ephemeral-os-disks-deploy.md
+  - name: Securely import/export a disk
+    items:
+    - name: Configure private links for disks - CLI
+      href: ./linux/disks-export-import-private-links-cli.md
+    - name: Configure private links for disks - Portal
+      href: disks-enable-private-links-for-import-export-portal.md
+    - name: Upload a vhd to a disk - PowerShell
+      href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+    - name: Upload a vhd to a disk - CLI
+      href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+    - name: Download a VHD
+      items:
+      - name: Linux
+        displayName: Download a VHD
+        href: ./linux/download-vhd.md
+      - name: Windows
+        displayName: Download a VHD
+        href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
     - name: Convert disk to another disk type
@@ -1328,24 +1364,6 @@
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
-    - name: Securely import/export a disk
-      items:
-      - name: Configure private links for disks - CLI
-        href: ./linux/disks-export-import-private-links-cli.md
-      - name: Configure private links for disks - Portal
-        href: disks-enable-private-links-for-import-export-portal.md
-      - name: Upload a vhd to a disk - PowerShell
-        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
-      - name: Upload a vhd to a disk - CLI
-        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
-      - name: Download a VHD
-        items:
-        - name: Linux
-          displayName: Download a VHD
-          href: ./linux/download-vhd.md
-        - name: Windows
-          displayName: Download a VHD
-          href: ./windows/download-vhd.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
     - name: Swap the OS disk - CLI

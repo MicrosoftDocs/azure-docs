@@ -53,7 +53,7 @@ The following table includes links to Azure CLI script examples to manage single
 | [Restore a database](scripts/restore-database-cli.md)| Restores a database in SQL Database to a specific point in time. |
 | [Copy a database to a new server](scripts/copy-database-to-new-server-cli.md) | Creates a copy of an existing database in SQL Database in a new server. |
 | [Import a database from a BACPAC file](scripts/import-from-bacpac-cli.md)| Imports a database to SQL Database from a BACPAC file. |
-|||
+
 
 Learn more about the [single-database Azure CLI API](single-database-manage.md#azure-cli).
 
@@ -66,7 +66,7 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 | [Create SQL Managed Instance](../managed-instance/scripts/create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |
 | [Configure Transparent Data Encryption (TDE)](../managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
 | [Restore geo-backup](../managed-instance/scripts/restore-geo-backup-cli.md) | Performs a geo-restore between two instanced of SQL Managed Instance to a specific point in time. |
-|||
+
 
 For additional SQL Managed Instance examples, see the [create](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [update](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [move a database](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance), and [working with](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
 

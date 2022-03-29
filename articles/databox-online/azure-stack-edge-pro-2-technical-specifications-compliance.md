@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/1/2022
+ms.date: 03/06/2022
 ms.author: sipastak
 ---
 
@@ -25,8 +25,8 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
 | Memory type     | Model 64G2T: 64 GB |
-| Memory: raw   | Model 64G2T: 128 GB RAM (2 x 64 GB) |
-| Memory: usable | Model 64G2T: 102 GB RAM                                                                  |
+| Memory: raw   | Model 64G2T: 64 GB RAM |
+| Memory: usable | Model 64G2T: 51 GB RAM |
 
 ## Power supply unit specifications
 
@@ -71,12 +71,12 @@ The following table lists the storage capacity of the device.
 
 |     Specification                         |     Value             |
 |-------------------------------------------|-----------------------|
-|  Number of data disks     |    4 SATA SSDs         |
-| Single data disk capacity |    960 GB              |
 | Boot disk                 |    1  NVMe SSD         |
 |    Boot disk capacity     |    960 GB              |
-|    Total capacity         | Model 64G2T: ~ 4 TB    |
-|    Total usable capacity  | Model 64G2T: ~ 1.67 TB |
+|  Number of data disks     |    2 SATA SSDs         |
+| Single data disk capacity |    960 GB              |
+|    Total capacity         | Model 64G2T: 2 TB    |
+|    Total usable capacity  | Model 64G2T: 720 GB |
 |    RAID configuration     | [Storage Spaces Direct with mirroring](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#mirroring) |
 
 

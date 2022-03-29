@@ -3,6 +3,7 @@ title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM tem
 description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
 author: mksuni
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: sumuth

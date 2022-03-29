@@ -30,11 +30,18 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## Deploy your model
 
-Go to your project in [Language studio](https://aka.ms/custom-extraction).
+Deploying a model hosts it, and makes it available for predictions through an endpoint.
+
+When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
+
+> [!NOTE]
+> You can only have ten deployment names
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+   
+### Delete deployment
 
-If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+To delete a deployment, select the deployment you want to delete and select **Delete deployment**
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
