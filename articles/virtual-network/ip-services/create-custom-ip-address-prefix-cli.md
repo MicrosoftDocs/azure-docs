@@ -27,7 +27,7 @@ The steps in this article detail the process to:
 
 - This tutorial requires version 2.28 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
 
-- Sign in to Azure CLI and ensure you have selected the subscription with which you want to use this feature using `az account`.
+- Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
 
 - A customer owned IP range to provision in Azure
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours
