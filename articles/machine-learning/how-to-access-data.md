@@ -64,7 +64,7 @@ Datastores currently support storing connection information to the storage servi
 > [!TIP]
 > **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move) to a supported Azure storage solution. 
 
-| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS Code
+| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;Storage](../storage/blobs/storage-blobs-overview.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓
 [Azure&nbsp;File&nbsp;Share](../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
@@ -103,9 +103,12 @@ Azure Machine Learning can receive requests from clients outside of the virtual 
 **For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset, such as dataset previews, profiles, and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
 
 > [!NOTE]
-> If your data storage is an Azure SQL Database behind a virtual network, be sure to set *Deny public access* to **No** via the [Azure portal](https://ms.portal.azure.com/) to allow Azure Machine Learning to access the storage account.
+> If your data storage is an Azure SQL Database behind a virtual network, be sure to set *Deny public access* to **No** via the [Azure portal](https://portal.azure.com/) to allow Azure Machine Learning to access the storage account.
 
 ### Access validation
+
+> [!WARNING]
+>  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the AzureML Data Support team alias at  amldatasupport@microsoft.com for assistance with a custom code solution.
 
 **As part of the initial datastore creation and registration process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
 
@@ -124,7 +127,8 @@ You can find account key, SAS token, and service principal information on your [
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
-> * If you need to change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md). 
+> If you need to change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md). 
+
 ### Permissions
 
 For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). An account SAS token defaults to no permissions. 

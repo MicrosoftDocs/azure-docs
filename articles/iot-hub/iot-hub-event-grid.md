@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub and Event Grid | Microsoft Docs
 description: Use Azure Event Grid to trigger processes based on actions that happen in IoT Hub.  
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/22/2022
-ms.author: lizross
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 ---
 
@@ -211,3 +211,5 @@ Applications that handle IoT Hub events should follow these suggested practices:
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)
 
 * [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps](../azure-maps/tutorial-iot-hub-maps.md)
+
+* [Learn more about how to use Event Grid and Azure Monitor to monitor, diagnose, and troubleshoot device connectivity to IoT Hub](iot-hub-troubleshoot-connectivity.md)

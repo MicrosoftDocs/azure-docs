@@ -57,64 +57,24 @@ You can use the [Register-AzAutomationDscNode](/powershell/module/az.automation/
 
 The best way to register VMs from other Azure subscriptions is to use the DSC extension in an Azure Resource Manager deployment template. Examples are provided in [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md).
 
-To find the registration key and registration URL to use as parameters in the template, see [Enable machines securely using registration](#enable-machines-securely-using-registration).
+## Use DSC metaconfiguration to register hybrid machines
 
-## Enable physical/virtual Windows machines
+You can enable machines securely for an Azure Automation account through the DSC metaconfiguration. The protocols implemented in DSC use information from the
+metaconfiguration to authenticate to Azure Automation State Configuration. The node registers with the service at the registration URL and authenticates using
+a registration key. During registration, the DSC node and DSC service negotiate a unique certificate for the node to use for authentication to the server
+post-registration. This process prevents enabled nodes from impersonating one another, for example, if a node is compromised and behaving maliciously.
+After registration, the registration key is not used for authentication again, and is deleted from the node.
 
-You can enable Windows servers running on-premises or in other cloud environments (including AWS EC2 instances) to Azure Automation State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
+You can get the information required for the State Configuration registration protocol from **Keys** under **Account Settings** in the Azure portal.
 
-1. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the machines to enable for State Configuration. In addition, WMF 5 must be installed on the computer that you are using for enabling the machines.
-1. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) to create a folder containing the required DSC metaconfigurations.
-1. Use the following cmdlet to apply the PowerShell DSC metaconfigurations remotely to the machines to enable.
+![Azure automation keys and URL](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
-   ```powershell
-   Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
-   ```
+- Registration URL is the URL field on the Keys page.
+- Registration key is the value of the **Primary access key** field or the **Secondary access key** field on the Keys page. Either key can be used.
 
-1. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the **metaconfigurations** folder to the machines that you are enabling. Then add code to call [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) locally on the machines.
-1. Using the Azure portal or cmdlets, verify that the machines appear as State Configuration nodes registered in your Azure Automation account.
+For added security, you can regenerate the primary and secondary access keys of an Automation account at any time on the Keys page. Key regeneration prevents future node registrations from using previous keys.
 
-## Enable physical/virtual Linux machines
-
-You can enable Linux servers running on-premises or in other cloud environments for State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
-
-1. Make sure that the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines to enable for State Configuration.
-2. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/managing-nodes/metaConfig4) match your use case, and you want to enable machines so that they both pull from and report to State Configuration:
-
-   - On each Linux machine to enable, use `Register.py` to enable the machine with the PowerShell DSC Local Configuration Manager defaults.
-
-     `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
-
-   - To find the registration key and registration URL for your Automation account, see [Enable machines securely using registration](#enable-machines-securely-using-registration).
-
-3. If the PowerShell DSC Local Configuration Manager (LCM) defaults don't match your use case, or you want to enable machines that only report to Azure Automation State Configuration, follow steps 4-7. Otherwise, proceed directly to step 7.
-
-4. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) section to produce a folder containing the required DSC metaconfigurations.
-
-5. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the computer being used to enable your machines for State Configuration.
-
-6. Add code as follows to apply the PowerShell DSC metaconfigurations remotely to the machines to enable.
-
-    ```powershell
-    $SecurePass = ConvertTo-SecureString -String '<root password>' -AsPlainText -Force
-    $Cred = New-Object System.Management.Automation.PSCredential 'root', $SecurePass
-    $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
-
-    # need a CimSession for each Linux machine to onboard
-    $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
-
-    Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
-    ```
-
-7. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the metaconfigurations corresponding to the remote machines from the folder described in step 4 to the Linux machines.
-
-8. Add code to call `Set-DscLocalConfigurationManager.py` locally on each Linux machine to enable for State Configuration.
-
-   `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
-
-9. Using the Azure portal or cmdlets, ensure that the machines to enable now show up as DSC nodes registered in your Azure Automation account.
-
-## Generate DSC metaconfigurations
+### Generate DSC metaconfigurations
 
 To enable any machine for State Configuration, you can generate a [DSC metaconfiguration](/powershell/dsc/managing-nodes/metaConfig). This configuration tells the DSC agent to pull from and/or report to Azure Automation State Configuration. You can generate a DSC metaconfiguration for Azure Automation State Configuration using either a PowerShell DSC configuration or the Azure Automation PowerShell cmdlets.
 
@@ -241,7 +201,7 @@ Proxy support for metaconfigurations is controlled by the [Local Configuration M
    DscMetaConfigs @Params
    ```
 
-1. Fill in the registration key and URL for your Automation account, as well as the names of the machines to enable. All other parameters are optional. To find the registration key and registration URL for your Automation account, see [Enable machines securely using registration](#enable-machines-securely-using-registration).
+1. Fill in the registration key and URL for your Automation account, as well as the names of the machines to enable. All other parameters are optional. To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#use-dsc-metaconfiguration-to-register-hybrid-machines).
 
 1. If you want the machines to report DSC status information to Azure Automation State Configuration, but not pull configuration or PowerShell modules, set the `ReportOnly` parameter to true.
 
@@ -281,19 +241,60 @@ enable machines to both pull from and report to Azure Automation State Configura
     Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
     ```
 
-## Enable machines securely using registration
+### Enable physical/virtual Windows machines
 
-You can enable machines securely for an Azure Automation account through the WMF 5 DSC registration protocol. This protocol allows a DSC node to authenticate to a PowerShell DSC pull or report server, including Azure Automation State Configuration. The node registers with the server at the registration URL and authenticates using a registration key. During registration, the DSC node and DSC pull/report server negotiate a unique certificate for the node to use for authentication to the server post-registration. This process prevents enabled nodes from
-impersonating one another, for example, if a node is compromised and behaving maliciously. After registration, the registration key is not used for authentication again, and is deleted from the node.
+You can enable Windows servers running on-premises or in other cloud environments (including AWS EC2 instances) to Azure Automation State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
 
-You can get the information required for the State Configuration registration protocol from **Keys** under **Account Settings** in the Azure portal.
+1. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the machines to enable for State Configuration. In addition, WMF 5 must be installed on the computer that you are using for enabling the machines.
+1. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) to create a folder containing the required DSC metaconfigurations.
+1. Use the following cmdlet to apply the PowerShell DSC metaconfigurations remotely to the machines to enable.
 
-![Azure automation keys and URL](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
+   ```powershell
+   Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
+   ```
 
-- Registration URL is the URL field on the Keys page.
-- Registration key is the value of the **Primary access key** field or the **Secondary access key** field on the Keys page. Either key can be used.
+1. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the **metaconfigurations** folder to the machines that you are enabling. Then add code to call [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) locally on the machines.
+1. Using the Azure portal or cmdlets, verify that the machines appear as State Configuration nodes registered in your Azure Automation account.
 
-For added security, you can regenerate the primary and secondary access keys of an Automation account at any time on the Keys page. Key regeneration prevents future node registrations from using previous keys.
+### Enable physical/virtual Linux machines
+
+You can enable Linux servers running on-premises or in other cloud environments for State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
+
+1. Make sure that the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines to enable for State Configuration.
+2. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/managing-nodes/metaConfig4) match your use case, and you want to enable machines so that they both pull from and report to State Configuration:
+
+   - On each Linux machine to enable, use `Register.py` to enable the machine with the PowerShell DSC Local Configuration Manager defaults.
+
+     `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
+
+   - To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#use-dsc-metaconfiguration-to-register-hybrid-machines).
+
+3. If the PowerShell DSC Local Configuration Manager (LCM) defaults don't match your use case, or you want to enable machines that only report to Azure Automation State Configuration, follow steps 4-7. Otherwise, proceed directly to step 7.
+
+4. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) section to produce a folder containing the required DSC metaconfigurations.
+
+5. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the computer being used to enable your machines for State Configuration.
+
+6. Add code as follows to apply the PowerShell DSC metaconfigurations remotely to the machines to enable.
+
+    ```powershell
+    $SecurePass = ConvertTo-SecureString -String '<root password>' -AsPlainText -Force
+    $Cred = New-Object System.Management.Automation.PSCredential 'root', $SecurePass
+    $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+
+    # need a CimSession for each Linux machine to onboard
+    $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
+
+    Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
+    ```
+
+7. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the metaconfigurations corresponding to the remote machines from the folder described in step 4 to the Linux machines.
+
+8. Add code to call `Set-DscLocalConfigurationManager.py` locally on each Linux machine to enable for State Configuration.
+
+   `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
+
+9. Using the Azure portal or cmdlets, ensure that the machines to enable now show up as DSC nodes registered in your Azure Automation account.
 
 ## Re-register a node
 

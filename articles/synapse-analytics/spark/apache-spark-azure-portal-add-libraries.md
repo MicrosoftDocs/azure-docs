@@ -1,7 +1,6 @@
 ---
 title: Package management
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual

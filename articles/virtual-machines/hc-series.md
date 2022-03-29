@@ -1,12 +1,10 @@
 ---
 title: HC-series - Azure Virtual Machines
 description: Specifications for the HC-series VMs.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.author: amverma
 ms.reviewer: jushiman
 ---
 

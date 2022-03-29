@@ -24,7 +24,7 @@ To learn more about how to estimate costs when running in a Consumption plan, se
 
 ## Create a Consumption plan function app
 
-When you create a function app in the Azure portal, the Consumption plan is the default. When using APIs to create you function app, you don't have to first create an App Service plan as you do with Premium and Dedicated plans.
+When you create a function app in the Azure portal, the Consumption plan is the default. When using APIs to create your function app, you don't have to first create an App Service plan as you do with Premium and Dedicated plans.
 
 Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
 
@@ -36,7 +36,7 @@ You can also create function apps in a Consumption plan when you publish a Funct
 
 ## Multiple apps in the same plan
 
-Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same Consumption plan has no impact on resilience, scalability, or reliability of each app.
+The general recommendation is for each function app to have its own Consumption plan. However, if needed, function apps in the same region can be assigned to the same Consumption plan. Keep in mind that there is a [limit to the number of function apps that can run in a Consumption plan](functions-scale.md#service-limits). Function apps in a given plan are all scaled together, so any issues with scaling can affect all apps in the plan.
 
 ## Next steps
 

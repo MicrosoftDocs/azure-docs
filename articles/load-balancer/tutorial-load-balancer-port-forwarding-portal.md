@@ -1,30 +1,28 @@
 ---
-title: "Tutorial: Configure port forwarding - Azure portal"
+title: "Tutorial: Create a single virtual machine inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create connections to VMs in an Azure virtual network.
+description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to a single virtual machine in an Azure virtual network.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/06/2021
+ms.date: 03/08/2022
 ms.custom: template-tutorial
 ---
 
+# Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal
 
-
-# Tutorial: Configure port forwarding in Azure Load Balancer using the Azure portal
-
-Port forwarding lets you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
+Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
 For more information about Azure Load Balancer rules, see [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network and virtual machines.
-> * Create a NAT gateway for outbound internet access for the backend pool.
-> * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, load-balancing rule, and inbound NAT rules.
-> * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules.
+> * Create a virtual network and virtual machines
+> * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, load-balancing rule, and inbound NAT rules
+> * Create a NAT gateway for outbound internet access for the backend pool
+> * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
 ## Prerequisites
 
@@ -38,9 +36,9 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-3. In **Virtual machines**, select **+ Create** > **Virtual machine**.
+3. In **Virtual machines**, select **+ Create** > **+ Virtual machine**.
    
-4. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+4. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | ------- | ----- |
@@ -52,6 +50,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | Region | Enter **(US) West US 2**. |
     | Availability options | Select **Availability zone**. |
     | Availability zone | Enter **1**. |
+    | Security type | Select **Standard**. |
     | Image | Select **Ubuntu Server 20.04 LTS - Gen2**. |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Select a VM size. |
@@ -96,53 +95,15 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | Authentication type | **SSH public key** |
     | SSH public key source | Select **Use existing key stored in Azure**. |
     | Stored Keys | Select **myKey**. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
     | **Networking** |   |
     | **Network interface** |  |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
     | Configure network security group | Select the existing **myNSG** |
 
-## Create NAT gateway
-
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
-
-For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-2. In **NAT gateways**, select **+ Create**.
-
-3. In **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialLBPF-rg**. |
-    | **Instance details** |    |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Availability zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **15**. |
-
-4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
-
-5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
-
-6. Enter **myNATGatewayIP** in **Name** in **Add a public IP address**.
-
-7. Select **OK**.
-
-8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
-
-9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
-
-10. Select **myBackendSubnet** under **Subnet name**.
-
-11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
-
-12. Select **Create**.
-
-## Create load balancer
+## Create a load balancer
 
 You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
@@ -159,17 +120,16 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
     | Resource group         | Select **TutorialLBPF-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **(US) West US 2**.                                        |
-    | Type          | Select **Public**.                                        |
+    | Region         | Select **West US 2**.                                        |
     | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
-
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-6. Enter **LoadBalancerFrontend** in **Name**.
+6. Enter **myFrontend** in **Name**.
 
 7. Select **IPv4** or **IPv6** for the **IP version**.
 
@@ -227,12 +187,12 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Frontend IP address | Select **myFrontend**. |
+    | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
@@ -250,17 +210,16 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myNATRuleVM1-221**. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
-    | Service | Select **Custom**. |
-    | Protocol | Leave the default of **TCP**. |
-    | Idle timeout (minutes) | Enter or select **15**. |
-    | TCP Reset | Select **Enabled**. |
-    | Port | Enter **221**. |
     | Target virtual machine | Select **myVM1**. |
     | Network IP configuration | Select **ipconfig1 (10.1.0.4)**. |
-    | Port mapping | Select **Custom**. |
+    | Frontend IP address | Select **myFrontend**. |
+    | Frontend Port | Enter **221**. |
+    | Service Tag | Select **Custom**. |
+    | Backend port | Enter **22**. |
+    | Protocol | Leave the default of **TCP**. |
+    | TCP Reset | Leave the default of unchecked. |
+    | Idle timeout (minutes) | Leave the default **4**. |
     | Floating IP | Leave the default of **Disabled**. |
-    | Target port | Enter **22**. |
 
 28. Select **Add**.
 
@@ -271,23 +230,63 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myNATRuleVM2-222**. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
-    | Service | Select **Custom**. |
-    | Protocol | Leave the default of **TCP**. |
-    | Idle timeout (minutes) | Enter or select **15**. |
-    | TCP Reset | Select **Enabled**. |
-    | Port | Enter **222**. |
     | Target virtual machine | Select **myVM2**. |
     | Network IP configuration | Select **ipconfig1 (10.1.0.5)**. |
-    | Port mapping | Select **Custom**. |
+    | Frontend IP address | Select **myFrontend**. |
+    | Frontend Port | Enter **222**. |
+    | Service Tag | Select **Custom**. |
+    | Backend port | Enter **22**. |
+    | Protocol | Leave the default of **TCP**. |
+    | TCP Reset | Leave the default of unchecked. |
+    | Idle timeout (minutes) | Leave the default **4**. |
     | Floating IP | Leave the default of **Disabled**. |
-    | Target port | Enter **22**. |
 
 31. Select **Add**.
 
 32. Select the blue **Review + create** button at the bottom of the page.
 
 33. Select **Create**.
+
+## Create a NAT gateway
+
+In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+
+For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+2. In **NAT gateways**, select **+ Create**.
+
+3. In **Create network address translation (NAT) gateway**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialLBPF-rg**. |
+    | **Instance details** |    |
+    | NAT gateway name | Enter **myNATgateway**. |
+    | Region | Select **West US 2**. |
+    | Availability zone | Select **None**. |
+    | Idle timeout (minutes) | Enter **15**. |
+
+4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
+
+5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
+
+6. Enter **myNATGatewayIP** in **Name** in **Add a public IP address**.
+
+7. Select **OK**.
+
+8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
+
+9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
+
+10. Select **myBackendSubnet** under **Subnet name**.
+
+11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
+
+12. Select **Create**.
 
 ## Install web server
 
@@ -297,7 +296,9 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 2. Select **myLoadBalancer**.
 
-3. In the **Overview** page of **myLoadBalancer**, make note of the **Public IP address**.  In this example, it's **20.190.2.163**.
+3. Select **Fronted IP configuration** in **Settings**.
+
+3. In the **Frontend IP configuration**, make note of the **IP address** for **myFrontend**. In this example, it's **20.99.165.176**.
 
     :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/get-public-ip.png" alt-text="Screenshot of public IP in Azure portal.":::
 
@@ -306,7 +307,7 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 5. At your prompt, open an SSH connection to **myVM1**. Replace the IP address with the address you retrieved in the previous step and port **221** you used for the myVM1 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
 
     ```console
-    ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 221
+    ssh -i .\Downloads\myKey.pem azureuser@20.99.165.176 -p 221
     ```
 
     > [!TIP]
@@ -324,7 +325,7 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 8. At your prompt, open an SSH connection to **myVM2**. Replace the IP address with the address you retrieved in the previous step and port **222** you used for the myVM2 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
 
     ```console
-    ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 222
+    ssh -i .\Downloads\myKey.pem azureuser@20.99.165.176 -p 222
     ```
 
 9. From your SSH session, update your package sources and then install the latest NGINX package.
@@ -342,7 +343,7 @@ You'll open your web browser in this section and enter the IP address for the lo
 
 1. Open your web browser.
 
-2. In the address bar, enter the IP address for the load balancer. In this example, it's **20.190.2.163**.
+2. In the address bar, enter the IP address for the load balancer. In this example, it's **20.99.165.176**.
 
 3. The default NGINX website is displayed.
 

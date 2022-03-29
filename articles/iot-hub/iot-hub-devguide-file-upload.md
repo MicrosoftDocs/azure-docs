@@ -1,9 +1,9 @@
 ---
 title: Understand Azure IoT Hub file upload | Microsoft Docs
 description: Developer guide - use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container.
-author: eross-msft
+author: kgremban
 
-ms.author: lizross
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -99,7 +99,7 @@ The following how-to guides provide complete, step-by-step instructions to uploa
 
 The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create-file-upload-sas-uri) REST API or the equivalent API in one of the device SDKs to initiate a file upload.
 
-**Supported protocols**: AMQP, AMQP-WS, MQTT, MQTT-WS, and HTTPS <br/>
+**Supported protocols**: HTTPS <br/>
 **Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files <br/>
 **Method**: POST
 
@@ -173,7 +173,7 @@ Working with Azure storage APIs is beyond the scope of this article. In addition
 
 The device calls the [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
 
-**Supported protocols**: AMQP, AMQP-WS, MQTT, MQTT-WS, and HTTPS <br/>
+**Supported protocols**: HTTPS <br/>
 **Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files/notifications <br/>
 **Method**: POST 
 

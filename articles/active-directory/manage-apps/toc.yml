@@ -16,16 +16,16 @@
       href: add-application-portal-assign-users.md
     - name: Enable single sign-on
       href: add-application-portal-setup-sso.md
-    - name: Configure properties
-      href: add-application-portal-configure.md
     - name: View applications
       href: view-applications-portal.md
     - name: Delete applications
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: List of app integration tutorials
-      href: ../saas-apps/tutorial-list.md
+    - name: Manage access and security
+      href: tutorial-manage-access-security.md
+    - name: Govern and monitor
+      href: tutorial-govern-monitor.md
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -45,6 +45,8 @@
       href: overview-application-gallery.md
     - name: Application ownership
       href: overview-assign-app-owners.md
+    - name: Application properties
+      href: application-properties.md
     - name: Application security
       items:
       - name: App access options
@@ -86,8 +88,12 @@
   - name: How-to guides
     expanded: false
     items:
+    - name: Application integration guidance
+      href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
+    - name: Configure properties
+      href: add-application-portal-configure.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
@@ -176,6 +182,12 @@
             href: f5-big-ip-ldap-header-easybutton.md
           - name: Oracle EBS
             href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+          - name: Oracle JDE
+            href: f5-big-ip-oracle-jde-easy-button.md
+          - name: Oracle PeopleSoft
+            href: f5-big-ip-oracle-peoplesoft-easy-button.md
+          - name: SAP ERP
+            href: f5-big-ip-sap-erp-easy-button.md
         - name: Advanced configuration
           items:
             - name: Headers

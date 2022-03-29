@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/02/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
@@ -63,67 +63,6 @@ If you change the base model that's used for training, and you have audio in the
 If you face the problem described in the previous paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. 
 
 In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
-
-### Supported locales
-
-Training with structured text is supported only for these locales: 
-
-* en-US
-* en-UK
-* en-IN
-* de-DE
-* fr-FR
-* fr-CA
-* es-ES
-* es-MX
-
-You must use the latest base model for these locales. 
-
-For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
-
-## Upload data
-
-To upload your data:
-
-1. Go to [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. After you create a project, go to the **Speech datasets** tab. Select **Upload data** to start the wizard and create your first dataset. 
-1. Select a speech data type for your dataset, and upload your data.
-
-1. Specify whether the dataset will be used for **Training** or **Testing**. 
-
-   There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset that you upload must be correctly formatted before uploading, and it must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
-
-1. After your dataset is uploaded, you can either:
-
-   * Go to the **Train custom models** tab to train a custom model.
-   * Go to the **Test models** tab to visually inspect quality with audio-only data or evaluate accuracy with audio + human-labeled transcription data.
-
-### Upload data by using Speech-to-text REST API v3.0
-
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
-
-To create and upload a dataset, use a [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
-
-A dataset that you create by using the Speech-to-text REST API v3.0 will *not* be connected to any of the Speech Studio projects, unless you specify a special parameter in the request body (see the code block later in this section). Connection with a Speech Studio project is *not* required for any model customization operations, if you perform them by using the REST API.
-
-When you log on to Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded through the REST API without any project reference). The interface will also offer to connect such objects to an existing project. 
-
-To connect the new dataset to an existing project in Speech Studio during its upload, use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) and fill out the request body according to the following format:
-
-```json
-{
-  "kind": "Acoustic",
-  "contentUrl": "https://contoso.com/mydatasetlocation",
-  "locale": "en-US",
-  "displayName": "My speech dataset name",
-  "description": "My speech dataset description",
-  "project": {
-    "self": "https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/projects/c1c643ae-7da5-4e38-9853-e56e840efcb2"
-  }
-}
-```
-
-You can obtain the project URL that's required for the `project` element by using the [Get Projects](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
 
 ## Audio + human-labeled transcript data for training or testing
 
@@ -206,6 +145,8 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
+
+For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
 
 To simplify the creation of training data and to enable better modeling inside the Custom Language model, you can use a structured text in Markdown format to define lists of items. You can then reference these lists inside your training utterances. The Markdown format also supports specifying the phonetic pronunciation of words. 
 
@@ -331,6 +272,6 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 
 ## Next steps
 
+* [Upload your data](how-to-custom-speech-upload-data.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
-* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)

@@ -10,15 +10,17 @@ ms.subservice: service-overview
 ms.custom: references_regions, ignite-fall-2021
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 03/10/2022
 ---
 # What's new in Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](../database/doc-changes-updates-release-notes-whats-new.md)
+> * [Azure SQL Managed Instance](../managed-instance/doc-changes-updates-release-notes-whats-new.md)
+
 This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance). To learn more about Azure SQL Managed Instance, see the [overview](sql-managed-instance-paas-overview.md).
 
-
-For Azure SQL Database, see [What's new](../database/doc-changes-updates-release-notes-whats-new.md).
 
 ## Preview
 
@@ -27,19 +29,20 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | Feature | Details |
 | ---| --- |
 | [16 TB support in Business Critical](resource-limits.md#service-tier-characteristics) | Support for allocation up to 16 TB of space on SQL Managed Instance in the Business Critical service tier using the new memory optimized premium-series hardware generation. | 
-|[Endpoint policies](../../azure-sql/managed-instance/service-endpoint-policies-configure.md) | Configure which Azure Storage accounts can be accessed from a SQL Managed Instance subnet. Grants an extra layer of protection against inadvertent or malicious data exfiltration.
+| [Data virtualization](data-virtualization-overview.md) | Join locally stored relational data with data queried from external data sources, such as Azure Data Lake Storage Gen2 or Azure Blob Storage. |
+|[Endpoint policies](../../azure-sql/managed-instance/service-endpoint-policies-configure.md) | Configure which Azure Storage accounts can be accessed from a SQL Managed Instance subnet. Grants an extra layer of protection against inadvertent or malicious data exfiltration.|
 | [Instance pools](instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
 | [Link feature](link-feature.md)| Online replication of SQL Server databases hosted anywhere to Azure SQL Managed Instance. |
-| [Maintenance window](../database/maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule for your Azure SQL Managed Instance. |
+| [Maintenance window advance notifications](../database/advance-notifications.md)| Advance notifications (preview) for databases configured to use a non-default [maintenance window](../database/maintenance-window.md). Advance notifications are in preview for Azure SQL Managed Instance. |
 | [Memory optimized premium-series hardware generation](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new memory optimized premium-series hardware generation to take advantage of the latest Intel Ice Lake CPUs. The memory optimized hardware generation offers higher memory to vCore ratios. | 
 | [Migration with Log Replay Service](log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
 | [Premium-series hardware generation](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium-series hardware generation to take advantage of the latest Intel Ice Lake CPUs.  | 
+| [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
 | [Service Broker cross-instance message exchange](/sql/database-engine/configure-windows/sql-server-service-broker) | Support for cross-instance message exchange using Service Broker on Azure SQL Managed Instance. |
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. |
 | [Transactional Replication](replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](replication-between-two-instances-configure-tutorial.md). |
 | [Threat detection](threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
-| [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
-|||
+| [Windows Auth for Azure Active Directory principals](winauth-azuread-overview.md) | Kerberos authentication for Azure Active Directory (Azure AD) enables Windows Authentication access to Azure SQL Managed Instance. |
 
 ## General availability (GA)
 
@@ -47,6 +50,7 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
+|[Maintenance window](../database/maintenance-window.md)| March 2022 | The maintenance window feature allows you to configure maintenance schedule for your Azure SQL Managed Instance. [Maintenance window advance notifications](../database/advance-notifications.md), however, are in preview for Azure SQL Managed Instance.|
 |[16 TB support in General Purpose](resource-limits.md)| November 2021 |  Support for allocation up to 16 TB of space on SQL Managed Instance in the General Purpose service tier. |
 [Azure Active Directory-only authentication](../database/authentication-azure-ad-only-authentication.md) | November 2021 |  It's now possible to restrict authentication to your Azure SQL Managed Instance only to Azure Active Directory users. |
 | [Distributed transactions](../database/elastic-transactions-overview.md) | November 2021 | Distributed database transactions for Azure SQL Managed Instance allow you to run distributed transactions that span several databases across instances. | 
@@ -57,13 +61,24 @@ The following table lists the features of Azure SQL Managed Instance that have t
 |[Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. |
 |[Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It's a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
 |[Machine Learning Service](machine-learning-services-overview.md) | March 2021 | Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. |
-||| 
+
 
 ## Documentation changes
 
 Learn about significant changes to the Azure SQL Managed Instance documentation.
 
-### November 2021
+### March 2022
+
+| Changes | Details |
+| --- | --- |
+| **Data virtualization preview** | It's now possible to query data in external sources such as Azure Data Lake Storage Gen2 or Azure Blob Storage, joining it with locally stored relational data. This feature is currently in preview. To learn more, see [Data virtualization](data-virtualization-overview.md). |  
+| **Link feature guidance** | We've published a number of guides for using the [link feature](link-feature.md) with SQL Managed Instance, including how to [prepare your environment](managed-instance-link-preparation.md), [configure replication](managed-instance-link-use-ssms-to-replicate-database.md), [failover your database](managed-instance-link-use-ssms-to-failover-database.md), and some [best practices](link-feature-best-practices.md) when using the link feature. |
+| **Maintenance window GA, advance notifications preview** | The [maintenance window](../database/maintenance-window.md) feature is now generally available, allowing you to configure a maintenance schedule for your Azure SQL Managed Instance. It's also possible to receive advance notifications for planned maintenance events, which is currently in preview. Review [Maintenance window advance notifications (preview)](../database/advance-notifications.md) to learn more. |
+| **Windows Auth for Azure Active Directory principals preview** | Windows Authentication for managed instances empowers customers to move existing services to the cloud while maintaining a seamless user experience, and provides the basis for infrastructure modernization. Learn more in [Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance](winauth-azuread-overview.md). |
+
+
+
+### 2021
 
 | Changes | Details |
 | --- | --- |
@@ -76,49 +91,21 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 |**Long-term backup retention GA** | Storing full backups for a specific database with configured redundancy for up to 10 years in Azure Blob storage is now generally available. To learn more, see [Long-term backup retention](long-term-backup-retention-configure.md). |
 | **Move instance to different subnet GA** | It's now possible to move your SQL Managed Instance to a different subnet. See [Move instance to different subnet](vnet-subnet-move-instance.md) to learn more. |
 |**New hardware generation preview** | There are now two new hardware generations for SQL Managed Instance: premium-series, and a memory optimized premium-series. Both offerings take advantage of a new generation of hardware powered by the latest Intel Ice Lake CPUs, and offer a higher memory to vCore ratio to support your most resource demanding database applications. As part of this announcement, the Gen5 hardware generation has been renamed to standard-series. The two new premium hardware generations are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. |
-| | | 
-
-
-### October 2021
-
-| Changes | Details |
-| --- | --- |
 |**Split what's new** | The previously-combined **What's new** article has been split by product - [What's new in SQL Database](../database/doc-changes-updates-release-notes-whats-new.md) and [What's new in SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md), making it easier to identify what features are currently in preview, generally available, and significant documentation changes. Additionally, the [Known Issues in SQL Managed Instance](doc-changes-updates-known-issues.md) content has moved to its own page. | 
-|  | | 
-
-
-### June 2021
-
-| Changes | Details |
-| --- | --- |
 |**16 TB support for General Purpose preview** | Support has been added for allocation of up to 16 TB of space for SQL Managed Instance in the General Purpose service tier. See [resource limits](resource-limits.md) to learn more. This instance offer is currently in preview. | 
 | **Parallel backup** | It's now possible to take backups in parallel for SQL Managed Instance in the general purpose tier, enabling faster backups. See the [Parallel backup for better performance](https://techcommunity.microsoft.com/t5/azure-sql/parallel-backup-for-better-performance-in-sql-managed-instance/ba-p/2421762) blog entry to learn more. |
 | **Azure AD-only authentication preview** | It's now possible to restrict authentication to your Azure SQL Managed Instance only to Azure Active Directory users. This feature is currently in preview. To learn more, see [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). | 
 | **Resource Health monitor** | Use Resource Health to  monitor the health status of your Azure SQL Managed Instance. See [Resource health](../database/resource-health-to-troubleshoot-connectivity.md) to learn more. |
 | **Granular permissions for data masking GA** | Granular permissions for dynamic data masking for Azure SQL Managed Instance is now generally available (GA). To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). | 
-|  | |
-
-
-### April 2021
-
-| Changes | Details |
-| --- | --- |
 | **User-defined routes (UDR) tables** | Service-aided subnet configuration for Azure SQL Managed Instance now makes use of service tags for user-defined routes (UDR) tables. See the [connectivity architecture](connectivity-architecture-overview.md) to learn more. |
-|  |  |
-
-
-### March 2021
-
-| Changes | Details |
-| --- | --- |
 | **Audit management operations** | The ability to audit SQL Managed Instance operations is now generally available (GA). | 
 | **Log Replay Service** | It's now possible to migrate databases from SQL Server to Azure SQL Managed Instance using the Log Replay Service. To learn more, see [Migrate with Log Replay Service](log-replay-service-migrate.md). This feature is currently in preview. | 
 | **Long-term backup retention** | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. To learn more, see [Long-term backup retention](long-term-backup-retention-configure.md)|
 | **Machine Learning Services GA** | The Machine Learning Services for Azure SQL Managed Instance are now generally available (GA). To learn more, see [Machine Learning Services for SQL Managed Instance](machine-learning-services-overview.md).| 
-| **Maintenance window** | The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance, currently in preview. To learn more, see [maintenance window](../database/maintenance-window.md).|
+| **Maintenance window** | The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance. To learn more, see [maintenance window](../database/maintenance-window.md).|
 | **Service Broker message exchange** | The Service Broker component of Azure SQL Managed Instance allows you to compose your applications from independent, self-contained services, by providing native support for reliable and secure message exchange between the databases attached to the service. Currently in preview. To learn more, see [Service Broker](/sql/database-engine/configure-windows/sql-server-service-broker).
 | **SQL insights** | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. To learn more, see [SQL insights](../../azure-monitor/insights/sql-insights-overview.md). | 
-||| 
+
 
 ### 2020
 
@@ -131,13 +118,13 @@ The following changes were added to SQL Managed Instance and the documentation i
 | **Configurable backup storage redundancy** | It's now possible to configure Locally redundant storage (LRS) and zone-redundant storage (ZRS) options for backup storage redundancy, providing more flexibility and choice. To learn more, see [Configure backup storage redundancy](../database/automated-backups-overview.md?tabs=managed-instance#configure-backup-storage-redundancy).|
 | **TDE-encrypted backup performance improvements** | It's now possible to set the point-in-time restore (PITR) backup retention period, and automated compression of backups encrypted with transparent data encryption (TDE) are now 30 percent more efficient in consuming backup storage space, saving costs for the end user. See [Change PITR](../database/automated-backups-overview.md?tabs=managed-instance#change-the-short-term-retention-policy) to learn more. |
 | **Azure AD authentication improvements** | Automate user creation using Azure AD applications and create individual Azure AD guest users (preview). To learn more, see [Directory readers in Azure AD](../database/authentication-aad-directory-readers-role.md)|
-| **Global VNet peering support** | Global virtual network peering support has been added to SQL Managed Instance, improving the geo-replication experience. See [geo-replication between managed instances](../database/auto-failover-group-overview.md?tabs=azure-powershell#enabling-geo-replication-between-managed-instances-and-their-vnets). |
+| **Global VNet peering support** | Global virtual network peering support has been added to SQL Managed Instance, improving the geo-replication experience. See [geo-replication between managed instances](auto-failover-group-configure-sql-mi.md#enabling-geo-replication-between-managed-instances-and-their-vnets). |
 | **Hosting SSRS catalog databases** | SQL Managed Instance can now host catalog databases of SQL Server Reporting Services (SSRS) for versions 2017 and newer. | 
 | **Major performance improvements** | Introducing improvements to SQL Managed Instance performance, including improved transaction log write throughput, improved data and log IOPS for business critical instances, and improved TempDB performance. See the [improved performance](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) tech community blog to learn more. 
 | **Enhanced management experience** | Using the new [OPERATIONS API](/rest/api/sql/2021-02-01-preview/managed-instance-operations), it's now possible to check the progress of long-running instance operations. To learn more, see [Management operations](management-operations-overview.md?tabs=azure-portal).
 | **Machine learning support** | Machine Learning Services with support for R and Python languages now include preview support on Azure SQL Managed Instance (Preview). To learn more, see [Machine learning with SQL Managed Instance](machine-learning-services-overview.md). | 
 | **User-initiated failover** | User-initiated failover is now generally available, providing you with the capability to manually initiate an automatic failover using PowerShell, CLI commands, and API calls, improving application resiliency. To learn more, see, [testing resiliency](../database/high-availability-sla.md#testing-application-fault-resiliency). 
-|  |  |
+
 
 
 

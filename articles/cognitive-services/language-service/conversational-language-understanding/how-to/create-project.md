@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 03/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # How to create projects in Conversational Language Understanding
 
-Conversational Language Understanding allows you to create two types of projects: **Conversation** and **Orchestration Workflow** projects.
+Conversational Language Understanding allows you to create conversation projects. To create orchestration projects, see the [orchestration workflow](../../orchestration-workflow/overview.md) documentation. 
 
 ## Sign in to Language Studio
 To get started, you have to first sign in to [Language Studio](https://aka.ms/languageStudio) and create a Language resource. Select **Done** once selection is complete.
@@ -38,23 +38,6 @@ After selecting conversation, you need to provide the following details:
 :::image type="content" source="../media/clu-project-modal.png" alt-text="A screenshot showing the Conversational Language Understanding conversations project creation window." lightbox="../media/clu-project-modal.png":::
 
 Once you're done, click next, review the details, and then click create project to complete the process. 
-
-## Create an orchestration workflow project
-
-After selecting orchestration, you need to provide the following details:
-- Name: Project name
-- Description: Optional project description
-- Text primary language: The primary language of your project. Your training data should be mainly be in this language.
-- Enable multiple languages: Whether you would like to enable your project to support multiple languages at once.
-
-Once you're done, you now have the option to connect to the other projects and services you wish to orchestrate to. Each connection is represented by its type and relevant data. The intent needs to have a **name**, a **project type** (LUIS, custom question answering (QnA), or Conversational Language Understanding), and then selecting the project you want to connect to by name. 
-
-> [!NOTE]
-> The list of projects you can connect to are only projects that are owned by the same Language resource you are using to create the orchestration project.
-
-This step is optional and you will still have the option to add intent connections after you create the project.
-
-:::image type="content" source="../media/orchestration-project-detail.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/orchestration-project-detail.png":::
 
 ## Import a project
 

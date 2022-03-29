@@ -7,12 +7,11 @@ metadata:
   ms.subservice: service-overview
   ms.custom: 
   ms.devlang: 
-  ms.topic: conceptual
+  ms.topic: faq
   author: yorek
   ms.author: damauri
   ms.reviewer: kendralittle, mathoma
   ms.date: 07/27/2021
-    
 title: Azure SQL Database Hyperscale named replicas FAQ
 summary: |
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -15,6 +15,8 @@ ms.custom: how-to, devplatv2, ignite-fall-2021
 
 # Deploy and score a machine learning model by using an online endpoint (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to use an online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
@@ -78,7 +80,7 @@ The reference for the endpoint YAML format is described in the following table. 
 | Key | Description |
 | --- | --- |
 | `$schema`    | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.|
-| `name`       | The name of the endpoint. It must be unique in the Azure region.|
+| `name`       | The name of the endpoint. It must be unique in the Azure region.<br>Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).|
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
 
 The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:

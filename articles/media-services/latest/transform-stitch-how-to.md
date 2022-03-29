@@ -1,18 +1,16 @@
 ---
-title: How to stitch two or more video files with .NET | Microsoft Docs
+title: How to stitch two or more video files | Microsoft Docs
 description: This article shows how to stitch two or more video files.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/09/2022
 ms.author: inhenkel
-ms.custom: devx-track-csharp
 ---
 
-# How to stitch two or more video files with .NET
+# How to stitch two or more video files
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -22,6 +20,8 @@ The following example illustrates how you can generate a preset to stitch two or
 
 > [!NOTE]
 > Video files edited together should share properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
+
+## [.NET](#tab/net/)
 
 ## Prerequisites
 

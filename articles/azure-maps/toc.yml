@@ -32,8 +32,14 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Create indoor maps
-      href: tutorial-creator-indoor-maps.md
+    - name: Azure Maps Creator Tutorials
+      items:
+      - name: Create indoor maps
+        href: tutorial-creator-indoor-maps.md
+      - name: Query datasets with WFS API
+        href: tutorial-creator-wfs.md
+      - name: Create a feature stateset
+        href: tutorial-creator-feature-stateset.md
     - name: Set up a geofence
       href: tutorial-geofence.md
     - name: Spatial analytics
@@ -323,10 +329,14 @@ items:
     items: 
     - name: The Azure Maps Power BI visual
       href: power-bi-visual-get-started.md
+    - name: Geocoding in Azure Maps Power BI Visual
+      href: power-bi-visual-geocode.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a pie chart layer
+      href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
     - name: Add a heat map layer
@@ -343,6 +353,8 @@ items:
       href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
+  - name: Show right attribution
+    href: how-to-show-attribution.md
 - name: Reference
   items:
   - name: API and parameter extensions

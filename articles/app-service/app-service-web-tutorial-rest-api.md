@@ -79,7 +79,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
 
 ## Deploy app to Azure
 
-In this step, you deploy your SQL Database-connected .NET Core application to App Service.
+In this step, you deploy your .NET Core application to App Service.
 
 ### Configure local git deployment
 
@@ -164,7 +164,7 @@ Next, you enable the built-in CORS support in App Service for your API.
 
 ### Enable CORS 
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) command. Replace the _&lt;app-name>_ placeholder.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _&lt;app-name>_ placeholder.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'

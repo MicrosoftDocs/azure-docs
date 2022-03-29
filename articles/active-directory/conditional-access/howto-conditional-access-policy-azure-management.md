@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 02/03/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,6 +41,9 @@ Organizations can choose to deploy this policy using the steps outlined below or
 ## Create a Conditional Access policy
 
 The following steps will help create a Conditional Access policy to require users who access the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) suite do multi-factor authentication.
+
+> [!CAUTION]
+> Make sure you understand how Conditional Access works before setting up a policy to manage access to Microsoft Azure Management. Make sure you don't create conditions that could block your own access to the portal.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

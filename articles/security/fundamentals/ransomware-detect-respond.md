@@ -42,7 +42,7 @@ Once a successful ransomware infection has been confirmed, the analyst should ve
 
 In general, various server/endpoint antimalware, email antimalware and network protection solutions should be configured to automatically contain and mitigate known ransomware.  There may be cases, however, where the specific ransomware variant has been able to bypass such protections and successfully infect target systems.
  
-Microsoft provides extensive resources to help update your incident response processes on the [Top Azure Security Best Practices](/cloud-adoption-framework/secure/security-top-10#4-process-update-incident-response-processes-for-cloud).
+Microsoft provides extensive resources to help update your incident response processes on the [Top Azure Security Best Practices](/azure/cloud-adoption-framework/secure/security-top-10#4-process-update-incident-response-processes-for-cloud).
 
 The following are recommended actions to contain or mitigate a declared incident involving ransomware where automated actions taken by antimalware systems have been unsuccessful:
 
@@ -83,14 +83,3 @@ Other articles in this series:
 - [Ransomware protection in Azure](ransomware-protection.md)
 - [Prepare for a ransomware attack](ransomware-prepare.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
-
-
-
-
-
-
-
-
-
-
-

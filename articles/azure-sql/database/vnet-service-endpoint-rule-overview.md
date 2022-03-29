@@ -206,7 +206,7 @@ You must already have a subnet that's tagged with the particular virtual network
 
     :::image type="content" source="../../sql-database/media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-firewalls-and-virtual-networks.png" alt-text="Azure SQL logical server properties, Firewalls and Virtual Networks highlighted" lightbox="../../sql-database/media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-firewalls-and-virtual-networks.png":::
 
-1. Set **Allow access to Azure services** to **OFF**.
+1. Set **Allow Azure services and resources to access this server** to **No**.
 
     > [!IMPORTANT]
     > If you leave the control set to **ON**, your server accepts communication from any subnet inside the Azure boundary. That is communication that originates from one of the IP addresses that's recognized as those within ranges defined for Azure datacenters. Leaving the control set to **ON** might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature in coordination with the virtual network rules feature of SQL Database together can reduce your security surface area.
@@ -239,7 +239,7 @@ You must already have a subnet that's tagged with the particular virtual network
 
 ## Use PowerShell to create a virtual network rule
 
-A script can also create virtual network rules by using the PowerShell cmdlet `New-AzSqlServerVirtualNetworkRule` or [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). For more information, see [PowerShell to create a virtual network service endpoint and rule for SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+A script can also create virtual network rules by using the PowerShell cmdlet `New-AzSqlServerVirtualNetworkRule` or [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). For more information, see [PowerShell to create a virtual network service endpoint and rule for SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## Use REST API to create a virtual network rule
 

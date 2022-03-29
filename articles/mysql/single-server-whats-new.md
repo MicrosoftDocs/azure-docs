@@ -16,6 +16,22 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## March 2022
+
+This release of Azure Database for MySQL - Single Server includes the following updates.
+
+**Bug Fixes**
+
+The MySQL 8.0.27 client and newer versions are now compatible with Azure Database for MySQL - Single Server.
+
+## February 2022
+
+This release of Azure Database for MySQL - Single Server includes the following updates.
+
+**Known Issues**
+
+Customers in Japan,East US received two Maintenance Notification emails for this month. The Email notification send for *05-Feb 2022* was send by mistake and no changes will be done to the service on this date. You can safely ignore them. We apologize for the inconvenience. 
+
 ## December 2021
 
 This release of Azure Database for MySQL - Single Server includes the following updates:
@@ -104,7 +120,7 @@ If you have questions about or suggestions for working with Azure Database for M
 In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps

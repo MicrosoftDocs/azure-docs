@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/29/2022
+ms.date: 03/9/2022
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
@@ -111,7 +111,7 @@ You now have a running pod with an Azure Files share mounted at */mnt/azure*. Yo
 
 ## Mount file share as a persistent volume
  - Mount options
-> The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.15 and above.
+> The default value for *fileMode* and *dirMode* is *0777*.
 
 ```yaml
 apiVersion: v1
@@ -142,6 +142,7 @@ spec:
     - mfsymlinks
     - cache=strict
     - nosharesock
+    - nobrl
 ```
 
 Create a *azurefile-mount-options-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
@@ -155,6 +156,7 @@ spec:
   accessModes:
     - ReadWriteMany
   storageClassName: ""
+  volumeName: azurefile
   resources:
     requests:
       storage: 5Gi
@@ -218,3 +220,4 @@ For associated best practices, see [Best practices for storage and backups in AK
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [persistent-volume-example]: #mount-file-share-as-a-persistent-volume
+[use-tags]: use-tags.md

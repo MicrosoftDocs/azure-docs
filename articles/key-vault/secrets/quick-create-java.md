@@ -171,7 +171,7 @@ Now that your application is authenticated, you can put a secret into your key v
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -196,7 +196,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
+You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -225,7 +225,7 @@ import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
 import com.azure.security.keyvault.secrets.models.DeletedSecret;
-import com.azure.security.keyvault.secrets.models.KeyVaultSecret
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, IllegalArgumentException {

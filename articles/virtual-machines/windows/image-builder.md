@@ -184,7 +184,7 @@ az resource delete \
 ```
 
 ## Start the image build
-Start the image building process using [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action).
+Start the image building process using [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -194,7 +194,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Wait until the build is complete. This can take about 15 minutes.
+Wait until the build is complete.
 
 If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 

@@ -29,9 +29,10 @@ Microsoft partners with the following ISVs for identity verification and proofin
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-|![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
-|![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
-|![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |
+| ![Screenshot of a eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
+| ![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
+| ![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
+| ![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |
 | ![Screenshot of a LexisNexis logo.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) is a profiling and identity validation provider that verifies user identification and provides comprehensive risk assessment based on user’s device. |
 | ![Screenshot of a Onfido logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) is a document ID and facial biometrics verification solution that allows companies to meet *Know Your Customer* and identity requirements in real time.  |
 
@@ -41,6 +42,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+|![Screenshot of a bindid logo](./media/partner-gallery/bindid-logo.png) | [Transmit Security's](./partner-bindid.md) solution BindID is a passwordless authentication service that uses strong FIDO2 biometric authentication for a reliable omni-channel authentication experience, which ensures a smooth login experience for customers across every device and channel eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a passwordless authentication and tokenless MFA solution, which provides real-time consent-based services and protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks. |
 | ![Screenshot of a haventec logo](./media/partner-gallery/haventec-logo.png) | [Haventec](./partner-haventec.md) is a passwordless authentication provider, which provides decentralized identity platform that eliminates passwords, shared secrets, and friction. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |

@@ -46,7 +46,7 @@ Microsoft Defender for IoT delivers comprehensive security across all your IoT/O
 
 ## Do I have to be an Azure customer?
 
-No, for the agentless version of Microsoft Defender for IoT, you do not need to be an Azure customer. However, if you want to send alerts to Microsoft Sentinel; provision network sensors and monitor their health from the cloud; and benefit from automatic software and threat intelligence updates, you will need to connect the sensor to Azure via Azure IoT Hub.
+No, for the agentless version of Microsoft Defender for IoT, you do not need to be an Azure customer. However, if you want to send alerts to Microsoft Sentinel; provision network sensors and monitor their health from the cloud; and benefit from automatic software and threat intelligence updates, you will need to connect the sensor to Azure and Defender for IoT. For more information, see [Sensor connection methods](architecture-connections.md).
 
 For the agent-based version of Microsoft Defender for IoT, you must be an Azure customer.
 
@@ -68,7 +68,7 @@ For information on how to activate your on-premises management console, see [Act
 
 ## How to change the network configuration
 
-You can see how to [update your sensor network configuration before activation](how-to-activate-and-set-up-your-sensor.md#update-sensor-network-configuration-before-activation).
+You can update your sensor network configuration before or after activation. For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
 You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
 

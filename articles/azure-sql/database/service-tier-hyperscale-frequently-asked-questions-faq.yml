@@ -7,12 +7,11 @@ metadata:
   ms.subservice: service-overview
   ms.custom: sqldbrb=1
   ms.devlang: 
-  ms.topic: conceptual
+  ms.topic: faq
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: kendralittle, mathoma
-  ms.date: 1/10/2022
-    
+  ms.date: 03/02/2022
 title: Azure SQL Database Hyperscale FAQ
 summary: |
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,28 +38,8 @@ sections:
       - question: |
           How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers?
         answer: |
-          The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum size, as described in the following table.
-          
-          | | Resource type | General Purpose |  Hyperscale | Business Critical |
-          |:---:|:---:|:---:|:---:|:---:|
-          | **Best for** |All|Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB, fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
-          |  **Resource type** ||SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
-          | **Compute size**|SQL Database* | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
-          | **Compute size**|SQL Managed Instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
-          | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
-          | **Storage size** | SQL Database *| 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-          | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-          | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
-          | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
-          |**Availability**|All|1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
-          |**Backups**|All| A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant\*\*\*, or locally-redundant\*\*\* backup storage, 7 day retention. | A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) |
-          
-          \* Elastic pools are not supported in the Hyperscale service tier
-
-          \*\* In preview
-
-          \*\*\* In preview, for new Hyperscale databases only
-          
+          The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storage size as described in [resource limit comparison](service-tier-hyperscale.md#compare-resource-limits). 
+                   
       - question: |
           Who should use the Hyperscale service tier?
         answer: |
@@ -176,7 +155,7 @@ sections:
       - question: |
           What is the size of the transaction log with Hyperscale?
         answer: |
-          The transaction log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. You do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
+          The transaction log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally , if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit. Other than the restrictions stated, you do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
 
       - question: |
           Does my `tempdb` scale as my database grows?
@@ -302,6 +281,11 @@ sections:
           Are the database backups managed for me by Azure SQL Database?
         answer: |
           Yes.
+
+      - question: |
+          Does Hyperscale support Availability Zones?
+        answer: |
+          Yes, Hyperscale supports [zone redundant configuration](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview) in public preview. At least 1 HA compute replica and the use of zone-redundant backup storage is required for enabling the zone redundant configuration for Hyperscale. 
 
       - question: |
           How often are the database backups taken?

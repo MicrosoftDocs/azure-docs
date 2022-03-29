@@ -62,6 +62,8 @@ Check your Compute Unit metric for the past one month. Compute unit metric is a 
 
 To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
 
+To configure alerts using ARM templates, see [Configure Azure Monitor alerts for Application Gateway](configure-alerts-with-templates.md).
+
 ## Alerts for Application Gateway v1 SKU (Standard/WAF)
 
 ### Alert if average CPU utilization crosses 80%

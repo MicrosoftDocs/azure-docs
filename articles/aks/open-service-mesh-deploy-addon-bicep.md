@@ -1,36 +1,36 @@
 ---
-title: Deploy Open Service Mesh AKS add-on using Bicep
-description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Bicep
+title: Deploy the Open Service Mesh add-on by using Bicep
+description: Use a Bicep template to deploy the Open Service Mesh (OSM) add-on to Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 9/20/2021
 ms.author: pgibson
 ---
 
-# Deploy Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on using Bicep
+# Deploy the Open Service Mesh add-on by using Bicep
 
-This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
+This article shows you how to deploy the Open Service Mesh (OSM) add-on to Azure Kubernetes Service (AKS) by using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *0.11.1* of OSM on your cluster.
+> The OSM add-on installs version *1.0.0* of OSM on your cluster.
 
-[Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](../azure-resource-manager/templates/overview.md) templates for deploying your infrastructure-as-code Azure resources.
+[Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language that uses declarative syntax to deploy Azure resources. You can use Bicep in place of creating [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to deploy your infrastructure-as-code Azure resources.
 
 ## Prerequisites
 
-- The Azure CLI, version 2.20.0 or later
-- OSM version v0.11.1 or later
-- An SSH Public Key used for deploying AKS
-- [Visual Studio Code](https://code.visualstudio.com/) utilizing a Bash terminal
-- Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)
+- Azure CLI version 2.20.0 or later
+- OSM version 0.11.1 or later
+- An SSH public key used for deploying AKS
+- [Visual Studio Code](https://code.visualstudio.com/) with a Bash terminal
+- The Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)
 
-## Install the OSM AKS add-on for a new AKS cluster using Bicep
+## Install the OSM add-on for a new AKS cluster by using Bicep
 
-For a new AKS cluster deployment scenario, start with a brand new deployment of an AKS cluster with the OSM add-on enabled at the cluster create operation. The following set of directions will use a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](./configure-kubenet.md) CNI, and enabling the AKS OSM add-on. For more advanced deployment scenarios visit the [Bicep](../azure-resource-manager/bicep/overview.md) documentation.
+For deployment of a new AKS cluster, you enable the OSM add-on at cluster creation. The following instructions use a generic Bicep template that deploys an AKS cluster by using ephemeral disks and the [`kubenet`](./configure-kubenet.md) container network interface, and then enables the OSM add-on. For more advanced deployment scenarios, see [What is Bicep?](../azure-resource-manager/bicep/overview.md).
 
 ### Create a resource group
 
-In Azure, you can associate related resources using a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example is used to create a resource group named in a specified Azure location (region):
+In Azure, you can associate related resources by using a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *my-osm-bicep-aks-cluster-rg* in a specified Azure location (region):
 
 ```azurecli-interactive
 az group create --name <my-osm-bicep-aks-cluster-rg> --location <azure-region>
@@ -38,20 +38,20 @@ az group create --name <my-osm-bicep-aks-cluster-rg> --location <azure-region>
 
 ### Create the main and parameters Bicep files
 
-Using Visual Studio Code with a bash terminal open, create a directory to store the necessary Bicep deployment files. The following example creates a directory named `bicep-osm-aks-addon` and changes to the directory
+By using Visual Studio Code with a Bash terminal open, create a directory to store the necessary Bicep deployment files. The following example creates a directory named *bicep-osm-aks-addon* and changes to the directory:
 
 ```azurecli-interactive
 mkdir bicep-osm-aks-addon
 cd bicep-osm-aks-addon
 ```
 
-Next create both the main and parameters files, as shown in the following example.
+Next, create both the main file and the parameters file, as shown in the following example:
 
 ```azurecli-interactive
 touch osm.aks.bicep && touch osm.aks.parameters.json
 ```
 
-Open the `osm.aks.bicep` file and copy the following example content to it, then save the file.
+Open the *osm.aks.bicep* file and copy the following example content to it. Then save the file.
 
 ```azurecli-interactive
 // https://docs.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
@@ -108,10 +108,10 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
 }
 ```
 
-Open the `osm.aks.parameters.json` file and copy the following example content to it. Add the deployment-specific parameters, then save the file.
+Open the *osm.aks.parameters.json* file and copy the following example content to it. Add the deployment-specific parameters, and then save the file.
 
 > [!NOTE]
-> The `osm.aks.parameters.json` is an example template parameters file needed for the Bicep deployment. You will have to update the specified parameters specifically for your deployment environment. The specific parameter values used by this example needs the following parameters to be updated. They are the _clusterName_, _clusterDNSPrefix_, _k8Version_, and _sshPubKey_. To find a list of supported Kubernetes version in your region, please use the `az aks get-versions --location <region>` command.
+> The *osm.aks.parameters.json* file is an example template parameters file needed for the Bicep deployment. Update the parameters specifically for your deployment environment. The specific parameter values in this example need the following parameters to be updated: `clusterName`, `clusterDNSPrefix`, `k8Version`, and `sshPubKey`. To find a list of supported Kubernetes versions in your region, use the `az aks get-versions --location <region>` command.
 
 ```azurecli-interactive
 {
@@ -134,9 +134,9 @@ Open the `osm.aks.parameters.json` file and copy the following example content t
 }
 ```
 
-### Deploy the Bicep file
+### Deploy the Bicep files
 
-To deploy the previously created Bicep files, open the terminal and authenticate to your Azure account for the Azure CLI using the `az login` command. Once authenticated to your Azure subscription, run the following commands for deployment.
+To deploy the previously created Bicep files, open the terminal and authenticate to your Azure account for the Azure CLI by using the `az login` command. After you're authenticated to your Azure subscription, run the following commands for deployment:
 
 ```azurecli-interactive
 az group create --name osm-bicep-test --location eastus2
@@ -148,19 +148,19 @@ az deployment group create \
   --parameters @osm.aks.parameters.json
 ```
 
-When the deployment finishes, you should see a message indicating the deployment succeeded.
+When the deployment finishes, you should see a message that says the deployment succeeded.
 
-## Validate the AKS OSM add-on installation
+## Validate installation of the OSM add-on
 
-There are several commands to run to check all of the components of the AKS OSM add-on are enabled and running:
+You use several commands to check that all of the components of the OSM add-on are enabled and running.
 
-First we can query the add-on profiles of the cluster to check the enabled state of the add-ons installed. The following command should return "true".
+First, query the add-on profiles of the cluster to check the enabled state of the installed add-ons. The following command should return `true`:
 
 ```azurecli-interactive
 az aks list -g <my-osm-aks-cluster-rg> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
 ```
 
-The following `kubectl` commands will report the status of the osm-controller.
+The following `kubectl` commands will report the status of *osm-controller*:
 
 ```azurecli-interactive
 kubectl get deployments -n kube-system --selector app=osm-controller
@@ -168,15 +168,15 @@ kubectl get pods -n kube-system --selector app=osm-controller
 kubectl get services -n kube-system --selector app=osm-controller
 ```
 
-## Accessing the AKS OSM add-on configuration
+## Access the OSM add-on configuration
 
-Currently you can access and configure the OSM controller configuration via the OSM MeshConfig resource, and you can view the OSM controller configuration settings via the CLI use the **kubectl** get command as shown below.
+You can configure the OSM controller via the OSM MeshConfig resource, and you can view the OSM controller's configuration settings via the Azure CLI. Use the `kubectl get` command as shown in the following example:
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 ```
 
-Output of the MeshConfig is shown in the following:
+Here's an example output of MeshConfig:
 
 ```
 apiVersion: config.openservicemesh.io/v1alpha1
@@ -222,28 +222,28 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh. The discovered services will have traffic policy rules programed on each Envoy proxy sidecar to allow communications between these services.
+Notice that `enablePermissiveTrafficPolicyMode` is configured to `true`. In OSM, permissive traffic policy mode bypasses [SMI](https://smi-spec.io/) traffic policy enforcement. In this mode, OSM automatically discovers services that are a part of the service mesh. The discovered services will have traffic policy rules programmed on each Envoy proxy sidecar to allow communications between these services.
 
 > [!WARNING]
-> Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
-
-```OSM Permissive Mode to True
-kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
-```
+> Before you proceed, verify that your permissive traffic policy mode is set to `true`. If it isn't, change it to `true` by using the following command:
+>
+> ```OSM Permissive Mode to True
+> kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
+>```
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, use the Azure CLI to delete the deployment test resource group.
+When you no longer need the Azure resources, use the Azure CLI to delete the deployment's test resource group:
 
 ```
 az group delete --name osm-bicep-test
 ```
 
-Alternatively, you can uninstall the OSM add-on and the related resources from your cluster. For more information, see [Uninstall the Open Service Mesh (OSM) add-on from your AKS cluster][osm-uninstall].
+Alternatively, you can uninstall the OSM add-on and the related resources from your cluster. For more information, see [Uninstall the Open Service Mesh add-on from your AKS cluster][osm-uninstall].
 
 ## Next steps
 
-This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed an running. With the the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
+This article showed you how to install the OSM add-on on an AKS cluster and verify that it's installed and running. With the OSM add-on installed on your cluster, you can [deploy a sample application][osm-deploy-sample-app] or [onboard an existing application][osm-onboard-app] to work with your OSM mesh.
 
 <!-- Links -->
 <!-- Internal -->

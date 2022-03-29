@@ -7,10 +7,9 @@ metadata:
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
-  ms.topic: conceptual
-  ms.date: 01/11/2022
+  ms.topic: faq
+  ms.date: 03/11/2022
   ms.author: aahi
-      
 title: FAQ for Azure Cognitive Services disconnected containers
 summary: |
 sections:
@@ -22,7 +21,9 @@ sections:
           Disconnected containers are offered through commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
           * Speech services
             *	Speech to Text (Standard)
+            * Neural Text to Speech
           *	Text Translation (Standard)
+          * Language Understanding (LUIS)
           *	Azure Cognitive Service for Language
               *	Sentiment Analysis
               *	Key Phrase Extraction
@@ -74,7 +75,7 @@ sections:
       - question: Are these containers available in sovereign clouds?
         answer: | 
           Not everyone is familiar with the term sovereign cloud, so let's begin with definition:
-          The sovereign cloud consists of the [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Germany](/azure/germany/germany-welcome), and [Azure China 21Vianet](/azure/china/overview-operations) clouds.
+          The sovereign cloud consists of the [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md), and [Azure China 21Vianet](/azure/china/overview-operations) clouds.
           Currently, customers are able to create disconnected containers resource from public cloud. 
   - name: Versioning
     questions:
@@ -120,7 +121,7 @@ sections:
             * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
       - question: How does billing work?
         answer: |
-          Customers are charged based on the [commitment tier](/azure/cognitive-services/plan-manage-costs#commitment-tier) they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
+          Customers are charged based on the [commitment tier](../plan-manage-costs.md#commitment-tier) they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
           
           Each commitment tier offers a discounted rates as compared to the pay-as-you-go pricing model. Commitment plans are charged annually starting from the day the resource was created. Additional units can be added at any time in the year and are charged pro-rated based on the number of days remaining in the billing year. For more information, see the following pricing pages:
           > [!TIP]
@@ -128,7 +129,9 @@ sections:
 
           * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for:
             * Speech to Text (Standard)
+            * Neural Text to Speech
           * [Text Translation (Standard)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)
+          * [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)
           *	[Azure Cognitive Service for Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for
             * Sentiment Analysis
             * Key Phrase Extraction
@@ -147,7 +150,9 @@ sections:
 
           * [Speech Services](../speech-service/speech-container-howto.md#host-computer-requirements-and-recommendations) for:
             * Speech to Text (Standard)
+            * Neural Text to Speech
           * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
+          * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           *	Azure Cognitive Service for Language documentation for
               * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
               * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)

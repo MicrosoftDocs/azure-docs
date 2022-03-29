@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Get started with Application Insights in a Java web project
@@ -35,6 +33,8 @@ Application Insights is an extensible analytics service for web developers that 
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
+
+    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Add the Application Insights SDK for Java to your project
 

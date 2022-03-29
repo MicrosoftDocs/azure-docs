@@ -42,6 +42,17 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 
 ## General purpose - provisioned compute - Gen4
 
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
+
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
@@ -553,7 +564,7 @@ The following table describes per database properties for pooled databases.
 | Max vCores per database |The maximum number of vCores that any database in the pool may use, if available based on utilization by other databases in the pool. Max vCores per database is not a resource guarantee for a database. If the workload in each database does not need all available pool resources to perform adequately, consider setting max vCores per database to prevent a single database from monopolizing pool resources. Some degree of over-committing is expected since the pool generally assumes hot and cold usage patterns for databases, where all databases are not simultaneously peaking. |
 | Min vCores per database |The minimum number of vCores reserved for any database in the pool. Consider setting a min vCores per database when you want to guarantee resource availability for each database regardless of resource consumption by other databases in the pool. The min vCores per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average vCores utilization per database.|
 | Max storage per database |The maximum database size set by the user for a database in a pool. Pooled databases share allocated pool storage, so the size a database can reach is limited to the smaller of remaining pool storage and maximum database size. Maximum database size refers to the maximum size of the data files and does not include the space used by the log file. |
-|||
+
 
 > [!IMPORTANT]
 > Because resources in an elastic pool are finite, setting min vCores per database to a value greater than 0 implicitly limits resource utilization by each database. If, at a point in time, most databases in a pool are idle, resources reserved to satisfy the min vCores guarantee are not available to databases active at that point in time.

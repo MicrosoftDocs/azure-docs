@@ -33,16 +33,6 @@
     href: tenant-management.md
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
-  - name: App integration
-    items: 
-    - name: Web app
-      items: 
-      - name: Sign in and sign out user Nodejs tutorial
-        href: tutorial-authenticate-nodejs-web-app-msal.md
-      - name: Acquire access token Nodejs tutorial
-        href: tutorial-acquire-access-token.md
-      - name: Call a protected API Nodejs tutorial
-        href: tutorial-call-api-with-access-token.md
 - name: Samples
   items:
   - name: Integrate Azure AD B2C with your applications
@@ -52,7 +42,7 @@
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
-    href: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    href: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
   - name: Learn authentication basics
     items:
     - name: Authentication and authorization
@@ -139,6 +129,22 @@
         href: enable-authentication-spa-app.md
       - name: Authentication options
         href: enable-authentication-spa-app-options.md
+    - name: Node.js web app
+      items:
+      - name: Configure a sample Node.js web app
+        href: configure-a-sample-node-web-app.md
+      - name: Enable authentication in Node.js web app
+        href: enable-authentication-in-node-web-app.md
+      - name: Authentication options
+        href: enable-authentication-in-node-web-app-options.md
+    - name: Node.js web app that calls a web API
+      items:
+      - name: Configure a sample Node.js web API
+        href: configure-authentication-in-sample-node-web-app-with-api.md
+      - name: Enable authentication in Node.js web API
+        href: enable-authentication-in-node-web-app-with-api.md
+      - name: Authentication options
+        href: enable-authentication-in-node-web-app-with-api-options.md
     - name: Angular single-page application
       items:
       - name: Configure a sample Angular app
@@ -325,6 +331,8 @@
         displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
+        - name: Transmit Security
+          href: partner-bindid.md
         - name: BlokSec
           href: partner-bloksec.md
         - name: Haventec
@@ -443,6 +451,8 @@
     - name: Identity verification and proofing partners
       href: identity-verification-proofing.md
       displayName: id verify, id verification, azure ad b2c proofing, id proofing
+    - name: eID-Me
+      href: partner-eid-me.md
     - name: Experian
       href: partner-experian.md
     - name: IDology

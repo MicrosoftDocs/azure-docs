@@ -22,7 +22,7 @@ Before you can use custom text classification, you will need to create a Languag
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
@@ -46,7 +46,7 @@ Before you can use custom text classification, you will need to create a Languag
 
 ### Get your resource keys and endpoint
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 * From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
@@ -264,7 +264,8 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 
 ```json
 {
-  "trainedModelLabel": "MyModel"
+  "trainedModelLabel": "MyModel",
+  "deploymentName": "prod"
 }
 ```
 

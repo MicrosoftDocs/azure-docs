@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 1/28/2021
+ms.date: 2/3/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -21,18 +21,33 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to the [custom VNET security sample](https://aka.ms/azurecontainerapps/customvnet) for additional details.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
+
+## Restrictions
+
+Subnet address ranges can't overlap with the following reserved ranges:
+
+- 169.254.0.0/16
+- 172.30.0.0/16
+- 172.31.0.0/16
+- 192.0.2.0/24
+
+Additionally, subnets must have a size between /21 and /12.
 
 ## Subnet types
 
 As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
 
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
-- **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
+- **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
+
+::: zone pivot="azure-cli"
 
 If the [platformReservedCidr](#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+
+::: zone-end
 
 ## Accessibility level
 
@@ -46,7 +61,15 @@ Container Apps environments deployed as external resources are available for pub
 
 When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
+::: zone pivot="azure-cli"
+
 To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
+
+::: zone-end
+
+## Managed resources
+
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment as well as a load balancer. As the load balancer is created in your subscription, there are additional costs associated with deploying the service to a custom virtual network.
 
 ## Example
 
@@ -234,6 +257,9 @@ az containerapp env create `
 
 ---
 
+> [!NOTE]
+> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
+
 The following table describes the parameters used in for `containerapp env create`.
 
 | Parameter | Description |
@@ -326,7 +352,7 @@ az network private-dns zone create `
 ```powershell
 az network private-dns link vnet create `
   --resource-group $RESOURCE_GROUP `
-  --record-set-name $VNET_NAME `
+  --name $VNET_NAME `
   --virtual-network $VNET_ID `
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
 ```
@@ -334,7 +360,7 @@ az network private-dns link vnet create `
 ```powershell
 az network private-dns record-set a add-record `
   --resource-group $RESOURCE_GROUP `
-  --name "*" `
+  --record-set-name "*" `
   --ipv4-address $ENVIRONMENT_STATIC_IP `
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
@@ -343,7 +369,9 @@ az network private-dns record-set a add-record `
 
 #### Networking parameters
 
-There are three optional networking parameters you can choose to define when calling `containerapp env create`. You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
+There are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNET with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment doesn't conflict with other ranges in the network infrastructure.
+
+You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
 
 | Parameter | Description |
 |---|---|
@@ -381,22 +409,11 @@ az group delete `
 
 ::: zone-end
 
-## Restrictions
-
-Subnet address ranges can't overlap with the following reserved ranges:
-
-- 169.254.0.0/16
-- 172.30.0.0/16
-- 172.31.0.0/16
-- 192.0.2.0/24
-
-Additionally, subnets must have a size between /21 and /12.
-
 ## Additional resources
 
-- Refer to [What is Azure Private Endpoint](/azure/private-link/private-endpoint-overview) for more details on configuring your private endpoint.
+- Refer to [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md) for more details on configuring your private endpoint.
 
-- To set up DNS name resolution for internal services, you must [set up your own DNS server](/azure/dns/).
+- To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 
 ## Next steps
 

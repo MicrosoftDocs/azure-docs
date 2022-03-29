@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 02/05/2022
 ms.author: shaas
 ms.subservice: blobs
 ---
@@ -18,7 +18,7 @@ Azure blob storage allows you to store large amounts of unstructured object data
 
 The Azure CLI is Azure's cross-platform command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it locally from the command line.
 
-In this how-to article, you learn to use the Azure CLI to work with container objects.
+In this how-to article, you learn to use the Azure CLI with Bash to work with container objects.
 
 ## Prerequisites
 
@@ -42,35 +42,38 @@ az login
 
 ## Create a container
 
-To create a container with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.The following example illustrates three options for the creation of blob containers with the `az storage container create` command. The first approach creates a single container, while the remaining two approaches use Bash scripting operations to automate container creation.
+To create a container with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.The following example illustrates three options for the creation of blob containers with the `az storage container create` command. The first approach creates a single container, while the remaining two approaches use Bash scripting operations to automate container creation.
 
 To use this example, supply values for the variables and ensure that you've logged in. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
+storageAccount="<storage-account>"
 containerName="demo-container-1"
 containerPrefix="demo-container-"
 
 # Approach 1: Create a container
 az storage container create \
     --name $containerName \
+    --account-name $storageAccount \
     --auth-mode login
 
 # Approach 2: Create containers with a loop
-for value in {2..4}
+for value in {2..5}
 do
     az storage container create \
         --name $containerPrefix$value \
+        --account-name $storageAccount \
         --auth-mode login
 done
 
 # Approach 3: Create containers by splitting multiple values
-containerList="${containerPrefix}5 ${containerPrefix}6 ${containerPrefix}7"
+containerList="${containerPrefix}6 ${containerPrefix}7 ${containerPrefix}8"
 for container in $containerList
 do
     az storage container create \
         --name $container \
+        --account-name $storageAccount \
         --auth-mode login
 done
 ```
@@ -85,29 +88,32 @@ You can also use the `--query` parameter to execute a [JMESPath query](https://j
 
 The following example first lists the maximum number of containers (subject to the service limit). Next, it lists three containers whose names begin with the prefix *container-* by supplying values for the `--num-results` and `--prefix` parameters. Finally, a single container is listed by supplying a known container name to the `--prefix` parameter.
 
-Read more about the [az storage container list](/cli/azure/storage/container#az_storage_container_list).
+Read more about the [az storage container list](/cli/azure/storage/container#az-storage-container-list).
 
 ```azurecli-interactive
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
-numResults="3"
+storageAccount="<storage-account>"
 containerPrefix="demo-container-"
 containerName="demo-container-1"
+numResults="3"
 
 # Approach 1: List maximum containers
 az storage container list \
+    --account-name $storageAccount \
     --auth-mode login
 
 # Approach 2: List a defined number of named containers
 az storage container list \
     --prefix $containerPrefix \
     --num-results $numResults \
+    --account-name $storageAccount \
     --auth-mode login
 
 # Approach 3: List an individual container
 az storage container list \
     --prefix $containerPrefix \
     --query "[?name=='$containerName']" \
+    --account-name $storageAccount \
     --auth-mode login
 ```
 
@@ -119,32 +125,34 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 
 ### Container properties
 
-To display the properties of a container with Azure CLI, call the [az storage container show](/cli/azure/storage/container#az_storage_container_show) command.
+To display the properties of a container with Azure CLI, call the [az storage container show](/cli/azure/storage/container#az-storage-container-show) command.
 
 In the following example, the first approach displays the properties of a single named container. Afterward, it retrieves all containers with the **demo-container-** prefix and iterates through them, listing their properties. Remember to replace the placeholder values with your own values.
 
 ```azurecli-interactive
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
+storageAccount="<storage-account>"
 containerPrefix="demo-container-"
 containerName="demo-container-1"
 
 # Show a named container's properties
 az storage container show \
     --name $containerName \
+    --account-name $storageAccount \
     --auth-mode login
 
 # List several containers and show their properties
 containerList=$(az storage container list \
     --query "[].name" \
     --prefix $containerPrefix \
+    --account-name $storageAccount \
     --auth-mode login \
     --output tsv)
-for item in $containerList
+
+for row in $containerList
 do
-    az storage container show \
-    --name $item \
-    --auth-mode login
+  tmpRow=$(echo $row | sed -e 's/\r//g')
+  az storage container show --name $tmpRow --account-name $storageAccount --auth-mode login
 done
 ```
 
@@ -152,26 +160,59 @@ done
 
 Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata. To read the metadata, you'll use the `az storage container metadata show` command. To update metadata, you'll need to call the `az storage container metadata update` command. The method only accepts space-separated key-value pairs. For more information, see the [az storage container metadata](/cli/azure/storage/container/metadata) documentation.
 
-The example below first updates a container's metadata and afterward retrieves the container's metadata.
+The first example below updates and then retrieves a named container's metadata. The second example iterates the list of containers matching the `-prefix` value. Containers with names containing even numbers have their metadata set with values contained in the *metadata* variable.
 
 ```azurecli-interactive
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
-containerName = "demo-container-1"
+storageAccount="<storage-account>"
+containerName="demo-container-1"
+containerPrefix="demo-container-"
 
 # Create metadata string
 metadata="key=value pie=delicious"
 
-# Update metadata
+# Update named container metadata
 az storage container metadata update \
     --name $containerName \
     --metadata $metadata \
+    --account-name $storageAccount \
     --auth-mode login
 
 # Display metadata
 az storage container metadata show \
     --name $containerName \
+    --account-name $storageAccount \
     --auth-mode login
+
+# Get list of containers
+containerList=$(az storage container list \
+    --query "[].name" \
+    --prefix $containerPrefix \
+    --account-name $storageAccount \
+    --auth-mode login \
+    --output tsv)
+
+# Update and display metadata
+for row in $containerList
+do
+  #Get the container's number
+  tmpName=$(echo $row | sed -e 's/\r//g')
+  if [ `expr ${tmpName: ${#containerPrefix}} % 2` == 0 ]
+  then
+    az storage container metadata update \
+        --name $tmpName \
+        --metadata $metadata \
+        --account-name $storageAccount \
+        --auth-mode login
+    
+    echo $tmpName
+
+    az storage container metadata show \
+    --name $tmpName \
+    --account-name $storageAccount \
+    --auth-mode login    
+  fi
+done
 ```
 
 ## Delete containers
@@ -183,38 +224,47 @@ Depending on your use case, you can delete a single container or a group of cont
 
 ```azurecli-interactive
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
+storageAccount="<storage-account>"
 containerName="demo-container-1"
 containerPrefix="demo-container-"
 
 # Delete a single named container
 az storage container delete \
     --name $containerName \
+    --account-name $storageAccount \
     --auth-mode login
 
 # Delete containers by iterating a loop
 list=$(az storage container list \
     --query "[].name" \
-    --auth-mode login \
     --prefix $containerPrefix \
+    --account-name $storageAccount \
+    --auth-mode login \
     --output tsv)
-for item in $list
+for row in $list
 do
+    tmpName=$(echo $row | sed -e 's/\r//g')
     az storage container delete \
-    --name $item \
+    --name $tmpName \
+    --account-name $storageAccount \
     --auth-mode login
 done
 ```
 
-If you have container soft delete enabled for your storage account, then it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include-deleted` parameter will return containers deleted within the associated retention period. The `--include-deleted` parameter can only be used in conjunction with the `--prefix` parameter when returning a list of containers. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
+If you have container soft delete enabled for your storage account, then it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include-deleted` parameter will return containers deleted within the associated retention period. The `--include-deleted` parameter can only be used to return containers when used with the `--prefix` parameter. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
 Use the following example to retrieve a list of containers deleted within the storage account's associated retention period.
 
 ```azurecli-interactive
+#!/bin/bash
+storageAccount="<storage-account>"
+containerPrefix="demo-container-"
+
 # Retrieve a list of containers including those recently deleted
 az storage container list \
-    --prefix $prefix \
+    --prefix $containerPrefix \
     --include-deleted \
+    --account-name $storageAccount\
     --auth-mode login
 ```
 
@@ -222,26 +272,47 @@ az storage container list \
 
 As mentioned in the [List containers](#list-containers) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore containers deleted within the associated retention period. Before you can follow this example, you'll need to enable soft delete and configure it on at least one of your storage accounts.
 
-The following example explains how to restore a soft-deleted container with the `az storage container restore` command. You'll need to supply values for the `--name` and `--version` parameters to ensure that the correct version of the container is restored. If you don't know the version number, you can use the `az storage container list` command to retrieve it as shown in the following example.
+The following examples explain how to restore a soft-deleted container with the `az storage container restore` command. You'll need to supply values for the `--name` and `--version` parameters to ensure that the correct version of the container is restored. If you don't know the version number, you can use the `az storage container list` command to retrieve it as shown in the first example. The second example finds and restores all deleted containers within a specific storage account.
 
 To learn more about the soft delete data protection option, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
 ```azurecli-interactive
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
+storageAccount="<storage-account>"
 containerName="demo-container-1"
 
 # Restore an individual named container
 containerVersion=$(az storage container list \
+    --account-name $storageAccount \
     --query "[?name=='$containerName'].[version]" \
     --auth-mode login \
     --output tsv \
-    --include-deleted)
+    --include-deleted | sed -e 's/\r//g')
 
 az storage container restore \
     --name $containerName \
     --deleted-version $containerVersion \
+    --account-name $storageAccount \
     --auth-mode login
+
+# Restore a list of deleted containers
+containerList=$(az storage container list \
+    --account-name $storageAccount \
+    --include-deleted \
+    --auth-mode login \
+    --query "[?deleted].{name:name,version:version}" \
+    -o json)
+
+for row in $(echo "${containerList}" | jq -c '.[]' )
+do
+    tmpName=$(echo $row | jq -r '.name')
+    tmpVersion=$(echo $row | jq -r '.version')
+    az storage container restore \
+        --account-name $storageAccount \
+        --name $tmpName \
+        --deleted-version $tmpVersion \
+        --auth-mode login
+done
 ```
 
 ## Get a shared access signature for a container
@@ -255,14 +326,15 @@ Azure Storage supports three types of shared access signatures: user delegation,
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
 
-The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it is generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
+The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it's generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
 
 The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `--permissions` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas) article.
 
+Copy and paste the Blob SAS token value in a secure location. It will only be displayed once and can’t be retrieved once Bash is closed. To construct the SAS URL, append the SAS token (URI) to the URL for the storage service.
+
 ```azurecli-interactive
 #!/bin/bash
-storageAccount="<storage-account-name>"
-export AZURE_STORAGE_ACCOUNT=$storageAccount
+storageAccount="<storage-account>"
 containerName="demo-container-1"
 permissions="drwl"
 expiry=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
@@ -279,16 +351,8 @@ az storage container generate-sas \
     --https-only \
     --permissions dlrw \
     --expiry $expiry \
-    --account-key $accountKey
-```
-
-## Clean up resources
-
-If you want to delete the environment variables as part of this how-to article, run the following script.
-
-```azurecli
-# Remove environment variables
-unset AZURE_STORAGE_ACCOUNT
+    --account-key $accountKey \
+    --account-name $storageAccount
 ```
 
 ## Next steps

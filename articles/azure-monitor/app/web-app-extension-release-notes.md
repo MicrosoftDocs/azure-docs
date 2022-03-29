@@ -3,7 +3,6 @@ title: Release Notes for Azure web app extension - Application Insights
 description: Releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-
 ---
 
 # Release notes for Azure Web App extension for Application Insights

@@ -65,7 +65,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 + PDFs with combined image and text. Embedded text can be extracted without AI enrichment, but adding image and language skills can unlock more information than what could be obtained through standard text-based indexing.
 
-+ Unstructured or semi-structured documents containing content that has inherent meaning or context that is hidden in the larger document. 
++ Unstructured or semi-structured documents containing content that has inherent meaning or organization that is hidden in the larger document. 
 
   Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create information that is extant in the raw content, but not otherwise surfaced as distinct fields. 
 

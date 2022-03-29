@@ -8,12 +8,11 @@ metadata:
   ms.subservice: service-overview
   ms.custom: sqldbrb=1
   ms.devlang: 
-  ms.topic: conceptual
+  ms.topic: faq
   author: MashaMSFT
   ms.author: mathoma
   ms.reviewer: urmilano, danil, nnikolic
   ms.date: 09/21/2020
-    
 title: Azure SQL Managed Instance frequently asked questions (FAQ)
 summary: |
   [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,7 +98,7 @@ sections:
           
           ### How can I scale my managed instance?
           
-          You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+          You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-update) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
           
           ### Can I move my Managed Instance from one region to another?
           
@@ -107,7 +106,7 @@ sections:
           
           ### How can I delete my Managed Instance?
           
-          You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_delete) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
+          You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
           
           ### How much time does it take to create or update an instance, or to restore a database?
           
@@ -146,11 +145,13 @@ sections:
           
           ### Can I change DNS zone prefix?
           
-          Yes, Managed Instance default DNS zone *.database.windows.net* can be changed. 
+          Yes, Managed Instance default DNS zone *.database.windows.net* can be changed with your own. However, Managed Instance hostname part of its FQDN should remain the same.
           
           To use another DNS zone instead of the default, for example, *.contoso.com*: 
-          - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it can be done using group policy or a script as well.
-          - Use *CNAME* with the *TrustServerCertificate=true* option.
+          - Use SQL Server Client Network Utility (CliConfg) to define an alias. You can use either just the Managed Instance hostname, or the Managed Instance hostname followed by a custom domain name. The CliConfg tool just adds alias in the registry under "HKLM\SOFTWARE\Microsoft\MSSQLServer\Client\ConnectTo" or "HKLM\SOFTWARE\WOW6432Node\Microsoft\MSSQLServer\Client\ConnectTo" depending if you use the 64-bit version (C:\Windows\System32\cliconfg.exe) or the 32-bit version (C:\Windows\SysWOW64\cliconfg.exe), so it can be done using group policy or a script as well. Use both to ensure 32-bit and 64-bit programs can resolve the alias.
+          - Use *CNAME* record in DNS with Managed Instance hostname pointing to Managed Instance FQDN. In this case, TrustServerCertificate=TRUE is needed when using Azure AD authentication.
+          - Use *A* record in DNS with Managed Instance hostname pointing to Managed Instance IP address. **Using IP address is not recommended**, as it may change without notice. In this case, TrustServerCertificate=TRUE is needed when using Azure AD authentication.
+          
           
       - question: |
           Migration options
@@ -257,7 +258,7 @@ sections:
         answer: |
           ### What is the maximum storage size for SQL Managed Instance?
           
-          Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristics](../database/service-tiers-general-purpose-business-critical.md).
+          Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristics](../database/service-tiers-sql-database-vcore.md#service-tiers).
           
           ### What is the minimum storage size available for a managed instance?
           
@@ -295,7 +296,7 @@ sections:
         answer: |
           ### Are my system databases replicated to the secondary instance in a failover group?
           
-          System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary. For workaround, see [Enable scenarios dependent on the object from the system databases](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+          System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary. For workaround, see [Enable scenarios dependent on the object from the system databases](auto-failover-group-sql-mi.md#enable-scenarios-dependent-on-objects-from-the-system-databases).
            
       - question: |
           Networking requirements 
@@ -335,7 +336,7 @@ sections:
           
           ### What if there are not enough IP addresses for performing instance update operation?
           
-          In case there are not enough [IP addresses](connectivity-architecture-overview.md#network-requirements) in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+          In case there are not enough [IP addresses](connectivity-architecture-overview.md#network-requirements) in the subnet where your managed instance is provisioned, you will have to create a new subnet and move the managed instance to it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. Learn how to [move Azure SQL Managed Instance across subnets](./vnet-subnet-move-instance.md).
           
           ### Do I need an empty subnet to create a Managed Instance?
           

@@ -9,12 +9,14 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 10/21/2021
+ms.date: 02/28/2022
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Install and set up the CLI (v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
@@ -24,6 +26,10 @@ The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced int
 
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
+
+## Limitations
+
+[!INCLUDE [public network access](../../includes/machine-learning-cli-public-network-access.md)]
 
 ## Installation
 
@@ -99,6 +105,25 @@ You can show your current defaults using `--list-defaults/-l`:
 
 > [!TIP]
 > Combining with `--output/-o` allows for more readable output formats.
+
+## Secure communications
+
+The `ml` CLI extension (sometimes called 'CLI v2') for Azure Machine Learning sends operational data (YAML parameters and metadata) over the public internet. All the `ml` CLI extension commands communicate with the Azure Resource Manager. This communication is secured using HTTPS/TLS 1.2.
+
+> [!NOTE]
+> With the previous extension (`azure-cli-ml`, sometimes called 'CLI v1'), only some of the commands communicate with the Azure Resource Manager. Specifically, commands that create, update, delete, list, or show Azure resources. Operations such as submitting a training job communicate directly with the Azure Machine Learning workspace. If your workspace is [secured with a private endpoint](how-to-configure-private-link.md), that is enough to secure commands provided by the `azure-cli-ml` extension.
+
+> [!TIP]
+> Data stored in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is secured on the default storage account for the workspace, and the storage account is in the virtual network.
+
+You can increase the security of CLI communications with Azure Resource Manager by using Azure Private Link. The following links provide information on using a Private Link for managing Azure resources:
+
+1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
+2. [Create a Private Link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md). 
+3. [Create a private endpoint](../azure-resource-manager/management/create-private-link-access-portal.md#create-private-endpoint) for the Private Link created in the previous step.
+
+> [!IMPORTANT]
+> To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).
 
 ## Next steps
 
