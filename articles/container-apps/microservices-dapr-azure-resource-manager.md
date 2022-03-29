@@ -18,15 +18,14 @@ zone_pivot_groups: container-apps
 You learn how to:
 
 > [!div class="checklist"]
-
-> - Create an Azure Blob Storage for use as a Dapr state store
-> - Deploy a container apps environment to host container apps
-> - Deploy two dapr-enabled container apps: one that produces orders and one that consumes orders and stores them
-> - Verify the interaction between the two microservices.
+> * Create an Azure Blob Storage for use as a Dapr state store
+> * Deploy a container apps environment to host container apps
+> * Deploy two dapr-enabled container apps: one that produces orders and one that consumes orders and stores them
+> * Verify the interaction between the two microservices.
 
 With Azure Container Apps, you get a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
-In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart.
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) quickstart.
 
 The application consists of:
 
