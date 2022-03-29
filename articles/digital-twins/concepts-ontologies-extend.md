@@ -86,7 +86,7 @@ Based on the portion of the Room hierarchy from the [previous section](#add-extr
 
 ## Using the extended space hierarchy 
 
-When you create digital twins using the extended Space hierarchy, each digital twin's model will be one from the extended Space hierarchy (not the original industry ontology) and will include all the capabilities from the industry ontology and the extended interfaces though interface inheritance.
+When you create digital twins using the extended Space hierarchy, each digital twin's model will be one from the extended Space hierarchy (not the original industry ontology) and will include all the capabilities from the industry ontology and the extended interfaces through interface inheritance.
 
 Each digital twin's model will be an interface from the extended hierarchy, shown in the diagram below. 
  
