@@ -11,17 +11,15 @@ ms.topic: conceptual
 
 
 
-## Deployment options
+## Multiple Deployment Options
 
-The following tables describe supported deployment options for your OT sensors and on-premises management console. When setting up your system, choose the deployment option that meets your needs best.
-
-### Corporate IT/OT hybrid networks
+### Corporate IT/OT Hybrid networks
 
 |Name  |Max Throughput (OT Traffic) |Max Monitored Assets  |Deployment |
 |---------|---------|---------|---------|
 |C5600 (Corporate)    | 3 Gbps        | 12K        |Physical / Virtual         |
 
-### Enterprise monitoring at the site level
+### Enterprise Monitoring at the site level
 
 |Name  |Max Throughput (OT Traffic)  |Max Monitored Assets  |Deployment  |
 |---------|---------|---------|---------|
@@ -35,29 +33,30 @@ The following tables describe supported deployment options for your OT sensors a
 |L100 (Line)    | 60 Mbps        |   800      | Physical / Virtual        |
 |L60 (Line)     | 10 Mbps        |   100      |Physical / Virtual|
 
-### On-premises management console
+### On Premises Management Console
 
 |Name  |Max Monitored Sensors  |Deployment  |
 |---------|---------|---------|
 |E1800 (Enterprise)     |Up to 300         |Physical / Virtual         |
 
-## Supported hardware
+## Hardware Compatibility List
 
-The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
+Microsoft engineers have evaluated physical appliances in the certified appliances list and recommend them for deployments that require significant scale and support.
 
-Microsoft can't guarantee functionality for hardware components that have not been validated.
+We can't guarantee functionality of hardware components not certified by our lab.
 
-### Required operating systems
+### Prerequisites
 
-Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04. All hardware components must be compatible with Ubuntu version 18.04.
+Due to our software being built on **Ubuntu 18.04**, all hardware components should be compatible with this OS.
 
 ### Central Processing Unit (CPU)
 
-|Name  |Supported models and versions |
+|  | |
 |---------|---------|
 |C5600 (Corporate)     |-  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
 |E1800 (Enterprise)| - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>-Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>-Intel Xeon E-2144G 3.6GHz, 8M cache, 4C/8T, turbo (71W) with Intel C246|
 |L500 (Line) <br> L100 (Line)<br> L60 (Line)|-Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br>-Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 Processor
+         |
 
 ### Network Cards (Ethernet/SFP)
 
@@ -87,6 +86,113 @@ Microsoft has validated the following physical appliances. Using any of the appl
 - **In-lab experience**, where Microsoft support teams have been trained using validated physical appliances and have a working knowledge of the hardware
 - **Availability**, as these physical appliances are available worldwide and long term
 
-Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
+Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).pull
 
-### OT Network Sensors
+## OT network sensors
+
+|Model / Capacity|Monitoring Ports|Max bandwidth|Max protected devices|Mounting|
+|:----|:----|:----|:----|:----|
+|**HPE ProLiant DL360** <br> C5600|15 x RJ45 or 8 SFP (OPT)|3Gbp/s|12,000|1U|
+| **HPE ProLiant DL20+** <br>E1800|8 x RJ45 or 6 SFP (OPT)|1Gbp/s|10,000|1U|
+|**Dell PowerEdge R340** <br>XL E1800|8 x RJ45 or 6 SFP (OPT)|1Gbp/s|10,000|1U|
+|**HPE ProLiant DL20+** <br>L500|4 x RJ45|200Mbp/s|1,000|1U|
+|**Dell Edge Gateway 5200** <br>L500| |60Mbp/s|1000|Wall mount|
+|**YS-Techsystems YS-FIT2** <br>L100|1 x RJ45|10Mbp/s|100|DIN/VESA|
+
+## On Premises Management Console
+|Model / Capacity| Monitoring Ports|Monitored Sensors|Mounting|
+|:----|:----|:----|:----|
+|**HPE ProLiant DL20+**<br>E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
+|**Dell PowerEdge R340 XL** <br> E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
+
+## Corporate Deployment: HPE ProLiant DL360
+
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Proliant Dl360 view":::
+
+
+|Component  |Specifications|
+|---------|---------|
+|Chassis     |1U Rack Server         |
+|Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 70.7 cm <br> -1.69 x 17.11 x 27.83 in         |
+|Weight    | Max 16.72 kg / 35.86 lb        |
+
+### CORPORATE DEPLOYMENT: HPE PROLIANT DL360
+|Component	| Technical specifications|
+|---------|---------|
+|Chassis |	1U rack server|
+|Dimensions	| 42.9 x 43.46 x 70.7 (cm)/1.69" x 17.11" x 27.83" (in)|
+|Weight	| Max 16.27 kg (35.86 lb)|
+|Processor	| Intel Xeon Silver 4215 R 3.2 GHz| 11M cache| 8c/16T| 130 W|
+|Chipset	| Intel C621|
+|Memory	| 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM|
+|Storage|	6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5|
+|Network controller|	On-board: 2 x 1 Gb <br> On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+
+### CORPORATE DEPLOYMENT: HPE PROLIANT DL360
+
+|Component |Technical Specifications  |
+|---------|---------|
+|Management     |HPE iLO Advanced         |
+|Device access     | Two rear USB 3.0        |
+|One front    | USB 2.0        |
+|One internal    |USB 3.0         |
+|Power            |2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit
+|Rack support     | HPE 1U Gen10 SFF Easy Install Rail Kit        |
+
+### Optional modules for port expansion:
+| PCI Slot 1 (Low profile)  |                        |                                                 |
+| ------------------------- | ---------------------- | ----------------------------------------------- |
+| PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
+| PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
+| PCI Slot 2 (High profile) | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
+| PCI Slot 2 (High profile) | Quad Port F/O NIC      | 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI   |
+| SFPs for Fiber Optic NICs | MultiMode, Short Range | 455883-B21 - HPE BLc 10G SFP+ SR Transceiver    |
+| SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
+| PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
+| PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
+| PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
+| PCI Slot 2 (High profile) | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
+| PCI Slot 2 (High profile) | Quad Port F/O NIC      | 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI   |:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="":::
+| SFPs for Fiber Optic NICs | MultiMode, Short Range | 455883-B21 - HPE BLc 10G SFP+ SR Transceiver    |
+| SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
+| PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
+| PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr   |
+
+
+### Enterprise Deployment: HPE ProLiant DL20+
+
+
+|Component  |Specifications|
+|---------|---------|
+|Chassis     |1U Rack Server         |
+|Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
+|Weight    | Max 7.9 kg / 17.41 lb        |
+
+:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="DL20+ Panel":::
+
+|Quantity| |PN|Description|
+|:----|:----|:----|:----|
+|1| |P44111-B21|HPE DL20 Gen10+ 4SFF CTO Svr|
+|1| |P45252-B21|Intel Xeon E-2234 FIO CPU for HPE|
+|1| |869081-B21|HPE Smart Array P408i-a SR G10 LH Ctrlr|
+|1| |782961-B21|HPE 12W Smart Storage Battery|
+|1| |P45948-B21|HPE DL20 Gen10+ RPS FIO Enable Kit|
+|2| |865408-B21|HPE 500W FS Plat Ht Plg LH Pwr Sply Kit|
+|1| |775612-B21|HPE 1U Short Friction Rail Kit|
+|1| |512485-B21|HPE iLO Adv 1-svr Lic 1yr Support|
+|1| |P46114-B21|HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
+|1| |P21106-B21|INT I350 1GbE 4p BASE-T Adptr|
+|3| |P28610-B21|HPE 1TB SATA 7.2K SFF BC HDD|
+|2| |P43019-B21|HPE 16GB 1Rx8 PC4-3200AA-E STND Kit|
+
+Optional modules for port expansion:
+|Location | Type |Specifications |
+| ------------------------- | ---------------------- | ----------------------------------------------- |
+| PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
+| PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
+| PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
+| PCI Slot 2 (High profile) | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
+| PCI Slot 2 (High profile) | Quad Port F/O NIC      | 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI   |
+| SFPs for Fiber Optic NICs | MultiMode, Short Range | 455883-B21 - HPE BLc 10G SFP+ SR Transceiver    |
+| SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
+
