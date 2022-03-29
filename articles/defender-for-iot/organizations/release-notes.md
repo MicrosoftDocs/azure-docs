@@ -19,9 +19,12 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
+
 - Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and are not applied to older versions.
 
 - Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+
+- Features available from the Azure portal that are dependent on a specific sensor version are only available for sensors that have the required version installed, or higher.
 
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
@@ -33,6 +36,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.x | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
@@ -40,6 +44,45 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## April 2022
+
+**Sensor version**: 22.2.x
+
+- PCAP file downloads from the Azure portal
+- Remote sensor updates from the Azure portal
+- Learn and close alerts from the Azure portal
+- Support and detection policies for hybrid networks
+- Remote sensor configuration from the Azure portal
+- Automatic certificate updates
+- Enhanced OT device detection
+- Support for Windows 11 and Server 2019 devices
+- Active asset support
+
+### Documentation improvements
+
+**Release note tracking per version**
+
+Starting in version 22.2.x, we're tracking our release notes per sensor version, including major and minor versions. Going forward, find the sensor software version released in a given month at the top of the release notes for that month.
+
+For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
+
+**Documentation reorganization for end-user organizations**
+
+This month we've reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started. Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and maintaining your Defender for IoT system.
+
+**New and updated articles include**:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Microsoft Defender for IoT architecture](architecture.md)
+- [Quickstart: Get started with Defender for IoT](getting-started.md)
+- [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
+- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
+- Best practices
+- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
+
+> [!NOTE]
+> To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
+>
 
 ## March 2022
 
