@@ -62,7 +62,7 @@ The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Defa
 ## Minimal TLS version
 While serverless SQL endpoint and development endpoint only accept TLS 1.2 and above, workspace Managed Sql Server Dedicated SQL allows connections using all TLS versions. Starting in December 2021, a requirement for TLS 1.2 has been implemented for new Synapse Workspaces only. Login attempts to the newly created Synapse workspace from connections using a TLS version lower than 1.2 will fail. 
 
-Customers can now raise or lower the workspace managed SQL server dedicated SQL minimal TLS version using API for both new Synapse workspaces or existing workspaces. Users previously using lower client version in the new workspace which enforces min1.2 can now lower the TLS version. And customers who have existing workspaces now can raise the minTLS version to meet their security needs. Learn more by reading [minTLS REST API](https://docs.microsoft.com/en-us/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update).
+Customers can now raise or lower the workspace managed SQL server dedicated SQL minimal TLS version using API for both new Synapse workspaces or existing workspaces. Users previously using lower client version in the new workspace which enforces min1.2 can now lower the TLS version. And customers who have existing workspaces now can raise the minTLS version to meet their security needs. Learn more by reading [minTLS REST API](./rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update.md).
 
 
 ## Next steps
