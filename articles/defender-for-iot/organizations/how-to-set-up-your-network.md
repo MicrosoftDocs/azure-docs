@@ -159,6 +159,15 @@ Open these ports to allow extra services for Defender for IoT.
 | LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAPS server |
 | Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Endpoint, Sensor | On-premises management console |
 
+## Choose a cloud connection method
+
+If you're setting up OT sensors and connecting them to the cloud, understand supported cloud connection methods, and make sure to connect your sensors as needed.
+
+For more information, see:
+
+- [OT sensor cloud connection methods](architecture-connections.md)
+- [Connect your OT sensors to the cloud](connect-sensors.md)
+
 ## Troubleshooting
 
 This section provides troubleshooting for common issues when preparing your network for a Defender for IoT deployment.

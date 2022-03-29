@@ -79,7 +79,6 @@ For more information, see the [Microsoft 365 Defender](/microsoft-365/security/d
 
 For more information, see:
 
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
 - [Microsoft Defender for IoT architecture](architecture.md)
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
-- [Alert types and descriptions](alert-engine-messages.md)

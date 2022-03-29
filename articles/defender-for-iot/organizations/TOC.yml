@@ -31,7 +31,7 @@
       href: concept-sentinel-integration.md
     - name: OT security system architecture
       items:
-      - name: OT sensor connection methods
+      - name: OT sensor cloud connection methods
         href: architecture-connections.md
       - name: OT system requirements
         href: how-to-identify-required-appliances.md
@@ -123,7 +123,7 @@
         href: how-to-deploy-certificates.md
       - name: Install OT system software
         href: how-to-install-software.md
-      - name: Connect OT sensors
+      - name: Connect OT sensors to the cloud
         items:
         - name: Connect OT sensors to Defender for IoT
           href: connect-sensors.md
