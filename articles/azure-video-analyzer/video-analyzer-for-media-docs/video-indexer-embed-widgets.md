@@ -21,7 +21,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animated characters, keywords, labels, sentiments, emotions, topics, keyframes, transcript, ocr, speakers, scenes, and namedEntities.|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animatedCharacters, keywords, labels, sentiments, emotions, topics, keyframes, transcript, ocr, speakers, scenes, and namedEntities.|
 |`controls`|Strings separated by comma|Allows you to control the controls that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renders only search option and download button.<br/>Available options: search, download, presets, language.|
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
