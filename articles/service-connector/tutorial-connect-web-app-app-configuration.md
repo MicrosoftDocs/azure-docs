@@ -254,8 +254,8 @@ Use the following steps or any other approach you're familiar with to build and 
     ### [SMI](#tab/smi)
 
     Deploy your Azure web app with SMI using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visualstudio-deploy).
-    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visual-studio-code-deploy).
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visual-studio-code-deploy).
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visualstudio-deploy).
     1. Azure CLI:
 
         ```azurecli
@@ -277,8 +277,8 @@ Use the following steps or any other approach you're familiar with to build and 
 
     Deploy your Azure web app with UMI using one of the following tools:
     Deploy your Azure web app with SMI using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visualstudio-deploy).
-    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visual-studio-code-deploy).
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visual-studio-code-deploy).
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visualstudio-deploy).
     1. Azure CLI:
 
         ```azurecli
@@ -300,8 +300,8 @@ Use the following steps or any other approach you're familiar with to build and 
 
     Deploy your Azure web app with a service principal using one of the following tools:
     Deploy your Azure web app with SMI using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visualstudio-deploy).
-    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visual-studio-code-deploy).
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visual-studio-code-deploy).
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visualstudio-deploy).
     1. Azure CLI:
 
         ```azurecli
@@ -323,8 +323,8 @@ Use the following steps or any other approach you're familiar with to build and 
 
     Deploy your Azure web app with a connection string using one of the following tools:
     Deploy your Azure web app with SMI using one of the following tools:
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visualstudio-deploy).
-    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel/visual-studio-code-deploy).
+    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details:[deploy using Visual Studio](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visual-studio-code-deploy).
+    1. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code](../app-service/tutorial-dotnetcore-sqldb-app.md#4---deploy-to-the-app-service#tabpanel_3_visualstudio-deploy).
     1. Azure CLI:
 
         ```azurecli
