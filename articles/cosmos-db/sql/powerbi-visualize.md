@@ -15,8 +15,7 @@ ms.author: rosouz
 This article describes the steps required to connect Azure Cosmos DB data to [Power BI](https://powerbi.microsoft.com/) Desktop. 
 
 You can connect to Azure Cosmos DB from Power BI desktop using below options: 
-1) Using [Azure Synapse Link](../synapse-link.md), you can build Power BI reports with no performance or cost impact to your transactional workloads, and no ETL     
-   pipelines.
+1) Using [Azure Synapse Link](../synapse-link.md), you can build Power BI reports with no performance or cost impact to your transactional workloads, and no ETL pipelines.
    
    You can either use [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) mode. With [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode), you can build dashboards/reports    using live data from your Azure Cosmos DB accounts, without importing or copying the data into Power BI.
 
