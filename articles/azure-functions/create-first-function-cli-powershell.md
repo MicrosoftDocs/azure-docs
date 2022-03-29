@@ -113,7 +113,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure PowerShell](#tab/azure-powershell)
 

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/04/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -18,7 +18,7 @@ You can securely connect to the Blob Storage endpoint of an Azure Storage accoun
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -113,7 +113,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name AllowSFTP
@@ -144,7 +144,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFT
 
 #### [Azure CLI](#tab/azure-cli)
 
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name AllowSFTP
@@ -365,4 +365,6 @@ See the documentation of your SFTP client for guidance about how to connect and 
 ## See also
 
 - [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
-- [Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

@@ -2,6 +2,8 @@
 title: Create custom security policies in Microsoft Defender for Cloud | Microsoft Docs
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 12/23/2021
 zone_pivot_groups: manage-asc-initiatives
 ---

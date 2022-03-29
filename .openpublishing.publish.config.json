@@ -34,7 +34,7 @@
   ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
-  "git_repository_branch_open_to_public_contributors": "master",
+  "git_repository_branch_open_to_public_contributors": "main",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {},
@@ -382,6 +382,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
@@ -408,12 +414,6 @@
     {
       "path_to_root": "media-services-v3-node-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "media-services-v3-python",
-      "url": "https://github.com/Azure-Samples/media-services-v3-python",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -528,7 +528,7 @@
     {
       "path_to_root": "azure-sdk-for-go-samples",
       "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -830,6 +830,30 @@
       "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-django-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-flask-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azuresignalr-samples",
+      "url": "https://github.com/aspnet/AzureSignalR-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-webpubsub",
+      "url": "https://github.com/Azure/azure-webpubsub",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -899,6 +923,7 @@
     "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
-    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json"
+    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
+    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json"
   ]
 }

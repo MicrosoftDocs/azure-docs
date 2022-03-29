@@ -84,8 +84,9 @@ To use the `Test-NetConnection` cmdlet, the Azure PowerShell module must be inst
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
-# This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
+# This command requires you to be logged into your Azure account and set the subscription your storage account is under, run:
+# Connect-AzAccount -SubscriptionId ‘xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx’
+# if you haven't already logged in.
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
 # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.

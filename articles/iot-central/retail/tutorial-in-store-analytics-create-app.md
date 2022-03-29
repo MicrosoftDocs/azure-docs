@@ -15,15 +15,15 @@ ms.date: 12/20/2021
 
 For many retailers, environmental conditions within their stores are a key differentiator from their competitors. Retailers want to maintain pleasant conditions within their stores for the benefit of their customers.  
 
-You can use the IoT Central _in-store analytics condition monitoring_ application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights to help the retailer reduce operating costs and create a great experience for their customers.
+You can use the IoT Central _in-store analytics checkout_ application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights to help the retailer reduce operating costs and create a great experience for their customers.
 
 Use the application template to:
 
-- Connect different kinds of IoT sensors to an IoT Central application instance.
-- Monitor and manage the health of the sensor network and any gateway devices in the environment.
-- Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
-- Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
-- Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
+1. Connect different kinds of IoT sensors to an IoT Central application instance.
+2. Monitor and manage the health of the sensor network and any gateway devices in the environment.
+3. Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
+4. Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
+5. Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
 
 The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard.
 

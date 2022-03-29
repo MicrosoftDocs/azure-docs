@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article contains known causes and solutions for various 429 status code errors for the SQL API. If you are using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](../mongodb/error-codes-solutions.md) article for how to debug status code 16500.
+This article contains known causes and solutions for various 429 status code errors for the SQL API. If you're using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](../mongodb/error-codes-solutions.md) article for how to debug status code 16500.
 
 A "Request rate too large" exception, also known as error code 429, indicates that your requests against Azure Cosmos DB are being rate limited.
 
@@ -27,21 +27,21 @@ Before taking an action to change the RU/s, it's important to understand the roo
 
 There are different error messages that correspond to different types of 429 exceptions:
 - [Request rate is large. More Request Units may be needed, so no changes were made.](#request-rate-is-large)
-- [The request did not complete due to a high rate of metadata requests.](#rate-limiting-on-metadata-requests)
-- [The request did not complete due to a transient service error.](#rate-limiting-due-to-transient-service-error)
+- [The request didn't complete due to a high rate of metadata requests.](#rate-limiting-on-metadata-requests)
+- [The request didn't complete due to a transient service error.](#rate-limiting-due-to-transient-service-error)
 
 
 ## Request rate is large
-This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you're using manual throughput, this occurs when you have consumed more RU/s than the manual throughput provisioned. If you're using autoscale, this occurs when you have consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you will see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you will see 429s when you consume more than 4000 request units in a single second.
+This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you're using manual throughput, this occurs when you've consumed more RU/s than the manual throughput provisioned. If you're using autoscale, this occurs when you've consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you will see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you will see 429s when you consume more than 4000 request units in a single second.
 
 ### Step 1: Check the metrics to determine the percentage of requests with 429 error
-Seeing 429 error messages doesn't necessarily mean there is a problem with your database or container. A small percentage of 429s is normal whether you are using manual or autoscale throughput, and is a sign that you are maximizing the RU/s you have provisioned.
+Seeing 429 error messages doesn't necessarily mean there is a problem with your database or container. A small percentage of 429s is normal whether you are using manual or autoscale throughput, and is a sign that you are maximizing the RU/s you've provisioned.
 
 #### How to investigate
 
 Determine what percent of your requests to your database or container resulted in 429s, compared to the overall count of successful requests. From your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container.
 
-By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to 9 times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application.
+By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to nine times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application.
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
@@ -50,22 +50,22 @@ In general, for a production workload, **if you see between 1-5% of requests wit
 
 If you're using autoscale, it's possible to see 429s on your database or container, even if the RU/s was not scaled to the maximum RU/s. See the section [Request rate is large with autoscale](#request-rate-is-large-with-autoscale) for an explanation.
 
-One common question that arises is, **"Why am I seeing 429s in the Azure Monitor metrics, but none in my own application monitoring?"** If Azure Monitor Metrics show you have 429s, but you have not seen any in your own application, this is because by default, the Cosmos client SDKs [`automatically retried internally on the 429s`](xref:Microsoft.Azure.Cosmos.CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests) and the request succeeded in subsequent retries. As a result, the 429 status code is not returned to the application. In these cases, the overall rate of 429s is typically very low and can be safely ignored, assuming the overall rate is between 1-5% and end to end latency is acceptable to your application.
+One common question that arises is, **"Why am I seeing 429s in the Azure Monitor metrics, but none in my own application monitoring?"** If Azure Monitor Metrics show you have 429s, but you've not seen any in your own application, this is because by default, the Cosmos client SDKs [`automatically retried internally on the 429s`](xref:Microsoft.Azure.Cosmos.CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests) and the request succeeded in subsequent retries. As a result, the 429 status code is not returned to the application. In these cases, the overall rate of 429s is typically very low and can be safely ignored, assuming the overall rate is between 1-5% and end to end latency is acceptable to your application.
 
-### Step 2: Determine if there is a hot partition
+### Step 2: Determine if there's a hot partition
 A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical (which implies physical) partitions that become "hot." Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput.
 
 Here are some examples of partitioning strategies that lead to hot partitions:
 - You have a container storing IoT device data for a write-heavy workload that is partitioned by `date`. All data for a single date will reside on the same logical and physical partition. Because all the data written each day has the same date, this would result in a hot partition every day.
-    - Instead, for this scenario, a partition key like `id` (either a GUID or device id), or a [synthetic partition key](./synthetic-partition-keys.md) combining `id` and `date` would yield a higher cardinality of values and better distribution of request volume.
-- You have a multi-tenant scenario with a container partitioned by `tenantId`. If one tenant is significantly more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by `tenantID`.
+    - Instead, for this scenario, a partition key like `id` (either a GUID or device ID), or a [synthetic partition key](./synthetic-partition-keys.md) combining `id` and `date` would yield a higher cardinality of values and better distribution of request volume.
+- You have a multi-tenant scenario with a container partitioned by `tenantId`. If one tenant is much more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by `tenantID`.
     - For this previous scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property such as `UserId`.
 
 #### How to identify the hot partition
 
 To verify if there's a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
 
-Each PartitionKeyRangeId maps to one physical partition. If there's one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
+Each PartitionKeyRangeId maps to one physical partition. If there's one PartitionKeyRangeId that has much higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
@@ -73,7 +73,7 @@ To see which logical partition keys are consuming the most RU/s,
 use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key.
 
 > [!IMPORTANT]
-> Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on the volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
+> Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on the volume of data ingested. It's recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
 
 # [Resource-specific](#tab/resource-specific)
 
@@ -156,7 +156,7 @@ For example, this sample output shows that each minute, 30% of Create Document r
 
 #### Recommended solution
 ##### Use the Azure Cosmos DB capacity planner
-You can leverage the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
+You can use the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
 
 ##### 429s on create, replace, or upsert document requests
 - By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
@@ -177,13 +177,13 @@ Yes. There are two main scenarios where this can occur.
 
 **Scenario 1**: When the overall consumed RU/s exceeds the max RU/s of the database or container, the service will throttle requests accordingly. This is analogous to exceeding the overall manual provisioned throughput of a database or container. 
 
-**Scenario 2**: If there is a hot partition, i.e. a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, choose a good partition key that results in an even distribution of both storage and throughput. This is similar to when there is a hot partition when using manual throughput.
+**Scenario 2**: If there is a hot partition, that is, a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, choose a good partition key that results in an even distribution of both storage and throughput. This is similar to when there is a hot partition when using manual throughput.
 
-For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
+For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, that is, exceeds 100% normalized utilization.
 
-Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
+Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-theres-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
 
-Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale did not scale to the max RU/s?**
+Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale didn't scale to the max RU/s?**
 
 This typically occurs for workloads that have temporary or intermittent spikes of usage. When you use autoscale, Azure Cosmos DB only scales the RU/s to the maximum throughput when the normalized RU consumption is 100% for a sustained, continuous period of time in a 5 second interval. This is done to ensure the scaling logic is cost friendly to the user, as it ensures that single, momentary spikes to not lead to unnecessary scaling and higher cost. When there are momentary spikes, the system typically scales up to a value higher than the previously scaled to RU/s, but lower than the max RU/s. Learn more about how to [interpret the normalized RU consumption metric with autoscale](../monitor-normalized-request-units.md#normalized-ru-consumption-and-autoscale).
 ## Rate limiting on metadata requests
