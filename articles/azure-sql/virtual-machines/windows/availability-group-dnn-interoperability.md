@@ -107,9 +107,9 @@ Configure the linked server using the AG DNN listener name and port. If the port
 ## Frequently asked questions
 
 
-- Which SQL Server version brings AG DNN listener support? 
+- Which SQL Server versions supports the DNN listener?
 
-   SQL Server 2019 CU8 and later.
+   SQL Server 2016 SP3, SQL Server 2017 CU25, SQL Server 2019 CU8 and later on Windows Server 2016 and later. 
 
 - What is the expected failover time when the DNN listener is used?
 
