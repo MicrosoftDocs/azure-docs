@@ -53,24 +53,23 @@ The following tables describe supported deployment options for your OT sensors a
 |---------|---------|---------|
 |E1800 (Enterprise)     |Up to 300         |Physical / Virtual         |
 
-## Hardware Compatibility List
+## Supported hardware
 
-Microsoft engineers have evaluated physical appliances in the certified appliances list and recommend them for deployments that require significant scale and support.
+The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
 
-We can't guarantee functionality of hardware components not certified by our lab.
+Microsoft can't guarantee functionality for hardware components that have not been validated.
 
-### Prerequisites
+### Required operating systems
 
-Due to our software being built on **Ubuntu 18.04**, all hardware components should be compatible with this OS.
+Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04. All hardware components must be compatible with Ubuntu version 18.04.
 
 ### Central Processing Unit (CPU)
 
-|  | |
+|Name  |Supported models and versions |
 |---------|---------|
 |C5600 (Corporate)     |-  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
 |E1800 (Enterprise)| - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>-Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>-Intel Xeon E-2144G 3.6GHz, 8M cache, 4C/8T, turbo (71W) with Intel C246|
 |L500 (Line) <br> L100 (Line)<br> L60 (Line)|-Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br>-Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 Processor
-         |
 
 ### Network Cards (Ethernet/SFP)
 
