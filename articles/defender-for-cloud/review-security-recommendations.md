@@ -20,7 +20,7 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-    :::image type="content" source="./media/review-security-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control." lightbox="./media/review-security-recommendations/view-recommendations.png":::
+    :::image type="content" source="./media/review-security-recommendations/list-recommendations.png" alt-text="Recommendations grouped by security control." lightbox="./media/review-security-recommendations/list-recommendations-expanded.png":::
 
     Here you will see the recommendations applicable to your environment(s). Recommendations are grouped into security controls.
 
