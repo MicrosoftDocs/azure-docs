@@ -18,7 +18,7 @@ This article shows how to set the scope for an extension resource type when depl
 
 ### Microsoft Learn
 
-If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](https://docs.microsoft.com/en-us/learn/modules/child-extension-bicep-templates/) on **Microsoft Learn**.
 
 ## Apply at deployment scope
 
