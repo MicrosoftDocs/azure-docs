@@ -54,26 +54,21 @@ Next, you create the cache for the app.
 
 ## Update the MVC application
 
-In this section, you update the application to support a new view that displays a simple test against Azure Cache for Redis.
+In this section, you can see an MVC application that presents a view that displays a simple test against Azure Cache for Redis.
 
-- [Update the web.config file with an app setting for the cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
-- Configure the application to use the StackExchange.Redis client
-- Update the HomeController and Layout
-- Add a new RedisCache view
+### How the web.config file connects to the cache
 
-### Update the web.config file with an app setting for the cache
-
-When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Cache for Redis instance. Later, you deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file.
+When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Cache for Redis instance. Later, you can deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file.
 
 Because the file *CacheSecrets.config* isn't deployed to Azure with your application, you only use it while testing the application locally. Keep this information as secure as possible to prevent malicious access to your cache data.
 
 #### To update the *web.config* file
 
-1. In **Solution Explorer**, double-click the *web.config* file to open it.
+1. In **Solution Explorer**, open the *web.config* file.
 
   :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
 
-1. In the *web.config* file, you see the `<appSetting>` element.
+1. In the *web.config* file, you can how to set the `<appSetting>` element for running the application locally.
 
     `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
@@ -123,7 +118,9 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 <!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs "::: -->
 
-### Layout views in the sample
+## Layout views in the sample
+
+The home page layout for this sample is stored in the *_Layout.cshtml* file.
 
 1. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
@@ -133,9 +130,13 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
     @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
 
-## To add a new RedisCache view
+    :::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
 
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
+### Viewing data in the cache
+
+From the home page, you select **Azure Cache for Redis Test** to see the demo of setting and getting information from your cache.
+
+1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. 
 
 1. You should see this code in the *RedisCache.cshtml* file.
 
@@ -238,9 +239,7 @@ After the new app has been published, add a new app setting. This setting is use
 
 1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.
 
-1. Select **Azure Cache for Redis Test** on the navigation bar to test cache access.
-
-:::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-azure.png" alt-text="Simple test completed Azure":::
+1. Select **Azure Cache for Redis Test** on the navigation bar to test cache access as you did with the local version.
 
 ## Clean up resources
 
@@ -255,7 +254,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
 
-2. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
+1. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
 
     :::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
 
@@ -264,5 +263,6 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps
+
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)
