@@ -28,6 +28,7 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
