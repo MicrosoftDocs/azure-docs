@@ -13,7 +13,8 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-> [!NOTE] **NV-series and NV_promo Azure virtual machines will be retired by August 31st, 2022.**
+> [!NOTE]  
+> **NV-series and NV_promo Azure virtual machines will be retired by August 31st, 2022.**
 > 
 > As Azure NVsv3 and NVv4 virtual machines have right sized VMs from entry level Virtual Desktop Infrastructure (VDI) with GPU partitioned sizes to medium and high end VDI with better CPU/memory ratio, larger and faster local solid-state drives (SSDs), support for premium and ultra SSDs, and better cost/performance across a broad variety of visualization workloads, **we’re retiring our NV-series Azure Virtual Machine sizes on 31 August 2022**.
 > 
