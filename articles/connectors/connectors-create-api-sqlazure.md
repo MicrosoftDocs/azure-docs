@@ -26,14 +26,6 @@ If you're new to Azure Logic Apps, review the following documentation:
 * [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 * [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## Connector technical reference
-
-For technical information about the managed SQL Server connector, such as available trigger and action operations, limits, and known issues, review the [SQL Server connector reference page](/connectors/sql/). This connector is available for both Consumption logic app workflows in multi-tenant Azure Logic Apps 
-
-In 
-For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](/connectors/sql/), which is generated from the Swagger description.
-
-
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -70,13 +62,23 @@ For technical information about this connector's triggers, actions, and limits, 
 
     In single-tenant Azure Logic Apps, you can use the built-in SQL Server connector, which requires a connection string. If you want to use the managed SQL Server connector, you need follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
 
+## Connector technical reference
+
+For the managed SQL Server connector technical information, such as trigger and action operations, limits, and known issues, review the [SQL Server connector's reference page](/connectors/sql/), which is generated from the Swagger description. This connector is available for logic app workflows in multi-tenant Azure Logic Apps, ISEs, and single-tenant Azure Logic Apps.
+
+> [!NOTE]
+>
+> In an ISE, this connector is also available in an ISE version that's designed to run in an ISE. 
+> In single-tenant Azure Logic Apps, this connector is also available as a built-in version that's 
+> designed to run in the same process as the single-tenant Azure Logic Apps runtime.
+
 <a name="create-connection"></a>
 
 ## Connect to your database
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-Now, continue with these steps:
+After you provide this information, continue with these steps:
 
 * [Connect to cloud-based Azure SQL Database or Managed Instance](#connect-azure-sql-db)
 * [Connect to on-premises SQL Server](#connect-sql-server)
