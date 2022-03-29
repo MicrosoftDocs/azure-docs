@@ -40,7 +40,7 @@ A resource's `properties` object has the following properties:
 | `daprAIInstrumentationKey` | The Application Insights instrumentation key used by Dapr. | string | No |
 | `appLogsConfiguration` | The environment's logging configuration. | Object | No |
 
-### Examples
+### <a name="container-apps-environment-examples"></a>Examples
 
 # [ARM template](#tab/arm-template)
 
@@ -160,7 +160,7 @@ A resource's `properties.template` object has the following properties:
 
 Changes made to the `template` section are [revision-scope changes](revisions.md#revision-scope-changes), which triggers a new revision.
 
-### Examples
+### <a name="container-app-examples"></a>Examples
 
 # [ARM template](#tab/arm-template)
 
