@@ -10,26 +10,18 @@ ms.date: 03/29/2022
 
 # Dapr integration with Azure Container Apps (preview)
 
-When building a microservices or distributed application with Container Apps, you may encounter the following common patterns and challenges: 
+When building a microservices or distributed application with Container Apps, you may encounter common patterns and challenges, like how you: 
 
-- How do I integrate with external systems to which my application needs to react and respond?
-- How do I create event-driven applications that reliably send events between services?
-- How do I handle secure communication between services?
-- How do I discover other services and call methods on them?
-- How do I handle connection failures and build resiliency into my application?
-- How do I write an application that runs in multiple environments without code changes?
+- Integrate external systems with my application.
+- Create applications that reliably send events between services.
+- Handle secure communication between services.
+- Discover other services and call methods on them.
+- Manage connection failures and build resiliency into my application.
+- Write an application that runs in multiple environments without code changes.
 
-Distributed Application Runtime ([Dapr][dapr-concepts]) is an incrementally adoptable HTTP or gRPC APIs that you can selectively plug into your Container App. Dapr exposes these APIs to your microservices or distributed Container App as a sidecar, addressing the above common challenges by providing:
+For example, you way want to implement service-to-service invocation or pub/sub messaging APIs to allow secure intercommunication in your distributed application, without modifying your application code.  
 
-- Building blocks built on best practice industry standards.
-- Consistent, portable APIs that seamlessly fit with your preferred language or framework.
-- Extensible and pluggable components that you can add to or remove from your Container App based on your needs.
-- Platform-agnostic performance.
-- Maintained open-source, community-driven updates, releases, and communications.
-
-For example, you can implement Dapr's service-to-service invocation or pub/sub messaging APIs to allow secure intercommunication in your distributed application, without modifying your application code.  
-
-Thanks to Dapr, you don't have to be an expert in implementing resource-specific SDKs or libraries into your Container App. Dapr abstracts away those complexities and performs the heavy lifting for you, while adhering to industry best practices.
+Thanks to Distributed Application Runtime ([Dapr][dapr-concepts]), you don't have to be an expert in implementing resource-specific SDKs or libraries into your Container App. You can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
 ### Current supported Dapr version
 
@@ -41,6 +33,12 @@ Version upgrades are handled transparently by the Container Apps platform. You c
 
 ## How Dapr works in Container Apps
 
+Dapr is an incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container App. Dapr exposes these APIs, or building blocks, to your microservices or distributed Container App as a sidecar, addressing common challenges by providing:
+
+- Building blocks built on best practice industry standards.
+- Portable, platform-agnostic APIs that seamlessly fit with your preferred language or framework.
+- Extensible and pluggable components that you can add to or remove from your Container App based on your needs.
+- Maintained open-source, community-driven updates, releases, and communications.
 
 ### Dapr building blocks available to Container Apps
 
@@ -61,7 +59,7 @@ Version upgrades are handled transparently by the Container Apps platform. You c
 | ------------ | ---------------------------------------- |
 | [Component](#dapr-components) | Pluggable modules that: <ul><li>Allow you to use the individual Dapr building block APIs</li><li>Can be easily swapped out at the environment level of your container app.</li></ul> |
 | [Scopes](#dapr-scopes) | Application limitations added to a component. |
-| [`app-id`](#app-id) | Unique identifier. |
+| [`appId`](#app-id) | Unique identifier. |
 | [Configurations](#dapr-configuration) | A YAML file, bicep, or ARM template declaring Dapr sidecars or the Dapr control plane settings. |
 
 #### Dapr components
@@ -88,7 +86,8 @@ By default, the Dapr component will make itself available to all container apps 
 
 Scope the Dapr component to a particular container app by adding the `scope` array to your component definition. 
 
-#### Dapr `app-id` setting
+#### Dapr `appId` setting
+
 
 
 #### Dapr configuration
