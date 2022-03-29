@@ -104,6 +104,8 @@
         href: groups-dynamic-membership.md
       - name: Validate a membership rule
         href: groups-dynamic-rule-validation.md
+      - name: Create more efficient rules
+        href: groups-dynamic-rule-more-efficient.md
       - name: Change group membership type  
         href: groups-change-type.md
     - name: Bulk add members
