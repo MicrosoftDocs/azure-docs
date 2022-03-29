@@ -121,13 +121,13 @@ items:
       items:
         - name: Supported versions
           href: supported-versions-postgres-hyperscale.md
-        - name: Create Postgres Hyperscale server group (CLI)
+        - name: Create PostgreSQL Hyperscale server group (CLI)
           href: create-postgresql-hyperscale-server-group.md
-        - name: Create Postgres Hyperscale server group (portal)
+        - name: Create PostgreSQL Hyperscale server group (portal)
           href: create-postgresql-hyperscale-server-group-azure-portal.md
-        - name: Create Postgres Hyperscale server group (Azure Data Studio)
+        - name: Create PostgreSQL Hyperscale server group (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
-        - name: Create Postgres Hyperscale server group - Kubernetes native tools
+        - name: Create PostgreSQL Hyperscale server group - Kubernetes native tools
           href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
