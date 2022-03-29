@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.topic: article
-ms.date: 03/15/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18
 
@@ -13,7 +13,7 @@ ms.custom: seodec18
 # How To Create an ILB ASEv1 Using Azure Resource Manager Templates
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. App Service Environment v1 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
 >
 
 ## Overview
@@ -34,7 +34,7 @@ Most of the parameters in the *azuredeploy.parameters.json* file are common to c
     * *3* means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.
     * *2* means only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
     * *0* means all traffic is bound to the public VIP making the ASE external.
-* *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
+* *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.NET*. However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
 * *ipSslAddressCount*:  This parameter is automatically defaulted to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE, and so the IP-SSL address pool for an ILB ASE must be set to zero, otherwise a provisioning error will occur. 
 
 Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, the ILB ASE can then be created using the following PowerShell code snippet.  Change the file paths to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.

@@ -3,14 +3,14 @@ title: Create an external ASE
 description: Learn how to create an App Service environment with an app in it, or create a standalone (empty) ASE.
 author: madsd
 ms.topic: article
-ms.date: 03/15/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ---
 
 # Create an External App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. App Service Environment v2 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
 >
 
 Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE):
@@ -71,7 +71,7 @@ To create an ASE while you create an App Service plan:
 
     ![Pricing tier selection][3]
 
-8. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
+8. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.NET*. If you create an app named _mytestapp_, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.NET. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
 
     ![New App Service plan name][4]
 
@@ -81,7 +81,7 @@ To create an ASE while you create an App Service plan:
 
     b. Enter a new subnet name.
 
-    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 256 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
+    c. Select the size of the subnet. _Remember to select a size large enough to accommodate future growth of your ASE._ We recommend `/24`, which has 256 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
 
     d. Select the subnet IP range.
 
@@ -107,7 +107,7 @@ To create an ASE while you create an App Service plan:
 
     ![Pricing tier selection][3]
 
-1. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is *appsvcenvdemo*, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
+1. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.NET*. If you create an app named _mytestapp_, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.NET. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
 
     ![New App Service plan name][4]
 
@@ -117,7 +117,7 @@ To create an ASE while you create an App Service plan:
 
     b. Enter a new subnet name.
 
-    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 128 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
+    c. Select the size of the subnet. _Remember to select a size large enough to accommodate future growth of your ASE._ We recommend `/24`, which has 128 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
 
     d. Select the subnet IP range.
 
@@ -135,13 +135,13 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
 1. Search the Azure Marketplace for **App Service Environment**, or select **Create a resource** > **Web Mobile** > **App Service Environment**. 
 
-1. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is *mynewdemoase*, the subdomain name is *.mynewdemoase.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.mynewdemoase.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
+1. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is _mynewdemoase_, the subdomain name is *.mynewdemoase.p.azurewebsites.NET*. If you create an app named _mytestapp_, it's addressable at mytestapp.mynewdemoase.p.azurewebsites.NET. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
 
     ![ASE naming][5]
 
 1. Select your subscription. This subscription is also the one that all apps in the ASE use. You can't put your ASE in a VNet that's in another subscription.
 
-1. Select or specify a new resource group. The resource group used for your ASE must be the same one that's used for your VNet. If you select an existing VNet, the resource group selection for your ASE is updated to reflect that of your VNet. *You can create an ASE with a resource group that is different from the VNet resource group if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service environment from a template][MakeASEfromTemplate].
+1. Select or specify a new resource group. The resource group used for your ASE must be the same one that's used for your VNet. If you select an existing VNet, the resource group selection for your ASE is updated to reflect that of your VNet. _You can create an ASE with a resource group that is different from the VNet resource group if you use a Resource Manager template._ To create an ASE from a template, see [Create an App Service environment from a template][MakeASEfromTemplate].
 
     ![Resource group selection][6]
 
@@ -155,7 +155,7 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
     
       * If you select **Internal** for the **VIP Type**, you must specify the domain that your ASE uses. You can deploy an ASE into a VNet that uses public or private address ranges. To use a VNet with a public address range, you need to create the VNet ahead of time. 
     
-    * If you select an existing VNet, a new subnet is created when the ASE is created. *You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
+    * If you select an existing VNet, a new subnet is created when the ASE is created. _You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template._ To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
 
 ## App Service Environment v1
 

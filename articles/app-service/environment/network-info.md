@@ -3,13 +3,13 @@ title: Networking considerations
 description: Learn about App Service Environment network traffic, and how to set network security groups and user-defined routes.
 author: madsd
 ms.topic: article
-ms.date: 03/15/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ---
 # Networking considerations for App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. App Service Environment v2 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
 >
 
 [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network. There are two deployment types for an App Service Environment:
@@ -123,7 +123,7 @@ In addition to the dependencies described in the previous sections, there are a 
 
 When you use an internal load balancer, the SCM site isn't accessible from outside the virtual network. Some capabilities don't work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly, instead of by using the portal. 
 
-If your internal load balancer is the domain name `contoso.appserviceenvironment.net`, and your app name is *testapp*, the app is reached at `testapp.contoso.appserviceenvironment.net`. The SCM site that goes with it is reached at `testapp.scm.contoso.appserviceenvironment.net`.
+If your internal load balancer is the domain name `contoso.appserviceenvironment.net`, and your app name is _testapp_, the app is reached at `testapp.contoso.appserviceenvironment.net`. The SCM site that goes with it is reached at `testapp.scm.contoso.appserviceenvironment.net`.
 
 ## IP addresses
 
@@ -149,7 +149,7 @@ When an app has its own IP-based SSL address, the App Service Environment reserv
 
 ## Network security groups
 
-[NSGs][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit *deny rule* at the lowest priority to deny everything. What you build are your *allow rules*.
+[NSGs][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit _deny rule_ at the lowest priority to deny everything. What you build are your _allow rules_.
 
 You don't have access to the VMs used to host the App Service Environment itself. They're in a subscription that Microsoft manages. If you want to restrict access to the apps, set NSGs on the subnet. In doing so, pay careful attention to the dependencies. If you block any dependencies, the App Service Environment stops working.
 
@@ -189,7 +189,7 @@ When the inbound and outbound requirements are taken into account, the NSGs shou
 
 A default rule enables the IPs in the virtual network to talk to the subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the App Service Environment. To see the default rules, select **Default rules** (next to the **Add** icon).
 
-If you put a *deny everything else* rule before the default rules, you prevent traffic between the VIP and the App Service Environment. To prevent traffic coming from inside the virtual network, add your own rule to allow inbound. Use a source equal to `AzureLoadBalancer`, with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the subnet, you don't need to be specific in the destination.
+If you put a _deny everything else_ rule before the default rules, you prevent traffic between the VIP and the App Service Environment. To prevent traffic coming from inside the virtual network, add your own rule to allow inbound. Use a source equal to `AzureLoadBalancer`, with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the subnet, you don't need to be specific in the destination.
 
 If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
@@ -204,7 +204,7 @@ After your NSGs are defined, assign them to the subnet. If you don't remember th
 
 ## Routes
 
-*Forced tunneling* is when you set routes in your virtual network so the outbound traffic doesn't go directly to the internet. Instead, the traffic goes somewhere else, like an Azure ExpressRoute gateway or a virtual appliance. If you need to configure your App Service Environment in such a manner, see [Configuring your App Service Environment with forced tunneling][forcedtunnel].
+_Forced tunneling_ is when you set routes in your virtual network so the outbound traffic doesn't go directly to the internet. Instead, the traffic goes somewhere else, like an Azure ExpressRoute gateway or a virtual appliance. If you need to configure your App Service Environment in such a manner, see [Configuring your App Service Environment with forced tunneling][forcedtunnel].
 
 When you create an App Service Environment in the portal, you automatically create a set of route tables on the subnet. Those routes simply say to send outbound traffic directly to the internet.  
 

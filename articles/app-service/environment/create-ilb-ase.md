@@ -4,7 +4,7 @@ description: Learn how to create an App Service environment with an internal loa
 author: madsd
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: mvc, seodec18, mode-other
 ---
@@ -12,7 +12,7 @@ ms.custom: mvc, seodec18, mode-other
 # Create and use an Internal Load Balancer App Service Environment 
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. App Service Environment v2 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
 >
 
 The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
@@ -24,7 +24,7 @@ This article shows you how to create an ILB ASE. For an overview on the ASE, see
 
 ## Overview 
 
-You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appserviceenvironment.net. Apps that are made in an ILB ASE are not put in the public DNS. 
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appserviceenvironment.NET. Apps that are made in an ILB ASE are not put in the public DNS. 
 
 Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. The domain suffix is no longer collected at ILB ASE creation and a default certificate is also no longer collected. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and set certificates on those custom domain names. 
 
@@ -95,7 +95,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 ### Web jobs, Functions and the ILB ASE 
 
-Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network. If your ILB ASE has a domain name that does not end in *appserviceenvironment.net*, you will need to get your browser to trust the HTTPS certificate being used by your scm site.
+Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network. If your ILB ASE has a domain name that does not end in *appserviceenvironment.NET*, you will need to get your browser to trust the HTTPS certificate being used by your scm site.
 
 ## DNS configuration 
 
@@ -103,22 +103,22 @@ When you use an External ASE, apps made in your ASE are registered with Azure DN
 
 To configure DNS in your own DNS server with your ILB ASE:
 
-1. create a zone for &lt;ASE name&gt;.appserviceenvironment.net
+1. create a zone for &lt;ASE name&gt;.appserviceenvironment.NET
 2. create an A record in that zone that points * to the ILB IP address
 3. create an A record in that zone that points @ to the ILB IP address
-4. create a zone in &lt;ASE name&gt;.appserviceenvironment.net named scm
+4. create a zone in &lt;ASE name&gt;.appserviceenvironment.NET named scm
 5. create an A record in the scm zone that points * to the ILB IP address
 
 To configure DNS in Azure DNS Private zones:
 
-1. create an Azure DNS private zone named &lt;ASE name&gt;.appserviceenvironment.net
+1. create an Azure DNS private zone named &lt;ASE name&gt;.appserviceenvironment.NET
 2. create an A record in that zone that points * to the ILB IP address
 3. create an A record in that zone that points @ to the ILB IP address
 4. create an A record in that zone that points *.scm to the ILB IP address
 
-The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named contoso.net, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net.
+The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named contoso.NET, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.NET.
 
-The zone named .&lt;asename&gt;.appserviceenvironment.net is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use .contoso.com for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named .&lt;asename&gt;.appserviceenvironment.NET is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use .contoso.com for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
 
 ## Publish with an ILB ASE
 
@@ -129,7 +129,7 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE. 
 If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
-The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.net*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.net* for FTP and *mytest.scm.contoso.net* for MSDeploy deployment.
+The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.NET*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.NET* for FTP and *mytest.scm.contoso.NET* for MSDeploy deployment.
 
 ## Configure an ILB ASE with a WAF device ##
 
