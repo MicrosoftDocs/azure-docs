@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to estimate and ana
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/24/2022
+ms.date: 03/28/2022
 ---
 # Azure Monitor cost and usage
 This **article** describes the different ways that Azure Monitor charges for usage, how to evaluate charges on your Azure bill, and how to estimate charges to monitor your entire environment.
@@ -84,22 +84,8 @@ Most Application Insights usage for both classic and workspace-based resources i
 
 To separate costs from your Log Analytics or Application Insights usage, [create a filter](../cost-management-billing/costs/group-filter.md)  on **Resource type**. To see all Application Insights costs, filter **Resource type** to **microsoft.insights/components**. For Log Analytics costs, filter **Resource type** to **microsoft.operationalinsights/workspaces**. 
 
-
-### Download usage
-More details about your usage are available if you [download your usage from the Azure portal](../cost-management-billing/understand/download-azure-daily-usage.md). In the downloaded Excel spreadsheet, you can see usage per Azure resource per day. You can analyze usage from your Application Insights resources by filtering on the **Meter Category** column to show **Application Insights** and **Log Analytics**. Then add a **contains microsoft.insights/components** filter on the **Instance ID** column. 
-
 ## Usage and estimated costs
-
-Another option for viewing your Azure Monitor usage is the **Usage and estimated costs** page from the **Monitor** menu in the Azure portal. This page shows the usage of core monitoring features such as alerting, metrics, notifications, Log Analytics, and Application Insights. For customers on the pricing plans available before April 2018, this page also includes Log Analytics usage purchased through the Insights and Analytics offer.
-
-You can view your resource usage for the past 31 days on this page, aggregated per subscription. Drill-ins show usage trends over the 31-day period. The following example shows monitoring usage and an estimate of the resulting costs:
-
-:::image type="content" source="media/usage-estimated-costs/001.png" lightbox="media/usage-estimated-costs/001.png" alt-text="Screenshot of the Azure portal that shows usage and estimated costs":::
-
-Select the link in the **MONTHLY USAGE** column to open a chart that shows usage trends over the last 31-day period: 
-
-:::image type="content" source="media/usage-estimated-costs/002.png" lightbox="media/usage-estimated-costs/002.png" alt-text="Screenshot that shows a bar chart for included data volume per node":::
-
+You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
 ### Log Analytics workspace
 To learn about your usage trends and choose the most cost-effective [commitment tier](logs/cost-logs.md#commitment-tiers) for your Log Analytics workspace, select **Usage and Estimated Costs** from the **Log Analytics workspace** menu in the Azure portal. 
 
@@ -125,7 +111,7 @@ This view includes the following:
 A. Estimated monthly charges based on usage from the past month.<br>
 B. Billable data ingestion by table from the past month.
 
-To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type".
+To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named *Data point volume*, and then select the *Apply splitting* option to split the data by "Telemetry item type".
 
 
 ## Viewing data allocation benefits

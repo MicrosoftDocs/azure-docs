@@ -3,7 +3,7 @@ title: Set daily cap on Log Analytics workspace
 description: Set a 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/24/2022
+ms.date: 03/28/2022
 ---
  
 # Set daily cap on Log Analytics workspace
@@ -22,9 +22,9 @@ Data collection resumes at the reset time which is a different hour of the day f
 > The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. See [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 
 ## Application Insights
-You shouldn't create a separate daily cap for any workspace-based Application Insights resources since the daily cap for a workspace includes this data. You do need to create a separate daily cap for any classic Application Insights resources since their data doesn't reside in a Log Analytics workspace. 
+You shouldn't create a daily cap for workspace-based Application Insights resources but instead create a daily cap for their workspace. You do need to create a separate daily cap for any classic Application Insights resources since their data doesn't reside in a Log Analytics workspace. 
 
-> {!TIP]
+> [!TIP]
 > If you're concerned about the amount of billable data collected by Application Insights, you should configure [sampling](../app/sampling.md) to tune its data volume to the level you want. Use the daily cap as a safety method in case your application unexpectedly begins to send much higher volumes of telemetry.
 
 The maximum cap for an Application Insights classic resource is 1,000 GB/day unless you request a higher maximum for a high-traffic application. When you create a resource in the Azure portal, the daily cap is set to 100 GB/day. When you create a resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
@@ -129,7 +129,7 @@ To create an alert when the daily cap is reached, create an [Activity log alert 
 
 
 ## View the effect of the daily cap
-The following query can be used to track the data volumes that are subject to the daily cap between daily cap resets. This accounts for the security data types that aren't included in the daily cap. In this example, the workspace's reset hour is 14:00. Change this value this for your workspace.
+The following query can be used to track the data volumes that are subject to the daily cap for a Log Analytics workspace between daily cap resets. This accounts for the security data types that aren't included in the daily cap. In this example, the workspace's reset hour is 14:00. Change this value this for your workspace.
 
 ```kusto
 let DailyCapResetHour=14;

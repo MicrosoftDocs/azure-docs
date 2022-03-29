@@ -17,13 +17,16 @@ This article provides guidance on reducing your cloud monitoring costs by implem
 
 
 ## Configure
+You can start using Azure Monitor with a single Log Analytics workspace using default options. As your monitoring environment grows, you will need to make decisions about whether to combine multiple services in a single workspace or create multiple workspaces, and you want to evaluate configuration options that allow you to reduce your monitoring costs.
 
 ### Configure pricing tier or dedicated cluster
-By default, your workspace will use Pay-As-You-Go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by configuring a commitment tier. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for you  environment.
+By default, your workspace will use Pay-As-You-Go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by configuring a commitment tier. [Dedicated clusters](logs/logs-dedicated-clusters.md) provide additional functionality and cost savings if you ingest at least 500 GB per day, collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach the 500 GB.
 
-[Dedicated clusters](logs/logs-dedicated-clusters.md) provide additional functionality and cost savings if you ingest at least 500 GB per day, collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach the 500 GB.
+See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for you  environment.
 
 ### Determine most cost effective workspace configuration
+
+
 There can be cost implications when you combine different services such as operational data from Azure Monitor and security data from Azure Sentinel and Microsoft Defender for Cloud. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for a description of these implications and guidance on determining your most cost effective configuration.
 
 ### Configure Basic Logs for low value tables (preview)

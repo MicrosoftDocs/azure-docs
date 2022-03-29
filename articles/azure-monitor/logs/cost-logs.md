@@ -9,11 +9,18 @@ ms.date: 03/24/2022
 # Azure Monitor Logs pricing details
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor do not have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
+## Pricing model
+The default pricing for Log Analytics is a Pay-As-You-Go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors:
+
+- The set of management solutions enabled and their configuration
+- The number and type of monitored resources
+- Type of data collected from each monitored resource
+
 ## Data size calculation
 Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 ### Excluded columns
-The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. The [_IsBillable](log-standard-columns.md#_isbillable) column indicates whether a record was excluded from billing for data ingestion. 
+The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
 
 - `_ResourceId`
 - `_SubscriptionId`
@@ -24,7 +31,7 @@ The following [standard columns](log-standard-columns.md) that are common to all
 
 
 ### Excluded tables
-The following tables are free from data ingestion charges altogether.
+The following tables are free from data ingestion charges altogether. You can always refer to the [_IsBillable](log-standard-columns.md#_isbillable) column, which indicates whether a record was excluded from billing for data ingestion. 
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
 - [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat)
@@ -115,9 +122,9 @@ Subscriptions that contained a Log Analytics workspace or Application Insights r
 - Per Node (OMS)
 
 ### Free Trial pricing tier
-Workspaces in the **Free Trial** pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)), and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.  Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Workspaces in the **Free Trial** pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Microsoft Defender for Cloud](../../security-center/index.yml)), and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.  Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days. Creating new workspaces in (or moving existing workspaces into) the Free Trial pricing tier is possible until July 1, 2022.
 
-### Standalong pricing tier
+### Standalone pricing tier
 Usage on the **Standalone** pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
 ### Per Node pricing tier
