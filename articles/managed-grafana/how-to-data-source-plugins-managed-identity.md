@@ -1,6 +1,6 @@
 ---
-title: How to configure data source plugins for Azure Managed Grafana Preview with Managed Identity
-description: In this how-to guide, discover how you can configure data source plugins for Azure Managed Grafana using Managed Identity.
+title: How to configure data sources for Azure Managed Grafana Preview with Managed Identity
+description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana using Managed Identity.
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to configure data source plugins for Azure Managed Grafana Preview with Managed Identity
+# How to configure data sources for Azure Managed Grafana Preview with Managed Identity
 
 ## Prerequisites
 
@@ -20,24 +20,42 @@ ms.date: 3/31/2022
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Supported data source plugins
+## Supported data sources
 
-Azure Managed Grafana Preview supports the main data source plugins requested by Azure customers. The Enterprise version of Managed Grafana also supports all data sources available in Grafana Enterprise.
+Azure Managed Grafana Preview supports many data sources that are important to Azure customers. Azure-specific data sources are:
 
-Azure specific data source plugins supported:
+- [Azure Data Explorer](https://github.com/grafana/azure-data-explorer-datasource?utm_source=grafana_add_ds)
+- [Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/)
 
-- Azure Monitor
-- Azure Data Explorer
+Other data sources include:
 
-You can find the all available Grafana data source plugins by going to your workspace endpoint and selecting this page from the left menu: **Configuration** > **Data sources** > **Add a data source**. Search for the data source you need from the available list. Fore more information about data source plugins, go to [Data sources](https://grafana.com/grafana/plugins/) on the Grafana Labs website.
+- [Alertmanager](https://grafana.com/docs/grafana/latest/datasources/alertmanager/)
+- [CloudWatch](https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/)
+- Direct Input
+- [Elasticsearch](https://grafana.com/docs/grafana/latest/datasources/elasticsearch/)
+- [Google Cloud Monitoring](https://grafana.com/docs/grafana/latest/datasources/google-cloud-monitoring/)
+- [Graphite](https://grafana.com/docs/grafana/latest/datasources/graphite/)
+- [InfluxDB](https://grafana.com/docs/grafana/latest/datasources/influxdb/)
+- [Jaeger](https://grafana.com/docs/grafana/latest/datasources/jaeger/)
+- [Loki](https://grafana.com/docs/grafana/latest/datasources/loki/)
+- [Microsoft SQL Server](https://grafana.com/docs/grafana/latest/datasources/mssql/)
+- [MySQL](https://grafana.com/docs/grafana/latest/datasources/mysql/)
+- [OpenTSDB](https://grafana.com/docs/grafana/latest/datasources/opentsdb/)
+- [PostgreSQL](https://grafana.com/docs/grafana/latest/datasources/postgres/)
+- [Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
+- [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)
+- [TestData DB](https://grafana.com/docs/grafana/latest/datasources/testdata/)
+- [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)
+
+You can find the all available Grafana data sources by going to your workspace endpoint and selecting this page from the left menu: **Configuration** > **Data sources** > **Add a data source**. Search for the data source you need from the available list. Fore more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
-## Default data source plugins in Azure Grafana workspace
+## Default data sources in Azure Grafana workspace
 
-The Azure Monitor plugin is automatically added to all new Managed Grafana resources. To finalize its configuration, follow these steps in your workspace endpoint:
+The Azure Monitor data source is automatically added to all new Managed Grafana resources. To finalize its configuration, follow these steps in your workspace endpoint:
 
-1. From the left menu, select **Configuration** > **Data Sources**.
+1. From the left menu, select **Configuration** > **Data sources**.
 
    :::image type="content" source="media/managed-grafana-how-to-source-configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
