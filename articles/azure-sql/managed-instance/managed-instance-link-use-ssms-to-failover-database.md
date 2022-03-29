@@ -81,7 +81,7 @@ In the following steps, you use the **Failover database to Managed Instance** wi
 
 During the failover process, the link is dropped and no longer exists. The source SQL Server database and the target SQL Managed Instance database can both execute a read/write workload. They're completely independent. 
 
-You can validate that the link bas been dropped by reviewing the database on SQL Server. 
+You can validate that the link has been dropped by reviewing the database on SQL Server. 
 
 :::image type="content" source="./media/managed-instance-link-use-ssms-to-failover-database/link-failover-ssms-sql-server-database.png" alt-text="Screenshot that shows a database on SQL Server in S S M S.":::
 
