@@ -8,12 +8,6 @@ ms.custom: devx-track-azurecli
 
 # Azure CLI samples for Event Grid
 
-The following table includes links to Azure CLI samples for Event Grid.
+The following sample script creates an Event Grid subscription to the events for a custom topic.
 
-## Event Grid subscriptions
-
-- [Subscribe to custom topic](scripts/event-grid-cli-subscribe-custom-topic.md) -  Subscribes to events for a custom topic.
-
-## Event Grid topics
-
-- [Create custom topic](scripts/event-grid-cli-create-custom-topic.md) - Creates an Event Grid custom topic, and returns the endpoint and key.
+- [Subscribe to custom topic](scripts/event-grid-cli-subscribe-custom-topic.md) -  Creates an Event Grid custom topic, returns the endpoint and key, and then subscribes to events for a custom topic.
