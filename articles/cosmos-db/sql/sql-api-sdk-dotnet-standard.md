@@ -37,6 +37,7 @@ ms.custom: devx-track-dotnet
 
 | | Links |
 |---|---|
+|**Release notes**|[Release notes](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
 |**Samples**|[.NET code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
