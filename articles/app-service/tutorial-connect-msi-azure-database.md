@@ -42,7 +42,7 @@ Prepare your environment for the Azure CLI.
 
 ## 1. Grant database access to Azure AD user
 
-First, enable Azure Active Directory authentication to the Azure database by assigning an Azure AD user as the admin of the server. For the scenario in the tutorial, you will use this admin user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
+First, enable Azure Active Directory authentication to the Azure database by assigning an Azure AD user as the admin of the server. For the scenario in the tutorial, you'll use this admin user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
 
 > [!NOTE]
 > This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
@@ -199,7 +199,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     FLUSH PRIVILEGES;
     ```
 
-    Whatever name you choose for *\<mysql-user-name>*, it's the MySQL user you will use to connect to the database from your code in App Service.
+    Whatever name you choose for *\<mysql-user-name>*, it's the MySQL user you'll use to connect to the database from your code in App Service.
 
     # [User-assigned identity](#tab/userassigned/mysql)
 
@@ -210,7 +210,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     FLUSH PRIVILEGES;
     ```
 
-    Whatever name you choose for *\<mysql-user-name>*, it's the MySQL user you will use to connect to the database from your code in App Service.
+    Whatever name you choose for *\<mysql-user-name>*, it's the MySQL user you'll use to connect to the database from your code in App Service.
 
     # [System-assigned identity](#tab/systemassigned/postgresql)
 
@@ -219,7 +219,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     CREATE ROLE '<postgres-user-name>' WITH LOGIN PASSWORD '<application-id-of-system-assigned-identity>' IN ROLE azure_ad_user';
     ```
     
-    Whatever name you choose for *\<postgres-user-name>*, it's the MySQL user you will use to connect to the database from your code in App Service.
+    Whatever name you choose for *\<postgres-user-name>*, it's the MySQL user you'll use to connect to the database from your code in App Service.
 
     # [User-assigned identity](#tab/userassigned/postgresql)
 
@@ -228,7 +228,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     CREATE ROLE '<postgres-user-name>' WITH LOGIN PASSWORD '<application-id-of-system-assigned-identity>' IN ROLE azure_ad_user';
     ```
 
-    Whatever name you choose for *\<postgres-user-name>*, it's the MySQL user you will use to connect to the database from your code in App Service.
+    Whatever name you choose for *\<postgres-user-name>*, it's the MySQL user you'll use to connect to the database from your code in App Service.
 
     -----
 
@@ -414,6 +414,8 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
     var connection = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
 
     connection.Open();
+
+    ```
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -883,7 +885,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, a specially-craf
 
 ## 4. Set up your dev environment
 
- This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Azure Active Directory and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already very versatile by default. It gets a token from the signed-in Azure AD user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
+ This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Azure Active Directory and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Azure AD user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
 
 In this step, you configure your development environment by signing in with the Azure AD user you want `DefaultAzureCredential` to use.
 
@@ -947,11 +949,11 @@ You're now ready to develop and debug your app with the SQL Database as the back
 
 #### Does managed identity support SQL Server?
 
-Azure Active Directory and managed identities are not supported for on-premises SQL Server. 
+Azure Active Directory and managed identities aren't supported for on-premises SQL Server. 
 
 #### I made changes to App Service authentication or the associated app registration. Why do I still get the old token?
 
-The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you modify the configuration *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires. The best way to work around this is to test your changes with a new InPrivate (Edge)/private (Safari)/Incognito (Chrome) window. That way, you're sure to start from a new authenticated session.
+The back-end services of managed identities also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you modify the configuration *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires. The best way to work around this is to test your changes with a new InPrivate (Edge)/private (Safari)/Incognito (Chrome) window. That way, you're sure to start from a new authenticated session.
 
 
 #### How do I add the managed identity to an Azure AD group?
