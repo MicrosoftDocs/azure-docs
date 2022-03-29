@@ -214,8 +214,6 @@ Once your Azure Blob Storage account is created, the following values are needed
 
 Dapr creates a container with this name when it doesn't already exist in your Azure Storage account.
 
----
-
 ::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) template
