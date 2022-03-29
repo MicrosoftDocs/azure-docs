@@ -46,10 +46,10 @@ To apply published labels to groups, you must first enable the feature. These st
     ```
 
     > [!NOTE]
-    > If no group settings have been created for this Azure AD organization you will get empty screen. In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.  
+    > If no group settings have been created for this Azure AD organization, you will get an empty screen. In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.  
     
     > [!NOTE]
-    > If the sensitivity label has been enable previously, you will see **EnableMIPLabels** =  **True**. In this case, you do not need to do anything.
+    > If the sensitivity label has been enabled previously, you will see **EnableMIPLabels** =  **True**. In this case, you do not need to do anything.
 
 1. Enable the feature:
 
