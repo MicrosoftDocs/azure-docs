@@ -4,7 +4,7 @@ description: Description of Microsoft Defender for Cloud's secure score and its 
 author: Elazark
 ms.author: elkrieger
 ms.topic: article
-ms.date: 03/28/2022
+ms.date: 03/29/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
@@ -55,13 +55,13 @@ You can group this section by environment by selecting the Group by Environment 
 
 The contribution of each security control towards the overall secure score is shown on the recommendations page.
 
-:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls.png":::
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls-expanded.png":::
 
 To get all the possible points for a security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
 ### Example scores for a control
 
-:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Apply system updates security control." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Apply system updates security control." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control-expanded.png":::
 
 In this example:
 
