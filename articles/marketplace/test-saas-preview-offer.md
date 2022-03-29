@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 02/01/2022
+ms.date: 03/29/2022
 ---
 
 # Preview and subscribe to a SaaS offer in the commercial marketplace

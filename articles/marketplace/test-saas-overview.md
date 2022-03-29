@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya 
 ms.author: trkeya
-ms.date: 03/25/2022
+ms.date: 03/29/2022
 ---
 
 # Test a SaaS plan overview

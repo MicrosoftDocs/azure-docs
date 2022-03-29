@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 03/29/2022
 ---
 
 # Plan a test and development SaaS offer
@@ -134,10 +134,6 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 
 > [!IMPORTANT]
 >  To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.
-
-#### Free trial
-
-Don’t enable a free trial for the DEV offer.
 
 ### Co-sell with Microsoft page
 
