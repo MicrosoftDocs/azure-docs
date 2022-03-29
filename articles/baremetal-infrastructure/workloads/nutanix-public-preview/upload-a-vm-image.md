@@ -8,41 +8,28 @@ ms.date: 03/31/2021
 
 # Upload a VM image
 
-Note: Ensure that you add the tags fastpathenabled: True while creating the VNets, and not 
-after the VNets are created.
-1. Sign into the Azure portal with your Azure account created for Private Preview and then 
-navigate to Subscriptions.
-2. Open the resource group that you have created.
-3. Click +Add.
-4. In the New page, in the search box, enter Virtual Network. Select Virtual Network in the 
-search results.
-5. In the Virtual Network page, click Create.
-6. In Create virtual network, enter, or select the following information in the Basics tab:
-a. Project details: Select your subscription and the resource group.
-b. Instance details: add a name for the VNet and select (US) East US from the 
-Region list.
-7. Click Next: IP Addresses at the bottom of the page.
-8. In the IPv4 address space, select the IPv4 address space, and then click + Add 
-subnet.
-9. In the Add subnet page, add a name for the subnet (such as Host-Subnet) and enter 
-the subnet address range. Click Add.
-21
-10. Click Next: Security and Next: Tags at the bottom of the page.
-11. Add the tag fastpathenabled and set its value as True.
-12. Click Create in the Review + create page.
-13. When the deployment is complete, click Go to resource. You will be redirected to the 
-VNet that is created.
-14. Click Subnets. In the Subnets page, click the name of the Host-Subnet.
-15. Under SUBNET DELEGATION, select Microsoft.BareMetal/AzureHostedService from 
-the Delegate subnet to a service list.
-16. Click Save.
-Note: Add a custom DNS to the VNet. You can use any of the following DNS servers:
-• On-prem DNS server
-Note: You need to create a Cluster VNet and set up VPN or ExpressRoute 
-connectivity to the on-prem DNS server.
-• Public DNS server, such as 1.1.1.1 or 8.8.8.8
-• Azure DNS server deployed from Microsoft Marketplace
-• Nutanix provisioned DNS server with the IP address 20.106.145.8
+To upload a VM image in the Prism Central, perform the following: 
+1. Log on to the Prism Element web console. 
+1. Launch Prism Central. 
+1. Click the gear icon in the main menu and select Compute & Storage > Images. 
+1. On the Images page, click Add Image. 
+1. On the Add Images page, select the Image Source: 
+    - Image File - upload an image from a workstation 
+    - URL - upload an image from a remote server  
+    - VM Disk - upload an image from a VM disk 
+1. After you have added all the image files you want, click Next. The Select Location page appears.
+1. In Placement Method, do one of the following: 
+    - To manually select the target clusters, click Place image directly on clusters, and then do one of the following in the Cluster Details section:
+        1. If you want to upload the images to all registered clusters, make sure to select All clusters, and then click Save. 
+        1. If you want to upload to only a subset of the registered clusters, clear All clusters, select the clusters you want from the list, and then click Save. 
+    - To delegate image placement decisions to configured policies and assign categories to the images, click Place image using Image Placement policies, and then do the following in the Categories section: 
+        1. Click inside the Categories search box and select the category you want from the list. You can also start typing the name of the category to reduce the list to matching names. 
+        1. To specify another category, click the add icon beside the search box.
+        Repeat this step to add as many categories as you need.  
+
+Prism Central uploads the image files in batches and takes some time to enforce the image placement policies. 
+
+
 
 ## Next steps
 
