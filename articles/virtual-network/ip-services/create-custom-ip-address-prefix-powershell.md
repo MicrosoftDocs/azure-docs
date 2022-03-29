@@ -129,7 +129,7 @@ $rg =@{
     Name = 'myResourceGroup'
     Location = 'WestUS2'
 }
-New-AzResourceGroup $rg
+New-AzResourceGroup @rg
 
 ```
 
@@ -147,7 +147,7 @@ $prefix =@{
     AuthorizationMessage = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd'
     SignedMessage = $byoipauthsigned
 }
-$myCustomIpPrefix = New-AzCustomIPPrefix $prefix
+$myCustomIpPrefix = New-AzCustomIPPrefix @prefix
 ```
 
 The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
