@@ -37,7 +37,7 @@ The admin can follow these steps to request a limit increase:
 1. One the **Details** page, enter the following information in the **Description** page.
     - VM size. For size details, see [VM sizing](administrator-guide.md#vm-sizing).
     - Number of VMs.
-    - Location.  Location will be a [geography](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) or region, if using the [January 2022 Update (preview)](lab-services-whats-new.md).
+    - Location.  Location will be a [geography](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) or region, if using the [April 2022 Update (preview)](lab-services-whats-new.md).
 1. Under **Advanced diagnostic information**, select **No**.
 1. Under **Support method** section, select your preferred contact method. Verify contact information is correct.
 1. Select **Next: Review + create**
@@ -51,7 +51,7 @@ Some rare subscription types that are more commonly used for fraud can have a de
 
 ## Per-customer assigned capacity
 
-Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers.  With the [January 2022 Update (preview)](lab-services-whats-new.md), VM capacity is dedicated to each customer.  Previous to this update, VM capacity was available from a large pool shared by customers.
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers.  With the [April 2022 Update (preview)](lab-services-whats-new.md), VM capacity is dedicated to each customer.  Previous to this update, VM capacity was available from a large pool shared by customers.
 
 Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and location. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.
 

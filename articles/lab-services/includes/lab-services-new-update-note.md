@@ -6,4 +6,4 @@ ms.topic: include
 ---
 
 > [!NOTE]
-> For greater performance gains, we recommend that you use the [January 2022 Update (preview)](../lab-services-whats-new.md).
+> For greater performance gains, we recommend that you use the [April 2022 Update (preview)](../lab-services-whats-new.md).

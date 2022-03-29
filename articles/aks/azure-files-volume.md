@@ -111,7 +111,7 @@ You now have a running pod with an Azure Files share mounted at */mnt/azure*. Yo
 
 ## Mount file share as a persistent volume
  - Mount options
-> The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.15 and above.
+> The default value for *fileMode* and *dirMode* is *0777*.
 
 ```yaml
 apiVersion: v1
@@ -156,6 +156,7 @@ spec:
   accessModes:
     - ReadWriteMany
   storageClassName: ""
+  volumeName: azurefile
   resources:
     requests:
       storage: 5Gi
@@ -194,10 +195,6 @@ kubectl delete pod mypod
 
 kubectl apply -f azure-files-pod.yaml
 ```
-
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 

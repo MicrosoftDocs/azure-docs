@@ -13,7 +13,7 @@ This article provides information about connecting a [lab plan](tutorial-setup-l
 
 Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, etc.
 
-In the Azure Lab Services [January 2022 Update (preview)](lab-services-whats-new.md), customers may take control of the network for the labs using virtual network (VNet) injection. You can now tell us which virtual network to use, and we’ll inject the necessary resources into your network.  VNet injection replaces the [peering to your virtual network](how-to-connect-peer-virtual-network.md), as was done in previous versions.
+In the Azure Lab Services [April 2022 Update (preview)](lab-services-whats-new.md), customers may take control of the network for the labs using virtual network (VNet) injection. You can now tell us which virtual network to use, and we’ll inject the necessary resources into your network.  VNet injection replaces the [peering to your virtual network](how-to-connect-peer-virtual-network.md), as was done in previous versions.
 
 With VNet injection, you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
 

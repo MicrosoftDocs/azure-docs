@@ -6,4 +6,4 @@ ms.topic: include
 ---
 
 > [!NOTE]
-> This article references features available since the January 2022 service update, in which [lab plans](../how-to-manage-lab-plans.md) (preview) replaced lab accounts. For more information, see [What's New in the January 2022 Update (preview)](../lab-services-whats-new.md).
+> This article references features available since the April 2022 Update (preview), in which [lab plans](../how-to-manage-lab-plans.md) replaced lab accounts. For more information, see [What's New in the April 2022 Update (preview)](../lab-services-whats-new.md).

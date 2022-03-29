@@ -7,8 +7,7 @@ ms.date: 10/20/2020
 
 # Azure Lab Services - Administrator guide (deprecated)
 
-> [!NOTE]
-> Use the January 2022 Update to see the new experience. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab account for their school. After they've set up a lab account, administrators or educators create the labs that are contained within the account. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
