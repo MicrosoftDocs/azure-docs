@@ -1,6 +1,166 @@
 {
   "redirections": [
     {
+      "source_path": "articles/germany/germany-developer-guide.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-cli.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-portal.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-ps.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-vs.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-howto-deploy-webandmobile.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-howto-deploy-webandmobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-image-gallery.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-image-gallery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-manage-subscriptions.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-manage-subscriptions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-analytics.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-compute.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-databases.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-identity.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-integration.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-iot.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-main.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-main",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-management-tools.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-management-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-media.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-networking.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-security.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-storage.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-web.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-web",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-overview-data-trustee.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-overview-data-trustee",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-compute.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-database.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-iot.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-networking.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-securityandidentity.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-securityandidentity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-storage.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-webandmobile.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-webandmobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-welcome.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-welcome",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/confidential-ledger/register-ledger-service-principal.md",
+      "redirect_url": "/azure/confidential-ledger/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
       "redirect_document_id": false
@@ -689,17 +849,17 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rule-set-actions.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rules-set.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rules-set.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-caching.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-caching.md",
       "redirect_url": "/azure/frontdoor/front-door-caching",
       "redirect_document_id": false
     },
@@ -709,10 +869,60 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-backend-pool.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-origin.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-private-link.md",
+      "redirect_url": "/azure/frontdoor/private-link",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-end-to-end-tls.md",
+      "redirect_url": "/azure/frontdoor/end-to-end-tls",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-routing-methods.md",
+      "redirect_url": "/azure/frontdoor/routing-methods",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-health-probes.md",
+      "redirect_url": "/azure/frontdoor/health-probes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-portal.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
       "redirect_url": "/azure/frontdoor/front-door-url-redirect",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/index.yml",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-lb-with-azure-app-delivery-suite.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/load-balancing-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/overview.md",
+      "redirect_url": "/azure/frontdoor/front-door-overview",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
@@ -2919,6 +3129,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/application-gateway/create-web-app.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/configure-web-app-portal.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/application-gateway-web-app-overview.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-insights/app-insights-developer-analytics.md",
       "redirect_url": "/azure/application-insights/",
       "redirect_document_id": false
@@ -3016,6 +3241,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
       "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-vsts-continuous.md",
+      "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
       "redirect_document_id": false
     },
     {
@@ -6319,28 +6549,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/cache-keys-ports.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/redis-cache/scripts/cache-keys-ports.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/cache-keys-ports",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-premium-cache-cluster.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-premium-cache-cluster.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/delete-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/delete-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
@@ -10246,6 +10501,11 @@
     {
       "source_path_from_root": "/articles/azure-preview-portal-supported-browsers-devices.md",
       "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/original-preferences.md",
+      "redirect_url": "/azure/azure-portal/set-preferences",
       "redirect_document_id": true
     },
     {
@@ -14991,11 +15251,6 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-qradar.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-qradar",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-devops-starter.md",
-      "redirect_url": "/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic/",
       "redirect_document_id": false
     },
     {
@@ -28286,6 +28541,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link.md",
       "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-tutorial-geo-filtering.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -43755,7 +44015,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
       "redirect_document_id": false
     },
     {

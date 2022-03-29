@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 03/22/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -19,7 +19,7 @@ The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome
 
 For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
 
-### Is IPv6 supported?
+### <a name="ipv6"></a>Is IPv6 supported?
 
 At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means that you can only assign an IPv4 public IP address to your Bastion resource, and that you can use your Bastion to connect to IPv4 target VMs. You can also use your Bastion to connect to dual-stack target VMs, but you'll only be able to send and receive IPv4 traffic via Azure Bastion.
 
@@ -27,16 +27,17 @@ At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means
 
 Azure Bastion doesn't move or store customer data out of the region it's deployed in.
 
-### Can I use Azure Bastion with Azure Private DNS Zones?
+### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
 Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
 
 * blob.core.windows.net
-* vault.azure.com
 * core.windows.net
+* vaultcore.windows.net
+* vault.azure.com
 * azure.com
 
-You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net) as long as it is not one of the recommended DNS zone names for an Azure service listed [here](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
+You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net).
 
 The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
 
@@ -95,7 +96,11 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
-No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
+No. You can access your virtual machine from the Azure portal using your browser. For available connections and methods, see [About VM connections and features](vm-about.md).
+
+### <a name="native-client"></a>Can I connect to my VM using a native client?
+
+Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](connect-native-client-windows.md).
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
@@ -104,6 +109,10 @@ No. You don't need to install an agent or any software on your browser or your A
 ### <a name="rdpfeaturesupport"></a>What features are supported for VM sessions?
 
 See [About VM connections and features](vm-about.md) for supported features.
+
+### <a name="audio"></a>Is remote audio available for VMs?
+
+Yes. See [About VM connections and features](vm-about.md#audio).
 
 ### <a name="file-transfer"></a>Does Azure Bastion support file transfer?
 
@@ -139,7 +148,7 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 
 To establish the correct key mappings for your target language, you must set either the keyboard layout on your local computer to English (United States) or the keyboard layout inside the target VM to English (United States). That is, the keyboard layout on your local computer must be set to English (United States) while the keyboard layout on your target VM is set to your target language, or vice versa. 
 
-To set English (United States) as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Lanugage & Region. Under "Preferred languages," select "Add a language" and add English (United States). You will then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
+To set English (United States) as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add English (United States). You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
