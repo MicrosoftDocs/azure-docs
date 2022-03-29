@@ -187,7 +187,45 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 1. Connect to the sensor, and verify that mirroring works.
 
+<<<<<<< HEAD
 ## Verify cloud connections
+=======
+# [Hyper-V hypervisor](#tab/hyper-v)
+
+**Prerequisites**:
+
+- Ensure that there is no instance of a virtual appliance running.
+
+- Enable Ensure SPAN on the data port, and not the management port.
+
+- Ensure that the data port SPAN configuration is not configured with an IP address.
+
+**To configure a SPAN port with Hyper-V**:
+
+1. Open the Virtual Switch Manager.
+
+1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
+
+    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Screenshot of selecting new virtual network and external before creating the virtual switch.":::
+
+1. Select **Create Virtual Switch**.
+
+1. Under connection type, select **External Network**.
+
+1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
+
+   :::image type="content" source="media/tutorial-onboarding/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
+
+1. Select **OK**.
+
+### Attach a SPAN virtual interface to the virtual switch
+
+Use PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch.
+
+**To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
+
+The examples in this procedure use the following parameter definitions. Replace their values with the correct values for your system.
+>>>>>>> a7a6138733bdf18dcc087098eef9b323a6dcd7ab
 
 This tutorial describes how to create a cloud-connected sensor, connecting directly to the Defender for IoT on the cloud.
 
