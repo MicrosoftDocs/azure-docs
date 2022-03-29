@@ -45,7 +45,7 @@ A lab creator can create a template VM based on both generalized and specialized
 
     :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-create-new.png" alt-text="Screenshot of the Create Azure compute gallery button.":::
 
-1. In the **Create Azure compute gallery** window, enter a **name** for the gallery and then, select **Create**.
+1. In the **Create Azure compute gallery** window, enter a **name** for the gallery, and then select **Create**.
 
     :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/create-azure-compute-gallery-window.png" alt-text="Screenshot of the Create compute gallery window.":::
 
