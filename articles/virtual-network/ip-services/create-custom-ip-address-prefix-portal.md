@@ -170,17 +170,24 @@ When you create a prefix, you must create static IP addresses from the prefix. I
 
 4. In **Overview** of **myCustomIPPrefix**, select **+ Add a public IP prefix**.
 
-5. Enter **myPublicIPPrefix** in **Name**.
- 
-6. Ensure the **Subscription** and **Region** match the region of the **myCustomIPPrefix**.
+5. Enter or select the following information in the **Basics** tab of **Create a public IP prefix**.
 
-7. Ensure for **Prefix ownership** that **Custom IP Prefix** is selected, and that in the **Custom IP Prefix** menu that **myCustomIPPrefix** is selected.
- 
-8. Use the **Prefix size** menu to specify the desired size of the prefix. The size can be as large as the custom IP prefix.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |   |
+    | Name | Enter **myPublicIPPrefix**. |
+    | Region | Select **West US 2**. The region of the public IP prefix must match the region of the custom IP prefix. |
+    | IP version | Select **IPv4**. |
+    | Prefix ownership | Select **Custom prefix**. |
+    | Custom IP prefix | Select **myCustomIPPrefix**. |
+    | Prefix size | Select a prefix size. The size can be as large as the custom IP prefix. |
 
-9. Select **Review + create**, and then **Create** on the following page.
+6. Select **Review + create**, and then **Create** on the following page.
 
-10. Repeat steps 1-3 to return to the **Overview** page for **myCustomIPPrefix**. You should see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix. For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
+10. Repeat steps 1-5 to return to the **Overview** page for **myCustomIPPrefix**. You'll see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix. For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
 ## Commission the custom IP address prefix
 
