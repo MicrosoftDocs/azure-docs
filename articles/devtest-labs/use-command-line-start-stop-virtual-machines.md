@@ -11,7 +11,7 @@ ms.devlang: azurecli
 
 This article shows how to start or stop Azure DevTest Labs virtual machines (VMs) by using Azure PowerShell or Azure CLI command lines and scripts.
 
-You can start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs by using the Azure portal. You can also use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.md) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
+You can start, stop, or [restart DevTest Labs VMs](devtest-lab-restart-vm.md) by using the Azure portal. You can also use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.md) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
 
 When you want to script or automate start or stop for lab VMs, use PowerShell or Azure CLI commands. For example, you can use start or stop commands to:
 
@@ -42,7 +42,7 @@ The following PowerShell script starts or stops a VM in a lab by using [Invoke-A
     # Set-AzContext -SubscriptionId "<Subscription ID>"
     ```
 
-1. Provide values for the `<lab name>` and `<VM name>`, and enter which action you want for `<Start or Stop>`.
+1. Provide values for the *`<lab name>`* and *`<VM name>`*, and enter which action you want for *`<Start or Stop>`*.
 
     ```powershell
     $devTestLabName = "<lab name>"
@@ -76,7 +76,7 @@ The following PowerShell script starts or stops a VM in a lab by using [Invoke-A
 
 The following script provides [Azure CLI](/cli/azure/get-started-with-azure-cli) commands for starting or stopping a lab VM. The variables in this script are for a Windows environment. Bash or other environments have slight variations.
 
-1. Provide appropriate values for `<Subscription ID>`, `<lab name>`, `<VM name>`, and the `<Start or Stop>` action to take.
+1. Provide appropriate values for *`<Subscription ID>`*, *`<lab name>`*, *`<VM name>`*, and the *`<Start or Stop>`* action to take.
 
    ```azurecli
    set SUBSCIPTIONID=<Subscription ID>
@@ -99,7 +99,7 @@ The following script provides [Azure CLI](/cli/azure/get-started-with-azure-cli)
    az resource list --resource-type "Microsoft.DevTestLab/labs" --name %DEVTESTLABNAME% --query "[0].resourceGroup"
    ```
 
-1. Replace `<resourceGroup>` with the value you got from the previous step.
+1. Replace *`<resourceGroup>`* with the value you got from the previous step.
 
    ```azurecli
    set RESOURCEGROUP=<resourceGroup>
