@@ -62,7 +62,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Pricing
 
-* There's no charge to provision or utilize custom IP prefixes. There's no charge for all public IP prefixes and public IP addresses that are derived from custom IP prefixes
+* There's no charge to provision or use custom IP prefixes. There's no charge for all public IP prefixes and public IP addresses that are derived from custom IP prefixes
 
 * All traffic destined to a custom IP prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers traffic to a custom IP prefix address from within Azure are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure public IP from the same region
 
