@@ -33,7 +33,7 @@ When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissio
 > [!NOTE]
 > A public IP prefix can be derived from a custom IP prefix in another subscription with the appropriate permissions.
 
-:::image type="content" source="./media/manage-custom-ip-address-prefix/custom-public-ip-prefix.png" alt-text="Illustration of custom IP prefix showing derived public IP prefixes across multiple subscriptions." border="false":::
+:::image type="content" source="./media/manage-custom-ip-address-prefix/custom-public-ip-prefix.png" alt-text="Diagram of custom IP prefix showing derived public IP prefixes across multiple subscriptions.":::
 
 Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix.
 
