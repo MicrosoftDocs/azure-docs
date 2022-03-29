@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # OT system hardware and virtual appliance requirements
 
-## Identify required OT appliances – Revision March 2022
+## This article lists the hardware and virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles. You can use either physical or virtual appliances as needed for your organization.
 
 Applies to OT Hardware Requirements for the installation of Defender for IoT sensors and on-premises management appliances. The Defender for IoT appliances may either be physical or virtual, based on the user's preference.
 
