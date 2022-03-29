@@ -6,13 +6,13 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 03/31/2022
 ms.author: allensu
 
 ---
 # Create a custom IP address prefix using the Azure portal
 
-Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
+A custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
 The steps in this article detail the process to:
 
@@ -34,7 +34,7 @@ The steps in this article detail the process to:
 
 ## Pre-provisioning steps
 
-In order to utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range.
+To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range.
 
 ### Requirements and prefix readiness
 
@@ -56,11 +56,12 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
 
 ### Certificate readiness
 
-In order to authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
+To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
 
 The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
 
-Execute the following commands in PowerShell with OpenSSL installed.  
+> [!NOTE]
+> Execute the following commands in PowerShell with OpenSSL installed.  
 
     
 1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
@@ -72,7 +73,7 @@ Execute the following commands in PowerShell with OpenSSL installed.
     Set-Content -Path byoippublickey.cer (./openssl req -new -x509 -key byoipprivate.key -days 180) -NoNewline
     ```
    
-2. After the certificate is created, update the public comments section of the Whois/RDAP record for the prefix. In order to display for copying, including the BEGIN/END header/footer with dashes, use the command `cat byoippublickey.cer` You should be able to perform this procedure via your Routing Internet Registry.  
+2. After the certificate is created, update the public comments section of the Whois/RDAP record for the prefix. To display for copying, including the BEGIN/END header/footer with dashes, use the command `cat byoippublickey.cer` You should be able to perform this procedure via your Routing Internet Registry.  
 
     Instructions for each registry are below:
   
@@ -159,7 +160,7 @@ The range will be pushed to the Azure IP Deployment Pipeline. The deployment pro
 
 ## Create a public IP prefix from custom IP prefix
 
-Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
+When you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
 
 1. In the search box at the top of the portal, enter **Custom IP**.
 
@@ -183,7 +184,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 ## Commission the custom IP address prefix
 
-Once the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
+When the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
 
 1. In the search box at the top of the portal, enter **Custom IP**.
 
@@ -203,6 +204,10 @@ The operation is asynchronous. You can check the status by reviewing the **Commi
 
 ## Next steps
 
-- Learn how to further [manage custom IP address prefixes](manage-custom-ip-address-prefix.md).
+- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md)
 
-- Learn about scenarios and benefits of using a [custom IP address prefix](custom-ip-address-prefix.md) to bring your IP address ranges to Azure.
+- For more information on managing a custom IP prefix, see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md)
+
+- To create a custom IP address prefix using the Azure CLI, see [Create custom IP address prefix using the Azure CLI](create-custom-ip-address-prefix-cli.md)
+
+- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md)
