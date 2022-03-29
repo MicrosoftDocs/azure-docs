@@ -2636,7 +2636,7 @@ Azure service: [Azure Maps](../azure-maps/index.yml)
 
 ### Microsoft.Media
 
-Azure service: [Media Services](../media-services/index.yml)
+Azure service: [Media Services](/media-services/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
