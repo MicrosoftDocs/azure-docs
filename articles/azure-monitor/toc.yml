@@ -410,6 +410,8 @@ items:
       href: essentials/platform-logs-overview.md
     - name: Activity log
       href: essentials/activity-log.md
+    - name: Activity log insights
+      href: essentials/activity-log-insights.md
     - name: Resource logs
       href: essentials/resource-logs.md
     - name: Diagnostic settings
