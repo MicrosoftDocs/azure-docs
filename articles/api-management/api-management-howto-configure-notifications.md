@@ -31,9 +31,9 @@ If you don't have an API Management service instance, complete the following qui
 
     -   **Subscription requests (requiring approval)** - The specified email recipients and users will receive email notifications about subscription requests for products requiring approval.
     -   **New subscriptions** - The specified email recipients and users will receive email notifications about new product subscriptions.
-    -   **Application gallery requests** - (Deprecated) The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery on the legacy developer portal.
+    -   **Application gallery requests** (deprecated) - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery on the legacy developer portal.
     -   **BCC** - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.
-    -   **New issue or comment** - (Deprecated) The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the legacy developer portal.
+    -   **New issue or comment** (deprecated) - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the legacy developer portal.
     -   **Close account message** - The specified email recipients and users will receive email notifications when an account is closed.
     -   **Approaching subscription quota limit** - The specified email recipients and users will receive email notifications when subscription usage gets close to usage quota.
 
@@ -51,15 +51,15 @@ If you don't have an API Management service instance, complete the following qui
 
 API Management provides notification templates for the administrative email messages that are sent automatically to developers when they access and use the service. The following notification templates are provided:
 
--   (Deprecated) Application gallery submission approved
+-   Application gallery submission approved (deprecated) 
 -   Developer farewell letter
 -   Developer quota limit approaching notification
 -   Developer welcome letter
 -   Email change notification
 -   Invite user
--   (Deprecated) New comment added to an issue
+-   New comment added to an issue (deprecated) 
 -   New developer account confirmation
--   (Deprecated) New issue received
+-   New issue received (deprecated) 
 -   New subscription activated
 -   Password change confirmation
 -   Subscription request declined
