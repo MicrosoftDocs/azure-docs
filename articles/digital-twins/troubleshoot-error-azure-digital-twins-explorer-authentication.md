@@ -6,7 +6,7 @@ ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 03/28/2022
+ms.date: 03/29/2022
 ---
 
 # Troubleshoot Azure Digital Twins Explorer: Authentication errors
@@ -19,15 +19,11 @@ When running Azure Digital Twins Explorer, you encounter the following error mes
 
 :::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/permission-error.png" alt-text="Screenshot of an error message in the Azure Digital Twins Explorer, entitled Make sure you have the right permissions.":::
 
-If you are running the code locally, you might see this error message instead:
-
-:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/local-authentication-error.png" alt-text="Screenshot of an authentication failure error message in the Azure Digital Twins Explorer.":::
-
 ## Causes
 
 ### Cause #1
 
-You will see these errors if your Azure account doesn't have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the *Azure Digital Twins Data Reader* or *Azure Digital Twins Data Owner* role on the instance you are trying to read or manage, respectively. 
+This error will occur if your Azure account doesn't have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the *Azure Digital Twins Data Reader* or *Azure Digital Twins Data Owner* role on the instance you are trying to read or manage, respectively. 
 
 For more information about security and roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md).
 
