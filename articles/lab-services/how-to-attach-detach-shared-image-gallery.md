@@ -65,7 +65,7 @@ The following procedure shows you how to attach an existing compute gallery to a
 
     :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-attach-existing.png" alt-text="Screenshot of the Attach existing gallery button.":::
 
-1. On the **Attach an existing compute gallery** page, select your compute gallery and then, select the **Select** button.
+1. On the **Attach an existing compute gallery** page, select your compute gallery, and then select the **Select** button.
 
     :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attach-existing-compute-gallery.png" alt-text="Azure compute gallery page for lab plan when gallery has been attached.":::
 
@@ -98,7 +98,7 @@ Only one Azure Compute Gallery can be attached to a lab. To attach another compu
 
 1. Select **Change gallery** on the toolbar.
 1. Confirm the change operation.
-1. On the **Attach an existing compute gallery** page, select your compute gallery. And then, select the **Select** button.
+1. On the **Attach an existing compute gallery** page, select your compute gallery, and then select the **Select** button.
 
 :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-detach.png" alt-text="Detach the compute gallery from the lab plan":::
 

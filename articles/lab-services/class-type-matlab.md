@@ -29,7 +29,7 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 Before creating the lab plan, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software. These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys. You'll also need to save the license file and file installation key for later. For detailed instructions on how to download a license file, see the first step in the [install Network License Manager with internet connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html) article.
 
-For more detailed instructions on how to install a licensing server, see [install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html). To enable borrowing, see the [Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html) article.
+For detailed instructions on how to install a licensing server, see [Install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html). To enable borrowing, see[Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html) article.
 
 Assuming the license server is located in an on-premise network or a private network within Azure, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./tutorial-setup-lab-plan.md).
 
@@ -65,9 +65,9 @@ Installing MATLAB will be a multi-part process:
 
 ### Download installation files
 
-You must be a license administrator to download the installation files, get the license file, and the file installation key. Steps to download the installation files are below:
+You must be a license administrator to get the installation files, license file, and the file installation key. Steps to download the installation files are below:
 
-1. Log into your MathWorks account at https://www.mathworks.com.
+1. Sign into your MathWorks account at https://www.mathworks.com.
 1. Choose **My Account**.
 1. Under the **My Software** section of the account page, select the license attached to the Network License Manager setup for the lab.
 1. On the license detail page, select **Download Products**.
@@ -80,38 +80,38 @@ You must be a license administrator to download the installation files, get the 
 1. Select **Windows** as the computer platform to install MATLAB.
 1. On the **Select product** page, ensure that MATLAB is selected along with any other MathWorks products you want to install.
 1. On the **Confirm Selections and Download** page, select **Begin Download**.  
-1. Wait for the selected products to download and then, select **Finish**.
+1. Wait for the selected products to download, and then select **Finish**.
 
 You can also download an ISO image from the MathWorks website.
 
-1. Log into your MathWorks account at https://www.mathworks.com.
+1. Sign into your MathWorks account at https://www.mathworks.com.
 1. Go to [https://www.mathworks.com/downloads](https://www.mathworks.com/downloads).
 1. Select the MATLAB release you want to install.
-1. Select the “Get {version}.iso image” link present below the Related links where {version} is R2022a.
+1. Select the “Get {version}.iso image” link present below the Related links. For example, here the {version} is R2022a.
 1. Select the blue **Download Release** link for Windows.
 
 ### Run installer
 
 Once the files are downloaded, the second step is to run the installer. Once again, you must be a license administrator to complete this step. Only the license administrators can install MATLAB with a file installation key.
 
-1. Check the downloaded license file and verify that the SERVER line lists the license server correctly. For more information on how to format the license file, see [update network license](https://www.mathworks.com/help/install/ug/network-license-files.html), [license borrowing](https://www.mathworks.com/help/install/license/borrow-licenses.html), and [find host ID](https://www.mathworks.com/matlabcentral/answers/101892-what-is-a-host-id-how-do-i-find-my-host-id-in-order-to-activate-my-license) articles.
+1. Check the downloaded license file and verify that the SERVER line lists the license server correctly. For more information on how to format the license file, see [update network license](https://www.mathworks.com/help/install/ug/network-license-files.html), [license borrowing](https://www.mathworks.com/help/install/license/borrow-licenses.html), and [find host ID](https://www.mathworks.com/matlabcentral/answers/101892-what-is-a-host-id-how-do-i-find-my-host-id-in-order-to-activate-my-license).
 1. Launch the MATLAB Installer.
 1. On the **Sign in to your MathWorks Account** page, enter your MathWorks account details.
 1. On the **MathWorks License Agreement** page, accept the terms and select the **Next** button.
 1. Select the **Advanced Options** drop-down and choose **I have a File Installation Key** option.
-1. On the **Install using File Installation Key** page, enter the file installation key for the license server. And then, select **Next**.
+1. On the **Install using File Installation Key** page, enter the file installation key for the license server, and then select **Next**.
 1. On the **Select License File** page, navigate to the license file saved while downloading the installation files earlier.
 1. On the **Select Destination Folder** page, select **Next**.
 1. On the **Select Products** page, select **Next**.
 1. On the **Select Options** page, select **Next**.
 1. On the **Confirm Selections and Install** page, select **Begin Install**.
-1. On the **Installation Complete** page, verify **Activate MATLAB** is checked and then, select **Finish**.
+1. On the **Installation Complete** page, verify **Activate MATLAB** is checked, and then select **Finish**.
 
 ## Cost estimate
 
 Let's cover a possible cost estimate for this class. This estimate doesn't include the cost of running the license server. The virtual machine size we chose was medium, which is 55 lab units.
 
-For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be:
+For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the cost estimate would be:
 
 25 students \* (20 scheduled hours + 10 quota hours) \* 55 lab units \*  0.01 USD per hour  = 412.50 USD
 
