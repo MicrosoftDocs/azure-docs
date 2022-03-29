@@ -741,7 +741,7 @@
               href: scenario-mobile-call-api.md
             - name: Move to production
               href: scenario-mobile-production.md
-- name: Background service/daemon/script
+- name: Service, daemon, script
   items:
     - name: Quickstart
       href: console-app-quickstart.md
