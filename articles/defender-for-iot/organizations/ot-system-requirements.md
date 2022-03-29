@@ -27,7 +27,7 @@ This article covers the following topics:
 
 The following tables describe supported deployment options for your OT sensors and on-premises management console. When setting up your system, choose the deployment option that meets your needs best.
 
-### Corporate IT/OT Hybrid networks
+### Corporate IT/OT hybrid networks
 
 |Name  |Max Throughput (OT Traffic) |Max Monitored Assets  |Deployment |
 |---------|---------|---------|---------|
