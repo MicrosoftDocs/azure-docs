@@ -63,7 +63,7 @@ Logs are only available if you add [Application Insights](monitor.md).
 
 | Managed functions | Bring your own functions |
 | --- | --- |
-| <ul><li>Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>The Azure Functions app must either be in Node.js 12, Node.js 14, Node.js 16 (preview), .NET Core 3.1, .NET 6.0, Python 3.8, or Python 3.9.</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>You are responsible to manage the Functions app deployment.</li></ul> |
+| <ul><li>Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>The Azure Functions app must either be in Node.js 12, Node.js 14, Node.js 16 (preview), .NET Core 3.1, .NET 6.0, Python 3.8, or Python 3.9.</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li><li>Some application tags are internally used by the service. Therefore, the following tags are reserved:<ul><li> *AccountId, EnvironmentId, FunctionAppId*.</li></ul></li></ul> | <ul><li>You are responsible to manage the Functions app deployment.</li></ul> |
 
 ## Next steps
 

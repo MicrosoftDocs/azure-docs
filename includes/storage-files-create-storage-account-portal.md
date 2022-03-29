@@ -13,12 +13,12 @@ A storage account is a shared pool of storage in which you can deploy an Azure f
 
 To create a storage account:
 
-1. In the left menu, select **+** to create a resource.
+1. Under **Azure services**, select **+** to create a resource.
 1. Select **Storage account** to create a storage account.
 
     :::image type="content" source="../articles/storage/files/media/storage-how-to-use-files-portal/create-storage-account-1.png" alt-text="A screenshot of the storage account option in the create a resource blade." lightbox="../articles/storage/files/media/storage-how-to-use-files-portal/create-storage-account-1.png":::
 
-1. In **Name**, enter *mystorageacct* followed by a few random numbers, until you see a green check mark that indicates that it's a unique name. A storage account name must be all lowercase and globally unique. Make a note of your storage account name. You will use it later. 
+1. In **Name**, enter *mystorageacct* followed by a few random numbers, until you see a green check mark that indicates that it's a unique name. A storage account name must be all lowercase and globally unique. Make a note of your storage account name. You will use it later.
 1. In **Performance**, keep the default value of **Standard**.
 1. In **Replication**, select **Locally redundant storage (LRS)**.
 1. In **Subscription**, select the subscription that was used to create the storage account. If you have only one subscription, it should be the default.

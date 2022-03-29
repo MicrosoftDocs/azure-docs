@@ -193,7 +193,7 @@ The following table provides a summary of the recommended caching policies based
 |**Transaction log disk**|Set the caching policy to `None` for disks hosting the transaction log.  There is no performance benefit to enabling caching for the Transaction log disk, and in fact having either `Read-only` or `Read/Write` caching enabled on the log drive can degrade performance of the writes against the drive and decrease the amount of cache available for reads on the data drive.  |
 |**Operating OS disk** | The default caching policy is `Read/write` for the OS drive. <br/> It is not recommended to change the caching level of the OS drive.  |
 | **tempdb**| If tempdb cannot be placed on the ephemeral drive `D:\` due to capacity reasons, either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with `Read-only` caching configured. <br/> The virtual machine cache and ephemeral drive both use the local SSD, so keep this in mind when sizing as tempdb I/O will count against the cached IOPS and throughput virtual machine limits when hosted on the ephemeral drive.| 
-| | | 
+
 
 > [!IMPORTANT]
 > Changing the cache setting of an Azure disk detaches and reattaches the target disk. When changing the cache setting for a disk that hosts SQL Server data, log, or application files, be sure to stop the SQL Server service along with any other related services to avoid data corruption.

@@ -6,6 +6,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
 ms.date: 05/21/2019
+ms.custom: cosmos-db-video
 ---
 
 # Common Azure Cosmos DB use cases
