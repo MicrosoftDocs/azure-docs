@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 03/28/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to copy data from Data Box to download from Azure to my on-premises server. 
