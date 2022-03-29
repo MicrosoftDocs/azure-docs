@@ -72,7 +72,7 @@ Due to our software being built on **Ubuntu 18.04**, all hardware components sho
 
 ### Network Cards (Ethernet/SFP)
 
-|  |  |
+|Name  |Supported models and versions |
 |---------|---------|
 |C5600 (Corporate)     | -Intel X710        |
 |E1800 (Enterprise)    | -Intel I350        |
