@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma, MashaMSFT
-ms.date: 03/02/2022
+ms.date: 03/08/2022
 ---
 
 # Data virtualization with Azure SQL Managed Instance (Preview)
@@ -61,7 +61,7 @@ adls://<container>@<storage_account>.dfs.core.windows.net/<path>/<file_name>.par
 
 
 
-If you're new to data virtualization and want to quickly test functionality, start by querying publicly available data sets available in [Azure Open Datasets](/azure/open-datasets/dataset-catalog), like the [Bing COVID-19 dataset](/azure/open-datasets/dataset-bing-covid-19?tabs=azure-storage) allowing anonymous access. 
+If you're new to data virtualization and want to quickly test functionality, start by querying publicly available data sets available in [Azure Open Datasets](../../open-datasets/dataset-catalog.md), like the [Bing COVID-19 dataset](../../open-datasets/dataset-bing-covid-19.md?tabs=azure-storage) allowing anonymous access. 
 
 Use the following endpoints to query the Bing COVID-19 data sets: 
 
@@ -133,7 +133,7 @@ FROM OPENROWSET(
 
 The `OPENROWSET` command also allows querying multiple files or folders by using wildcards in the BULK path.
 
-The following example uses the [NYC yellow taxi trip records open data set](/azure/open-datasets/dataset-taxi-yellow):
+The following example uses the [NYC yellow taxi trip records open data set](../../open-datasets/dataset-taxi-yellow.md):
 
 ```sql
 --Query all files with .parquet extension in folders matching name pattern:
@@ -332,9 +332,13 @@ Just like `OPENROWSET`, external tables allow querying multiple files and folder
 
 There's no hard limit in terms of number of files or amount of data that can be queried, but query performance depends on the amount of data, data format, and complexity of queries and joins.
 
-Collecting statistics on your external data is one of the most important things you can do for query optimization. The more the instance knows about your data, the faster it can execute queries. Automatic creation of statistics isn't supported, but you can and should create statistics manually.
+Collecting statistics on your external data is one of the most important things you can do for query optimization. The more the instance knows about your data, the faster it can execute queries. The SQL engine query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
-### OPENROWSET statistics
+### Automatic creation of statistics
+
+Managed Instance analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer automatically creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
+
+### OPENROWSET manual statistics
 
 Single-column statistics for the `OPENROWSET` path can be created using the `sp_create_openrowset_statistics` stored procedure, by passing the select query with a single column as a parameter:
 
@@ -349,9 +353,7 @@ FROM OPENROWSET(
 
 By default, the  instance uses 100% of the data provided in the dataset to create statistics. You can optionally specify the sample size as a percentage using the `TABLESAMPLE` options. To create single-column statistics for multiple columns, execute the stored procedure for each of the columns. You can't create multi-column statistics for the `OPENROWSET` path.
 
-To update existing statistics, drop them first using the `sp_drop_openrowset_statistics` stored procedure, and then recreate them using the `sp_create_openrowset_statistics`. 
-
-To drop existing statistics, use the following example: 
+To update existing statistics, drop them first using the `sp_drop_openrowset_statistics` stored procedure, and then recreate them using the `sp_create_openrowset_statistics`: 
 
 ```sql
 EXEC sys.sp_drop_openrowset_statistics N'
@@ -362,7 +364,7 @@ FROM OPENROWSET(
 '
 ```
 
-### External table statistics
+### External table manual statistics
 
 The syntax for creating statistics on external tables resembles the one used for ordinary user tables. To create statistics on a column, provide a name for the statistics object and the name of the column:
 
@@ -374,8 +376,18 @@ WITH FULLSCAN, NORECOMPUTE
 
 The `WITH` options are mandatory, and for the sample size, the allowed options are `FULLSCAN` and `SAMPLE n` percent. To create single-column statistics for multiple columns, execute the stored procedure for each of the columns. Multi-column statistics are not supported.
 
+## Troubleshooting
+
+Issues with query execution are typically caused by managed instance not being able to access file location. The related error messages may report insufficient access rights, non-existing location or file path, file being used by another process, or that directory cannot be listed. In most cases this indicates that access to files is blocked by network traffic control policies or due to lack of access rights. This is what should be checked:
+
+- Wrong or mistyped location path.
+- SAS key validity: it could be expired i.e. out of its validity period, containing a typo, starting with a question mark.
+- SAS key persmissions allowed: Read at minimum, and List if wildcards are used
+- Blocked inbound traffic on the storage account. Check [Managing virtual network rules for Azure Storage](../../storage/common/storage-network-security.md?tabs=azure-portal#managing-virtual-network-rules) for more details and make sure that access from managed instance VNet is allowed.
+- Outbound traffic blocked on the managed instance using [storage endpoint policy](service-endpoint-policies-configure.md#configure-policies). Allow outbound traffic to the storage account.
+
 ## Next steps
 
 - To learn more about syntax options available with OPENROWSET, see [OPENROWSET T-SQL](/sql/t-sql/functions/openrowset-transact-sql).
 - For more information about creating external table in SQL Managed Instance, see [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql).
-- To learn more about creating external file format, see [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) 
+- To learn more about creating external file format, see [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)

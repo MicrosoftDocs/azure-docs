@@ -26,7 +26,10 @@ This request triggers push deployment from the uploaded .zip file. You can revie
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
 ```
 
-<<<<<<< HEAD
+#### Asynchronous zip deployment
+
+While deploying synchronously you may receive errors related to connection timeouts. Add `?isAsync=true` to the URL to deploy asynchronously. You will receive a response as soon as the zip file is uploaded with a `Location` header pointing to the pollable deployment status URL. When polling the URL provided in the `Location` header, you will receive a HTTP 202 (Accepted) response while the process is ongoing and a HTTP 200 (OK) response once the archive has been expanded and the deployment has completed successfully.
+
 #### Azure AD authentication
 
 An alternative to using HTTP BASIC authentication for the zip deployment is to use an Azure AD identity. Azure AD identity may be needed if [HTTP BASIC authentication is disabled for the SCM site](../articles/app-service/deploy-configure-credentials.md#disable-basic-authentication).

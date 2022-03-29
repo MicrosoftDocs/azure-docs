@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/12/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -201,7 +201,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -210,7 +210,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    > [!NOTE]
    > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
 
-4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
    ```azurecli
    az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -223,7 +223,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
 #### [Portal](#tab/azure-portal)
 
@@ -634,7 +634,7 @@ You can grant access to trusted Azure services by creating a network rule except
 When you grant access to trusted Azure services, you grant the following types of access:
 
 - Trusted access for select operations to resources that are registered in your subscription.
-- Trusted access to resources based on system-assigned managed identity.
+- Trusted access to resources based on a managed identity.
 
 <a id="trusted-access-resources-in-subscription"></a>
 
@@ -657,14 +657,15 @@ Resources of some services, **when registered in your subscription**, can access
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
 <a id="trusted-access-system-assigned-managed-identity"></a>
+<a id="trusted-access-based-on-system-assigned-managed-identity"></a>
 
-### Trusted access based on system-assigned managed identity
+### Trusted access based on a managed identity
 
 The following table lists services that can have access to your storage account data if the resource instances of those services are given the appropriate permission.
 
-If your account does not have the hierarchical namespace feature enabled on it, you can grant permission, by explicitly assigning an Azure role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+If your account does not have the hierarchical namespace feature enabled on it, you can grant permission, by explicitly assigning an Azure role to the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
-You can use the same technique for an account that has the hierarchical namespace feature enable on it. However, you don't have to assign an Azure role if you add the system-assigned managed identity to the access control list (ACL) of any directory or blob contained in the storage account. In that case, the scope of access for the instance corresponds to the directory or file to which the system-assigned managed identity has been granted access. You can also combine Azure roles and ACLs together. To learn more about how to combine them together to grant access, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
+You can use the same technique for an account that has the hierarchical namespace feature enable on it. However, you don't have to assign an Azure role if you add the managed identity to the access control list (ACL) of any directory or blob contained in the storage account. In that case, the scope of access for the instance corresponds to the directory or file to which the managed identity has been granted access. You can also combine Azure roles and ACLs together. To learn more about how to combine them together to grant access, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 
 > [!TIP]
 > The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.

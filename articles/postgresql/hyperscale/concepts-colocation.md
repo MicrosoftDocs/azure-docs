@@ -1,8 +1,8 @@
 ---
 title: Table colocation - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to store related information together for faster queries
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual

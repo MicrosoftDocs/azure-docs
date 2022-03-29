@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create an Azure Analysis Services server resource by using Bicep
 description: Quickstart showing how to an Azure Analysis Services server resource by using a Bicep file.
-ms.date: 03/04/2022
+ms.date: 03/08/2022
 ms.topic: quickstart
 ms.service: azure-analysis-services
 ms.author: jgao
@@ -73,18 +73,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---

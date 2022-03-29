@@ -33,12 +33,12 @@ To implement the incoming trust-based authentication flow, first ensure that the
 |Prerequisite  |Description  |
 |---------|---------|
 |Client must run Windows 10, Windows Server 2012, or a higher version of Windows. |         |
-|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](../../active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-| | |
+
 
 ## Create and configure the Azure AD Kerberos Trusted Domain Object
 
@@ -184,7 +184,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 ## Configure the Group Policy Object (GPO) 
 
-1. Identify your [Azure AD tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+1. Identify your [Azure AD tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
 1. Deploy the following Group Policy setting to client machines using the incoming trust-based flow:
 

@@ -285,6 +285,9 @@ Similar to the steps you took before with the user-assigned identity and your ke
 1. Click on your application. It should move down into the **Selected members** section. Click **Select**.
 
 1. Back on the **Add role assignment** screen, click **Review + assign**. Review the configuration, and then click **Review + assign**.
+ 
+> [!TIP]
+> If you intend to use the function app for a blob-triggered function, you will need to repeat these steps for the **Storage Account Contributor** and **Storage Queue Data Contributor** roles over the account used by AzureWebJobsStorage. To learn more, see [Blob trigger identity-based connections](./functions-bindings-storage-blob-trigger.md#identity-based-connections).
 
 ### Edit the AzureWebJobsStorage configuration
 
@@ -311,6 +314,9 @@ Next you will update your function app to use its system-assigned identity when 
 1. Select **OK** and then **Save** > **Continue** to save your changes. 
 
 You've removed the storage connection string requirement for AzureWebJobsStorage by configuring your app to instead connect to blobs using managed identities.  
+
+> [!NOTE]
+> The `__accountName` syntax is unique to the AzureWebJobsStorage connection and cannot be used for other storage connections. To learn to define other connections, check the reference for each trigger and binding your app uses.
 
 ## Next steps 
 

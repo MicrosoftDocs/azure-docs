@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
-ms.custom: mvc
+ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
@@ -53,19 +53,26 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Image of Search box to search for the Azure subscription.](./media/tutorial-discover-aws/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create a project.
-3. In the subscription, select **Access control (IAM)** > **Check access**.
-4. In **Check access**, search for the relevant user account.
-5. In **Add a role assignment**, click **Add**.
+1. In the **Subscriptions** page, select the subscription in which you want to create a project.
 
-    ![Screenshot of process to search for a user account to check access and assign a role.](./media/tutorial-discover-aws/azure-account-access.png)
+1. Select **Access control (IAM)**.
 
-6. In **Add role assignment**, select the Contributor or Owner role, and select the account (azmigrateuser in our example). Then click **Save**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-    ![Screenshot of the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-aws/assign-role.png)
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor or Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
+
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Image to Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-aws/register-apps.png)
@@ -156,13 +163,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
  
 
 ### 3. Run the Azure Migrate installer script
@@ -263,7 +270,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
-1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers.You can change this option at any time.
+1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
 

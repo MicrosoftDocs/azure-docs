@@ -7,7 +7,7 @@ author: aletheatoh
 ms.service: ddos-protection
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/15/2022
+ms.date: 03/08/2022
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include

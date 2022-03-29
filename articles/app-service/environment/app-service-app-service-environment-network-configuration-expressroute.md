@@ -5,12 +5,16 @@ author: madsd
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/15/2022
 ms.author: madsd
 ms.custom: seodec18
 ---
 
 # Network configuration details for App Service Environment for Power Apps with Azure ExpressRoute
+
+> [!IMPORTANT]
+> This article is about App Service Environment v1. App Service Environment v1 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure to extend their on-premises network to Azure. App Service Environment is created in a subnet of the [virtual network][virtualnetwork] infrastructure. Apps that run on App Service Environment establish secure connections to back-end resources that are accessible only over the ExpressRoute connection.  
 
