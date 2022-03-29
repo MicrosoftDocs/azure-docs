@@ -31,6 +31,8 @@ For more information about rehydrating a blob, see [Blob rehydration from the Ar
 
 To rehydrate a blob from the Archive tier by copying it to an online tier, use PowerShell, Azure CLI, or one of the Azure Storage client libraries. Keep in mind that when you copy an archived blob to an online tier, the source and destination blobs must have different names.
 
+Copying an archived blob to an online destination tier is supported within the same storage account. Beginning with service version 2021-02-12, you can copy an archived blob to a different storage account, as long as the destination account is in the same region as the source account.
+
 After the copy operation is complete, the destination blob appears in the Archive tier. The destination blob is then rehydrated to the online tier that you specified in the copy operation. When the destination blob is fully rehydrated, it becomes available in the new online tier.
 
 ### Rehydrate a blob to the same storage account
@@ -89,7 +91,43 @@ az storage blob copy start \
 
 ### Rehydrate a blob to a different storage account in the same region
 
-TBD
+To rehydrate an archived blob to a different storage account in the same region, use the [Blob Storage SDK for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/), version 12.11.0 or later.
+
+```csharp
+private static void RehydrateWithCopy(BlobClient archivedBlobClient, BlobClient targetBlobClient)
+{
+    try
+    {
+        BlobProperties archivedBlobProperties = archivedBlobClient.GetProperties();
+
+        if (archivedBlobProperties.AccessTier == AccessTier.Archive)
+        {
+            BlobCopyFromUriOptions blobCopyFromUriOptions = new BlobCopyFromUriOptions()
+            {
+                AccessTier = AccessTier.Hot
+            };
+
+            if (targetBlobClient.Exists())
+            {
+                BlobProperties targetBlobProperties = targetBlobClient.GetProperties();
+                if (targetBlobProperties.AccessTier == AccessTier.Hot || targetBlobProperties.AccessTier == AccessTier.Cool)
+                {
+                    targetBlobClient.StartCopyFromUri(archivedBlobClient.Uri, blobCopyFromUriOptions);
+
+                }
+            }
+            else
+            {
+                targetBlobClient.StartCopyFromUri(archivedBlobClient.Uri, blobCopyFromUriOptions);
+            }
+        }
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        throw;
+    }
+```
 
 ## Rehydrate a blob by changing its tier
 
