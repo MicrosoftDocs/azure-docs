@@ -120,7 +120,7 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ## Layout views in the sample
 
-The home page layout for this sample is stored in the *_Layout.cshtml* file.
+The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
 
 1. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
