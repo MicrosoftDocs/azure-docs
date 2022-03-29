@@ -1,16 +1,16 @@
 ---
-title: Rotate certificates in Azure Kubernetes Service (AKS)
-description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
+title: Certificate Rotation in Azure Kubernetes Service (AKS)
+description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 3/4/2022
+ms.date: 3/29/2022
 ---
 
-# Rotate certificates in Azure Kubernetes Service (AKS)
+# Certificate rotation in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. Periodically, you may need to rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
+Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. If you have a cluster built after August 2021 it is enabled with certificate auto-rotation. Periodically, you may need to rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
 
-This article shows you how to rotate the certificates in your AKS cluster.
+This article shows you how certificate rotation works in your AKS cluster.
 
 ## Before you begin
 
@@ -28,7 +28,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
 > [!NOTE]
-> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA to for signing, will expire after two years and are automatically rotated during AKS version upgrade happened after 8/1/2021. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
+> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA for signing, will expire after two years and are automatically rotated during an AKS version upgrade which happened after 8/1/2021. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
 > 
 > Additionally, you can check the expiration date of your cluster's certificate. For example, the following bash command displays the client certificate details for the *myAKSCluster* cluster in resource group *rg*
 > ```console
@@ -52,9 +52,12 @@ az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-
 
 ## Certificate Auto Rotation
 
-Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes before they expire with no downtime for the cluster.
-
 For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/) which has been enabled by default in all Azure regions.
+
+> [!Note]
+> If you have an existing cluster you have to upgrade that cluster to enable Certificate Auto-Rotation.
+
+For any AKS clusters created or upgraded after 8/1/2021 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
 
 #### How to check whether current agent node pool is TLS Bootstrapping enabled?
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths.  On a Linux node: /var/lib/kubelet/bootstrap-kubeconfig, on a Windows node, it’s c:\k\bootstrap-config.
@@ -69,8 +72,7 @@ To verify if TLS Bootstrapping is enabled on your cluster browse to the followin
 
 Auto cert rotation won't be enabled on non-rbac cluster.
 
-
-## Rotate your cluster certificates
+## Manually rotate your cluster certificates
 
 > [!WARNING]
 > Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes and their OS Disks and can cause up to 30 minutes of downtime for your AKS cluster.
