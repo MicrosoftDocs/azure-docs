@@ -1,7 +1,7 @@
 ---
 title: Create a custom IP address prefix - Azure PowerShell
 titleSuffix: Azure Virtual Network
-description: Learn about how to onboard a custom IP address prefix using Azure PowerShell
+description: Learn about how to create a custom IP address prefix using Azure PowerShell
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
