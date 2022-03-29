@@ -63,58 +63,62 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ## Executing cache commands
 
-In `Program.cs`, see the following code for the `Main` method of the `Program` class:
+In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
 <!-- Replaced this code with lines 57-81 from dotnet-core/Program.cs -->
 ```csharp
-      // Simple PING command
-      Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
-      RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
-      Console.WriteLine($"{prefix}: Cache response: {pingResult}");
+private static async Task RunRedisCommandsAsync(string prefix)
+    {
+        // Simple PING command
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
+        RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
+        Console.WriteLine($"{prefix}: Cache response: {pingResult}");
 
-      // Simple get and put of integral data types into the cache
-      string key = "Message";
-      string value = "Hello! The cache is working from a .NET Core console app!";
+        // Simple get and put of integral data types into the cache
+        string key = "Message";
+        string value = "Hello! The cache is working from a .NET console app!";
 
-      Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-      RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-      Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+        RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
 
-      Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
-      bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
-      Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
+        bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
+        Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
 
-      Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-      getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-      Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+
+        // Store serialized object to cache
+        Employee e007 = new Employee("007", "Davide Columbo", 100);
+        stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
+
+        // Retrieve serialized object from cache
+        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
+        Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult);
+        Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
+        Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
+        Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
+        Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
+    }
 
 ```
 
 Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
 
+In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and command.
+
+### Work with .NET objects in the cache
+
 The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
-Execute the following command in your command window to build the app:
+Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized.
 
-```dos
-dotnet build
-```
+This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
-Then run the app with the following command:
+The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object :
 
-```dos
-dotnet run
-```
-
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
-
-:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-partial.png" alt-text="Console app partial":::
-
-## Work with .NET objects in the cache
-
-Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
-
-You see following `Employee` class definition in *Program.cs*:
-<!-- Replaced with lines 9-21 in Program.cs  -->
 ```csharp
 class Employee
     {
@@ -131,25 +135,9 @@ class Employee
     }
 ```
 
-At the bottom of `Main()` procedure in *Program.cs*, see the following lines of code that cache and retrieve a serialized .NET object:
+## Run the sample
 
-```csharp
-    // Store serialized object to cache
-    Employee e007 = new Employee("007", "Davide Columbo", 100);
-    stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
-    Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
-
-    // Retrieve serialized object from cache
-    getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
-    Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult.ToString());
-    Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
-    Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
-    Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
-    Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
-```
-<!-- This seems unnecessary now that we are cloning the project.
-
-Save *Program.cs* and rebuild the app with the following command:
+If you have opened any files, save them and build the app with the following command:
 
 ```dos
 dotnet build
@@ -161,8 +149,7 @@ Run the app with the following command to test serialization of .NET objects:
 dotnet run
 ```
 
-:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed"::: 
--->
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
 ## Clean up resources
 
@@ -186,5 +173,6 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
+
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)
