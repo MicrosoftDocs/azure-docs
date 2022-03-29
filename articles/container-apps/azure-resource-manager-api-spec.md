@@ -29,7 +29,7 @@ A container app resource of the ARM template has the following properties:
 |---|---|--|
 | `name` | The Container Apps environment name. | string |
 | `location` | The Azure region where the Container Apps environment is deployed. | string |
-| `type` | Always `Microsoft.App/managedEnvironments` ARM endpoint determines which API to forward to  | string |
+| `type` | `Microsoft.App/managedEnvironments` – the ARM resource type | string |
 
 #### `properties`
 
@@ -111,7 +111,7 @@ A container app resource of the ARM template has the following properties:
 | `name` | The Container Apps application name. | string |
 | `location` | The Azure region where the Container Apps instance is deployed. | string |
 | `tags` | Collection of Azure tags associated with the container app. | array |
-| `type` | Always `Microsoft.App/containerApps` ARM endpoint determines which API to forward to  | string |
+| `type` | `Microsoft.App/containerApps` – the ARM resource type  | string |
 
 In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
