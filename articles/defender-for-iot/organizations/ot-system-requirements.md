@@ -23,7 +23,9 @@ This article covers the following topics:
 
 **- Directly procure certified pre-installed appliances** which have been evaluated in our labs and are delivered ready to deploy.
 
-## Multiple Deployment Options
+## Deployment options
+
+The following tables describe supported deployment options for your OT sensors and on-premises management console. When setting up your system, choose the deployment option that meets your needs best.
 
 ### Corporate IT/OT Hybrid networks
 
