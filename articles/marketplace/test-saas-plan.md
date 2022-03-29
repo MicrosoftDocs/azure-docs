@@ -57,9 +57,6 @@ Publishers can use Commercial Marketplace to verify the purchase of a test plan.
 
 If your test plan is configured to send usage events, it is important to test the metered plan usage by sending metered events to [Marketplace Metered API](marketplace-metering-service-apis.md). This is an example of how to send metered usage events using Postman.
 
-> [!IMPORTANT]
-> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee. After the usage exceeds the amount covered by the base fee, you should start sending metered usage events.
-
 When you test metered usage, we recommend that you send more than the number of usage events that are covered by the base fee and then verify that only the number of usage events that exceed the base fee are sent to Microsoft.
 
 ### Send a request
