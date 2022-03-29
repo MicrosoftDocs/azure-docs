@@ -7,7 +7,7 @@ ms.date: 03/24/2022
 
 # Tutorial: Get started with Microsoft Defender for IoT for OT security
 
-This tutorial describes how to set up your network for OT system security monitoring, using a virtual sensor, on a virtual machine (VM), using a trial subscription of Microsoft Defender  IoT.
+This tutorial describes how to set up your network for OT system security monitoring, using a virtual, cloud-connected sensor, on a virtual machine (VM), using a trial subscription of Microsoft Defender for IoT.
 
 > [!NOTE]
 > If you're looking to set up security monitoring for enterprise IoT systems, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md) instead.
@@ -19,7 +19,8 @@ In this tutorial, you learn how to:
 > * Create a VM for the sensor
 > * Install the virtual sensor software
 > * Configure a SPAN port
-> * Onboard, and activate the virtual sensor
+> * Verify your cloud connection
+> * Onboard and activate the virtual sensor
 
 ## Prerequisites
 
@@ -31,10 +32,8 @@ Before you start, make sure that you have the following:
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
-- One of the following, installed and operational:
+- VMWare, ESXi 5.5 or later, installed and operational:
 
-    - VMWare, ESXi 5.5 or later
-    - Hyper-V hypervisor, Windows 10 Pro or Enterprise
 
 - <a name="hw"></a>Available hardware resources for your VM as follows:
 
@@ -69,11 +68,9 @@ You can either purchase pre-configured appliances or bring your own appliance an
 
 ## Create a VM for your sensor
 
-Select one of the following tabs to create a VM for your sensor.
+This procedure describes how to create a VM for your sensor with VMWare ESXi.
 
-# [VMWare ESXi](#tab/vmware)
-
-**To create a VM for your sensor with VMWare ESXi**:
+**To create a VM for your sensor**:
 
 1. Make sure that you have the sensor software downloaded and accessible, and that VMWare is running on your machine.
 
@@ -104,52 +101,6 @@ Select one of the following tabs to create a VM for your sensor.
 1. Select **Next** > **Finish**.
 
 1. Power on the VM, and open a console.
-
-# [Hyper-V hypervisor](#tab/hyper-v)
-
-**To create VM for your sensor with Hyper-V hypervisor**:
-
-1. Make sure that you have the sensor software downloaded and accessible, and that hypervisor is running on your machine.
-
-1. Create a virtual disk in Hyper-V Manager.
-
-1. Select **format = VHDX**.
-
-1. Select **type = Dynamic Expanding**.
-
-1. Enter the name and location for the VHD.
-
-1. Enter the required size, as defined in the [table in the Prerequisites](#hw) section above.
-
-1. Review the summary and select **Finish**.
-
-1. On the **Actions** menu, create a new VM.
-
-1. Enter a name for the VM.
-
-1. Select **Specify Generation** > **Generation 1**.
-
-1. Specify the memory allocation and select the check box for dynamic memory, as defined in the [table in the Prerequisites](#hw) section above.
-
-1. Configure the network adaptor according to your server network topology.
-
-1. Connect the VHDX created previously to the VM.
-
-1. Review the summary and select **Finish**.
-
-1. Right-click the new VM and select **Settings**.
-
-1. Select **Add Hardware** and add a new network adapter.
-
-1. Select the virtual switch that will connect to the sensor management network.
-
-1. Allocate CPU resources, as defined in the [table in the Prerequisites](#hw) section above.
-
-1. Start the VM.
-
-1. On the **Actions** menu, select **Connect** to continue the software installation.
-
----
 
 ## Install sensor software
 
@@ -203,14 +154,12 @@ This procedure describes how to validate your installation using the sensor's ow
 
 Virtual switches do not have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
 
+This procedure describes how to configure a SPAN port using a workaround with VMWare ESXi.
+
 
 > [!NOTE]
 > Promiscuous mode is an operating mode and a security monitoring technique for a VM's interfaces in the same portgroup level as the virtual switch to view the switch's network traffic. Promiscuous mode is disabled by default but can be defined at the virtual switch or portgroup level.
 >
-
-Select one of the following tabs to implement your SPAN port configuration workaround.
-
-# [VMWare ESXi](#tab/vmware)
 
 **To configure a SPAN port with ESXi**:
 
@@ -238,129 +187,23 @@ Select one of the following tabs to implement your SPAN port configuration worka
 
 1. Connect to the sensor, and verify that mirroring works.
 
-# [Hyper-V hypervisor](#tab/hyper-v)
+## Verify cloud connections
 
-**Prerequisites**:
+This tutorial describes how to create a cloud-connected sensor, connecting directly to the Defender for IoT on the cloud.
 
-- Ensure that there is no instance of a virtual appliance running.
+Before continuing, make sure that your sensor can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
-- Enable Ensure SPAN on the data port, and not the management port.
+- **IoT Hub**: `*.azure-devices.net`
+- **Threat Intelligence**: `*.blob.core.windows.net`
+- **Eventhub**: `*.servicebus.windows.net`
 
-- Ensure that the data port SPAN configuration is not configured with an IP address.
+> [!TIP]
+> Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), and [Cloud connected vs local sensors](#cloud-connected-vs-local-sensors).
+>
 
-**To configure a SPAN port with Hyper-V**:
-
-1. Open the Virtual Switch Manager.
-
-1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
-
-    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Screenshot of selecting new virtual network and external before creating the virtual switch.":::
-
-1. Select **Create Virtual Switch**.
-
-1. Under connection type, select **External Network**.
-
-1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
-
-   :::image type="content" source="media/tutorial-onboarding/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
-
-1. Select **OK**.
-
----
-### Attach a SPAN virtual interface to the virtual switch
-
-Use PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch.
-
-**To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
-
-The examples in this procedure use the following parameter definitions. Replace their values with the correct values for your system.
-
-- **CPPM VA name** = `VK-C1000V-LongRunning-650`
-- **Name of the newly added SPAN virtual switch** = `vSwitch_Span`
-- **Name of the newly added adapter** = `Monitor`. If you are using Hyper-V Manager, use `Network Adapter` instead.
-
-1. Select the newly added SPAN virtual switch, and add a new network adapter. For example, run:
-
-    ```bash
-    ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
-    ```
-
-1. Enable port mirroring for the selected interface as the span destination. For example, run:
-
-    ```bash
-    Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
-    ```
-
-1. Select **OK**.
-
-
-**To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
-
-1. Under the Hardware list, select **Network Adapter**.
-
-1. In the Virtual Switch field, select **vSwitch_Span**.
-
-    :::image type="content" source="media/tutorial-onboarding/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
-
-1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
-
-1. In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
-
-    :::image type="content" source="media/tutorial-onboarding/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
-
-1. Select **OK**.
-
-#### Enable Microsoft NDIS Capture Extensions for the Virtual Switch
-
-Microsoft NDIS Capture Extensions will need to be enabled for the new virtual switch.
-
-**To enable Microsoft NDIS Capture Extensions for the newly added virtual switch**:
-
-1. Open the Virtual Switch Manager on the Hyper-V host.
-
-1. In the Virtual Switches list, expand the virtual switch name `vSwitch_Span` and select **Extensions**.
-
-1. In the Switch Extensions field, select **Microsoft NDIS Capture**.
-
-    :::image type="content" source="media/tutorial-onboarding/microsoft-ndis.png" alt-text="Screenshot of enabling the Microsoft NDIS by selecting it from the switch extensions menu.":::
-
-1. Select **OK**.
-
-#### Define the mirroring mode on the external port
-
-You'll need to define the mirroring mode on the external port of the new virtual switch to be the source.
-
-To do this, configure the Hyper-V virtual switch, for example named **vSwitch_Span** to forward any traffic that comes to the external source port, to the virtual network adapter that you configured as the destination.
-
-Use the following PowerShell commands to set the external virtual switch port to source mirror mode:
-
-```bash
-$ExtPortFeature=Get-VMSystemSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings"
-$ExtPortFeature.SettingData.MonitorMode=2
-Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitchExtensionFeature $ExtPortFeature
-```
-
-| Parameter | Description |
-|--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name. |
-| MonitorMode=2 | Source |
-| MonitorMode=1 | Destination |
-| MonitorMode=0 | None |
-
-Use the following PowerShell command to verify the monitoring mode status:
-
-```bash
-Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
-```
-
-| Parameter | Description |
-|--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name |
-
----
 ## Onboard and activate the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
+Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription and download the virtual sensor's activation file to activate the sensor.
 
 ### Onboard the virtual sensor
 
@@ -380,7 +223,7 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
     |---------|---------|
     |**Sensor name**     |  Enter a name for the sensor. <br><br>We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.       |
     |**Subscription**     |  Select the Azure subscription where you want to add your sensors.      |
-    |**Cloud connected**     |  Select to connect your sensor to Azure. Leave this option toggled off to use an on-premises management console. For more information, see [Cloud connected vs local sensors](#cloud-connected-vs-local-sensors) and [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).       |
+    |**Cloud connected**     |  Select to connect your sensor to Azure.      |
     |**Automatic threat intelligence updates**     |   Displayed only when the **Cloud connected** option is toggled on.  Select to have Microsoft threat intelligence packages automatically updated on your sensor.  For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md).   |
     |**Sensor version**     | Displayed only when the **Cloud connected** option is toggled on. Select the software version installed on your sensor.        |
     |**Site**     | Define the site where you want to associate your sensor, or select **Create site** to create a new site. Define a display name for your site and optional tags to help identify the site later.       |
@@ -440,19 +283,17 @@ In contrast, when working with locally managed sensors:
 
 - Sensor names can be updated in the sensor console.
 
-## Connect sensors to Defender for IoT
-
-Starting with sensor software versions 22.1.x, use one of the following methods to ensure secure connections between your sensors and Defender for IoT:
-
-- Connect via an Azure proxy
-- Connect via proxy chaining
-- Connect directly
-- Connect using multiple cloud vendors
-
-For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
-
 ## Next steps
 
+After your OT sensor is connection, continue with any of the following to start analyzing your data:
+
+- [View assets from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+
+- [Manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
+
+- [Detect threats with Microsoft Sentinel](../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json)
 For more information, see:
 
 - [Defender for IoT installation](how-to-install-software.md)
