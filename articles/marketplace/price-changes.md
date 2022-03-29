@@ -16,7 +16,7 @@ ms.date: 04/01/2022
 
 The price change feature allows publishers to change the prices of marketplace offers transacted through Microsoft. This article describes how to change the price of an offer.
 
-Publishers can update the prices of previously published plans and publish the price changes to the marketplace. Price changes can be scheduled in the future to align with future billing cycles.
+Publishers can update the prices of previously published plans and publish the price changes to the marketplace. Microsoft schedules price changes in the future to align with future billing cycles.
 
 If the price of an offer increased, existing customers of the offer receive an email notification prior to the increase becoming effective. The product listing page on Microsoft AppSource and Azure Marketplace will start displaying a notice of the upcoming increased price.
 
@@ -220,7 +220,7 @@ Customers are billed the new price for consumption of the resource that happens 
 
 ## Cancelling or modifying a price change
 
-To modify an already scheduled price change, request the cancellation by submitting a request through the private preview Teams channel that includes the Plan ID, price, and the market (if the change was market-specific).
+To modify an already scheduled price change, request the cancellation by submitting a [support request](https://partner.microsoft.com/support/?stage=1) that includes the Plan ID, price, and the market (if the change was market-specific).
 
 If the price change was an increase, we will email customers a second time to inform them the price increase has been cancelled.
 

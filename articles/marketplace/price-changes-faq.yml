@@ -109,14 +109,14 @@ sections:
           View the [Customers dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/customer).
 
       - question: |
-          How will retail price changes to affect private offers (functionality in private preview) where I am offering a discount?
+          How will retail price changes affect private offers where I am offering a discount?
         answer: |
           The retail price of the public plan used in the private offer is not locked. If the price changes after the private offer is created, the discount is applied to the _latest_ retail price.
 
       - question: |
           How do I cancel or modify a scheduled price change?
         answer: |
-          If the price change has not yet taken effect, contact [support](/partner-center/report-problems-with-partner-center) to cancel the change. After the change is cancelled, schedule a new price change with needed modifications.
+          If the price change has not yet taken effect, submit a [support request](https://partner.microsoft.com/support/?stage=1) to cancel the change, then schedule a new price change with needed modifications.
 
       - question: |
           If there is already a price change scheduled, can I make additional price changes?
