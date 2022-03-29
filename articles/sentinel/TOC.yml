@@ -73,6 +73,8 @@
       href: connect-data-sources.md
     - name: Classifying data with entities
       href: entities.md
+    - name: Ingestion-time data transformation
+      href: data-transformation.md
   - name: Normalization with ASIM
     items:
     - name: ASIM overview
@@ -186,16 +188,18 @@
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md
+      - name: Connect using Logstash
+        href: connect-logstash.md
       - name: Custom log sources
         href: connect-custom-logs.md
       - name: Azure Virtual Desktop
         href: connect-azure-virtual-desktop.md
+    - name: Configure ingestion-time transformation
+      href: configure-data-transformation.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md
     - name: Troubleshoot CEF/Syslog data collection
       href: troubleshooting-cef-syslog.md
-    - name: Connect using Logstash
-      href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -360,6 +364,8 @@
     items:
       - name: ASIM content
         href: normalization-content.md
+      - name: ASIM Common fields
+        href: normalization-common-fields.md 
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

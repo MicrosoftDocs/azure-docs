@@ -73,7 +73,7 @@ In a typical manufacturing process for creating secure devices, root CA certific
 
 * A customer buying a root CA and deriving a signing certificate for the manufacturer to sign the devices they make on that customer's behalf.
 
-In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the device CA certificate placed on the end device. Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
+In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the edge CA certificate placed on the end device. Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
@@ -170,7 +170,7 @@ You can see the hierarchy of certificate depth represented in the screenshot:
 |--|--|
 | Root CA Certificate | Azure IoT Hub CA Cert Test Only |
 | Intermediate CA Certificate | Azure IoT Hub Intermediate Cert Test Only |
-| Device CA Certificate | iotgateway.ca ("iotgateway" was passed in as the CA cert name to the convenience scripts) |
+| Edge CA Certificate | iotgateway.ca ("iotgateway" was passed in as the CA cert name to the convenience scripts) |
 | IoT Edge Hub Server Certificate | iotedgegw.local  (matches the 'hostname' from the config file) |
 :::moniker-end
 

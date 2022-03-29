@@ -235,8 +235,6 @@ Finally, create the Container Apps environment with the VNET and subnets.
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION" \
   --app-subnet-resource-id $APP_SUBNET \
   --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
@@ -248,8 +246,6 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION" `
   --app-subnet-resource-id $APP_SUBNET `
   --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
@@ -258,16 +254,14 @@ az containerapp env create `
 ---
 
 > [!NOTE]
-> As you call `az conatinerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
+> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
 
-The following table describes the parameters used in for `containerapp env create`.
+The following table describes the parameters used in `containerapp env create`.
 
 | Parameter | Description |
 |---|---|
 | `name` | Name of the container apps environment. |
 | `resource-group` | Name of the resource group. |
-| `logs-workspace-id` | The ID of the Log Analytics workspace. |
-| `logs-workspace-key` | The Log Analytics client secret.  |
 | `location` | The Azure location where the environment is to deploy.  |
 | `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |

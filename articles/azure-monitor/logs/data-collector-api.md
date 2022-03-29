@@ -163,6 +163,8 @@ If you then submit the following entry, before the record type is created, Azure
 The following properties are reserved and shouldn't be used in a custom record type. You'll receive an error if your payload includes any of these property names:
 
 - tenant
+- TimeGenerated
+- RawData
 
 ## Data limits
 The data posted to the Azure Monitor Data collection API is subject to certain constraints:

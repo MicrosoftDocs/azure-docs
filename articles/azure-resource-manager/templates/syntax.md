@@ -83,6 +83,8 @@ The available properties for a parameter are:
 
 For examples of how to use parameters, see [Parameters in ARM templates](./parameters.md).
 
+In Bicep, see [parameters](../bicep/file.md#parameters).
+
 ## Variables
 
 In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md).
@@ -117,6 +119,8 @@ The following example shows the available options for defining a variable:
 For information about using `copy` to create several values for a variable, see [Variable iteration](copy-variables.md).
 
 For examples of how to use variables, see [Variables in ARM template](./variables.md).
+
+In Bicep, see [variables](../bicep/file.md#variables).
 
 ## Functions
 
@@ -162,6 +166,8 @@ When defining a user function, there are some restrictions:
 | output-value |Yes |Template language expression that is evaluated and returned from the function. |
 
 For examples of how to use custom functions, see [User-defined functions in ARM template](./user-defined-functions.md).
+
+In Bicep, user-defined functions aren't supported. Bicep does support a variety of [functions](../bicep/bicep-functions.md) and [operators](../bicep/operators.md).
 
 ## Resources
 
@@ -249,6 +255,8 @@ You define resources with the following structure:
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
 
+In Bicep, see [resources](../bicep/file.md#resources).
+
 ## Outputs
 
 In the `outputs` section, you specify values that are returned from deployment. Typically, you return values from resources that were deployed.
@@ -279,6 +287,8 @@ The following example shows the structure of an output definition:
 
 For examples of how to use outputs, see [Outputs in ARM template](./outputs.md).
 
+In Bicep, see [outputs](../bicep/file.md#outputs).
+
 <a id="comments"></a>
 
 ## Comments and metadata
@@ -308,6 +318,8 @@ For inline comments, you can use either `//` or `/* ... */`.
 In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of Visual Studio Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
+
+In Bicep, see [comments](../bicep/file.md#comments).
 
 ### Metadata
 
@@ -408,6 +420,8 @@ You can break a string into multiple lines. For example, see the `location` prop
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
+
+In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
 
 ## Next steps
 

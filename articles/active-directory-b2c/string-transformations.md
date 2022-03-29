@@ -186,7 +186,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
   </InputClaims>
   <InputParameters>
     <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
-    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="SameEmailAddress" TransformationClaimType="outputClaim" />
@@ -227,7 +227,7 @@ Use this claims transformation to check if a claim is equal to a value you speci
   <InputParameters>
     <InputParameter Id="compareTo" DataType="string" Value="V1" />
     <InputParameter Id="operator" DataType="string" Value="not equal" />
-    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="outputClaim" />

@@ -3,7 +3,7 @@ title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 1/9/2022
+ms.date: 3/4/2022
 ---
 
 # Rotate certificates in Azure Kubernetes Service (AKS)
@@ -54,15 +54,7 @@ az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-
 
 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes before they expire with no downtime for the cluster.
 
-For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/). TLS Bootstrapping is currently available in the following regions:
-
-* eastus2euap
-* centraluseuap
-* westcentralus
-* uksouth
-* eastus
-* australiacentral
-* australiaest
+For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/) which has been enabled by default in all Azure regions.
 
 #### How to check whether current agent node pool is TLS Bootstrapping enabled?
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths.  On a Linux node: /var/lib/kubelet/bootstrap-kubeconfig, on a Windows node, it’s c:\k\bootstrap-config.
