@@ -19,6 +19,7 @@ The following scenarios aren't yet supported:
 * Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. For a potential workaround, see [Virtual machines with Marketplace plans](#virtual-machines-with-marketplace-plans).
 * Low-priority virtual machines and low-priority virtual machine scale sets can't be moved across resource groups or subscriptions.
 * Virtual machines in an availability set can't be moved individually.
+* Azure SQL VM cannot be migrated, Can only be reinstalled after the migration. Please refer to the document to re-install Azure SQL VM , [Move guidance for virtual machines](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?tabs=bash%2Cazure-cli).
 
 ## Azure disk encryption
 
