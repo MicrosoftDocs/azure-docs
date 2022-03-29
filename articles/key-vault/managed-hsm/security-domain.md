@@ -1,6 +1,6 @@
 ---
 title: About Azure Managed HSM security domain
-description: Overview of the Managed HSM Security Domain, a set of core credentials needed to recover a Managed HSM
+description: Overview of the Managed HSM Security Domain, a set of artifacts needed to recover a Managed HSM
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.date: 03/28/2022
 
 A managed HSM is a single-tenant, [FIPS (Federal Information Processing Standards) 140-2 validated](https://csrc.nist.gov/publications/detail/fips/140/2/final), highly available hardware security module (HSM), with a customer-controlled security domain.  
 
-Every managed HSM must have a security domain to operate. The security domain is an encrypted blob file containing core credentials such as the HSM backup, user credentials, the signing key, and the data encryption key unique to your managed HSM. It serves the following purposes:
+Every managed HSM must have a security domain to operate. The security domain is an encrypted blob file containing artifacts such as the HSM backup, user credentials, the signing key, and the data encryption key unique to your managed HSM. It serves the following purposes:
 
 - Establishes "ownership" by cryptographically tying each managed HSM to a root of trust keys under your sole control, and ensures that Microsoft does not have access to your cryptographic key material on the managed HSM.
 - Sets the cryptographic boundary for key material in a managed HSM instance
@@ -76,7 +76,7 @@ Because there is no way to migrate key material from a managed HSM instance to a
 
 ## Summary
 
-The security domain and its corresponding private keys play an important part in managed HSM operations. These core credentials are analogous to the combination of a safe, and poor management may easily comprise strong algorithms and systems. If a safe combination is known to an adversary, the strongest safe provides no security. The proper management of the security domain and its private keys is essential to the effective use of the managed HSM.
+The security domain and its corresponding private keys play an important part in managed HSM operations. These artifact are analogous to the combination of a safe, and poor management may easily comprise strong algorithms and systems. If a safe combination is known to an adversary, the strongest safe provides no security. The proper management of the security domain and its private keys is essential to the effective use of the managed HSM.
 
 It is highly recommended that you review [NIST Special Publication 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final) for key management best practices, before developing and implementing the policies, systems, and standards necessary to meet and enhance your organization's security goals.
 
