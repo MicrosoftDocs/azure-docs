@@ -47,7 +47,7 @@ The following tables describe supported deployment options for your OT sensors a
 |L100 (Line)    | 60 Mbps        |   800      | Physical / Virtual        |
 |L60 (Line)     | 10 Mbps        |   100      |Physical / Virtual|
 
-### On Premises Management Console
+### On-premises management console
 
 |Name  |Max Monitored Sensors  |Deployment  |
 |---------|---------|---------|
