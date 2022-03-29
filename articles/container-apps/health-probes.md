@@ -25,3 +25,63 @@ Container Apps support the following probes:
 
 - You can only add one of each probe type per container app.
 - `exec` probes are not supported.
+
+## Examples
+
+The following code listing shows how you can define some health probes for your containers.
+
+```json
+{
+    ...
+    "containers":[
+    {
+        "image":"nginx",
+        "name":"web",
+        "probes":[
+            {
+                "type":"liveness",
+                "httpGet":{
+                "path":"/health",
+                "port":8080,
+                "httpHeaders":[
+                    {
+                        "name":"Custom-Header",
+                        "value":"liveness header"
+                    }]
+                },
+                "initialDelaySeconds":7,
+                "periodSeconds":3
+            },
+            {
+                "type":"readiness",
+                "tcpSocket":
+                    {
+                        "port": 8081
+                    },
+                "initialDelaySeconds": 10,
+                "periodSeconds": 3
+            },
+            {
+                "type": "startup",
+                "httpGet": {
+                    "path": "/startup",
+                    "port": 8080,
+                    "httpHeaders": [
+                        {
+                            "name": "Custom-Header",
+                            "value": "Awesome"
+                        }]
+                },
+                "initialDelaySeconds": 3,
+                "periodSeconds": 3
+            }]
+        },
+    ]
+    ...
+}
+```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Monitor an app](monitor.md)
