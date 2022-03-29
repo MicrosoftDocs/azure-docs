@@ -102,7 +102,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Create a community gallery (preview)
 
-A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of pubic instance of your gallery will be the prefix you provide, plus a unique GUID.
+A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery will be the prefix you provide, plus a unique GUID.
 
 During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
@@ -115,7 +115,7 @@ During the preview, make sure that you create your gallery, image definitions, a
 
 ### Prerequisites
 
- Only the owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+ Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. To assign a role to a user, group, service principal or managed identity, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
 ### [CLI](#tab/cli2)
 
@@ -211,7 +211,7 @@ Making a community gallery available to all Azure users is a two-step process. F
 1. At the bottom of the page, select **Next: Sharing method**.
 1. On the **Sharing** tab, select **RBAC + share to public community gallery**.
 1. For **Community gallery prefix** type a prefix that will be appended to a GUID to create the unique name for your community gallery.
-1. For **Publisher email** type a valid e-mail address that can be used to communicate with your about the gallery.
+1. For **Publisher email** type a valid e-mail address that can be used to communicate with you about the gallery.
 1. For **Publisher URL**, type the a URL for where people can go to get more information about the images in your community gallery.
 1. For **EULA**, type the URL for your end user license agreement. XXXX License agreement and privacy statement.
 1. When you are done, select **Review + create**.

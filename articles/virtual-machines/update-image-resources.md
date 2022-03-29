@@ -38,7 +38,7 @@ List the image definitions in your gallery, including information about OS type 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the ContosoImage gallery in West US and lists them by name, the unique ID that is needed to create a VM, OS and OS state. 
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state. 
 
 ```azurecli-interactive 
  az sig image-definition list-community \

@@ -57,9 +57,9 @@ The following parameters determine which types of image versions they can contai
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
 - Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
-- Eula - can be used to point to an end-user license agreement specific to the image definition.
+- EULA - can be used to point to an end-user license agreement specific to the image definition.
 - Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
-- End-of-life date - establish a default end-of-life dates for all image versions in the image definition. End-of-life dates are informational; users will still be able to create VMs from images and versions past the end-of-life date.
+- End-of-life date - establish a default date after which the image shouldn't be used, for all image versions in the image definition. End-of-life dates are informational; users will still be able to create VMs from images and versions past the end-of-life date.
 - Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../azure-resource-manager/management/tag-resources.md)
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
@@ -137,7 +137,7 @@ The following SDKs support creating Azure Compute Galleries:
 
 ## Templates
 
-You can create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can create Azure Compute Gallery resource using templates. There are several quickstart templates available: 
 
 - [Create a gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an image definition in a gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
@@ -169,7 +169,7 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Open the [Azure portal](https://portal.azure.com).
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
-1. Look for resources of type **Azure Compute Gallery**, .
+1. Look for resources of the **Azure Compute Gallery** type.
   
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 

@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Share gallery resources
 
-There are several way to share resources created in your Azure Compute Gallery. Role-based access control lets you share on a granular level, and community galleries let's you share your entire gallery publicly to all Azure users.
+There are several ways to share resources created in your Azure Compute Gallery. Role-based access control lets you share on a granular level, and community galleries let's you share your entire gallery publicly to all Azure users.
 
 ## RBAC
 
@@ -101,7 +101,7 @@ To learn more, see [Community Galleries (preview) overview](azure-compute-galler
 
 Create an [image definition and an image version](image-version.md).
 
-You can also create Azure Compute Gallery resources using templates. There are several Azure Quickstart Templates available: 
+You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available: 
 
 - [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)

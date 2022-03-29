@@ -92,7 +92,7 @@ The regions that a resource is replicated to can be updated after creation time.
 > To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 
 
-Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, where you can make your images available to all Azure customers. When an gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private. You can continue to use it as you did before.
+Community Galleries is a new capability in Azure Compute Gallery to support making public galleries, where you can make your images available to all Azure customers. When a gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private. You can continue to use it as you did before.
 
 ### How community galleries work
 
@@ -148,7 +148,7 @@ The following SDKs support creating Azure Compute Galleries:
 
 ## Templates
 
-You can create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can create Azure Compute Gallery resource using templates. There are several quickstart templates available: 
 
 - [Create a gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an image definition in a gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
