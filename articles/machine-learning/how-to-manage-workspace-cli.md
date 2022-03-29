@@ -31,6 +31,8 @@ In this article, you learn how to create and manage Azure Machine Learning works
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
+[!INCLUDE [public network access](../../includes/machine-learning-cli-public-network-access.md)]
+
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Connect the CLI to your Azure subscription

@@ -1588,8 +1588,6 @@ items:
     href: policy-reference.md
   - name: Feature and API Retirement 
     items:
-    - name: OperationalInsights API
-      href: logs/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: Classic alerting & monitoring 

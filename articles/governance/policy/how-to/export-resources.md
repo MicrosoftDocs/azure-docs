@@ -40,7 +40,7 @@ To export a policy definition from Azure portal, follow these steps:
    Policies** button at the bottom of the page.
 
    - **Repository filter**: Set to _My repositories_ to see only repositories you own or _All
-     repositories_ to see all you granted the GitHub Action access to.
+     repositories_ to see all you granted the GitHub Actions access to.
    - **Repository**: Set to the repository that you want to export the Azure Policy resources to.
    - **Branch**: Set the branch in the repository. Using a branch other than the default is a good
      way to validate your updates before merging further into your source code.
