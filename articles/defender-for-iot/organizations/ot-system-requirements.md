@@ -9,19 +9,7 @@ ms.topic: conceptual
 
 ## This article lists the hardware and virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles. You can use either physical or virtual appliances as needed for your organization.
 
-Applies to OT Hardware Requirements for the installation of Defender for IoT sensors and on-premises management appliances. The Defender for IoT appliances may either be physical or virtual, based on the user's preference.
 
-This article covers the following topics:
-
-**- Supported Hardware configurations** for the Sensors and On-Premises Management appliances.
-
-**- Requirements and design considerations for virtual appliances**- sensors and On-Premises Management appliances.
-
-**- How to onboard, view, and manage sensors** with Defender for IoT in the Azure portal.
-
-**- Manage the On-premises management console** with Defender for IoT
-
-**- Directly procure certified pre-installed appliances** which have been evaluated in our labs and are delivered ready to deploy.
 
 ## Multiple Deployment Options
 
@@ -90,17 +78,14 @@ Due to our software being built on **Ubuntu 18.04**, all hardware components sho
 
 ## Supported physical appliances
 
-The following appliances have been evaluated in the Defender for IoT labs, and have the following advantages:
+Microsoft has validated the following physical appliances. Using any of the appliances listed in this section has advantages in the following areas:
 
-- **Performance Benchmark** - Total assets monitored
-- **Compatibility** – New releases are tested in our labs on multiple appliances to ensure successful upgrade and driver support
-- **Stability** – Products undergo long-term traffic monitoring and packet loss tests.
-- **Upgradeability** – New releases are validated on multiple appliances in our labs.
-- **In-lab experience** - Microsoft support teams have been trained and have a working knowledge of this hardware.
-- **Availability** - Hardware on the list is readily available worldwide and components typically have long-term availability.
+- **Performance** over the total assets monitored
+- **Compatibility** with new Defender for IoT releases, with validations for upgrades and driver support
+- **Stability**, as validated physical appliances undergo long-term traffic monitoring and packet loss tests
+- **In-lab experience**, where Microsoft support teams have been trained using validated physical appliances and have a working knowledge of the hardware
+- **Availability**, as these physical appliances are available worldwide and long term
 
-Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at the following address: hardware.sales@arrow.com.
-
-Vendors interested in certifying more configurations, please contact email.
+Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
 ### OT Network Sensors
