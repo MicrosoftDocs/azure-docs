@@ -11,7 +11,7 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 02/28/2022
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, cliv2
 ---
 
 # Install and set up the CLI (v2)
