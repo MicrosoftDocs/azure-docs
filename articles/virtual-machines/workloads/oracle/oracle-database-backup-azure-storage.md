@@ -319,7 +319,7 @@ To set up your storage account and file share run the following commands in Azur
    //orabackup1.file.core.windows.net/orabackup   10T     0   10T   0% /mnt/orabackup
    ```
 
-### Back up the database
+### Backup the database
 
 In this section, we will be using Oracle Recovery Manager (RMAN) to take a full backup of the database and archive logs and write the backup as a backup set to the Azure File share mounted earlier. 
 
