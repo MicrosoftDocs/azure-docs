@@ -55,6 +55,10 @@
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
   - name: Private offers
     items:
+      - name: For customers
+        href: isv-customer-private-offer.md
+      - name: FAQs
+        href: isv-customer-faq.yml
       - name: For CSP partners
         href: isv-csp-reseller.md
       - name: FAQs
