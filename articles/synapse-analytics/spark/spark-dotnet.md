@@ -45,11 +45,11 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.18.04-x64
    ```
 
-3. Zip the contents of the publish folder, `publish.zip` for example, that was created as a result of Step 1. All the assemblies should be in the first layer of the ZIP file and there should be no intermediate folder layer. This means when you unzip `publish.zip`, all assemblies are extracted into your current working directory.
+3. Zip the contents of the publish folder, `publish.zip` for example, that was created as a result of Step 1. All the assemblies should be in the root of the ZIP file and there should be no intermediate folder layer. This means when you unzip `publish.zip`, all assemblies are extracted into your current working directory. 
 
     **On Windows:**
 
-    Using Windows PowerShell or PowerShell 7
+    Using Windows PowerShell or PowerShell 7, create a .zip from the contents of your publish directory.
     ```PowerShell
     Compress-Archive publish/* publish.zip -Update
     ```
