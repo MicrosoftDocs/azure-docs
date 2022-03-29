@@ -19815,27 +19815,27 @@
     },
     {
       "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
-      "redirect_url": "/azure/event-grid/event-grid-cli-subscribe-custom-topic",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-create-custom-topic.md",
-      "redirect_url": "/azure/event-grid/event-grid-cli-subscribe-custom-topic",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group-filter.md",
-      "redirect_url": "/azure/event-grid/event-grid-cli-subscribe-custom-topic",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-blob.md",
-      "redirect_url": "/azure/event-grid/event-grid-cli-subscribe-custom-topic",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
-      "redirect_url": "/azure/event-grid/event-grid-cli-subscribe-custom-topic",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": true
     },
     {

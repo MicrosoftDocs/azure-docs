@@ -75,7 +75,7 @@
     items:
     - name: Subscribe to custom topic
       href: scripts/event-grid-cli-subscribe-custom-topic.md
- - name: Azure PowerShell
+  - name: Azure PowerShell
     href: powershell-samples.md
     items:
     - name: Create custom topic
