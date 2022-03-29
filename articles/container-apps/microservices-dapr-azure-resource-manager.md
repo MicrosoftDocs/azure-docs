@@ -124,6 +124,9 @@ az upgrade
 
 Next, install the Azure Container Apps extension for the Azure CLI.
 
+> [!NOTE]
+> If you have worked with earlier versions of Container Apps, make sure to first remove the old extension version by running `az extension remove -n containerapp`.
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -600,7 +603,6 @@ $params = @{
   environment_name = $CONTAINERAPPS_ENVIRONMENT
   location = $LOCATION
   storage_account_name =  $STORAGE_ACCOUNT
-  storage_account_key = $STORAGE_ACCOUNT_KEY
   storage_container_name = $STORAGE_ACCOUNT_CONTAINER
 }
 
@@ -629,7 +631,6 @@ az deployment group create \
       environment_name="$CONTAINERAPPS_ENVIRONMENT" \
       location="$LOCATION" \
       storage_account_name="$STORAGE_ACCOUNT" \
-      storage_account_key="$STORAGE_ACCOUNT_KEY" \
       storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
 ```
 
@@ -640,7 +641,6 @@ $params = @{
   environment_name = $CONTAINERAPPS_ENVIRONMENT
   location = $LOCATION
   storage_account_name =  $STORAGE_ACCOUNT
-  storage_account_key = $STORAGE_ACCOUNT_KEY
   storage_container_name = $STORAGE_ACCOUNT_CONTAINER
 }
 
@@ -669,7 +669,9 @@ This command deploys:
 
 You can confirm that the services are working correctly by viewing data in your Azure Storage account.
 
-1. Open the [Azure portal](https://portal.azure.com) in your browser and navigate to your storage account.
+1. Open the [Azure portal](https://portal.azure.com) in your browser.
+
+1. Navigate to your storage account.
 
 1. Select **Containers** from the menu on the left side.
 
@@ -693,9 +695,11 @@ Use the following command to view logs in bash or PowerShell.
 
 ```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
+```
 
+```azurecli
 az monitor log-analytics query \
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --workspace "$LOG_ANALYTICS_WORKSPACE_CLIENT_ID" \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
   --out table
 ```
@@ -704,7 +708,9 @@ az monitor log-analytics query \
 
 ```powershell
 $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+```
 
+```powershell
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
 $queryResults.Results
 ```
