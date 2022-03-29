@@ -37,7 +37,7 @@ fields:
         * Click Use an existing VNET to choose an existing Virtual Private Network (VNet) in which you want to create the cluster. Provide the following information:
             * Resource Group. Select a resource group from the drop-down list.
             * Virtual Private Network (VNET). Select a VNet in which you want to create the cluster.
-            > [NOTE]
+            > [!NOTE]
             > Ensure that you have one private network (subnet) without outward internet access and the VNet you selected has internet connectivity to the portal through an internet gate
             * Management Subnet
         * Click Create New VNET if you want to create a new VNet for this cluster and do not want to use any of your existing Azure virtual networks.
