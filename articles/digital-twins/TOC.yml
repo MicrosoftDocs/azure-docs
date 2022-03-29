@@ -129,7 +129,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use data history (preview) with Azure Data Explorer
+    - name: Use data history with Azure Data Explorer (preview)
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md

@@ -51,7 +51,7 @@ For SDKs that don't support adaptive sampling, you can employ [ingestion samplin
 
 ## Viewing Application Insights usage on your Azure bill
 
-The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need elevated access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
+The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-based resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need elevated access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
 
 To learn more, Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  Application Insights billed usage for data ingestion and data retention will show up as **Log Analytics** for the Meter category since Log Analytics backend for all Azure Monitor logs. 
 

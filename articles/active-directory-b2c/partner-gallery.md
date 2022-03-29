@@ -55,6 +55,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
+| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (PII) through the xID API. |
 
 ## Role-based access control 
  
