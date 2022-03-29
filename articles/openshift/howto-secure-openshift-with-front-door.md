@@ -92,7 +92,7 @@ This section explains how to register a domain in Azure DNS.
 
 4. Create a new **NS** record set in the example.com zone that points to **app** and specify the four nameservers that were present when the **apps** zone was created.
 
-## Create a New Azure Front Door Premium service
+## Create a new Azure Front Door Premium service
 
 To create a new Azure Front Door Premium service:
 
