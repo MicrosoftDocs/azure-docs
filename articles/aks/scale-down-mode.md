@@ -26,6 +26,9 @@ This article assumes that you have an existing AKS cluster and the latest versio
 
 - [Ephemeral OS][ephemeral-os] disks aren't supported. Be sure to specify managed OS disks via `--node-osdisk-type Managed` when creating a cluster or node pool.
 
+> [!NOTE]
+> While Scale-down Mode was in preview, [spot node pools][spot-node-pool] were unsupported. However, as of the Generally Available release, these features are compatible. 
+
 ## Using Scale-down Mode to deallocate nodes on scale-down
 
 By setting `--scale-down-mode Deallocate`, nodes will be deallocated during a scale-down of your cluster/node pool. All deallocated nodes are stopped. When your cluster/node pool needs to scale up, the deallocated nodes will be started first before any new nodes are provisioned.
