@@ -5,7 +5,7 @@ author: bdeforeest
 ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 03/28/2022
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to, devx-track-azurecli
 ---
