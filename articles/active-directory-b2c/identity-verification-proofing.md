@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn about our partners who integrate with Azure AD B2C to provide identity proofing and verification solutions 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity

@@ -299,105 +299,12 @@ It takes a few minutes for the scale operation to complete.
 
 AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
-## Resize a node pool
-
-To increase of number of deployments or run a larger workload, you may want to change the virtual machine scale set plan or resize AKS instances. However, you should not do any direct customizations to these nodes using the IaaS APIs or resources, as any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. This means resizing your AKS instances in this manner is not supported.
-
-The recommended method to resize a node pool to the desired SKU size is as follows:
-
-* Create a new node pool with the new SKU size
-* Cordon and drain the nodes in the old node pool in order to move workloads to the new nodes
-* Remove the old node pool.
-
-> [!IMPORTANT]
-> This method is specific to virtual machine scale set-based AKS clusters. When using virtual machine availability sets, you are limited to only one node pool per cluster.
-
-### Create a new node pool with the desired SKU
-
-The following command creates a new node pool with 2 nodes using the `Standard_DS3_v2` VM SKU:
-
-> [!NOTE]
-> Every AKS cluster must contain at least one system node pool with at least one node. In the below example, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
-
-```azurecli-interactive
-az aks nodepool add \ 
-    --resource-group myResourceGroup \ 
-    --cluster-name myAKSCluster \ 
-    --name mynodepool \ 
-    --node-count 2 \ 
-    --node-vm-size Standard_DS3_v2 \ 
-    --mode System \ 
-    --no-wait 
-```
-
-Be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, please see the [az aks nodepool add][az-aks-nodepool-add] reference page.
-
-### Cordon the existing nodes
-
-Cordoning marks specified nodes as unschedulable and prevents any additional pods from being added to the nodes.
-
-First, obtain the names of the nodes you'd like to cordon with `kubectl get nodes`. Your output should look similar to the following:
-
-```bash
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31721111-vmss000000   Ready    agent   7d21h   v1.21.9
-aks-nodepool1-31721111-vmss000001   Ready    agent   7d21h   v1.21.9
-aks-nodepool1-31721111-vmss000002   Ready    agent   7d21h   v1.21.9
-```
-
-Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-separated list:
-
-```bash
-kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
-```
-
-If succesful, your output should look similar to the following:
-
-```bash
-node/aks-nodepool1-31721111-vmss000000 cordoned
-node/aks-nodepool1-31721111-vmss000001 cordoned
-node/aks-nodepool1-31721111-vmss000002 cordoned
-```
-
-### Drain the existing nodes
-
-> [!IMPORTANT]
-> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher.
-
-Draining nodes will cause pods running on them to be evicted and recreated on the other, schedulable nodes.
-
-To drain nodes, use `kubectl drain <node-names> --ignore-daemonsets --delete-emptydir-data`, again using a space-separated list of node names:
-
-> [!IMPORTANT]
-> Using `--delete-emptydir-data` is required to evict the AKS-created `coredns` and `metrics-server` pods. If this flag isn't used, an error is expected. Please see the [documentation on emptydir][empty-dir] for more information.
-
-```bash
-kubectl drain aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002 --ignore-daemonsets --delete-emptydir-data
-```
-
-> [!TIP]
-> By default, your cluster has AKS_managed pod disruption budgets (such as `coredns-pdb` or `konnectivity-agent`) with a `MinAvailable` of 1. If, for example, there are two `coredns` pods running, while one of them is getting recreated and is unavailable, the other is unable to be affected due to the pod disruption budget. This resolves itself after the initial `coredns` pod is scheduled and running, allowing the second pod to be properly evicted and recreated.
->
-> Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. For more information, see [plan for availability using a pod disruption budget][pod-disruption-budget].
-
-After the drain operation finishes, verify pods are running on the new nodepool:
-
-```bash
-kubectl get pods -o wide -A
-```
-
-### Remove the existing node pool
-
-To delete the existing node pool, see the section on [Deleting a node pool](#delete-a-node-pool).
-
-After completion, the final result is the AKS cluster having a single, new node pool with the new, desired SKU size and all the applications and pods properly running.
-
 ## Delete a node pool
 
-If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynoodepool* created in the previous steps:
+If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
 
 > [!CAUTION]
-> There are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications are unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster.
+> When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more details, see [cordon and drain node pools][cordon-and-drain].
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
@@ -636,48 +543,7 @@ Only pods that have this toleration applied can be scheduled on nodes in *taintn
 
 ### Setting nodepool labels
 
-You can also add labels to a node pool during node pool creation. Labels set at the node pool are added to each node in the node pool. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes.
-
-To create a node pool with a label, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *labelnp* and use the `--labels` parameter to specify *dept=IT* and *costcenter=9999* for labels.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name labelnp \
-    --node-count 1 \
-    --labels dept=IT costcenter=9999 \
-    --no-wait
-```
-
-> [!NOTE]
-> Labels must be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
-
-The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
-
-```azurecli
-az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
-
-```output
-[
-  {
-    ...
-    "count": 1,
-    ...
-    "name": "labelnp",
-    "orchestratorVersion": "1.15.7",
-    ...
-    "provisioningState": "Creating",
-    ...
-    "nodeLabels":  {
-      "dept": "IT",
-      "costcenter": "9999"
-    },
-    ...
-  },
- ...
-]
-```
+For more details on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
 ### Setting nodepool Azure tags
 
@@ -968,7 +834,6 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 [capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
-[empty-dir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
@@ -1010,5 +875,5 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2
 [use-tags]: use-tags.md
-[update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
-[pod-disruption-budget]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets
+[use-labels]: use-labels.md
+[cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes

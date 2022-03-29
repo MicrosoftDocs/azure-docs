@@ -11,7 +11,7 @@ ms.date: 05/27/2021
 ms.author: cherylmc
 
 ---
-# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
+# Create an Azure AD tenant for P2S OpenVPN protocol connections
 
 When you connect to your VNet using Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
 

@@ -60,10 +60,10 @@ Available [Azure CLI](/cli/azure/sql) commands:
 
 |Cmdlet |Description |
 |:---|:---|
-|[az sql instance-pool create](/cli/azure/sql/instance-pool#az_sql_instance_pool_create) | Creates a SQL Managed Instance pool. |
-|[az sql instance-pool show](/cli/azure/sql/instance-pool#az_sql_instance_pool_show) | Returns information about an instance pool. |
-|[az sql instance-pool update](/cli/azure/sql/instance-pool#az_sql_instance_pool_update) | Sets or updates properties for an instance pool in SQL Managed Instance. |
-|[az sql instance-pool delete](/cli/azure/sql/instance-pool#az_sql_instance_pool_delete) | Removes an instance pool in SQL Managed Instance. |
+|[az sql instance-pool create](/cli/azure/sql/instance-pool#az-sql-instance-pool-create) | Creates a SQL Managed Instance pool. |
+|[az sql instance-pool show](/cli/azure/sql/instance-pool#az-sql-instance-pool-show) | Returns information about an instance pool. |
+|[az sql instance-pool update](/cli/azure/sql/instance-pool#az-sql-instance-pool-update) | Sets or updates properties for an instance pool in SQL Managed Instance. |
+|[az sql instance-pool delete](/cli/azure/sql/instance-pool#az-sql-instance-pool-delete) | Removes an instance pool in SQL Managed Instance. |
 
 ---
 

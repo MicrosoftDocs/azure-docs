@@ -44,6 +44,8 @@ In the Apache JMeter script, you define the number of parallel threads. This num
 
 For example, to simulate 1,000 threads (or virtual users), set the number of threads in the Apache JMeter script to 250. Then configure the test with four test engine instances (that is, 4 x 250 threads).
 
+The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
+
 > [!IMPORTANT]
 > For preview release, Azure Load Testing supports up to 45 engine instances for a test run.
 
@@ -63,7 +65,7 @@ In this section, you configure the scaling settings of your load test.
 
     :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows the 'Configure' and 'Test' buttons on the test details page.":::
 
-1. On the **Edit test** page, select the **Load** tab. In the **Engine instances** box, enter the number of test engines required to run your test.
+1. On the **Edit test** page, select the **Load** tab. Use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
     :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
 

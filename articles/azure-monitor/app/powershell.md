@@ -225,6 +225,8 @@ Additional properties are available via the cmdlets:
 
 Refer to the [detailed documentation](/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Set the data retention
 
 Below are three methods to programmatically set the data retention on an Application Insights resource.
@@ -349,7 +351,7 @@ armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 To set the daily cap reset time, you can use [ARMClient](https://github.com/projectkudu/ARMClient). Here's an example using `ARMClient`, to set the reset time to a new hour (in this example 12:00 UTC):
 
 ```PS
-armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':100,'WarningThreshold':80,'ResetTime':12}}"
 ```
 
 <a id="price"></a>

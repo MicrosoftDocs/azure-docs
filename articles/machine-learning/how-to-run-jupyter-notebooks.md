@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 02/28/2022
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
@@ -331,7 +331,12 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 * If your kernel crashed and was restarted, you can run the following command to look at jupyter log and find out more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
 
 * If you run into an expired token issue, sign out of your Azure ML studio, sign back in, and then restart the notebook kernel.
-    
+
+* When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
+
+    * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
+    * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
+
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)

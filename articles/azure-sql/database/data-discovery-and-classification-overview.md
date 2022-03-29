@@ -159,7 +159,7 @@ This is the required action to modify the data classification of a database are:
 Learn more about role-based permissions in [Azure RBAC](../../role-based-access-control/overview.md).
 
 > [!NOTE]
-> The Azure SQL built-in roles in this section apply to a dedicated SQL pool (formerly SQL DW) but are not available for dedicated SQL pools and other SQL resources within Azure Synapse workspaces. For SQL resources in Azure Synapse workspaces, use the available actions for data classification to create custom Azure roles as needed for labelling. For more information on the `Microsoft.Synapse/workspaces/sqlPools` provider operations, see [Microsoft.Synapse](/azure/role-based-access-control/resource-provider-operations.md#microsoftsynapse).
+> The Azure SQL built-in roles in this section apply to a dedicated SQL pool (formerly SQL DW) but are not available for dedicated SQL pools and other SQL resources within Azure Synapse workspaces. For SQL resources in Azure Synapse workspaces, use the available actions for data classification to create custom Azure roles as needed for labelling. For more information on the `Microsoft.Synapse/workspaces/sqlPools` provider operations, see [Microsoft.Synapse](../../role-based-access-control/resource-provider-operations.md#microsoftsynapse).
 
 ## Manage classifications
 
@@ -199,7 +199,7 @@ Manage classifications and recommendations for Azure SQL Database and Azure SQL 
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
-### Use the Rest API
+### Use the REST API
 
 You can use the REST API to programmatically manage classifications and recommendations. The published REST API supports the following operations:
 

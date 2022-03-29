@@ -48,7 +48,7 @@ sections:
       
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with VNet NAT gateway?
         answer: |
-          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#vnet-nat-basics)
+          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#virtual-network-nat-basics)
           You can upgrade your basic Load Balancer and basic public IP address to standard in order to work with VNet NAT gateway.
           
           To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)

@@ -30,10 +30,14 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/). If you're using the free subscription, only CPU clusters are supported.
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
 - Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
 - CLI (v2) (preview). For installation instructions, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md)
+-  Clone the community driven repository
+    ```bash
+        git clone https://github.com/Azure/azureml-examples.git
+    ```
 
 ## Understand the code
 
@@ -41,20 +45,18 @@ The code for this tutorial uses TensorFlow to train an image classification mach
 
 ![MNIST Digits](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
 
-Get the code for this tutorial by downloading and unzipping the [Azure ML Examples repository](https://github.com/Azure/azureml-examples/archive/refs/heads/main.zip) anywhere on your computer.
-
 ## Create a workspace
 
 The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace contains the resources to train models as well as the trained models themselves. For more information, see [what is a workspace](./concept-workspace.md).
 
-1. Open the *azureml-examples-main/cli/jobs/train/tensorflow/mnist* directory in Visual Studio Code.
+1. Open the *azureml-examples/cli/jobs/single-step/tensorflow/mnist* directory from the community driven repository in Visual Studio Code.
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
 1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
 
     > [!div class="mx-imgBorder"]
     > ![Create workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
 
-1. A specification file appears. Configure the specification file with the following options. 
+1. A specification file appears. Configure the specification file with the following options.
 
     ```yml
     $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json

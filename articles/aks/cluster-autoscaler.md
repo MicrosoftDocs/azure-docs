@@ -215,7 +215,7 @@ If you wish to re-enable the cluster autoscaler on an existing cluster, you can 
 
 ## Retrieve cluster autoscaler logs and status
 
-To diagnose and debug autoscaler events, logs and status can be retrieved from the autoscaler add-on.
+To diagnose and debug autoscaler events, logs and status can be retrieved from the cluster autoscaler.
 
 AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from CA.
 
@@ -287,15 +287,15 @@ This article showed you how to automatically scale the number of AKS nodes. You 
 [aks-view-master-logs]: monitor-aks.md#configure-monitoring
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-update]: /cli/azure/aks#az_aks_update
-[az-aks-scale]: /cli/azure/aks#az_aks_scale
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
+[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update-preview]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates
 description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using resource manager templates.
-ms.subservice: logs
 ms.topic: tutorial
 ms.date: 01/19/2022
 ---
@@ -28,7 +27,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](/azure/azure-monitor/essentials/data-collection-rule-overview#permissions) in the workspace.
 
 ## Collect workspace details
 Start by gathering information that you'll need from your workspace.
@@ -38,7 +37,7 @@ Start by gathering information that you'll need from your workspace.
     :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 ## Configure application
-Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -341,6 +340,15 @@ Once the data collection rule has been created, the application needs to be give
 ## Send sample data
 The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. 
 
+> [!NOTE]
+> This tutorial uses commands that require PowerShell v7.0 or later. Please make sure your local installation of PowerShell is up to date, or execute this script using the Azure CloudShell.  
+
+1. Run the following PowerShell command which adds a required assembly for the script.
+
+    ```powershell
+    Add-Type -AssemblyName System.Web
+    ```
+
 1. Replace the parameters in the *step 0* section with values from the resources that you just created. You may also want to replace the sample data in the *step 2* section with your own.  
 
     ```powershell
@@ -365,8 +373,6 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
 
     $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-    ### If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
-    # Add-Type -AssemblyName System.Web
 
     ##################
     ### Step 2: Load up some sample data. 
@@ -406,13 +412,13 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
     $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableRawData?api-version=2021-11-01-preview"
 
-    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers -TransferEncoding "GZip"
+    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
 
     > [!NOTE]
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and executely. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
 
-2. After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
+2. After executing this script, you should see a `HTTP - 204` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
 
 ## Troubleshooting
 This section describes different error conditions you may receive and how to correct them.
@@ -427,9 +433,6 @@ The message is too large. The maximum message size is currently 1MB per call.
 API limits have been exceeded. The limits are currently set to 500MB of data/minute for both compressed and uncompressed data, as well as 300,000 requests/minute. Retry after the duration listed in the `Retry-After` header in the response.
 ### Script returns error code 503
 Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
-
-### Script returns error `Unable to find type [System.Web.HttpUtility]`
-Run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue. The command must be executed separately.
 
 ### You don't receive an error, but data doesn't appear in the workspace
 The data may take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.

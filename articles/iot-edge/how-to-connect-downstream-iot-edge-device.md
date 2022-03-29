@@ -1,10 +1,10 @@
 ---
 title: Connect downstream IoT Edge devices - Azure IoT Edge | Microsoft Docs
 description: How to configure an IoT Edge device to connect to Azure IoT Edge gateway devices. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 01/09/2022
+ms.author: patricka
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -124,18 +124,32 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
 1. Install the **root CA certificate** on this IoT Edge device.
 
-   ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
-   ```
+    * **Debian/Ubuntu**
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
+      ```
+
+    * **IoT Edge for Linux on Windows (EFLOW)**
+      ```bash
+      sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+      ```
 
 1. Update the certificate store.
 
-   ```bash
-   sudo update-ca-certificates
-   ```
+    * **Debian/Ubuntu**
+      ```bash
+      sudo update-ca-certificates
+      ```
+      This command should output that one certificate was added to /etc/ssl/certs.
 
-   This command should output that one certificate was added to /etc/ssl/certs.
 
+    * **IoT Edge for Linux on Windows (EFLOW)**
+      ```bash
+      sudo update-ca-trust
+      ```
+      For more information, check [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+  
+  
 1. Open the IoT Edge configuration file.
 
    ```bash
@@ -158,6 +172,10 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    Be consistent with the hostname pattern across a gateway hierarchy. Use either FQDNs or IP addresses, but not both.
 
 1. *If this device is a child device*, find the **Parent hostname** section. Uncomment and update the `parent_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file.
+
+   ```toml
+   parent_hostname = "my-parent-device"
+   ```
 
 1. Find the **Trust bundle cert** section. Uncomment and update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device.
 
@@ -558,13 +576,13 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Open a terminal on the leaf device.
 
-1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/var/defender_iot_micro_agent/connection_string.txt`:
+1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/etc/defender_iot_micro_agent/connection_string.txt`:
 
     ```bash
-    sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
+    sudo bash -c 'echo "<connection string>" > /etc/defender_iot_micro_agent/connection_string.txt'
     ```
 
-    The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+    The `connection_string.txt` should now be located in the following path location `/etc/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 
