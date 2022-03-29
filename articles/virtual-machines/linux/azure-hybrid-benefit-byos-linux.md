@@ -23,7 +23,7 @@ ms.author: mathapli
 >Azure Hybrid Benefit for BYOS VMs is planned for Preview from **30 March 2022**. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
 
 
-Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from o- prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
+Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from on-prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
 
 ## Benefit description
 Before AHB BYOS, RHEL and SLES customers who migrated their on-prem machines to Azure by creating images of on-prem systems and migrating them as VMs on Azure did not have the flexibility to get software updates directly from Azure similar to Marketplace PAYG VMs. Hence, you needed to still buy cloud access licenses from the Enterprise Linux distributors to get security support as well as software updates. With Azure Hybrid Benefit for BYOS VMs, we will allow you to get software updates and support for on-prem custom image VMs as well as RHEL and SLES BYOS VMs similar to PAYG VMs by paying the same software fees as charged to PAYG VMs. In addition, these conversions can happen without any redeployment, so you can avoid any downtime risk.  
@@ -87,7 +87,7 @@ To start using the benefit for SUSE:
 
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
-1. You should now be connected to Azure SLES Update Infrastructure and the relevant repositories will be installed in your machine.  
+1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine.
 
 1. In case the extension is not running by itself, you can run it on demand as well.
 
@@ -140,7 +140,7 @@ you can use the `az vm update` command to update existing license type on runnin
 ## Enable and disable the benefit for SLES
 
 You can install the `AHBForSLES` extension to install the extension. After successfully installing the extension,
-you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following: `SLES_STANDARD`,`SLES_SAP` or `SLES_HPC`.
+you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following: `SLES_STANDARD`, `SLES_SAP` or `SLES_HPC`.
 
 ### CLI example to enable the benefit for SLES
 1. Install the Azure Hybrid Benefit extension on running VM using the portal or via Azure CLI using the command below:
@@ -162,7 +162,7 @@ you can use the `az vm update` command to update existing license type on runnin
     ```
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
-1. You should now be connected to Azure SLES Update Infrastructure and the relevant repositories will be installed in your machine. You can check the same by  performing the command below on your VM which outputs installed repository packages on your VM:
+1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine. You can verify this by performing the command below on your VM which list SUSE repositories on your VM:
     ```bash
     zypper repos
     ```
@@ -182,7 +182,7 @@ To check the status of Azure Hybrid Benefit for BYOS VM status
 1. You can view the Azure Hybrid Benefit status of a VM by using the Azure CLI or by using Azure Instance Metadata Service.
 
     You can use the below command for this purpose. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the below, your VM has the benefit enabled:
-    `RHEL_BASE`, `RHEL_EUS`, `RHEL_BASESAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_STANDARD`, `SLES_SAP`, `SLES_` 
+    `RHEL_BASE`, `RHEL_EUS`, `RHEL_BASESAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_STANDARD`, `SLES_SAP`, `SLES_HPC`. 
 
     ```azurecli
     az vm get-instance-view -g MyResourceGroup -n MyVm
