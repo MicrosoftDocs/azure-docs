@@ -23,8 +23,8 @@ You can buy virtual machine software reservation in the Azure portal. To buy a r
 ## Buy a virtual machine software reservation
 
 1. Select your desired plan from Azure Marketplace that has reservation pricing.
-2. Select **Add** and then select the Virtual machine software reservation that you want to buy.
-Fill in the required fields. Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
+2. Select **Purchase** and then select the Virtual machine software reservation that you want to buy.
+Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
 The subscription payment method is charged the upfront costs for the reservation. To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement.
     - For an enterprise subscription, these reservation purchase charges are not deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance. The charges are billed to the subscription's credit card or invoice payment method.
