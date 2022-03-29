@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/25/2022
+ms.date: 03/29/2022
 ms.author: alkohli
 ---
 
@@ -50,7 +50,7 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 |-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
 | **Standard_NC4as_T4_v3**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
 | **Standard_NC8as_T4_v3**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
-| **Standard_NC16as_T4_v3-new**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
+| **Standard_NC16as_T4_v3**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
 
@@ -93,5 +93,5 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 | **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
 | **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
-| **Standard_F12s_HPN-new**   | 12      | 24           |256                 | 2000                           | 48000                               |   2300                             | 64              | 8         |
 | **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
+| **Standard_F12_HPN**   | 12      | 64           | 64                 | 1000                           | 48000                               |   500                             | 64              | 8         |
