@@ -66,7 +66,7 @@ The default real-time protocol (RTP) for group calls is User Datagram Protocol (
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram showing UDP media process flow within Communication Services.":::
 
-If the SDK can't use UDP for media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the Communication Services TURN service will be added to the group call to translate TCP to UDP. TURN charges will be incurred in this case unless TURN capabilities are manually disabled.
+If the SDK can't use UDP for media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the Communication Services TURN service will be added to the group call to translate TCP to UDP. 
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram showing TCP media process flow within Communication Services.":::
 
