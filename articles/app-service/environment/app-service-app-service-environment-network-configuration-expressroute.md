@@ -31,13 +31,13 @@ App Service Environment has network connectivity requirements that initially mig
 
 App Service Environment requires the following network connectivity settings to function properly:
 
-* Outbound network connectivity to Azure Storage endpoints worldwide on both port 80 and port 443. These endpoints are located in the same region as App Service Environment and also other Azure regions. Azure Storage endpoints resolve under the following DNS domains: table.core.windows.NET, blob.core.windows.NET, queue.core.windows.NET, and file.core.windows.NET.  
+* Outbound network connectivity to Azure Storage endpoints worldwide on both port 80 and port 443. These endpoints are located in the same region as App Service Environment and also other Azure regions. Azure Storage endpoints resolve under the following DNS domains: table.core.windows.net, blob.core.windows.net, queue.core.windows.net, and file.core.windows.net.  
 
 * Outbound network connectivity to the Azure Files service on port 445.
 
-* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.NET domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
+* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
-* Outbound network connectivity to the Azure management-plane endpoints (both Azure classic deployment model and Azure Resource Manager endpoints). Connectivity to these endpoints includes the management.core.windows.NET and management.Azure.com domains. 
+* Outbound network connectivity to the Azure management-plane endpoints (both Azure classic deployment model and Azure Resource Manager endpoints). Connectivity to these endpoints includes the management.core.windows.net and management.azure.com domains. 
 
 * Outbound network connectivity to the ocsp.msocsp.com, mscrl.microsoft.com, and crl.microsoft.com domains. Connectivity to these domains is needed to support TLS functionality.
 
