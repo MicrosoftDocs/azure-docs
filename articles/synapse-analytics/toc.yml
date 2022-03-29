@@ -830,6 +830,8 @@ items:
         href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
       - name: Connect to Azure Synapse Link for Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+      - name: Synapse Link and integrated Power BI
+        href: ../cosmos-db/integrated-power-bi-synapse-link.md?context=/azure/synapse-analytics/context/context
       - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
         href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
       - name: Query Azure Cosmos DB analytical store with Apache Spark 3
