@@ -61,8 +61,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
 
-- When using custom domains the connection string is `<accountName>.<userName>@customdomain.com`. If home directory has not been specified for the user, it is `<accountName>.<containerName>.<userName>@customdomain.com`.
-
 - Symbolic links are not supported.
 
 - `ssh-keyscan` is not supported.
