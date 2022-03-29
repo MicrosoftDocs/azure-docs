@@ -285,7 +285,7 @@ After that, you're all done!
 If you'd rather use an automated process, [download our Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to provision your new host pool instead.
 
 >[!NOTE]
->If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file. You can find the JSON file [here](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
+>If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file.
 
 ## Next steps
 
