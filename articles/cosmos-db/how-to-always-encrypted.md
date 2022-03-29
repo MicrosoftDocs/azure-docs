@@ -154,7 +154,7 @@ Creating a new data encryption key is done by calling the `CreateClientEncryptio
   - The `type` defines the type of key resolver (for example, Azure Key Vault).
   - The `name` can be any friendly name you want.
   - The `value` must be the key identifier.
-  - The `algorithm` defines which algorith shall be used to wrap the key encryption key with the customer-managed key.
+  - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```csharp
 var database = client.GetDatabase("my-database");
@@ -178,7 +178,7 @@ Creating a new data encryption key is done by calling the `createClientEncryptio
   - The `type` defines the type of key resolver (for example, Azure Key Vault).
   - The `name` can be any friendly name you want.
   - The `value` must be the key identifier.
-  - The `algorithm` defines which algorith shall be used to wrap the key encryption key with the customer-managed key.
+  - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```java
 CosmosEncryptionAsyncDatabase database =
@@ -339,7 +339,7 @@ database.rewrapClientEncryptionKey(
 
 ## DEK rotation
 
-Performing a rotation of a data encryption key isn't offered as a turnkey capability. This is because updating a DEK requires a scan of all containers where this key is used and a re-encryption of all properties encrypted with this key. This operation can only happen client-side as the Azure Cosmos DB service does not store or ever accesses the plaintext value of the DEK.
+Performing a rotation of a data encryption key isn't offered as a turnkey capability. This is because updating a DEK requires a scan of all containers where this key is used and a re-encryption of all properties encrypted with this key. This operation can only happen client-side as the Azure Cosmos DB service does not store or ever accesses the plain text value of the DEK.
 
 In practice, a DEK rotation can be done by performing a data migration from the impacted containers to new ones. The new containers can be created the exact same way as the original ones. To help you with such a data migration, you can find [a standalone migration tool on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ReEncryption).
 
@@ -351,5 +351,5 @@ If you have flexibility in the way new encrypted properties can be added from a 
 
 ## Next steps
 
-- Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
+- Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md).
 - Learn more about [customer-managed keys for encryption-at-rest](how-to-setup-cmk.md)
