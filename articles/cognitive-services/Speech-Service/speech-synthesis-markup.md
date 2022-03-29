@@ -258,7 +258,7 @@ The following table has descriptions of each supported role.
 
 All neural voices are multilingual. By default, they are fluent in their own language and English without using the `<lang xml:lang>` element. In such case, manually adding the `<lang xml:lang>` element will not be recognized.
 
-The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. You can adjust the speaking language at the sentence level and word level by using the `<lang xml:lang>` element. 
+The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. 
 
 **Syntax**
 
