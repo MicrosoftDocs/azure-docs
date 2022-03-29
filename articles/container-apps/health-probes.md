@@ -30,58 +30,94 @@ Container Apps support the following probes:
 
 The following code listing shows how you can define some health probes for your containers.
 
-The `...` placeholders denote omitted code.
+The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM template API specification](./azure-resource-manager-api-spec.md) for details.
+
+# [ARM template](#tab/arm-template)
 
 ```json
 {
-    ...
-    "containers":[
+  ...
+  "containers":[
     {
-        "image":"nginx",
-        "name":"web",
-        "probes":[
-            {
-                "type":"liveness",
-                "httpGet":{
-                "path":"/health",
-                "port":8080,
-                "httpHeaders":[
-                    {
-                        "name":"Custom-Header",
-                        "value":"liveness probe"
-                    }]
-                },
-                "initialDelaySeconds":7,
-                "periodSeconds":3
-            },
-            {
-                "type":"readiness",
-                "tcpSocket":
-                    {
-                        "port": 8081
-                    },
-                "initialDelaySeconds": 10,
-                "periodSeconds": 3
-            },
-            {
-                "type": "startup",
-                "httpGet": {
-                    "path": "/startup",
-                    "port": 8080,
-                    "httpHeaders": [
-                        {
-                            "name": "Custom-Header",
-                            "value": "startup probe"
-                        }]
-                },
-                "initialDelaySeconds": 3,
-                "periodSeconds": 3
-            }]
+      "image":"nginx",
+      "name":"web",
+      "probes": [
+        {
+          "type": "liveness",
+          "httpGet": {
+            "path": "/health",
+            "port": 8080,
+            "httpHeaders": [
+              {
+                "name": "Custom-Header",
+                "value": "liveness probe"
+              }],
+            "initialDelaySeconds": 7,
+            "periodSeconds": 3
+          }
         },
-    ]
-    ...
+        {
+          "type": "readiness",
+          "tcpSocket": {
+            "port": 8081
+          },
+          "initialDelaySeconds": 10,
+          "periodSeconds": 3
+        },
+        {
+          "type": "startup",
+          "httpGet": {
+            "path": "/startup",
+            "port": 8080,
+            "httpHeaders": [
+              {
+                "name": "Custom-Header",
+                "value": "startup probe"
+              }],
+            "initialDelaySeconds": 3,
+            "periodSeconds": 3
+          }
+        }]
+    }]
+  ...
 }
 ```
+
+# [YAML](#tab/yaml)
+
+```yml
+...
+containers:
+- image: nginx
+  name: web
+  probes:
+  - type: liveness
+    httpGet:
+      path: "/health"
+      port: 8080
+      httpHeaders:
+      - name: Custom-Header
+        value: liveness probe
+      initialDelaySeconds: 7
+      periodSeconds: 3
+  - type: readiness
+    tcpSocket:
+      port: 8081
+    initialDelaySeconds: 10
+    periodSeconds: 3
+  - type: startup
+    httpGet:
+      path: "/startup"
+      port: 8080
+      httpHeaders:
+      - name: Custom-Header
+        value: startup probe
+      initialDelaySeconds: 3
+      periodSeconds: 3
+...
+```
+
+---
 
 ## Next steps
 
