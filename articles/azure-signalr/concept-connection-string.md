@@ -15,8 +15,8 @@ Connection string is an important concept that contains information about how to
 
 When an application needs to connect to Azure SignalR Service, it will need the following information:
 
-1. The HTTP endpoint of the SignalR service instance
-2. How to authenticate with the service endpoint 
+* The HTTP endpoint of the SignalR service instance
+* How to authenticate with the service endpoint 
 
 Connection string contains such information. To see how a connection string looks like, you can open a SignalR service resource in Azure portal and go to "Keys" tab. You'll see two connection strings (primary and secondary) in the following format:
 
@@ -33,8 +33,8 @@ Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;Vers
 
 You can see in the connection string, there are two main information:
 
-1. `Endpoint=https://<resource_name>.service.signalr.net` is the endpoint URL of the resource
-2. `AccessKey=<access_key>` is the key to authenticate with the service. When access key is specified in connection string, SignalR service SDK will use it to generate a token that can be validated by the service.
+* `Endpoint=https://<resource_name>.service.signalr.net` is the endpoint URL of the resource
+* `AccessKey=<access_key>` is the key to authenticate with the service. When access key is specified in connection string, SignalR service SDK will use it to generate a token that can be validated by the service.
 
 >[!NOTE]
 > For more information about how access tokens are generated and validated, see this [article](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#authenticate-via-azure-signalr-service-accesskey).
@@ -43,17 +43,17 @@ You can see in the connection string, there are two main information:
 
 Besides access key, SignalR service also supports other types of authentication methods in connection string.
 
-### Azure Active Directory (AAD) Application
+### Azure Active Directory Application
 
-You can use [AAD application](/azure/active-directory/develop/app-objects-and-service-principals) to connect to SignalR service. As long as the application has the right permission to access SignalR service, no access key is needed.
+You can use [Azure AD application](/azure/active-directory/develop/app-objects-and-service-principals) to connect to SignalR service. As long as the application has the right permission to access SignalR service, no access key is needed.
 
-To use AAD authentication, you need to remove `AccessKey` from connection string and add `AuthType=aad`. You also need to specify the credentials of your AAD application, including client ID, client secret and tenant ID. The connection string will look as follows:
+To use Azure AD authentication, you need to remove `AccessKey` from connection string and add `AuthType=aad`. You also need to specify the credentials of your Azure AD application, including client ID, client secret and tenant ID. The connection string will look as follows:
 
 ```
 Endpoint=https://<resource_name>.service.signalr.net;AuthType=aad;ClientId=<client_id>;ClientSecret=<client_secret>;TenantId=<tenant_id>;Version=1.0;
 ```
 
-For more information about how to authenticate using AAD application, see this [article](signalr-howto-authorize-application.md).
+For more information about how to authenticate using Azure AD application, see this [article](signalr-howto-authorize-application.md).
 
 ### Managed identity
 
@@ -76,7 +76,7 @@ Endpoint=https://<resource_name>.service.signalr.net;AuthType=aad;ClientId=<clie
 For more information about how to configure managed identity, see this [article](signalr-howto-authorize-managed-identity.md).
 
 > [!NOTE]
-> It's highly recommended to use AAD to authenticate with SignalR service as it's a more secure way comparing to using access key. If you don't use access key authentication at all, consider to completely disable it (go to Azure portal -> Keys -> Access Key -> Disable). If you still use access key, it's highly recommended to rotate them regularly (more information can be found [here](signalr-howto-key-rotation.md)).
+> It's highly recommended to use Azure AD to authenticate with SignalR service as it's a more secure way comparing to using access key. If you don't use access key authentication at all, consider to completely disable it (go to Azure portal -> Keys -> Access Key -> Disable). If you still use access key, it's highly recommended to rotate them regularly (more information can be found [here](signalr-howto-key-rotation.md)).
 
 ## Client and server endpoints
 
@@ -107,9 +107,9 @@ It may be cumbersome and error-prone to compose connection string manually. In A
 
 To use connection string generator, open the SignalR resource in Azure portal, go to "Connection strings" tab:
 
-![connection string generator](media/concept-connection-string/generator.png)
+:::image type="content" source="media/concept-connection-string/generator.png" alt-text="Screenshot showing connection string generator of SignalR service in Azure portal.":::
 
-In this page you can choose different authentication types (access key, managed identity or AAD application) and input information like client endpoint, client ID, client secret, etc. Then connection string will be automatically generated. You can copy and use it in your application.
+In this page you can choose different authentication types (access key, managed identity or Azure AD application) and input information like client endpoint, client ID, client secret, etc. Then connection string will be automatically generated. You can copy and use it in your application.
 
 > [!NOTE]
 > Everything you input in this page won't be saved after you leave the page (since they're only client side information), so please copy and save it in a secure place for your application to use.
@@ -128,8 +128,8 @@ Or you can call `AddAzureSignalR()` without any arguments, then service SDK will
 
 In a local development environment, the config is usually stored in file (appsettings.json or secrets.json) or environment variables, so you can use one of the following ways to configure connection string:
 
-1. Use .NET secret manager (`dotnet user-secrets set Azure:SignalR:ConnectionString "<connection_string>"`)
-2. Set connection string to environment variable named `Azure__SignalR__ConnectionString` (colon needs to replaced with double underscore in [environment variable config provider](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider)).
+* Use .NET secret manager (`dotnet user-secrets set Azure:SignalR:ConnectionString "<connection_string>"`)
+* Set connection string to environment variable named `Azure__SignalR__ConnectionString` (colon needs to replaced with double underscore in [environment variable config provider](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider)).
 
 In production environment, you can use other Azure services to manage config/secrets like Azure [Key Vault](/azure/key-vault/general/overview) and [App Configuration](/azure/azure-app-configuration/overview). See their documentation to learn how to set up config provider for those services.
 
@@ -142,7 +142,7 @@ Azure SignalR Service also allows server to connect to multiple service endpoint
 
 There are also two ways to configure multiple instances:
 
-1.  Through code
+*   Through code
 
     ```cs
     services.AddSignalR().AddAzureSignalR(options =>
@@ -158,7 +158,7 @@ There are also two ways to configure multiple instances:
 
     You can assign a name and type to each service endpoint so you can distinguish them later.
 
-2.  Through config
+*   Through config
 
     You can use any supported config provider (secret manager, environment variables, key vault, etc.) to store connection strings. Take secret manager as an example:
 
