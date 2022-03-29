@@ -75,8 +75,8 @@ sections:
           To manually upgrade a connector:
 
           - Download the latest version of the Agent. (You will find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs..
-         - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
-         - Run the installer. The upgrade process is quick and does not require providing any credentials and the Agent will not be re-registered.
+          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+          - Run the installer. The upgrade process is quick and does not require providing any credentials and the Agent will not be re-registered.
 
       - question: |
           What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
