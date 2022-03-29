@@ -1,74 +1,53 @@
 ---
-title: Quickstart – Microsoft Azure confidential ledger with the Azure portal
-description: Learn to use the Microsoft Azure confidential ledger through the Azure portal
+title: Quickstart – Microsoft Azure confidential ledger with Azure PowerShell
+description: Learn to use the Microsoft Azure confidential ledger through the Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/18/2021
+ms.date: 03/25/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, mode-ui
 ---
 
-# Quickstart: Create a confidential ledger using the Azure portal
+# Quickstart: Create a confidential ledger using Azure PowerShell
 
-Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
+Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. In this quickstart you will use [Azure PowerShell](/cli/azure/?view=azure-cli-latest) to create a confidential ledger, view and update its properties, and delete it.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
-In this quickstart, you create a confidential ledger with the [Azure portal](https://portal.azure.com). 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sign in to Azure
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
-Sign in to the Azure portal at https://portal.azure.com.
+## Create a resource group
+
+[!INCLUDE [Create resource group](../../../includes/powershell-rg-create.md)]
+
+## Get your principal ID
+
+To create a confidential ledger, you will need your Azure Active Directory principal ID. To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
+
+```azurepowershell-interactive
+Get-AzADUser -UserPrincipalName "<your@email.address>"
+```
+
+Your principal ID will be in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## Create a confidential ledger
 
-1. From the Azure portal menu, or from the Home page, select **Create a resource**.
+Use the Azure CLI [az confidentialledger create](/cli/azure/confidentialledger?view=azure-cli-latest#az-confidentialledger-create) command to create a confidential ledger in your new resource group.
 
-1. In the Search box, enter "confidential ledger".
+```azurecli
+az confidentialledger create --name "myLedger" --resource-group "myResourceGroup" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Administrator" principal-id="<your-principal-id>"
+```
 
-1. From the results list, choose **confidential ledger**.
+A successful operation will return the properties of the newly created ledger. Take note of the **ledgerUri**. In the example above, this URI is "https://myledger.confidential-ledger.azure.com".
 
-1. On the confidential ledger section, choose **Create**.
+You will need this URI to transact with the confidential ledger from the data plane.
 
-1. On the Create confidential ledger section, provide the following information:
-    - **Name**: Provide your confidential ledger a unique name.
-    - **Subscription**: Choose a subscription.
-    - **Resource Group**: Select **Create new*** and enter a resource group name.
-    - **Location**: In the pull-down menu, choose a location.
-    - Leave the other options to their defaults.
-   
-1. Select the **Security** tab.
-
-1. You must now add an Azure AD-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add an Azure AD-based user. Select **+ Add AAD-Based User**.
-
-1. You must add an Azure AD-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane.
-
-1. In the **Ledger Role** drop-down field, select **Administrator**.
-
-1. Select **Review + Create**. After validation has passed, select **Create**.
-
-When the deployment is complete. select **Go to resource**.
-
-:::image type="content" source="./media/confidential-ledger-portal-quickstart.png" alt-text="ACL portal create screen":::
-
-Take note of the two properties listed below:
-- **confidential ledger name**: In the example, it is "test-create-ledger-demo." You will use this name for other steps.
-- **Ledger endpoint**: In the example, this endpoint is `https://test-create-ledger-demo.confidential-ledger.azure.net/`. 
-
-You will need these property names to transact with the confidential ledger from the data plane.
- 
 ## Clean up resources
 
-Other Azure confidential ledger articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place. 
-
-When no longer needed, delete the resource group, which deletes the confidential ledger and related resources. To delete the resource group through the portal:
-
-1.	Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
-
-1.	Select **Delete resource group**.
-
-1.	In the **TYPE THE RESOURCE GROUP NAME:** box, enter the name of the resource group, and select **Delete**.
+[!INCLUDE [Clean up resources](../../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 
