@@ -47,7 +47,7 @@ When your container app is scaled down to zero replicas, no resource consumption
 
 Idle usage charges are applied when your replicas are running under a specific set of circumstances. The criteria for idle charges include:
 
-- When your container app is configured with a [minimum replica count](scale-app.md) of at least one.
+- When your container app<sup>1</sup> is configured with a [minimum replica count](scale-app.md) of at least one.
 - The app is scaled down to the minimum replica count.
 
 Usage charges are calculated individually for each replica. A replica is considered idle when *all* of the following conditions are true:
