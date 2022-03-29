@@ -243,6 +243,10 @@ AzureDiagnostics
 There are two approaches to investigating the amount of data collected for Application Insights, depending on whether you have a classic or workspace-based application. Use the `_BilledSize` property that is available on each ingested event for both workspace-based and classic resources. You can also use aggregated information in the [systemEvents](/azure/azure-monitor/reference/tables/appsystemevents) table for classic resources.
 
 
+> [!NOTE]
+> The queries in this section will work for both a workspace-based and classic Application Insights resource since [backwards compatibility](../app/convert-classic-resource.md#understanding-log-queries) allows you to continue to use [legacy table names](../app/apm-tables.md). For a workspace-based resource, open **Logs** from the **Log Analytics workspace** menu. For a classic resource, open **Logs** from the **Application Insights** menu.
+
+
 **Operations generate the most data volume in the last 30 days (workspace-based or classic)**
 
 ```kusto
