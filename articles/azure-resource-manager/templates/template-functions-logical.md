@@ -26,7 +26,7 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 Checks whether all parameter values are true.
 
-The `and` function isn't supported in Bicep, use the [&& operator](../bicep/operators-logical.md#and-) instead.
+The `and` function isn't supported in Bicep. Use the [&& operator](../bicep/operators-logical.md#and-) instead.
 
 ### Parameters
 
@@ -59,6 +59,8 @@ The output from the preceding example is:
 `bool(arg1)`
 
 Converts the parameter to a boolean.
+
+In Bicep, use the [bool](../bicep/bicep-functions-logical.md#bool) logical function.
 
 ### Parameters
 
@@ -95,7 +97,7 @@ The output from the preceding example with the default values is:
 
 Returns false.
 
-The `false` function isn't available in Bicep.  Use the `false` keyword instead.
+The `false` function isn't available in Bicep. Use the `false` keyword instead.
 
 ### Parameters
 
@@ -209,7 +211,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 Converts boolean value to its opposite value.
 
-The `not` function isn't supported in Bicep, use the [! operator](../bicep/operators-logical.md#not-) instead.
+The `not` function isn't supported in Bicep. Use the [! operator](../bicep/operators-logical.md#not-) instead.
 
 ### Parameters
 
@@ -251,7 +253,7 @@ The output from the preceding example is:
 
 Checks whether any parameter value is true.
 
-The `or` function isn't supported in Bicep, use the [|| operator](../bicep/operators-logical.md#or-) instead.
+The `or` function isn't supported in Bicep. Use the [|| operator](../bicep/operators-logical.md#or-) instead.
 
 ### Parameters
 
@@ -285,7 +287,7 @@ The output from the preceding example is:
 
 Returns true.
 
-The `true` function isn't available in Bicep.  Use the `true` keyword instead.
+The `true` function isn't available in Bicep. Use the `true` keyword instead.
 
 ### Parameters
 

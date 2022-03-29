@@ -16,9 +16,38 @@ In this article, learn about Azure Data Science Virtual Machine releases. For a 
 
 Due to the rapidly evolving needs and packages updates, we target to release new Azure Data Science Virtual Machine for Windows and Ubuntu images every month.
 
-Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or ARM users, we keep images of individual versions available for twelve months. After that period, particular version of image is no longer available for provisioning.
+Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or Azure Resource Manager (ARM) users, we keep images of individual versions available for 12 months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## March 18, 2022
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: 22.03.09
+
+Main changes:
+
+- Updated R environment - added libraries: Cluster, Devtools Factoextra, GlueHere, Ottr, Paletteer, Patchwork, Plotly, Rmd2jupyter, Scales, Statip, Summarytools, Tidyverse, Tidymodels and Testthat
+- Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved `log4j` version 2.0 jars.
+- Azure CLI to version 2.33.1
+- Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py) containing also [AutoML](/azure/machine-learning/concept-automated-ml) environment
+  - `azureml_py38_PT_TF`: complementary environment `azureml_py38` with preinstalled with latest TensorFlow and PyTorch
+  - `py38_default`: default system environment based on Python 3.8
+  - we removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
+
+
+
+
+## March 9, 2022
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: 21.12.03
+
+Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
+ 
+Users using Azure Resource Manager (ARM) template / virtual machine scale set (VMSS) to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
 
 ## December 3, 2021
 
@@ -130,7 +159,7 @@ Version: 21.06.22
 Main changes:
 
 - Updated to PyTorch 1.9.0
-- Fixed a bug where git was not available
+- Fixed a bug where git wasn't available
 
 
 ## June 1, 2021
@@ -193,7 +222,7 @@ Selected version updates are:
 - CUDA 11.3, cuDNN 8, NCCL2
 - Python 3.8
 - R 4.0.5
-- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, CosmosDB
+- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Cosmos DB
 - Java 11 (OpenJDK)
 - Jupyter Lab 3.0.14
 - PyTorch 1.8.1 incl. torchaudio torchtext torchvision, torch-tb-profiler
@@ -207,7 +236,7 @@ Selected version updates are:
 - Microsoft Edge browser (beta)
 
 <br/>
-Added docker. To save resources, the docker service is not started by default. To start the docker service, run the
+Added docker. To save resources, the docker service isn't started by default. To start the docker service, run the
 following command-line commands:
 
 ```

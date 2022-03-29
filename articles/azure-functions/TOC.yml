@@ -160,8 +160,6 @@
           items:
             - name: GitHub deployment
               href: ./scripts/functions-cli-create-function-app-github-continuous.md
-            - name: DevOps deployment
-              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
     - name: Best practices
@@ -198,6 +196,8 @@
       href: functions-deployment-technologies.md
     - name: Events and messaging
       items:
+        - name: Connect to services 
+          href: event-messaging-bindings.md
         - name: Event-driven scaling
           href: event-driven-scaling.md
         - name: Reliable event processing
@@ -477,6 +477,8 @@
               href: functions-add-output-binding-storage-queue-vs-code.md
             - name: Storage - Visual Studio
               href: functions-add-output-binding-storage-queue-vs.md
+            - name: Work with Event Grid
+              href: event-grid-how-tos.md  
         - name: Start/Stop VMs
           items:
             - name: Overview
@@ -619,9 +621,6 @@
               displayName: Azure IoT Hubs
             - name: Trigger
               href: functions-bindings-event-iot-trigger.md
-              displayName: Azure IoT Hubs
-            - name: Output
-              href: functions-bindings-event-iot-output.md
               displayName: Azure IoT Hubs
         - name: Kafka
           href: https://github.com/azure/azure-functions-kafka-extension

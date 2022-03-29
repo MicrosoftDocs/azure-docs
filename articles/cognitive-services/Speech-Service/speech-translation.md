@@ -33,7 +33,7 @@ As your first step, see [Get started with speech translation](get-started-speech
 
 ## Sample code
 
-You'll find [Speech SDK speech-to-text and translation samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) on GitHub. These samples cover common scenarios, such as reading audio from a file or stream, continuous and at-start recognition and translation, and working with custom models.
+You'll find [Speech SDK speech-to-text and translation samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) on GitHub. These samples cover common scenarios, such as reading audio from a file or stream, continuous and single-shot recognition and translation, and working with custom models.
 
 ## Migration guides
 

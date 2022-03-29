@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 11/12/2021
-ms.custom: mvc
+ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
 
@@ -55,24 +55,29 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of search box to search for the Azure subscription.](./media/tutorial-discover-physical/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create the project.
-3. In the subscription, select **Access control (IAM)** > **Check access**.
-4. In **Check access**, search for the relevant user account.
-5. In **Add a role assignment**, click **Add**.
+1. Select **Access control (IAM)**.
 
-    ![Screenshot of searching for a user account to check access and assign a role.](./media/tutorial-discover-physical/azure-account-access.png)
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-6. In **Add role assignment**, select the Contributor or Owner role, and select the account (azmigrateuser in our example). Then click **Save**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    ![Screenshot of the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-physical/assign-role.png)
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor or Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
+
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-physical/register-apps.png)
 
-9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare physical servers
 
@@ -200,7 +205,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.

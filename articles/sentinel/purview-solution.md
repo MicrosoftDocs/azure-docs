@@ -14,7 +14,7 @@ ms.author: bagol
 > The *Azure Purview* solution is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-[Azure Purview](/azure/purview/) provides organizations with visibility into where sensitive information is stored, helping prioritize at-risk data for protection.
+[Azure Purview](../purview/index.yml) provides organizations with visibility into where sensitive information is stored, helping prioritize at-risk data for protection.
 
 Integrate Azure Purview with Microsoft Sentinel to help narrow down the high volume of incidents and threats surfaced in Microsoft Sentinel, and understand the most critical areas to start.
 
@@ -32,9 +32,9 @@ In this tutorial, you:
 
 ## Prerequisites
 
-Before you start, make sure you have both a [Microsoft Sentinel workspace](quickstart-onboard.md) and [Azure Purview](/azure/purview/create-catalog-portal) onboarded, and that your user has the following roles:
+Before you start, make sure you have both a [Microsoft Sentinel workspace](quickstart-onboard.md) and [Azure Purview](../purview/create-catalog-portal.md) onboarded, and that your user has the following roles:
 
-- **An Azure Purview account [Owner](/azure/role-based-access-control/built-in-roles) or [Contributor](/azure/role-based-access-control/built-in-roles) role**, to set up diagnostic settings and configure the data connector.
+- **An Azure Purview account [Owner](../role-based-access-control/built-in-roles.md) or [Contributor](../role-based-access-control/built-in-roles.md) role**, to set up diagnostic settings and configure the data connector.
 
 - **A [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role**, with write permissions to enable data connector, view the workbook, and create analytic rules.
 
@@ -84,7 +84,7 @@ For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microso
 
 **To run an Azure Purview scan and view data in Microsoft Sentinel**:
 
-1. In Azure Purview, run a full scan of your resources. For more information, see [Manage data sources in Azure Purview](/azure/purview/manage-data-sources).
+1. In Azure Purview, run a full scan of your resources. For more information, see [Manage data sources in Azure Purview](../purview/manage-data-sources.md).
 
 1. After your Azure Purview scans have completed, go back to the Azure Purview data connector in Microsoft Sentinel and confirm that data has been received.
 
@@ -114,7 +114,7 @@ Use this procedure to customize the Azure Purview analytics rules' queries to de
 1. On the **Set rule logic** tab, adjust the **Rule query** to query for the data fields and classifications you want to generate alerts for. For more information on what can be included in your query, see:
 
     - Supported data fields are the columns of the [PurviewDataSensitivityLogs](/azure/azure-monitor/reference/tables/purviewdatasensitivitylogs) table
-    - [Supported classifications](/azure/purview/supported-classifications)
+    - [Supported classifications](../purview/supported-classifications.md)
 
     Formatted queries have the following syntax: `| where {data-field} contains {specified-string}`.
 
