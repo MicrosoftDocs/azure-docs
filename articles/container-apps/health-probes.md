@@ -30,6 +30,8 @@ Container Apps support the following probes:
 
 The following code listing shows how you can define some health probes for your containers.
 
+The `...` placeholders denote omitted code.
+
 ```json
 {
     ...
@@ -46,7 +48,7 @@ The following code listing shows how you can define some health probes for your 
                 "httpHeaders":[
                     {
                         "name":"Custom-Header",
-                        "value":"liveness header"
+                        "value":"liveness probe"
                     }]
                 },
                 "initialDelaySeconds":7,
@@ -69,7 +71,7 @@ The following code listing shows how you can define some health probes for your 
                     "httpHeaders": [
                         {
                             "name": "Custom-Header",
-                            "value": "Awesome"
+                            "value": "startup probe"
                         }]
                 },
                 "initialDelaySeconds": 3,
