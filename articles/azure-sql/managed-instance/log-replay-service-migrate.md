@@ -4,7 +4,7 @@ description: Learn how to migrate databases from SQL Server to SQL Managed Insta
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: migration
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 author: danimir
 ms.author: danil
@@ -247,7 +247,7 @@ The SAS authentication is generated with the time validity that you specified. Y
 :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Screenshot that shows an example of the U R I version of an S A S token.":::
 
    > [!NOTE]
-   > Using SAS tokens created with permissions set through defining a [stored access policy](https://docs.microsoft.com/rest/api/storageservices/define-stored-access-policy.md) is not supported at this time. You will need to follow the instructions in this guide on manually specifying Read and List permissions for the SAS token.
+   > Using SAS tokens created with permissions set through defining a [stored access policy](/rest/api/storageservices/define-stored-access-policy.md) is not supported at this time. You will need to follow the instructions in this guide on manually specifying Read and List permissions for the SAS token.
 
 ### Copy parameters from the SAS token
 
@@ -423,14 +423,14 @@ Functional limitations of LRS are:
 - System-managed software patches are blocked for 36 hours once the LRS has been started. After this time window expires, the next software maintenance update will stop LRS. You will need to restart LRS from scratch.
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have Read and List permissions only. For example, if you grant Read, List and Write permissions, LRS will not be able to start because of the extra Write permission.
-- Using SAS tokens created with permissions set through defining a [stored access policy](https://docs.microsoft.com/rest/api/storageservices/define-stored-access-policy.md) is not supported at this time. You will need to follow the instructions in this guide on manually specifying Read and List permissions for the SAS token.
+- Using SAS tokens created with permissions set through defining a [stored access policy](/rest/api/storageservices/define-stored-access-policy.md) is not supported at this time. You will need to follow the instructions in this guide on manually specifying Read and List permissions for the SAS token.
 - Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
 - Backup files for different databases must be placed in separate folders on Blob Storage in a flat-file structure. Nested folders inside individual database folders are not supported.
 - LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 
 > [!NOTE]
-> If you require database to be R/O accessible during the migration, and if you require migration window larger than 36 hours, please consider an alternative online migrations solution [link feature for Managed Instance](link-feature.md) providing such capability.
+> If you require database to be R/O accessible during the migration, and if you require migration window larger than 36 hours, please consider an alternative online migrations solution [link feature for Managed Instance](managed-instance-link-feature-overview.md) providing such capability.
 
 ## Troubleshooting
 
@@ -445,7 +445,7 @@ After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogrep
 - If you started LRS in autocomplete mode, was a valid filename for the last backup file specified?
 
 ## Next steps
-- Learn more about [migrating to Managed Instance using the link feature](link-feature.md).
+- Learn more about [migrating to Managed Instance using the link feature](managed-instance-link-feature-overview.md).
 - Learn more about [migrating from SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 - Learn more about [differences between SQL Server and SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
 - Learn more about [best practices to cost and size workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
