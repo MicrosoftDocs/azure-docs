@@ -11,7 +11,7 @@ ms.topic: quickstart
 
 # Quickstart: Create a confidential ledger using the Azure CLI
 
-Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. In this quickstart you will use the [Azure CLI](/cli/azure/?view=azure-cli-latest) to create a confidential ledger, view and update its properties, and delete it.
+Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. In this quickstart you will use the [Azure CLI](/cli/azure/) to create a confidential ledger, view and update its properties, and delete it.
 
 For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
@@ -25,7 +25,7 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 ## Get your principal ID
 
-To create a confidential ledger, you will need your Azure Active Directory principal ID (also called your object Id).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user?view=azure-cli-latest) command, and filter the results by `objectId`:
+To create a confidential ledger, you will need your Azure Active Directory principal ID (also called your object Id).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
 
 ```azurecli
 az ad signed-in-user show --query objectId
@@ -35,7 +35,7 @@ Your result will be in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## Create a confidential ledger
 
-Use the Azure CLI [az confidentialledger create](/cli/azure/confidentialledger?view=azure-cli-latest#az-confidentialledger-create) command to create a confidential ledger in your new resource group.
+Use the Azure CLI [az confidentialledger create](/cli/azure/confidentialledger#az-confidentialledger-create) command to create a confidential ledger in your new resource group.
 
 ```azurecli
 az confidentialledger create --name "myLedger" --resource-group "myResourceGroup" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Administrator" principal-id="<your-principal-id>"
@@ -52,6 +52,6 @@ You will need this URI to transact with the confidential ledger from the data pl
 
 ## Next steps
 
-In this quickstart, you created a confidential ledger by using the Azure portal. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a confidential ledger by using the Azure CLI. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to the articles below.
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
