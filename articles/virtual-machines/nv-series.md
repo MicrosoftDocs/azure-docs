@@ -13,17 +13,11 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-> [!NOTE]  
-> **NV-series and NV_promo Azure virtual machines will be retired by August 31st, 2022.**
-> 
-> As Azure NVsv3 and NVv4 virtual machines have right sized VMs from entry level Virtual Desktop Infrastructure (VDI) with GPU partitioned sizes to medium and high end VDI with better CPU/memory ratio, larger and faster local solid-state drives (SSDs), support for premium and ultra SSDs, and better cost/performance across a broad variety of visualization workloads, **we’re retiring our NV-series Azure Virtual Machine sizes on 31 August 2022**.
-> 
-> This retirement announcement does not impact the newer NVv3 and NVv4 series virtual machines. 
-> 
-> All NV and NV_Promo VMs will need to be de-allocated by that date.  For recommendations on which VMs to migrate your NV and NV_Promo workloads to or for the creation of net new VMs, please see this [migration guide](https://aka.ms/NVseriesMigration).  Visit the [Azure Virtual Machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/) for additional information.
-> 
-> For more information and support options, please see our blog:  
-> https://azure.microsoft.com/updates/nvseries-and-nvpromo-azure-virtual-machines-will-be-retired-by-31-august-2022/
+
+> [!IMPORTANT]
+> NV and NV_Promo series Azure virtual machines (VMs) will be retired on August 31st, 2023. For more information, see the [NV and NV_Promo retirement information](nv-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [NV and NV_Promo series migration guide](nv-series-migration-guide.md).
+>
+> This retirement announcement doesn't apply to NVv3 and NVv4 series VMs. 
 
 The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
 
