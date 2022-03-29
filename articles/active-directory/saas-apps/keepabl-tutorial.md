@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/28/2022
+ms.date: 03/29/2022
 ms.author: jeedes
 
 ---
@@ -83,7 +83,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://app.keepabl.com/users/saml/auth` |
     | `https://keepabl.herokuapp.com/users/saml/auth` |
 
-    c. In the **Sign on URL** textbox, type a URL using one of the following patterns:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in SP initiated mode:
+
+    In the **Sign on URL** textbox, type a URL using one of the following patterns:
 
     | **Sign on URL** |
     |--------|
