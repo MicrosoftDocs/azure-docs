@@ -6,7 +6,7 @@ ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 03/24/2022
+ms.date: 03/29/2022
 ---
 
 # Troubleshoot Azure Digital Twins Explorer: Authentication errors
