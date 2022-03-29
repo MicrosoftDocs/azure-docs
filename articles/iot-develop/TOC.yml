@@ -144,7 +144,7 @@
     - name: Node.js (Service)
       href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
-      href: /javascript/api/overview/azure/iothub/management
+      href: /javascript/api/overview/azure/iot-hub
     - name: Python (Device)
       href: /python/api/azure-iot-device
     - name: Python (Service)

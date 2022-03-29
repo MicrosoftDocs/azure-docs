@@ -25,6 +25,8 @@ ms.reviewer: mathoma
 
 This article introduces Always On availability groups (AG) for SQL Server on Azure Virtual Machines (VMs). 
 
+To get started, see the [availability group tutorial](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md). 
+
 ## Overview
 
 Always On availability groups on Azure Virtual Machines are similar to [Always On availability groups on-premises](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), and rely on the underlying [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md). However, since the virtual machines are hosted in Azure, there are a few additional considerations as well, such as VM redundancy, and routing traffic on the Azure network. 
@@ -135,9 +137,8 @@ The following table provides a comparison of the options available:
 
 ## Next steps
 
-Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md).
+To get started, review the [HADR best practices](hadr-cluster-best-practices.md), and then deploy your availability group manually with the [availability group tutorial](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md). 
 
-Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md).
 
 To learn more, see:
 

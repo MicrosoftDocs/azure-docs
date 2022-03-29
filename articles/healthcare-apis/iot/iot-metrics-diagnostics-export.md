@@ -15,9 +15,9 @@ ms.author: jasteppe
 In this article, you'll learn how to configure the diagnostic setting for MedTech service to export metrics to different destinations for audit, analysis, or backup.
 
 ## Create diagnostic setting for the MedTech service
-1. To enable metrics export for the MedTech service, select **MedTech service** in your Workspace.
+1. To enable metrics export for the MedTech service, select **MedTech service** in your workspace.
  
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select the MedTech service within Workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
 
 2. Select the MedTech service that you want to configure metrics export for.
    

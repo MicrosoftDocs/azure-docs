@@ -252,7 +252,7 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.90.90.10 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add

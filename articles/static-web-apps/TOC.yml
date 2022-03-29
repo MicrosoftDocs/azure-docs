@@ -160,3 +160,4 @@
       href: quotas.md
     - name: Frequently asked questions
       href: faq.yml
+      displayName: faq

@@ -204,20 +204,20 @@ A service-to-service request for a SAML assertion contains the following paramet
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. For a request that uses a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | The type of the token request. For a request that uses a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | assertion |required | The value of the access token used in the request.|
 | client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration.  The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
-| scope |required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). For example, 'https://testapp.contoso.com/user_impersonation openid' |
-| requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
-| requested_token_type | required | Specifies the type of token requested. The value can be **urn:ietf:params:oauth:token-type:saml2** or **urn:ietf:params:oauth:token-type:saml1** depending on the requirements of the accessed resource. |
+| scope |required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). SAML itself doesn't have a concept of scopes, but here it is used to identify the target SAML application for which you want to receive a token. For this OBO flow, the scope value must always be the SAML Entity ID with `/.default` appended. For example, in case the SAML application's Entity ID is `https://testapp.contoso.com`, then the requested scope should be `https://testapp.contoso.com/.default`. In case the Entity ID doesn't start with a URI scheme such as `https:`, Azure AD prefixes the Entity ID with `spn:`. In that case you must request the scope `spn:<EntityID>/.default`, for example `spn:testapp/.default` in case the Entity ID is `testapp`. Note that the scope value you request here determines the resulting `Audience` element in the SAML token, which may be important to the SAML application receiving the token. |
+| requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be `on_behalf_of`. |
+| requested_token_type | required | Specifies the type of token requested. The value can be `urn:ietf:params:oauth:token-type:saml2` or `urn:ietf:params:oauth:token-type:saml1` depending on the requirements of the accessed resource. |
 
 The response contains a SAML token encoded in UTF8 and Base64url.
 
 - **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
 - **The SubjectConfirmationData node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
-
-- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information on permissions and obtaining administrator consent, see [Permissions and consent in the Azure Active Directory v1.0 endpoint](../azuread-dev/v1-permissions-consent.md).
+- **API permissions**: You have to [add the necessary API permissions](quickstart-configure-app-access-web-apis.md) on the middle-tier application to allow access to the SAML application, so that it can request a token for the `/.default` scope of the SAML application.
+- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application) below.
 
 ### Response with SAML assertion
 
@@ -246,11 +246,11 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 Depending on the architecture or usage of your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given so that the client app can call the middle-tier app, and the middle tier app has permission to call the back-end resource.
 
 > [!NOTE]
-> Previously the Microsoft account system (personal accounts) did not support the "Known client application" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
+> Previously the Microsoft account system (personal accounts) did not support the "known client applications" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
 
 ### .default and combined consent
 
-The middle tier application adds the client to the known client applications list in its manifest. If a consent prompt is triggered by the client, the consent flow will be both for itself and the middle tier application. On the Microsoft identity platform, this is done using the [`.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+The middle tier application adds the client to the [known client applications list](reference-app-manifest.md#knownclientapplications-attribute) (`knownClientApplications`) in its manifest. If a consent prompt is triggered by the client, the consent flow will be both for itself and the middle tier application. On the Microsoft identity platform, this is done using the [`.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `.default`, the consent screen will show permissions for **both** the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
 
 The resource service (API) identified in the request should be the API for which the client application is requesting an access token as a result of the user's sign-in. For example, `scope=openid https://middle-tier-api.example.com/.default` (to request an access token for the middle tier API), or `scope=openid offline_access .default` (when a resource is not identified, it defaults to Microsoft Graph).
 
@@ -258,7 +258,7 @@ Regardless of which API is identified in the authorization request, the consent 
 
 ### Pre-authorized applications
 
-Resources can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can declare multiple pre-authorized applications - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
+Resources can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can [declare multiple pre-authorized applications](reference-app-manifest.md#preauthorizedapplications-attribute) (`preAuthorizedApplications`) in its manifest - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
 
 ### Admin consent
 

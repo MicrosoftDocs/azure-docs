@@ -53,7 +53,7 @@ Administrators can configure:
 * [Collections of applications](../manage-apps/access-panel-collections.md).
 * Assignment of icons to applications
 * User-friendly names for applications
-* Company branding shown on My Apps
+* Banner logo in the My Apps header. For more information about assigning a banner logo, see [Add branding to your organization's Azure Active Directory sign-in page](../fundamentals/customize-branding.md)
 
 ## Plan consent configuration
 
@@ -118,7 +118,7 @@ The extension allows users to launch any app from its search bar, finding access
 
 #### Plan for mobile access
 
-For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used.
+For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in your mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Azure AD Password SSO**.
 
 ### Linked SSO
 

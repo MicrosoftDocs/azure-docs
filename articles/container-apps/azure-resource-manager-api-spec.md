@@ -25,7 +25,7 @@ Entries in the `resources` array of the ARM template have the following properti
 | `name` | The Container Apps application name. | string |
 | `location` | The Azure region where the Container Apps instance is deployed. | string |
 | `tags` | Collection of Azure tags associated with the container app. | array |
-| `type` | Always `Microsoft.Web/containerApps` ARM endpoint determines which API to forward to  | string |
+| `type` | Always `Microsoft.App/containerApps` ARM endpoint determines which API to forward to  | string |
 
 > [!NOTE]
 > Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
@@ -46,7 +46,7 @@ A resource's `properties` object has the following properties:
 The `environmentId` value takes the following form:
 
 ```console
-/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/environmentId/<ENVIRONMENT_NAME>
+/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.App/environmentId/<ENVIRONMENT_NAME>
 ```
 
 In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
@@ -102,12 +102,12 @@ The following is an example ARM template used to deploy a container app.
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2021-03-01",
-            "type": "Microsoft.Web/containerApps",
+            "apiVersion": "2022-01-01-preview",
+            "type": "Microsoft.App/containerApps",
             "name": "[parameters('containerappName')]",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
                 "configuration": {
                     "secrets": [
                         {
@@ -167,11 +167,11 @@ kind: containerapp
 location: northeurope
 name: mycontainerapp
 resourceGroup: myresourcegroup
-type: Microsoft.Web/containerApps
+type: Microsoft.App/containerApps
 tags:
     tagname: value
 properties:
-    kubeEnvironmentId: /subscriptions/mysubscription/resourceGroups/myresourcegroup/providers/Microsoft.Web/kubeEnvironments/myenvironment
+    managedEnvironmentId: /subscriptions/mysubscription/resourceGroups/myresourcegroup/providers/Microsoft.App/managedEnvironments/myenvironment
     configuration:
         activeRevisionsMode: Multiple
         secrets:
