@@ -148,7 +148,7 @@ A resource's `properties.configuration` object has the following properties:
 
 Changes made to the `configuration` section are [application-scope changes](revisions.md#application-scope-changes), which doesn't trigger a new revision.
 
-### properties.template
+### `properties.template`
 
 A resource's `properties.template` object has the following properties:
 
