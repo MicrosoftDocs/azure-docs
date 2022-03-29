@@ -151,7 +151,7 @@ Here's a sample HTTP request to the speech-to-text REST API for short audio:
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
 Authorization: Bearer YOUR_ACCESS_TOKEN
-Host: westus.stt.speech.microsoft.com
+Host: westus.tts.speech.microsoft.com
 Content-type: application/ssml+xml
 Content-Length: 199
 Connection: Keep-Alive
