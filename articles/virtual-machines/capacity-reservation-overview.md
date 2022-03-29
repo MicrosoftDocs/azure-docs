@@ -34,7 +34,7 @@ Once Azure accepts a reservation request, it is available to be consumed by VMs 
 
 ## SLA for Capacity Reservation 
 
-For all On Demand Capacity Reservations, we guarantee you will receive compute capacity up to the reserved quantity of Virtual Machines at least 99.9% of the time. The details on supported scenarios can be found in the [SLA for Capacity Reservation](https://aka.ms/CapacityReservationSLAForVM). 
+Please read the Service Level Agreement details in the [SLA for Capacity Reservation](https://aka.ms/CapacityReservationSLAForVM). 
 
 Any claim against the SLA requires calculating the Minutes Not Available for the reserved capacity. Here is an example of how to calculate Minutes Not Available. 
 
