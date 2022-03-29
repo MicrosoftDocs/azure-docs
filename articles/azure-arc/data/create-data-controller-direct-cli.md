@@ -37,7 +37,7 @@ You can create them individually or in a unified experience.
 In the unified experience, you can create the Arc data controller extension, custom location, and Arc data controller all in one command as follows: 
 
 ```az
-az arcdata dc create -n <COMPLETE CODE SAMPLE!!!!!!!!!!!!!!!!!!!!!!!!>
+az arcdata dc create -n <name> -g <resource-group> --custom-location <custom-location> --cluster-name <cluster> --connectivity-mode direct --profile <the-deployment-profile>
 ```
 
 ## Deploy - individual experience
