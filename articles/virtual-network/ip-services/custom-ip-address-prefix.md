@@ -30,7 +30,7 @@ It's a three phase process to bring an IP prefix to Azure:
 
 * Commission
 
-:::image type="content" source="./media/custom-ip-address-prefix/byoip-onboarding-process.png" alt-text="Illustration of the custom IP prefix onboarding process." border="false":::
+:::image type="content" source="./media/custom-ip-address-prefix/byoip-onboarding-process.png" alt-text="Illustration of the custom IP prefix onboarding process.":::
 
 ### Validation
 
