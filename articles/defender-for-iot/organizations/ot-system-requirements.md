@@ -33,7 +33,7 @@ The following tables describe supported deployment options for your OT sensors a
 |---------|---------|---------|---------|
 |C5600 (Corporate)    | 3 Gbps        | 12K        |Physical / Virtual         |
 
-### Enterprise Monitoring at the site level
+### Enterprise monitoring at the site level
 
 |Name  |Max Throughput (OT Traffic)  |Max Monitored Assets  |Deployment  |
 |---------|---------|---------|---------|
