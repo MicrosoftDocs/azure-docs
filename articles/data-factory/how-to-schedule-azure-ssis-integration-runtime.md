@@ -132,7 +132,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
       | Assign access to | User, group, or service principal |
       | Members | Your ADF username |
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
+      :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
 
 8. Validate your ADF and all pipeline settings by clicking **Validate all/Validate** on the factory/pipeline toolbar. Close **Factory/Pipeline Validation Output** by clicking **>>** button.  
 
