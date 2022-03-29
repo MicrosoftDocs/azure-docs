@@ -123,7 +123,7 @@ Azure managed certificate will be automatically rotated when your custom domain 
 
 * If your custom domain points to Azure Front Door through a long chain, for example, putting an Azure Traffic Manager before Azure Front Door and other CDN providers, the CNAME chain is contoso.com CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
 
-The domain validation state will become ‘Pending Revalidation’ 45 days before managed certificate expiry or ‘Rejected’ if the managed certificate issuance is rejected by the certificate authority.  Refer to Add a custom domain for actions for different domain state. 
+The domain validation state will become ‘Pending Revalidation’ 45 days before managed certificate expiry or ‘Rejected’ if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](how-to-add-custom-domain.md#domain-validation-state) for actions for different domain state. 
 
 ### Use your own certificate 
 
