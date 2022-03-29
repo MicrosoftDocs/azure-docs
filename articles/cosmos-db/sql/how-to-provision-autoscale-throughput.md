@@ -6,7 +6,7 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 04/01/2022
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
