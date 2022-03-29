@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 12/13/2021
+ms.date: 03/29/2022
 ms.author: cynthn
 ms.custom: mvc, mode-ui
 ---
