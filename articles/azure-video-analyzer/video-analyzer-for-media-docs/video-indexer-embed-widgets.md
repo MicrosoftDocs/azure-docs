@@ -2,7 +2,7 @@
 title: Embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps
 description: Learn how to embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps.
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/29/2022
 ms.author: juliako
 ms.custom: devx-track-js
 ---
@@ -27,6 +27,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
+|`search'|A free text for search |Allows you to control the initial search term. Example - https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=vi renders the insights filtered by the word “vi”.|
 
 ### Player widget
 
