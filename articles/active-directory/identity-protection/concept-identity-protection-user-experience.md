@@ -50,7 +50,7 @@ When an administrator has configured a policy for sign-in risks, affected users 
 
 ### Risky sign-in administrator unblock
 
-Administrators can choose to block users upon sign-in depending on their risk level. To get unblocked, end users must contact their IT staff, or they can try signing in from a familiar location or device. Self-remediation by performing multi-factor authentication is not an option in this case.
+Administrators can choose to block users upon sign-in depending on their risk level. To get unblocked, end users must contact their IT staff, or they can try signing in from a familiar location or device. Self-remediation by performing multi-factor authentication isn't an option in this case.
 
 ![Blocked by sign-in risk policy](./media/concept-identity-protection-user-experience/200.png)
 
@@ -71,7 +71,7 @@ When a user risk policy has been configured, users who meet the user risk level 
 
 ## Risky sign-in administrator unblock
 
-Administrators can choose to block users upon sign-in depending on their risk level. To get unblocked, end users must contact their IT staff. Self-remediation by performing multi-factor authentication and self-service password reset is not an option in this case.
+Administrators can choose to block users upon sign-in depending on their risk level. To get unblocked, end users must contact their IT staff. Self-remediation by performing multi-factor authentication and self-service password reset isn't an option in this case.
 
 ![Blocked by user risk policy](./media/concept-identity-protection-user-experience/104.png)
 
@@ -81,10 +81,10 @@ IT staff can follow the instructions in the section [Unblocking users](howto-ide
 
 If your organization has users who are delegated access to another tenant and they trigger high risk they may be blocked from signing into those other tenants. For example: 
 
-1. An organization has a managed service provider (MSP) who takes care of configuring their cloud environment. 
+1. An organization has a managed service provider (MSP) or cloud solution provider (CSP) who takes care of configuring their cloud environment. 
 1. One of the MSPs technicians credentials are leaked and triggers high risk. That technician is blocked from signing in to other tenants. 
 1. The technician can self-remediate and sign in if the home tenant has enabled the appropriate policies [requiring password change for high risk users](../conditional-access/howto-conditional-access-policy-risk-user.md) or [MFA for risky users](../conditional-access/howto-conditional-access-policy-risk.md). 
-   1. If the home tenant has not enabled self-remediation policies, an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#remediation).
+   1. If the home tenant hasn't enabled self-remediation policies, an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#remediation).
 
 ## See also
 
