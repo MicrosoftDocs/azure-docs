@@ -95,7 +95,7 @@ Defender for Containers expands on the registry scanning features by introducing
 > [!NOTE]
 > There's no Defender profile for Windows, it's only available on Linux OS.
 
-The new recommendation, **Running container images should have vulnerability findings resolved**, only shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Defender profile, or extension is used to gain visibility into vulnerable containers that are active.
+The new recommendation, **Running container images should have vulnerability findings resolved**, shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Defender profile, or extension is used to gain visibility into vulnerable containers that are active.
 
 This recommendation shows running images, and their vulnerabilities based on ACR image. Images that are deployed from a non ACR registry, won't be scanned, and will appear under the Not applicable tab.
 
