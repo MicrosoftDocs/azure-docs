@@ -11,7 +11,7 @@ It's important to clearly explain the labeling task. On the **Labeling instructi
 * What are the labels they'll see, and how will they choose among them? Is there a reference text to refer to?
 * What should they do if no label seems appropriate?
 * What should they do if multiple labels seem appropriate?
-* What confidence threshold should they apply to a label? Do you want their "best guess" if they aren't certain?
+ * What confidence threshold should they apply to a label? Do you want their "best guess" if they aren't certain?
 * What should they do with partially occluded or overlapping objects of interest?
 * What should they do if an object of interest is clipped by the edge of the image?
 * What should they do after they submit a label if they think they made a mistake?
