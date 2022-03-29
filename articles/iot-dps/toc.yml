@@ -100,6 +100,12 @@
       href: iot-dps-ip-filtering.md
     - name: Managing public network access
       href: public-network-access.md
+  - name: Monitor
+    items:
+    - name: Monitor Device Provisioning Service
+      href: monitor-iot-dps.md
+    - name: Monitoring data reference
+      href: monitor-iot-dps-reference.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
