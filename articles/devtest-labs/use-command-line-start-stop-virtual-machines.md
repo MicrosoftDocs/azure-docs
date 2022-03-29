@@ -11,7 +11,7 @@ ms.devlang: azurecli
 
 This article shows how to start or stop Azure DevTest Labs virtual machines (VMs) by using Azure PowerShell or Azure CLI command lines and scripts.
 
-You can use the Azure portal to start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs. You can configure [automatic startup](devtest-lab-auto-startup-vm.md) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
+You can start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs by using the Azure portal. You can also use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.md) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
 
 When you want to script or automate start or stop for lab VMs, use PowerShell or Azure CLI commands. For example, you can use start or stop commands to:
 
@@ -21,7 +21,7 @@ When you want to script or automate start or stop for lab VMs, use PowerShell or
 
 ## Prerequisites
 
-- A lab VM in DevTest Labs.
+- A [lab VM in DevTest Labs](devtest-lab-add-vm.md).
 - For Azure PowerShell, the [Az module](/powershell/azure/new-azureps-module-az) installed on your workstation. Make sure you have the latest version. If necessary, run `Update-Module -Name Az` to update the module.
 - For Azure CLI, [Azure CLI ](/cli/azure/install-azure-cli) installed on your workstation.
 
