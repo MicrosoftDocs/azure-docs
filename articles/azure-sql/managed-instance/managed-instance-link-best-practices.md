@@ -11,7 +11,7 @@ ms.topic: guide
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 03/11/2022
+ms.date: 03/28/2022
 ---
 # Best practices with link feature for Azure SQL Managed Instance (preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ DBCC SQLPERF(LOGSPACE);
 
 The query output looks like the following example below for sample database **tpcc**:
 
-:::image type="content" source="./media/link-feature-best-practices/database-log-file-size.png" alt-text="Screenshot with results of the command showing log file size and space used":::
+:::image type="content" source="./media/managed-instance-link-best-practices/database-log-file-size.png" alt-text="Screenshot with results of the command showing log file size and space used":::
 
 In this example, the database has used 76% of the available log, with an absolute log file size of approximately 27 GB (27,971 MB). The thresholds for action may vary based on your workload, but it's typically an indication that you should take a log backup to truncate the log file and free up some space. 
 
@@ -73,5 +73,5 @@ To get started with the link feature, [prepare your environment for replication]
 
 For more information on the link feature, see the following articles:
 
-- [Managed Instance link – overview](link-feature.md)
+- [Managed Instance link – overview](managed-instance-link-feature-overview.md)
 - [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog)
