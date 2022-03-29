@@ -364,7 +364,7 @@ See the documentation of your SFTP client for guidance about how to connect and 
 
 ## Connect using a custom domain
 
-When using custom domains the connection string is <accountName>.<userName>@customdomain.com. If home directory has not been specified for the user, it is <accountName>.<containerName>.<userName>@customdomain.com.
+When using custom domains the connection string is `myaccount.myuser@customdomain.com`. If home directory has not been specified for the user, it is `myaccount.mycontainer.myuser@customdomain.com`.
 	
 > [!IMPORTANT]
 > Ensure your DNS provider does not proxy requests. Proxying may cause the connection attempt to time out.
