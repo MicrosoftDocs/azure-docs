@@ -13,6 +13,6 @@ If you want to make calls to [Private Endpoints][privateendpoints], then you mus
 
 * Integrate with Azure DNS private zones. When your virtual network doesn't have a custom DNS server, this is done automatically.
 * Manage the private endpoint in the DNS server used by your app. To do this you must know the private endpoint address and then point the endpoint you are trying to reach to that address using an A record.
-* Configure your own DNS server to forward to [Azure DNS private zones](#azure-dns-private-zones).
+* Configure your own DNS server to forward to [Azure DNS private zones](../articles/dns/networking/private-dns-privatednszone.md).
 
 To learn more, see [using Private Endpoints for Web Apps](../articles/app-service/networking/private-endpoint.md).
