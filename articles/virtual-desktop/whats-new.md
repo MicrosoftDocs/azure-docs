@@ -30,7 +30,7 @@ Accessibility has always been important to us, so we are pleased to announce tha
 
 ### Multimedia redirection enhancements now in public preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.mdon.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
 
 ### FSLogix version 2201 is now generally available
 
