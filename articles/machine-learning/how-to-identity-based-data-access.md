@@ -166,26 +166,44 @@ To create datasets with identity-based data access, you have the following optio
 
 When you submit a training job that consumes a dataset created with identity-based data access, the managed identity of the training compute is used for data access authentication. Your Azure Active Directory token isn't used. For this scenario, ensure that the managed identity of the compute is granted at least the Storage Blob Data Reader role from the storage service. For more information, see [Set up managed identity on compute clusters](how-to-create-attach-compute-cluster.md#managed-identity). 
 
-## User Azure AD identity based data access for remote training jobs
+## User Azure AD identity based data access for training jobs on compute clusters
 
 When training on Machine Learning Compute Clusters, you can authenticate to storage by user Azure AD identity in credential
-pass-through mode. This authentication mode allows you to set up fine-grained data access, where workspace users can have different levels of access.
+pass-through mode. This authentication mode allows you to set up fine-grained permissions, where different workspace users can have access to different storage accounts or folders within storage accounts. Also, storage access logs show which identities were used to access data, allowing administrators to audit storage access.
 
-In this authentication mode, the AAD auth token is passed to the compute, and made available within the Docker container executing the job. At the end of the job, the token is erased.
+In this authentication mode, the Azure AD token of the user submitting the training job is passed to the compute in secure manner, and then used to authenticate against datastore. 
 
-First, grant user's Azure AD identity access to storage resources, such as StorageBlobReader access to specific storage account, or ACL-based access to specific folders or files in ADLS Gen 2 storage.
+> [!NOTE] The feature has following limitation:
+  * Only Machine Learning Compute Clusters are supported
+  * Azure Blob Container, Azure Data Lake Gen 1, Azure Data Lake Gen 2 and Azure SQL Database datastores are supported 
+  * Feature is only supported through CLI V2
+  * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported while feature is in preview
+  * User identity and compute managed identity cannot be used for authentication within same job.
 
-Then, submit a training job with credential pass-through mode enabled.
+First, grant user's Azure AD identity access to storage resources, such as StorageBlobReader access to specific storage account, or ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
 
-   ```python
-   run = experiment.submit(src, credential_passthrough=True)
-   ```
+Then create an Azure Machine Learning datastore without cached credentials for the storage account. Note that if datastore has cached credentials, such as storage account key, those credentials are used instead of user identity.
 
-> [!NOTE]
-> Using credential pass-through and managed identity based authentication in a same training job is not currently supported.
+Finally, submit a training job with property **identity** set to **type: user_identity**, as shown in following job specification:
 
-> [!NOTE]
-> Credential pass-through is supported only for training jobs on Machine Learning Compute Clusters.
+```yaml
+command: |
+  echo "--census-csv: ${{inputs.census_csv}}"
+  python hello-census.py --iris-csv ${{inputs.census_csv}}
+code: src
+inputs:
+  census_csv:
+    type: uri_file 
+    path: azureml://datastores/mydata/paths/census.csv
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+compute: azureml:cpu-cluster
+identity:
+  type: user_identity
+```
+
+During the training job, the authentication and authorization to the datastore happens using the identity of the user submitting the job. 
+
+Note that if the **identity** property is left unspecified and datastore does not have cached credentials, then compute managed identity becomes the fallback option. 
 
 ## Next steps
 
