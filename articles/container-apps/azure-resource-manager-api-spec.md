@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Container Apps Preview ARM template API specification
 
-Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using an YAML template to specify a resource.
+Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
 > [!NOTE]
 > Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
@@ -23,7 +23,7 @@ The following tables describe the properties available in the Container Apps env
 
 ### Resource
 
-A container app resource of the ARM template have the following properties:
+A container app resource of the ARM template has the following properties:
 
 | Property | Description | Data type |
 |---|---|--|
@@ -44,7 +44,7 @@ A resource's `properties` object has the following properties:
 
 # [ARM template](#tab/arm-template)
 
-The following is an example ARM template used to deploy a Container Apps environment.
+The following example ARM template deploys a Container Apps environment.
 
 ```json
 {
@@ -94,7 +94,7 @@ The following is an example ARM template used to deploy a Container Apps environ
 
 # [YAML](#tab/yaml)
 
-YAML input is not currently used by Azure CLI commands to specify a Container Apps environment.
+YAML input isn't currently used by Azure CLI commands to specify a Container Apps environment.
 
 ---
 
@@ -104,7 +104,7 @@ The following tables describe the properties available in the container app reso
 
 ### Resource 
 
-A container app resource of the ARM template have the following properties:
+A container app resource of the ARM template has the following properties:
 
 | Property | Description | Data type |
 |---|---|--|
@@ -164,7 +164,7 @@ Changes made to the `template` section are [revision-scope changes](revisions.md
 
 # [ARM template](#tab/arm-template)
 
-The following is an example ARM template used to deploy a container app.
+The following example ARM template deploys a container app.
 
 ```json
 {
@@ -270,7 +270,7 @@ The following is an example ARM template used to deploy a container app.
 
 # [YAML](#tab/yaml)
 
-The following is an example YAML configuration used to deploy a container app using the `--yaml` parameter in following Azure CLI commands:
+The following example YAML configuration deploys a container app using the `--yaml` parameter in following Azure CLI commands:
 
 - [`az containerapp create`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-create)
 - [`az containerapp update`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-update)
