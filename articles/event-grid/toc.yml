@@ -267,6 +267,8 @@
     items:
     - name: Onboard as a partner
       href: onboard-partner.md
+    - name: Subscribe to partner events
+      href: subscribe-to-partner-events.md
     - name: Subscribe to Auth0 events
       href: auth0-how-to.md
   - name: Get access keys for topics or domains
