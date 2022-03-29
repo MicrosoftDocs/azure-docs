@@ -740,6 +740,8 @@
           items:
             - name: .NET
               href: sql/best-practice-dotnet.md
+            - name: Java
+              href: sql/best-practice-java.md
         - name: Performance
           items:
             - name: Query
