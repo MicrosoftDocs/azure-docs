@@ -31,7 +31,7 @@ A container app resource of the ARM template have the following properties:
 | `location` | The Azure region where the Container Apps environment is deployed. | string |
 | `type` | Always `Microsoft.App/managedEnvironments` ARM endpoint determines which API to forward to  | string |
 
-### `properties`
+#### `properties`
 
 A resource's `properties` object has the following properties:
 
@@ -115,7 +115,7 @@ A container app resource of the ARM template have the following properties:
 
 In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
-### `properties`
+#### `properties`
 
 A resource's `properties` object has the following properties:
 
@@ -134,7 +134,7 @@ The `environmentId` value takes the following form:
 
 In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
-### `properties.configuration`
+#### `properties.configuration`
 
 A resource's `properties.configuration` object has the following properties:
 
@@ -148,7 +148,7 @@ A resource's `properties.configuration` object has the following properties:
 
 Changes made to the `configuration` section are [application-scope changes](revisions.md#application-scope-changes), which doesn't trigger a new revision.
 
-### `properties.template`
+#### `properties.template`
 
 A resource's `properties.template` object has the following properties:
 
