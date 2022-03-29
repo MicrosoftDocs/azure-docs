@@ -1,0 +1,36 @@
+- name: Project Fidalgo Dev Box docs
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Project Fidalgo Dev Box?
+      displayName: DevBox, VDI
+      href: overview-what-is-project-fidalgo-dev-box.md
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Quickstart-1
+      href: quickstart-1.md
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: Tutorial-1
+      href: Tutorial-1.md
+- name: How-tos
+  expanded: true
+  items: 
+    - name: How to 1
+      href: how-to-1.md
+- name: Reference
+  items:
+      - name: Reference 1
+        href: reference-1.md
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing (placholder)
+      href: https://azure.microsoft.com/pricing/details/load-testing/
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
+
