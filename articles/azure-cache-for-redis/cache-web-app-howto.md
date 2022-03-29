@@ -130,11 +130,11 @@ The home page layout for this sample is stored in the *_Layout.cshtml* file. Fro
     @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
 
-    :::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
+    :::image type="content" source="media/cache-web-app-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
 
-### Viewing data in the cache
+### Showing data from the cache
 
-From the home page, you select **Azure Cache for Redis Test** to see the demo of setting and getting information from your cache.
+From the home page, you select **Azure Cache for Redis Test** to see the sample output.
 
 1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. 
 
@@ -188,7 +188,7 @@ By default, the project is configured to host the app locally in [IIS Express](/
 
 1. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Cache for Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Simple test completed local":::
+   :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
 
 ## Publish and run in Azure
 

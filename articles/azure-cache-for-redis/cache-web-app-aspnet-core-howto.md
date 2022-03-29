@@ -36,7 +36,7 @@ Make a note of the **HOST NAME** and the **Primary** access key. You use these v
 
 In your command window, execute the following command to store a new secret named *CacheConnection*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
-```dotnetcli
+```dos
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
 ```
 
@@ -53,7 +53,7 @@ In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been ad
 ```csharp
 using StackExchange.Redis;
 ```
-<!-- Is this right Philo -->
+
 The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
@@ -62,6 +62,8 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ## Layout views in the sample
 
+The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
+
 1.    Open *Views\Shared\\_Layout.cshtml*.
 
 1. You should see in `<div class="navbar-header">`:
@@ -69,18 +71,63 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
     ```html
     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
     ```
+:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
+
+### Showing data from the cache
+
+From the home page, you select **Azure Cache for Redis Test** to see the sample output.
+
+1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. 
+
+1. You should see this code in the *RedisCache.cshtml* file.
+
+    ```csharp
+    @{
+        ViewBag.Title = "Azure Cache for Redis Test";
+    }
+
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+    <br /><br />
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Command</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>@ViewBag.command1</td>
+            <td><pre>@ViewBag.command1Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command2</td>
+            <td><pre>@ViewBag.command2Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command3</td>
+            <td><pre>@ViewBag.command3Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command4</td>
+            <td><pre>@ViewBag.command4Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command5</td>
+            <td><pre>@ViewBag.command5Result</pre></td>
+        </tr>
+    </table>
+    ```
 
 ## Run the app locally
 
 1. Execute the following command in your command window to build the app:
 
-    ```dotnetcli
+    ```dos
     dotnet build
     ```
     
 1. Then run the app with the following command:
 
-    ```dotnetcli
+    ```dos
     dotnet run
     ```
     
@@ -88,9 +135,7 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
 
-In the example, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
-
-:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Simple test completed local":::
+:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
 
 ## Clean up resources
 
