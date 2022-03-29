@@ -15,7 +15,8 @@ ms.subservice: B2C
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
 
-In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multi-factor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (PII) through the xID API.  Furthermore, the xID app generates a private key in a secure area within user’s mobile device, which can be used as a digital signing device.
+In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (customer content) through the xID API.  Furthermore, the xID app generates a private key in a secure area within user’s mobile device, which can be used as a digital signing device.
+
 
 ## Prerequisites
 
@@ -51,8 +52,9 @@ The following architecture diagram shows the implementation.
 | 7. |xID IdP returns the OAuth authorization code to Azure AD B2C. |
 | 8. |Using the authorization code, Azure AD B2C sends a token request. |
 | 9. |xID IdP checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user’s identifier and email address. |
-| 10. |In addition, if user's PII is needed, Azure AD B2C calls the xID userdata API. |
-| 11. |The xID userdata API returns the user’s encrypted PII. User can decrypt it with their private key, which they create when they request the xID client information. |
+| 10. |In addition, if the user's customer content is needed, Azure AD B2C calls the xID userdata API. |
+| 11. |The xID userdata API returns the user’s encrypted customer content. User can decrypt it with their private key, which they create when they request the xID client information. |
+
 | 12. | User is either granted or denied access to the customer application based on the verification results.
 
 ## Onboard with xID
