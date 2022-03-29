@@ -22,12 +22,15 @@ By using NFS datastores backed by Azure NetApp Files you can expand your storage
 
 ## Prerequisites
 
-1.    Azure VMware Solution private cloud deployed with a [virtual network configured](/azure/azure-vmware/deploy-azure-vmware-solution). For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
-    a. Verify the subscription is registered to Microsoft.AVS 
-    `az provider show -n "Microsoft.AVS" -- query registrationState`
-    b. If it's not already registered, register it.
+1.    Deploy Azure VMware Solution private cloud with a [virtual network configured](/azure/azure-vmware/deploy-azure-vmware-solution). For more information, see [Network planning checklist and Configure networking for your VMware private cloud](/azure/azure-vmware/tutorial-network-checklist).
+    1. Verify the subscription is registered to Microsoft.AVS.
+        `az provider show -n "Microsoft.AVS" -- query registrationState`
+    1. If it's not already registered, register it.
         `az provider register -n "Microsoft.AVS"`
-1. Create a [Network File System (NFS) volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud.
+1. Create a [Network File System (NFS) volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
+    1. Ping the attached target IP to verify connectivity from the private cloud to Azure NetApp Files volume.
+    1. Verify the subscription is registered to `AMFAvsDataStore` feature in the Microsoft.NetApp namespace to confirm the volume is for Azure VMware Solution NFS datastore.
+    1. The registration isn't auto approved. You'll need to send an email to the support DL and provide the subscription ID if it wasn't registered when you signed up for preview.
 
 ## Delete an Azure NetApp Files datastore from your private cloud
 
