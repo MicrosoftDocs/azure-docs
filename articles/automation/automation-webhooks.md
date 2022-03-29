@@ -89,6 +89,9 @@ Consider the following strategies:
 
 ## Create a webhook
 
+> [!NOTE]
+> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - 7.1 (preview](/azure/automation/automation-runbook-types#known-issues---71-preview). We recommend that you use the webhook with PowerShell 5 runbook.
+
 1. Create PowerShell runbook with the following code:
 
     ```powershell
@@ -373,7 +376,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
         -ResourceGroupName $resourceGroup `
         -Stream Output
     ```
-   When you trigger a webhook created in the previous step, it will create a job and the output should look similar to the following:
+   When you trigger a runbook created in the previous step, it will create a job and the output should look similar to the following:
 
    :::image type="content" source="media/automation-webhooks/webhook-job-output.png" alt-text="Output from webhook job.":::
 
