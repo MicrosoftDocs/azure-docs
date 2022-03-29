@@ -85,6 +85,9 @@ To complete the remaining steps, make sure you have:
         1. Select a **location** for the namespace. 
         1. For **Partner topic routing mode**, select **Channel name header** and **Source attribute in event**. 
         
+            > [!NOTE]
+            > It's not possible to update the routing mode once the namespace is created. 
+        
             A partner namespace serves as container to routing resources. A namespace holds only one kind of routing resource, either **channels** or **event channels**. 
 
             **Channel** is the new routing resource type and is the preferred option. Select **Channel name header** to have the partner namespace hold only channels. 
