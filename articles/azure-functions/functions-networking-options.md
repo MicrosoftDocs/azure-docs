@@ -40,7 +40,7 @@ Use the following resources to quickly get started with Azure Functions networki
 
 The following features let you filter inbound requests to your function app.
 
-### Access restrictions
+### Inbound access restrictions
 
 You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
@@ -55,7 +55,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
-To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints).
+To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints). For more details on using private endpoints with the storage account for your function app, visit [restrict your storage account to a virtual network](#restrict-your-storage-account-to-a-virtual-network).
 
 ### Use service endpoints
 
