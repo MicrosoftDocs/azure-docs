@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: malev
 editor: ''
 
 ms.assetid: 
@@ -12,8 +12,8 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
-ms.author: alkemper
+ms.date: 03/31/2022
+ms.author: maud-lv
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using App Configuration.
@@ -35,41 +35,60 @@ The Feature Manager in the Azure portal for App Configuration provides a UI for 
 
 To add a new feature flag:
 
-1. Select **Feature Manager** > **+Add** to add a feature flag.
+1. Open an Azure App Configuration store and from the **Operations** menu, select **Feature Manager** > **+Add**.
 
-    ![Feature flag list](./media/azure-app-configuration-feature-flags.png)
+    :::image type="content" source="media/azure-app-configuration-feature-flags.png" alt-text="Screenshot of the Azure platform. Add a feature flag.":::
 
-1. Enter a unique key name for the feature flag. You need this name to reference the flag in your code.
+1. Check the box **Enable feature flag** to make the new feature flag active as soon as you've completed the creation of the feature flag.
 
-1. If you want, give the feature flag a description.
+1. You can use a key name to filter feature flags that are loaded in your application. A key name matching the name of your feature flag is automatically added to the form. You can edit this name if you want to.
 
-1. Set the initial state of the feature flag. This state is usually *Off* or *On*. The *On* state changes to *Conditional* if you add a filter to the feature flag.
+1. Optionally select one of your existing labels from the dropdown menu.
 
-    ![Feature flag creation](./media/azure-app-configuration-feature-flag-create.png)
+1. Optionally enter a description.
 
-1. When the state is *On*, select **+Add filter** to specify any additional conditions to qualify the state. Enter a built-in or custom filter key, and then select **+Add parameter** to associate one or more parameters with the filter. Built-in filters include:
+    :::image type="content" source="media/azure-app-configuration-feature-flag-create.png" alt-text="Screenshot of the Azure platform. Feature flag creation form - part 1.":::
 
-    | Key | JSON parameters |
+1. Optionally  select the **User feature filter** checkbox. A Feature filter consistently evaluates the state of a feature flag. The App Configuration feature management library supports three types of built-in filters: **Targeting**, **Time window**, and **Custom** filters, which can be created based on different factors
+
+    Enter a built-in or custom filter key, and then select **+Add parameter** to associate one or more parameters with the filter. App Configuration has two built-in filters:
+
+    | Filter | Description |
+    |---|---|
+    | Targeting | Filter defining users, groups, and rollout percentages. You can select a default percentage impacting the entire user base, or assign a percentage to a group.
+    | Time window | Select a start date and an optional expiry date to enable features based on a specific period of time. |
+
+    You can instead choose to use custom filters:
+
+    | Filter | JSON parameters |
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
+    | Microsoft.Targeting | { "Audience": JSON blob defining users, groups, and rollout percentages. See an example under the `EnabledFor` element of [this settings file](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }|
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
-    | Microsoft.Targeting | { "Audience": JSON blob defining users, groups, and rollout percentages. See an example under the `EnabledFor` element of [this settings file](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
-    ![Feature flag filter](./media/azure-app-configuration-feature-flag-filter.png)
+    :::image type="content" source="media/azure-app-configuration-feature-flag-filter.png" alt-text="Screenshot of the Azure platform. Add a feature filter.":::
+
+1. Select **Apply** to validate the creation of the feature flag.
 
 ## Update feature flag states
 
 To change a feature flag's state value:
 
-1. Select **Feature Manager**.
+1. From the menu on the left, select **Feature Manager**.
 
-1. To the right of a feature flag you want to modify, select the ellipsis (**...**), and then select **Edit**.
+1. To the right of a feature flag you want to modify, select the **More actions** ellipsis (**...**), and then select **Edit**.
 
-1. Set a new state for the feature flag.
+    :::image type="content" source="media/azure-app-configuration-feature-flag-edit.png" alt-text="Screenshot of the Azure platform. Edit a feature flag.":::
+
+1. Update the feature flag. You can enable or disable it, edit its description and filters.
 
 ## Access feature flags
 
-Feature flags created by the Feature Manager are stored and retrieved as regular key values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key values, use the Configuration Explorer. Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
+Feature flags created by the Feature Manager are stored and retrieved as regular key values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key values, in the **Operations** menu open the **Configuration explorer**.
+
+:::image type="content" source="media/azure-app-configuration-feature-flag-retrieve.png" alt-text="Screenshot of the Azure platform. Retrieve a feature flag.":::
+
+Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
 
 ## Next steps
 
