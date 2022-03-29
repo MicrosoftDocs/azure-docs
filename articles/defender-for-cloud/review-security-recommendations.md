@@ -43,7 +43,7 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
 1. Select a specific recommendation to view the recommendation details page.
 
-    :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page.png":::
+    :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page-expanded.png":::
 
     1. For supported recommendations, the top toolbar shows any or all of the following buttons:
         - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
