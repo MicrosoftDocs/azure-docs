@@ -7,6 +7,8 @@
       href: v2-overview.md
     - name: What's new in docs?
       href: whats-new-docs.md
+    - name: Code samples
+      href: sample-v2-code.md
 - name: Concepts
   items:
     - name: Identity platform fundamentals
@@ -253,7 +255,8 @@
           href: ./howto-restore-app.md
 - name: Reference
   items:
-    - name: Authentication library reference
+    - name: Library and API reference
+      displayName: authentication library, msal
       items:
         - name: List of Microsoft authentication libraries
           displayName: MSAL, auth library, SDK
@@ -432,13 +435,15 @@
               href: msal-error-handling-python.md
             - name: Logging in MSAL for Python
               href: msal-logging-python.md
+        - name: Microsoft Graph API reference (identity operations)
+          href: /graph/api/resources/azure-ad-overview
     - name: Command line tool (CLI) reference
       items:
         - name: Azure CLI
           href: /cli/azure/identity
         - name: Azure PowerShell
           href: /powershell/module/az.managedserviceidentity/
-    - name: App registration reference
+    - name: App registrations reference
       items:
         - name: Application manifest
           displayName: app manifest
@@ -499,15 +504,9 @@
               href: reference-saml-tokens.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
-    - name: Code samples
-      href: sample-v2-code.md
-    - name: Identity and access APIs in Microsoft Graph
-      href: /graph/api/resources/azure-ad-overview
-    - name: AADSTS error codes - authentication & authorization
+    - name: AADSTS error code reference
       href: reference-aadsts-error-codes.md
-    - name: Breaking changes
-      href: reference-breaking-changes.md
-    - name: National cloud authentication endpoints
+    - name: Identity platform endpoints (national & public clouds)
       displayName: china, germany, gov, 21vianet
       href: authentication-national-cloud.md
 - name: Resources
@@ -515,16 +514,16 @@
     - name: Help and support options
       displayName: support, help options
       href: developer-support-help-options.md
-    - name: Videos
+    - name: Updates and breaking changes
+      href: reference-breaking-changes.md
+    - name: Video learning
       href: identity-videos.md
-    - name: Microsoft identity platform - Microsoft 365 Developer Blog
+    - name: "Blog: M365 Developer - Microsoft identity platform"
       href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
-    - name: Azure Active Directory Identity Blog
+    - name: "Blog: Azure AD - Identity"
       href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
-    - name: Azure roadmap
+    - name: Azure roadmap - security and identity
       href: https://azure.microsoft.com/roadmap/?category=security-identity
-    - name: Try Sign in with Microsoft
-      href: https://developer.microsoft.com/identity/add-sign-in-with-microsoft
 - name: Single-page app (SPA)
   items:
     - name: Quickstart
