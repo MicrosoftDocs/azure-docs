@@ -15,13 +15,13 @@ Azure confidential ledger is a cloud service that provides a high integrity stor
 
 For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/cli-rg-create.md)]
+[!INCLUDE [Create resource group](../../includes/cli-rg-create.md)]
 
 ## Get your principal ID
 
@@ -47,7 +47,7 @@ You will need this URI to transact with the confidential ledger from the data pl
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources](../../../includes/cli-rg-delete.md)]
+[!INCLUDE [Clean up resources](../../includes/cli-rg-delete.md)]
 
 
 ## Next steps

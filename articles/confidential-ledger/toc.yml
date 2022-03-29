@@ -8,6 +8,8 @@
   items:
   - name: Portal
     href: quickstart-portal.md
+  - name: CLI
+    href: quickstart-cli.md
   - name: Python
     href: quickstart-python.md
   - name: ARM template
