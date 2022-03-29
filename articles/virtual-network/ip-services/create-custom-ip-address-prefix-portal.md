@@ -180,7 +180,7 @@ When you create a prefix, you must create static IP addresses from the prefix. I
 
 9. Select **Review + create**, and then **Create** on the following page.
 
-10. Repeat steps 1-3 as necessary to return to the **Overview** page for **myCustomIPPrefix**.  You should now see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix.  For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
+10. Repeat steps 1-3 to return to the **Overview** page for **myCustomIPPrefix**. You should see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix. For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
 ## Commission the custom IP address prefix
 
