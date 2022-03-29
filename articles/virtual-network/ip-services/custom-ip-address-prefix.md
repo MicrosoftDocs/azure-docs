@@ -60,7 +60,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions
 
-* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region.  Contact Azure support to have quotas increased when required
+* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region. Contact Azure support to have quotas increased when required
 
 ## Pricing
 
