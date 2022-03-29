@@ -270,7 +270,7 @@ The following example ARM template deploys a container app.
 
 # [YAML](#tab/yaml)
 
-The following example YAML configuration deploys a container app using the `--yaml` parameter in following Azure CLI commands:
+The following example YAML configuration deploys a container app when used with the `--yaml` parameter in the following Azure CLI commands:
 
 - [`az containerapp create`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-create)
 - [`az containerapp update`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-update)
