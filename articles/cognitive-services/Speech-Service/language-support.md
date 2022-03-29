@@ -516,6 +516,7 @@ The following table lists the prebuilt neural voices supported in each language.
 | English (United States) | `en-US` | Female | `en-US-CoraNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-ElizabethNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural`  | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md##adjust-speaking-languages) |
 | English (United States) | `en-US` | Female | `en-US-MichelleNeural`| General |
 | English (United States) | `en-US` | Female | `en-US-MonicaNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-SaraNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -710,6 +711,8 @@ The following table lists the prebuilt neural voices supported in each language.
 > [!IMPORTANT]
 > The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021.
 
+> The `en-US-JennyNeuralMultilingual` voice supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for a supported languages list.
+
 > If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30,2021, all requests with previous versions will be rejected.
 
 > Two styles for `fr-FR-DeniseNeural` now are available for public preview:  `cheerful` and `sad` in 3 regions: East US, West Europe, and Southeast Asia.
@@ -731,7 +734,6 @@ The following neural voices are in public preview.
 | English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural`  | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
 | French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural` <sup>New</sup> | General |
@@ -760,8 +762,6 @@ The following neural voices are in public preview.
 
 > [!IMPORTANT]
 > Voices/Styles in public preview are only available in three service regions: East US, West Europe, and Southeast Asia.
-
-> The `en-US-JennyNeuralMultilingual` voice supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for a supported languages list.
 
 > For more information about regional availability, see [regions](regions.md#prebuilt-neural-voices).
 
