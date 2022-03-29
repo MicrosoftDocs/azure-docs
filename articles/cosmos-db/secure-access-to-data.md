@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, subject-rbac-steps
 
 ---
 # Secure access to data in Azure Cosmos DB
@@ -204,12 +204,20 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 To add Azure Cosmos DB account reader access to your user account, have a subscription owner perform the following steps in the Azure portal.
 
 1. Open the Azure portal, and select your Azure Cosmos DB account.
-2. Click the **Access control (IAM)** tab, and then click  **+ Add role assignment**.
-3. In the **Add role assignment** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
-4. In the **Assign access to box**, select **Azure AD user, group, or application**.
-5. Select the user, group, or application in your directory to which you wish to grant access.  You can search the directory by display name, email address, or object identifiers.
-    The selected user, group, or application appears in the selected members list.
-6. Click **Save**.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+    | Setting | Value |
+    | --- | --- |
+    | Role | Cosmos DB Account Reader |
+    | Assign access to | User, group, or service principal |
+    | Members | The user, group, or application in your directory to which you wish to grant access. |
+
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 The entity can now read Azure Cosmos DB resources.
 

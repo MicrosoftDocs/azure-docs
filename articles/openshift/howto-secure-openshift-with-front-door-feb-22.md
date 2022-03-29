@@ -96,9 +96,9 @@ This section explains how to register a domain in Azure DNS.
 
 To create a new Azure Front Door Premium service:
 
-1. On [Microsoft Azure (PREVIEW) Compare offerings](https://ms.portal.azure.com/#create/Microsoft.AFDX) select **Azure Front Door**, and then select **Continue to create a Front Door**.
+1. On [Microsoft Azure Compare offerings](https://ms.portal.azure.com/#create/Microsoft.AFDX) select **Azure Front Door**, and then select **Continue to create a Front Door**.
 
-2. On the **Create a front door profile** page in the **Subscription** > **Resource group**, select the resource group in which your Azure Red Hat OpenShift cluster was deployed to house your Azure Front Door Premium (PREVIEW) resource.
+2. On the **Create a front door profile** page in the **Subscription** > **Resource group**, select the resource group in which your Azure Red Hat OpenShift cluster was deployed to house your Azure Front Door Premium resource.
 
 3. Name your Azure Front Door Premium service appropriately. For example, in the **Name** field, enter the following name:
 
@@ -122,7 +122,7 @@ To create a new Azure Front Door Premium service:
 
    At this stage, don't enable the Azure Private Link service, caching, or the Web Application Firewall (WAF) policy.
 
-9. Select **Review + create** to create the Azure Front Door Premium (PREVIEW) resource, and then wait for the process to complete.
+9. Select **Review + create** to create the Azure Front Door Premium resource, and then wait for the process to complete.
 
 ## Initial configuration of Azure Front Door Premium
 

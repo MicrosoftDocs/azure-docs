@@ -910,7 +910,7 @@ items:
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
-        href: /azure/azure-monitor/faq#open-telemetry
+        href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
