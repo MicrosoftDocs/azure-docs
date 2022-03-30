@@ -1,12 +1,12 @@
 ---
-title: Clusters Administration 
+title: Cluster Account Administration 
 description: 
 ms.topic: how-to
 ms.subservice:
 ms.date: 03/31/2021
 ---
 
-# Clusters Administration
+# Cluster Account Administration
 
 Articles in this section explains how to add or remove users with various roles. 
  
