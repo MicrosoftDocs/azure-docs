@@ -54,20 +54,20 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 1. Select **Next: Networking** at the bottom of the page.
 
-   :::image type="content" source="./media/single-database-create-quickstart/new-sql-database-basics.png" alt-text="New SQL database - Basic tab" lightbox="media/single-database-create-quickstart/new-sql-database-basics.png":::
+   :::image type="content" source="./media/single-database-create-quickstart/new-sql-database-basics.png" alt-text="New SQL database - Basic tab":::
 
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Next: Security** at the bottom of the page.
 
-   :::image type="content" source="./media/single-database-create-quickstart/networking.png" alt-text="Networking tab" lightbox="media/single-database-create-quickstart/networking.png":::
+   :::image type="content" source="./media/single-database-create-quickstart/networking.png" alt-text="Networking tab":::
   
 1. On the **Security tab**, you have the option to enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md). Select **Next: Additional settings** at the bottom of the page.
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
 
 1. Select **Review + create** at the bottom of the page:
 
-   :::image type="content" source="./media/single-database-create-quickstart/additional-settings.png" alt-text="Additional settings tab" lightbox="media/single-database-create-quickstart/additional-settings.png":::
+   :::image type="content" source="./media/single-database-create-quickstart/additional-settings.png" alt-text="Additional settings tab":::
 
 1. On the **Review + create** page, after reviewing, select **Create**.
 
@@ -293,7 +293,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 1. Select **Run**, and then review the query results in the **Results** pane.
 
-   :::image type="content" source="./media/single-database-create-quickstart/query-editor-results.png" alt-text="Query editor results":::
+   :::image type="content" source="./media/single-database-create-quickstart/query-editor-results.png" alt-text="Query editor results" lightbox="media/single-database-create-quickstart/query-editor-results.png":::
 
 1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
