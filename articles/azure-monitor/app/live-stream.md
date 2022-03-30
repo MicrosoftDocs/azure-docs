@@ -29,7 +29,7 @@ With Live Metrics Stream, you can:
 Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
 > [!NOTE]
->  Instance count may be lower than the server count because instance count only shows active servers. To free up memory some web servers will unload the process, which can make instance count different than the actual number of servers.
+>  The number of monitored server instances displayed by Live Metrics Stream may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics Stream only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
 
 ## Get started
 
@@ -46,7 +46,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
 > [!IMPORTANT]
-> ASP.NET Core 3.X requires Application Insights 2.8.0 or later. If you have enabled Application Insights directly in the Azure Portal but haven't included the Application Insights NuGet package, Live Metrics will not show. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream. 
+> Monitoring ASP.NET Core 3.X applications requires Application Insights 2.8.0 or above. If you have enabled Application Insights directly in the Azure Portal but haven't included the Application Insights NuGet package, Live Metrics will not show. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
