@@ -7,19 +7,19 @@ ms.topic: conceptual
 
 # OT system hardware and virtual appliance requirements
 
-## This article lists the hardware and virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles. You can use either physical or virtual appliances as needed for your organization.
+This article lists the hardware and virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles. You can use either physical or virtual appliances as needed for your organization.
 
+## Deployment options
 
+The following tables describe supported deployment options for your OT sensors and on-premises management console. When setting up your system, choose the deployment option that meets your needs best.
 
-## Multiple Deployment Options
-
-### Corporate IT/OT Hybrid networks
+### Corporate IT/OT hybrid networks
 
 |Name  |Max Throughput (OT Traffic) |Max Monitored Assets  |Deployment |
 |---------|---------|---------|---------|
 |C5600 (Corporate)    | 3 Gbps        | 12K        |Physical / Virtual         |
 
-### Enterprise Monitoring at the site level
+### Enterprise monitoring at the site level
 
 |Name  |Max Throughput (OT Traffic)  |Max Monitored Assets  |Deployment  |
 |---------|---------|---------|---------|
@@ -33,32 +33,29 @@ ms.topic: conceptual
 |L100 (Line)    | 60 Mbps        |   800      | Physical / Virtual        |
 |L60 (Line)     | 10 Mbps        |   100      |Physical / Virtual|
 
-### On Premises Management Console
+### On-premises management console
 
 |Name  |Max Monitored Sensors  |Deployment  |
 |---------|---------|---------|
 |E1800 (Enterprise)     |Up to 300         |Physical / Virtual         |
 
-## Hardware Compatibility List
+## Supported hardware
 
-Microsoft engineers have evaluated physical appliances in the certified appliances list and recommend them for deployments that require significant scale and support.
+The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support. The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
 
-We can't guarantee functionality of hardware components not certified by our lab.
+### Required operating systems
 
-### Prerequisites
-
-Due to our software being built on **Ubuntu 18.04**, all hardware components should be compatible with this OS.
+Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04. All hardware components must be compatible with Ubuntu version 18.04.
 
 ### Central Processing Unit (CPU)
 
-|  | |
+|Name  |Supported models and versions |
 |---------|---------|
 |C5600 (Corporate)     |-  Intel Xeon Silver 4215 R 3.2 GHz, 11M cache, 8c/16T, 130 W       |
 |E1800 (Enterprise)| - Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W using Intel C242<br>-Intel Xeon E-2224, 3.4 GHz, 4C, 71 W using Intel C242<br>-Intel Xeon E-2144G 3.6GHz, 8M cache, 4C/8T, turbo (71W) with Intel C246|
 |L500 (Line) <br> L100 (Line)<br> L60 (Line)|-Intel Core i7-8650U (1.9GHz/4-core/15W) using Intel Q170<br>-Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151Intel Atom® x7-E3950 Processor
-         |
 
-### Network Cards (Ethernet/SFP)
+### Network cards (Ethernet/SFP)
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -68,7 +65,7 @@ Due to our software being built on **Ubuntu 18.04**, all hardware components sho
 |L100 (Line)           |-Broadcom BCM5720   |
 |L60 (Line)            |-Broadcom BCM5719   |
 
-### Storage Arrays
+### Storage arrays
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -86,9 +83,9 @@ Microsoft has validated the following physical appliances. Using any of the appl
 - **In-lab experience**, where Microsoft support teams have been trained using validated physical appliances and have a working knowledge of the hardware
 - **Availability**, as these physical appliances are available worldwide and long term
 
-Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).pull
+Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
-## OT network sensors
+### Supported appliances for OT network sensors
 
 |Model / Capacity|Monitoring Ports|Max bandwidth|Max protected devices|Mounting|
 |:----|:----|:----|:----|:----|
@@ -99,7 +96,8 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide preco
 |**Dell Edge Gateway 5200** <br>L500| |60Mbp/s|1000|Wall mount|
 |**YS-Techsystems YS-FIT2** <br>L100|1 x RJ45|10Mbp/s|100|DIN/VESA|
 
-## On Premises Management Console
+### Supported appliances for on-premises management consoles
+
 |Model / Capacity| Monitoring Ports|Monitored Sensors|Mounting|
 |:----|:----|:----|:----|
 |**HPE ProLiant DL20+**<br>E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
