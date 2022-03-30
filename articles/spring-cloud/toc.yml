@@ -76,6 +76,8 @@
   items:
     - name: Develop
       items:
+        - name: Run a Spring Boot app locally
+          href: how-to-local-development.md
         - name: Prepare a Java Spring app for deployment
           href: how-to-prepare-app-deployment.md
         - name: Set up a Config Server
