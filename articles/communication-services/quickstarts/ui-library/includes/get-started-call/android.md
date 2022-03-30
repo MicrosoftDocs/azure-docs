@@ -29,7 +29,7 @@ In Android Studio, create a new project and select the `Empty Activity`.
 
 ![Start a new Android Studio Project](../../media/composite-android-new-project.png)
 
-Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK `API 23: Android 6.0 (Marshmallow)` or greater.
+Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK `API 21: Android 5.0 (Lollipop)` or greater.
 
 ![Screenshot showing the 'Finish' button selected in Android Studio.](../../media/composite-android-new-project-finish.png)
 
@@ -132,14 +132,13 @@ class MainActivity : AppCompatActivity() {
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 
         val options = GroupCallOptions(
-            this,
             communicationTokenCredential,
             UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
         )
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
-        callComposite.launch(options)
+        callComposite.launch(this, options)
     }
 
     private fun fetchToken(): String? {
@@ -185,13 +184,12 @@ public class MainActivity extends AppCompatActivity {
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
         GroupCallOptions options = new GroupCallOptions(
-                this,
                 communicationTokenCredential,
                 UUID.fromString("GROUP_CALL_ID"),
                 "DISPLAY_NAME");
 
         CallComposite callComposite = new CallCompositeBuilder().build();
-        callComposite.launch(options);
+        callComposite.launch(this, options);
     }
 
     private String fetchToken() {
@@ -222,6 +220,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
 | [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
+| [LocalizationConfiguration](#apply-localization-configuration)     | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
 ## UI Library functionality
 
@@ -285,7 +284,6 @@ Replace `"DISPLAY_NAME"` with your name.
 
 ```kotlin
 val options = GroupCallOptions(
-            this,
             communicationTokenCredential,
             UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
@@ -296,7 +294,6 @@ val options = GroupCallOptions(
 
 ```java
 GroupCallOptions options = new GroupCallOptions(
-    this,
     communicationTokenCredential,
     UUID.fromString("GROUP_CALL_ID"),
     "DISPLAY_NAME"
@@ -313,7 +310,6 @@ Replace `"DISPLAY_NAME"` with your name.
 
 ```kotlin
 val options = TeamsMeetingOptions(
-            this,
             communicationTokenCredential,
             "TEAMS_MEETING_LINK",
             "DISPLAY_NAME",
@@ -324,7 +320,6 @@ val options = TeamsMeetingOptions(
 
 ```java
 TeamsMeetingOptions options = new TeamsMeetingOptions(
-    this,
     communicationTokenCredential,
     "TEAMS_MEETING_LINK",
     "DISPLAY_NAME"
@@ -346,20 +341,20 @@ Call `launch` on the `CallComposite` instance inside the `startCallComposite` fu
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.launch(options)
+callComposite.launch(context, options)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-callComposite.launch(options);
+callComposite.launch(context, options);
 ```
 
 -----
 
-### Subscribe to events from `CallComposite`
+### Subscribe to error events from `CallComposite`
 
-To receive events, inject a handler to the `CallCompositeBuilder`.
+To receive error events, inject a handler to the `CallCompositeBuilder`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -410,6 +405,34 @@ import com.azure.android.communication.ui.configuration.ThemeConfiguration;
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
+        .build();
+```
+
+### Apply localization configuration
+
+To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the ocalization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LocalizationConfiguration.getSupportedLanguages()` provides list of supported languages.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+import com.azure.android.communication.ui.configuration.LocalizationConfiguration
+
+// LocalizationConfiguration.getSupportedLanguages() provides list of supported languages
+val callComposite: CallComposite =
+            CallCompositeBuilder().localization(
+                LocalizationConfiguration("en")
+            ).build()
+```
+
+#### [Java](#tab/java)
+
+```java
+import com.azure.android.communication.ui.configuration.LocalizationConfiguration;
+
+// LocalizationConfiguration.getSupportedLanguages() provides list of supported languages
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .localization(new LocalizationConfiguration("en"))
         .build();
 ```
 
