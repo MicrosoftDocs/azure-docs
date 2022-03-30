@@ -125,11 +125,11 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 ### Corporate deployment: HPE ProLiant DL360
 
 |Component|Technical specifications|
-|---------|---------|
+|---------|--------|
 |Chassis |1U rack server|
-|Dimensions	| 42.9 x 43.46 x 70.7 (cm)/1.69" x 17.11" x 27.83" (in)|
-|Weight	| Max 16.27 kg (35.86 lb)|
-|Processor	| Intel Xeon Silver 4215 R 3.2 GHz| 11M cache| 8c/16T| 130 W|
+|Dimensions| 42.9 x 43.46 x 70.7 (cm)/1.69" x 17.11" x 27.83" (in)|
+|Weight| Max 16.27 kg (35.86 lb)|
+|Processor | Intel Xeon Silver 4215 R 3.2 GHz 11M cache 8c/16T 130 W|
 |Chipset	| Intel C621|
 |Memory	| 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM|
 |Storage|	6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5|
@@ -179,19 +179,19 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel":::
 
 |Quantity| |PN|Description|
-|:----|:----|:----|:----|
-|1| |P44111-B21|HPE DL20 Gen10+ 4SFF CTO Svr|
-|1| |P45252-B21|Intel Xeon E-2234 FIO CPU for HPE|
-|1| |869081-B21|HPE Smart Array P408i-a SR G10 LH Ctrlr|
-|1| |782961-B21|HPE 12W Smart Storage Battery|
-|1| |P45948-B21|HPE DL20 Gen10+ RPS FIO Enable Kit|
-|2| |865408-B21|HPE 500W FS Plat Ht Plg LH Pwr Sply Kit|
-|1| |775612-B21|HPE 1U Short Friction Rail Kit|
-|1| |512485-B21|HPE iLO Adv 1-svr Lic 1yr Support|
-|1| |P46114-B21|HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
-|1| |P21106-B21|INT I350 1GbE 4p BASE-T Adptr|
-|3| |P28610-B21|HPE 1TB SATA 7.2K SFF BC HDD|
-|2| |P43019-B21|HPE 16GB 1Rx8 PC4-3200AA-E STND Kit|
+|----|---|----|
+|1|P44111-B21|HPE DL20 Gen10+ 4SFF CTO Svr|
+|1|P45252-B21|Intel Xeon E-2234 FIO CPU for HPE|
+|1|869081-B21|HPE Smart Array P408i-a SR G10 LH Ctrlr|
+|1|782961-B21|HPE 12W Smart Storage Battery|
+|1|P45948-B21|HPE DL20 Gen10+ RPS FIO Enable Kit|
+|2|865408-B21|HPE 500W FS Plat Ht Plg LH Pwr Sply Kit|
+|1|775612-B21|HPE 1U Short Friction Rail Kit|
+|1|512485-B21|HPE iLO Adv 1-svr Lic 1yr Support|
+|1|P46114-B21|HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
+|1|P21106-B21|INT I350 1GbE 4p BASE-T Adptr|
+|3|P28610-B21|HPE 1TB SATA 7.2K SFF BC HDD|
+|2|P43019-B21|HPE 16GB 1Rx8 PC4-3200AA-E STND Kit|
 
 Optional modules for port expansion:
 |Location | Type |Specifications |
@@ -208,23 +208,23 @@ Optional modules for port expansion:
 
 ### Enterprise deployment: HPE ProLiant DL20
 
-|Component |Technical specifications|
+|Component|Technical specifications|
 |----|----|
-|Chassis |	1U rack server|
-|Dimensions |(height x width x depth)	4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
-|Weight|	7.9 kg/17.41 lb|
-|Processor|	Intel Xeon E-2234| 3.6 GHz| 4C/8T| 71 W|
-|Chipset|	Intel C242|
+|Chassis |1U rack server|
+|Dimensions |(height x width x depth)4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
+|Weight|7.9 kg/17.41 lb|
+|Processor|Intel Xeon E-2234| 3.6 GHz| 4C/8T| 71 W|
+|Chipset|Intel C242|
 |Memory	| 2 x 16-GB Dual Rank x8 DDR4-2666|
-|Storage|	3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
-|Network controller|	On-board: 2 x 1 Gb|
+|Storage|3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
+|Network controller|On-board: 2 x 1 Gb|
 |On-board| iLO Port Card 1 Gb|
 |External |1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
-|Management|	HPE iLO Advanced|
-|Device access	Front: 1 x USB 3.0| 1 x USB iLO Service Port|
+|Management|HPE iLO Advanced|
+|Device accessFront: 1 x USB 3.0| 1 x USB iLO Service Port|
 |Rear:| 2 x USB 3.0|
 |Internal| 1 x USB 3.0|
-|Power|	Dual Hot Plug Power Supplies 500 W|
+|Power|Dual Hot Plug Power Supplies 500 W|
 |Rack support| HPE 1U Short Friction Rail Kit|
 
 ### Appliance BOM
@@ -327,19 +327,18 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 
 |Component|Technical specifications|
 |----|----|
-|Chassis|	1U rack server|
-|Dimensions (height x width x depth)|	4.32 x 43.46 x 38.22 cm/<br>1.70 x 17.11 x 15.05 inch|
-|Weight|	7.88 kg/17.37 lb|
+|Chassis|1U rack server|
+|Dimensions (height x width x depth)|4.32 x 43.46 x 38.22 cm/<br>1.70 x 17.11 x 15.05 inch|
+|Weight|7.88 kg/17.37 lb|
 |Processor|	Intel Xeon E-2224| 3.4 GHz| 4C| 71 W|
-|Chipset|	Intel C242|
-|Memory|	1 x 8-GB Dual Rank x8 DDR4-2666|
-|Storage|	2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with Smart Array P208i-a|
-|Network controller|	On-board: 2 x 1 Gb|
+|Chipset|Intel C242|
+|Memory|1 x 8-GB Dual Rank x8 DDR4-2666|
+|Storage|2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with Smart Array P208i-a|
+|Network controller|On-board: 2 x 1 Gb|
 |On-board| iLO Port Card 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
-|Management|	HPE iLO Advanced|
-|Device access	Front| 1 x USB 3.0| 1 x USB iLO Service Port|
-|Rear| 2 x USB 3.0|
+|Management|HPE iLO Advanced|
+|Device access| **Front**: 1 x USB 3.0 1 x USB iLO Service Port<br> **Rear**: 2 x USB 3.0|
 |Internal| 1 x USB 3.0|
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
