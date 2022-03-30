@@ -5,7 +5,7 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 03/17/2022
 author: sidontha
-ms.author: marodewa
+ms.author: sidontha
 
 #Customer intent: As an Azure Data Share User, I want to move my Data Share account to a new region.
 ---
@@ -112,7 +112,6 @@ The following steps show how to deploy a new Data Share account using a Resource
     * If you are also moving the resources contained in the datasets to a new region, you will have to remove the datasets from the **template.json** file and manually re-add them once the Data Share account and resources referenced in the datasets are moved to the new region.
     
     * **Important:**  Datasets will fail to deploy if the new Data Share account you are deploying will not automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
-
         ```json
             "resources": [
                 {
