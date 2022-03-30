@@ -48,7 +48,7 @@ output of deployment script or reset the password
 * IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher (for standalone OPC Publisher operation only)
 
 
-## OPC Publisher Configuration options
+## OPC Publisher 2.8.2 Configuration options
 
 |Configuration Option (shorthand/full name)    |    Description   |
 |----------------------------------------------|------------------|
