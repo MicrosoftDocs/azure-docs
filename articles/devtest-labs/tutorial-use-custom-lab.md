@@ -39,7 +39,7 @@ To claim a lab VM, follow these steps. For more information about claiming VMs, 
 
 ## Connect to a lab VM
 
-You can connect to any running lab VM. A claimable but unclaimed VMs is stopped, so you must claim it to connect to it.
+You can connect to any running lab VM. A claimable but unclaimed VM is stopped, so you must claim it to connect to it.
 
 To connect to a Windows machine through Remote Desktop Protocol (RDP), follow these steps. For steps to connect to a Linux VM, see [Connect to a Linux VM in your lab](connect-linux-virtual-machine.md).
 

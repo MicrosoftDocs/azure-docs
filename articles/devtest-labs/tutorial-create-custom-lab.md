@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 03/30/2022
 ---
 
-# Tutorial: Create a DevTestLabs lab and VM and add a user in the Azure portal
+# Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal
 
 In this Azure DevTest Labs tutorial, you learn how to:
 
@@ -93,7 +93,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    |**Expiration date**|Leave at **Will not expire**, or [set an expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) and time for the VM.|
    |**Make this machine claimable**|The default is **No**, to keep the VM creator as the owner of the VM. For this tutorial, select **Yes**, so that another lab user can claim the VM after creation. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).|
    |**Number of instances**|To create more than one VM with this configuration, enter the number of VMs to create.|
-   |**View ARM Template**|Select to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).|
+   |**View ARM template**|Select to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).|
 
    :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-advanced-settings.png" alt-text="Screenshot of the Advanced Settings tab of the Create lab resource page.":::
 
