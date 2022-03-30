@@ -73,8 +73,6 @@
         href: how-to-set-up-instance-portal.md
       - name: CLI
         href: how-to-set-up-instance-cli.md
-      - name: PowerShell
-        href: how-to-set-up-instance-powershell.md
     - name: Enable private access with Private Link
       href: how-to-enable-private-link.md
     - name: Write app authentication code
@@ -129,7 +127,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use data history (preview) with Azure Data Explorer
+    - name: Use data history with Azure Data Explorer (preview)
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
@@ -267,8 +265,6 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-digitaltwins-core
   - name: Digital Twins CLI package
     href: https://github.com/Azure/azure-iot-cli-extension/releases
-  - name: Digital Twins Azure PowerShell module
-    href: https://www.powershellgallery.com/packages/Az.DigitalTwins/
   - name: Terraform modules
     items:
       - name: Digital Twins instance resource
@@ -331,8 +327,6 @@
     items:
     - name: Azure Cloud Shell
       href: https://shell.azure.com
-    - name: Azure PowerShell
-      href: /powershell/azure/
     - name: Azure portal
       href: https://portal.azure.com
   - name: Support and help options
