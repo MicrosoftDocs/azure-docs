@@ -26,7 +26,6 @@ This article provides a sample Azure CLI script that shows how to create a custo
 ## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
---->
 
 ```azurecli
 az group delete --name $resourceGroup
