@@ -103,7 +103,7 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 |**HPE ProLiant DL20+**<br>E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
 |**Dell PowerEdge R340 XL** <br> E1800|8 x RJ45 or 6 SFP (OPT)|Up to 300|1U|
 
-## Corporate Deployment: HPE ProLiant DL360
+## Corporate deployment: HPE ProLiant DL360
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Proliant Dl360 view":::
 
