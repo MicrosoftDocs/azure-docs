@@ -126,7 +126,7 @@ To use sample query for SignalR service, please follow the steps below:
 2. Click `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
 4. Click `Run` to run the script.
-    ![Query log in Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png)
+    ![Sample query in Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png)
 
 
 Archive log columns include elements listed in the following table:
