@@ -11,7 +11,7 @@ ms.date: 04/16/2020
 
 [!INCLUDE [Custom question answering](includes/new-version.md)]
 
-[!INCLUDE [Use Cognitive Services with natural language processing (NLP) to enrich bot conversations](/includes/luis-qnamaker-shared-concept.md)]
+[!INCLUDE [Use Cognitive Services with natural language processing (NLP) to enrich bot conversations](../includes/luis-qnamaker-shared-concept.md)]
 
 ## Next steps
 
