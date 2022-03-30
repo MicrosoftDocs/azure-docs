@@ -41,10 +41,10 @@ az group create --location <myLocation> --name <myResourceGroup>
 To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az_keyvault_create):
 
 > [!Important]
-> Each Key Vault must have a unique name. Replace *\<myKeyvaultName>* with the name of your Key Vault in the following examples.
+> Each Key Vault must have a unique name. Replace *\<myKeyVaultName>* with the name of your Key Vault in the following examples.
 
 ```azurecli
-az keyvault create --name <myKeyvaultName> -g <myResourceGroup>
+az keyvault create --name <myKeyVaultName> -g <myResourceGroup>
 ```
 
 Make a note of the returned `vaultUri`, which will be in the format `https://<your-keyvault-name>.vault.azure.net`. It will be used in the following step.
@@ -100,13 +100,13 @@ Use [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvau
 
 ```azurecli
 az keyvault set-policy 
-   --name <myKeyvaultName> \
+   --name <myKeyVaultName> \
    --object-id ${SERVICE_IDENTITY} \
    --secret-permissions set get list
 ```
 
 > [!NOTE]
-> Use `az keyvault delete-policy --name <myKeyvaultName> --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
+> Use `az keyvault delete-policy --name <myKeyVaultName> --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
