@@ -22,7 +22,7 @@ Azure Data Share accounts can’t be moved from one region to another. You can h
 - Azure Data Share accounts can’t be moved between regions. You’ll have to re-add datasets to sent shares and resend invitations to Data Share recipients. For any received shares, you will need to request that the data provider sends you a new invitation.
 
 
-## Prepare and Move
+## Prepare and move
 The following steps show how to deploy a new Data Share account using a Resource Manager template via the portal.
 
 
