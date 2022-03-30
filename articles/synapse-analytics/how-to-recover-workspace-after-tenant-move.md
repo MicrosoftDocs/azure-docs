@@ -28,8 +28,8 @@ This article covers the steps involved in recovering a Synapse Analytics workspa
 ## Pre-requisites
 
 - To know more about service or resources impacted by tenant move see [Transfer an Azure subscription to a different Azure AD directory](../role-based-access-control/transfer-subscription.md).
-- Save all the role assignment for Azure AD directory (AAD) users, groups, and managed identities. This information can be used to assign the required permissions on Azure resources like Azure Synapse Analytics and ADLS Gen2 after tenant move. See [Step 1: Prepare for the transfer](../role-based-access-control/transfer-subscription.md#step-1-prepare-for-the-transfer)
-- Save all the permissions necessary for AAD users in dedicated and serverless SQL pool. AAD users will be deleted from the dedicated and serverless SQL pools after tenant move.
+- Save all the role assignment for Azure Active Directory (Azure AD) users, groups, and managed identities. This information can be used to assign the required permissions on Azure resources like Azure Synapse Analytics and ADLS Gen2 after tenant move. See [Step 1: Prepare for the transfer](../role-based-access-control/transfer-subscription.md#step-1-prepare-for-the-transfer)
+- Save all the permissions necessary for Azure AD users in dedicated and serverless SQL pool. Azure AD users will be deleted from the dedicated and serverless SQL pools after tenant move.
 
 
 ## Steps for recovering Synapse Analytics workspace
@@ -44,9 +44,9 @@ After transferring the subscription to another tenant, follow the below steps to
 ```JSON
 {"error":{"code":"Unauthorized","message":"The principal '<subscriptionid>' does not have the required Synapse RBAC permission to perform this action. Required permission: Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
 ```
-6. Assign RBAC to Azure AD users, groups, service principals to all the resources used in the workspace artifacts, such as ADLS Gen2. For more information on RBAC in ADLS Gen2, see [Role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac).
-7. Add Synapse RBAC role assignments to AAD users and groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
-8. Recreate all the AAD logins and users in dedicated and serverless SQL pool. For more information, see [SQL Authentication in Azure Synapse Analytics](sql/sql-authentication.md)
+6. Assign Azure RBAC roles to Azure AD users, groups, service principals to all the resources used in the workspace artifacts, such as ADLS Gen2. For more information on Azure RBAC in ADLS Gen2, see [Role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac).
+7. Add Synapse RBAC role assignments to Azure AD users and groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
+8. Recreate all the Azure AD logins and users in dedicated and serverless SQL pool. For more information, see [SQL Authentication in Azure Synapse Analytics](sql/sql-authentication.md)
 9. Recreate all user assigned managed identity and assign user-assigned managed identity to the Synapse Analytics workspace. For more information, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md)
 
 > [!NOTE]
