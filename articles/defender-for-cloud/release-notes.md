@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/20/2022
+ms.date: 03/30/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -31,6 +31,8 @@ Updates in March include:
 - [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)
 - [Deprecated Microsoft Defender for IoT device recommendations](#deprecated-microsoft-defender-for-iot-device-recommendations)
 - [Deprecated Microsoft Defender for IoT device alerts](#deprecated-microsoft-defender-for-iot-device-alerts)
+- Registry scan for Windows images in ACR added support for national clouds
+
 ### Deprecated the recommendations to install the network traffic data collection agent
 
 Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. Consequently, the following two recommendations and their related policies were deprecated.  
@@ -124,6 +126,14 @@ The following recommendations are deprecated:
 ### Deprecated Microsoft Defender for IoT device alerts
 
 All Microsoft Defender for IoT device alerts are  no longer visible in Microsoft Defender for Cloud. These alerts are still available on Microsoft Defender for IoT's Alert page, and in Microsoft Sentinel.
+
+### Registry scan for Windows images in ACR added support for national clouds
+
+Registry scan for Windows images is now supported in Azure Government and Azure China 21Vianet.
+
+Learn more about our [feature's availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+
 
 ## February 2022
 
