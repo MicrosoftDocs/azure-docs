@@ -16,11 +16,11 @@ Health probes in Azure Container Apps are based on [Kubernetes health probes](ht
 Container Apps support the following probes:
 
 - [Liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command): Reports the overall health of your replica.
-- [Startup](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes): Delay reporting on a liveness state for slower apps with a startup probe.
+- [Startup](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes): Delay reporting on a liveness or readiness state for slower apps with a startup probe.
 - [Readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes): Signals that a replica is ready to accept traffic.
 
 > [!NOTE]
-> The referenced Kubernetes documentation often refers to the `kublet` command line tool, which is not available to you in Container Apps. Probes in Container Apps are implemented as either HTTP(S) or TCP endpoints exclusively.
+> The referenced Kubernetes documentation often refers to the `kubectl` command line tool, which is not available to you in Container Apps. Probes in Container Apps are implemented as either HTTP(S) or TCP endpoints exclusively.
 
 ## HTTP probes
 
@@ -130,7 +130,7 @@ containers:
           port: 8080
           httpHeaders:
             - name: Custom-Header
-              value: liveness probe
+              value: "liveness probe"
           initialDelaySeconds: 7
           periodSeconds: 3
       - type: readiness
@@ -144,7 +144,7 @@ containers:
           port: 8080
           httpHeaders:
             - name: Custom-Header
-              value: startup probe
+              value: "startup probe"
           initialDelaySeconds: 3
           periodSeconds: 3
 ...
