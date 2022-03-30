@@ -4,7 +4,7 @@ description: Learn the app status categories in Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 03/30/2022
 ms.author: karler
 ms.custom: devx-track-java
 ---
