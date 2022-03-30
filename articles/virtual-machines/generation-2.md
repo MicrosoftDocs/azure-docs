@@ -23,6 +23,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 ## Generation 2 VM sizes
 
 Azure now offers generation 2 support for the following selected VM series:
+
 | VM Series | Generation 1 | Generation 2 | 
 |-----------|--------------|--------------|
 |[Av2-series](av2-series.md) |  :heavy_check_mark:  |  :x:  |
