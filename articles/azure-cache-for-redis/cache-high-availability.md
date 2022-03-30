@@ -83,9 +83,11 @@ When a data node becomes unavailable or a network split happens, a failover simi
 
 Applicable tiers: **Premium**
 
-Because your cache data is stored in memory, a rare and unplanned failure of multiple nodes can cause all the data to be dropped. To avoid losing data completely, [Redis persistence](https://redis.io/topics/persistence) allows you to take periodic snapshots of in-memory data, and store it to your storage account. If you experience a failure across multiple nodes causing data loss, your cache loads the snapshot from storage account.
+Because your cache data is stored in memory, a rare and unplanned failure of multiple nodes can cause all the data to be dropped. To avoid losing data completely, [Redis persistence](https://redis.io/topics/persistence) allows you to take periodic snapshots of in-memory data, and store it to your storage account. If you experience a failure across multiple nodes causing data loss, your cache loads the snapshot from storage account. For more information, see [Configure data persistence for a Premium Azure Cache for Redis instance](cache-how-to-premium-persistence.md).
 
-For more information on how to set it up, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+### Storage account for persistence
+
+Consider choosing a geo-redundant storage account to ensure high availability of persisted data. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## Import/Export
 
@@ -93,7 +95,7 @@ Applicable tiers: **Premium**, **Enterprise**, **Enterprise Flash**
 
 Azure cache for Redis supports the option to import and export Redis Database (RDB) files to provide data portability. It allows you to import data into Azure Cache for Redis or export data from Azure Cache for Redis by using an RDB snapshot. The RDB snapshot from a premium cache is exported to a blob in an Azure Storage Account. You can create a script to trigger export periodically to your storage account. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
-### Storage account considerations
+### Storage account for import/export
 
 Consider choosing a geo-redundant storage account to ensure high availability of persisted data. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
