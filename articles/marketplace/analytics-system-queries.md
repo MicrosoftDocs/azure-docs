@@ -88,7 +88,7 @@ The following sections provide various report queries.
 
 **Report query**:
 
-`Date,OfferName,ReferralDomain,CountryName,PageVisits,GetItNow,ContactMe,TestDrive,FreeTrial FROM ISVMarketplaceInsights TIMESPAN LAST_6_MONTHS`
+`SELECT  Date,OfferName,ReferralDomain,CountryName,PageVisits,GetItNow,ContactMe,TestDrive, FreeTrial FROM ISVMarketplaceInsights TIMESPAN LAST_6_MONTHS`
 
 ## Revenue report query
 
