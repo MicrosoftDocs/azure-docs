@@ -7,7 +7,7 @@ ms.date: 03/30/2022
 ---
 
 
-# Connect Azure to ITSM tools by using Secure Webhook
+# Connect Azure Monitor to ITSM tools by using Secure Webhook
 
 This article shows you how to configure the connection between your IT Service Management (ITSM) product or service by using Secure Webhook.
 
@@ -37,7 +37,7 @@ The steps of the Secure Webhook data flow are:
    1. Creates a work item (for example, an incident) in the ITSM tool.
    2. Binds the ID of the configuration item (CI) to the customer management database (CMDB).
 
-![Diagram that shows how the ITSM tool communicates with Azure A D, Azure alerts, and an action group.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
+![Diagram that shows how the ITSM tool communicates with Azure A D, Azure alerts, and an action group.](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
 
 ## Benefits of Secure Webhook
 
