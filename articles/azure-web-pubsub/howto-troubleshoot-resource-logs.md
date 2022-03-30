@@ -1,8 +1,8 @@
 ---
 title: How to troubleshoot with Azure Web PubSub service resource logs
 description: Learn how to get and troubleshoot with resource logs
-author: yjin81
-ms.author: yajin1
+author: wanlwanl
+ms.author: wanl
 ms.service: azure-web-pubsub
 ms.topic: how-to 
 ms.date: 11/08/2021
