@@ -6,6 +6,8 @@ ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
+author: sandeepraichura
+ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---

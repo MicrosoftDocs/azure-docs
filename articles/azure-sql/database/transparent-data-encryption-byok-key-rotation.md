@@ -21,7 +21,7 @@ This article describes key rotation for a [server](logical-servers.md) using a T
 ## Important considerations when rotating the TDE Protector
 - When the TDE protector is changed/rotated, old backups of the database, including backed-up log files, are not updated to use the latest TDE protector. To restore a backup encrypted with a TDE protector from Key Vault, make sure that the key material is available to the target server. Therefore, we recommend that you keep all the old versions of the TDE protector in Azure Key Vault (AKV), so database backups can be restored.
 - Even when switching from customer managed key (CMK) to service-managed key, keep all previously used keys in AKV. This ensures database backups, including backed-up log files, can be restored with the TDE protectors stored in AKV. 
-- Apart from old backups, transaction log files might also require access to the older TDE Protector. To determine if there are any remaining logs that still require the older key, after performing key rotation, use the [sys.dm_db_log_info](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-info-transact-sql) dynamic management view (DMV). This DMV returns information on the virtual log file (VLF) of the transantion log along with its encryption key thumbprint of the VLF.
+- Apart from old backups, transaction log files might also require access to the older TDE Protector. To determine if there are any remaining logs that still require the older key, after performing key rotation, use the [sys.dm_db_log_info](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-info-transact-sql) dynamic management view (DMV). This DMV returns information on the virtual log file (VLF) of the transantion log along with its encryption key thumbprint of the VLF.
 - Older keys need to be kept in AKV and available to the server based on the backup retention period configured as back of backup retention policies on the database. This helps ensure any Long Term Retention (LTR) backups on the server can still be restored using the older keys.
 
 
@@ -78,7 +78,7 @@ Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <ke
 
 # [The Azure CLI](#tab/azure-cli)
 
-Use the [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create), [az sql server key create](/cli/azure/sql/server/key#az_sql_server_key_create), and [az sql server tde-key set](/cli/azure/sql/server/tde-key#az_sql_server_tde_key_set) commands.
+Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create), [az sql server key create](/cli/azure/sql/server/key#az-sql-server-key-create), and [az sql server tde-key set](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set) commands.
 
 ```azurecli
 # add a new key to Key Vault

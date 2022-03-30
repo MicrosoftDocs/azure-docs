@@ -1,18 +1,18 @@
 ---
-title: Utilize sys_schema - Azure Database for MySQL
-description: Learn how to use sys_schema to find performance issues and maintain database in Azure Database for MySQL.
+title: Use the sys_schema - Azure Database for MySQL
+description: Learn how to use the sys_schema to find performance issues and maintain databases in Azure Database for MySQL.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 3/30/2020
+ms.date: 3/10/2022
 ---
 
-# How to use sys_schema for performance tuning and database maintenance in Azure Database for MySQL
+# Tune performance and maintain databases in Azure Database for MySQL using the sys_schema
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-The MySQL performance_schema, first available in MySQL 5.5, provides instrumentation for many vital server resources such as memory allocation, stored programs, metadata locking, etc. However, the performance_schema contains more than 80 tables, and getting the necessary information often requires joining tables within the performance_schema, as well as tables from the information_schema. Building on both performance_schema and information_schema, the sys_schema provides a powerful collection of [user-friendly views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in a read-only database and is fully enabled in Azure Database for MySQL version 5.7.
+The MySQL performance_schema, first available in MySQL 5.5, provides instrumentation for many vital server resources such as memory allocation, stored programs, metadata locking, etc. However, the performance_schema contains more than 80 tables, and getting the necessary information often requires joining tables within the performance_schema, and tables from the information_schema. Building on both performance_schema and information_schema, the sys_schema provides a powerful collection of [user-friendly views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in a read-only database and is fully enabled in Azure Database for MySQL version 5.7.
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/sys-schema-views.png" alt-text="views of sys_schema":::
 
@@ -52,7 +52,7 @@ To troubleshoot database performance issues, it may be beneficial to identify th
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="summary by statement":::
 
-In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That's a long time and many IOs. You can reduce this activity by either disable your slow query log or decrease the frequency of slow query login Azure portal.
+In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That's a long time and many IOs. You can reduce this activity by either disabling your slow query log or decreasing the frequency of slow query login to the Azure portal.
 
 ## Database maintenance
 
@@ -61,11 +61,11 @@ In this example Azure Database for MySQL spent 53 minutes flushing the slog quer
 [!IMPORTANT]
 > Querying this view can impact performance. It is recommended to perform this troubleshooting during off-peak business hours.
 
-The InnoDB buffer pool resides in memory and is the main cache mechanism between the DBMS and storage. The size of the InnoDB buffer pool is tied to the performance tier and cannot be changed unless a different product SKU is chosen. As with memory in your operating system, old pages are swapped out to make room for fresher data. To find out which tables consume most of the InnoDB buffer pool memory, you can query the *sys.innodb_buffer_stats_by_table* view.
+The InnoDB buffer pool resides in memory and is the main cache mechanism between the DBMS and storage. The size of the InnoDB buffer pool is tied to the performance tier and can’t be changed unless a different product SKU is chosen. As with memory in your operating system, old pages are swapped out to make room for fresher data. To find out which tables consume most of the InnoDB buffer pool memory, you can query the *sys.innodb_buffer_stats_by_table* view.
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="InnoDB buffer status":::
 
-In the graphic above, it is apparent that other than system tables and views, each table in the mysqldatabase033 database, which hosts one of my WordPress sites, occupies 16 KB, or 1 page, of data in memory.
+In the graphic above, it's apparent that other than system tables and views, each table in the mysqldatabase033 database, which hosts one of my WordPress sites, occupies 16 KB, or 1 page, of data in memory.
 
 ### *Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 

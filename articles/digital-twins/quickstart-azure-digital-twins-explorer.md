@@ -61,7 +61,7 @@ The rest of this section walks you through these steps.
 
 4. Select **Review + Create** to finish creating your instance.
 
-    :::image type="content" source= "media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
     
 5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
 
