@@ -74,7 +74,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|[Microsoft.Automation](/azure/role-based-access-control/resource-provider-operations#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
+|[Microsoft.Automation](../role-based-access-control/resource-provider-operations.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -122,7 +122,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
-|[Microsoft.ResourceHealth](/azure/role-based-access-control/resource-provider-operations#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
+|[Microsoft.ResourceHealth](../role-based-access-control/resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 
@@ -248,7 +248,7 @@ The Built-in Reader role for the Automation Account can't use the `API – GET /
 
 To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, we recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
 `Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
-[Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
+[Learn more](../role-based-access-control/custom-roles.md) about how to create custom role from the Azure portal.
  
 ## Feature setup permissions
 
@@ -298,11 +298,11 @@ The following sections describe the minimum required permissions needed for enab
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-You can create [Azure custom roles](/azure/role-based-access-control/custom-roles) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
+You can create [Azure custom roles](../role-based-access-control/custom-roles.md) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
 
-- [Extension-based Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
-- [Agent-based Windows Hybrid Runbook Worker](/azure/automation/automation-windows-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
- - [Agent-based Linux Hybrid Runbook Worker](/azure/automation/automation-linux-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
+- [Extension-based Hybrid Runbook Worker](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+- [Agent-based Windows Hybrid Runbook Worker](./automation-windows-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+ - [Agent-based Linux Hybrid Runbook Worker](./automation-linux-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
 
 
 ## Update Management permissions

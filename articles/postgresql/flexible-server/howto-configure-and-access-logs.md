@@ -1,8 +1,8 @@
 ---
 title: Configure and Access Logs - Flexible Server - Azure Database for PostgreSQL
 description: How to access database logs for Azure Database for PostgreSQL - Flexible Server
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to

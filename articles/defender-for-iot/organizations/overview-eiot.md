@@ -17,7 +17,7 @@ The expansion of IoT into the enterprise network creates a unique opportunity to
 
 ## Integration with Microsoft Defender for Endpoint
 
-You can now integrate Defender for IoT with Defender for Endpoint. When you do so, you're combining Defender for Endpoint device-discovery and agentless monitoring capabilities to help secure enterprise IoT devices that are connected to an IT network. Two examples of such devices are Voice over Internet Protocol (VoIP) printers and smart TVs. The result of this integration is a single, integrated solution that helps secure your entire IoT and OT infrastructure.
+You can now integrate Defender for IoT with Defender for Endpoint. When you do so, you're combining Defender for Endpoint device-discovery and agentless monitoring capabilities to help secure enterprise IoT devices that are connected to an IT network. Two examples of such devices are Voice over Internet Protocol (VoIP) phones and smart TVs. The result of this integration is a single, integrated solution that helps secure your entire IoT and OT infrastructure.
 
 With this integration, you can use Defender for IoT sensors as additional data sources. Defender for IoT sensors provide visibility into areas of your network where Defender for Endpoint is not deployed and employees need to access data remotely. These sensors also provide visibility into IoT-to-IoT and IoT-to-internet communications.
 

@@ -3,7 +3,7 @@ title: Create a static volume for pods in Azure Kubernetes Service (AKS)
 description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/29/2019
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
@@ -56,8 +56,61 @@ The disk resource ID is displayed once the command has successfully completed, a
 ```
 
 ## Mount disk as volume
+Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID. For example:
 
-To mount the Azure disk into your pod, configure the volume in the container spec. Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the disk created in the previous step, and `diskURI` with the disk ID shown in output of the disk create command. If desired, update the `mountPath`, which is the path where the Azure disk is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-azuredisk
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: disk.csi.azure.com
+    readOnly: false
+    volumeHandle: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    volumeAttributes:
+      fsType: ext4
+```
+
+Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-azuredisk
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  volumeName: pv-azuredisk
+  storageClassName: ""
+```
+
+Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*.
+
+```console
+kubectl apply -f pv-azuredisk.yaml
+kubectl apply -f pvc-azuredisk.yaml
+```
+
+Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*.
+
+```console
+$ kubectl get pvc pvc-azuredisk
+
+NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
+pvc-azuredisk   Bound    pv-azuredisk   100Gi       RWO                           5s
+```
+
+Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
 
 ```yaml
 apiVersion: v1
@@ -79,49 +132,14 @@ spec:
       - name: azure
         mountPath: /mnt/azure
   volumes:
-      - name: azure
-        azureDisk:
-          kind: Managed
-          diskName: myAKSDisk
-          diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    - name: azure
+      persistentVolumeClaim:
+        claimName: pvc-azuredisk
 ```
-
-Use the `kubectl` command to create the pod.
 
 ```console
 kubectl apply -f azure-disk-pod.yaml
 ```
-
-You now have a running pod with an Azure disk mounted at `/mnt/azure`. You can use `kubectl describe pod mypod` to verify the disk is mounted successfully. The following condensed example output shows the volume mounted in the container:
-
-```
-[...]
-Volumes:
-  azure:
-    Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
-    DiskName:     myAKSDisk
-    DiskURI:      /subscriptions/<subscriptionID/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
-    Kind:         Managed
-    FSType:       ext4
-    CachingMode:  ReadWrite
-    ReadOnly:     false
-  default-token-z5sd7:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-z5sd7
-    Optional:    false
-[...]
-Events:
-  Type    Reason                 Age   From                               Message
-  ----    ------                 ----  ----                               -------
-  Normal  Scheduled              1m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
-  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-z5sd7"
-  Normal  SuccessfulMountVolume  41s   kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "azure"
-[...]
-```
-
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
@@ -146,4 +164,3 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
-[use-tags]: use-tags.md

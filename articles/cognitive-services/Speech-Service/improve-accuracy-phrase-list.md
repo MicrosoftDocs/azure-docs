@@ -28,7 +28,7 @@ You can use the Speech SDK or Speech Command Line Interface (CLI). The Batch tra
 
 There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use a phrase list: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
-- If you need a phrase list for languages that are not currently supported. For supported phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
+- If you need a phrase list for languages that are not currently supported. For supported phrase list locales see [Language and voice support for the Speech service](language-support.md?tabs=phraselist).
 - If you use a custom endpoint. Phrase lists can't be used with custom endpoints. 
 
 ## Try it in Speech Studio

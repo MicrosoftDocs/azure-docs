@@ -360,4 +360,4 @@ QnA Maker supports version control by including multi-turn conversation steps in
 
 ## Next steps
 
-* Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) or learn more about [conceptual bot design for multi-turn conversations](/azure/bot-service/bot-builder-conversations).
+* Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/11.qnamaker) or learn more about [conceptual bot design for multi-turn conversations](/azure/bot-service/bot-builder-conversations).

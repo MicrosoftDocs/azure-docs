@@ -10,7 +10,7 @@ author: mx-iao
 ms.author: minxia
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, cliv2
 ---
 
 # Manage Azure Machine Learning environments with the CLI (v2) (preview)

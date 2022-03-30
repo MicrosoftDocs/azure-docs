@@ -364,6 +364,8 @@
     items:
       - name: ASIM content
         href: normalization-content.md
+      - name: ASIM Common fields
+        href: normalization-common-fields.md 
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

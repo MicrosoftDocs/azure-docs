@@ -62,7 +62,7 @@ Integrate Azure Purview with Microsoft Sentinel to gain visibility into where on
 
 Customize the Azure Purview workbook and analytics rules to best suit the needs of your organization, and combine Azure Purview logs with data ingested from other sources to create enriched insights within Microsoft Sentinel.
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](/azure/sentinel/purview-solution).
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](../sentinel/purview-solution.md).
 
 ## Next steps
 - [Experiences in Microsoft Defender for Cloud enriched using sensitivity from Azure Purview](../security-center/information-protection.md)
