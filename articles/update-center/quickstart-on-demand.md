@@ -8,9 +8,11 @@ ms.author: v-ssudhir
 ms.topic: quickstart
 ---
 
-# Quickstart: Assess and install updates using the Azure portal
+# Quickstart: Assess and install updates on-demand using the Azure portal
 
-Using the Update management center (Preview) you can update automatically at scale with the help of built in policies and schedule updates on a recurring basis. You can also take control by checking and installing updates manually. This quickstart details you how to do manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server in an on-premise or other cloud environments.
+Using the Update management center (Preview) you can update automatically at scale with the help of built in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
+
+This quickstart details you how to do manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server in an on-premise or other cloud environments.
 
 ## Prerequisites
 
@@ -19,48 +21,44 @@ Using the Update management center (Preview) you can update automatically at sca
 - Ensure that the target machines meet the specific operating system requirements of the Windows Server and Linux. For more information, see [Overview](overview.md).
 
 
-## Assess updates
+## Check updates
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview.)
-
-1. Under **Manage**, select **Machines**.
-    A table lists all the machines in the specified Azure subscription.
-
-1. Select one or more machines from the list and select **Assess updates**.
-
+1. Under **Getting started**, in **On-demand assessments and updates**, select **Check for updates**.
+    In the **select resources and check for updates** page, a table lists all the machines in the specific Azure subscription.
+1. Select one or more machines from the list and select **Check for updates**.
 1. A compliance scan is initiated.
-    When the assessment is complete, a confirmation message appears on the page.
+    When the assessment is complete, a confirmation message appears on the top right corner of the page.
 
 
-## Install updates 
+## Configure settings
 
 For the assessed machines that are reporting updates, you can initiate an update deployment that can start immediately or you can schedule the updates by defining the maintenance window. To manually update, follow these steps:
 
-1. Select one or more machines from the list.
-1. In **Manage updates** select **One time update** option from the drop-down list.
-1. Select **Install Now** to proceed with installing updates.
-1. In **Machines**, verify the list of machines. You can further add or remove machines from the list and click **Next**.
-1. In **Updates**, from the following criteria, specify the updates that must be included:
-    - Include update classification
-    - Include KB ID/package
-    - Exclude KB ID/package
-    - Include by maximum patch publish date
-1. In **Properties**, specify the following:
-    - Reboot option
-    - Maintenance window (in minutes)
-1. In **Review + install**, verify your update deployment options and then select **Install**.
+1. In **Update management center(Preview)|Getting started** page, in **On-demand assessments and updates**, select **Update settings**.
+1. In **Change update settings** page, select **Properties**, to apply specific settings to selected machines.
+1. In **Update setting(s) to change**, select any one option to configure and click **Next**.
+1. In **Machines**, verify the machines for which you can apply the updates. You can also add or remove machines from the list and select **Next**.
+1. In **Review and change**, verify the resource selection and update settings and select **Review and change**.
+    A notification appears to confirm that the update settings have been successfully applied.
 
-## Change update settings
 
-To configure update settings on the machines, perform the below steps:
+## Install updates
 
-1. In **Machines** page, select one or more machines from the list and click **Manage updates**, **Update settings**.
-1. Select **Update Settings** to confirm that you want to change the update settings to - patch orchestration, hotpatch or periodic assessment for the selected machines.
-1. In **Properties**, select the option to modify the current settings for the machines and select **Next**.
-1. In **Machines**, select the machine(s) from the list. You can also add or remove machines and select **Next**.
-1. In **Review and change**, confirm the updates and select **Review and change**.
-    A confirmation appears once the update settings are successfully applied.
-  
+As per the last assessment performed on selected machines, you can now select resources and machines to install the updates
+
+1. In **Update management center(Preview)|Getting started** page, in **On-demand assessments and updates**, select **Install updates by machines**.
+1. In the **Install one-time updates** page, select **Machines** to select one or more machines from the list and click **Next**.
+1. In **Updates**, specify the updates to include in the deployment and click **Next**:
+    - Include update classification 
+    - Include KB ID/package - by specific KB IDs or package. For Windows, see [MSRC](https://msrc.microsoft.com/update-guide/deployments) for the latest KBs.
+    - Exclude KB ID/package that you don't want to install as part of the process. Updates not shown in the list can be installed based on the time between last assessment and release of new updates.
+    - Include by maximum patch publish date includes the updates published on or before a specific date.
+1. In **Properties**, select the **Reboot option** and **Maintenance window**(in minutes) and click **Next**.
+1. In **Review + install**, verify the update deployment options and select **Install**.
+
+A notification confirms that the installation of updates is in progress and after completion, you can view the results in **Update management center**, **History** page.
+
 ## Next steps
 
   Learn on [managing multiple machines](manage-multiple-machines.md).
