@@ -184,7 +184,7 @@ $operationProgress.OperationSteps.StepsList
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) command to move your instance to another subnet. 
+Use the Azure CLI [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) command to move your instance to another subnet. 
 
 Provide the destination by either specifying the subnet ID as the `--subnet` property, or by specifying the virtual network name as the `--vnet-name` property, and subnet name as the `--subnet` property. 
 

@@ -110,7 +110,7 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 ### Step 2: Get the list of Active Directory forests on which Seamless SSO has been enabled
 
-1. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your tenant's global administrator credentials.
+1. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your tenant's global administrator or hybrid identity administrator credentials.
 2. Call `Get-AzureADSSOStatus`. This command provides you with the list of Active Directory forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 3: Disable Seamless SSO for each Active Directory forest where you've set up the feature

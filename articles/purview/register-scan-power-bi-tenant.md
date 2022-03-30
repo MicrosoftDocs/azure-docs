@@ -185,9 +185,11 @@ To create and run a new scan, do the following:
 
 This scenario can be used when Azure Purview and Power PI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Azure Purview and Power PI tenant are configured to allow public access.
 
-> [!Note]
-> Additional configuration may be required for your Power BI tenant and Azure Purview account, if you are planning to scan Power BI tenant through private network where either Azure Purview account, Power BI tenant or both are configured with private endpoint with public access denied. 
-> For more information related to Power BI network, see [How to configure private endpoints for accessing Power BI](/power-bi/admin/service-security-private-links.md).
+> [!IMPORTANT]
+> Additional configuration may be required for your Power BI tenant and Azure Purview account, if you are planning to scan Power BI tenant through private network where either Azure Purview account, Power BI tenant or both are configured with private endpoint with public access denied.
+>
+> For more information related to Power BI network, see [How to configure private endpoints for accessing Power BI](/power-bi/enterprise/service-security-private-links).
+>
 > For more information about Azure Purview network settings, see [Use private endpoints for your Azure Purview account](catalog-private-link.md).
 
 To create and run a new scan, do the following:
@@ -346,9 +348,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant.png" alt-text="Image showing Power BI scan setup using Azure IR for cross tenant.":::
 
 17. For the **Credential**, select **Delegated authentication** and click **+ New** to create a new credential.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR.":::
-
+ 
 18. Create a new credential and provide required parameters:
     
    - **Name**: Provide a unique name for credential.

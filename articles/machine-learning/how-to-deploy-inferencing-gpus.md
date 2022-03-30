@@ -142,7 +142,7 @@ The conda environment file specifies the dependencies for the service. It includ
 ```yaml
 name: project_environment
 dependencies:
-  # The python interpreter version.
+  # The Python interpreter version.
   # Currently Azure ML only supports 3.5.2 and later.
 - python=3.6.2
 

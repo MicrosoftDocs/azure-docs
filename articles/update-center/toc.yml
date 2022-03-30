@@ -6,6 +6,10 @@
     href: overview.md
   - name: Update management support
     href: support-matrix.md
+- name: Quickstarts
+  items:
+  - name: On-demand patching
+    href: quickstart-on-demand.md
 - name: How-to guides
   items:
   - name: Deploy

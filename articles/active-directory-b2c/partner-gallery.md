@@ -29,9 +29,10 @@ Microsoft partners with the following ISVs for identity verification and proofin
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-|![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
-|![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
-|![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |
+| ![Screenshot of a eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
+| ![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
+| ![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
+| ![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |
 | ![Screenshot of a LexisNexis logo.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) is a profiling and identity validation provider that verifies user identification and provides comprehensive risk assessment based on user’s device. |
 | ![Screenshot of a Onfido logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) is a document ID and facial biometrics verification solution that allows companies to meet *Know Your Customer* and identity requirements in real time.  |
 
@@ -54,6 +55,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
+| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (PII) through the xID API. |
 
 ## Role-based access control 
  

@@ -120,7 +120,6 @@ SQL Database and SQL Managed Instance customers have the following rights associ
 |---|---|
 |SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = Four vCores in Hyperscale SKU</li><br><li>One core on-premises = Four vCores in General Purpose SKU</li><br><li>One core on-premises = One vCore in Business Critical SKU</li>|
 |SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>One core on-premises = One vCore in Hyperscale SKU</li><br><li>One core on-premises = One vCore in General Purpose SKU</li><br><li>Four cores on-premises = One vCore in Business Critical SKU</li>|
-|||
 
 ## Next steps
 

@@ -415,7 +415,7 @@ The following table lists specific permission scopes for Azure SQL Database:
 | **Create failover group**| Azure RBAC write access | Primary server </br> Secondary server </br> All databases in failover group |
 | **Update failover group** | Azure RBAC write access | Failover group </br> All databases on the current primary server|
 | **Fail over failover group** | Azure RBAC write access | Failover group on new server |
-| | | 
+
 
 ## Remarks
 
