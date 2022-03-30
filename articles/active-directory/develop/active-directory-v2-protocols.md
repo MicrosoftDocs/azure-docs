@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 03/31/2022
 ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
 ---
 
-# OAuth 2.0 and OpenID Connect in the Microsoft identity platform
+# OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform
 
-The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0.
+You don't need to learn OAuth or OpenID Connect (OIDC) at the protocol level to use the Microsoft identity platform. You will, however, encounter these and other protocol terms and concepts as you use the identity platform to add auth functionality to your apps.
 
-You don't need to learn OAuth and OIDC at the protocol level to use the Microsoft identity platform. However, debugging your apps can be made easier by learning a few basics of the protocols and their implementation on the identity platform.
+As you work with the Azure portal, our documentation, and our authentication libraries, knowing a few basics like these can make your integration and debugging tasks easier.
 
 ## Roles in OAuth 2.0
 
@@ -63,7 +63,7 @@ Your app's registration also holds information about the authentication and auth
 
 ## Endpoints
 
-Authorization servers like the Microsoft identity platform provide a set of HTTP endpoints for use by the parties in an auth flow to execute the flow.
+The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0. Standards-compliant authorization servers like the Microsoft identity platform provide a set of HTTP endpoints for use by the parties in an auth flow to execute the flow.
 
 The endpoint URIs for your app are generated for you when you register or configure your app in Azure AD. The endpoints you use in your app's code depend on the application's type and the identities (account types) it should support.
 
