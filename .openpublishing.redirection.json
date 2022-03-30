@@ -21224,11 +21224,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
       "redirect_document_id": false
