@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 03/09/2022
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2
 
 ---
 
