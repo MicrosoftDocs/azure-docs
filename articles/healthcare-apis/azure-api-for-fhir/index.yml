@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: ginalee-dotcom
   ms.author: ginle
-  ms.date: 03/33/2022
+  ms.date: 03/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
             url: overview.md#azure-iot-connector-for-fhir-preview
       - linkListType: quickstart
         links:
-          - text: Deploy API Server for FHIR
+          - text: Deploy Azure API for FHIR
             url: fhir-paas-portal-quickstart.md
           - text: Deploy Azure IoT Connector for FHIR (preview)
             url: iot-fhir-portal-quickstart.md 
