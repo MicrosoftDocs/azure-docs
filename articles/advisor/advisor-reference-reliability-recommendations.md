@@ -162,7 +162,7 @@ Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a se
 
 We observed your account is throwing a TooManyRequests error with the 16500 error code. Enabling Server Side Retry (SSR) can help mitigate this issue for you.
 
-Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/prevent-rate-limiting-errors).
+Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/cassandra/prevent-rate-limiting-errors).
 
 ### Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
