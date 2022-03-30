@@ -9,6 +9,12 @@ ms.topic: conceptual
 
 This article lists the hardware and virtual appliance requirements for Microsoft Defender for IoT OT sensors and on-premises management consoles. You can use either physical or virtual appliances as needed for your organization.
 
+For more information, see:
+
+- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](how-to-install-software.md)
+
 ## Deployment options
 
 The following tables describe supported deployment options for your OT sensors and on-premises management console. When setting up your system, choose the deployment option that meets your needs best.
