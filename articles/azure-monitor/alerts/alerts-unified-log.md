@@ -58,8 +58,10 @@ If you use **ago** command in the query, the range is automatically set to two d
 ### Measure
 
 Log alerts turn log into numeric values that can be evaluated. You can measure two different things:
+* Result count
+* Calculation of a value
 
-#### Count of the results table rows
+#### Result count
 
 Count of results is the default measure and is used when you set a **Measure** with a selection of **Table rows**. Ideal for working with events such as Windows event logs, syslog, application exceptions. Triggers when log records happen or doesn't happen in the evaluated time window.
 
@@ -68,7 +70,7 @@ Log alerts work best when you try to detect data in the log. It works less well 
 > [!NOTE]
 > Since logs are semi-structured data, they are inherently more latent than metric, you may experience misfires when trying to detect lack of data in the logs, and you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
-##### Example of results table rows count use case
+##### Example of result count use case
 
 You want to know when your application responded with error code 500 (Internal Server Error). You would create an alert rule with the following details:
 
@@ -85,9 +87,9 @@ requests
 
 Then alert rules monitors for any requests ending with 500 error code. The query runs every 15 minutes, over the last 15 minutes. If even one record is found, it fires the alert and triggers the actions configured.
 
-#### Calculation of measure based on a numeric column (such as CPU counter value)
+### Calculation of a value
 
-Calculation of measure based on a numeric column is used when the **Measure** has a selection of any number column name.
+Calculation of a value is used when you select a column name of a numeric column for the **Measure**, and the result is a calculation that you perform on the values in that column. This would be used, for example, as CPU counter value.
 ### Aggregation type
 
 The calculation that is done on multiple records to aggregate them to one numeric value using the [**Aggregation granularity**](#aggregation-granularity) defined. For example:

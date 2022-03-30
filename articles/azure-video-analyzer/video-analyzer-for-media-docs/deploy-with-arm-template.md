@@ -1,5 +1,5 @@
 ---
-title:  Deploy Azure Video Analyzer for Media with ARM template 
+title:  Deploy Azure Video Analyzer for Media with ARM template
 titleSuffix: Azure Video Analyzer for Media (formerly Video Indexer)
 description: In this tutorial you will create an Azure Video Analyzer for Media account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
@@ -7,11 +7,11 @@ ms.date: 12/01/2021
 ms.author: juliako
 ---
 
-# Tutorial: deploy Azure Video Analyzer for Media with ARM template 
+# Tutorial: deploy Azure Video Analyzer for Media with ARM template
 
 ## Overview
 
-In this tutorial you will create an Azure Video Analyzer for Media (formerly Video Indexer) account by using Azure Resource Manager (ARM) template (preview).  
+In this tutorial you will create an Azure Video Analyzer for Media (formerly Video Indexer) account by using Azure Resource Manager (ARM) template (preview).
 The resource will be deployed to your subscription and will create the Azure Video Analyzer for Media resource based on parameters defined in the avam.template file.
 
 > [!NOTE]
@@ -21,7 +21,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ## Prerequisites
 
-* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](../../media-services/latest/account-create-how-to.md).
+* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/media-services/latest/account-create-how-to).
 
 ## Deploy the sample
 
@@ -29,7 +29,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ### Option 1: Click the "Deploy To Azure Button", and fill in the missing parameters
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FARM-Samples%2FCreate-Account%2Favam.template.json)  
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FARM-Samples%2FCreate-Account%2Favam.template.json)
 
 ----
 

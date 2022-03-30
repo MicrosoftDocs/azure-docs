@@ -341,6 +341,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/mimecast-admin-console-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/mimecast-personal-portal-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-fax.plus-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/fax-plus-tutorial",
       "redirect_document_id": false
@@ -10771,8 +10776,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/reports-monitoring/reference-azure-ad-sla-performance.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/overview-monitoring",
+      "source_path": "articles/active-directory/manage-apps/get-it-now-azure-marketplace.md",
+      "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
     }
 
