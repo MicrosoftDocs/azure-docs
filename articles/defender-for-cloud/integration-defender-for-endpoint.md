@@ -290,11 +290,17 @@ If you've enabled the integration, but still don't see the extension running on 
 Defender for Endpoint is included at no extra cost with **Microsoft Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for servers?
-If you've already got a license for **Microsoft Defender for Endpoint for Servers** , you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
+If you've already got a license for **Microsoft Defender for Endpoint for Servers** , you won't have to pay for that part of your [Microsoft Defender for servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans) license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
+
+## Does Microsoft Defender for servers support the new unified Microsoft Defender for Endpoint agent for Windows Server 2012 R2 and 2016?
+
+In October 2021, we released [a new Microsoft Defender for Endpoint solution stack](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292) to public preview for Windows Server 2012 R2 and 2016. The new solution stack does not use or require installation of the Microsoft Monitoring Agent (MMA).
+
+The new version of Microsoft Defender for Endpoint is deployed by Defender for servers Plan 1 for Windows Server 2012 R2 and 2016.
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
