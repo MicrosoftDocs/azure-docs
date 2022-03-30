@@ -154,7 +154,7 @@ You can use the CopyStart option to initiate a copy of incremental snapshots fro
 ### Restrictions
 
 - Cross-region snapshot copy is currently only available in Central US, East US, East US 2, Germany West central, North Central US, North Europe, South Central US, West Central US, West US, West US 2, West Europe, South India, Central India
-- You must use version 2020-12-01 or newer of the Azure Compute REST API.
+- If you use the REST API, you must use version 2020-12-01 or newer of the Azure Compute REST API.
 
 ### Get started
 
