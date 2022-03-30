@@ -15,5 +15,5 @@ It's important to clearly explain the labeling task. On the **Labeling instructi
 * What should they do with partially occluded or overlapping objects of interest?
 * What should they do if an object of interest is clipped by the edge of the image?
 * What should they do after they submit a label if they think they made a mistake?
-* What should they do if they discover image quality issues including poor lighting conditions, reflections, loss of focus, undesired background included, abnormal camera angles and so on?
+* What should they do if they discover image quality issues including poor lighting conditions, reflections, loss of focus, undesired background included, abnormal camera angles, and so on?
 * What should they do if there are multiple reviewers who have different opinions on the labels?
