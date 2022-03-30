@@ -24,6 +24,31 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Group policy requirements](disk-encryption-overview.md#group-policy-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
+## Troubleshooting 'Failed to send DiskEncryptionData'
+
+When encrypting a VM fails with the error message "Failed to send DiskEncryptionData...", it is usually caused by one of the following situations:
+
+- Having the Key Vault existing in a different region and/or subscription than the Virtual Machine
+- Typo in the Resource ID or URL for the Key Vault or Key Encryption Key (KEK)
+- Special characters used while naming the resources. i.e _VMName, élite, etc
+- Lack of permissions in the Key Vault or the Key Encryption Key from the Key Vault
+- Network issues that prevent the VM/Host from accessing the required resources
+- Unsupported encryption scenarios
+
+### Suggestions
+
+- Make sure the Key Vault exists in the same region and subscription as the Virtual Machine
+- Ensure that you have [Set key vault advanced access policies](disk-encryption-key-vault#set-key-vault-advanced-access-policies) properly
+- Check for any typos in the Key Vault name or Key name in your Powershell or CLI command
+>[!NOTE]
+   > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
+   > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+- Check for any special characters used while naming the resources, and recreate them without special characters
+- Ensure you are not following any [unsupported scenario](disk-encryption-windows#unsupported-scenarios)
+- Attempt encryption again
+
 ## Troubleshooting Azure Disk Encryption behind a firewall
 
 When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM." In expected scenarios, the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.
