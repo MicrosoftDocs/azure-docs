@@ -10,6 +10,10 @@ SSH for Arc-enabled servers enables SSH based connections to Arc-enabled servers
 This functionality can be used interactively, automated, or with existing SSH based tooling,
 allowing existing management tools to have a greater impact on Azure Arc-enabled servers.
 
+> [!IMPORTANT]
+> SSH for Arc-enabled servers is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Key benefits
 SSH access to Arc-enabled servers provides the following key benefits:
  - No public IP address or open SSH ports required
@@ -29,19 +33,19 @@ SSH access to Arc-enabled servers is currently supported in the following region
 ### Supported operating systems
  - Windows: Windows 7+ and Windows Server 2012+
  - Linux: 
-    | Distribution | Version |
-    | --- | --- |
-    | CentOS | CentOS 7, CentOS 8 |
-    | RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
-    | SUSE Linux Enterprise Server (SLES) | SLES 12, SLES 15.1+ |
-    | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
+   | Distribution | Version |
+   | --- | --- |
+   | CentOS | CentOS 7, CentOS 8 |
+   | RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
+   | SUSE Linux Enterprise Server (SLES) | SLES 12, SLES 15.1+ |
+   | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
 
 ## Getting started
 ### Register the HybridConnectivity resource provider
 > [!NOTE]
 > This is a one-time operation that needs to be performed on each subscription.
 
-Check if the HybridConnitivity resource provider (RP) has been registered:
+Check if the HybridConnectivity resource provider (RP) has been registered:
 
 ```az provider show -n Microsoft.HybridConnectivity```
 
@@ -62,14 +66,14 @@ If you already have the extension installed, it can be updated by running:
 ```az extension update --name ssh```
 
 > [!NOTE]
-> The Azure CLI extension version must be greater than 1.0.1
+> The Azure CLI extension version must be greater than 1.0.1.
 
 ### Create default connectivity endpoint
 > [!NOTE]
 > The following actions must be completed for each Arc-enabled server.
 
 Run the following commands:
- ```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{"properties": {"type": "default"}}'```
+ ```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'```
 
  ```az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
 
@@ -94,4 +98,4 @@ To add access to SSH connections, run the following:
 > If you are using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 ## Examples
-To view examples of using the ```az ssh vm``` command, view the az CLI documentation page for (az ssh)[https://docs.microsoft.com/cli/azure/ssh?view=azure-cli-latest].
+To view examples of using the ```az ssh vm``` command, view the az CLI documentation page for [az ssh](https://docs.microsoft.com/cli/azure/ssh?view=azure-cli-latest).

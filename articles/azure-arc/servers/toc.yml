@@ -103,6 +103,12 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+  - name: Connect via SSH
+    items:
+    - name: SSH access to Azure Arc-enabled servers
+      href: ssharc-overview.md
+    - name: Troubleshoot SSH access to Azure Arc enabled servers
+      href: ssharc-troubleshoot.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues

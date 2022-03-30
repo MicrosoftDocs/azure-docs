@@ -10,6 +10,10 @@ ms.topic: conceptual
 This article provides information on troubleshooting and resolving issues that may occur while attempting to connect to Azure Arc enabled servers via SSH.
 For general information, see [SSH access to Arc enabled servers overview](./ssharc-overview.md).
 
+> [!IMPORTANT]
+> SSH for Arc-enabled servers is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Client-side issues
 These issues are due to errors that occur on the machine that the user is connecting from.
 
@@ -27,7 +31,7 @@ Resolution:
 ### Unable to locate client binaries
 This issue occurs when the client side SSH binaries required to connect cannot be found.
 Error:
- - "Could not find \<command\>.exe
+ - "Could not find \<command\>.exe on path \<path_to_executable\>. Make sure OpenSSH is installed correctly: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse . Or use --ssh-client-folder to provide folder path with ssh executables."
 
 Resolution:
  - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
@@ -53,8 +57,8 @@ Possible errors:
  - "Permission denied (publickey)." 
 
 Resolution:
- - Ensure that you have contributer or owner permissions on the resource you are connecting to.
- - If using AAD login, ensure you have the "Virtual Machine User Login" or the "Virtual Machine Aministrator Login" roles
+ - Ensure that you have Contributor or Owner permissions on the resource you are connecting to.
+ - If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles
 
 ### HybridConnectiviry RP was not registered
 This issue occurs when the HybridConnectivity RP has not been registered for the subscription.
@@ -65,3 +69,8 @@ Resolution:
  - Run ```az provider register -n Microsoft.HybridConnectivity```
  - Confirm success by running ```az provider show -n Microsoft.HybridConnectivity```, verify that "registrationState" is set to "Registered"
  - Restart the hybrid agent on the Arc-enabled server
+
+ ## Disable SSH to Arc-enabled servers
+ This functionality can be disabled by completing the following actions:
+  - Remove the SSH port from the allowedincoming ports: ```azcmagent config set incomingconnections.ports <other open ports,...>```
+  - Delete the default connectivity endpoint: ```az rest --method delete --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
