@@ -35,7 +35,7 @@ The following table provides an overview of scenarios to help you choose what wo
 
 | Scenario | Inference HTTP Server | Local endpoint |
 |--|--|--|
-| Update local python environment, **without** Docker image rebuild | Yes | No |
+| Update local Python environment, **without** Docker image rebuild | Yes | No |
 | Update scoring script | Yes | Yes |
 | Update deployment configurations (deployment, environment, code, model) | No | Yes |
 | VS Code Debugger integration | Yes | Yes |

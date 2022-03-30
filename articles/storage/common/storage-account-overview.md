@@ -27,7 +27,7 @@ The following table describes the types of storage accounts recommended by Micro
 | Type of storage account | Supported storage services | Redundancy options | Usage |
 |--|--|--|--|
 | Standard general-purpose v2 | Blob Storage (including Data Lake Storage<sup>1</sup>), Queue Storage, Table Storage, and Azure Files  | Locally redundant storage (LRS) / geo-redundant storage (GRS) / read-access geo-redundant storage (RA-GRS)<br /><br />Zone-redundant storage (ZRS) / geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS)<sup>2</sup> | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Azure Storage. If you want support for network file system (NFS) in Azure Files, use the premium file shares account type. |
-| Premium block blobs<sup>3</sup> | Blob Storage (including Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency. [Learn more about example workloads.](../blobs/storage-blob-block-blob-premium.md) |
+| Premium block blobs<sup>3</sup> | Blob Storage (including Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transaction rates or that use smaller objects or require consistently low storage latency. [Learn more about example workloads.](../blobs/storage-blob-block-blob-premium.md) |
 | Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for file shares only. Recommended for enterprise or high-performance scale applications. Use this account type if you want a storage account that supports both Server Message Block (SMB) and NFS file shares. |
 | Premium page blobs<sup>3</sup> | Page blobs only | LRS | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
 
@@ -39,7 +39,7 @@ The following table describes the types of storage accounts recommended by Micro
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
-You can’t change a storage account to a different type after it's' created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
+You can’t change a storage account to a different type after it's created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
 
 ## Storage account endpoints
 

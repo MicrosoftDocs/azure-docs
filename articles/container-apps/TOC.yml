@@ -42,8 +42,8 @@
   items:
     - name: Scale an app
       href: scale-app.md
-    - name: Secure an app
-      href: secure-app.md
+    - name: Manage secrets
+      href: manage-secrets.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
@@ -68,6 +68,8 @@
   items:
     - name: ARM API specification
       href: azure-resource-manager-api-spec.md
+    - name: Azure CLI reference
+      href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
     - name: Pricing

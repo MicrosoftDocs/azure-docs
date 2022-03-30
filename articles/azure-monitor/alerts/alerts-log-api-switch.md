@@ -4,7 +4,7 @@ description: Learn how to switch to the log alerts management to ScheduledQueryR
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 2/23/2022
 ---
 # Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API
 

@@ -31,8 +31,6 @@ items:
       href: quickstart-setup-application-configuration-service-enterprise.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
-    - name: Set up Service Registry
-      href: quickstart-setup-service-registry-enterprise.md
   - name: Set up Log Analytics
     href: quickstart-setup-log-analytics.md
   - name: Use logs, metrics and tracing
@@ -192,8 +190,10 @@ items:
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network
       href: access-app-virtual-network.md
-    - name: Expose applications to the internet
-      href: expose-apps-gateway.md
+    - name: Expose applications to the internet with TLS Termination at gateway
+      href: expose-apps-gateway-tls-termination.md
+    - name: Expose applications to the internet with end-to-end TLS/SSL
+      href: expose-apps-gateway-end-to-end-tls.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
     - name: Customer responsibilities running Azure Spring Cloud in VNET
