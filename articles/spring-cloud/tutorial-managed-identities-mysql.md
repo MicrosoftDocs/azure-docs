@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java
 
-This article shows you how to create a managed identity for an app in Azure Spring Cloud, and how to use it to access an Azure Database for MySQL with the  MySQL password stored in Key Vault for security considerations.
+This article shows you how to create a managed identity for an app in Azure Spring Cloud. This article also shows you how to use the managed identity to access an Azure Database for MySQL with the  MySQL password stored in Key Vault.
 
 The following video describes how to manage secrets using Azure Key Vault.
 
@@ -62,7 +62,7 @@ az keyvault secret set \
 
 To create an Azure Database for MySQL, use the [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
-Please create a database named *demo* for later use.
+Create a database named *demo* for later use.
 
 ```azurecli
 az mysql db create \
