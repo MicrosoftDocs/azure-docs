@@ -133,7 +133,7 @@ When deploying to Azure Kubernetes Service, you can use controlled rollout to en
 * Perform A/B testing by routing traffic to different versions of the endpoint.
 * Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+For more information, see [Controlled rollout of ML models](./how-to-safely-rollout-managed-endpoints.md).
 
 ### Analytics
 
