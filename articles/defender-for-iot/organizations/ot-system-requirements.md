@@ -246,7 +246,8 @@ Optional modules for port expansion:
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
 Enterprise Deployment: Dell PowerEdge R340 XL
-|Component|Technical Specifications|
+
+|Component |Technical Specifications|
 |----|----|
 |Chassis|1U rack server|
 |Dimensions|42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
