@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 03/28/2022
 ms.author: alkohli
 ---
 
@@ -27,11 +27,9 @@ The following metadata is transferred when data from the Data Box is uploaded to
 
 The following timestamps are transferred:
 - CreationTime
+- LastAccessTime
 - LastWriteTime
 
-The following timestamp isn't transferred:
-- LastAccessTime
-  
 #### File attributes
 
 File attributes on both files and directories are transferred unless otherwise noted.
@@ -85,7 +83,12 @@ During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACL
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
 - If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
+In order for a user to copy SACLs from their files, the user must have the “SeBackupPrivilege” credential granted. “SeBackupPrivilege” is required to read SACLs. Users that are members of the “Administrators” and “Backup Operators” groups have this privilege by default. 
+
+If a user does not have the “SeBackupPrivilege” credential, they will not be able to copy SACLs for Azure Files copy service jobs and they may experience access issues.
+
+ Maybe also link to some documentation about [how to obtain the “SeBackupPrivilege”](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440).
+
 
 **Default ACLs transfer**  
 
