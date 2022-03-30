@@ -59,12 +59,18 @@
     items:
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: DevOps
+    items:
+    - name: DevTest Labs
+      href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
     - name: Content Delivery Network
       href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DNS
       href: ../../dns/dns-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: ExpressRoute
+      href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Web
     items:
     - name: API Management
@@ -264,6 +270,8 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+  - name: Contribute to Bicep
+    href: contribute.md
 - name: Reference
   items:
   - name: Resource reference

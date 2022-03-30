@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/29/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -169,6 +169,7 @@ Using one of the following methods, you'll create a subscription alias name. We 
 - Start with a letter and end with an alphanumeric character
 - Don't use periods
 
+An alias is used for simple substitution of a user-defined string instead of the subscription GUID. In other words, you can use it as a shortcut. You can learn more about alias at [Alias - Create](/rest/api/subscription/2020-09-01/alias/create). In the following examples, `sampleAlias` is created but you can use any string you like.
 
 ### [REST](#tab/rest)
 
