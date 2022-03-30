@@ -34,16 +34,17 @@ A resource group is a logical container where Azure resources are deployed and m
 
 ```azurecli
 az group create --location <myLocation> --name <myResourceGroup>
+```
 
 ## Set up your Key Vault
 
 To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az_keyvault_create):
 
 > [!Important]
-> Each Key Vault must have a unique name. Replace *\<your-keyvault-name>* with the name of your Key Vault in the following examples.
+> Each Key Vault must have a unique name. Replace *\<myKeyvaultName>* with the name of your Key Vault in the following examples.
 
 ```azurecli
-az keyvault create --name <your-keyvault-name> -g <myResourceGroup>
+az keyvault create --name <myKeyvaultName> -g <myResourceGroup>
 ```
 
 Make a note of the returned `vaultUri`, which will be in the format `https://<your-keyvault-name>.vault.azure.net`. It will be used in the following step.
@@ -67,16 +68,16 @@ Please create a database named *demo* for later use.
 az mysql db create \
     --resource-group <myResourceGroup> \
     --name demo \
-    --server-name <mysql-name>
+    --server-name <mysqlName>
 ```
 
 ## Create an app and service in Azure Spring Cloud
 
-After installing the corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command `az spring-cloud create`.
+After installing the corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command [az spring-cloud create](/cli/azure/spring-cloud?view=azure-cli-latest#az-spring-cloud-create).
 
 ```azurecli
 az extension add --name spring-cloud
-az spring-cloud create --name <myspringcloud> --group <myResourceGroup>
+az spring-cloud create --name <myService> --group <myResourceGroup>
 ```
 
 The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
@@ -84,7 +85,7 @@ The following example creates an app named `springapp` with a system-assigned ma
 ```azurecli
 az spring-cloud app create \
    --name springapp 
-   -service <myService>
+   --service <myService>
    --group <myResourceGroup> \
    --assign-endpoint true \
    --assign-identity
@@ -95,7 +96,7 @@ Make a note of the returned `url`, which will be in the format `https://<your-ap
 
 ## Grant your app access to Key Vault
 
-Use `az keyvault set-policy` to grant proper access in Key Vault for your app.
+Use [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) to grant proper access in Key Vault for your app.
 
 ```azurecli
 az keyvault set-policy 
@@ -109,7 +110,7 @@ az keyvault set-policy
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
-This [sample](https://github.com/leonard520/Azure-Spring-Cloud-Samples/managed-identity-mysql) will create an entry and list entires from MySQL.
+This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-mysql) will create an entry and list entires from MySQL.
 
 1. Clone a sample project.
 
@@ -131,10 +132,14 @@ This [sample](https://github.com/leonard520/Azure-Spring-Cloud-Samples/managed-i
     mvn clean package
     ```
 
-4. Now deploy the app to Azure with the Azure CLI command  `az spring-cloud app deploy`.
+4. Now deploy the app to Azure with the Azure CLI command [az spring-cloud app deploy](/cli/azure/spring-cloud/app?view=azure-cli-latest#az-spring-cloud-app-deploy).
 
     ```azurecli
-    az spring-cloud app deploy -n "springapp" -s "myspringcloud" -g "myResourceGroup" --jar-path target/asc-managed-identity-mysql-sample-0.1.0.jar
+    az spring-cloud app deploy \
+       --name springapp \
+       --service <myService> \
+       --group <myResourceGroup> \
+       --jar-path target/asc-managed-identity-mysql-sample-0.1.0.jar
     ```
 
 5. Access the public endpoint or test endpoint to test your app.
