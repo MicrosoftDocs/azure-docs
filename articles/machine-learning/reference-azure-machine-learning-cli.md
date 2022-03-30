@@ -9,7 +9,7 @@ ms.topic: reference
 ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, cliv1
 ---
 
 # Install & use the CLI extension for Azure Machine Learning
