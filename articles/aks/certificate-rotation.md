@@ -8,7 +8,10 @@ ms.date: 3/29/2022
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. If you have a cluster built after August 2021 it is enabled with certificate auto-rotation. Periodically, you may need to rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
+Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. If you have a RBAC-enabled cluster built after March 2022 it is enabled with certificate auto-rotation. Periodically, you may need to rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
+
+> [!NOTE]
+> Certificate auto-rotation will not be enabled by default for non-RBAC enabled AKS clusters.
 
 This article shows you how certificate rotation works in your AKS cluster.
 
@@ -57,7 +60,7 @@ For AKS to automatically rotate non-CA certificates, the cluster must have [TLS 
 > [!Note]
 > If you have an existing cluster you have to upgrade that cluster to enable Certificate Auto-Rotation.
 
-For any AKS clusters created or upgraded after 8/1/2021 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
+For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
 
 #### How to check whether current agent node pool is TLS Bootstrapping enabled?
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths.  On a Linux node: /var/lib/kubelet/bootstrap-kubeconfig, on a Windows node, it’s c:\k\bootstrap-config.
