@@ -62,6 +62,12 @@ Common clients:
 - [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient?view=azure-node-latest): A BlobServiceClient represents a Client to the Azure Storage Blob service allowing you to manipulate blob containers. 
 - [ContainerClient](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest): A ContainerClient represents a URL to the Azure Storage container allowing you to manipulate its blobs.
 
+Types of Blob:
+
+- [Block](/javascript/api/@azure/storage-blob/blockblobclient?view=azure-node-latest): 
+- [Append](/javascript/api/@azure/storage-blob/appendblobclient?view=azure-node-latest):
+- [Page](/javascript/api/@azure/storage-blob/pageblobclient?view=azure-node-latest):
+
 ## Differences between Node.js and browsers
 
 There are differences between Node.js and browsers runtime. When getting started with this library, pay attention to APIs or classes marked with:
@@ -76,12 +82,14 @@ If a blob holds compressed data in **gzip** or **deflate** format and its conten
 
 ## Connect to Blob Storage
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient]() class. This object is your starting point. You can use it to operate on the blob service instance and it's containers. You can create a [BlobServiceClient]() by using:
+To connect to Blob Storage, create an instance of the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) class. This object is your starting point. You can use it to operate on the blob service instance and it's containers. You can create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) by using:
 
-* Storage account access key.
-* Storage account connection string.
-* Storage shared access signature (SAS).
-* Azure Active Directory (Azure AD) authorization token. 
+|Connection type|SDK reference information|
+|--|--|
+|Storage account access key|[StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential?view=azure-node-latest)|
+|Storage account connection string|[BlobServiceClient.fromConnectionString()](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-fromconnectionstring)|
+|Storage shared access signature (SAS)|Used as part of string for resource URL: `https://${account}.blob.core.windows.net${accountSas}`.|
+|Azure Active Directory (Azure AD) authorization token|BlobServiceClient.|
 
 To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
@@ -89,12 +97,12 @@ To learn more about each of these authorization mechanisms, see [Authorize acces
 
 # [Node.js](#tab/nodejs)
 
-Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential?view=azure-node-latest) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient]).
+Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential?view=azure-node-latest) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest)).
 
 ```javascript
 const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");  
 
-// Enter your storage account name and shared key
+// Enter your storage account name and account key
 const account = process.env.ACCOUNT_NAME || "";
 const accountKey = process.env.ACCOUNT_KEY || "";
 
@@ -114,29 +122,38 @@ sharedKeyCredential
 
 You can also create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) by using a connection string. 
 
-```csharp
-BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+```javascript
+const { BlobServiceClient } = require("@azure/storage-blob");
+
+const connStr = "<connection string>";
+
+const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
 ```
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 #### Authorize with a SAS token
 
-Create a [Uri]() by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient]() by using the [Uri]().
+Create a [Uri]() by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) by using the [Uri]().
 
 ```javascript
+const { BlobServiceClient } = require("@azure/storage-blob");
 
+const account = "<account name>";
+const sas = "<service Shared Access Signature Token>";
+
+const blobServiceClient = new BlobServiceClient(`https://${account}.blob.core.windows.net${sas}`);
 ```
 
 To generate and manage SAS tokens, see any of these articles:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 
-- [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
+- [Create an account SAS with JavaScript](../common/storage-account-sas-create-javascript.md)
 
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
-- [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a user delegation SAS for a container, directory, or blob with JavaScript](storage-blob-user-delegation-sas-create-javascript.md)
 
 #### Authorize with Azure AD
 
@@ -148,29 +165,51 @@ To authorize with Azure AD, you'll need to use a security principal. Which type 
 | Azure | Managed identity | [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md) |
 | Servers or clients outside of Azure | Service principal | [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) |
 
-If you're testing on a local machine, or your application will run in Azure virtual machines (VMs), function apps, virtual machine scale sets, or in other Azure services, obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
+If you're testing on a local machine, or your application will run in Azure virtual machines (VMs), Functions apps, virtual machine scale sets, or in other Azure services, obtain an OAuth token by creating a [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest).
 
-```csharp
-public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
-{
-    TokenCredential credential = new DefaultAzureCredential();
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-        blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
-}
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+
+// Enter your storage account name
+const account = "<account>";
+const defaultAzureCredential = new DefaultAzureCredential();
+
+const blobServiceClient = new BlobServiceClient(
+  `https://${account}.blob.core.windows.net`,
+  defaultAzureCredential
+);
 ```
 
-If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme) which derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
+If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest) which derive from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential?view=azure-node-latest) class.
 
 This example creates a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) instance by using the client ID, client secret, and tenant ID. You can obtain these values when you create an app registration and service principal.
 
-```csharp
-public static void GetBlobServiceClientAzureAD(ref BlobServiceClient blobServiceClient,
-    string accountName, string clientID, string clientSecret, string tenantID)
-{
-    TokenCredential credential = new ClientSecretCredential(
-        tenantID, clientID, clientSecret, new TokenCredentialOptions());
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);
+```javascript
+const {
+  ClientSecretCredential,
+  DefaultAzureCredential,
+} = require("@azure/identity");
+const { SubscriptionClient } = require("@azure/arm-subscriptions");
+require("dotenv").config();
+
+let credentials = null;
+
+const tenantId = process.env["AZURE_TENANT_ID"];
+const clientId = process.env["AZURE_CLIENT_ID"];
+const secret = process.env["AZURE_CLIENT_SECRET"];
+
+if (process.env.NODE_ENV && process.env.NODE_ENV === "production") {
+  // production
+  credentials = new DefaultAzureCredential();
+} else {
+  // development
+  if (tenantId && clientId && secret) {
+    console.log("development");
+    credentials = new ClientSecretCredential(tenantId, clientId, secret);
+  } else {
+    credentials = new DefaultAzureCredential();
+  }
 }
 ```
 
@@ -178,37 +217,27 @@ public static void GetBlobServiceClientAzureAD(ref BlobServiceClient blobService
 
 If you explicitly enable anonymous access, then your code can create connect to Blob Storage without authorize your request. You can create a new service client object for anonymous access by providing the Blob storage endpoint for the account. However, you must also know the name of a container in that account that's available for anonymous access. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
-```csharp
-public static void CreateAnonymousBlobClient()
-{
-    // Create the client object using the Blob storage endpoint for your account.
-    BlobServiceClient blobServiceClient = new BlobServiceClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/"));
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = blobServiceClient.GetBlobContainerClient("sample-container");
-    // Read the container's properties. 
-    // Note this is only possible when the container supports full public read access.          
-    Console.WriteLine(container.GetProperties().Value.LastModified);
-    Console.WriteLine(container.GetProperties().Value.ETag);
-}
+```javascript
+const { BlobServiceClient, AnonymousCredential } = require("@azure/storage-blob");
+
+// Enter your storage account name and SAS
+const account = process.env.ACCOUNT_NAME || "<account name>";
+const accountSas = process.env.ACCOUNT_SAS || "<account SAS>";
+
+// List containers
+const blobServiceClient = new BlobServiceClient(
+// When using AnonymousCredential, following url should include a valid SAS or support public access
+`https://${account}.blob.core.windows.net${accountSas}`,
+new AnonymousCredential()
+);
 ```
 
 Alternatively, if you have the URL to a container that is anonymously available, you can use it to reference the container directly.
 
-```csharp
-public static void ListBlobsAnonymously()
-{
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = new BlobContainerClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
-    // List blobs in the container.
-    // Note this is only possible when the container supports full public read access.
-    foreach (BlobItem blobItem in container.GetBlobs())
-    {
-        Console.WriteLine(container.GetBlockBlobClient(blobItem.Name).Uri);
-    }
-}
+```javascript
+
 ```
+
 
 ## Build your application
 
@@ -228,11 +257,11 @@ Each type of resource is represented by one or more associated .NET classes. The
 
 | Class | Description |
 |---|---|
-| [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | Allows you to manipulate Azure Storage blobs.|
-| [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
-| [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
+| [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) | Represents the Blob Storage endpoint for your storage account. |
+| [ContainerClient](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest) | Allows you to manipulate Azure Storage containers and their blobs. |
+| [BlobClient](/javascript/api/@azure/storage-blob/blobclient?view=azure-node-latest) | Allows you to manipulate Azure Storage blobs.|
+| [AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient?view=azure-node-latest) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
+| [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient?view=azure-node-latest)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
 
 The following guides show you how to use each of these classes to build your application.
 
@@ -254,8 +283,8 @@ The following guides show you how to use each of these classes to build your app
 
 ## See also
 
-- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
-- [API reference](/dotnet/api/azure.storage.blobs)
-- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
-- [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
+- [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [API reference](/javascript/api/@azure/storage-blob/)
+- [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
