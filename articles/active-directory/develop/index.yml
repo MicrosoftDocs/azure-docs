@@ -120,7 +120,7 @@ conceptualContent:
         #  url: ../../app-service/scenario-secure-app-overview.md
         #  itemType: tutorial
     ## CARD 4 ######################
-    - title: Build for security and resiliency
+    - title: Build for security and resilience
       links:
         - text: Build Zero Trust-ready apps
           url: zero-trust-for-developers.md
