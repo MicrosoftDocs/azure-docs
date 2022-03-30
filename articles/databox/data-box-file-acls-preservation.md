@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 03/30/2022
 ms.author: alkohli
 ---
 
@@ -80,17 +80,26 @@ Transfer of ACLs is enabled by default. You might want to disable this setting i
 
 During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACLs are transferred:
 
-- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
+- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box.
 - If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-In order for you to copy SACLs from your files, you must have the “SeBackupPrivilege” credential granted. “SeBackupPrivilege” is required to read SACLs. If you are a member of the “Administrators” or “Backup Operators” group, you will have this privilege by default. 
+**ACLs transfer over NFS**
+ 
+ACLs aren't transferred when you copy data over [NFS](data-box-deploy-copy-data-via-nfs.md).
 
-If you do not have the “SeBackupPrivilege” credential:
+**ACLs transfer over Data Copy Service** 
+
+During an [data copy service file transfer](data-box-deploy-copy-data-via-copy-service.md), the following ACLs are transferred:
+
+- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
+
+In order for you to copy SACLs from your files, you must have the **SeBackupPrivilege** credential granted. SeBackupPrivilege is required to read SACLs. If you are a member of the Administrators or Backup Operators group, you will have this privilege by default. 
+
+If you do not have the SeBackupPrivilege credential:
 - You will not be able to copy SACLs for Azure Files copy service jobs.
-- You may experience access issues and receive this error: "Could not read SACLs from share due to insufficient privileges."
+- You may experience access issues and receive this error: Could not read SACLs from share due to insufficient privileges.
 
  For more information, see how to obtain the [“SeBackupPrivilege” credential](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440). 
-
 
 **Default ACLs transfer**  
 
