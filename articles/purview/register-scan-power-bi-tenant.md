@@ -315,7 +315,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service Principle.":::
   
-8. From Azure Active Directory dashboard, select newly created application and then select App registration. Assign the application the following delegated permissions and grant admin consent for the tenant:
+8. From Azure Active Directory dashboard, select newly created application and then select **App permissions**. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
    - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
