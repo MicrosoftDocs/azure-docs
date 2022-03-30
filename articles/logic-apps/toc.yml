@@ -46,7 +46,7 @@
       href: ../connectors/managed.md
     - name: Built-in operations
       href: ../connectors/built-in.md
-    - name: Custom connectors in Azure Logic Apps
+    - name: Custom connectors
       href: custom-connector-overview.md
   - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
