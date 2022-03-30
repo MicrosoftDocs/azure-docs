@@ -10,7 +10,7 @@ ms.date: 03/31/2021
 
 This article has been prepared for the public preview of Nutanix Clusters on Azure and is intended for a limited audience, namely the professionals participating in the public preview of Nutanix Clusters on Azure. 
 
-[![Deployment](Nutanix Preview)](media/nutanix-baremetal-architecture/nutanix-preview.png#lightbox)
+![Nutanix Preview](../media/nutanix-baremetal-architecture/nutanix-preview.png)
  
 This document is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com.
 
