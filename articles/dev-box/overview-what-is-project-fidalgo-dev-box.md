@@ -1,6 +1,6 @@
 ---
 title: What is Project Fidalgo Dev Box?
-description: Project Fidalgo Dev Box provides developers with self-service access to high-performance, cloud-based Cloud PCs workstations for specific projects, preconfigured and ready-to-code.
+description: Project Fidalgo Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
 services: dev-box
 ms.service: dev-box
 ms.topic: overview
@@ -12,9 +12,9 @@ adobe-target: true
 
 # What is Project Fidalgo Dev Box Preview?
 
-Project Fidalgo Dev Box provides developers with self-service access to high-performance, cloud-based Cloud PCs workstations for specific projects, preconfigured and ready-to-code. 
+Project Fidalgo Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.  
 
-By providing developers with on-demand access to Cloud workstations that have all the tools and resources they need for any given task, Dev Box streamlines development to maximize productivity on any workload—all while building on Windows 365 centralized security and governance to avoid exposing the organization to added risk. 
+Using the Dev Box service, users can select a dev box appropriate for their project from a pool of dev boxes. Several roles within an organization collaborate to successfully deploy, manage, and operate resources to make this possible. 
 
 > [!IMPORTANT]
 > Project Fidalgo Dev Box is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -28,62 +28,53 @@ By providing developers with on-demand access to Cloud workstations that have al
 > [!NOTE]
 > This image shows the Project Fidalgo Dev Box service structure.
 
-Using the Dev Box service, developers can select a dev box appropriate for their project from a pool of dev boxes. Several roles within an organization must collaborate to successfully deploy, manage, and operate resources to make this possible. 
+The Fidalgo Dev Box service uses DevCenters to align resources with the needs of business or functional units. DevCenter owners create and manage DevCenters, configuring network connections, security and access policies, update policies, and audit policies. A DevCenter owner can define one or more DevCenters for the enterprise. 
 
-### IT administrator
-The IT administrator is responsible for defining and implementing resource policies for their organization that govern access, security, auditing, updates, etc. 
+In large complex enterprises, DevCenter owners might work closely with the enterprise IT team to configure appropriate virtual networks. 
 
-An IT Administrator within an enterprise organizes their developers into organizations and projects, then creates and configures DevCenters for each team to work within. The IT Administrator provides permissions to the project leads so that they can create and manage their projects.
- 
-Security is critical for enterprise IT as they consider enabling Cloud-based development infrastructure for their organization. Dev Box provides a secure mechanism to provide and manage cloud-based development infrastructure.
+The DevCenter owner creates projects within the DevCenter and assigns permissions for a project admin to manage each project. The project admin is usually a lead or senior developer who has a detailed understanding of the virtual machine requirements for the workloads in their project. The DevCenter owner gathers requirements from the project admin to define the dev boxes for the project. Projects have a pool of one or more dev box definitions.
 
-IT administrators configure virtual networking to enable differentiated corp net access for multiple teams. These would depend on different scenarios that can be made available to different teams across the company.
+Dev box users, who might be developers, testers, or QA professionals, select a dev box from the project pool according to their needs. 
 
-For certain projects and teams, depending on the enterprise policy, IT administrator privileges may need to be delegated to appropriate project owners.
+## Self-service scenarios
+Fidalgo Dev Box enables users to be productive on a project very quickly. Dev Box users can:
 
-IT administrator can setup cost control and alerts for various DevCenters. 
-
-
-### Project Lead
-A Project Lead is a development lead or senior team member responsible for defining dependencies and shared tools used across the team for a specific repo or app. The Project Lead creates projects under a specific DevCenter and may add additional team members to manage the projects if required. For example, an IT administrator creates a DevCenter for their Research division, and assigns a project to create and manage projects under the dev center.
-
-Project leads allocate development resources to project teams. They will create Dev Box Pools under a project to provide Dev Boxes to individual teams in their projects. 
-
-IT administrators and project leads can setup monitoring for projects and dev boxes, and configure settings like automatic shut down of dev boxes to manage costs. Project leads can setup cost control and alerts for the Dev Box Pools in their projects. 
+- Create and manage their own dev boxes.
+- Delete their dev boxes when they are no longer required. 
+- Create a dev box for each project on which they are working. 
 
 
-### Developers 
-Developers create dev boxes from the images defined by the Project Lead, within the constraints allowed by the IT Administrator. Developers manage their own dev boxes and delete them when they are no longer required. Developers who work on multiple tasks during the day, spanning multiple projects, can create a dev box for each project. 
+## Cost control scenarios
+To help control the cost of running dev boxes across projects:
 
-Dev Box enables developers to join a new company, team or project and begin contributing very quickly. It saves developers' time by updating source code, machine caches, packages, Visual Studio or other IDEs, and the OS by performing these tasks automatically before they start their day.
+- DevCenter owners can set cost control and alerts policies for their DevCenters.
+- Project admins can cost control and alerts for their projects.  
 
-Dev boxes can be pre-configured to work with value added services such as Code Index (cloud IntelliSense service), RemoteBuild services etc., even where these services require team-based storage or compute resources.
 
-
-## Project Fidalgo concepts
+## Project Fidalgo key concepts
 
 The following list contains key concepts and definitions in Project Fidalgo Dev Box.
 
 ### DevCenter
 
-A DevCenter is top-level resource that serves as an organizational construct that reflects units of organization within an enterprise. 
+A DevCenter is a top-level resource that serves as an organizational construct, reflecting the units of organization within an enterprise. 
 
 ### Projects
 
-Top-level resource associated with a DevCenter. Serves as an organizational construct that reflects projects with an organizational unit in an enterprise. 
+A project is a resource associated with a DevCenter. Projects serve as an organizational construct, reflecting the workgroups within an organizational unit in an enterprise. 
 
 ### Dev box definition (AKA: Machine Definition)
 
-Resource associated with a DevCenter. Dev box configuration that defines source image, VM size, and image customization. Meant to be used across Projects in a DevCenter. 
+A dev box definition is a resource associated with a DevCenter. Dev box definitions detail the configuration of the source image, VM size, and any image customization. Dev center owners can use dev box definitions across projects in a DevCenter. 
 
 ### Network connection (AKA: Network Setting) 
-Top-level resource. Associates a given VNet with a region, as well as domain join credentials, firewall configuration, etc. 
+A network connection is a top-level resource. It associates a given VNet with a region, as well as domain join credentials, firewall configuration, and so on. 
 
 ### Dev box pool (AKA: Pool) 
-Resource associated with a Project. Configuration, pool limits and network settings for a given group of dev boxes. Technically defines RBAC, but this will likely be inherited from the Project. 
+A dev box pool is a resource associated with a Project. It defines configuration, pool limits and network settings for a given group of dev boxes. Technically defines role-based access control (RBAC), but this will usually be inherited from the Project. 
 
 ### Dev box 
-Individual virtual machine configured for developer use. 
+A dev box is an instance of a virtual machine configured for developer use. It is based on a dev box definition.
 
 
 <!-- From https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md -->
@@ -91,5 +82,5 @@ Individual virtual machine configured for developer use.
 ## Next steps
 
 Start using Project Fidalgo Dev Box:
-- [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-1.md)
-- [Tutorial: Set up automated load testing](./tutorial-1.md)
+- [Quickstart: Use a load test to identify performance bottlenecks](./quickstart-1.md)
+
