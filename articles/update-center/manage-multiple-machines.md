@@ -1,7 +1,7 @@
 ---
 title: Manage multiple machines in Update management center (preview)
 description: The article details how to use Update management center (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
-ms.service: Update-management-center
+ms.service: update-management-center
 ms.date: 08/25/2021
 ms.topic: conceptual
 author: SGSneha

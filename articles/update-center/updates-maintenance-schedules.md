@@ -1,7 +1,7 @@
 ---
 title: Updates and maintenance in Update management center (preview).
 description: The article describes the updates and maintenance options available in Update management center (preview).
-ms.service: Update-management-center
+ms.service: update-management-center
 ms.date: 10/28/2021
 ms.topic: conceptual
 author: SGSneha

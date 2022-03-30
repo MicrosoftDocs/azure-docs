@@ -1,7 +1,7 @@
 ---
 title: Logging in Azure Resource Graph from Update management center (preview)
 description: The article describes the structure of the logs from Update management center (preview) and how you can use Azure Resource Graph Explorer
-ms.service: Update-management-center
+ms.service: update-management-center
 author: SGSneha
 ms.author: v-ssudhir
 ms.date: 03/07/2022
