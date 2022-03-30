@@ -22,7 +22,7 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 ## Prerequisites
 
-* [JDK 8](/azure/java/jdk/java-jdk-install) installed
+* [JDK 8](/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 or above](http://maven.apache.org/install.html)
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](/azure/cloud-shell/overview)
 * An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
@@ -157,6 +157,6 @@ This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/m
     
 ## Next Steps
 
-[Managed identity to connect Key Vault](tutorial-managed-identities-key-vault.md)
-[Managed identity to invoke Azure functions](tutorial-managed-identities-functions.md)
+* [Managed identity to connect Key Vault](tutorial-managed-identities-key-vault.md)
+* [Managed identity to invoke Azure functions](tutorial-managed-identities-functions.md)
 
