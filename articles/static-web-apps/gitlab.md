@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Deploy GitLab repositories on Azure Static Web Apps
 
-Azure Static Web Apps has flexible deployment options that allow to work with a variety of providers. In this article, you deploy a web application hosted in GitLab to Azure Static Web Apps.
+Azure Static Web Apps has flexible deployment options that allow to work with various providers. In this article, you deploy a web application hosted in GitLab to Azure Static Web Apps.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     | Setting | Value |
     |--|--|
-    | Azure subscription | Select your Azure bscription. |
+    | Azure subscription | Select your Azure subscription. |
     | Resource Group | Select the **Create new** link and enter **static-web-apps-gitlab**. |
     | Name | Enter **my-first-static-web-app**. |
     | Plan type | Select **Free**. |
@@ -191,7 +191,7 @@ The `$CI_PROJECT_DIR` variable maps to the repository's root folder location dur
 
 ## View the website
 
-There are two aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitLab workflow that builds and publishes your application.
+There are two aspects to deploying a static app. The first step creates the underlying Azure resources that make up your app. The second is a GitLab workflow that builds and publishes your application.
 
 Before you can navigate to your new static site, the deployment build must first finish running.
 
@@ -207,7 +207,7 @@ If you're not going to continue to use this application, you can delete the Azur
 
 1. Select the **static-web-apps-gitlab** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name **static-web-apps-gitlab** in the, *Are you sure you want to delete "static-web-apps-gitlab"?* confirmation dialog.
+1. Enter the resource group name **static-web-apps-gitlab** in the *Are you sure you want to delete "static-web-apps-gitlab"?* confirmation dialog.
 1. Select **Delete**.
 
 The process to delete the resource group may take a few minutes to complete.
