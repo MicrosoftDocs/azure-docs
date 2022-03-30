@@ -45,6 +45,32 @@ A successful operation will return the properties of the newly created ledger. T
 
 You will need this URI to transact with the confidential ledger from the data plane.
 
+## View and update your confidential ledger properties
+
+You can view the properties associated with your newly created confidential ledger using the Azure CLI [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show) command.
+
+```azurecli
+az confidentialledger show --name "myLedger" --resource-group "myResourceGroup"
+```
+
+This will return a json object displaying the ledger's properties, including your role:
+
+```json
+"ledgerRoleName": "Administrator",
+```
+
+To update the properties of a confidential ledger, use do so, use the Azure CLI [az confidentialledger update](/cli/azure/confidentialledger#az-confidentialledger-update) command.
+
+```azurecli
+az confidentialledger update --name "myLedger" --resource-group "myResourceGroup" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<your-principal-id>" 
+```
+
+If you run [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show) again, you will see that the role has been updated.
+
+```json
+"ledgerRoleName": "Reader",
+```
+
 ## Clean up resources
 
 [!INCLUDE [Clean up resources](../../includes/cli-rg-delete.md)]
