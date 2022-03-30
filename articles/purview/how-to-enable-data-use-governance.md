@@ -58,8 +58,8 @@ To disable data use governance for a source, resource group, or subscription, a 
 
 ## Delegation of access control responsibility to Azure Purview
 Note: 
-1.	Once a resource has been enabled for *Data use Governance*, **any** Azure Purview *policy author* will be able to create access policies against it, and **any** Azure Purview *Data source admin* will be able to publish those policies at **any point afterwards**.
-1.	**Any** Azure Purview *root collection admin* can create **new** *Data Source Admin* and *Policy author* roles.
+1.	Once a resource has been enabled for *Data use Governance*, **any** Azure Purview root-collection *policy author* will be able to create access policies against it, and **any** Azure Purview root-collection *Data source admin* will be able to publish those policies at **any point afterwards**.
+1.	**Any** Azure Purview root *collection admin* can create **new** root-collection *Data Source Admin* and *Policy author* roles.
 
 ## Additional considerations related to Data use governance
 - Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
