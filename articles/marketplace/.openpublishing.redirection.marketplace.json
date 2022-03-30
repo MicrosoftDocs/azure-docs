@@ -141,7 +141,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/marketplace/plan-saas-dev-test-offer.md",
+            "source_path_from_root": "/articles/marketplace/create-saas-dev-test-offer.md",
             "redirect_url": "/azure/marketplace/plan-saas-dev-test-offer",
             "redirect_document_id": false
         },   
