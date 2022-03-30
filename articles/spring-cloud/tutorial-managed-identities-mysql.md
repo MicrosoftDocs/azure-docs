@@ -25,8 +25,8 @@ The following video describes how to manage secrets using Azure Key Vault.
 * [JDK 8](/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 or above](http://maven.apache.org/install.html)
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](/azure/cloud-shell/overview)
-* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
-* An existing Azure Database for MySQL instance with a database named `demo`. If you need to create an Azure Database for MySQL, you can use the [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure portal](/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+* An existing Azure Database for MySQL instance with a database named `demo`. If you need to create an Azure Database for MySQL, you can use the [Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## Create a resource group
 
@@ -60,7 +60,7 @@ az keyvault secret set \
 
 ## Set up your Azure Database for MySQL
 
-To create an Azure Database for MySQL, use the [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+To create an Azure Database for MySQL, use the [Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 Create a database named *demo* for later use.
 
