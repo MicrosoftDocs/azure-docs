@@ -363,30 +363,30 @@ properties:
         resources:
           cpu: 0.5
           memory: 1Gi
-          probes:
-            - type: liveness
-              httpGet:
-                - path: "/health"
-                  port: 8080
-                  httpHeaders:
-                    - name: "Custom-Header"
-                      value: "liveness probe"
-                  initialDelaySeconds: 7
-                  periodSeconds: 3
-            - type: readiness
-              tcpSocket:
-                - port: 8081
-              initialDelaySeconds: 10
-              periodSeconds: 3
-            - type: startup
-              httpGet:
-                - path: "/startup"
-                  port: 8080
-                  httpHeaders:
-                    - name: "Custom-Header"
-                      value: "startup probe"
-              initialDelaySeconds: 3
-              periodSeconds: 3
+        probes:
+          - type: liveness
+            httpGet:
+              - path: "/health"
+                port: 8080
+                httpHeaders:
+                  - name: "Custom-Header"
+                    value: "liveness probe"
+                initialDelaySeconds: 7
+                periodSeconds: 3
+          - type: readiness
+            tcpSocket:
+              - port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 3
+          - type: startup
+            httpGet:
+              - path: "/startup"
+                port: 8080
+                httpHeaders:
+                  - name: "Custom-Header"
+                    value: "startup probe"
+            initialDelaySeconds: 3
+            periodSeconds: 3
     scale:
       minReplicas: 1
       maxReplicas: 3
