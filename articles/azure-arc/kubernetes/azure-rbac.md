@@ -171,8 +171,9 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
     1. Add the following specification under `volumes`:
     
         ```yml
+        not
         - name: azure-rbac
-            hostPath:
+          hostPath:
             path: /etc/guard
             type: Directory
         ```
