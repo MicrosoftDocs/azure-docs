@@ -292,7 +292,7 @@ Use the template spec to deploy a storage account. This example uses the resourc
 
 # [Bicep file](#tab/bicep)
 
-To deploy a template spec using a Bicep file, use a module. The module links to an existing template spec.
+To deploy a template spec using a Bicep file, use a module. The module links to an existing template spec. For more information, see [file in template spec](modules.md#file-in-template-spec).
 
 1. Copy the following Bicep module and save it to your computer as _storage.bicep_.
 
