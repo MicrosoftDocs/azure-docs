@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 03/07/2022
+ms.date: 03/24/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 
@@ -97,6 +97,5 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 
 ## Next steps
 
-[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
-
-[Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)
+- [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
+- [Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)

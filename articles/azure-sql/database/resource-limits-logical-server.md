@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/25/2022
+ms.date: 03/30/2022
 ---
 
 # Resource management in Azure SQL Database
@@ -48,7 +48,6 @@ vCore resource limits are listed in the following articles, please be sure to up
 | DTU / eDTU quota per logical server | 54,000 |
 | vCore quota per logical server | 540 |
 | Max elastic pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
-|||
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per logical server, the following can occur:

@@ -333,7 +333,7 @@ Your application should connect to `<cachename>.redis.cache.windows.net` on port
 
 A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.
 
-For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
+For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
 ### Why can't I connect to a private endpoint?
 

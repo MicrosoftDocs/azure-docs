@@ -7,7 +7,7 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.reviewer: amhindma
-ms.date: 11/11/2021
+ms.date: 03/15/2022
 ---
 
 # Configure virtual machine offer listing details
@@ -23,7 +23,7 @@ Offer listing content is not required to be in English as long as the offer desc
 The name entered here should be descriptive because it will be the title of your offer listing. This field is autofilled with the name that you entered in the **Offer alias** box when you created the offer. The name:
 
 - Can include trademark and copyright symbols.
-- Must be 50 characters or less.
+- Must be 200 characters or less.
 - Can't include emojis.
 
 ### Search results summary

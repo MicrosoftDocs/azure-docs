@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, jackli, wiassaf
-ms.date: 1/24/2022
+ms.date: 3/30/2022
 ---
 
 # Resource management in dense elastic pools
@@ -60,7 +60,6 @@ To send an alert when pool resource utilization (CPU, data IO, log IO, workers, 
 |`avg_allocated_storage_percent`|Total storage space used by database files in storage in all databases within an elastic pool. Includes empty space in database files. Available in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `allocated_data_storage_percent`, and can be viewed in Azure portal.|Below 90%. Can approach 100% for pools with no data growth.|
 |`tempdb_log_used_percent`|Transaction log space utilization in the `tempdb` database. Even though temporary objects created in one database are not visible in other databases in the same elastic pool, `tempdb` is a shared resource for all databases in the same pool. A long running or orphaned transaction in `tempdb` started from one database in the pool can consume a large portion of transaction log, and cause failures for queries in other databases in the same pool. Derived from [sys.dm_db_log_space_usage](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) and [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) views. This metric is also emitted to Azure Monitor, and can be viewed in Azure portal. See [Examples](#examples) for a sample query to return the current value of this metric.|Below 50%. Occasional spikes up to 80% are acceptable.|
 
-
 In addition to these metrics, Azure SQL Database provides a view that returns actual resource governance limits, as well as additional views that return resource utilization statistics at the resource pool level, and at the workload group level.
 
 |View name|Description|  
@@ -70,7 +69,6 @@ In addition to these metrics, Azure SQL Database provides a view that returns ac
 |[sys.dm_resource_governor_workload_groups](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Returns cumulative workload group statistics and the current configuration of the workload group. This view can be joined with sys.dm_resource_governor_resource_pools on the `pool_id` column to get resource pool information.|
 |[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for recent history, based on the number of snapshots available. Each row represents a time interval. The duration of the interval is provided in the `duration_ms` column. The `delta_` columns return the change in each statistic during the interval.|
 |[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for recent history, based on the number of snapshots available. Each row represents a time interval. The duration of the interval is provided in the `duration_ms` column. The `delta_` columns return the change in each statistic during the interval.|
-
 
 > [!TIP]
 > To query these and other dynamic management views using a principal other than server administrator, add this principal to the `##MS_ServerStateReader##` [server role](security-server-roles.md).

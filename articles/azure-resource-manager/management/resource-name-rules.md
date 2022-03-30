@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 03/29/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -689,8 +689,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. <br><br> Can't have any special characters, such as `@`. |
-> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place.<br><br> Can't have any special characters, such as `@`. |
+> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place. |
 > | servers / administrators | server |  | Must be `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
@@ -747,7 +747,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
 > | workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
-> | workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters.<br><br>Can't end with `.` or space.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
+> | workspaces / sqlPools | workspace | 1-15  |  Can contain only letters, numbers, or underscore.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
 
 ## Microsoft.TimeSeriesInsights
 

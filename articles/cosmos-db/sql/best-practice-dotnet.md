@@ -5,9 +5,10 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 03/24/2022
 ms.author: esarroyo
-
+ms.reviewer: wiassaf
+ms.custom: cosmos-db-video
 ---
 
 # Best practices for Azure Cosmos DB .NET SDK
@@ -17,9 +18,8 @@ This article walks through the best practices for using the Azure Cosmos DB .NET
 
 Watch the video below to learn more about using the .NET SDK from a Cosmos DB engineer!
 
-
-> [!VIDEO https://www.youtube.com/embed/McZIQhZpvew?start=118]
 >
+> [!VIDEO https://aka.ms/docs.dotnet-best-practices]
 
 ## Checklist
 |Checked  | Topic  |Details/Links  |
