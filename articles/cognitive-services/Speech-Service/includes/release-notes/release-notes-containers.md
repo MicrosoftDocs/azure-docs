@@ -12,7 +12,7 @@ ms.author: eur
 - Add support to [get display models](../../speech-container-howto.md#display-model-download-on-the-custom-speech-to-text-container).
 
 #### Speech-language-detection Container v1.6.1-amd64-preview
-- Added new languages: Ukrainian [speech-language-detection](../../speech-container-howto).
+- Added new languages: Ukrainian [speech-language-detection](~/articles/cognitive-services/speech-service/speech-container-howto).
 
 ### 2022-January release
 
