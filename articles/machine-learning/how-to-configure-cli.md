@@ -106,6 +106,8 @@ You can show your current defaults using `--list-defaults/-l`:
 
 The `ml` CLI extension (sometimes called 'CLI v2') for Azure Machine Learning sends operational data (YAML parameters and metadata) over the public internet. All the `ml` CLI extension commands communicate with the Azure Resource Manager. This communication is secured using HTTPS/TLS 1.2.
 
+Data in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is located in the default storage account for the workspace, and the storage account is in a virtual network.
+
 > [!NOTE]
 > With the previous extension (`azure-cli-ml`, sometimes called 'CLI v1'), only some of the commands communicate with the Azure Resource Manager. Specifically, commands that create, update, delete, list, or show Azure resources. Operations such as submitting a training job communicate directly with the Azure Machine Learning workspace. If your workspace is [secured with a private endpoint](how-to-configure-private-link.md), that is enough to secure commands provided by the `azure-cli-ml` extension.
 
@@ -133,10 +135,6 @@ If your Azure Machine Learning workspace uses a private endpoint and virtual net
 > To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).
 
 ---
-
-> [!TIP]
-> Data stored in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is secured on the default storage account for the workspace, and the storage account is in the virtual network.
-
 
 ## Next steps
 
