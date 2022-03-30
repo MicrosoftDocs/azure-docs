@@ -1,7 +1,7 @@
 ---
 title: Create a custom IP address prefix - Azure CLI
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IP address prefix using Azure CLI
+description: Learn about how to create a custom IP address prefix using the Azure CLI
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
 ---
-# Create a custom IP address prefix  using Azure CLI
+# Create a custom IP address prefix using the Azure CLI
 
 A custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
@@ -127,7 +127,7 @@ Create a resource group in the desired location for provisioning the BYOIP range
 ```azurecli-interactive
   az group create \
     --name myResourceGroup \
-    --location westus
+    --location westus2
 ```
 ### Provision a custom IP address prefix
 The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `--authorization-message` parameter, use the variable **$byoipauth** that contains your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. Use the variable **$byoipauthsigned** for the `--signed-message` parameter created in the certificate readiness section.
@@ -138,7 +138,7 @@ The following command creates a custom IP prefix in the specified region and res
   az network public-ip prefix create \
     --name myCustomIpPrefix \
     --resource-group myResourceGroup \
-    --location westus \
+    --location westus2 \
     --cidr ‘1.2.3.0/24’ \
     --authorization-message $byoipauth \
     --signed-message $byoipauthsigned
@@ -157,7 +157,7 @@ Sample output is shown below, with some fields removed for clarity:
   "cidr": "1.2.3.0/24",
   "commissionedState": "Provisioning",
   "id": "/subscriptions/xxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/customIPPrefixes/myCustomIpPrefix",
-  "location": "westus",
+  "location": "westus2",
   "name": myCustomIpPrefix,
   "resourceGroup": "myResourceGroup",
 }
@@ -182,7 +182,7 @@ az network custom-ip prefix update \
     --state commission 
 ```
 
-As before, the operation is asynchronous. The [az network custom-ip prefix show](/cli/azure/network/custom-ip/prefix#az_network_custom_ip_prefix_show) command can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in **Commissioning**.
+As before, the operation is asynchronous. Use [az network custom-ip prefix show](/cli/azure/network/custom-ip/prefix#az_network_custom_ip_prefix_show) to retrieve the status. The **CommissionedState** field will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in **Commissioning**.
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.
