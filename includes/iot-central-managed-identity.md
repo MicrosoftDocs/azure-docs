@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-To configure the managed identity that enables your IoT Central application to securely export data to your event hub:
+To configure the managed identity that enables your IoT Central application to securely export data to your Azure resource:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT Central application.
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 10/26/2021
+ms.date: 02/28/2022
 ---
 
 # What is a test drive?
@@ -35,9 +35,9 @@ There are different test drives available on the commercial marketplace for sele
     - SaaS
     - Virtual Machines
 - Hosted test drive
-    - Dynamics 365 for Business Central (currently not supported)
-    - Dynamics 365 for Customer Engagement
-    - Dynamics 365 for Operations
+    - Dynamics 365 Business Central (currently not supported)
+    - Dynamics 365 apps on Dataverse and Power Apps
+    - Dynamics 365 Operations Apps
 - Logic app (in support mode only)
 - Power BI
 
@@ -58,8 +58,8 @@ This deployment template contains all the Azure resources that comprise your sol
 
 A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning, and de-provisioning. If you have an offer on Microsoft AppSource, build your test drive to connect with a Dynamics AX/CRM instance. You can use the following AppSource offers types:
 
-- Use [Dynamics 365 for Customer Engagement and Power Apps](dynamics-365-customer-engage-offer-setup.md) for a Customer Engagement system such as sales, service, project service, and field service.
-- Use [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
+- Use [Dynamics 365 apps on Dataverse and Power Apps](dynamics-365-customer-engage-offer-setup.md) for a Customer Engagement system such as sales, service, project service, and field service.
+- Use [Dynamics 365 Operations Apps](./dynamics-365-operations-offer-setup.md) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
 
 ### Logic app test drive
 
@@ -81,9 +81,9 @@ The process of turning an architecture of resources into a test drive can be dau
 
 ## Generate leads from your test drive
 
-A commercial marketplace test drive is a great tool for marketers. We recommend you incorporate it in your go-to-market efforts when you launch to generate more leads for your business. For detailed guidance, see [Customer leads from your commercial marketplace offer](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+A commercial marketplace test drive is a great tool for marketers. We recommend you incorporate it in your go-to-market efforts when you launch to generate more leads for your business. For detailed guidance, see [Customer leads from your commercial marketplace offer](./partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-If you close a deal with a test drive lead, be sure to register it at [Microsoft Partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Also, we would love to hear about your customer wins where a test drive played a role.
+If you close a deal with a test drive lead, be sure to register it at [Grow your business with referrals from Microsoft](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Also, we would love to hear about your customer wins where a test drive played a role.
 
 ## Other resources
 

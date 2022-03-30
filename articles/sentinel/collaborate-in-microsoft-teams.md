@@ -16,7 +16,7 @@ Microsoft Sentinel supports a direct integration with [Microsoft Teams](/microso
 
 
 > [!IMPORTANT]
-> Integration with Microsoft Teams is is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Integration with Microsoft Teams is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Overview
 
@@ -34,7 +34,7 @@ In order to create teams from Microsoft Sentinel:
 
 - The user creating the team must have Incident write permissions in Microsoft Sentinel. For example, the [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) role is an ideal, minimum role for this privilege.
 
-- The user creating the team must also have permissions to create teams in Microsoft teams.
+- The user creating the team must also have permissions to create teams in Microsoft Teams.
 
 - Any Microsoft Sentinel user, including users with the [Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader), [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder), or [Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) roles, can gain access to the created team by requesting access.
 
@@ -71,7 +71,7 @@ Investigate together with an *incident team* by integrating Microsoft Teams dire
 
 1. Select your **Teams integration** link to switch into Microsoft Teams, where all of the data about your incident is listed on the **Incident page** tab.
 
-    [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+    [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.png) ](media/collaborate-in-microsoft-teams/incident-in-teams.png#lightbox)
 
 Continue the conversation about the investigation in Teams for as long as needed. You have the full incident details directly in teams.
 

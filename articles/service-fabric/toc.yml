@@ -9,9 +9,13 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Managed cluster
+  - name: Managed cluster with Azure portal
+    href: quickstart-managed-cluster-portal.md
+  - name: Managed cluster with ARM template
     href: quickstart-managed-cluster-template.md
-  - name: ARM template
+  - name: Service Fabric cluster with Azure portal
+    href: quickstart-classic-cluster-portal.md
+  - name: Service Fabric cluster with ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
   - name: Create .NET application
@@ -118,6 +122,8 @@
     href: service-fabric-best-practices-monitoring.md
   - name: Application design
     href: service-fabric-best-practices-applications.md
+  - name: Replica set size configuration
+    href: service-fabric-best-practices-replica-set-size-configuration.md
   - name: Production readiness checklist
     href: service-fabric-production-readiness-checklist.md  
 - name: Samples
@@ -318,6 +324,8 @@
         href: service-fabric-cluster-scaling.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
+      - name: Infrastructure Service for Azure clusters
+        href: infrastructure-service-faq.md
     - name: Standalone clusters
       items:
       - name: Overview of standalone clusters
@@ -405,6 +413,8 @@
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
       href: how-to-managed-cluster-connect.md
+    - name: Configure Azure Active Directory client access
+      href: how-to-managed-cluster-azure-active-directory-client.md         
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
     - name: Configure node types on a managed cluster

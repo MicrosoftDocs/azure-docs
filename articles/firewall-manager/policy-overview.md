@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Firewall Manager policy overview
 
-Firewall Policy the recommended method to configure your Azure Firewall. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
+Firewall Policy is the recommended method to configure your Azure Firewall. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
 
 ![Azure Firewall Manager policy](media/policy-overview/policy-overview.png)
 

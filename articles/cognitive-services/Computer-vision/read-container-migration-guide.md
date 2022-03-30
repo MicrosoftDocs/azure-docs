@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/28/2021
 ms.author: aahi
 ---

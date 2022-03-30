@@ -2,6 +2,8 @@
 title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 # Improve your network security posture with adaptive network hardening
@@ -18,8 +20,8 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Release state:|General availability (GA)|
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
+
 
 ## What is adaptive network hardening?
 Applying [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
@@ -94,7 +96,7 @@ To modify an adaptive network hardening rule:
    > [!NOTE]
    > After selecting **Save**, you have successfully changed the rule. *However, you have not applied it to the NSG.* To apply it, you must select the rule in the list, and select **Enforce** (as explained in the next step).
 
-   ![Selecting Save.](./media/adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selecting Save.](./media/adaptive-network-hardening/edit-hard-rule-3.png)
 
 3. To apply the updated rule, from the list, select the updated rule and select **Enforce**.
 
@@ -111,7 +113,7 @@ To add an adaptive network hardening rule:
 
 1. From the top toolbar, select **Add rule**.
 
-   ![add rule.](./media/adaptive-network-hardening/add-hard-rule.png)
+   ![add rule.](./media/adaptive-network-hardening/add-new-hard-rule.png)
 
 1. In the **New rule** window, enter the details and select **Add**.
 

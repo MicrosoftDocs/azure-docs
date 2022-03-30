@@ -82,3 +82,12 @@ landingContent:
         links:
         - url: ../anomaly-detector/anomaly-detector-container-howto.md
           text: Anomaly Detector
+- title: Disconnected containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: disconnected-containers.md 
+          text: Run containers disconnected from the internet
+        - url: disconnected-container-faq.yml
+          text: Frequently Asked Questions about disconnected containers
+        

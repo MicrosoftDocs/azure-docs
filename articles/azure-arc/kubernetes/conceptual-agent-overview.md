@@ -18,7 +18,7 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 Most on-prem datacenters enforce strict network rules that prevent inbound communication on the network boundary firewall. Azure Arc-enabled Kubernetes works with these restrictions by not requiring inbound ports on the firewall. Azure Arc agents only require outbound communication to a prerequisite list of network endpoints.
 
-![Architectural overview](./media/architectural-overview.png)
+[ ![Architectural overview](./media/architectural-overview.png) ](./media/architectural-overview.png#lightbox)
 
 The following steps are involved in connecting a Kubernetes cluster to Azure Arc:
 
@@ -43,7 +43,7 @@ The following steps are involved in connecting a Kubernetes cluster to Azure Arc
         | `deployment.apps/extension-manager` | Installs and manages lifecycle of extension helm charts |
         | `deployment.apps/kube-aad-proxy` | Used for authentication of requests sent to the cluster using Cluster Connect |
         | `deployment.apps/clusterconnect-agent` | Reverse proxy agent that enables Cluster Connect feature to provide access to `apiserver` of cluster. Optional component deployed only if `cluster-connect` feature is enabled on the cluster   |
-        | `deployment.apps/guard` | Authentication and authorization webhook server used for AAD RBAC feature. Optional component deployed only if `azure-rbac` feature is enabled on the cluster   |
+        | `deployment.apps/guard` | Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if `azure-rbac` feature is enabled on the cluster   |
 
 1. Once all the Azure Arc-enabled Kubernetes agent pods are in `Running` state, verify that your cluster connected to Azure Arc. You should see:
     * An Azure Arc-enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure tracks this resource as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.

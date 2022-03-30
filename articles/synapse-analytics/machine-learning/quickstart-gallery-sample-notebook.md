@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Use a sample notebook from the Synapse Analytics gallery'
 description: Learn how to use a sample notebook from the Synapse Analytics gallery to explore data and build a machine learning model.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: 
 ms.date: 06/11/2021
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: mode-other
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with NAVEX One | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with NAVEX One'
 description: Learn how to configure single sign-on between Azure Active Directory and NAVEX One.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 01/19/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with NAVEX One
+# Tutorial: Azure AD SSO integration with NAVEX One
 
 In this tutorial, you'll learn how to integrate NAVEX One with Azure Active Directory (Azure AD). When you integrate NAVEX One with Azure AD, you can:
 
@@ -33,9 +33,12 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* NAVEX One supports **SP** initiated SSO
+* NAVEX One supports **SP** initiated SSO.
 
-## Adding NAVEX One from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add NAVEX One from the gallery
 
 To configure the integration of NAVEX One into Azure AD, you need to add NAVEX One from the gallery to your list of managed SaaS apps.
 
@@ -45,7 +48,6 @@ To configure the integration of NAVEX One into Azure AD, you need to add NAVEX O
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **NAVEX One** in the search box.
 1. Select **NAVEX One** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for NAVEX One
 
@@ -70,17 +72,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign-on URL** text box, type a URL using one of the following patterns:
-
-    | Sign-on URL |
-    |--------------|
-    | `https://<CLIENT_KEY>.navexglobal.com` |
-    | `https://<CLIENT_KEY>.navexglobal.eu` |
-    |
-
-    b. In the **Identifier** text box, type one of the following URLs:
+    a. In the **Identifier** text box, type one of the following URLs:
 
     | Identifier |
     |--------------|
@@ -88,12 +82,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://doorman.navexglobal.eu/Shibboleth` |
     |
 
-    c. In the **Reply URL** text box, type one of the following URLs:
+    b. In the **Reply URL** text box, type one of the following URLs:
 
     | Reply URL |
     |--------------|
     | `https://doorman.navexglobal.com/Shibboleth.sso/SAML2/POST` |
     | `https://doorman.navexglobal.eu/Shibboleth.sso/SAML2/POST` |
+    |
+
+    c. In the **Sign-on URL** text box, type a URL using one of the following patterns:
+
+    | Sign-on URL |
+    |--------------|
+    | `https://<CLIENT_KEY>.navexglobal.com` |
+    | `https://<CLIENT_KEY>.navexglobal.eu` |
     |
 
     > [!NOTE]
@@ -102,6 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.

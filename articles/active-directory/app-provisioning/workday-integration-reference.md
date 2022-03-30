@@ -3,7 +3,7 @@ title: Azure Active Directory and Workday integration reference
 description: Technical deep dive into Workday-HR driven provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -298,6 +298,10 @@ The following *Get_Workers* request queries for effective-dated updates that hap
 
 If any of the above queries returns a future-dated hire, then the following *Get_Workers* request is used to fetch information about a future-dated new hire. The *WID* attribute of the new hire is used to perform the lookup and the effective date is set to the date and time of hire. 
 
+>[!NOTE]
+>Future-dated hires in Workday have the Active field set to "0" and it changes to "1" on the hire date. The connector by design queries for future-hire information effective on the date of hire and that is why it always gets future hire Worker profile with Active field set to "1". This allows you to setup the Azure AD profile for future hires in advance with the all the right information pre-populated. If you'd like to delay the enabling of the Azure AD account for future hires, use the transformation function [DateDiff](functions-for-customizing-application-data.md#datediff). 
+
+
 ```xml
 <!-- Workday incremental sync query to get new hire data effective as on hire date/first day of work -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
@@ -450,6 +454,10 @@ To get this data, as part of the *Get_Workers* response, use the following XPATH
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
 
 ## Handling different HR scenarios
+
+This section covers how you can customize the provisioning app for the following HR scenarios: 
+* [Support for worker conversions](#support-for-worker-conversions)
+* [Retrieving international job assignments and secondary job details](#retrieving-international-job-assignments-and-secondary-job-details)
 
 ### Support for worker conversions
 

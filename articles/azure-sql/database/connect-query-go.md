@@ -5,18 +5,18 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2 , mode-other
-ms.devlang: go
+ms.custom: sqldbrb=2, mode-api
+ms.devlang: golang
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 04/14/2021
 ---
 # Quickstart: Use Golang to query a database in Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to a database in Azure SQL Database or Azure SQL Managed Instance. You'll then run Transact-SQL statements to query and modify data. [Golang](https://golang.org/) is an open-source programming language that makes it easy to build simple, reliable, and efficient software.  
+In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to a database in Azure SQL Database or Azure SQL Managed Instance. You'll then run Transact-SQL statements to query and modify data. [Golang](https://go.dev/) is an open-source programming language that makes it easy to build simple, reliable, and efficient software.  
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ Get the connection information you need to connect to the database. You'll need 
 
 1. Create a file named **sample.go** in the **SqlServerSample** folder.
 
-2. In the file, paste this code. Add the values for your server, database, username, and password. This example uses the Golang [context methods](https://golang.org/pkg/context/) to make sure there's an active connection.
+2. In the file, paste this code. Add the values for your server, database, username, and password. This example uses the Golang [context methods](https://go.dev/pkg/context/) to make sure there's an active connection.
 
    ```go
    package main

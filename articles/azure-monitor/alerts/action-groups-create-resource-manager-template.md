@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 2/23/2022
 ms.author: dukek
 ---
 
@@ -86,6 +86,18 @@ First template, describes how to create a Resource Manager template for an actio
             "name": "contosoHook2",
             "serviceUri": "http://requestb.in/1bq62iu2",
             "useCommonAlertSchema": true
+          }
+        ],
+         "SecurewebhookReceivers": [
+          {
+            "name": "contososecureHook",
+            "serviceUri": "http://requestb.in/1bq63iu1",
+            "useCommonAlertSchema": false
+          },
+          {
+            "name": "contososecureHook2",
+            "serviceUri": "http://requestb.in/1bq63iu2",
+            "useCommonAlertSchema": false
           }
         ],
         "eventHubReceivers": [

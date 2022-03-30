@@ -36,7 +36,7 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` with Java a
   <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-messaging-webpubsub</artifactId>
-      <version>1.0.0-beta.6</version>
+      <version>1.0.0</version>
   </dependency>
   ```
 

@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -29,7 +28,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## General Azure security
 |Service|Description|
 |--------|--------|
-|[Azure&nbsp;Security&nbsp;Center](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
+|[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
 |[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Defender for Cloud. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |

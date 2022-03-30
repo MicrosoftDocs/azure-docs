@@ -5,8 +5,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-author: peterclu
-ms.author: peterlu
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 10/21/2021
 adobe-target: true
 ---
@@ -35,19 +35,19 @@ The studio offers multiple authoring experiences depending on the type project a
 
   Write and run your own code in managed [Jupyter Notebook servers](how-to-run-jupyter-notebooks.md) that are directly integrated in the studio. 
 
-:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Screenshot: write and run code in a notebook":::
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Screenshot: write and run code in a notebook.":::
 
 + **Azure Machine Learning designer**
 
   Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-    ![Azure Machine Learning designer example](media/concept-designer/designer-drag-and-drop.gif)
+    :::image type="content" source="media/concept-designer/designer-drag-and-drop.gif" alt-text="Azure Machine Learning designer example.":::
 
 + **Automated machine learning UI**
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface. 
 
-  ![AutoML in the Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg)
+   :::image type="content" source="./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg" alt-text="AutoML in the Azure Machine Learning studio navigation pane." lightbox = "./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg":::
 
 + **Data labeling**
 
@@ -101,7 +101,7 @@ Visit the [studio](https://ml.azure.com), or explore the different authoring opt
 Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
   + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
-  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-deploy-notebook.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
   + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)

@@ -3,7 +3,7 @@ title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.'
 ms.date: 09/28/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, mode-other
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
@@ -16,7 +16,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one o
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 

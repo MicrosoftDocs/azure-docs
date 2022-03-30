@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer module twin JSON schema
+title: Module twin configuration schema
 description: This article provides an overview of the module twin JSON schema for Azure Video Analyzer edge module
 ms.topic: how-to
 ms.date: 11/04/2021

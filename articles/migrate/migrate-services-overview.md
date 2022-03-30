@@ -21,7 +21,7 @@ Azure Migrate provides a centralized hub to assess and migrate on-premises serve
     - **Servers, databases, and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
     - **Databases**: Assess on-premises databases and migrate them to Azure SQL Database or to SQL Managed Instance.
     - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service.
-    - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Windows Virtual Desktop in Azure.
+    - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Azure Virtual Desktop.
     - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively using Azure Data Box products.
 
 ## Integrated tools
@@ -49,6 +49,7 @@ Azure Migrate integrates with several ISV offerings.
 --- | ---
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate servers.
 [Cloudamize](https://www.cloudamize.com/platform) | Assess servers.
+[CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454) | Assess servers.
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers.
 [Device42](https://docs.device42.com/) | Assess servers.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI.

@@ -2,10 +2,10 @@
 title: Create and deploy VM application packages (preview)
 description: Learn how to create and deploy VM Applications using an Azure Compute Gallery.
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/02/2021
+ms.date: 02/03/2022
 ms.reviewer: amjads
 ms.custom: 
 
@@ -99,7 +99,7 @@ If you have more than one VM application to install, you can set the install ord
 
 VM applications require [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
 
-Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
+Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az-sig-gallery-application-create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
 
 ```azurecli-interactive
 az sig gallery-application create \
@@ -110,7 +110,7 @@ az sig gallery-application create \
     --location "East US"
 ```
 
-Create a VM application version using [az sig gallery-application version create](/cli/azure/sig/gallery-application/version#az_sig_gallery_application_version_create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Create a VM application version using [az sig gallery-application version create](/cli/azure/sig/gallery-application/version#az-sig-gallery-application-version-create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Replace the values of the parameters with your own.
 
@@ -140,6 +140,7 @@ $applicationName = myApp
 New-AzGalleryApplication `
   -ResourceGroupName $rgName `
   -GalleryName $galleryName `
+  -Location "East US" `
   -Name $applicationName `
   -SupportedOSType Linux `
   -Description "Backend Linux application for finance."
@@ -166,20 +167,24 @@ New-AzGalleryApplicationVersion `
 To add the application to an existing VM, get the application version and use that to get the VM application version ID. Use the ID to add the application to the VM configuration.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM -ResourceGroupName $rgname -Name myVM
-$vmapp = Get-AzGalleryApplicationVersion `
-   -ResourceGroupName $rgname `
+$vmname = "myVM"
+$vm = Get-AzVM -ResourceGroupName $rgname -Name $vmname
+$appversion = Get-AzGalleryApplicationVersion `
+   -GalleryApplicationName $applicationname `
    -GalleryName $galleryname `
-   -ApplicationName $applicationname `
-   -Version $version
-
-$vm = Add-AzVmGalleryApplication `
-   -VM $vm `
-   -Id $vmapp.Id
-
-Update-AzVm -ResourceGroupName $rgname -VM $vm
+   -Name $version `
+   -ResourceGroupName $rgname
+$packageid = $appversion.Id
+$app = New-AzVmGalleryApplication -PackageReferenceId $packageid
+Add-AzVmGalleryApplication -VM $vmname -GalleryApplication $app
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
+ 
+Verify the application succeeded:
 
+```powershell-interactive
+Get-AzVM -ResourceGroupName $rgname -VMName $vmname -Status
+```
 
 ### [REST](#tab/rest2)
 

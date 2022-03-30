@@ -1,12 +1,10 @@
 ---
 title: CI/CD with Azure Pipelines and Bicep files
 description: In this quickstart, you learn how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use an Azure CLI task to deploy a Bicep file.
-author: mumian
 ms.topic: quickstart
-ms.author: jgao
-ms.date: 11/16/2021
-ms.custom: mode-other
+ms.date: 02/23/2022
 ---
+
 # Quickstart: Integrate Bicep with Azure Pipelines
 
 This quickstart shows you how to integrate Bicep files with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
@@ -57,7 +55,7 @@ variables:
   azureServiceConnection: '<your-connection-name>'
   resourceGroupName: 'exampleRG'
   location: '<your-resource-group-location>'
-  templateFile: './main.bicep'
+  templateFile: 'main.bicep'
 pool:
   vmImage: $(vmImageName)
 

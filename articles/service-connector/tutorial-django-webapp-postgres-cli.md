@@ -4,11 +4,11 @@ description: Create a Python web app with a PostgreSQL database and deploy it to
 ms.devlang: python
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/28/2021
+ms.date: 11/30/2021
 zone_pivot_groups: postgres-server-options
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Tutorial: Using Service Connector (Preview) to build a Django app with Postgres on Azure App Service
 
@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 ::: zone pivot="postgres-single-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for Postgres database. You can also try the PostgresSQL Flexible Server (Preview) by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for Postgres database. You can also try the PostgresSQL Flexible server by selecting the option above. Flexible server provides a simpler deployment mechanism and lower ongoing costs.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -33,14 +33,14 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ::: zone pivot="postgres-flexible-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible Server (Preview)](../postgresql/flexible-server/index.yml) database. If you cannot use PostgreSQL Flexible Server (Preview), then select the Single Server option above. 
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server (Preview)](../postgresql/flexible-server/index.yml) database. If you cannot use PostgreSQL Flexible server, then select the Single Server option above. 
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 > * Set up your initial environment with Python and the Azure CLI
-> * Create an Azure Database for PostgreSQL Flexible Server database
-> * Deploy code to Azure App Service and connect to PostgreSQL Flexible Server
+> * Create an Azure Database for PostgreSQL Flexible server database
+> * Deploy code to Azure App Service and connect to PostgreSQL Flexible server
 > * Update your code and redeploy
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
@@ -114,7 +114,7 @@ cd serviceconnector-webapp-postgresql-django
 
 ::: zone pivot="postgres-flexible-server"
 
-For Flexible Server (Preview), use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible Server.
+For Flexible server (Preview), use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible server.
 
 ```terminal
 git checkout flexible-server
@@ -127,7 +127,7 @@ git checkout flexible-server
 Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
 
 ::: zone pivot="postgres-flexible-server"
-For Flexible Server (Preview), select the branches control that says "master" and select the flexible-server branch instead.
+For Flexible server, select the branches control that says "master" and select the flexible-server branch instead.
 ::: zone-end
 
 Select **Clone**, and then select **Download ZIP**. 
@@ -169,7 +169,7 @@ az extension add --name db-up
 
 If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
 
-Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az_postgres_up) command:
+Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az-postgres-up) command:
 
 ```azurecli
 az postgres up --resource-group ServiceConnector-tutorial-rg --location eastus --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
@@ -196,7 +196,7 @@ When the command completes, it outputs a JSON object that contains different con
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az_account_list_locations) command. For production apps, put your database and your app in the same location.
+> `-l <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
 
 ::: zone-end
 
@@ -222,10 +222,10 @@ When the command completes, it outputs a JSON object that contains different con
     
     If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
     
-    The [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create) command performs the following actions, which take a few minutes:
+    The [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command performs the following actions, which take a few minutes:
     
     - Create a default resource group if there's not a cached name already.
-    - Create a PostgreSQL Flexible Server:
+    - Create a PostgreSQL Flexible server:
         - By default, the command uses a generated name like `server383813186`. You can specify your own name with the `--name` parameter. The name must be unique across all of Azure.
         - The command uses the lowest-cost `Standard_B1ms` pricing tier. Omit the `--sku-name` argument to use the default `Standard_D2s_v3` tier.
         - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `ServiceConnector-tutorial-rg` in the `eastus` region.
@@ -249,7 +249,7 @@ In this section, you create app host in App Service app, connect this app to the
 
 In the terminal, make sure you're in the *djangoapp* repository folder that contains the app code.
 
-Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 az webapp up --resource-group ServiceConnector-tutorial-rg --location eastus --plan ServiceConnector-tutorial-plan --sku B1 --name <app-name>
@@ -276,13 +276,13 @@ This command performs the following actions, which may take a few minutes:
 
 1. In the terminal, make sure you're in the *djangoapp* repository folder that contains the app code.
 
-1. Switch to the sample app's `flexible-server` branch. This branch contains specific configuration needed for PostgreSQL Flexible Server:
+1. Switch to the sample app's `flexible-server` branch. This branch contains specific configuration needed for PostgreSQL Flexible server:
 
     ```cmd
     git checkout flexible-server
     ```
 
-1. Run the following [`az webapp up`](/cli/azure/webapp#az_webapp_up) command to create the App Service host for the app:
+1. Run the following [`az webapp up`](/cli/azure/webapp#az-webapp-up) command to create the App Service host for the app:
 
     ```azurecli
     az webapp up --name <app-name> --sku B1 

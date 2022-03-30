@@ -7,7 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.custom: devx-track-js
+ms.devlang: csharp, java, javascript
+ms.custom: devx-track-csharp, devx-track-java, devx-track-js
 ---
 
 # Find the request unit charge for operations executed in Azure Cosmos DB API for MongoDB

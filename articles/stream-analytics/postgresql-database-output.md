@@ -13,16 +13,16 @@ ms.date: 11/19/2021
 You can use [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) as an output for data that is relational in nature or for applications that depend on the content being hosted in a relational database. Azure Stream Analytics jobs write to an existing table in PostgreSQL Database. The table schema must exactly match the fields and their types in your job's output. 
 
 Azure Database for PostgreSQL powered by the PostgreSQL community edition is available in three deployment options:
-*	Single Server
-*	Flexible Server (Preview)
-*	Hyperscale (Citus)
+*    Single Server
+*    Flexible Server (Preview)
+*    Hyperscale (Citus)
 
-For more information about Azure Database for PostgreSQL please visit the: [What is Azure Database for PostgreSQL documentation.](https://docs.microsoft.com/azure/postgresql/overview/)
+For more information about Azure Database for PostgreSQL please visit the: [What is Azure Database for PostgreSQL documentation.](../postgresql/overview.md)
 
 To learn more about how to create an Azure Database for PostgreSQL server by using the Azure portal please visit: 
-*	[Quick start for Azure Database for PostgreSQL – Single server](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal/)
-*	[Quick start for Azure Database for PostgreSQL – Flexible server](https://docs.microsoft.com/azure/postgresql/flexible-server/quickstart-create-server-portal/)
-*	[Quick start for Azure Database for PostgreSQL – Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal/)
+*    [Quick start for Azure Database for PostgreSQL – Single server](../postgresql/quickstart-create-server-database-portal.md)
+*    [Quick start for Azure Database for PostgreSQL – Flexible server](../postgresql/flexible-server/quickstart-create-server-portal.md)
+*    [Quick start for Azure Database for PostgreSQL – Hyperscale (Citus)](../postgresql/hyperscale/quickstart-create-portal.md)
 
 
 > [!NOTE] 

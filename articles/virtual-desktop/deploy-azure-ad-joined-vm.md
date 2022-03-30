@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 01/24/2022
 ms.author: helohr
 ---
 
@@ -38,7 +38,7 @@ The following known limitations may impact access to your on-premises or Active 
 
 ## Deploy Azure AD-joined VMs
 
-You can deploy Azure AD-joined VMs directly from the Azure portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, select whether to join the VM to Active Directory or Azure Active Directory. Selecting **Azure Active Directory** gives you the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 Enterprise](/mem/intune/fundamentals/windows-virtual-desktop) and [Windows 10 Enterprise multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VMs. Keep in mind that the Azure Active Directory option will join VMs to the same Azure AD tenant as the subscription you're in.
+You can deploy Azure AD-joined VMs directly from the Azure portal when you [create a new host pool](create-host-pools-azure-marketplace.md) or [expand an existing host pool](expand-existing-host-pool.md). To deploy an Azure AD-joined VM, open the **Virtual Machines** tab, then select whether to join the VM to Active Directory or Azure Active Directory. Selecting **Azure Active Directory** gives you the option to enroll VMs with Intune automatically, which lets you easily manage [Windows 10 Enterprise](/mem/intune/fundamentals/windows-virtual-desktop) and [Windows 10 Enterprise multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VMs. Keep in mind that the Azure Active Directory option will only join VMs to the same Azure AD tenant as the subscription you're in.
 
 > [!NOTE]
 > - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
@@ -80,7 +80,11 @@ You can enable [multifactor authentication](set-up-mfa.md) for Azure AD-joined V
 
 ## User profiles
 
-Azure Virtual Desktop currently only supports local profiles for Azure AD-joined VMs.
+You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
+
+## Accessing on-premises resources
+
+While you don't need an Active Directory to deploy or access your Azure AD-joined VMs, an Active Directory and line-of-sight to it are needed to access on-premises resources from those VMs. To learn more about accessing on-premises resources, see [How SSO to on-premises resources works on Azure AD joined devices](../active-directory/devices/azuread-join-sso.md).
 
 ## Next steps
 

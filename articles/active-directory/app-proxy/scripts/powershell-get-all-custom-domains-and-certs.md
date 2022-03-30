@@ -3,7 +3,7 @@ title: PowerShell sample - Azure Active Directory Application Proxy apps using c
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using custom domains and certificate information.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

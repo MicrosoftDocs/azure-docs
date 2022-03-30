@@ -52,7 +52,7 @@ A SAS URI can be generated using one of:
   - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 - SDKs (C#, Python ... )
 
-An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [PowerShell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## Upload an input model
 
@@ -65,7 +65,7 @@ To start converting a model, you need to upload it, using one of the following o
 - [Using a storage SDK (Python, C# ... )](../../../storage/index.yml)
 - [Using the Azure Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)
 
-For an example of how to upload data for conversion refer to Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+For an example of how to upload data for conversion refer to Conversion.ps1 of the [PowerShell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 > [!Note]
 > When uploading an input model take care to avoid long file names and/or folder structures in order to avoid [Windows path length limit](/windows/win32/fileio/maximum-file-path-limitation) issues on the service. 

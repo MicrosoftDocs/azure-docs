@@ -4,10 +4,11 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/01/2021
+ms.date: 11/30/2021
 ---
 
 

@@ -3,7 +3,8 @@ title: Create a PowerShell function from the command line - Azure Functions
 description: Learn how to create a PowerShell function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.devlang: powershell
+ms.custom: devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create a PowerShell function in Azure from the command line
@@ -112,7 +113,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure PowerShell](#tab/azure-powershell)
 

@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
 # Region availability and data residency
@@ -17,7 +18,25 @@ Azure Communication Services is committed to helping our customers meet their pr
 
 ## Data residency
 
-When creating an Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+
+The list of geographies you can choose from includes:
+- Africa
+- Asia Pacific
+- Australia
+- Brazil
+- Canada
+- Europe
+- France
+- Germany
+- India
+- Japan
+- Korea
+- Norway
+- Switzerland
+- United Arab Emirates
+- United Kingdom
+- United States
 
 > [!NOTE]
 > For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
@@ -42,7 +61,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 

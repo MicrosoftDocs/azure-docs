@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: article
 ms.date: 03/31/2021
-ms.reviewer: ""
+ms.reviewer: kendralittle, mathoma
 ROBOTS: NOINDEX
 ---
 
@@ -23,7 +23,7 @@ This feature allows Azure administrators to block the creation or modification o
 
 To block creation or modification of resources through T-SQL and enforce resource management through an Azure Resource Manager template (ARM template) for a given subscription, the subscription level preview features in Azure portal can be used. This is particularly useful when you are using [Azure Policies](../../governance/policy/overview.md) to enforce organizational standards through ARM templates. Since T-SQL does not adhere to the Azure Policies, a block on T-SQL create or modify operations can be applied. The syntax blocked includes CRUD (create, update, delete) statements for databases in Azure SQL, specifically `CREATE DATABASE`, `ALTER DATABASE`, and `DROP DATABASE` statements. 
 
-T-SQL CRUD operations can be blocked via Azure portal, [PowerShell](/powershell/module/az.resources/register-azproviderfeature), or [Azure CLI](/cli/azure/feature#az_feature_register).
+T-SQL CRUD operations can be blocked via Azure portal, [PowerShell](/powershell/module/az.resources/register-azproviderfeature), or [Azure CLI](/cli/azure/feature#az-feature-register).
 
 ## Permissions
 

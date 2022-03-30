@@ -8,9 +8,9 @@ ms.subservice: backup-restore
 ms.custom: mode-other
 ms.devlang: 
 ms.topic: quickstart
-author: misliplavo
+author: MilanMSFT
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 09/13/2021
 ---
 # Quickstart: Restore a database to Azure SQL Managed Instance with SSMS

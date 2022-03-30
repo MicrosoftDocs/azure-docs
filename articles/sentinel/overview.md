@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Sentinel? | Microsoft Docs
-description: Learn about Microsoft Sentinel, a scalable, cloud-native security information event management (SIEM) and security orchestration automated response (SOAR) solution.
+description: Learn about Microsoft Sentinel, a scalable, cloud-native security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
 author: yelevin
 ms.topic: overview
 ms.custom: mvc, ignite-fall-2021
@@ -12,7 +12,7 @@ ms.author: yelevin
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+Microsoft Sentinel is a scalable, cloud-native, **security information and event management (SIEM)** and **security orchestration, automation, and response (SOAR)** solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
 Microsoft Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 

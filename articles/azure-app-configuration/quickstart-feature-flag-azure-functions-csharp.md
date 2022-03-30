@@ -4,6 +4,7 @@ description: In this quickstart, use Azure Functions with feature flags from Azu
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 8/26/2020

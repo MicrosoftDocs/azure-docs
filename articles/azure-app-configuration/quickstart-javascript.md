@@ -2,12 +2,13 @@
 title: Quickstart for using Azure App Configuration with JavaScript apps | Microsoft Docs
 description: In this quickstart, create a Node.js app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: drewbatgit
+author: maud-lv
 ms.service: azure-app-configuration
+ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other
 ms.date: 07/12/2021
-ms.author: drewbat
+ms.author: malev
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a JavaScript app with Azure App Configuration

@@ -1,13 +1,14 @@
 ---
 title: Create a VM from a generalized image in a gallery
 description: Create a VM from a generalized image in a gallery.
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
-ms.author: cynthn 
+ms.author: saraic
+ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -36,7 +37,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 ### [CLI](#tab/cli)
 
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -44,7 +45,7 @@ gallery=myGallery
 az sig image-definition list --resource-group $resourceGroup --gallery-name $gallery --query "[].[name, id]" --output tsv
 ```
 
-Create a VM using [az vm create](/cli/azure/vm#az_vm_create). To use the latest version of the image, set `--image` to the ID of the image definition. 
+Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
 The example below is for creating a Linux VMsecured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example. 
 
@@ -165,7 +166,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
    -DestinationPortRange 3389 `
-   -Access Allow
+   -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `
@@ -251,7 +252,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
           "protocol": "Tcp",
           "sourceAddressPrefix": "*",
           "destinationAddressPrefix": "*",
-          "access": "Allow",
+          "access": "Deny",
           "destinationPortRange": "3389",
           "sourcePortRange": "*",
           "priority": 1000,
@@ -312,7 +313,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }
@@ -363,7 +364,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }

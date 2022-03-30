@@ -1,12 +1,12 @@
 ---
 title: What are Azure AD registered devices?
-description: Learn how Azure AD registered devices provide your users with support for the Bring Your Own Device (BYOD) or mobile device scenarios.
+description: Learn how Azure AD registered devices provide your users with support for bring your own device (BYOD) or mobile device scenarios.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD registered devices
 
-The goal of Azure AD registered devices is to provide your users with support for the bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
+The goal of Azure AD registered devices is to provide your users with support for bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
 
 | Azure AD Registered | Description |
 | --- | --- |
@@ -26,8 +26,8 @@ The goal of Azure AD registered devices is to provide your users with support fo
 |   | Bring your own device |
 |   | Mobile devices |
 | **Device ownership** | User or Organization |
-| **Operating Systems** | Windows 10 and above, iOS, Android, and macOS |
-| **Provisioning** | Windows 10 and above – Settings |
+| **Operating Systems** | Windows 10 or newer, iOS, Android, and macOS |
+| **Provisioning** | Windows 10 or newer – Settings |
 |   | iOS/Android – Company Portal or Microsoft Authenticator app |
 |   | macOS – Company Portal |
 | **Device sign in options** | End-user local credentials |
@@ -44,7 +44,7 @@ The goal of Azure AD registered devices is to provide your users with support fo
 
 ![Azure AD registered devices](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 and above device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
+Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 or newer device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
 Administrators can secure and further control these Azure AD registered devices using Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
 
@@ -60,3 +60,4 @@ Another user wants to access their organizational email on their personal Androi
 
 - [Manage device identities using the Azure portal](device-management-azure-portal.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)
+- [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)

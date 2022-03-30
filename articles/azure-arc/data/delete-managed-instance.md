@@ -30,11 +30,14 @@ Name    Replicas    ServerEndpoint    State
 demo-mi 1/1         10.240.0.4:32023  Ready
 ```
 
-## Delete a Azure Arc-enabled SQL Managed Instance
-To delete a SQL Managed Instance, run the following command:
+## Delete Azure Arc-enabled SQL Managed Instance
+
+To delete a SQL Managed Instance, run the appropriate command for your deployment type. For example:
+
+### [Indirectly connected mode](#tab/indirectly)
 
 ```azurecli
-az sql mi-arc delete -n <NAME_OF_INSTANCE> --k8s-namespace <namespace> --use-k8s
+az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look something like this:
@@ -44,17 +47,34 @@ Output should look something like this:
 Deleted demo-mi from namespace arc
 ```
 
+### [Directly connected mode](#tab/directly)
+
+```azurecli
+az sql mi-arc delete -n <instance_name> -g <resource_group>
+```
+
+Output should look something like this:
+
+```azurecli
+# az sql mi-arc delete -n demo-mi -g my-rg
+Deleted demo-mi from namespace arc
+```
+
+---
+
 ## Reclaim the Kubernetes Persistent Volume Claims (PVCs)
 
-Deleting a SQL Managed Instance does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will out of disk space. To reclaim the PVCs, take the following steps:
+A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a SQL Managed Instance. Deleting a SQL Managed Instance does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will run out of disk space or usage of the same SQL Managed Instance name while creating new instance might cause inconsistencies. To reclaim the PVCs, take the following steps:
 
 ### 1. List the PVCs for the server group you deleted
+
 To list the PVCs, run the following command:
 ```console
 kubectl get pvc
 ```
 
-In the follow example below, notice the PVCs for the SQL Managed Instances you deleted.
+In the example below, notice the PVCs for the SQL Managed Instances you deleted.
+
 ```console
 # kubectl get pvc -n arc
 

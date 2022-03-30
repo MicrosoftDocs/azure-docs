@@ -4,8 +4,8 @@ description: Answers frequently asked questions (FAQs) about using other product
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: anfdocs
 ms.date: 10/11/2021
 ---
 # Integration FAQs for Azure NetApp Files

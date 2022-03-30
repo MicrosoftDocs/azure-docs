@@ -9,18 +9,18 @@ ms.devlang:
 ms.topic: conceptual
 author: kfarlee
 ms.author: kfarlee
-ms.reviewer: mathoma
-ms.date: 05/19/2020
+ms.reviewer: mathoma, kendralittle, nvraparl, wiassaf
+ms.date: 02/18/2022
 ---
 # Accelerated Database Recovery in Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **Accelerated Database Recovery (ADR)** is a SQL Server database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL Server database engine recovery process. 
 
-ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, databases in Azure Synapse Analytics, and SQL Server on Azure VMs starting with SQL Server 2019. 
+ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, databases in Azure Synapse Analytics, and SQL Server on Azure VMs starting with SQL Server 2019. For information on ADR in SQL Server, see [Manage accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-management).
 
 > [!NOTE] 
-> ADR is enabled by default in Azure SQL Database and Azure SQL Managed Instance and disabling ADR for either product is not supported. 
+> ADR is enabled by default in Azure SQL Database and Azure SQL Managed Instance. Disabling ADR in Azure SQL Database and Azure SQL Managed Instance is not supported. 
 
 ## Overview
 
@@ -77,14 +77,14 @@ The ADR recovery process has the same three phases as the current recovery proce
 
 - **Analysis phase**
 
-  The process remains the same as before with the addition of reconstructing sLog and copying log records for non-versioned operations.
+  The process remains the same as before with the addition of reconstructing SLOG and copying log records for non-versioned operations.
   
 - **Redo** phase
 
   Broken into two phases (P)
   - Phase 1
 
-      Redo from sLog (oldest uncommitted transaction up to last checkpoint). Redo is a fast operation as it only needs to process a few records from the sLog.
+      Redo from SLOG (oldest uncommitted transaction up to last checkpoint). Redo is a fast operation as it only needs to process a few records from the SLOG.
 
   - Phase 2
 
@@ -92,7 +92,7 @@ The ADR recovery process has the same three phases as the current recovery proce
 
 - **Undo phase**
 
-   The Undo phase with ADR completes almost instantaneously by using sLog to undo non-versioned operations and Persisted Version Store (PVS) with Logical Revert to perform row level version-based Undo.
+   The Undo phase with ADR completes almost instantaneously by using SLOG to undo non-versioned operations and Persisted Version Store (PVS) with Logical Revert to perform row level version-based Undo.
 
 ## ADR recovery components
 
@@ -110,9 +110,9 @@ The four key components of ADR are:
   - Performing rollback by using PVS for all user transactions, rather than physically scanning the transaction log and undoing changes one at a time.
   - Releasing all locks immediately after transaction abort. Since abort involves simply marking changes in memory, the process is very efficient and therefore locks do not have to be held for a long time.
 
-- **sLog**
+- **SLOG**
 
-  sLog is a secondary in-memory log stream that stores log records for non-versioned operations (such as metadata cache invalidation, lock acquisitions, and so on). The sLog is:
+  SLOG is a secondary in-memory log stream that stores log records for non-versioned operations (such as metadata cache invalidation, lock acquisitions, and so on). The SLOG is:
 
   - Low volume and in-memory
   - Persisted on disk by being serialized during the checkpoint process
@@ -124,10 +124,33 @@ The four key components of ADR are:
 
   The cleaner is the asynchronous process that wakes up periodically and cleans page versions that are not needed.
 
-## Accelerated Database Recovery Patterns
+## Accelerated Database Recovery (ADR) patterns
 
 The following types of workloads benefit most from ADR:
 
-- Workloads with long-running transactions.
-- Workloads that have seen cases where active transactions are causing the transaction log to grow significantly.  
-- Workloads that have experienced long periods of database unavailability due to long running recovery (such as unexpected service restart or manual transaction rollback).
+- ADR is recommended for workloads with long running transactions. 
+- ADR is recommended for workloads that have seen cases where active transactions are causing the transaction log to grow significantly.  
+- ADR is recommended for workloads that have experienced long periods of database unavailability due to long running recovery (such as unexpected service restart or manual transaction rollback).
+
+## Best practices for Accelerated Database Recovery
+
+- Avoid long-running transactions in the database. Though one objective of ADR is to speed up database recovery due to redo long active transactions, long-running transactions can delay version cleanup and increase the size of the PVS.
+
+- Avoid large transactions with data definition changes or DDL operations. ADR uses a SLOG (system log stream) mechanism to track DDL operations used in recovery. The SLOG is only used while the transaction active. SLOG is checkpointed, so avoiding large transactions that use SLOG can help overall performance. These scenarios can cause the SLOG to take up more space:
+
+   - Many DDLs are executed in one transaction. For example, in one transaction, rapidly creating and dropping temp tables. 
+
+   - A table has very large number of partitions/indexes that are modified. For example, a DROP TABLE operation on such table would require a large reservation of SLOG memory, which would delay truncation of the transaction log and delay undo/redo operations. The workaround can be drop the indexes individually and gradually, then drop the table. For more information on the SLOG, see [ADR recovery components](/sql/relational-databases/accelerated-database-recovery-concepts).
+
+- Prevent or reduce unnecessary aborted situations. A high abort rate will put pressure on the PVS cleaner and lower ADR performance. The aborts may come from a high rate of deadlocks, duplicate keys, or other constraint violations.  
+
+    - The `sys.dm_tran_aborted_transactions` DMV shows all aborted transactions on the SQL Server instance. The `nested_abort` column indicates that the transaction committed but there are portions that aborted (savepoints or nested transactions) which can block the PVS cleanup process. For more information, see [sys.dm_tran_aborted_transactions (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-aborted-transactions). 
+    
+    - To activate the PVS cleanup process manually between workloads or during maintenance windows, use `sys.sp_persistent_version_cleanup`. For more information, see [sys.sp_persistent_version_cleanup](/sql/relational-databases/system-stored-procedures/sys-sp-persistent-version-cleanup-transact-sql). 
+
+- If you observe issues either with storage usage, high abort transaction and other factors, see [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshoot).
+
+## Next steps
+
+- [Accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-concepts)
+- [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshoot).

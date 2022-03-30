@@ -3,7 +3,7 @@ title: Users, groups, licensing, and roles in Azure Active Directory
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.author: curtand
 ms.reviewer: krbain
 ms.date: 09/01/2021
@@ -38,9 +38,6 @@ Assigning or removing licenses from users individually can demand time and atten
 In Azure AD, when users join a licensed group, they're automatically assigned the appropriate licenses. When users leave the group, Azure AD removes their license assignments. Without Azure AD groups, you'd have to write a PowerShell script or use Graph API to bulk add or remove user licenses for users joining or leaving the organization.
 
 If there are not enough available licenses, or an issue occurs like service plans that can't be assigned at the same time, you can see status of any licensing issue for the group in the Azure portal.
-
->[!NOTE]
->The group-based licensing feature currently is in public preview. During the preview, the feature is available with any paid Azure Active Directory (Azure AD) license plan or trial.
 
 ## Delegate administrator roles
 

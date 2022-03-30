@@ -47,6 +47,21 @@ Here are some recommendations for using the Delete activity:
 -   [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
 -   [HDFS](connector-hdfs.md)
 
+## Create a Delete activity with UI
+
+To use a Delete activity in a pipeline, complete the following steps:
+
+1. Search for _Delete_ in the pipeline Activities pane, and drag a Delete activity to the pipeline canvas.
+1. Select the new Delete activity on the canvas if it is not already selected, and its  **Source** tab, to edit its details.
+
+   :::image type="content" source="media/delete-activity/delete-activity.png" alt-text="Shows the UI for a Delete activity.":::
+
+1. Select an existing or create a new Dataset specifying the files to be deleted.  If multiple files are selected, optionally enable recursive deletion, which deletes data in any child folders as well.  You can also specify a maximum number of concurrent connections for the operation.
+1. Optionally configure logging by selecting the **Logging settings** tab and selecting an existing or creating a new logging account linked service location to log results of the delete operations performed.
+
+   :::image type="content" source="media/delete-activity/delete-activity-logging-settings.png" alt-text="Shows the &nbsp;Logging settings&nbsp; tab for a Delete activity.":::
+
+
 ## Syntax
 
 ```json

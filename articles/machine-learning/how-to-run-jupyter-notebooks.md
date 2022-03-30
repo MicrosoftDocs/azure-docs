@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 02/28/2022
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
@@ -27,6 +27,7 @@ For information on how to create and manage files, including notebooks, see [Cre
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* Your user identity must have access to your workspace's default storage account. Whether you can read, edit, or create notebooks depends on your [access level](how-to-assign-roles.md) to your workspace. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
 ## Edit a notebook
 
@@ -211,6 +212,9 @@ These actions will reset the notebook state and will reset all variables in the 
 
 Use the kernel dropdown on the right to change to any of the installed kernels.  
 
+## Manage packages
+
+Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently-running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently-running kernel).
 
 ### Status indicators
 
@@ -327,7 +331,12 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 * If your kernel crashed and was restarted, you can run the following command to look at jupyter log and find out more details: `sudo journalctl -u jupyter`. If kernel issues persist, consider using a compute instance with more memory.
 
 * If you run into an expired token issue, sign out of your Azure ML studio, sign back in, and then restart the notebook kernel.
-    
+
+* When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
+
+    * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
+    * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
+
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)

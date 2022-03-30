@@ -2,7 +2,7 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 01/03/2022
 ---
 
 # Add module settings in the Bicep config file
@@ -99,32 +99,12 @@ For a template spec, use:
 module stgModule  'ts/CoreSpecs:storage:v1' = {
 ```
 
-## Credentials for restoring modules
+## Credentials for publishing/restoring modules
 
-To [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, add `cloud` and `credentialPrecedence` elements to the config file.
-
-```json
-{
-    "cloud": {
-      "credentialPrecedence": [
-        "AzureCLI",
-        "AzurePowerShell"
-      ]
-    }
-}
-```
-
-The available credentials are:
-
-* AzureCLI
-* AzurePowerShell
-* Environment
-* ManagedIdentity
-* VisualStudio
-* VisualStudioCode
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, see [Add credential precedence to Bicep config](bicep-config.md#credential-precedence).
 
 ## Next steps
 
-* [Configure your Bicep environment](bicep-config.md)
-* [Add linter settings to Bicep config](bicep-config-linter.md)
-* Learn about [modules](modules.md)
+- [Configure your Bicep environment](bicep-config.md)
+- [Add linter settings to Bicep config](bicep-config-linter.md)
+- Learn about [modules](modules.md)

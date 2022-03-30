@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021
@@ -73,6 +73,8 @@ Memory usage depends on how much is used in your R scripts and the number of par
 - `An external script error occurred: Error: cannot allocate vector of size.`
 
 If you receive one of these errors, you can resolve it by scaling your database to a higher service tier.
+
+If you encounter out of memory errors in Azure SQL Managed Instance, review [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 
 ## SQL Managed Instance pools
 

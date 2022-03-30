@@ -1,17 +1,15 @@
 ---
 title: Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
 description: Learn about the concepts of business continuity with Azure Database for PostgreSQL - Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/30/2021
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
-
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
 
 **Business continuity** in Azure Database for PostgreSQL - Flexible Server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, flexible server will handle the disruptive events happens that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that cannot be handled automatically such as:
 
@@ -19,13 +17,9 @@ ms.date: 11/18/2021
 - Earthquake causes a power outage and temporary disables a data center or an availability zone.
 - Database patching required to fix a bug or security issue.
 
-Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned downtime events. Built on top of the Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide additional fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.  
-
-> [!IMPORTANT]
-> Uptime % service level agreement (SLA) is not offered during the preview. 
+Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned downtime events. Built on top of the Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide additional fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.
 
 The table below illustrates the features that Flexible server offers.
-
 
 | **Feature** | **Description** | **Considerations** |
 | ---------- | ----------- | ------------ |
@@ -35,8 +29,8 @@ The table below illustrates the features that Flexible server offers.
 | **Zone redundant backup** | Flexible server backups are automatically and securely stored in a zone redundant storage within a region. During a zone-level failure where your server is provisioned, and if your server is not configured with zone redundancy, you can still restore your database using the latest restore point in a different zone. For more information, see [Concepts - Backup and Restore](./concepts-backup-restore.md).| Only applicable in regions where multiple zones are available.|
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
 
-
 ## Planned downtime events
+
 Below are some planned maintenance scenarios. These events typically incur up to few minutes of downtime, and without data loss.
 
 | **Scenario** | **Process**|
@@ -46,13 +40,14 @@ Below are some planned maintenance scenarios. These events typically incur up to
 | <b>New software deployment (Azure-initiated) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, check your [portal](https://aka.ms/servicehealthpm). | 
 | <b>Minor version upgrades (Azure-initiated) | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. The database server is automatically restarted with the new minor version. For more information, see [documentation](../concepts-monitoring.md#planned-maintenance-notification). You can also check your [portal](https://aka.ms/servicehealthpm).| 
 
- When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
+When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
 
 ##  Unplanned downtime mitigation
 
 Unplanned downtimes can occur as a result of unforeseen disruptions such as underlying hardware fault, networking issues, and software bugs. If the database server configured with high availability goes down unexpectedly, then the standby replica is activated and the clients can resume their operations. If not configured with high availability (HA), then if the restart attempt fails, a new database server is automatically provisioned. While an unplanned downtime cannot be avoided, flexible server helps mitigating the downtime by automatically performing recovery operations without requiring human intervention. 
    
 ### Unplanned downtime: failure scenarios and service recovery
+
 Below are some unplanned failure scenarios and the recovery process. 
 
 | **Scenario** | **Recovery process** <br> [Servers configured without zone-redundant HA] | **Recovery process** <br> [Servers configured with Zone-redundant HA] |
@@ -63,10 +58,8 @@ Below are some unplanned failure scenarios and the recovery process.
 | <b> Availability zone failure | To recover from a zone-level failure, you can perform point-in-time restore using the backup and choosing a custom restore point with the latest time to restore the latest data. A new flexible server will be deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover. | Flexible server is automatically failed over to the standby server within 60-120s with zero data loss. For more information, see [HA concepts page](./concepts-high-availability.md). | 
 | <b> Region failure | If your server is configured with geo-redundant backup, you can perform geo-restore in the paired region. A new server will be provisioned and recovered to the last available data that was copied to this region. | Same process. |
 
-
 > [!IMPORTANT]
 > Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
-
 
 ## Next steps
 

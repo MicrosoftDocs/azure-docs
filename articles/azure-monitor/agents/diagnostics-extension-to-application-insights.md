@@ -4,7 +4,7 @@ description: Update the Azure Diagnostics public configuration to send data to A
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2016
+ms.date: 01/20/2022
 
 ---
 

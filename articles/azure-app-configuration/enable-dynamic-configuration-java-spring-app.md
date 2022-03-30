@@ -5,6 +5,7 @@ description: Learn how to dynamically update configuration data for Spring Boot 
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
@@ -71,7 +72,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 
     | Key | Value |
     |---|---|
-    | Sentinel | 1 |
+    | sentinel | 1 |
 
     Leave **Label** and **Content Type** empty for now.
 
@@ -102,7 +103,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 
     | Key | Value |
     |---|---|
-    | Sentinel | 2 |
+    | sentinel | 2 |
 
 1. Refresh the browser page to see the new message displayed.
 

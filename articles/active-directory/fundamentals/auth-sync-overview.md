@@ -3,7 +3,7 @@ title: Azure Active Directory authentication and synchronization protocol overvi
 description: Architectural guidance on integrating Azure AD with legacy authentication protocols and sync patterns
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity

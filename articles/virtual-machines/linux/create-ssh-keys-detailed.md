@@ -34,7 +34,10 @@ If you do not wish to use SSH keys, you can set up your Linux VM to use password
 
 To create the keys, a preferred command is `ssh-keygen`, which is available with OpenSSH utilities in the Azure Cloud Shell, a macOS or Linux host, and Windows 10. `ssh-keygen` asks a series of questions and then writes a private key and a matching public key. 
 
-SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
+SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions. An SSH key is created as a resource and stored in Azure for later use.
+
+> [!NOTE]
+> You can also create keys with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
 ### Basic example
 

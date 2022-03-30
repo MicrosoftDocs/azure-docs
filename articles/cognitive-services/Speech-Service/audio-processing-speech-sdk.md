@@ -1,5 +1,5 @@
 ---
-title: Audio processing with Speech SDK - Speech service
+title: Use the Microsoft Audio Stack (MAS) - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -7,48 +7,24 @@ author: hasyashah
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 09/17/2021
+ms.topic: how-to
+ms.date: 01/31/2022
 ms.author: hasshah
+ms.devlang: cpp, csharp, java
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
-# Audio processing with Speech SDK
+# Use the Microsoft Audio Stack (MAS)
 
-The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. The minimum requirements from [Minimum requirements to use Microsoft Audio Stack](audio-processing-overview.md#minimum-requirements-to-use-microsoft-audio-stack) apply.
+The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. See the [Audio processing](audio-processing-overview.md) documentation for an overview.
 
-Key features made available via Speech SDK APIs include:
-* **Realtime microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
-* **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario does not include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
-* **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays (see more information on supported preset geometries at [Microphone array recommendations](speech-sdk-microphone.md#microphone-geometry)).
-* **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.
+In this article, you learn how to use the Microsoft Audio Stack (MAS) with the Speech SDK. 
 
-Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
-
-> [!NOTE]
-> The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available [here](speech-devices-sdk.md), with corresponding sample code available on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK). All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer.
-
-## Reference channel for echo cancellation
-
-Microsoft Audio Stack requires the reference channel (also known as loopback channel) to perform echo cancellation. The source of the reference channel varies by platform:
-* **Windows** - The reference channel is automatically gathered by the Speech SDK if the `SpeakerReferenceChannel::LastChannel` option is provided when creating `AudioProcessingOptions`.
-* **Linux** - ALSA (Advanced Linux Sound Architecture) will need to be configured to provide the reference audio stream as the last channel for the audio input device that will be used. This is in addition to providing the `SpeakerReferenceChannel::LastChannel` option when creating `AudioProcessingOptions`.
-
-## Language and platform support
-
-| Language   | Platform(s)    | Reference docs |
-|------------|----------------|----------------|
-| C++        | Windows, Linux | [C++ docs](/cpp/cognitive-services/speech/) |
-| C#         | Windows, Linux | [C# docs](/dotnet/api/microsoft.cognitiveservices.speech) |
-| Java       | Windows, Linux | [Java docs](/java/api/com.microsoft.cognitiveservices.speech) |
-
-## Sample code
-
-### Using Microsoft Audio Stack with all default options
+## Default options
 
 This sample shows how to use MAS with all default enhancement options on input from the device's default microphone.
 
-#### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -59,7 +35,7 @@ var audioInput = AudioConfig.FromDefaultMicrophoneInput(audioProcessingOptions);
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 
-#### [C++](#tab/cpp)
+### [C++](#tab/cpp)
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -70,7 +46,7 @@ auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -82,14 +58,14 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
-### Using Microsoft Audio Stack with a preset microphone geometry
+## Preset microphone geometry
 
 This sample shows how to use MAS with a predefined microphone geometry on a specified audio input device. In this example:
-* **Enhancement options** - The default enhancements will be applied on the input audio stream.
+* **Enhancement options** - The default enhancements are applied on the input audio stream.
 * **Preset geometry** - The preset geometry represents a linear 2-microphone array.
 * **Audio input device** - The audio input device ID is `hw:0,1`. For more information on how to select an audio input device, see [How to: Select an audio input device with the Speech SDK](how-to-select-audio-input-devices.md).
 
-#### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -100,7 +76,7 @@ var audioInput = AudioConfig.FromMicrophoneInput("hw:0,1", audioProcessingOption
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 
-#### [C++](#tab/cpp)
+### [C++](#tab/cpp)
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -111,7 +87,7 @@ auto audioInput = AudioConfig::FromMicrophoneInput("hw:0,1", audioProcessingOpti
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -123,14 +99,14 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
-### Using Microsoft Audio Stack with custom microphone geometry
+## Custom microphone geometry
 
 This sample shows how to use MAS with a custom microphone geometry on a specified audio input device. In this example:
 * **Enhancement options** - The default enhancements will be applied on the input audio stream.
-* **Custom geometry** - A custom microphone geometry for a 7-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
-* **Audio input** - The audio input is from a file, where the audio within the file is expected to be captured from an audio input device corresponding to the custom geometry specified. 
+* **Custom geometry** - A custom microphone geometry for a 7-microphone array is provided via the microphone coordinates. The units for coordinates are millimeters.
+* **Audio input** - The audio input is from a file, where the audio within the file is expected from an audio input device corresponding to the custom geometry specified. 
 
-#### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -152,7 +128,7 @@ var audioInput = AudioConfig.FromWavFileInput("katiesteve.wav", audioProcessingO
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 
-#### [C++](#tab/cpp)
+### [C++](#tab/cpp)
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -168,7 +144,7 @@ auto audioInput = AudioConfig::FromWavFileInput("katiesteve.wav", audioProcessin
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -189,7 +165,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
-### Using Microsoft Audio Stack with select enhancements
+## Select enhancements
 
 This sample shows how to use MAS with a custom set of enhancements on the input audio. By default, all enhancements are enabled but there are options to disable dereverberation, noise suppression, automatic gain control, and echo cancellation individually by using `AudioProcessingOptions`.
 
@@ -197,7 +173,7 @@ In this example:
 * **Enhancement options** - Echo cancellation and noise suppression will be disabled, while all other enhancements remain enabled.
 * **Audio input device** - The audio input device is the default microphone of the device.
 
-#### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -208,7 +184,7 @@ var audioInput = AudioConfig.FromDefaultMicrophoneInput(audioProcessingOptions);
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 
-#### [C++](#tab/cpp)
+### [C++](#tab/cpp)
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -219,7 +195,7 @@ auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -231,15 +207,15 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
-### Using Microsoft Audio Stack to specify beamforming angles
+## Specify beamforming angles
 
 This sample shows how to use MAS with a custom microphone geometry and beamforming angles on a specified audio input device. In this example:
 * **Enhancement options** - The default enhancements will be applied on the input audio stream.
 * **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
 * **Beamforming angles** - Beamforming angles are specified to optimize for audio originating in that range. The units for angles are degrees. In the sample code below, the start angle is set to 70 degrees and the end angle is set to 110 degrees.
-* **Audio input** - The audio input is from a push stream, where the audio within the stream is expected to be captured from an audio input device corresponding to the custom geometry specified. 
+* **Audio input** - The audio input is from a push stream, where the audio within the stream is expected from an audio input device corresponding to the custom geometry specified. 
 
-#### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -259,7 +235,7 @@ var audioInput = AudioConfig.FromStreamInput(pushStream, audioProcessingOptions)
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 
-#### [C++](#tab/cpp)
+### [C++](#tab/cpp)
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -278,7 +254,7 @@ auto audioInput = AudioConfig::FromStreamInput(pushStream, audioProcessingOption
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -296,3 +272,20 @@ AudioConfig audioInput = AudioConfig.fromStreamInput(pushStream, audioProcessing
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
+
+## Reference channel for echo cancellation
+
+Microsoft Audio Stack requires the reference channel (also known as loopback channel) to perform echo cancellation. The source of the reference channel varies by platform:
+* **Windows** - The reference channel is automatically gathered by the Speech SDK if the `SpeakerReferenceChannel::LastChannel` option is provided when creating `AudioProcessingOptions`.
+* **Linux** - ALSA (Advanced Linux Sound Architecture) must be configured to provide the reference audio stream as the last channel for the audio input device used. ALSA is configured in addition to providing the `SpeakerReferenceChannel::LastChannel` option when creating `AudioProcessingOptions`.
+
+## Language and platform support
+
+| Language   | Platform    | Reference docs |
+|------------|----------------|----------------|
+| C++        | Windows, Linux | [C++ docs](/cpp/cognitive-services/speech/) |
+| C#         | Windows, Linux | [C# docs](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java       | Windows, Linux | [Java docs](/java/api/com.microsoft.cognitiveservices.speech) |
+
+## Next steps
+[Setup development environment](quickstarts/setup-platform.md)

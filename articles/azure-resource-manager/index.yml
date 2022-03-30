@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 06/01/2021
+  ms.date: 12/08/2021
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -119,7 +119,7 @@ conceptualContent:
         url: management/index.yml
         text: See more
     # Card
-    - title: Troubleshooting deployments
+    - title: Troubleshoot deployments
       links:
         - url: troubleshooting/overview.md
           itemType: overview
@@ -127,12 +127,12 @@ conceptualContent:
         - url: troubleshooting/common-deployment-errors.md
           itemType: how-to-guide
           text: Common deployment errors
-        - url: troubleshooting/quickstart-troubleshoot-arm-deployment.md
-          itemType: quickstart
-          text: Troubleshoot ARM template
         - url: troubleshooting/quickstart-troubleshoot-bicep-deployment.md
           itemType: quickstart
           text: Troubleshoot Bicep file
+        - url: troubleshooting/quickstart-troubleshoot-arm-deployment.md
+          itemType: quickstart
+          text: Troubleshoot ARM template JSON
       # footerLink (optional)
       footerLink:
         url: troubleshooting/index.yml

@@ -1,9 +1,9 @@
 ---
 title: Configure Redis clustering - Premium Azure Cache for Redis
 description: Learn how to create and manage Redis clustering for your Premium tier Azure Cache for Redis instances
-author: curib
+author: flang-msft
 
-ms.author: cauribeg
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021

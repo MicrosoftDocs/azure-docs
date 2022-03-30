@@ -3,8 +3,8 @@ title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 ms.topic: conceptual
 ms.date: 05/21/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-
 ms.reviewer: lmolkova
 ---
 
@@ -16,6 +16,9 @@ You need a subscription with [Microsoft Azure](https://azure.com). Sign in with 
 
 > [!NOTE]
 > It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), and hence can be used in .NET Core 2.1 or higher, and .NET Framework 4.7.2 or higher.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 
 ## Getting started
 

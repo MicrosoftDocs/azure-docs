@@ -4,16 +4,15 @@ description: In this tutorial, you learn how to use the Azure Communication Serv
 author: ddematheu
 ms.author: nimag
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample code
 
-You can download the sample app from [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
 ## Prerequisites
 
@@ -120,7 +119,7 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    // To call an ACS communication user, use {communicationUserId: 'ACS_USER_ID'}.
+    // To call an Azure Communication Services communication user, use {communicationUserId: 'ACS_USER_ID'}.
     // To call echobot, use {id: '8:echo123'}.
     call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
@@ -165,4 +164,4 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button.
 
 Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echobot.
-To call an ACS communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.
+To call an Azure Communication Services communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.

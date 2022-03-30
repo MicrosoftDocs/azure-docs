@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: cawrites
+ms.reviewer: mathoma, kendralittle
 ms.date: 11/06/2020
 ---
 # Migration overview: SQL Server to Azure SQL Database
@@ -97,7 +97,7 @@ We recommend the following migration tools:
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | This Azure service helps you discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Data Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb)|This desktop tool from Microsoft provides seamless assessments of SQL Server and single-database migrations to Azure SQL Database (both schema and data). </br></br>The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target databases.|
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-azure-sql.md)|This Azure service can migrate SQL Server databases to Azure SQL Database through the Azure portal or automatically through PowerShell. Database Migration Service requires you to select a preferred Azure virtual network during provisioning to ensure connectivity to your source SQL Server databases. You can migrate single databases or at scale. |
-| | |
+
 
 
 The following table lists alternative migration tools: 
@@ -109,7 +109,7 @@ The following table lists alternative migration tools:
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)|The [bulk copy program (bcp) tool](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the tool to export the data from your source and import the data file into the target SQL database. </br></br> For high-speed bulk copy operations to move data to Azure SQL Database, you can use the [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) to maximize transfer speed by taking advantage of parallel copy tasks.|
 |[Azure Data Factory](../../../data-factory/connector-azure-sql-database.md)|The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory migrates data from source SQL Server databases to Azure SQL Database by using built-in connectors and an [integration runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> Data Factory supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to Azure SQL Database.|
 |[SQL Data Sync](../../database/sql-data-sync-data-sql-server-sql-database.md)|SQL Data Sync is a service built on Azure SQL Database that lets you synchronize selected data bidirectionally across multiple databases, both on-premises and in the cloud.</br>Data Sync is useful in cases where data needs to be kept updated across several databases in Azure SQL Database or SQL Server.|
-| | |
+
 
 ## Compare migration options
 
@@ -121,7 +121,7 @@ The following table compares the migration options that we recommend:
 |---------|---------|---------|
 |[Data Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb) | - Migrate single databases (both schema and data).  </br> - Can accommodate downtime during the data migration process. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migration activity performs data movement between database objects (from source to target), so we recommend that you run it during off-peak times. </br> - Data Migration Assistant reports the status of migration per database object, including the number of rows migrated.  </br> - For large migrations (number of databases or size of database), use Azure Database Migration Service.|
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-azure-sql.md)| - Migrate single databases or at scale. </br> - Can accommodate downtime during the migration process. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-powershell.md). </br> - Time to complete migration depends on database size and the number of objects in the database. </br> - Requires the source database to be set as read-only. |
-| | | |
+
 
 The following table compares the alternative migration options: 
 
@@ -132,7 +132,7 @@ The following table compares the alternative migration options:
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Do full or partial data migrations. </br> - Can accommodate downtime. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | - Requires downtime for exporting data from the source and importing into the target. </br> - The file formats and data types used in the export or import need to be consistent with table schemas. |
 |[Azure Data Factory](../../../data-factory/connector-azure-sql-database.md)| - Migrate and/or transform data from source SQL Server databases. </br> - Merging data from multiple sources of data to Azure SQL Database is typically for business intelligence (BI) workloads.  |  - Requires creating data movement pipelines in Data Factory to move data from source to destination.   </br> - [Cost](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) is an important consideration and is based on factors like pipeline triggers, activity runs, and duration of data movement. |
 |[SQL Data Sync](../../database/sql-data-sync-data-sql-server-sql-database.md)| - Synchronize data between source and target databases.</br> - Suitable to run continuous sync between Azure SQL Database and on-premises SQL Server in a bidirectional flow. | - Azure SQL Database must be the hub database for sync with an on-premises SQL Server database as a member database.</br> - Compared to transactional replication, SQL Data Sync supports bidirectional data sync between on-premises and Azure SQL Database. </br> - Can have a higher performance impact, depending on the workload.|
-| | | |
+
 
 ## Feature interoperability 
 

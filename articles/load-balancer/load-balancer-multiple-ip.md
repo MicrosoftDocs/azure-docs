@@ -183,6 +183,8 @@ In this section, you'll create two virtual machines to host the IIS websites.
 
 In this section, you'll change the private IP address of the existing NIC of each virtual machine to **Static**. Next, you'll add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
 
+For more information on configuring floating IP in the virtual machine configuration, see [Floating IP Guest OS configuration](load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
+
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **myVM1**.

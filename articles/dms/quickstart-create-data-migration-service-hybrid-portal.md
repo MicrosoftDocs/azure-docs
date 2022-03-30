@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019, mode-other
+ms.custom: seo-lt-2019, mode-ui
 ms.topic: quickstart
 ms.date: 03/13/2020
 ---

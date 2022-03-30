@@ -44,7 +44,7 @@ The following links provide additional information you can visit to find out mor
 | [B2B and Office 365 external sharing](../external-identities/o365-external-user.md)| Explains the similarities and differences among sharing resources through B2B, office 365, and SharePoint/OneDrive.|  
 | [Properties on an Azure AD B2B collaboration user](../external-identities/user-properties.md)| Describes the properties and states of the B2B guest user object in Azure Active Directory (Azure AD). The description provides details before and after invitation redemption.|  
 | [B2B user tokens](../external-identities/user-token.md)| Provides examples of the bearer tokens for B2B a B2B guest user.|  
-| [Conditional access for B2B](../external-identities/conditional-access.md)| Describes how conditional access and MFA work for guest users.|  
+| [Conditional access for B2B](../external-identities/authentication-conditional-access.md)| Describes how conditional access and MFA work for guest users.|  
 | **How-to articles**|  |
 | [Use PowerShell to bulk invite Azure AD B2B collaboration users](../external-identities/bulk-invite-powershell.md)| Learn how to use PowerShell to send bulk invitations to external users.|
 | [Enforce multifactor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md)|Use conditional access and MFA policies to enforce tenant, app, or individual guest user authentication levels. |
@@ -110,3 +110,5 @@ There are several mechanisms available for creating and managing the lifecycle o
 [Multi-tenant common considerations](multi-tenant-common-considerations.md)
 
 [Multi-tenant common solutions](multi-tenant-common-solutions.md)
+  
+[Multi-tenant synchronization from Active Directory](../hybrid/plan-connect-topologies.md#multiple-azure-ad-tenants)

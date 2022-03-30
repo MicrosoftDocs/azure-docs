@@ -127,7 +127,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  The following are known limitations of the local cluster running in a container for Mac's: 
  
  * DNS service does not run and is currently not supported within the container. [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
- * Running container-based apps requires running SF on a Linux host. Nested container apps are currently not supported.
+ * Running container-based apps requires running SF on a Linux host. Nested container applications are currently not supported.
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 

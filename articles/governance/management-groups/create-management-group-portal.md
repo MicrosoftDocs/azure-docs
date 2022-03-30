@@ -3,7 +3,7 @@ title: 'Quickstart: Create a management group with portal'
 description: In this quickstart, you use Azure portal to create a management group to organize your resources into a resource hierarchy.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 # Quickstart: Create a management group
 

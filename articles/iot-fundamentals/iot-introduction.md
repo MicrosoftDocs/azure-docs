@@ -72,6 +72,8 @@ For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Ref
 
 ## Next steps
 
+To learn about the different solution models and how you should get started, see [What's the difference between the aPaaS and PaaS solution offerings?](iot-solution-apaas-paas.md).
+
 For some actual business cases and the architecture used, see the [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
 
 For some sample projects that you can try out with an IoT DevKit, see the [IoT DevKit Project Catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 

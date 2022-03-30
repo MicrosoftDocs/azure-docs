@@ -4,15 +4,14 @@ description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 03/26/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,7 +22,6 @@ By using filtering, you can control which objects appear in Azure Active Directo
 
 In some cases however, you're required make some changes to the default configuration. Here are some examples:
 
-* You plan to use the [multi-Azure AD directory topology](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which objects are synchronized to a particular Azure AD directory.
 * You run a pilot for Azure or Microsoft 365 and you only want a subset of users in Azure AD. In the small pilot, it's not important to have a complete Global Address List to demonstrate the functionality.
 * You have many service accounts and other nonpersonal accounts that you don't want in Azure AD.
 * For compliance reasons, you don't delete any user accounts on-premises. You only disable them. But in Azure AD, you only want active accounts to be present.

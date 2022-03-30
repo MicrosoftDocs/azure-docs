@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 11/14/2021
 ---
 
 # Use Jupyter notebooks to hunt for security threats
@@ -71,13 +71,20 @@ While you can run Microsoft Sentinel notebooks in JupyterLab or Jupyter classic,
 |---------|---------|
 |**Microsoft Sentinel permissions**     |   Like other Microsoft Sentinel resources, to access notebooks on Microsoft Sentinel Notebooks blade, a Microsoft Sentinel Reader, Microsoft Sentinel Responder, or Microsoft Sentinel Contributor role is required. <br><br>For more information, see [Permissions in Microsoft Sentinel](roles.md).|
 |**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](../machine-learning/how-to-assign-roles.md) and [Azure built-in roles](../role-based-access-control/built-in-roles.md). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](../role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](../machine-learning/how-to-assign-roles.md#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](../machine-learning/how-to-assign-roles.md#create-custom-role). |
-|     |         |
+
 
 ## Create an Azure ML workspace from Microsoft Sentinel
 
 This procedure describes how to create an Azure ML workspace from Microsoft Sentinel for your Microsoft Sentinel notebooks.
 
 **To create your workspace**:
+
+Select one of the following tabs, depending on whether you'll be using a public or private endpoint.
+
+- We recommend using a *public endpoint* if your Microsoft Sentinel workspace has one, to avoid potential issues in the network communication.
+- If you want to use an Azure ML workspace in a virtual network, use a *private endpoint*.
+
+# [Public endpoint](#tab/public-endpoint)
 
 1. From the Azure portal, go to **Microsoft Sentinel** > **Threat management** > **Notebooks** and then select **Create a new AML workspace**.
 
@@ -93,9 +100,11 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
     |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
     |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
     |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
-    | | |
 
-1. On the **Networking** tab, select whether to connect your workspace using a public endpoint, or using a private endpoint that you configure. If your Microsoft Sentinel workspace has a public endpoint, we recommend using a public endpoint for your Azure ML workspace to avoid potential issues in the network communication. When you're done, select **Review + create**.
+
+1. On the **Networking** tab, select **Public endpoint (all networks)**.
+
+    Define any relevant settings in the **Advanced** or **Tags** tabs, and then select **Review + create**.
 
 1. On the **Review + create** tab, review the information to verify that it's correct, and then select **Create** to start deploying your workspace. For example:
 
@@ -103,11 +112,77 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1. After your deployment is complete, you can go back to the Microsoft Sentinel **Notebooks** and launch notebooks from your new Azure ML workspace.
 
-    If you have multiple notebooks, make sure to select a default AML workspace to use when launching your notebooks. For example:
+# [Private endpoint](#tab/private-endpoint)
 
-    :::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
+The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](../machine-learning/tutorial-create-secure-workspace.md).
+
+1.	Create a VM jump box within a VNet. Since the VNet restricts access from the public internet, the jump box is used as a way to connect to resources behind the VNet.
+
+1.	Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](../bastion/bastion-overview.md) to access the VM.
+
+1. In Microsoft Sentinel, select **Threat management** > **Notebooks** and then select **Create a new AML workspace**.
+
+1. Enter the following details, and then select **Next**.
+
+    |Field|Description|
+    |--|--|
+    |**Subscription**|Select the Azure subscription that you want to use.|
+    |**Resource group**|Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution.|
+    |**Workspace name**|Enter a unique name that identifies your workspace. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.|
+    |**Region**|Select the location closest to your users and the data resources to create your workspace.|
+    |**Storage account**| A storage account is used as the default datastore for the workspace. You may create a new Azure Storage resource or select an existing one in your subscription.|
+    |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
+    |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
+    |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
+
+
+1. On the **Networking** tab, select **Private endpoint**. Make sure to use the same VNet as you have in the VM jump box. For example:
+
+    :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Microsoft Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
+
+1. Define any relevant settings in the **Advanced** or **Tags** tabs, and then select **Review + create**.
+
+1. On the **Review + create** tab, review the information to verify that it's correct, and then select **Create** to start deploying your workspace. For example:
+
+    :::image type="content" source="media/notebooks/machine-learning-create-last-step.png" alt-text="Review + create your Machine Learning workspace from Microsoft Sentinel.":::
+
+    It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
+
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md?tabs=python).
+
+1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md?tabs=ipaddress%2cpublic).
+
+Continue with one of the following sets of steps:
+
+- **If you have one private link only**: You can now access the notebooks via any of the following methods:
+
+    - Clone and launch notebooks from Microsoft Sentinel to Azure Machine Learning
+    - Upload notebooks to Azure Machine Learning manually
+    - Clone the [Microsoft Sentinel notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) on the Azure Machine learning terminal
+
+- **If you have another private link, that uses a different VNET**, do the following:
+
+    1. In the Azure portal, go to the resource group of your Azure Machine Learning workspace, and then search for the **Private DNS zone** resources named **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**.  For example:
+
+        :::image type="content" source="media/notebooks/select-private-dns-zone.png" alt-text="Screenshot of a private DNS zone resource selected." lightbox="media/notebooks/select-private-dns-zone.png":::
+
+    1. For each resource, including both **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**, add a virtual network link.
+
+        Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](../dns/private-dns-getstarted-portal.md).
+
+For more information, see:
+
+- [Network traffic flow when using a secured workspace](../machine-learning/concept-secure-network-traffic-flow.md)
+- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](../machine-learning/how-to-network-security-overview.md)
+
+---
+
+After your deployment is complete, you can go back to the Microsoft Sentinel **Notebooks** and launch notebooks from your new Azure ML workspace.
+
+If you have multiple notebooks, make sure to select a default AML workspace to use when launching your notebooks. For example:
+
+:::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
 
 
 ## Launch a notebook in your Azure ML workspace
@@ -228,7 +303,7 @@ Having Microsoft Sentinel notebooks stored in your Azure ML workspace allows you
     !git clone https://github.com/Azure/Azure-Sentinel-Notebooks.git azure-sentinel-nb
     ```
 
-    A copy of the GitHub repository cotents is created in the **azure-Sentinel-nb** directory on your user folder in your Azure ML workspace.
+    A copy of the GitHub repository contents is created in the **azure-Sentinel-nb** directory on your user folder in your Azure ML workspace.
 
 1. Copy the notebooks you want from this folder to your working directory.
 
@@ -344,6 +419,7 @@ We welcome feedback, suggestions, requests for features, contributed notebooks, 
 
 For more information, see:
 
+- [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
 - [Tutorial: Microsoft Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
 - [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)

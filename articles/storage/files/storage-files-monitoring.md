@@ -66,9 +66,6 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 
 You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy.
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. See [Storage account overview](../common/storage-account-overview.md).
-
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### [Azure portal](#tab/azure-portal)
@@ -77,7 +74,7 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 2. Navigate to your storage account.
 
-3. In the **Monitoring** section, click **Diagnostic settings (preview)**.
+3. In the **Monitoring** section, click **Diagnostic settings**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Diagnostics logs](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
@@ -132,6 +129,8 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
    > [!div class="mx-imgBorder"]   
    > ![Diagnostic settings page log analytics](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
 
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
+
 ### [PowerShell](#tab/azure-powershell)
 
 1. Open a Windows PowerShell command window, and sign in to your Azure subscription by using the `Connect-AzAccount` command. Then, follow the on-screen directions.
@@ -175,7 +174,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log>
 ```
 
 Here's an example:
@@ -189,8 +188,10 @@ For a description of each parameter, see the [Stream Data to Event Hubs via Powe
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log>
 ```
+
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
 Here's an example:
 
@@ -214,7 +215,7 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
@@ -236,10 +237,10 @@ For a description of each parameter, see the [Archive Resource logs via the Azur
 
 If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Here's an example:
@@ -250,11 +251,13 @@ For a description of each parameter, see the [Stream data to Event Hubs via Azur
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true}]'
 ```
+
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
 Here's an example:
 
@@ -329,7 +332,7 @@ Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:0
 
 #### List the account-level metric definition
 
-You can list the metric definition of your storage account or the Azure Files service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) command.
+You can list the metric definition of your storage account or the Azure Files service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
  
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -339,14 +342,14 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Read account-level metric values
 
-You can read the metric values of your storage account or the Azure Files service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
+You can read the metric values of your storage account or the Azure Files service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 #### Reading metric values with dimensions
 
-When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
 
 ```azurecli
 az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetFile' " --aggregation "Total" 
@@ -506,9 +509,6 @@ N/A.
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
-
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 

@@ -8,12 +8,12 @@ ms.author: eur
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04** (until September 2021), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
+        The Speech SDK only supports **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux.svg" width="60px">
+            <img alt="Linux" src="/media/logos/logo_linux.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -26,14 +26,13 @@ ms.author: eur
 > [!IMPORTANT]
 > For C# on Linux ARM64, the .NET Core 3.x (dotnet-sdk-3.x package) is required.
 
-> [!NOTE]
-> To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs), and then follow Debian instructions here.
+To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs). Then follow the Debian instructions here.
 
 ### System requirements
 
-For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
+For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
 
-- The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
+- The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
 - The OpenSSL library (`libssl`)
 - The shared library for ALSA applications (`libasound`)
 

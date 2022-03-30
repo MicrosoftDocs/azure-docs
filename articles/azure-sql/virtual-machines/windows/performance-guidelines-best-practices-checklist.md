@@ -8,11 +8,10 @@ editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: performance
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 03/22/2022
 ms.author: pamela
 ms.custom: contperf-fy21q3
 ms.reviewer: mathoma
@@ -26,6 +25,16 @@ For comprehensive details, see the other articles in this series: [Checklist](pe
 
 Enable [SQL Assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md) and your SQL Server will be evaluated against known best practices and results shown on the [SQL VM management page](manage-sql-vm-portal.md) of the Azure portal.
 
+For video introductions and the latest features on Azure SQL VM optimization and management automation, review this video series from Data Exposed:
+
+- [Azure SQL VM: Caching and Storage Capping (Ep. 1)](/shows/data-exposed/azure-sql-vm-caching-and-storage-capping-ep-1-data-exposed)
+- [Azure SQL VM: Automate Management with the SQL Server IaaS Agent extension (Ep. 2)](/shows/data-exposed/azure-sql-vm-automate-management-with-the-sql-server-iaas-agent-extension-ep-2)
+- [Azure SQL VM: Use Azure Monitor Metrics to Track VM Cache Health (Ep. 3)](/shows/data-exposed/azure-sql-vm-use-azure-monitor-metrics-to-track-vm-cache-health-ep-3)
+- [Azure SQL VM: Get the best price-performance for your SQL Server workloads on Azure VM](/shows/data-exposed/azure-sql-vm-get-the-best-price-performance-for-your-sql-server-workloads-on-azure-vm)
+- [Azure SQL VM: Using PerfInsights to Evaluate Resource Health and Troubleshoot (Ep. 5)](/shows/data-exposed/azure-sql-vm-using-perfinsights-to-evaluate-resource-health-and-troubleshoot-ep-5)
+- [Azure SQL VM: Best Price-Performance with Ebdsv5 Series (Ep.6)](/shows/data-exposed/azure-sql-vm-best-price-performance-with-ebdsv5-series)
+- [Azure SQL VM: Optimally Configure SQL Server on Azure Virtual Machines with SQL Assessment (Ep. 7)](/shows/data-exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment)
+- [Azure SQL VM: New and Improved SQL on Azure VM deployment and management experience (Ep.8) | Data Exposed](/shows/data-exposed/new-and-improved-sql-on-azure-vm-deployment-and-management-experience)
 
 ## Overview
 
@@ -37,11 +46,12 @@ There is typically a trade-off between optimizing for costs and optimizing for p
 
 The following is a quick checklist of VM size best practices for running your SQL Server on Azure VM: 
 
-- Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](../../../virtual-machines/m-series.md), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
+- Use VM sizes with 4 or more vCPUs like the [E4ds_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) or higher.
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
-- The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads. 
-- Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
-- Use the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
+- The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. 
+- The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
+- The M series VMs offer the highest memory-to-vCore ratio in Azure. Consider these VMs for mission critical and data warehouse workloads.
+- Leverage Azure Marketplace images to deploy your SQL Server Virtual Machines as the SQL Server settings and storage options are configured for optimal performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
 - Use the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU recommendation](/sql/dma/dma-sku-recommend-sql-db) tool to find the right VM size for your existing SQL Server workload.
 
@@ -58,8 +68,10 @@ The following is a quick checklist of storage configuration best practices for r
     - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssds).
       - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disks) for the transaction log. 
       - For M-series virtual machine deployments consider [Write Accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Azure ultra disks.
-    - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD (default `D:\`) drive for most SQL Server workloads after choosing the optimal VM size. 
+    - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD (default `D:\`) drive for most SQL Server workloads that are not part of Failover Cluster Instance (FCI) after choosing the optimal VM size. 
       - If the capacity of the local drive is not enough for tempdb, consider sizing up the VM. See [Data file caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies) for more information.
+    - For FCI place tempdb on the shared storage. 
+      - If the FCI workload is heavily dependent on tempdb disk performance, then as an advanced configuration place tempdb on the local ephemeral SSD (default `D:\`) drive which is not part of FCI storage. This configuration will need custom monitoring and action to ensure the local ephemeral SSD (default `D:\`) drive is available all the time as any failures of this drive will not trigger action from FCI.       
 - Stripe multiple Azure data disks using [Storage Spaces](/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to read-only for data file disks.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to none for log file disks.
@@ -94,7 +106,6 @@ The following is a quick checklist of best practices for SQL Server configuratio
 - Enable [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) on all production SQL Server databases [following best practices](/sql/relational-databases/performance/best-practice-with-the-query-store).
 - Enable [automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning) on mission critical application databases.
 - Ensure that all [tempdb best practices](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server) are followed.
-- Place tempdb on the ephemeral D:/ drive.
 - [Use the recommended number of files](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), using multiple tempdb data files starting with one file per core, up to eight files.
 - Schedule SQL Server Agent jobs to run [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql#a-checking-both-the-current-and-another-database), [index reorganize](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#reorganize-an-index), [index rebuild](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#rebuild-an-index), and [update statistics](/sql/t-sql/statements/update-statistics-transact-sql#examples) jobs.
 - Monitor and manage the health and size of the SQL Server [transaction log file](/sql/relational-databases/logs/manage-the-size-of-the-transaction-log-file#Recommendations).
@@ -153,22 +164,52 @@ For your SQL Server availability group or failover cluster instance, consider th
    - Use a unique DNN port in the connection string when connecting to the DNN listener for an availability group. 
 - Use a database mirroring connection string for a basic availability group to bypass the need for a load balancer or DNN. 
 - Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
-
+- If the SQL Server database engine, Always On availability group listener, or failover cluster instance health probe are configured to use a port between 49,152 and 65,536 (the [default dynamic port range for TCP/IP](/windows/client-management/troubleshoot-tcpip-port-exhaust#default-dynamic-port-range-for-tcpip)), add an exclusion for each port. Doing so will prevent other systems from being dynamically assigned the same port. The following example creates an exclusion for port 59999:   
+`netsh int ipv4 add excludedportrange tcp startport=59999 numberofports=1 store=persistent`
 
 To learn more, see the comprehensive [HADR best practices](hadr-cluster-best-practices.md). 
+
+## Security
+
+The checklist in this section covers the [security best practices](security-considerations-best-practices.md) for SQL Server on Azure VMs. 
+
+SQL Server features and capabilities provide a method of security at the data level and is how you achieve [defense-in-depth](https://azure.microsoft.com/resources/videos/defense-in-depth-security-in-azure/) at the infrastructure level for cloud-based and hybrid solutions. In addition, with Azure security measures, it is possible to encrypt your sensitive data, protect virtual machines from viruses and malware, secure network traffic, identify and detect threats, meet compliance requirements, and provides a single method for administration and reporting for any security need in the hybrid cloud.
+
+- Use [Azure Security Center](../../../defender-for-cloud/defender-for-cloud-introduction.md) to evaluate and take action to improve the security posture of your data environment. Capabilities such as [Azure Advanced Threat Protection (ATP)](../../database/threat-detection-overview.md) can be leveraged across your hybrid workloads to improve security evaluation and give the ability to react to risks. Registering your SQL Server VM with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md) surfaces Azure Security Center assessments within the [SQL virtual machine resource](manage-sql-vm-portal.md) of the Azure portal. 
+- Leverage [Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) to discover and mitigate potential database vulnerabilities, as well as detect anomalous activities that could indicate a threat to your SQL Server instance and database layer.
+- [Vulnerability Assessment](../../database/sql-vulnerability-assessment.md) is a part of [Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) that can discover and help remediate potential risks to your SQL Server environment. It provides visibility into your security state, and includes actionable steps to resolve security issues.
+- [Azure Advisor](../../../advisor/advisor-security-recommendations.md) analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.. Leverage Azure Advisor at the virtual machine, resource group, or subscription level to help identify and apply best practices to optimize your Azure deployments. 
+- Use [Azure Disk Encryption](../../../virtual-machines/windows/disk-encryption-windows.md) when your compliance and security needs require you to encrypt the data end-to-end using your encryption keys, including encryption of the ephemeral (locally attached temporary) disk.
+- [Managed Disks are encrypted](../../../virtual-machines/disk-encryption.md) at rest by default using Azure Storage Service Encryption, where the encryption keys are Microsoft-managed keys stored in Azure.
+- For a comparison of the managed disk encryption options review the [managed disk encryption comparison chart](../../../virtual-machines/disk-encryption-overview.md#comparison)
+- Management ports should be closed on your virtual machines - Open remote management ports expose your VM to a high level of risk from internet-based attacks. These attacks attempt to brute force credentials to gain admin access to the machine.
+- Turn on [Just-in-time (JIT) access](../../../defender-for-cloud/just-in-time-access-usage.md) for Azure virtual machines
+- Use [Azure Bastion](../../../bastion/bastion-overview.md) over Remote Desktop Protocol (RDP).
+- Lock down ports and only allow the necessary application traffic using [Azure Firewall](../../../firewall/features.md) which is a managed Firewall as a Service (FaaS) that grants/ denies server access based on the originating IP address.
+- Use [Network Security Groups (NSGs)](../../../virtual-network/network-security-groups-overview.md) to filter network traffic to, and from, Azure resources on Azure Virtual Networks
+- Leverage [Application Security Groups](../../../virtual-network/application-security-groups.md) to group servers together with similar port filtering requirements, with similar functions, such as web servers and database servers.
+- For web and application servers leverage [Azure Distributed Denial of Service (DDoS) protection](../../../ddos-protection/ddos-protection-overview.md). DDoS attacks are designed to overwhelm and exhaust network resources, making apps slow or unresponsive. It is common for DDos attacks to target user interfaces. Azure DDoS protection sanitizes unwanted network traffic, before it impacts service availability
+- Leverage VM extensions to help address anti-malware, desired state, threat detection, prevention, and remediation to address threats at the operating system, machine, and network levels:
+   - [Guest Configuration extension](../../../virtual-machines/extensions/guest-configuration.md) performs audit and configuration operations inside virtual machines.
+   - [Network Watcher Agent virtual machine extension for Windows and Linux](../../../virtual-machines/extensions/network-watcher-windows.md) monitors network performance, diagnostic, and analytics service that allows monitoring of Azure networks. 
+   - [Microsoft Antimalware Extension for Windows](../../../virtual-machines/extensions/iaas-antimalware-windows.md) to help identify and remove viruses, spyware, and other malicious software, with configurable alerts.
+   - [Evaluate 3rd party extensions](../../../virtual-machines/extensions/overview.md) such as Symantec Endpoint Protection for Windows VM (../../../virtual-machines/extensions/symantec)
+- Leverage [Azure Policy](../../../governance/policy/overview.md) to create business rules that can be applied to your environment. Azure Policies evaluate Azure resources by comparing the properties of those resources against rules defined in JSON format.
+- Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints are [different than Azure Policies](../../../governance/blueprints/overview.md#how-its-different-from-azure-policy).
+
+
+
 
 
 ## Next steps
 
-To learn more, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
 
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
 - [Security](security-considerations-best-practices.md)
 - [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
-
-For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 
 Consider enabling [SQL Assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md).
 

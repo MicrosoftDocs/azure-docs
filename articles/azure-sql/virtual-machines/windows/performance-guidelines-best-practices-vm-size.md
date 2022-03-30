@@ -8,12 +8,11 @@ editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: performance
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/25/2021
-ms.author: dpless
+ms.date: 12/10/2021
+ms.author: pamela
 ms.reviewer: pamela
 ---
 # VM size: Performance best practices for SQL Server on Azure VMs
@@ -30,11 +29,12 @@ For comprehensive details, see the other articles in this series: [Checklist](pe
 
 Review the following checklist for a brief overview of the VM size best practices that the rest of the article covers in greater detail: 
 
-- Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](../../../virtual-machines/m-series.md), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
+- Use VM sizes with 4 or more vCPUs like the [E4ds_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) or higher.
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
-- The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads. 
-- Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
-- Leverage the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
+- The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. 
+- The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
+- The M series VMs offer the highest memory-to-vCore ratio in Azure. Consider these VMs for mission critical and data warehouse workloads.
+- Leverage Azure Marketplace images to deploy your SQL Server Virtual Machines as the SQL Server settings and storage options are configured for optimal performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
 - Use the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU recommendation](/sql/dma/dma-sku-recommend-sql-db) tool to find the right VM size for your existing SQL Server workload.
 
@@ -47,45 +47,35 @@ When you are creating a SQL Server on Azure VM, carefully consider the type of w
 If you are creating a new SQL Server VM with a new application built for the cloud, you can easily size your SQL Server VM as your data and usage requirements evolve.
 Start the development environments with the lower-tier D-Series, B-Series, or Av2-series and grow your environment over time. 
 
-Use the SQL Server VM marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput necessary for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. See the [storage](performance-guidelines-best-practices-storage.md) article to learn more. 
+Use the SQL Server VM Azure Marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput required for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. See the [storage](performance-guidelines-best-practices-storage.md) article to learn more. 
 
 The recommended minimum for a production OLTP environment is 4 vCore, 32 GB of memory, and a memory-to-vCore ratio of 8. For new environments, start with 4 vCore machines and scale to 8, 16, 32 vCores or more when your data and compute requirements change. For OLTP throughput, target SQL Server VMs that have 5000 IOPS for every vCore. 
 
-SQL Server data warehouse and mission critical environments will often need to scale beyond the 8 memory-to-vCore ratio. For medium environments, you may want to choose a 16 memory-to-vCore ratio, and a 32 memory-to-vCore ratio for larger data warehouse environments. 
+SQL Server data warehouse and mission critical environments will often need to scale beyond the 8 memory-to-vCore ratio. For medium environments, you may want to choose a 16 memory-to-vCore ratio, and a 32 memory-to-vCore ratio for larger data warehouse environments.
 
-SQL Server data warehouse environments often benefit from the parallel processing of larger machines. For this reason, the M-series and the Mv2-series are strong options for larger data warehouse environments.
+SQL Server data warehouse environments often benefit from the parallel processing of larger machines. For this reason, the M-series and the Mv2-series are good options for larger data warehouse environments.
 
-Use the vCPU and memory configuration from your source machine as a baseline for migrating a current on-premises SQL Server database to SQL Server on Azure VMs. Bring your core license to Azure to take advantage of the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) and save on SQL Server licensing costs.
+Use the vCPU and memory configuration from your source machine as a baseline for migrating a current on-premises SQL Server database to SQL Server on Azure VMs. If you have Software Assurance, take advantage of [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your licenses to Azure and save on SQL Server licensing costs.
 
 ## Memory optimized
 
-The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-memory.md) are a primary target for SQL Server VMs and the recommended choice by Microsoft. The memory optimized virtual machines offer stronger memory-to-CPU ratios and medium-to-large cache options. 
+The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-memory.md) are a primary target for SQL Server VMs and the recommended choice by Microsoft. The memory optimized virtual machines offer higher memory-to-vCore ratios and medium-to-large cache options. 
 
-### M, Mv2, and Mdsv2 series
+### Edsv5-series
+
+The [Edsv5-series](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) is designed for memory-intensive applications and is the VM series that Microsoft recommends for most SQL Server workloads. These VMs have a large local storage SSD capacity, up to 672 GiB of RAM, and the highest local and remote storage throughput currently available in Azure. There is a nearly consistent 8 GiB of memory per vCore across most of these virtual machines, which is ideal for most SQL Server workloads. These VMs offer the best price-performance for SQL Server workloads running on Azure virtual machines.
+
+The largest virtual machine in this group is the [Standard_E104ids_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) that offers 104 vCores and 672 GiBs of memory. This virtual machine is notable because it is [isolated](../../../virtual-machines/isolation.md) which means it is guaranteed to be the only virtual machine running on the host, and therefore is isolated from other customer workloads. This has a memory-to-vCore ratio that is lower than what is recommended for SQL Server, so it should only be used if isolation is required.
+
+The Edsv5-series virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md), and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+### M and Mv2 series
 
 The [M-series](../../../virtual-machines/m-series.md) offers vCore counts and memory for some of the largest SQL Server workloads.  
 
 The [Mv2-series](../../../virtual-machines/mv2-series.md) has the highest vCore counts and memory and is recommended for mission critical and data warehouse workloads. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads with a high memory-to-CPU ratio that is perfect for relational database servers, large caches, and in-memory analytics.
 
-The [Standard_M64ms](../../../virtual-machines/m-series.md) has a 28 memory-to-vCore ratio for example.
-
-[Mdsv2 Medium Memory series](../../..//virtual-machines/msv2-mdsv2-series.md) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering. These machines are well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
-
 Some of the features of the M and Mv2-series attractive for SQL Server performance include [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching) support, [ultra-disk](../../../virtual-machines/disks-enable-ultra-ssd.md) support, and [write acceleration](../../../virtual-machines/how-to-enable-write-accelerator.md).
-
-### Edsv4-series
-
-The [Edsv4-series](../../../virtual-machines/edv4-edsv4-series.md) is designed for memory-intensive applications. These VMs have a large local storage SSD capacity, strong local disk IOPS, up to 504 GiB of RAM. There is a nearly consistent 8 GiB of memory per vCore across most of these virtual machines, which is ideal for standard SQL Server workloads. 
-
-There is a new virtual machine in this group with the [Standard_E80ids_v4](../../../virtual-machines/edv4-edsv4-series.md) that offers 80 vCores, 504 GBs of memory, with a memory-to-vCore ratio of 6. This virtual machine is notable because it is [isolated](../../../virtual-machines/isolation.md) which means it is guaranteed to be the only virtual machine running on the host, and therefore is isolated from other customer workloads. This has a memory-to-vCore ratio that is lower than what is recommended for SQL Server, so it should only be used if isolation is required.
-
-The Edsv4-series virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md), and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
-
-### DSv2-series 11-15
-
-The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) has the same memory and disk configurations as the previous D-series. This series has a consistent memory-to-CPU ratio of 7 across all virtual machines. This is the smallest of the memory-optimized series and is a good low-cost option for entry-level SQL Server workloads.
-
-The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supports [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching), which is strongly recommended for optimal performance.
 
 ## General purpose
 
@@ -93,28 +83,28 @@ The [general purpose virtual machine sizes](../../../virtual-machines/sizes-gene
 
 Because of the smaller memory-to-vCore ratios with the general purpose virtual machines, it is important to carefully monitor memory-based performance counters to ensure SQL Server is able to get the buffer cache memory it needs. See [memory performance baseline](performance-guidelines-best-practices-collect-baseline.md#memory) for more information. 
 
-Since the starting recommendation for production workloads is a memory-to-vCore ratio of 8, the minimum recommended configuration for a general purpose VM running SQL Server is 4 vCPU and 32 GB of memory. 
+Since the starting recommendation for production workloads is a memory-to-vCore ratio of 8, the minimum recommended configuration for a general purpose VM running SQL Server is 4 vCPU and 32 GiB of memory. 
 
-### Ddsv4 series
+### Ddsv5 series
 
-The [Ddsv4-series](../../../virtual-machines/ddv4-ddsv4-series.md) offers a fair combination of vCPU, memory, and temporary disk but with smaller memory-to-vCore support. 
+The [Ddsv5-series](../../../virtual-machines/ddv5-ddsv5-series.md#ddsv5-series) offers a fair combination of vCPU, memory, and temporary disk but with smaller memory-to-vCore support. 
 
-The Ddsv4 VMs include lower latency and higher-speed local storage.
+The Ddsv5 VMs include lower latency and higher-speed local storage.
 
 These machines are ideal for side-by-side SQL and app deployments that require fast access to temp storage and departmental relational databases. There is a standard memory-to-vCore ratio of 4 across all of the virtual machines in this series. 
 
-For this reason, it is recommended to leverage the D8ds_v4 as the starter virtual machine in this series, which has 8 vCores and 32 GBs of memory. The largest machine is the D64ds_v4, which has 64 vCores and 256 GBs of memory.
+For this reason, it is recommended to leverage the D8ds_v5 as the starter virtual machine in this series, which has 8 vCores and 32 GiBs of memory. The largest machine is the D96ds_v5, which has 96 vCores and 256 GiBs of memory.
 
-The [Ddsv4-series](../../../virtual-machines/ddv4-ddsv4-series.md) virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+The [Ddsv5-series](../../../virtual-machines/ddv5-ddsv5-series.md#ddsv5-series) virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
 > [!NOTE]
-> The [Ddsv4-series](../../../virtual-machines/ddv4-ddsv4-series.md) does not have the memory-to-vCore ratio of 8 that is recommended for SQL Server workloads. As such, considering using these virtual machines for smaller application and development workloads only.
+> The [Ddsv5-series](../../../virtual-machines/ddv5-ddsv5-series.md#ddsv5-series) does not have the memory-to-vCore ratio of 8 that is recommended for SQL Server workloads. As such, consider using these virtual machines for small applications and development workloads only.
 
 ### B-series
 
 The [burstable B-series](../../../virtual-machines/sizes-b-series-burstable.md) virtual machine sizes are ideal for workloads that do not need consistent performance such as proof of concept and very small application and development servers. 
 
-Most of the [burstable B-series](../../../virtual-machines/sizes-b-series-burstable.md) virtual machine sizes have a memory-to-vCore ratio of 4. The largest of these machines is the [Standard_B20ms](../../../virtual-machines/sizes-b-series-burstable.md) with 20 vCores and 80 GB of memory.
+Most of the [burstable B-series](../../../virtual-machines/sizes-b-series-burstable.md) virtual machine sizes have a memory-to-vCore ratio of 4. The largest of these machines is the [Standard_B20ms](../../../virtual-machines/sizes-b-series-burstable.md) with 20 vCores and 80 GiB of memory.
 
 This series is unique as the apps have the ability to **burst** during business hours with burstable credits varying based on machine size. 
 
@@ -131,7 +121,7 @@ This series supports [premium storage](../../../virtual-machines/premium-storage
 
 The [Av2-series](../../../virtual-machines/av2-series.md) VMs are best suited for entry-level workloads like development and test, low traffic web servers, small to medium app databases, and proof-of-concepts.
 
-Only the [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 vCores and 16GBs of memory), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 vCores and 32GBs of memory), and the [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 vCores and 64GBs of memory) have a good memory-to-vCore ratio of 8 for these top three virtual machines. 
+Only the [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 vCores and 16GiBs of memory), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 vCores and 32GiBs of memory), and the [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 vCores and 64GiBs of memory) have a good memory-to-vCore ratio of 8 for these top three virtual machines. 
 
 These virtual machines are both good options for smaller development and test SQL Server machines. 
 
@@ -185,7 +175,8 @@ For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requi
 
 ## Next steps
 
-To learn more, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
+
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
 - [Security](security-considerations-best-practices.md)

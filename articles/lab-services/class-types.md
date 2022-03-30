@@ -53,14 +53,6 @@ In an ethical hacking class, students can learn modern techniques for defending 
 
 For detailed information on how to set up this type of lab, see [Set up a lab to teach ethical hacking class](class-type-ethical-hacking.md).
 
-## Ethical hacking with VirtualBox
-
-You can set up a lab for a class that focuses on forensics side of ethical hacking. Penetration testing, a practice used by the ethical hacking community, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker may exploit.
-
-In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Each student gets a Windows Server host virtual machine that has two nested virtual machines – one virtual machine with [SEED Labs](https://seedsecuritylabs.org/) image and another machine with [Kali Linux](https://www.kali.org/) image. The SEED virtual machine is used for exploiting purposes.  The Kali Linux virtual machine provides access to the tools needed to execute forensic tasks.
-
-For detailed information on how to set up this type of lab, see [Set up a lab to teach ethical hacking class](class-type-ethical-hacking-virtualbox.md).
-
 ## MATLAB
 
 [MATLAB](https://www.mathworks.com/products/matlab.html), which stands for Matrix laboratory, is programming platform from [MathWorks](https://www.mathworks.com/).  It combines computational power and visualization making it popular tool in the fields of math, engineering, physics, and chemistry.
@@ -124,4 +116,3 @@ See the following articles:
 - [Set up a lab focused on deep learning in natural language processing using Azure Lab Services](class-type-deep-learning-natural-language-processing.md)
 - [Set up a lab to teach a networking class](class-type-networking-gns3.md)
 - [Set up a lab to teach ethical hacking class with Hyper-V](class-type-ethical-hacking.md)
-- [Set up a lab to teach ethical hacking class with VirtualBox](class-type-ethical-hacking-virtualbox.md)

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 10/11/2021
 ms.author: ryanwi
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
@@ -107,6 +107,8 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50015 | ViralUserLegalAgeConsentRequiredState - The user requires legal age group consent. |
 | AADSTS50017 | CertificateValidationFailed - Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments because of a timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin. |
 | AADSTS50020 | UserUnauthorized - Users are unauthorized to call this endpoint. |
+| AADSTS500212 | NotAllowedByOutboundPolicyTenant - The user's administrator has set an outbound access policy that does not allow access to the resource tenant. |
+| AADSTS500213 | NotAllowedByInboundPolicyTenant - The resource tenant's cross-tenant access policy does not allow this user to access this tenant. |
 | AADSTS50027 | InvalidJwtToken - Invalid JWT token because of the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul> |
 | AADSTS50029 | Invalid URI - domain name contains invalid characters. Contact the tenant admin. |
 | AADSTS50032 | WeakRsaKey - Indicates the erroneous user attempt to use a weak RSA key. |
@@ -120,7 +122,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50053 | This error can result from two different reasons: <br><ul><li>IdsLocked - The account is locked because the user tried to sign in too many times with an incorrect user ID or password. The user is blocked due to repeated sign-in attempts. See [Remediate risks and unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md).</li><li>Or, sign-in was blocked because it came from an IP address with malicious activity.</li></ul> <br>To determine which failure reason caused this error, sign in to the [Azure portal](https://portal.azure.com).  Navigate to your Azure AD tenant and then **Monitoring** -> **Sign-ins**.  Find the failed user sign-in with **Sign-in error code** 50053 and check the **Failure reason**.|
 | AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. The user's password is expired, and therefore their login or session was ended. They will be offered the opportunity to reset it, or may ask an admin to reset it via [Reset a user's password using Azure Active Directory](../fundamentals/active-directory-users-reset-password-azure-portal.md). |
 | AADSTS50056 | Invalid or null password: password does not exist in the directory for this user. The user should be asked to enter their password again. |
-| AADSTS50057 | UserDisabled - The user account is disabled. The user object in Active Directory backing this account has been disabled. An admin can re-enable this account [through Powershell](/powershell/module/activedirectory/enable-adaccount) |
+| AADSTS50057 | UserDisabled - The user account is disabled. The user object in Active Directory backing this account has been disabled. An admin can re-enable this account [through PowerShell](/powershell/module/activedirectory/enable-adaccount) |
 | AADSTS50058 | UserInformationNotProvided - Session information is not sufficient for single-sign-on. This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encountered in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
 | AADSTS50061 | SignoutInvalidRequest - Unable to complete signout. The request was invalid. |
@@ -261,6 +263,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - The principal name format is not valid, or does not meet the expected `name[/host][@realm]` format. The principal name is required, host and realm are optional and may be set to null. |
 | AADSTS90023 | InvalidRequest - The authentication service request is not valid. |
 | AADSTS9002313 | InvalidRequest - Request is malformed or invalid. - The issue here is because there was something wrong with the request to a certain endpoint. The suggestion to this issue is to get a fiddler trace of the error occurring and looking to see if the request is actually properly formatted or not. |
+| AADSTS9002332 | Application '{principalId}'({principalName}) is configured for use by Azure Active Directory users only. Please do not use the /consumers endpoint to serve this request. |
 | AADSTS90024 | RequestBudgetExceededError - A transient error has occurred. Try again. |
 | AADSTS90027 | We are unable to issue tokens from this API version on the MSA tenant. Please contact the application vendor as they need to use version 2.0 of the protocol to support this.|
 | AADSTS90033 | MsodsServiceUnavailable - The Microsoft Online Directory Service (MSODS) is not available. |

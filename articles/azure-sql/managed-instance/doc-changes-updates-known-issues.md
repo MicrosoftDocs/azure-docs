@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 03/17/2022
 ---
 # Known issues with Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -22,8 +22,9 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|||
-|[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
+|[Querying external table fails with 'not supported' error message](#querying-external-table-fails-with-not-supported-error-message)|Jan 2022|Has Workaround||
+|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|Resolved|Feb 2022|
+|[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021||Oct 2021|
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing managed instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
@@ -56,39 +57,28 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
-||||| 
-
-## Resolved
-
-### Restoring manual backup without CHECKSUM might fail
-
-In certain circumstances manual backup of databases that was made on a managed instance without CHECKSUM might fail to be restored. In such cases, retry restoring the backup until you're successful.
-
-**Workaround**: Take manual backups of databases on managed instances with CHECKSUM enabled.
-
-### Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs
-
-In certain circumstances, modifying, disabling, or enabling an existing job can cause the agent to become unresponsive. The issue is automatically mitigated upon detection, resulting in a restart of the agent process.
-
-### Permissions on resource group not applied to SQL Managed Instance
-
-When the SQL Managed Instance Contributor Azure role is applied to a resource group (RG), it's not applied to SQL Managed Instance and has no effect.
-
-**Workaround**: Set up a SQL Managed Instance Contributor role for users at the subscription level.
-
-### SQL Agent jobs can be interrupted by Agent process restart
-
-**(Resolved in March 2020)** SQL Agent creates a new session each time a job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit, which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
-
-### @query parameter not supported in sp_send_db_mail
-
-The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
 ## Has workaround
 
+### Querying external table fails with not supported error message
+Querying external table may fail with generic error message "_Queries over external tables are not supported with the current service tier or performance level of this database. Consider upgrading the service tier or performance level of the database_". The only type of external table supported in Azure SQL Managed Instance are PolyBase external tables (in preview). To allow queries on PolyBase external tables, you need to enable PolyBase on managed instance by running sp_configure command. 
+
+External tables related to [Elastic Query](../database/elastic-query-overview.md) feature of Azure SQL Database are [not supported](../database/features-comparison.md#features-of-sql-database-and-sql-managed-instance) in SQL Managed Instance, but creating and querying them wasn't explicitly blocked. With support for PolyBase external tables, new checks have been introduced, blocking querying of _any_ type of external table in managed instance unless PolyBase is enabled.
+
+If you're using unsupported Elastic Query external tables to query data in Azure SQL Database or Azure Synapse from your managed instance, you should use Linked Server feature instead. To establish Linked Server connection from SQL Managed Instance to SQL Database, please follow instructions from [this article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168). To establish Linked Server connection from SQL Managed Instance to SQL Synapse, check [step-by-step instructions](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/#how-to-use-linked-servers). Since configuring and testing Linked Server connection takes some time, you can use a workaround as a temporary solution to enable querying external tables related to Elastic Query feature:
+
+**Workaround**: Execute the following commands (once per instance) that will enable queries on external tables:
+
+```sql
+sp_configure 'polybase enabled', 1
+go
+reconfigure
+go
+```
+
 ### Changing the connection type does not affect connections through the failover group endpoint
 
-If an instance participates in an [auto-failover group](../database/auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint.
+If an instance participates in an [auto-failover group](../database/auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) doesn't take effect for the connections established through the failover group listener endpoint.
 
 **Workaround**: Drop and recreate auto-failover group after changing the connection type.
 
@@ -118,7 +108,7 @@ END
 
 ### Distributed transactions can be executed after removing managed instance from Server Trust Group
 
-[Server Trust Groups](../managed-instance/server-trust-group-overview.md) are used to establish trust between managed instances that is prerequisite for executing [distributed transactions](../database/elastic-transactions-overview.md). After removing managed instance from Server Trust Group or deleting the group, you still might be able to execute distributed transactions. There is a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](../managed-instance/user-initiated-failover.md) on managed instance.
+[Server Trust Groups](../managed-instance/server-trust-group-overview.md) are used to establish trust between managed instances that is prerequisite for executing [distributed transactions](../database/elastic-transactions-overview.md). After removing managed instance from Server Trust Group or deleting the group, you still might be able to execute distributed transactions. There's a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](../managed-instance/user-initiated-failover.md) on managed instance.
 
 ### Distributed transactions cannot be executed after managed instance scaling operation
 
@@ -126,13 +116,13 @@ SQL Managed Instance scaling operations that include changing service tier or nu
 
 ### Cannot create SQL Managed Instance with the same name as logical server previously deleted
 
-A DNS record of `<name>.database.windows.com` is created when you create a [logical server in Azure](../database/logical-servers.md) for Azure SQL Database, and when you create a SQL Managed Instance. The DNS record must be unique. As such, if you create a logical server for SQL Database and then delete it, there is a threshold period of 7 days before the name is released from the records. In that period, a SQL Managed Instance cannot be created with the same name as the deleted logical server. As a workaround, use a different name for the SQL Managed Instance, or create a support ticket to release the logical server name.  
+A DNS record of `<name>.database.windows.com` is created when you create a [logical server in Azure](../database/logical-servers.md) for Azure SQL Database, and when you create a SQL Managed Instance. The DNS record must be unique. As such, if you create a logical server for SQL Database and then delete it, there's a threshold period of 7 days before the name is released from the records. In that period, a SQL Managed Instance cannot be created with the same name as the deleted logical server. As a workaround, use a different name for the SQL Managed Instance, or create a support ticket to release the logical server name.  
 
 ### Service Principal cannot access Azure AD and AKV
 
 In some circumstances, there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` or `EXECUTE AS LOGIN/USER`. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
 
-**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin page](../database/authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
+**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin page](../database/authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you've encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
 
 ### Limitation of manual failover via portal for failover groups
 
@@ -294,22 +284,6 @@ using (var scope = new TransactionScope())
 
 ## No resolution
 
-### When using SQL Server authentication, usernames with '@' are not supported
-
-Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to login using SQL Server authentication.
-
-### Misleading error message on Azure portal suggesting recreation of the Service Principal
-
-_Active Directory admin_ blade of Azure portal for Azure SQL Managed Instance may be showing the following error message even though Service Principal already exists:
-
-"Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal"
-
-You can neglect this error message if Service Principal for the managed instance already exists, and/or AAD authentication on the managed instance works. 
-
-To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, select _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
-
-If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by following [instructions](../database/authentication-aad-configure.md?tabs=azure-powershell#powershell).
-
 ### Azure AD logins and users are not supported in SSDT
 
 SQL Server Data Tools don't fully support Azure AD logins and users.
@@ -332,6 +306,48 @@ The `tempdb` database is always split into 12 data files, and the file structure
 ### Error logs aren't persisted
 
 Error logs that are available in SQL Managed Instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because SQL Managed Instance was moved several times on several virtual machines.
+
+## Resolved
+
+### When using SQL Server authentication, usernames with '@' are not supported
+
+Usernames that contain the '@' symbol in the middle (e.g. 'abc@xy') are not able to log in using SQL Server authentication.
+
+### Restoring manual backup without CHECKSUM might fail
+
+In certain circumstances manual backup of databases that was made on a managed instance without CHECKSUM might fail to be restored. In such cases, retry restoring the backup until you're successful.
+
+**Workaround**: Take manual backups of databases on managed instances with CHECKSUM enabled.
+
+### Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs
+
+In certain circumstances, modifying, disabling, or enabling an existing job can cause the agent to become unresponsive. The issue is automatically mitigated upon detection, resulting in a restart of the agent process.
+
+### Permissions on resource group not applied to SQL Managed Instance
+
+When the SQL Managed Instance Contributor Azure role is applied to a resource group (RG), it's not applied to SQL Managed Instance and has no effect.
+
+**Workaround**: Set up a SQL Managed Instance Contributor role for users at the subscription level.
+
+### SQL Agent jobs can be interrupted by Agent process restart
+
+**(Resolved in March 2020)** SQL Agent creates a new session each time a job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit, which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
+
+### @query parameter not supported in sp_send_db_mail
+
+The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
+
+### Misleading error message on Azure portal suggesting recreation of the Service Principal
+
+_Active Directory admin_ blade of Azure portal for Azure SQL Managed Instance may be showing the following error message even though Service Principal already exists:
+
+"Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal"
+
+You can neglect this error message if Service Principal for the managed instance already exists, and/or Azure Active Directory authentication on the managed instance works. 
+
+To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, select _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
+
+If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by following [instructions](../database/authentication-aad-configure.md?tabs=azure-powershell#powershell).
 
 ## Contribute to content
 

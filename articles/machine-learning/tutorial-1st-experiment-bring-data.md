@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/29/2021
+ms.date: 12/21/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -169,12 +169,14 @@ To run this script in Azure Machine Learning, you need to make your training dat
     ```python
     # upload-data.py
     from azureml.core import Workspace
+    from azureml.core import Dataset
+    from azureml.data.datapath import DataPath
+    
     ws = Workspace.from_config()
     datastore = ws.get_default_datastore()
-    datastore.upload(src_dir='./data',
-                     target_path='datasets/cifar10',
-                     overwrite=True)
-    
+    Dataset.File.upload_directory(src_dir='data', 
+                                  target=DataPath(datastore, "datasets/cifar10")
+                                 )  
     ```
 
     The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.
@@ -225,8 +227,11 @@ if __name__ == "__main__":
             '--momentum', 0.92],
     )
 
-    # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.3-CPU']
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -271,7 +276,7 @@ This code will print a URL to the experiment in the Azure Machine Learning studi
 
 ### <a name="inspect-log"></a> Inspect the log file
 
-In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. Scroll down through the log file until you see the following output:
+In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `std_log.txt` file. Scroll down through the log file until you see the following output:
 
 ```txt
 Processing 'input'.

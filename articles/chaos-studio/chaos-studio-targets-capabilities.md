@@ -38,13 +38,13 @@ A **capability** enables Chaos Studio to run a particular fault against a resour
 A capability is an extension resource created as a child of a target. For example, if enabling the shutdown fault on a Virtual Machine with a service-direct target ID:
 
 ```
-/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine
+/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine
 ```
 
 The target resource will have a child resource formatted like this:
 
 ```
-/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0
+/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0
 ```
 
 An experiment can only inject faults on onboarded targets with the corresponding capabilities enabled. 
@@ -52,15 +52,15 @@ An experiment can only inject faults on onboarded targets with the corresponding
 ## Listing capability names and parameters
 For reference, a list of capability names, fault URNs, and parameters is available [in our fault library](chaos-studio-fault-library.md), but you can use the HTTP response to creating a capability or do a GET on an existing capability to get this information on demand. For example, doing a GET on a VM shutdown capability:
 
-```bash
-az rest --method get --url "https://management.azure.com/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0?api-version=2021-08-11-preview"
+```azurecli
+az rest --method get --url "https://management.azure.com/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2021-08-11-preview"
 ```
 
 Will return the following JSON:
 
 ```JSON
 {
-  "id": "/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0",
+  "id": "/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0",
   "name": "shutdown-1.0",
   "properties": {
     "description": null,
@@ -83,7 +83,7 @@ Will return the following JSON:
 
 The `properties.urn` property is used to define the fault you want to run in a chaos experiment. To understand the schema for this fault's parameters, you can GET the schema referenced by `properties.parametersSchema`.
 
-```bash
+```azurecli
 az rest --method get --url "https://schema-tc.eastus.chaos-prod.azure.com/targetTypes/Microsoft-VirtualMachine/capabilityTypes/Shutdown-1.0/parametersSchema.json"
 ```
 

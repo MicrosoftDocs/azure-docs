@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 01/25/2022
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -94,7 +93,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Email Quantium solution using the following email template.
 
     ```
-    To: Customerservice.JP@quantiumsolutions.com
+    To: azure.qsjp@quantiumsolutions.com
     Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
@@ -112,7 +111,7 @@ Azure datacenters in Australia have an additional security notification. All the
 
 If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
-- Email：[Customerservice.JP@quantiumsolutions.com](mailto:Customerservice.JP@quantiumsolutions.com)
+- Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
 - Telephone：03-5755-0150 
 
 ### [Korea](#tab/in-korea)

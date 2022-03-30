@@ -1,17 +1,12 @@
 ---
 title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
-
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/17/2021
-
+ms.date: 03/18/2022
 ms.author: justinha
 author: mjsantani
-manager: daveba
-
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
@@ -42,6 +37,9 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
 - [NPS extension](howto-mfa-nps-extension.md)
 
+>[!NOTE]
+>For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
+
 ### Multifactor authentication
 
 When a user responds to an MFA push notification using Microsoft Authenticator, they will be presented with a number. They need to type that number into the app to complete the approval. 
@@ -51,9 +49,6 @@ When a user responds to an MFA push notification using Microsoft Authenticator, 
 ### SSPR
 
 During self-service password reset, Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
-
->[!NOTE]
->Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ### Combined registration
 
@@ -76,7 +71,7 @@ Make sure you run the latest version of the [NPS extension](https://www.microsof
 
 Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to **Approve**/**Deny**. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Microsoft Authenticator app, other software tokens, and so on. 
 
-If the user doesn’t have an OTP method registered, they will continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
+If the user doesn't have an OTP method registered, they will continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
 
 To create the registry key that overrides push notifications:
 
@@ -107,7 +102,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta) |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
 | collection | A collection of users or groups who are enabled to use the authentication method. |
  
 #### MicrosoftAuthenticator includeTarget properties
@@ -131,7 +126,7 @@ You will need to change the **numberMatchingRequiredState** from **default** to 
 Note that the value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you do not want to allow passwordless, use **push**. 
 
 >[!NOTE]
->For passwordless users, enabling number matching has no impact because it's already part of the passwordless experience. 
+>For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
 You might need to patch the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState**. 
 
@@ -183,7 +178,7 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
     "includeTargets": [
         {
             "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a”,
+            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
             "authenticationMode": "any",
             "displayAppInformationRequiredState": "enabled",
             "numberMatchingRequiredState": "enabled"
@@ -244,10 +239,6 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
    ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
 
-
-## Known issues
-
-- Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ## Next steps
 

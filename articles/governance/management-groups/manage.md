@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 08/17/2021
+ms.date: 01/07/2022
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -352,6 +352,23 @@ template and deploy it at [tenant level](../../azure-resource-manager/templates/
         }
     ],
     "outputs": {}
+}
+```
+
+Or, the following Bicep file.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

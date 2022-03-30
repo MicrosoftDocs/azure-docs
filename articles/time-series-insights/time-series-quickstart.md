@@ -11,10 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18, mode-other
 ms.date: 09/30/2020
-# Customer intent: As a data analyst or developer, I want to quickly learn about the Azure Time Series Insights visualization Explorer.
+#Customer intent: As a data analyst or developer, I want to quickly learn about the Azure Time Series Insights visualization Explorer.
 ---
 
 # Quickstart: Explore Azure Time Series Insights Gen1
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 > [!CAUTION]
 > This is a Gen1 article.

@@ -1,13 +1,14 @@
 ---
 title: Specify Marketplace purchase plan information using Azure PowerShell 
 description: Learn how to specify Azure Marketplace purchase plan details when creating images in an Azure Compute Gallery (formerly known as Shared Image Gallery).
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
-ms.author: cynthn
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
  
 ---
@@ -107,7 +108,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourceAddressPrefix * `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
-   -DestinationPortRange 3389 -Access Allow
+   -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `

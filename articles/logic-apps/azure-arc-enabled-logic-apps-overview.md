@@ -6,8 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: overview
 ms.date: 05/25/2021
-
-## Customer intent: As a developer, I want to learn about automated Logic Apps workflows that can run anywhere that Kubernetes can run.
+#Customer intent: As a developer, I want to learn about automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
 # What is Azure Arc-enabled Logic Apps? (Preview)

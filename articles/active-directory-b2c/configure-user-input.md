@@ -56,9 +56,14 @@ The application claims are values that are returned to the application. Update y
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **City**.
-    1. In the **User input type** drop-down, select **DropdownSingleSelect**. Optional: Use the "Move up/down" buttons to arrange the text order on the sign-up page.
     1. In the **Optional** drop-down, select **No**.
+    1. In the **User input type**, select the current user input type, such as **TextBox**, to open a **User input type editor** window pane.
+    1. In the **User input type** drop-down, select **DropdownSingleSelect**. 
+    1. In the **Text** and **Values**, enter the text and value pairs that make up your set of responses for the attribute. The **Text** displays in the web interface for your flow, and the **Values** is stored to Azure AD B2C for selected **Text**. Optional: Use the "Move up/down" buttons to reorder drop-down items.  
+1. Select **Ok**. Optional: Use the "Move up/down" buttons to reorder user attributes in the sign-up page.
 1. Select **Save**. 
+
+    :::image type="content" source="./media/configure-user-input/configure-user-attributes-input-type.png" alt-text="Web page call green API.":::
 
 ### Provide a list of values by using localized collections
 
@@ -430,5 +435,13 @@ After you add the localization element, [edit the content definition with the lo
 
 - Learn more about the [ClaimsSchema](claimsschema.md) element in the IEF reference.
 - Learn how to [use custom attributes in Azure AD B2C](user-flow-custom-attributes.md).
+
+::: zone-end
+
+::: zone pivot="b2c-user-flow"
+## Next steps
+- [Customize user interface in Azure Active Directory B2C](customize-ui.md).
+- [Customize the user interface with HTML templates in Azure Active Directory B2C](customize-ui-with-html.md).
+- [Enable JavaScript](javascript-and-page-layout.md).
 
 ::: zone-end

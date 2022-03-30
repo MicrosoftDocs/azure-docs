@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 07/15/2021
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
 ---
 
@@ -188,6 +188,6 @@ If you want to continue building Delta Lake solution, learn how to create [views
 
 - [What is Delta Lake](../spark/apache-spark-what-is-delta-lake.md)
 - [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
-- [Azure Databricks Delta Lake best practices](/azure/databricks/best-practices-index)
+- [Azure Databricks Delta Lake best practices](/azure/databricks/delta/best-practices)
 - [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
 - [Know issues and limitations](resources-self-help-sql-on-demand.md#delta-lake)

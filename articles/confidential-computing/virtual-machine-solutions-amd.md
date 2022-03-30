@@ -34,7 +34,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 ## Azure CLI commands
 
-You can use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) with your confidential VMs.
+You can use the [Azure CLI](/cli/azure/install-azure-cli) with your confidential VMs.
 
 To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 

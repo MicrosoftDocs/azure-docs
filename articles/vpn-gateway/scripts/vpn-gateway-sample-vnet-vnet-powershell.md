@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 
-# Use Powershell to configure a VNet-to-VNet VPN gateway connection
+# Use PowerShell to configure a VNet-to-VNet VPN gateway connection
 
 This script connects two virtual networks by using the VNet-to-VNet connection type.
 
@@ -35,7 +35,7 @@ This script connects two virtual networks by using the VNet-to-VNet connection t
   $GWIPconfName1 = "gwipconfig1"
   $Connection12 = "VNet1toVNet2"
 
-# Declare variables for VNET 2  
+# Declare variables for VNET 2
   $RG2 = "TestRG2"
   $VNetName2  = "VNet2"
   $FESubName2 = "FrontEnd"

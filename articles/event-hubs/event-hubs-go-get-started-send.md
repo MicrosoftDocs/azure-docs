@@ -3,7 +3,8 @@ title: 'Quickstart: Send and receive events using Go - Azure Event Hubs'
 description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 11/11/2021
-ms.custom: mode-other
+ms.devlang: golang
+ms.custom: mode-api
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -18,7 +19,7 @@ This tutorial describes how to write Go applications to send events to or receiv
 
 To complete this tutorial, you need the following prerequisites:
 
-- Go installed locally. Follow [these instructions](https://golang.org/doc/install) if necessary.
+- Go installed locally. Follow [these instructions](https://go.dev/doc/install) if necessary.
 - An active Azure account. If you don't have an Azure subscription, create a [free account][] before you begin.
 - **Create an Event Hubs namespace and an event hub**. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 

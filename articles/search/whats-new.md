@@ -7,25 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/20/2021
+ms.date: 03/17/2022
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
+Learn what's new in the service. Bookmark this page to keep up to date with service updates. Check out the [**Preview feature list**](search-api-preview.md) for an itemized list of features that are not yet approved for production workloads.
+
+## February 2022
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Index aliases](search-how-to-alias.md) | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias. | Public preview REST APIs (no portal support at this time).|
+
+## December 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview in the portal and preview REST APIs.|
 
 ## November 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Azure Files Indexer (preview)](./search-file-storage-integration.md) | Adds REST API support for creating indexers for [Azure Files](https://azure.microsoft.com/services/storage/files/) | Public preview |
+| [Azure Files indexer (preview)](./search-file-storage-integration.md) | Adds REST API support for creating indexers for [Azure Files](https://azure.microsoft.com/services/storage/files/) | Public preview in the portal and preview REST APIs.|
 
 ## July 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
 | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Adds REST API support for indexer connections made using [managed identities](search-howto-managed-identities-data-sources.md) and Azure Active Directory (Azure AD) authentication. | Public preview |
-| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview ([by request](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#step-1-preview-sign-up)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
+| [Role-based access control for data plane (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on hard-coded API keys on connections. | Public preview ([by request](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#step-1-preview-sign-up)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
 | [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
 
 ## May 2021
@@ -36,7 +48,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |[Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) | The ADLS Gen2 data source used by indexers is now generally available. | Generally available, using REST api-version=2020-06-30 and Azure portal. |
 |[MySQL support (preview)](search-howto-index-mysql.md) | For indexer-based indexing, announcing preview data source support for Azure MySQL. | Public preview, REST api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
 | [More queryLanguages for spell check and semantic results](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | For query requests that invoke spell check or queryType=semantic, you can now set the queryLanguage to a non-English language for [38 languages](/rest/api/searchservice/preview-api/search-documents#queryLanguage). </br></br>[Announcement (techcommunity blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110) | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2), or [Search explorer](search-explorer.md) in Azure portal. </br></br>[Region and tier](semantic-search-overview.md#availability-and-pricing) restrictions apply. |
-| [Double encryption availability](search-security-manage-encryption-keys.md#double-encryption) | For search indexes and objects that are encrypted through customer-managed keys, double encryption (encryption of both static and temporary disks) is now implemented in all supported regions. | In all regions, subject to [service creation dates](search-security-manage-encryption-keys.md#double-encryption). |
+| [More regions for double encryption](search-security-manage-encryption-keys.md#double-encryption) | For search indexes and objects that are encrypted through customer-managed keys, double encryption (encryption of both static and temporary disks) is now implemented in all supported regions. | In all regions, subject to [service creation dates](search-security-manage-encryption-keys.md#double-encryption). |
 
 ## April 2021
 
@@ -50,9 +62,9 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |------------------------------|---------------|---------------|
 | [Semantic search (preview)](semantic-search-overview.md) | A collection of query-related features that significantly improve the relevance of search results through minimal adjustments to a query request. </br></br>[Semantic ranking](semantic-ranking.md) computes relevance scores using the semantic meaning behind words and content. </br></br>[Semantic captions](semantic-how-to-query-request.md) return relevant passages from the document that best summarize the document, with highlights over the most important terms or phrases. </br></br>[Semantic answers](semantic-answers.md) return key passages, extracted from a search document, that are formulated as a direct answer to a query that looks like a question. | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview or [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
 | [Spell check query terms (preview)](speller-how-to-add.md) | Before query terms reach the search engine, you can have them checked for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
-| [SharePoint Online indexer (preview)](search-howto-index-sharepoint-online.md) | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
+| [SharePoint indexer (preview)](search-howto-index-sharepoint-online.md) | This indexer connects you to a SharePoint site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
 | [Normalizers (preview)](search-normalizers.md) | Normalizers provide simple text pre-processing: consistent casing, accent removal, and ASCII folding, without invoking the full text analysis chain.| Public preview, REST only, api-version=2020-06-30-Preview |
-| [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md ) |  A cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. | Generally available. |
+| [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md ) |  A cognitive skill that looks for text from a custom, user-defined list of words and phrases. From this list, the skill labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. | Generally available. |
 
 ## February 2021
 
@@ -74,7 +86,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |-------|---------|-------------|
 | November | [Customer-managed key encryption (extended)](search-security-manage-encryption-keys.md) | Extends customer-managed encryption over the full range of assets created and managed by a search service. Generally available.|
 | September | [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md) | Adds a workspace, navigation, intellisense, and templates for creating indexes, indexers, data sources, and skillsets. This feature is currently in public preview.| 
-| September | [Managed service identity (indexers)](search-howto-managed-identities-data-sources.md) | Generally available.  |
+| September | [System managed service identity (indexers)](search-howto-managed-identities-data-sources.md) | Generally available.  |
 | September | [Outbound requests using a private link](search-indexer-howto-access-private.md) | Generally available.  |
 | September | [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
 | September | [Management REST API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | Adds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. |
@@ -97,11 +109,11 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 | May | [featuresMode relevance score expansion (preview)](index-similarity-and-scoring.md#featuresMode-param)  |   |
 |March  | [Native blob soft delete (preview)](search-howto-index-changed-deleted-blobs.md) | Deletes search documents if the source blob is soft-deleted in blob storage. |
 |March  | [Management REST API (2020-03-13)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
-|February | [PII Detection skill (preview)](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
-|February | [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
+|February | [PII Detection skill](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
+|February | [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
 |January | [Customer-managed key encryption](search-security-manage-encryption-keys.md) | Generally available  |
-|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
-|January | [Create a private endpoint (preview)](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
+|January | [IP rules for in-bound firewall support](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
+|January | [Create a private endpoint](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
 
 ## 2019 Archive
 
@@ -109,17 +121,17 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |-------|---------|-------------|
 |December | [Create Demo App](search-create-app-portal.md) | A wizard that generates a downloadable HTML file with query (read-only) access to an index, intended as a validation and testing tool rather than a short cut to a full client app.|
 |November | [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) | Caches skillset processing for future reuse.  |
-|November | [Document Extraction skill (preview)](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
+|November | [Document Extraction skill](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
 |November | [Text Translation skill](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text. Generally available.|
 |November | [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Template for visualizing content in knowledge store |
-|November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md) and [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
+|November | [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) and [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
 |July | [Azure Government Cloud support](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Generally available.|
 
 <a name="new-service-name"></a>
 
 ## New service name
 
-Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in core operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
+Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
 
 ## Service updates
 

@@ -12,71 +12,65 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Job classification concepts
+# Job classification
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router uses a process called **classification** when a Job is submitted. This article describes the different ways a Job can be classified and the effect this process has on it.
+When you submit a job to Job Router, you can either specify the queue, priority, and worker selectors manually or you can specify a classification policy to drive these values.
 
-## Job classification overview
-
-Job Router uses two primary methods for classifying a Job; static or dynamic. If the calling application has knowledge about the Queue ID, Priority, or Worker Selectors, the Job can be submitted without a Classification Policy; known as **static classification**. If you prefer to let Job Router decide the Queue ID, a Classification Policy can be used to modify the Job's properties; known as **dynamic classification**.
-
-When you submit a Job using the Job Router SDK, the process of classification will result in an event being sent to your Azure Communication Services Event Grid subscription. The events generated as part of the classification lifecycle give insights into what actions the Job Router is taking. For example, a successful classification will produce a **RouterJobClassified** and a failure will produce a **RouterJobClassificationFailed**.
+If you choose to use a classification policy, you will receive a [JobClassified Event][job_classified_event] or a [JobClassificationFailed Event][job_classify_failed_event] with the result.  Once the job has been successfully classified, it will be automatically queued.  If the classification process fails, you'll need to intervene to fix it.
 
 The process of classifying a Job involves optionally setting the following properties:
 
-- Queue ID
 - Priority
 - Worker Selectors
+- Queue ID
 
-## Static classification
+## Prioritization rule
 
-Submitting a Job with a pre-defined Queue ID, Priority, and Worker selectors allows you to get started quickly. Job Router will not modify these properties after submitting the Job unless you update it by specifying a Classification Policy prior to assignment to a Worker. You can update the Classification Policy property of a Job after submission, which will trigger the dynamic classification process.
+The priority of a Job can be resolved during classification using one of many rule engines.
 
-> [!NOTE]
-> You have the option of overriding the result of dynamic classification by using the Job Router SDK to update the Job properties manually. For example, you could specify a static Queue ID initially, then update the Job with a Classification Policy ID to be dynamically classified, then override the Queue ID.
+See the [Rule concepts](router-rule-concepts.md) page for more information.
 
-## Dynamic classification
+## Worker selectors
 
-Specifying a classification policy when you submit a Job will allow Job Router to dynamically assign the Queue ID, Priority, and potentially modify the Worker selectors. This type of classification is beneficial since the calling application does not need to have knowledge of any Job properties including the Queue ID at runtime.
+Each job carries a collection of worker selectors, that are evaluated against the worker labels.  These are conditions that need to be true of a worker to be a match.
+You can use the classification policy to attach these conditions to a job.  You can do this by specifying one or more selector attachments.
 
-### Queue selectors
+For more information see the section [below](#using-label-selector-attachments).
 
-A Classification Policy can reference a `QueueSelector`, which is used by the classification process to determine which Queue ID will be chosen for a particular Job. The following `QueueSelector` types exist in Job Router and are applicable options to the Queue selection process during classification:
+## Queue selectors
 
-**QueueLabelSelector -** When you create a Job Router Queue you can specify labels to help the Queue selection process during Job classification. This type of selector uses a collection of `LabelSelectorAttachment` types to offer the most flexibility in selecting the Queue during the classification process. Use this selector to allow the Job classification process to select the Queue ID based on its labels. For more information See the section [below](#using-labels-and-selectors-in-classification).
+You can also specify a collection of label selector attachments to select the Queue based on its labels.
 
-**QueueIdSelector -** This selector will enable the use of one of many rule engines to determine the Queue ID of the Job based on the result of the rule. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
+For more information see the section [below](#using-label-selector-attachments).
 
-### Worker selectors
+## Using label selector attachments
 
-A Worker selector in a Classification Policy contains a collection of `LabelSelectorAttachment` types, which is used by the classification process to attach Worker selectors to a Job based on its labels. For more information See the section [below](#using-labels-and-selectors-in-classification).
+The following label selector attachments are available:
 
-### Prioritization rule
+**Static label selector -** Always attaches the given `LabelSelector` to the Job.
 
-The priority of a Job can be resolved during classification using one of many rule engines; similar to how the `QueueIdSelector` works. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
+**Conditional label selector -** Evaluates a condition defined by a [rule](router-rule-concepts.md).  If it resolves to `true`, then the specified collection of selectors will be attached to the Job.
 
-## Using labels and selectors in classification
-
-Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make various decisions about routing. When using a `LabelSelectorAttachment` on a `QueueSelector`, it acts like a filter. When used within the context of `WorkerSelectors`, it attaches selectors to the initial set that was created with the job. The following `LabelSelectorAttachment` types can be used:
-
-**Static label selector -** Always attaches the given `LabelSelector`.
-
-**Conditional label selector -** Will evaluate a condition defined by a rule.  If it resolves to `true`, then the specified collection of selectors will be applied.
-
-**Passthrough label selector -** Uses a key and `LabelOperator` to check for the existence of the key. This selector can be used in the `QueueLabelSelector` to match a Queue based on the set of labels. When used with the `WorkerSelectors`, the Job's key/value pair are attached to the `WorkerSelectors` of the Job.
+**Passthrough label selector -** Attaches a selector to the Job with the specified key and operator but gets the value from the Job label of the same key.
 
 **Rule label selector -** Sources a collection of selectors from one of many rule engines. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
-**Weighted allocation label selector -** A collection of `WeightedAllocation` objects that each specify a percentage based weighting and a collection of selector to apply based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Contoso" and 70% of Jobs to go to "Fabrikam".
+**Weighted allocation label selector -** Enables you to specify a percentage-based weighting and a collection of selectors to attach based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Vendor 1" and 70% of Jobs to go to "Vendor 2".
 
 ## Reclassifying a job
+
 Once a Job has been classified, it can be reclassified in the following ways:
 
 1. You can update the Job labels, which will cause the Job Router to evaluate the new labels with the previous Classification Policy.
 2. You can update the Classification Policy ID of a Job, which will cause Job Router to process the existing Job against the new policy.
-3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified 
+3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified.
 
 > [!NOTE]
 > The Job Router SDK includes an `UpdateJobLabels` method which simply updates the labels without causing the Job Router to execute the reclassification process.
+
+<!-- LINKS -->
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
+[job_classify_failed_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassificationfailed

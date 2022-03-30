@@ -10,7 +10,7 @@ ms.date: 10/22/2021
 
 ms.author: justinha
 author: inbarckMS 
-manager: daveba
+manager: karenhoran
 ms.reviewer: inbarc
 
 ms.collection: M365-identity-device-management

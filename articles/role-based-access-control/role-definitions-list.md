@@ -3,13 +3,14 @@ title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/15/2021
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # List Azure role definitions
@@ -163,7 +164,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### List all roles
 
-To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list
@@ -226,7 +227,7 @@ az role definition list --custom-role-only false --output json --query '[].{role
 
 ### List a role definition
 
-To list details of a role, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list --name {roleName}

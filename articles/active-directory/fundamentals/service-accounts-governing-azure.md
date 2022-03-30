@@ -3,7 +3,7 @@ title: Governing Azure Active Directory service accounts
 description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 There are three types of service accounts in Azure Active Directory (Azure AD): [managed identities](service-accounts-managed-identities.md), [service principals](service-accounts-principal.md), and user accounts employed as service accounts. As you create these service accounts for automated use, they're granted permissions to access resources in Azure and Azure AD. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Azure AD service accounts means that you manage their creation, permissions, and lifecycle to ensure security and continuity.
 
 > [!IMPORTANT] 
-> We do not recommend using user accounts as service accounts as they are inherently less secure. This includes on-premises service accounts that are synced to Azure AD, as they are  not converted to service principals. Instead, we recommend the use of managed identities or service principals. Note that at this time the use of conditional access policies is not possible with service principals, but the functionality is coming.
+> We do not recommend using user accounts as service accounts as they are inherently less secure. This includes on-premises service accounts that are synced to Azure AD, as they are  not converted to service principals. Instead, we recommend the use of managed identities or service principals. Note that at this time the use of conditional access policies with service principals is called Conditional Access for workload identities and it's in public preview.
 
 
 ## Plan your service account

@@ -4,12 +4,11 @@ description: Learn how to configure geo-replication for an SQL database using th
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
-ms.devlang: 
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 08/20/2021
 ---
 # Tutorial: Configure active geo-replication and failover (Azure SQL Database)
@@ -18,7 +17,7 @@ ms.date: 08/20/2021
 
 This article shows you how to configure [active geo-replication for Azure SQL Database](active-geo-replication-overview.md#active-geo-replication-terminology-and-capabilities) using the [Azure portal](https://portal.azure.com) or Azure CLI and to initiate failover.
 
-For best practices using auto-failover groups, see [Best practices for Azure SQL Database](auto-failover-group-overview.md#best-practices-for-sql-database) and [Best practices for Azure SQL Managed Instance](auto-failover-group-overview.md#best-practices-for-sql-managed-instance). 
+For best practices using auto-failover groups, see [Auto-failover groups with Azure SQL Database](auto-failover-group-sql-db.md) and [Auto-failover groups with Azure SQL Managed Instance](../managed-instance/auto-failover-group-sql-mi.md). 
 
 
 
@@ -62,7 +61,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-cli-create-geo-replica.png" alt-text="Configure geo-replication":::
 
-3. Select or create the server for the secondary database, and configure the **Compute + storage** options if necessary. You can select any region for your secondary server, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
+3. Select or create the server for the secondary database, and configure the **Compute + storage** options if necessary. You can select any region for your secondary server, but we recommend the [paired region](../../availability-zones/cross-region-replication-azure.md).
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-portal-create-and-configure-replica.png" alt-text="{alt-text}":::
 
@@ -92,9 +91,9 @@ Select the database you want to set up for geo-replication. You'll need the foll
 > [!NOTE]
 > The secondary database must have the same service tier as the primary.
 
-You can select any region for your secondary server, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
+You can select any region for your secondary server, but we recommend the [paired region](../../availability-zones/cross-region-replication-azure.md).
 
-Run the [az sql db replica create](/cli/azure/sql/db/replica#az_sql_db_replica_create) command.
+Run the [az sql db replica create](/cli/azure/sql/db/replica#az-sql-db-replica-create) command.
 
 ```azurecli
 az sql db replica create --resource-group ContosoHotel --server contosoeast --name guestlist --partner-server contosowest --family Gen5 --capacity 2 --secondary-type Geo
@@ -104,7 +103,7 @@ Optionally, you can add a secondary database to an elastic pool. To create the s
 
 The secondary database is created and the deployment process begins.
 
-When the deployment is complete, you can check the status of the secondary database by running the [az sql db replica list-links](/cli/azure/sql/db/replica#az_sql_db_replica_list-links) command:
+When the deployment is complete, you can check the status of the secondary database by running the [az sql db replica list-links](/cli/azure/sql/db/replica#az-sql-db-replica-list-links) command:
     
 ```azurecli
 az sql db replica list-links --name guestlist --resource-group ContosoHotel --server contosowest
@@ -127,7 +126,7 @@ The secondary database can be switched to become the primary.
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the [az sql db replica set-primary](/cli/azure/sql/db/replica#az_sql_db_replica_set-primary) command.
+Run the [az sql db replica set-primary](/cli/azure/sql/db/replica#az-sql-db-replica-set-primary) command.
 
 ```azurecli
 az sql db replica set-primary --name guestlist --resource-group ContosoHotel --server contosowest
@@ -157,7 +156,7 @@ This operation permanently stops the replication to the secondary database, and 
  
 # [Azure CLI](#tab/azure-cli)
 
-Run the [az sql db replica delete-link](/cli/azure/sql/db/replica#az_sql_db_replica_delete-link) command.
+Run the [az sql db replica delete-link](/cli/azure/sql/db/replica#az-sql-db-replica-delete-link) command.
 
 ```azurecli
 az sql db replica delete-link --name guestlist --resource-group ContosoHotel --server contosoeast --partner-server contosowest

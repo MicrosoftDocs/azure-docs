@@ -3,11 +3,10 @@ title: Tutorial to transfer data to Azure Files with Azure Import/Export | Micro
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: tutorial
-ms.date: 10/06/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
 # Tutorial: Transfer data to Azure Files with Azure Import/Export
@@ -39,13 +38,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 - Download the current release of the Azure Import/Export version 2 tool, for files, on the Windows system:
   1. [Download WAImportExport version 2](https://aka.ms/waiev2). The current version is 2.2.0.300.
   1. Unzip to the default folder `WaImportExportV2`. For example, `C:\WaImportExportV2`.
-- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-    - The account must be valid, should have balance, and must have return shipping capabilities.
-    - Generate a tracking number for the export job.
-    - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-    - If you don't have a carrier account, go to:
-        - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-        - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+- [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
 
 
 ## Step 1: Prepare the drives
@@ -81,9 +74,6 @@ Do the following steps to prepare the drives.
            "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
 
-<!--ARCHIVED ARTICLE -Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
-
-
 4. Modify the *driveset.csv* file in the root folder where the tool is. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
 
     This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
@@ -116,6 +106,9 @@ Do the following steps to prepare the drives.
     .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
+    > [!NOTE]
+    > If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the WAImportExport tool will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
+
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
@@ -125,66 +118,14 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 ## Step 2: Create an import job
 
-### [Portal](#tab/azure-portal)
+### [Portal (Preview)](#tab/azure-portal-preview)
 
-Do the following steps to create an import job in the Azure portal.
-1. Log on to https://portal.azure.com/.
-2. Search for **import/export jobs**.
+[!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
 
-    ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+### [Portal (Classic)](#tab/azure-portal-classic)
 
-3. Select **+ New**.
+[!INCLUDE [storage-import-export-classic-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
 
-    ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
-
-4. In **Basics**:
-
-   1. Select a subscription.
-   1. Select a resource group, or select **Create new** and create a new one.
-   1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-       * The name may contain only lowercase letters, numbers, and hyphens.
-       * The name must start with a letter, and may not contain spaces.
-   1. Select **Import into Azure**.
-
-    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
-
-   Select **Next: Job details >** to proceed.
-
-5. In **Job details**:
-
-   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives).
-   1. Select the destination Azure region for the order.
-   1. Select the storage account for the import.
-
-      The dropoff location is automatically populated based on the region of the storage account selected.
-
-   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
-
-
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
-
-   Select **Next: Shipping >** to proceed.
-
-6. In **Shipping**:
-
-    1. Select the carrier from the drop-down list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information about the carrier you plan to use.
-    1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete.
-    1. Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
-
-        > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
-
-    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
-
-   Select **Review + create** to proceed.
-
-7. In the order summary:
-
-   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
-   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
-   1. Select **Create**.
-
-        ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -194,37 +135,37 @@ Use the following steps to create an import job in the Azure CLI.
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az-extension-add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli
     az group create --name myierg --location "West US"
     ```
 
-1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command:
 
     ```azurecli
     az storage account create -resource-group myierg -name myssdocsstorage --https-only
     ```
 
-1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az-import-export-location-list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Use the [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) command to get locations for your region:
+1. Use the [az import-export location show](/cli/azure/import-export/location#az-import-export-location-show) command to get locations for your region:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an import job:
+1. Run the following [az import-export create](/cli/azure/import-export#az-import-export-create) command to create an import job:
 
     ```azurecli
     az import-export create \
@@ -249,16 +190,16 @@ Use the following steps to create an import job in the Azure CLI.
     ```
 
    > [!TIP]
-   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 
-1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
+1. Use the [az import-export list](/cli/azure/import-export#az-import-export-list) command to see all the jobs for the myierg resource group:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az-import-export-update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -349,7 +290,7 @@ Install-Module -Name Az.ImportExport
    ```
 
    > [!TIP]
-   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 1. Use the [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet to see all the jobs for the myierg resource group:
 
@@ -375,7 +316,7 @@ Install-Module -Name Az.ImportExport
 
 ## Step 5: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Check your copy logs for failures. For more information, see [Review copy logs](storage-import-export-tool-reviewing-job-status-v1.md). Delete the on-premises data only after you verify that upload was successful.
+[!INCLUDE [storage-import-export-verify-data-copy](../../includes/storage-import-export-verify-data-copy.md)]
 
 > [!NOTE]
 > In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).

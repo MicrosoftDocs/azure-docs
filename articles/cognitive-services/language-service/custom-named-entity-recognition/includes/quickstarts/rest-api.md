@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/24/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -15,51 +15,45 @@ ms.custom: ignite-fall-2021
 
 ## Create a new Azure resource and Azure Blob Storage account
 
-Before you can use custom NER, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataset that will be used to building your model.
+Before you can use custom NER, you’ll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You’ll also need an Azure storage account, where you can upload your dataset that will be used to building your model.
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See [project creation article](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
     | Name | Any name |
     | Performance | Standard |
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
-
-1. [Download the example data](https://go.microsoft.com/fwlink/?linkid=2175226) for this quickstart from GitHub.
-
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
-
-The provided sample dataset contains 20 loan agreements, each agreement is two parties a Lender and a Borrower. You can use the provided sample tags file to extract relevant information for both parties, an agreement date, a loan amount, and an interest rate.
+[!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
 ### Get your resource keys endpoint
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
-* From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
+* From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
 :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../../../media/azure-portal-resource-credentials.png":::
 
 ## Create a custom NER project
 
-Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used.
 
 > [!NOTE]
 > The project name is case sensitive for all operations.
@@ -94,7 +88,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom NER",
         "modelType": "Extraction",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",
@@ -206,13 +200,13 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 |`modelLabel  `    | Your Model name.   | MyModel |
 |`runValidation`     | Boolean value to run validation on the test set.   | True |
 
-Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
+Once you send your API request, you’ll receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
+`JOB-ID` is used to identify your request, since this operation is asynchronous. You’ll use this URL in the next step to get the training status. 
 
 ## Get Training Status
 
@@ -238,7 +232,7 @@ Use the following header to authenticate your request.
 
 ### Response Body
 
-Once you send the request, you will get the following response. 
+Once you send the request, you’ll get the following response. 
 
 ```json
 {
@@ -295,16 +289,16 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
+Use the following JSON in your request. Use the name of the model you want to deploy.  
 
 ```json
 {
-{
-  "trainedModelLabel": "MyModel"
+  "trainedModelLabel": "MyModel",
+  "deploymentName": "prod"
 }
 ```
 
-Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
+Once you send your API request, you’ll receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
@@ -393,7 +387,7 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |"tasks"|[]| List of tasks we want to perform.|
 |--|customEntityRecognitionTasks|Task identifer for task we want to perform. |
 |parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. The project name is case sensitive.|
+|project-name| "MyProject"| Your project name. The project name is case-sensitive.|
 |deployment-name| "MyDeploymentName"| Your deployment name|
 
 #### Response
@@ -500,7 +494,7 @@ When you no longer need your project, you can delete it with the following **DEL
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Headers
 

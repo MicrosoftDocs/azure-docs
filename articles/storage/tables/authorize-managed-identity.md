@@ -11,6 +11,7 @@ ms.date: 10/11/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

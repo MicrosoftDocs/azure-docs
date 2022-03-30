@@ -6,8 +6,9 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
+ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -16,7 +17,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging is handled by a static class in Speech SDK’s native library. You can turn on logging for any Speech SDK recognizer or synthesizer instance. All instances in the same process write log entries to the same log file.
 
 > [!NOTE]
-> Logging is available since Speech SDK version 1.4.0 in all supported Speech SDK programming languages, with the exception of JavaScript.
+> Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript.
 
 ## Sample
 

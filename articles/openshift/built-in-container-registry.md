@@ -9,7 +9,7 @@ ms.date: 10/15/2020
 ---
 # Configure built-in container registry for Azure Red Hat OpenShift 4
 
-Azure Red Hat OpenShift provides an integrated container image registry called [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.6/registry/architecture-component-imageregistry.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
+Azure Red Hat OpenShift provides an integrated container image registry called [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.5/registry/architecture-component-imageregistry.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
 
 In this article, you'll configure the built-in container image registry for an Azure Red Hat OpenShift (ARO) 4 cluster. You'll learn how to:
 
@@ -42,7 +42,7 @@ Now that you've set up the authentication methods to the ARO cluster, let's enab
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
    
    :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.

@@ -6,7 +6,6 @@ documentationcenter: na
 author: KumudD
 # Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -76,8 +75,8 @@ Virtual networks and subnets span all availability zones in a region. You don't 
 
 ## Pricing
 
-There is no charge for using Azure VNet, it is free of cost. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products. To learn more, see [VNet pricing](https://azure.microsoft.com/pricing/details/virtual-network/) and the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+There is no charge for using Azure VNet; it is free of cost. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products. To learn more, see [VNet pricing](https://azure.microsoft.com/pricing/details/virtual-network/) and the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Next steps
- - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md) .
+ - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md).
  - To get started using a virtual network, create one, deploy a few VMs to it, and communicate between the VMs. To learn how, see the [Create a virtual network](quick-create-portal.md) quickstart.

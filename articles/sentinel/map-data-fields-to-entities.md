@@ -30,9 +30,9 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
+1. Select a scheduled query rule and select **Edit** from the details pane. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
-1. Click the **Set rule logic** tab. 
+1. Select the **Set rule logic** tab. 
 
 1. In the **Alert enrichment (Preview)** section, expand **Entity mapping**.
 
@@ -53,6 +53,13 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     If you change your mind, or if you made a mistake, you can remove an entity mapping by clicking the trash can icon next to the entity drop-down list.
 
 1. When you have finished mapping entities, click the **Review and create** tab. Once the rule validation is successful, click **Save**.
+
+> [!NOTE]
+> - **Each mapped entity can identify *up to ten entities***.  
+>   - If an alert contains more than ten items that correspond to a single entity mapping, only the first ten will be recognized as entities and be able to be analyzed as such.
+>   - This limitation applies to actual mappings, not to entity types. So if you have three different mapped entities for IP addresses (say, source, destination, and gateway), each of those mappings can accommodate ten entities.
+> - **The size limit for an entire alert is *64 KB***.
+>   - Alerts that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the alert size reaches 64 KB, and any remaining entities are dropped from the alert.
 
 ## Notes on the new version
 

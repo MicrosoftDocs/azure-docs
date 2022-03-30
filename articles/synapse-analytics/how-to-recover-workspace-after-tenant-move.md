@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service:  synapse-analytics 
 ms.topic: how-to
 # ms.subservice: spark
-ms.date: 11/23/2021
+ms.date: 03/30/2022
 author:  phanir
 ms.author: phanir
 ms.reviewer: wiassaf

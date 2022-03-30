@@ -21,7 +21,7 @@ Use the Image Analysis client library to analyze an image for tags, text descrip
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The latest version of [Go](https://golang.org/dl/)
+* The latest version of [Go](https://go.dev/dl/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -44,7 +44,7 @@ Your workspace will contain three folders:
 * **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
 > [!TIP]
-> To learn more about the structure of a Go workspace, see the [Go language documentation](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
+> To learn more about the structure of a Go workspace, see the [Go language documentation](https://go.dev/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
 
 ### Install the client library for Go
 
@@ -79,8 +79,7 @@ Also, declare a context at the root of your script. You'll need this object to e
 
 Next, you'll begin adding code to carry out different Computer Vision operations.
 
-> [!div class="nextstepaction"]
-> [I set up the variables](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=image-analysis-go-sdk)
+
 
 ## Object model
 
@@ -108,8 +107,6 @@ Create a `main` function and add the following code to it to instantiate a clien
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_client)]
 
-> [!div class="nextstepaction"]
-> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client&product=computer-vision&page=image-analysis-go-sdk)
 
 ## Analyze an image
 
@@ -202,8 +199,7 @@ The following function prints information about the type of image&mdash;whether 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_type)]
 
-> [!div class="nextstepaction"]
-> [I analyzed an image](?success=analyze-image#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image&product=computer-vision&page=image-analysis-go-sdk)
+
 
 
 ## Run the application
@@ -214,8 +210,7 @@ Run the application from your application directory with the `go run` command.
 go run sample-app.go
 ```
 
-> [!div class="nextstepaction"]
-> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application&product=computer-vision&page=image-analysis-go-sdk)
+
 
 ## Clean up resources
 
@@ -224,8 +219,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources&product=computer-vision&page=image-analysis-go-sdk)
+
 
 ## Next steps
 

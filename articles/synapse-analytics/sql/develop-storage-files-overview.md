@@ -1,14 +1,13 @@
 ---
 title: Access files on storage in serverless SQL pool
 description: Describes querying storage files using serverless SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 # Access external storage using serverless SQL pool in Azure Synapse Analytics
 
@@ -56,7 +55,7 @@ Any user can access Azure storage that allows anonymous access (additional setup
 ---
 
 > [!NOTE]
-> This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATASOURCE described in the next section.
+> This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATA_SOURCE described in the next section.
 
 ## Query data sources using OPENROWSET
 
@@ -65,7 +64,7 @@ OPENROWSET enables user to query the files placed on some external data source:
 ```sql
 SELECT * FROM
  OPENROWSET(BULK 'file/path/*.parquet',
- DATASOURCE = MyAzureInvoices,
+ DATA_SOURCE = MyAzureInvoices,
  FORMAT= 'parquet') as rows
 ```
 

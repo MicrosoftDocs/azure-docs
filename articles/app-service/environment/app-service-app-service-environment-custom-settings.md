@@ -13,9 +13,9 @@ ms.custom: mvc, seodec18
 # Custom configuration settings for App Service Environments
 
 ## Overview
-Because App Service Environments (ASEs) are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
+Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
-If you do not have an App Service Environment, see [How to Create an ASEv3](./creation.md).
+If you do not have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
 You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
 
@@ -68,14 +68,14 @@ The App Service Environment operates as a black box system where you cannot see 
     }
 ],
 ```
-Setting InternalEncryption to true encrypts internal network traffic in your ASE between the front ends and workers, encrypts the pagefile and also encrypts the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your ASE will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your ASE. We highly recommend that you do not enable InternalEncryption on an ASE while it is in use. If you need to enable InternalEncryption on an actively used ASE, we highly recommend that you divert traffic to a backup environment until the operation completes. 
+Setting InternalEncryption to true encrypts internal network traffic in your App Service Environment between the front ends and workers, encrypts the pagefile and also encrypts the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your App Service Environment will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your App Service Environment. We highly recommend that you do not enable InternalEncryption on an App Service Environment while it is in use. If you need to enable InternalEncryption on an actively used App Service Environment, we highly recommend that you divert traffic to a backup environment until the operation completes. 
 
 
 ## Disable TLS 1.0 and TLS 1.1
 
 If you want to manage TLS settings on an app by app basis, then you can use the guidance provided with the [Enforce TLS settings](../configure-ssl-bindings.md#enforce-tls-versions) documentation. 
 
-If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the apps in an ASE, you can set the following **clusterSettings** entry:
+If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the apps in an App Service Environment, you can set the following **clusterSettings** entry:
 
 ```json
 "clusterSettings": [
@@ -89,7 +89,7 @@ If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the ap
 The name of the setting says 1.0 but when configured, it disables both TLS 1.0 and TLS 1.1.
 
 ## Change TLS cipher suite order
-The ASE supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multi-tenant service. Changing the cipher suites affects an entire App Service deployment making this only possible in the single-tenant ASE. There are two cipher suites required for an ASE; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. If you wish to operate your ASE with the strongest and most minimal set of cipher suites, then use just the two required ciphers. To configure your ASE to use just the ciphers that it requires, modify the **clusterSettings** as shown below. 
+The App Service Environment supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multi-tenant service. Changing the cipher suites affects an entire App Service deployment making this only possible in the single-tenant App Service Environment. There are two cipher suites required for an App Service Environment; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. If you wish to operate your App Service Environment with the strongest and most minimal set of cipher suites, then use just the two required ciphers. To configure your App Service Environment to use just the ciphers that it requires, modify the **clusterSettings** as shown below. 
 
 ```json
 "clusterSettings": [

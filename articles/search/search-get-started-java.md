@@ -9,7 +9,7 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/04/2021
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Java
@@ -34,7 +34,7 @@ We used the following software and services to build and test this quickstart:
 
 + [Java 11 SDK](/java/azure/jdk/)
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 

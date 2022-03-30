@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/03/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -77,11 +77,11 @@ If you choose to allow access service IPs, refer to the IP ranges in the JSON fi
 
 You can also use the following FQDNs to allow access to the required services from your servers:
 
-| Service    | Domain  names to be accessed                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Domain  names to be accessed                             |   Ports        |
+| -------------- | ------------------------------------------------------------ | ---------------------- |
+| Azure  Backup  | `*.backup.windowsazure.com`                             |  443       |
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |   443    |
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |    As applicable      |
 
 #### Use an HTTP proxy server to route traffic
 

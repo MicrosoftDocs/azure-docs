@@ -9,7 +9,6 @@ editor:
 tags: azure-resource-manager
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -31,7 +30,7 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) is Azure's native and powerful way to manage your [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code).
 
-This article shows how you to enable [NSG Flow Logs](./network-watcher-nsg-flow-logging-overview.md) programmatically using an Azure Resource Manager template and Azure PowerShell. We start by providing an overview of the properties of the NSG Flow Log object, followed by a few sample templates. Then we the deploy template using a local PowerShell instance.
+This article shows you how to enable [NSG Flow Logs](./network-watcher-nsg-flow-logging-overview.md) programmatically using an Azure Resource Manager template and Azure PowerShell. We start by providing an overview of the properties of the NSG Flow Log object, followed by a few sample templates. Then we the deploy template using a local PowerShell instance.
 
 
 ## NSG Flow Logs object
@@ -169,7 +168,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## Verifying your deployment
 
-There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
+There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## Deleting your resource
 Azure enables resource deletion through the "Complete" deployment mode. To delete a Flow Logs resource, specify a deployment in Complete mode without including the resource you wish to delete. Read more about the [Complete deployment mode](../azure-resource-manager/templates/deployment-modes.md#complete-mode)

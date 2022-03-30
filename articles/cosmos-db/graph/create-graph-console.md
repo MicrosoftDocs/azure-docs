@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 # Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -27,7 +27,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](grap
 
 :::image type="content" source="./media/create-graph-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
 
-The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/downloads.html).
+The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/download.html).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ You need to have an Azure subscription to create an Azure Cosmos DB account for 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-You also need to install the [Gremlin Console](https://tinkerpop.apache.org/downloads.html). The **recommended version is v3.4.3** or earlier. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html), minimum requires Java 8 but it is preferable to use Java 11).
+You also need to install the [Gremlin Console](https://tinkerpop.apache.org/download.html). The **recommended version is v3.4.3** or earlier. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html), minimum requires Java 8 but it is preferable to use Java 11).
 
 ## Create a database account
 

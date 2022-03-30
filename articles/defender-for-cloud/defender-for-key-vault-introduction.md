@@ -3,6 +3,8 @@ title: Microsoft Defender for Key Vault - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Key Vault.
 ms.date: 11/09/2021
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.custom: references_regions
 ---
 
@@ -19,9 +21,9 @@ Enable **Microsoft Defender for Key Vault** for Azure-native, advanced threat pr
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Key Vault** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for Key Vault** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## What are the benefits of Microsoft Defender for Key Vault?
 

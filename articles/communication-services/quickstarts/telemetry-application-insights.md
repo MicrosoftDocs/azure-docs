@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: data
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Using Azure OpenTelemetry Exporter to export SDK telemetry data to Application Insights

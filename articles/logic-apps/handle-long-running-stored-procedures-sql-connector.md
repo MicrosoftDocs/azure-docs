@@ -1,10 +1,10 @@
 ---
 title: Handle long-running stored procedures in the SQL connector
-description: How to handle stored procedures that time out when using the SQL connector in Azure Logic Apps
+description: Handle stored procedures that time out when using the SQL connector in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: camerost, logicappspm
-ms.topic: conceptual
+ms.reviewer: camerost, azla
+ms.topic: how-to
 ms.date: 10/27/2020
 ---
 

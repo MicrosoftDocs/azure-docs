@@ -4,27 +4,26 @@ description: Step-by-step instructions for configuring managed identities for Az
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
-# Configure managed identities for Azure resources on a virtual machine scale set (VMSS) using the Azure portal
+# Configure managed identities for Azure resources on a virtual machine scale set (virtual machine scale set) using the Azure portal
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, using PowerShell, you learn how to perform the following managed identities for Azure resources operations on a virtual machine scale set:
+In this article, using the Azure portal, you learn how to perform the following managed identities for Azure resources operations on a virtual machine scale set:
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.

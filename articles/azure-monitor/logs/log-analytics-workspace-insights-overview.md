@@ -51,7 +51,7 @@ Or
 The data is organized in tabs, and the time range on top (defaults to 24 hours) applies to all tabs. Some charts and tables use a different time range, as indicated in their titles.
 
 
-### Overview tab
+## Overview tab
 
 On the **Overview** tab you can see:
 
@@ -68,9 +68,9 @@ On the **Overview** tab you can see:
     - Ingestion anomalies - a list of identified spikes and dips in ingestion to these tables
 
 
-### Usage tab
+## Usage tab
 
-#### Usage dashboard
+### Usage dashboard
 
 This tab provides information on the workspace's usage. 
 The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 most ingested tables in the selected time range (same tables displayed in the Overview page). You can choose which tables to display through the Workspace Tables dropdown. 
@@ -91,7 +91,7 @@ The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 m
     The chart below it shows separately the latency of the agent (the time it took the agent to send the log to the workspace) and that of the pipeline (the time it took the service to process the data and push it to the workspace).
     :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png" alt-text="Screenshot of the workspace usage ingestion latency sub-tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png":::
 
-#### Additional usage queries
+### Additional usage queries
 
 The Additional queries sub-tab exposes queries that run across all workspace tables (instead of relying on the usage metadata, refreshed hourly). Since their queries are much more extensive and less efficient, they are not run automatically. However, they can surface interesting information about which resources send most logs to the workspace, and perhaps affect billing.
 
@@ -103,13 +103,13 @@ In our demo workspace, you can clearly see that 3 Kuberbetes clusters send far m
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage-additional-query-run.png" alt-text="Screenshot of the workspace usage additional queries tab with results of an additional query" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage-additional-query-run.png":::
 
 
-### Health tab
+## Health tab
 
 This tab shows the workspace health state and when it was last reported, as well as operational [errors and warnings](../logs/monitor-workspace.md) (retrieved from the _LogOperation table). You can find more details on the listed issues as well as mitigation steps in [here](../logs/monitor-workspace.md#categories).
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-health.png" alt-text="Screenshot of the workspace health tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-health.png":::
 
-### Agents tab
+## Agents tab
 
 This tab provides information on the agents sending logs to this workspace.
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-agents.png" alt-text="Screenshot of the workspae agents tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-agents.png":::
@@ -119,7 +119,7 @@ This tab provides information on the agents sending logs to this workspace.
 * Agents activity - this grid shows information on either all agents, healthy or unhealthy agents. Here too "Healthy" only indicated the agent send a heartbeat during the last hour. To understand its state better, review the trend shown in the grid - it shows how many heartbeats this agent sent over time. The true health state can only be inferred if you know how the monitored resource operates, for example - If a computer is intentionally shut down at particular times, you can expect the agent's heartbeats to appear intermittenly, in a matching pattern.
 
 
-### Query audit tab
+## Query audit tab
 
 Query auditing creates logs about the execution of queries on the workspace. If enabled, this data is greatly beneficial to understanding and improving queries performance, efficiency and load. To enable query auditing on your workspace or learn more about it, see [Audit queries in Azure Monitor Logs](../logs/query-audit.md).
 
@@ -132,19 +132,19 @@ This tab shows:
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-query-audit-performance.png" alt-text="Screenshot of the query audit tab, performance sub-tab]" lightbox="media/log-analytics-workspace-insights-overview/workspace-query-audit-performance.png":::
 
-#### Slow and inefficient queries 
+### Slow and inefficient queries 
 This tab shows two grids to help you identify slow and inefficient queries you may want to re-think. These queries should not be used in dashboards or alerts, since they will create unneeded chronic load on your workspace.
 * Most resource-intensive queries - the 10 most CPU-demanding queries, along with the volume of data processed (KB), the time range and text of each query.
 * Slowest queries - the 10 slowest queries, along with the time range and text of each query.
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png" alt-text="Screenshot of the query audit tab, slow queries sub-tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png":::
 
-#### Query users 
+### Query users 
 This tab shows users activity against this workspace:
 * Queries by user - how many queries each user ran in the selected time range
 * Throttled users - users that ran queries that were throttled (due to over-querying the workspace)
 
-### Change log tab
+## Change log tab
 
 This tab shows configuration changes made on the workspace during the last 90 days (regardless of the time range selected), and who performed them.
 It is intended to help you monitor who changes important workspace settings, such as data capping or workspace license.

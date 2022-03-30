@@ -6,6 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
+ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections
@@ -115,6 +116,9 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUI
 
 > [!Note]
 > Confirm that the value passed to `--ssl-ca` matches the file path for the certificate you saved.
+>If you are connecting to the Azure Database for MySQL- Flexible with SSL and are using an option to perform full verification (sslmode=VERTIFY_IDENTITY) with certificate subject name, use \<servername\>.mysql.database.azure.com in your connection string.
+
+
 
 If you try to connect to your server with unencrypted connections, you will see error stating connections using insecure transport are prohibited similar to one below:
 

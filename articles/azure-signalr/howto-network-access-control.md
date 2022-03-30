@@ -3,12 +3,11 @@ title: Configure network access control
 titleSuffix: Azure SignalR Service
 description: Configure network access control for your Azure SignalR Service.
 services: signalr
-author: ArchangelSDY
-
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.author: dayshen
+ms.author: lianwei
 ---
 
 # Configure network access control

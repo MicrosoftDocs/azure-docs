@@ -1,0 +1,45 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
+            "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
+            "redirect_url": "/azure/azure-monitor/app/performance-counters",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/application-insights/cloudservices.md",
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/service-bus-insights.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-overview.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/change-analysis-visualizations.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/change-analysis-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-troubleshoot",
+            "redirect_document_id": false
+        }
+
+    ]
+}

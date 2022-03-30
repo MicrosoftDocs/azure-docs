@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/13/2021
+ms.date: 12/22/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Snowflake
@@ -133,20 +133,43 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     
 	![The Snowflake admin](./media/snowflake-tutorial/account.png)
 
-1. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this into the quotation marks next to **certificate** below. In the **ssoUrl**, paste **Login URL** value which you have copied from the Azure portal. Select the **All Queries** and click **Run**.
+1. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this content into the **SAML2_X509_CERT**.
 
-   ![Snowflake sql](./media/snowflake-tutorial/certificate.png)
+1. In the **SAML2_ISSUER**, paste **Identifier** value which you have copied from the Azure portal.
 
-   ```
-   use role accountadmin;
-   alter account set saml_identity_provider = '{
-   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-   "type":"custom",
-   "label":"AzureAD"
-   }';
-   alter account set sso_login_page = TRUE;
-   ```
+1. In the **SAML2_SSO_URL**, paste **Login URL** value which you have copied from the Azure portal.
+
+1. In the **SAML2_PROVIDER**, give the value like `AzureAD`.
+
+1. Select the **All Queries** and click **Run**.
+
+    
+![Snowflake sql](./media/snowflake-tutorial/certificate.png)
+
+```
+CREATE [ OR REPLACE ] SECURITY INTEGRATION [ IF NOT EXISTS ]
+    TYPE = SAML2
+    ENABLED = TRUE | FALSE
+    SAML2_ISSUER = '<EntityID/Issuer value which you have copied from the Azure portal>'
+    SAML2_SSO_URL = '<Login URL value which you have copied from the Azure portal>'
+    SAML2_PROVIDER = 'AzureAD'
+    SAML2_X509_CERT = '<Paste the content of downloaded certificate from Azure portal>'
+    [ SAML2_SP_INITIATED_LOGIN_PAGE_LABEL = '<string_literal>' ]
+    [ SAML2_ENABLE_SP_INITIATED = TRUE | FALSE ]
+    [ SAML2_SNOWFLAKE_X509_CERT = '<string_literal>' ]
+    [ SAML2_SIGN_REQUEST = TRUE | FALSE ]
+    [ SAML2_REQUESTED_NAMEID_FORMAT = '<string_literal>' ]
+    [ SAML2_POST_LOGOUT_REDIRECT_URL = '<string_literal>' ]
+    [ SAML2_FORCE_AUTHN = TRUE | FALSE ]
+    [ SAML2_SNOWFLAKE_ISSUER_URL = '<string_literal>' ]
+    [ SAML2_SNOWFLAKE_ACS_URL = '<string_literal>' ]
+```
+
+> [!NOTE]
+> Please follow [this](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration.html) guide to know more about how to create a SAML2 security integration.
+
+> [!NOTE]
+> If you have an existing SSO setup using `saml_identity_provider` account parameter, then follow [this](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-advanced.html) guide to migrate it to the SAML2 security integration.
 
 ### Create Snowflake test user
 
@@ -168,6 +191,8 @@ To enable Azure AD users to log in to Snowflake, they must be provisioned into S
 	use role accountadmin;
 	CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
+>[!NOTE]
+>Manually provisioning is uneccesary, if users and groups are provisioned with a SCIM integration. See how to enable auto provisioning for [Snowflake](snowflake-provisioning-tutorial.md).
 
 ## Test SSO 
 

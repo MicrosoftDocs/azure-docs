@@ -1,11 +1,11 @@
 ---
 title: How to manage Azure File Sync tiered files | Microsoft Docs
 description: Tips and PowerShell commandlets to help you manage tiered files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -67,7 +67,7 @@ For v11 and v12 release, add the process exclusions to the HeatTrackingProcessNa
 Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
 
 For v13 release and newer, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe,AnotherApp.exe" /f
+Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f
 
 > [!NOTE]
 > Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default. Changes to the process exclusion list are honored by the system every 5 minutes.
@@ -111,6 +111,13 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ## How to recall a tiered file to disk
 
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share without any work on your part. For file types that can be partially read or streamed, such as multimedia or .zip files, simply opening a file doesn't ensure the entire file is downloaded.
+
+> [!NOTE]  
+> If a shortcut file is brought down to the server as a tiered file, there may be an issue when accessing the file over SMB. To mitigate this, there is task that runs every three days that will recall any shortcut files. However, if you would like shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
+> Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Pattern *.lnk
+> ```
 
 To ensure that a file is fully downloaded to local disk, you must use PowerShell to force a file to be fully recalled. This option might also be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
 

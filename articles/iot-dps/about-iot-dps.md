@@ -1,8 +1,8 @@
 ---
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: wesmc7777
-ms.author: v-stharr
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -26,6 +26,8 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
+
+Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 >[!NOTE]
 >**Data residency consideration:**
@@ -116,20 +118,6 @@ DPS is available in many regions. The updated list of existing and newly announc
 > [!NOTE]
 > DPS is global and not bound to a location. However, you must specify a region in which the metadata associated with your DPS profile will reside.
 
-## Availability
-
-There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
-
-DPS also supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of a minimum of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
-
-* Australia East
-* Brazil South
-* Canada Central
-* Japan East
-* North Europe
-* West Europe
-* UK South
-
 ## Quotas and Limits
 
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
@@ -142,7 +130,7 @@ For more details on quota limits, see [Azure Subscription Service Limits](../azu
 
 Each API call on DPS is billable as one *operation*. This includes all the service APIs and the device registration API.
 
-The tables below show the current billable status for each DPS service API operation. To learn more about pricing, see [Azure Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/) in the IoT Hub Device Provisioning Service section.
+The tables below show the current billable status for each DPS service API operation. To learn more about pricing for DPS, select **Pricing table** at the top of the [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) page. Then select the  **IoT Hub Device Provisioning Service** tab and the currency and region for your service.
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
@@ -185,6 +173,14 @@ The tables below show the current billable status for each DPS service API opera
 ## Related Azure components
 
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
+
+> [!NOTE]
+> Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
+
+IoT Central applications use an internal DPS instance to manage device connections. To learn more, see:
+
+* [How devices connect to IoT Central](../iot-central/core/overview-iot-central-developer.md)
+* [Tutorial: Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md)
 
 ## Next steps
 

@@ -3,6 +3,8 @@ title: Defender for Cloud's vulnerability scanner for container images in CI/CD 
 description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries 
 ms.date: 11/09/2021
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 
 # Identify vulnerable container images in your CI/CD workflows
@@ -24,10 +26,10 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 
 |Aspect|Details|
 |----|:----|
-|Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
+|Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## Prerequisites
 
@@ -65,9 +67,10 @@ To enable vulnerability scans of images in your GitHub workflows:
     >  The push to the registry must happen prior to the results being published.
 
     ```yml
-    - run: |
-      echo "github.sha=$GITHUB_SHA"
-      docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Build and Tag Image
+      run: |
+        echo "github.sha=$GITHUB_SHA"
+        docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} .
     
     - uses: Azure/container-scan@v0 
       name: Scan image for vulnerabilities
@@ -76,9 +79,9 @@ To enable vulnerability scans of images in your GitHub workflows:
       with:
         image-name: githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} 
     
-    - name: Push Docker image - githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Push Docker image 
       run: |
-      docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+        docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
     
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0
@@ -88,13 +91,13 @@ To enable vulnerability scans of images in your GitHub workflows:
         subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
     ```
 
-1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Microsoft Defender for Cloud.
+1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Microsoft Defender for Cloud. Running the above YAML file will install an instance of Aqua Security's [Trivy](https://github.com/aquasecurity/trivy) in your build system. Trivy is licensed under the Apache 2.0 License and has dependencies on data feeds, many of which contain their own terms of use.
 
 1. [View CI/CD scan results](#view-cicd-scan-results).
 
 ## View CI/CD scan results
 
-1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**.
+1. To view the findings, open the **Recommendations** page. If issues were found, you'll see the recommendation [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648).
 
     ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 

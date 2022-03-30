@@ -2,7 +2,7 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/10/2022
 ---
 
 # Date functions for ARM templates
@@ -12,11 +12,16 @@ Resource Manager provides the following functions for working with dates in your
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
+
 ## dateTimeAdd
 
 `dateTimeAdd(base, duration, [format])`
 
 Adds a time duration to a base value. ISO 8601 format is expected.
+
+In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) function.
 
 ### Parameters
 
@@ -54,6 +59,8 @@ The next example template shows how to set the start time for an Automation sche
 
 Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
 
+In Bicep, use the [utcNow](../bicep/bicep-functions-date.md#utcnow) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -64,9 +71,9 @@ Returns the current (UTC) datetime value in the specified format. If no format i
 
 You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a template returns an error. The function isn't allowed in other parts of the template because it returns a different value each time it's called. Deploying the same template with the same parameters wouldn't reliably produce the same results.
 
-If you use the [option to rollback on error](rollback-on-error.md) to an earlier successful deployment, and the earlier deployment includes a parameter that uses utcNow, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
+If you use the [option to rollback on error](rollback-on-error.md) to an earlier successful deployment, and the earlier deployment includes a parameter that uses `utcNow`, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
-Be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
+Be careful redeploying a template that relies on the `utcNow` function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
 

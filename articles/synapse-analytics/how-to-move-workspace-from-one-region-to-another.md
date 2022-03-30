@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service:  synapse-analytics 
 ms.subservice: 
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 03/30/2022
 author: phanir
 ms.author: phanir
 ms.reviewer: wiassaf
@@ -137,7 +137,7 @@ az group create --name $resourceGroupName --location $regionName
 
 #### Create a Data Lake Storage Gen2 account
 
-First, check if the name is not used, then creates if it does not already exist. Then, create an Data Lake Storage Gen2 account, and a container in a Data Lake Storage Gen2 account.
+First, check if the name is not used, then creates if it does not already exist. Then, create a Data Lake Storage Gen2 account, and a container in a Data Lake Storage Gen2 account.
 
 ```azurecli
 # Checking if name is not used only then creates it.
@@ -189,7 +189,7 @@ az synapse workspace create `
   --sql-admin-login-password $sqlPassword `
   --location $regionName
 ```
-To enable a managed virtual network, include the parameter `--enable-managed-virtual-network` in the preceding script. For more options, see [workspace managed virtual network](/cli/azure/synapse/workspace?view=azure-cli-latest&preserve-view=true).
+To enable a managed virtual network, include the parameter `--enable-managed-virtual-network` in the preceding script. For more options, see [workspace managed virtual network](/cli/azure/synapse/workspace).
 
 ```azurecli
 az synapse workspace create `
@@ -467,7 +467,7 @@ az synapse role assignment create `
 
 ```
 
-To learn more about available options, see [Azure Synapse RBAC - CLI](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true). 
+To learn more about available options, see [Azure Synapse RBAC - CLI](/cli/azure/synapse/role/assignment). 
 
 ## Step 10: Upload workspace packages
 

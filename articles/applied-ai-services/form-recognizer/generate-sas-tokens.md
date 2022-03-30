@@ -39,15 +39,15 @@ Azure Blob Storage offers three types of resources:
 To get started, you'll need:
 
 * An active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
-* A [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
-* A **standard performance** [Azure Blob Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+* A [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
+* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
   * [Create a storage account](../../storage/common/storage-account-create.md). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
   * [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
 ## Upload your documents
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#home). Select **Your storage account** > **Data storage** > **Containers**.
+1. Go to the [Azure portal](https://portal.azure.com/#home). Select **Your storage account** > **Data storage** > **Containers**.
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot that shows the Data storage menu in the Azure portal.":::
 
@@ -70,7 +70,7 @@ To get started, you'll need:
 >
 > Generate and retrieve the shared access signature for your container, not for the storage account itself.
 
-1. In the [Azure portal](https://ms.portal.azure.com/#home), select **Your storage account** > **Containers**.
+1. In the [Azure portal](https://portal.azure.com/#home), select **Your storage account** > **Containers**.
 1. Select a container from the list.
 1. Go to the right of the main window, and select the three ellipses associated with your chosen container.
 1. Select **Generate SAS** from the dropdown menu to open the **Generate SAS** window.
@@ -108,7 +108,7 @@ To get started, you'll need:
 
 1. To create a user delegation SAS for a container by using the Azure CLI, make sure that you've installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 
-1. Call the [az storage container generate-sas](/cli/azure/storage/container?view=azure-cli-latest&preserve-view=true#az_storage_container_generate_sas) command.
+1. Call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command.
 
 1. The following parameters are required:
 

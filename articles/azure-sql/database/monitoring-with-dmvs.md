@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/15/2021
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views
@@ -114,6 +114,8 @@ ORDER BY total_cpu_millisec DESC;
 ```
 
 Once you identify the problematic queries, it's time to tune those queries to reduce CPU utilization.  If you don't have time to tune the queries, you may also choose to upgrade the SLO of the database to work around the issue.
+
+For Azure SQL Database users, learn more about handling CPU performance problems in [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
 
 ## Identify IO performance issues
 
@@ -398,6 +400,8 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
+If you encounter out of memory errors in Azure SQL Database, review [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
+
 ### Identify the top 10 active memory grants
 
 Use the following query to identify the top 10 active memory grants:
@@ -515,7 +519,7 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> When executing the **sys.dm_exec_requests** and **sys.dm_exec_sessions views**, if you have **VIEW DATABASE STATE** permission on the database, you see all executing sessions on the database; otherwise, you see only the current session.
+> When executing the `sys.dm_exec_requests` and `sys.dm_exec_sessions views`, if you have **VIEW DATABASE STATE** permission on the database, you see all executing sessions on the database; otherwise, you see only the current session.
 
 ## Monitor resource use
 
@@ -529,9 +533,9 @@ You can also monitor usage using these views:
 
 ### sys.dm_db_resource_stats
 
-You can use the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database. The **sys.dm_db_resource_stats** view shows recent resource use data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for 1 hour.
+You can use the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database. The `sys.dm_db_resource_stats` view shows recent resource use data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for 1 hour.
 
-Because this view provides a more granular look at resource use, use **sys.dm_db_resource_stats** first for any current-state analysis or troubleshooting. For example, this query shows the average and maximum resource use for the current database over the past hour:
+Because this view provides a more granular look at resource use, use `sys.dm_db_resource_stats` first for any current-state analysis or troubleshooting. For example, this query shows the average and maximum resource use for the current database over the past hour:
 
 ```sql
 SELECT  
@@ -566,7 +570,7 @@ HAVING AVG(avg_cpu_percent) >= 80;
 
 ### sys.resource_stats
 
-The [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view in the **master** database has additional information that can help you monitor the performance of your database at its specific service tier and compute size. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your database uses resources.
+The [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view in the `master` database has additional information that can help you monitor the performance of your database at its specific service tier and compute size. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your database uses resources.
 
 The following graph shows the CPU resource use for a Premium database with the P2 compute size for each hour in a week. This graph starts on a Monday, shows five work days, and then shows a weekend, when much less happens on the application.
 
@@ -576,10 +580,10 @@ From the data, this database currently has a peak CPU load of just over 50 perce
 
 Other application types might interpret the same graph differently. For example, if an application tries to process payroll data each day and has the same chart, this kind of "batch job" model might do fine at a P1 compute size. The P1 compute size has 100 DTUs compared to 200 DTUs at the P2 compute size. The P1 compute size provides half the performance of the P2 compute size. So, 50 percent of CPU use in P2 equals 100 percent CPU use in P1. If the application does not have timeouts, it might not matter if a job takes 2 hours or 2.5 hours to finish, if it gets done today. An application in this category probably can use a P1 compute size. You can take advantage of the fact that there are periods of time during the day when resource use is lower, so that any "big peak" might spill over into one of the troughs later in the day. The P1 compute size might be good for that kind of application (and save money), as long as the jobs can finish on time each day.
 
-The database engine exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the **sys.resource_stats** view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
+The database engine exposes consumed resource information for each active database in the `sys.resource_stats` view of the `master` database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the `sys.resource_stats` view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
 
 > [!NOTE]
-> On Azure SQL Database, you must be connected to the **master** database to query **sys.resource_stats** in the following examples.
+> On Azure SQL Database, you must be connected to the `master` database to query `sys.resource_stats` in the following examples.
 
 This example shows you how the data in this view is exposed:
 
@@ -592,7 +596,7 @@ ORDER BY start_time DESC;
 
 ![The sys.resource_stats catalog view](./media/monitoring-with-dmvs/sys_resource_stats.png)
 
-The next example shows you different ways that you can use the **sys.resource_stats** catalog view to get information about how your database uses resources:
+The next example shows you different ways that you can use the `sys.resource_stats` catalog view to get information about how your database uses resources:
 
 1. To look at the past week's resource use for the database userdb1, you can run this query:
 
@@ -604,7 +608,7 @@ The next example shows you different ways that you can use the **sys.resource_st
     ORDER BY start_time DESC;
     ```
 
-2. To evaluate how well your workload fits the compute size, you need to drill down into each aspect of the resource metrics: CPU, reads, writes, number of workers, and number of sessions. Here's a revised query using **sys.resource_stats** to report the average and maximum values of these resource metrics:
+2. To evaluate how well your workload fits the compute size, you need to drill down into each aspect of the resource metrics: CPU, reads, writes, number of workers, and number of sessions. Here's a revised query using `sys.resource_stats` to report the average and maximum values of these resource metrics:
 
     ```sql
     SELECT
@@ -622,7 +626,7 @@ The next example shows you different ways that you can use the **sys.resource_st
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. With this information about the average and maximum values of each resource metric, you can assess how well your workload fits into the compute size you chose. Usually, average values from **sys.resource_stats** give you a good baseline to use against the target size. It should be your primary measurement stick. For an example, you might be using the Standard service tier with S2 compute size. The average use percentages for CPU and IO reads and writes are below 40 percent, the average number of workers is below 50, and the average number of sessions is below 200. Your workload might fit into the S1 compute size. It's easy to see whether your database fits in the worker and session limits. To see whether a database fits into a lower compute size with regard to CPU, reads, and writes, divide the DTU number of the lower compute size by the DTU number of your current compute size, and then multiply the result by 100:
+3. With this information about the average and maximum values of each resource metric, you can assess how well your workload fits into the compute size you chose. Usually, average values from `sys.resource_stats` give you a good baseline to use against the target size. It should be your primary measurement stick. For an example, you might be using the Standard service tier with S2 compute size. The average use percentages for CPU and IO reads and writes are below 40 percent, the average number of workers is below 50, and the average number of sessions is below 200. Your workload might fit into the S1 compute size. It's easy to see whether your database fits in the worker and session limits. To see whether a database fits into a lower compute size with regard to CPU, reads, and writes, divide the DTU number of the lower compute size by the DTU number of your current compute size, and then multiply the result by 100:
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
@@ -712,7 +716,7 @@ WHERE D.name = 'MyDatabase';
 
 Again, these queries return a point-in-time count. If you collect multiple samples over time, you'll have the best understanding of your session use.
 
-You can get historical statistics on sessions by querying the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view and reviewing the **active_session_count** column.
+You can get historical statistics on sessions by querying the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view and reviewing the `active_session_count` column.
 
 ## Monitoring query performance
 
@@ -767,6 +771,8 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## See also
+## Next steps
 
-[Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
+- [Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
+- [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
+- [Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance](performance-guidance.md)

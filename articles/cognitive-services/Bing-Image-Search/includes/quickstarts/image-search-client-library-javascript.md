@@ -6,14 +6,12 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
+ms.date: 01/05/2022
 ms.author: aahi
 ms.custom: devx-track-js
 ---
 
 Use this quickstart to make your first image search using the Bing Image Search client library, which is a wrapper for the API and contains the same features. This simple JavaScript application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
-
-The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) with additional error handling and annotations.
 
 ## Prerequisites
 
@@ -22,8 +20,6 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
      *  To install, run `npm install @azure/cognitiveservices-imagesearch`
 * The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client.
      * To install, run `npm install @azure/ms-rest-azure-js`
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

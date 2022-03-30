@@ -138,8 +138,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
-If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized source server and restarted the server, you receive an error. Complete those two steps before you create a replica.
-
 A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the source server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 

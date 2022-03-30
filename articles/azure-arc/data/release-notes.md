@@ -7,27 +7,119 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 11/03/2021
+ms.date: 03/09/2022
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
-
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## March 2022
+
+This release is published March 8, 2022.
+
+### Image tag
+
+`v1.4.1_2022-03-08`
+
+For complete release version information, see [Version log](version-log.md).
+
+### Data Controller
+- Fixed the issue "ConfigMap sql-config-[SQL MI] does not exist" from the February 2022 release. This issue occurs when deploying a SQL Managed Instance with service type of `loadBalancer` with certain load balancers. 
+
+## February 2022
+
+This release is published February 25, 2022.
+
+### Image tag
+
+`v1.4.0_2022-02-25`
+
+For complete release version information, see [Version log](version-log.md).
+
+> [!CAUTION] 
+> There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
+> `CrashLoopBackOff` state, when the SQL MI is deployed with `loadBalancer` service type. This issue is fixed in a release on March 08, 2022. 
+
+### SQL Managed Instance
+
+- Support for readable secondary replicas:
+    - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
+    - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
+    - `--readable-secondaries` only applies to Business Critical tier. 
+- Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
+- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
+- Billing support when using multiple read replicas.
+
+For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
+
+### User experience improvements
+
+The following improvements are available in [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+
+- Azure Arc and Azure CLI extensions now generally available. 
+- Changed edit commands for SQL Managed Instance for Azure Arc dashboard to use `update`, reflecting Azure CLI changes. This works in indirect or direct mode. 
+- Data controller deployment wizard step for connectivity mode is now earlier in the process.
+- Removed an extra backups field in SQL MI deployment wizard.
+
+## January 2022
+
+This release is published January 27, 2022.
+
+### Image tag
+
+`v1.3.0_2022-01-27`
+
+For complete release version information, see [Version log](version-log.md).
+
+### Data controller
+
+- Initiate an upgrade of the data controller from the portal in the direct connected mode
+- Removed block on data controller upgrade if there are Azure Arc-enabled SQL Managed Instance business critical instances that exist
+- Better handling of delete user experiences in Azure portal
+
+### SQL Managed Instance
+
+- Azure Arc-enabled SQL Managed Instance business critical instances can be upgraded from the January release and going forward (preview)
+- Business critical distributed availability group failover can now be done through a Kubernetes-native experience or the Azure CLI (indirect mode only) (preview)
+- Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for business critical distributed availability group secondary replicas:
+    - Are not billed for
+    - Automatically seed the system databases from the primary replica when the distributed availability group is created. (preview)
+- New option added to `desiredVersion` called `auto` - automatically upgrades a given SQL instance when there is a new upgrade available (preview)
+- Update the configuration of SQL instances using Azure CLI in the direct connected mode
+
+## December 2021
+
+This release is published December 16, 2021.
+
+### Data controller
+
+- Secret rotation for metrics and logs dashboards using Azure CLI or Kubernetes .yaml file
+- Ability to provide custom SSL certificates for metrics and logs dashboards using Azure CLI or Kubernetes yaml file
+- Direct mode upgrade of data controller via Azure CLI
+
+### SQL Managed Instance
+
+- Active Directory authentication in preview for SQL Managed Instance
+- Direct mode upgrade of SQL Managed Instance via Azure CLI
+- Edit memory and CPU configuration in Azure portal in directly connected mode
+- Ability to specify a single replica for a business critical instance using Azure CLI or Kubernetes yaml file
+- Updated SQL binaries to latest Azure PaaS-compatible binary version
+- Resolved issue where the point in time restore did not respect the configured time zone
 
 ## November 2021
 
 This release is published November 3, 2021
 
-#### Tools
+### Tools
 
-##### Azure Data Studio
+#### Azure Data Studio
 
 Install or update to the latest version of [Arc extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-arc-extension).
 
-##### Azure (`az`) CLI
+#### Azure (`az`) CLI
 
 Install or update `arcdata` extension for `az` CLI to support directly connected deployment.
 
@@ -40,7 +132,7 @@ The following `sql` commands now support directly connected mode:
    az sql mi-arc delete
    ```
  
-#### Data controller
+### Data controller
 
 - Directly connected mode generally available
 - Directly connected Azure Arc Data controller extensions on Azure Arc enabled Kubernetes clusters now use system generated managed identities instead of service principal name. The managed identity is automatically created when a new Azure Arc data controller extension is created. You still need to grant appropriate permissions to upload usage and metrics.
@@ -63,7 +155,7 @@ The following `sql` commands now support directly connected mode:
 
 You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables as before. If you only provide `AZDATA_USERNAME` and `AZDATA_PASSWORD` then the deployment uses them for both the logs and metrics dashboards.
 
-##### Region availability
+### Region availability
 
 This release introduces directly connected mode availability in the following Azure regions:
 
@@ -73,7 +165,7 @@ This release introduces directly connected mode availability in the following Az
 
 For complete list, see [Supported regions](overview.md#supported-regions).
 
-#### Azure Arc-enabled SQL Managed Instance
+### Azure Arc-enabled SQL Managed Instance
 
 - Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
 - The SQL binaries are updated to a new version
@@ -91,7 +183,7 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 #### Data controller upgrade
 
 - At this time, upgrade of a directly connected data controller via CLI or the portal is not supported.
-- You can only upgrade of generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
+- You can only upgrade generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
 
 #### Commands
 
@@ -404,8 +496,8 @@ As a preview feature, the technology presented in this article is subject to [Su
 This release introduces the following features or capabilities:
 
 - Delete an Azure Arc PostgreSQL Hyperscale from the Azure portal when its Data Controller was configured for Direct connectivity mode.
-- Deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
-- Specify storage classes and Postgres extensions when deploying Azure Arc-enabled PostgreSQL Hyperscale from the Azure portal.
+- Deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer).
+- Specify storage classes and PostgreSQL extensions when deploying Azure Arc-enabled PostgreSQL Hyperscale from the Azure portal.
 - Reduce the number of worker nodes in your Azure Arc-enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command-line.
 
 #### Azure Arc-enabled SQL Managed Instance

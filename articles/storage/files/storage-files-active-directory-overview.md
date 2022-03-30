@@ -1,12 +1,12 @@
 ---
 title: Overview - Azure Files identity-based authorization
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) through Azure Active Directory Domain Services (AD DS) and Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.author: rogarana
+ms.date: 12/01/2021
+ms.author: kendownie
 ---
 
 # Overview of Azure Files identity-based authentication options for SMB access
@@ -36,7 +36,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) is Microsoft's multi-tenant cloud-based directory and identity management service. Azure AD combines core directory services, application access management, and identity protection into a single solution. Azure AD-joined Windows virtual machines (VMs) cannot access Azure file shares with your Azure AD credentials. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) is Microsoft's multi-tenant cloud-based directory and identity management service. Azure AD combines core directory services, application access management, and identity protection into a single solution. Storing FSLogix profiles on Azure file shares for Azure AD-joined VMs is currently in public preview. For more information, see [Create a profile container with Azure Files and Azure Active Directory (preview)](../../virtual-desktop/create-profile-container-azure-ad.md).
 
 -   **Azure Active Directory Domain Services (Azure AD DS)**
 

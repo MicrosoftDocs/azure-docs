@@ -76,7 +76,7 @@ If there's no network rule match, and if the protocol is HTTP, HTTPS, or MSSQL, 
 
 For HTTP, Azure Firewall looks for an application rule match according to the Host header. For HTTPS, Azure Firewall looks for an application rule match according to SNI only.  
 
-In both HTTP and TLS inspected HTTPS cases, the firewall ignores packet the destination IP address and uses the DNS resolved IP address from the Host header. The firewall expects to get port number in the Host header, otherwise it assumes the standard port 80. If there's a port mismatch between the actual TCP port and the port in the host header, the traffic is dropped. DNS resolution is done by Azure DNS or by a custom DNS if configured on the firewall.  
+In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's destination IP address and uses the DNS resolved IP address from the Host header. The firewall expects to get port number in the Host header, otherwise it assumes the standard port 80. If there's a port mismatch between the actual TCP port and the port in the host header, the traffic is dropped. DNS resolution is done by Azure DNS or by a custom DNS if configured on the firewall.  
 
 > [!NOTE]
 > Both HTTP and HTTPS protocols (with TLS inspection) are always filled by Azure Firewall with XFF (X-Forwarded-For) header equal to the original source IP address.  

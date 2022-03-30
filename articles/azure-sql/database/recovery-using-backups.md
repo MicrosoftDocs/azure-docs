@@ -8,10 +8,10 @@ ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: mathoma, danil
-ms.date: 11/13/2020
+author: SudhirRaparla 
+ms.author: nvraparl 
+ms.reviewer: kendralittle, mathoma, danil
+ms.date: 01/10/2022
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ The following options are available for database recovery by using [automated da
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
 - Create a new database on any server in the same region, recovered to the point of the most recent backups.
-- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups.
+- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription point-in-time restore for SQL Managed Instance isn't currently supported. 
 
 If you configured [backup long-term retention](long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any server.
 
@@ -44,6 +44,9 @@ The recovery time to restore a database by using automated database backups is a
 For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that a high number of geo-restore requests will be initiated for disaster recovery. When there are many requests, the recovery time for individual databases can increase. Most database restores finish in less than 12 hours.
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
+
+> [!NOTE]
+> Very large restores on Managed Instance lasting for more than 36 hours will be prolonged in case of pending critical system update. In such case current restore operation will be paused, critical system update will be applied, and restore resumed after the update has completed.
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
@@ -138,7 +141,8 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 ## Geo-restore
 
 > [!IMPORTANT]
-> Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy). If you are not currently using geo-replicated backups for a database, you can change this by [configuring backup storage redundancy](automated-backups-overview.md#configure-backup-storage-redundancy).
+> - Geo-restore can be performed on SQL databases or managed instances residing in the same subscription only.
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
@@ -247,11 +251,11 @@ To restore a database by using the REST API:
 
 #### SQL Database
 
-To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az_sql_db_restore).
+To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
 #### SQL Managed Instance
 
-To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore).
+To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ## Summary
 

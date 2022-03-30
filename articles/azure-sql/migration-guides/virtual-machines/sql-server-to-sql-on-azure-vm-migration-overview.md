@@ -1,14 +1,13 @@
 ---
 title: SQL Server to SQL Server on Azure VM (Migration overview)
+titleSuffix: SQL Server on Azure VMs
 description: Learn about the different migration strategies when you want to migrate your SQL Server to SQL Server on Azure VMs. 
-ms.custom: ""
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
-ms.devlang: 
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: chadam
+ms.reviewer: chadam, mathoma
 ms.date: 09/07/2021
 ---
 
@@ -89,13 +88,13 @@ The following table details all available methods to migrate your SQL Server dat
 |**Method** | **Minimum source version** | **Minimum target version** | **Source backup size constraint** | **Notes** |
 | --- | --- | --- | --- | --- |
 | **[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md)** | SQL Server 2005 | SQL Server 2008 | [Azure VM storage limit](../../../index.yml) |  This is an easy to use wizard based extension in Azure Data Studio for migrating SQL Server database(s) to SQL Server on Azure virtual machines. Use compression to minimize backup size for transfer. <br /><br /> The Azure SQL Migration extension for Azure Data Studio provides both assessment and migration capabilities in a simple user interface.  |
+| **[Distributed availability group](sql-server-distributed-availability-group-migrate-prerequisites.md)** | SQL Server 2016| SQL Server 2016 | [Azure VM storage limit](../../../index.yml) |  A [distributed availability group](/sql/database-engine/availability-groups/windows/distributed-availability-groups) is a special type of availability group that spans two separate availability groups. The availability groups that participate in a distributed availability group do not need to be in the same location and include cross-domain support. <br /><br /> This method minimizes downtime, use when you have an availability group configured on-premises. <br /><br /> **Automation & scripting**: [T-SQL](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
 | **[Backup to a file](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 | SQL Server 2008 SP4| [Azure VM storage limit](../../../index.yml) |  This is a simple and well-tested technique for moving databases across machines. Use compression to minimize backup size for transfer. <br /><br /> **Automation & scripting**: [Transact-SQL (T-SQL)](/sql/t-sql/statements/backup-transact-sql) and [AzCopy to Blob storage](../../../storage/common/storage-use-azcopy-v10.md)  |
 | **[Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)** | SQL Server 2012 SP1 CU2 | SQL Server 2012 SP1 CU2| 12.8 TB for SQL Server 2016, otherwise 1 TB | An alternative way to move the backup file to the VM using Azure storage. Use compression to minimize backup size for transfer. <br /><br /> **Automation & scripting**:  [T-SQL or maintenance plan](/sql/relational-databases/backup-restore/sql-server-backup-to-url) |
 | **[Database Migration Assistant (DMA)](/sql/dma/dma-overview)** | SQL Server 2005| SQL Server 2008 SP4| [Azure VM storage limit](../../../index.yml) |  The [DMA](/sql/dma/dma-overview) assesses SQL Server on-premises and then seamlessly upgrades to later versions of SQL Server or migrates to SQL Server on Azure VMs, Azure SQL Database or Azure SQL Managed Instance. <br /><br /> Should not be used on Filestream-enabled user databases.<br /><br /> DMA also includes capability to migrate [SQL and Windows logins](/sql/dma/dma-migrateserverlogins) and assess [SSIS Packages](/sql/dma/dma-assess-ssis). <br /><br /> **Automation & scripting**: [Command line interface](/sql/dma/dma-commandline) |
 | **[Detach and attach](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#detach-and-attach-from-a-url)** | SQL Server 2008 SP4 | SQL Server 2014 | [Azure VM storage limit](../../../index.yml) | Use this method when you plan to [store these files using the Azure Blob storage service](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) and attach them to an instance of SQL Server on an Azure VM, particularly useful with very large databases or when the time to backup and restore is too long. <br /><br /> **Automation & scripting**:  [T-SQL](/sql/relational-databases/databases/detach-a-database#TsqlProcedure) and [AzCopy to Blob storage](../../../storage/common/storage-use-azcopy-v10.md)|
 |**[Log shipping](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 (Windows Only) | SQL Server 2008 SP4 (Windows Only) | [Azure VM storage limit](../../../index.yml) | Log shipping replicates transactional log files from on-premises on to an instance of SQL Server on an Azure VM. <br /><br /> This provides minimal downtime during failover and has less configuration overhead than setting up an Always On availability group. <br /><br /> **Automation & scripting**: [T-SQL](/sql/database-engine/log-shipping/log-shipping-tables-and-stored-procedures)  |
-| **[Distributed availability group](../../virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions)** | SQL Server 2016| SQL Server 2016 | [Azure VM storage limit](../../../index.yml) |  A [distributed availability group](/sql/database-engine/availability-groups/windows/distributed-availability-groups) is a special type of availability group that spans two separate availability groups. The availability groups that participate in a distributed availability group do not need to be in the same location and include cross-domain support. <br /><br /> This method minimizes downtime, use when you have an availability group configured on-premises. <br /><br /> **Automation & scripting**: [T-SQL](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
-| | | | | |
+
 
 &nbsp;
 &nbsp;
@@ -140,11 +139,11 @@ Alternatively, you can also migrate SSRS reports to paginated reports in Power B
 ### SQL Server Analysis Services
 SQL Server Analysis Services databases (multidimensional or tabular models) can be migrated from your source SQL Server to SQL Server on Azure VM using one of the following options:
 
--	Interactively using SSMS
--	Programmatically using Analysis Management Objects (AMO)
--	By script using XMLA (XML for Analysis)
+-    Interactively using SSMS
+-    Programmatically using Analysis Management Objects (AMO)
+-    By script using XMLA (XML for Analysis)
 
-See [Move an Analysis Services Database](/analysis-services/multidimensional-models/move-an-analysis-services-database?view=asallproducts-allversions) to learn more.
+See [Move an Analysis Services Database](/analysis-services/multidimensional-models/move-an-analysis-services-database?view=asallproducts-allversions&preserve-view=true) to learn more.
 
 Alternatively, you can consider migrating your on-premises Analysis Services tabular models to [Azure Analysis Services](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/) or to [Power BI Premium by using the new XMLA read/write endpoints](/power-bi/admin/service-premium-connect-tools). 
 
@@ -162,7 +161,7 @@ Depending on the setup in your source SQL Server, there may be additional SQL Se
 
 ## Supported versions
 
-As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be sure to consider the versions of SQL Server that are supported. For a list of current supported SQL Server versions on Azure VMs, please see [SQL Server on Azure VMs](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
+As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be sure to consider the versions of SQL Server that are supported. For a list of current supported SQL Server versions on Azure VMs, please see [SQL Server on Azure VMs](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#getting-started).
 
 ## Migration assets 
 

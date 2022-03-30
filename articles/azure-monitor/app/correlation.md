@@ -4,6 +4,7 @@ description: Application Insights telemetry correlation
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
+ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-csharp"
 ---
 
@@ -12,6 +13,9 @@ ms.custom: "devx-track-python, devx-track-csharp"
 In the world of microservices, every logical operation requires work to be done in various components of the service. You can monitor each of these components separately by using [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation tactics on different languages and platforms.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 
 ## Data model for telemetry correlation
 

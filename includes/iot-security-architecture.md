@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-fundamentals
- author: robinsh
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: include
- ms.date: 08/07/2018
- ms.author: robinsh
+ ms.date: 11/29/2021
+ ms.author: kgremban
  ms.custom: include file
 ---
 
@@ -178,7 +178,7 @@ In each of the categories outlined in the Azure IoT architecture, this example t
 || TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device has not been tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. |
 || E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device |
 | Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (such as cert based, PSK, or Claim based.) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-|| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. |
+|| TRID |Protect the Field Gateway against tampering (TPM) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. |
 || E |Access control mechanism for Field Gateway | | |
 
 Here are some examples of threats in this category:

@@ -3,22 +3,22 @@ title: Microsoft identity platform access tokens | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
-ms.author: hirsin
+ms.date: 12/28/2021
+ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
 # Microsoft identity platform access tokens
 
-Access tokens enable clients to securely call protected web APIs, and are used by web APIs to perform authentication and authorization. Per the OAuth specification, access tokens are opaque strings without a set format - some identity providers (IDPs) use GUIDs, others use encrypted blobs. The Microsoft identity platform uses a variety of access token formats depending on the configuration of the API that accepts the token. [Custom APIs registered by developers](quickstart-configure-app-expose-web-apis.md) on the Microsoft identity platform can choose from two different formats of JSON Web Tokens (JWTs), called "v1" and "v2", and Microsoft-developed APIs like Microsoft Graph or APIs in Azure have additional proprietary token formats. These proprietary formats might be encrypted tokens, JWTs, or special JWT-like tokens that will not validate.
+Access tokens enable clients to securely call protected web APIs, and are used by web APIs to perform authentication and authorization. Per the OAuth specification, access tokens are opaque strings without a set format - some identity providers (IDPs) use GUIDs, others use encrypted blobs. The Microsoft identity platform uses various access token formats depending on the configuration of the API that accepts the token. [Custom APIs registered by developers](quickstart-configure-app-expose-web-apis.md) on the Microsoft identity platform can choose from two different formats of JSON Web Tokens (JWTs), called "v1" and "v2", and Microsoft-developed APIs like Microsoft Graph or APIs in Azure have other proprietary token formats. These proprietary formats might be encrypted tokens, JWTs, or special JWT-like tokens that will not validate.
 
 Clients must treat access tokens as opaque strings because the contents of the token are intended for the resource (the API) only. For validation and debugging purposes *only*, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Be aware, however, that the tokens you receive for a Microsoft API might not always be a JWT, and that you can't always decode them.
 
@@ -71,7 +71,7 @@ JWTs (JSON Web Tokens) are split into three pieces:
 
 Each piece is separated by a period (`.`) and separately Base64 encoded.
 
-Claims are present only if a value exists to fill it. Your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential](v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications which don't have names). Claims used for access token validation will always be present.
+Claims are present only if a value exists to fill it. Your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential](v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications that don't have names). Claims used for access token validation will always be present.
 
 Some claims are used to help Azure AD secure tokens in case of reuse. These are marked as not being for public consumption in the description as "Opaque". These claims may or may not appear in a token, and new ones may be added without notice.
 
@@ -107,13 +107,13 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 | `roles` | Array of strings, a list of permissions | The set of permissions exposed by your application that the requesting application or user has been given permission to call. For [application tokens](#user-and-application-tokens), this is used during the client credential flow ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) in place of user scopes.  For [user tokens](#user-and-application-tokens) this is populated with the roles the user was assigned to on the target application. |
 | `wids` | Array of [RoleTemplateID](../roles/permissions-reference.md#all-roles) GUIDs | Denotes the tenant-wide roles assigned to this user, from the section of roles present in [Azure AD built-in roles](../roles/permissions-reference.md#all-roles).  This claim is configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md).  Setting it to "All" or "DirectoryRole" is required.  May not be present in tokens obtained through the implicit flow due to token length concerns. |
 | `groups` | JSON array of GUIDs | Provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md). A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Microsoft 365 Distribution Lists. <br><br>See the `hasgroups` claim below for details on using the `groups` claim with the implicit grant. <br>For other flows, if the number of groups the user is in goes over a limit (150 for SAML, 200 for JWT), then an overage claim will be added to the claim sources pointing at the Microsoft Graph endpoint containing the list of groups for the user. |
-| `hasgroups` | Boolean | If present, always `true`, denoting the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently 6 or more groups). Indicates that the client should use the Microsoft Graph API to determine the user's groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
+| `hasgroups` | Boolean | If present, always `true`, denoting the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently six or more groups). Indicates that the client should use the Microsoft Graph API to determine the user's groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON object | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. See also the `oid` claim (which does remain the same across apps within a tenant). |
-| `oid` | String, a GUID | The immutable identifier for the "principal" of the request - the user or service principal whose identity has been verified.  In ID tokens and app+user tokens, this is the object ID of the user.  In app-only tokens, this is the object id of the calling service principal. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the principal across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given [user account](/graph/api/resources/user). Because the `oid` allows multiple apps to correlate principals, the `profile` scope is required in order to receive this claim for users. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
+| `oid` | String, a GUID | The immutable identifier for the "principal" of the request - the user or service principal whose identity has been verified.  In ID tokens and app+user tokens, this is the object ID of the user.  In app-only tokens, this is the object ID of the calling service principal. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the principal across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given [user account](/graph/api/resources/user). Because the `oid` allows multiple apps to correlate principals, the `profile` scope is required in order to receive this claim for users. If a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
 |`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, your app must request the `profile` scope. |
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
-| `uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. |
+| `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive.|
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources should not use this claim. |
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. |
 
@@ -174,9 +174,19 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 
 ## Access token lifetime
 
-The default lifetime of an access token varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+The default lifetime of an access token is variable.  When issued, an access token's default lifetime is assigned a random value ranging between 60-90 minutes (75 minutes on average). The variation improves service resilience by spreading access token demand over a period of 60 to 90 minutes, which prevents hourly spikes in traffic to Azure AD.
 
-You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
+Tenants that don’t use Conditional Access have a default access token lifetime of 2-hours for clients such as Microsoft Teams and Microsoft 365.
+
+You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). Customers that wish to override default access token lifetime variation can set a static default access token lifetime by using [Configurable token lifetime (CTL)](active-directory-configurable-token-lifetimes.md).
+
+Default token lifetime variation is applied to organizations that have Continuous Access Evaluation (CAE) enabled, even if CTL policies are configured. The default token lifetime for long lived token lifetime ranges from 20 to 28 hours. When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+
+Organizations that use [Conditional Access sign-in frequency (SIF)](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) to enforce how frequently sign-ins occur cannot override default access token lifetime variation. When using SIF, the time between credential prompts for a client is the token lifetime (ranging from 60 - 90 minutes) plus the sign-in frequency interval.  
+
+Here's an example of how default token lifetime variation works with sign-in frequency.  Let's say an organization sets sign-in frequency to occur every hour. The actual sign-in interval will occur anywhere between 1 hour to 2.5 hours since the token is issued with lifetime ranging from 60-90 minutes (due to token lifetime variation).
+
+If a user with a token with a one hour lifetime performs an interactive sign-in at 59 minutes (just before the sign-in frequency being exceeded), there is no credential prompt because the sign-in is below the SIF threshold.  If a new token is issued with a lifetime of 90 minutes, the user would not see a credential prompt for an additional hour and a half.  When a silent renewal attempted of the 90-minute token lifetime is made, Azure AD will require a credential prompt because the total session length has exceeded the sign-in frequency setting of 1 hour. In this example, the time difference between credential prompts due to the SIF interval and token lifetime variation would be 2.5 hours.
 
 ## Validating tokens
 
@@ -237,14 +247,33 @@ If your app has custom signing keys as a result of using the [claims-mapping](ac
 
 Your application's business logic will dictate this step, some common authorization methods are laid out below.
 
+#### Validate the token is meant for you
+
 * Use the `aud` claim to ensure that the user intended to call your application.  If your resource's identifier is not in the `aud` claim, reject it.
-* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
+
+#### Validate the user has permission to access this data
+
 * Use the `roles` and `wids` claims to validate that the user themselves has authorization to call your API.  For example, an admin may have permission to write to your API, but not a normal user.
-* Ensure the calling client is allowed to call your API using the `appid` claim.
-* Check that the `tid` matches a tenant that is allowed to call your API.
-* Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md).
+* Check that the `tid` inside the token matches the tenant ID used to store the data in your API. 
+  * When a user stores data in your API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed from another tenant. 
+* Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md). 
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
+
+**Never use `email` or `upn` claim values** to determine whether the user in an access token should have access to data! Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
+
+**Do** use immutable claim values `tid` and `sub` or `oid` as a combined key for storing for uniquely identifying your API's data and determining whether a user should be granted access to that data.
+- Good: `tid` + `sub`
+- Better: `tid` + `oid` - the `oid` is consistent across applications, so an ecosystem of apps can audit user access to data, for instance. 
+
+**Do not** use mutable, human-readable identifiers like `email` or `upn` for uniquely identifying data.
+- Bad: `email`
+- Bad: `upn`
+
+#### Validate that the application that signed in the user has permission to access this data
+
+* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
+* Ensure the calling client is allowed to call your API using the `appid` claim.
 
 ## User and application tokens
 

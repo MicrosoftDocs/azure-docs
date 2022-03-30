@@ -4,7 +4,7 @@ description:  Learn how to use GitHub Actions to deploy your container to Kubern
 services: container-service
 author: azooinmyluggage
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 01/05/2022
 ms.author: atulmal
 ms.custom: github-actions-azure
 ---
@@ -36,7 +36,7 @@ For a workflow targeting AKS, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -59,9 +59,9 @@ Copy this JSON object, which you can use to authenticate from GitHub.
 
 Follow the steps to configure the secrets:
 
-1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > Add a new secret**.
+1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > New repository secret**.
 
-    ![Screenshot shows the Add a new secret link for a repository.](media/kubernetes-action/secrets.png)
+    :::image type="content" source="media/kubernetes-action/secrets.png" alt-text="Screenshot shows the Add a new secret link for a repository.":::
 
 2. Paste the contents of the above `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
 
@@ -72,11 +72,12 @@ Follow the steps to configure the secrets:
 
 4. You will see the secrets as shown below once defined.
 
-    ![Screenshot shows existing secrets for a repository.](media/kubernetes-action/kubernetes-secrets.png)
+    :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="Screenshot shows existing secrets for a repository.":::
+
 
 ##  Build a container image and deploy to Azure Kubernetes Service cluster
 
-The build and push of the container images is done using `Azure/docker-login@v1` action. 
+The build and push of the container images is done using `azure/docker-login@v1` action. 
 
 
 ```yml
@@ -104,12 +105,13 @@ jobs:
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+      working-directory: ./<path-to-Dockerfile-directory>
 
 ```
 
 ### Deploy to Azure Kubernetes Service cluster
 
-To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
+To deploy a container image to AKS, you will need to use the `azure/k8s-deploy@v1` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
@@ -127,8 +129,8 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
 ```yaml
   # Create namespace if doesn't exist
   - run: |
-      kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
-  
+      kubectl create namespace ${{ env.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -  
+
   # Create image pull secret for ACR
   - uses: azure/k8s-create-secret@v1
     with:
@@ -141,7 +143,7 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
 ```
 
 
-Complete your deployment with the `k8s-deploy` action. Replace the environment variables with values for your application. 
+Complete your deployment with the `azure/k8s-deploy@v1` action. Replace the environment variables with values for your application. 
 
 ```yaml
 
@@ -173,6 +175,7 @@ jobs:
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+      working-directory: ./<path-to-Dockerfile-directory>
     
     # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1
@@ -183,7 +186,7 @@ jobs:
     
     # Create namespace if doesn't exist
     - run: |
-        kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+        kubectl create namespace ${{ env.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -
     
     # Create image pull secret for ACR
     - uses: azure/k8s-create-secret@v1
@@ -193,14 +196,14 @@ jobs:
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         secret-name: ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}
-        force: true
+        arguments: --force true
     
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          manifests/deployment.yml
-          manifests/service.yml
+          ${{ github.workspace }}/manifests/deployment.yaml
+          ${{ github.workspace }}/manifests/service.yaml
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         imagepullsecrets: |

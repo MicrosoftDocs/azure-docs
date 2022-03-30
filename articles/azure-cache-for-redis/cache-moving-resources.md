@@ -1,8 +1,8 @@
 ---
 title: Move Azure Cache for Redis instances to different regions
 description: How to move Azure Cache for Redis instances to a different Azure region.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
 ms.custom: subject-moving-resources

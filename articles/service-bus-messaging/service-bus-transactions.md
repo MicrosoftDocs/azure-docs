@@ -2,7 +2,8 @@
 title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
-ms.date: 09/21/2021
+ms.date: 03/21/2022
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -35,6 +36,9 @@ The operations that can be performed within a transaction scope are as follows:
 Receive operations aren't included, because it's assumed that the application acquires messages using the peek-lock mode, inside some receive loop or with a callback, and only then opens a transaction scope for processing the message.
 
 The disposition of the message (complete, abandon, dead-letter, defer) then occurs within the scope of, and dependent on, the overall outcome of the transaction.
+
+> [!IMPORTANT]
+> Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
 
 ## Transfers and "send via"
 

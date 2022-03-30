@@ -11,15 +11,19 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
-ms.date: 10/18/2021
+ms.date: 02/02/2022
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](../database/resource-limits-logical-server.md)
+> * [Azure SQL Managed Instance](resource-limits.md)
+
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance see [Service tier comparison](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance review [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md) service tiers. 
 
 ## Hardware generation characteristics
 
@@ -42,21 +46,28 @@ Hardware generations have different characteristics, as described in the followi
 
 \* Dependent on [the number of vCores](#service-tier-characteristics).
 
+>[!NOTE]
+> If your business requires storage sizes greater than the available resource limits for Azure SQL Managed Instance, consider the Azure SQL Database [Hyperscale service tier](../database/service-tier-hyperscale.md).
+
+
 ### Regional support for premium-series hardware generations (preview)
 
-Support for the premium-series hardware generations (public preview) is currently available only in these specific regions:
-
+Support for the premium-series hardware generations (public preview) is currently available only in these specific regions: <br>
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
-| Central US | Yes |  | 
-| East US  | Yes |  | 
-| East US 2 | Yes | Yes | 
-| North Europe |  | Yes | 
-| West Europe | Yes | Yes | 
-| West US |  | Yes |  
+| Australia Central | Yes | | 
+| Australia East | Yes | Yes | 
+| Canada Central | Yes | | 
+| Japan East | Yes | | 
+| Korea Central | Yes | | 
+| North Central US | Yes | | 
+| South Central US | Yes | Yes | 
+| Southeast Asia | Yes |  | 
+| West Europe | | Yes | 
+| West US | Yes | Yes |  
 | West US 2 | Yes | Yes | 
-
+| West US 3 | Yes | Yes | 
 
 ### In-memory OLTP available space 
 
@@ -75,10 +86,10 @@ The amount of in-memory OLTP space in [Business Critical](../database/service-ti
 
 ## Service tier characteristics
 
-SQL Managed Instance has two service tiers: [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md). These tiers provide [different capabilities](../database/service-tiers-general-purpose-business-critical.md), as described in the table below.
+SQL Managed Instance has two service tiers: [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md). 
 
 > [!Important]
-> Business Critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
+> The Business Critical service tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
@@ -91,13 +102,13 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
 | Max data file size | Maximum size of each data file is 8 TB. Use at least two data files for databases larger than 8 TB. | Up to currently available instance size (depending on the number of vCores). |
 | Max log file size | Limited to 2 TB and currently available instance storage size. | Limited to 2 TB and currently available instance storage size. |
-| Data/Log IOPS (approximate) | Up to 30-40 K IOPS per instance*, 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
+| Data/Log IOPS (approximate) | 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 120 MB/s per instance<br/>22 - 65 MB/s per DB (depending on log file size)<br/>\*[Increase the file size to get better IO performance](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s per vCore<br/>Max 96 MB/s |
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](#file-io-characteristics-in-general-purpose-tier) | Not limited. |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
-| Max concurrent workers (requests) | 105 * number of vCores + 800 | 105 * vCore count + 800 |
+| Max concurrent workers | 105 * number of vCores + 800 | 105 * number of vCores + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
 | Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
 
@@ -107,19 +118,45 @@ A few additional considerations:
 - **Currently available instance storage size** is the difference between reserved instance size and the used storage space.
 - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the max storage size limit. Use the [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 - Throughput and IOPS in the General Purpose tier also depend on the [file size](#file-io-characteristics-in-general-purpose-tier) that is not explicitly limited by the SQL Managed Instance.
-  You can create another readable replica in a different Azure region using [auto-failover groups](../database/auto-failover-group-configure.md)
+  You can create another readable replica in a different Azure region using [auto-failover groups](auto-failover-group-configure-sql-mi.md)
 - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1 TB files with max 5 K IOPS each and seven small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some IOPS are also used for auto-backups.
 
 Find more information about the [resource limits in SQL Managed Instance pools in this article](instance-pools-overview.md#resource-limitations).
+
+### Data and log storage
+
+The following factors affect the amount of storage used for data and log files, and apply to General Purpose and Business Critical tiers. 
+
+- Each compute size supports a maximum data size, with a default of 16 GB. For more information on resource limits in Azure SQL Managed Instance, see [resource-limits.md].
+- When you configure maximum data size, an additional 30 percent of storage is automatically added for log files.
+- You can select any maximum data size between 1 GB and the supported storage size maximum, in 1 GB increments.
+- In the General Purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
+- In the Business Critical service tier, `tempdb` shares local SSD storage with data and log files, and `tempdb` storage cost is included in the vCore price.
+- The maximum storage size for a SQL Managed Instance must be specified in multiples of 32 GB.
+
+> [!IMPORTANT]
+> In the General Purpose and Business Critical tiers, you are charged for the maximum storage size configured for a managed instance. 
+
+To monitor total consumed instance storage size for SQL Managed Instance, use the *storage_space_used_mb* [metric](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlmanagedinstances). To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
+
+> [!TIP]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../database/file-space-manage.md).
+
+### Backups and storage
+
+Storage for database backups is allocated to support the [point-in-time restore (PITR)](../database/recovery-using-backups.md) and [long-term retention (LTR)](../database/long-term-retention-overview.md) capabilities of SQL Managed Instance. This storage is separate from data and log file storage, and is billed separately.
+
+- **PITR**: In General Purpose and Business Critical tiers, individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../../storage/common/geo-redundant-design.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by full, differential, and transaction log backups. The storage consumption depends on the rate of change of the database and the retention period configured for backups. You can configure a separate retention period for each database between  0 to 35 days for SQL Managed Instance. A backup storage amount equal to the configured maximum data size is provided at no extra charge.
+- **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years. If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. For more information, see [Long-term backup retention](../database/long-term-retention-overview.md).
 
 ### File IO characteristics in General Purpose tier
 
 In the General Purpose service tier, every database file gets dedicated IOPS and throughput that depend on the file size. Larger files get more IOPS and throughput. IO characteristics of database files are shown in the following table:
 
-| **File size** | **>=0 and <=128 GiB** | **>128 and <= 512 GiB** | **>0.5 and <=1 TiB**    | **>1 and <=2 TiB**    | **>2 and <=4 TiB** | **>4 and <=8 TiB** | **>8 and <=16 TiB** |
-|:--|:--|:--|:--|:--|:--|:--|:--|
-| IOPS per file       | 500   | 2300              | 5000  | 7500              | 7500              | 12,500   | |
-| Throughput per file | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s| 250 MiB/s | 480 MiB/s |  |
+| **File size** | **>=0 and <=128 GiB** | **>128 and <= 512 GiB** | **>0.5 and <=1 TiB**    | **>1 and <=2 TiB**    | **>2 and <=4 TiB** | **>4 and <=8 TiB** |
+|:--|:--|:--|:--|:--|:--|:--|
+| IOPS per file       | 500   | 2300              | 5000  | 7500              | 7500              | 12,500   |
+| Throughput per file | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s| 250 MiB/s | 250 MiB/s |
 
 If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by [increasing the file size](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
@@ -230,7 +267,7 @@ The amount of In-memory OLTP space in [Business Critical](../database/service-ti
 | Storage IO latency (approximate) | Gen4: 5-10 ms | Gen4: 1-2 ms |
 | In-memory OLTP | Gen4: Not supported | Gen4: Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | Gen4: 30000 | Gen4: 30000 |
-| Max concurrent workers (requests) | Gen4: 210 * number of vCores + 800 | Gen4: 210 * vCore count + 800 |
+| Max concurrent workers | Gen4: 210 * number of vCores + 800 | Gen4: 210 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | Gen4: 0 | Gen4: 1 (included in price) |
 | Compute isolation | Gen4: not supported | Gen4: not supported |
 

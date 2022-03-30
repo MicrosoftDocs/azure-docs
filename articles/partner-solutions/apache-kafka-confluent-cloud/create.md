@@ -1,12 +1,9 @@
 ---
 title: Create Apache Kafka for Confluent Cloud through Azure portal - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
-ms.service: partner-services
 ms.topic: quickstart
-ms.date: 06/07/2021
-author: tfitzmac
-ms.author: tomfitz
-ms.custom: mode-portal
+ms.date: 12/14/2021
+ms.custom: mode-ui
 ---
 
 # QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure portal
@@ -65,7 +62,7 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
     | ---- | ---- |
     | **Subscription** | From the drop-down menu, select the Azure subscription to deploy to. You must have _Owner_ or _Contributor_ access. |
     | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **Confluent organization name** | Name the software as a service (SaaS) resource. |
+    | **Confluent organization name** | To create a new Confluent organization, select **Create a new organization** and provide a name for the Confluent organization. To link to an existing Confluent organization, select **Link Subscription to an existing organization** option. Select the option **Link to an existing organization**. Sign in to your Confluent account, and select the existing organization. |
     | **Region** | From the drop-down menu, select one of these regions: <br/><br/> Australia East, Canada Central, Central US, East US, East US 2, France Central, North Europe, Southeast Asia, UK South, West Central US, West Europe, West US 2 |
     | **Plan** | Select **Pay as you go** or **Commitment**. |
     | **Billing term** | Prefilled based on the selected billing plan. |

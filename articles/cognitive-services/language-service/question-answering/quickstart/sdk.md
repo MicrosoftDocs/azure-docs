@@ -4,8 +4,12 @@ description: This quickstart shows you how to create and manage your knowledge b
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-other
+ms.date: 11/29/2021
+author: mrbullwinkle
+ms.author: mbullwin
+recommendations: false
+ms.devlang: csharp, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-api
 zone_pivot_groups: custom-qna-quickstart
 ---
 
@@ -36,8 +40,14 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+## Explore the REST API
+
+To learn about automating your question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
+
+* [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+* [Authoring API cURL examples](../how-to/authoring.md)
+* [Runtime API reference](/rest/api/cognitiveservices/questionanswering/question-answering)
+
 ## Next steps
 
 * [Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
-* [Authoring API](../how-to/authoring.md)
-

@@ -1,11 +1,11 @@
 ---
 title: Latest restorable timestamp, use cases, examples for an Azure Cosmos DB container
 description: The latest restorable timestamp API provides the latest restorable timestamp for containers on accounts with continuous mode backup. Using this API, you can get the restorable timestamp to trigger live account restore or monitor the data that is being backed up.
-author: SnehaGunda
+author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 11/22/2021
-ms.author: sngun
+ms.date: 12/03/2021
 ms.topic: how-to
 ms.reviewer: sngun
 ---
@@ -79,14 +79,17 @@ Let's say, we have an account which exists in 2 regions (East US and West US). W
 
 ## Frequently asked questions
 
-##### Can I use this API for accounts with periodic backup?
+#### Can I use this API for accounts with periodic backup?
 No. This API can only be used for accounts with continuous backup mode.
 
-##### Can I use this API for accounts migrated to continuous mode?
+#### Can I use this API for accounts migrated to continuous mode?
 Yes. This API can be used for account provisioned with continuous backup mode or successfully migrated to continuous backup mode.
 
-##### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
+#### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
+
+#### Will restorable timestamp work for deleted accounts?
+No. It only applies only to live accounts. You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 
 ## Next steps
 

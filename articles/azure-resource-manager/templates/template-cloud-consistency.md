@@ -212,7 +212,7 @@ A template deploys and configures resources. A resource type is provided by a re
 
 ![Resource providers](./media/templates-cloud-consistency/resource-providers.png)
 
-To verify the resource providers that are available in a given cloud, run the following script in the Azure command line interface ([CLI](/cli/azure/install-azure-cli)):
+To verify the resource providers that are available in a given cloud, run the following script in the [Azure CLI](/cli/azure/):
 
 ```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table

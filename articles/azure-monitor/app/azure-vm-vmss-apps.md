@@ -2,9 +2,9 @@
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/26/2019 
+ms.date: 08/26/2019
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
@@ -39,7 +39,7 @@ There are two ways to enable application monitoring for Azure virtual machines a
   * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
         
 #### Java
-  * For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#auto-collected-requests), with a multitude of [additional configurations](./java-standalone-config.md)
+  * For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#autocollected-requests), with a multitude of [additional configurations](./java-standalone-config.md)
 
 ### Code-based via SDK
     
@@ -83,7 +83,7 @@ $publicCfgJsonString = '
           "machineFilter": ".*",
           "virtualPathFilter": ".*",
           "instrumentationSettings" : {
-            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       ]
@@ -136,9 +136,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "virtualPathFilter": ".*",
-          "instrumentationSettings" : {
-            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter"= ".*";
+          "instrumentationSettings" = @{
+            "connectionString"= "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )
@@ -194,6 +194,22 @@ Extension execution output is logged to files found in the following directories
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
+
+## Release notes
+
+### 2.8.44
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enabled SQL query collection.
+- Enabled support for Azure Active Directory (AAD) authentication.
+
+### 2.8.42
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
+
+### 2.8.41
+
+- Added ASP.NET Core Auto-Instrumentation feature.
 
 ## Next steps
 * Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).

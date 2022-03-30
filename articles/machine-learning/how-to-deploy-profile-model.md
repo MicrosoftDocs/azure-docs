@@ -8,8 +8,9 @@ ms.subservice: core
 ms.date: 07/31/2020
 ms.topic: how-to
 zone_pivot_groups: aml-control-methods
-ms.reviewer: larryfr
-ms.custom: deploy
+ms.author: larryfr
+author: blackmist
+ms.custom: deploy, cliv1
 ---
 
 # Profile your model to determine resource utilization
@@ -103,6 +104,7 @@ details = profile.get_details()
 
 ::: zone pivot="cli"
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 The following command demonstrates how to profile a model by using the CLI:
 

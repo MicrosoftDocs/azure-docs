@@ -3,14 +3,13 @@ title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/12/2021
+ms.date: 02/18/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -23,7 +22,7 @@ This article answers some common questions about Azure role-based access control
 Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> Starting November 2021, the role assignments limit for a subscription is being increased from **2000** to **4000** over the next several months. Subscriptions that are near the limit will be prioritized first. The limit for the remaining subscriptions will be increased over time.
+> Starting November 2021, the role assignments limit for all Azure subscriptions is being automatically increased from **2000** to **4000**. There is no action that you need to take for your subscription. The limit increase will take several months.
 
 If you are getting close to this limit, here are some ways that you can reduce the number of role assignments:
 
@@ -73,6 +72,8 @@ Azure supports up to **500** role assignments per management group. This limit i
     To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal)
 
 - If you attempt to remove the last Owner role assignment for a subscription, you might see the error "Cannot delete the last RBAC admin assignment." Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription. If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
+
+    You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are the Global Administrator for the tenant. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
 
 ## Problems with custom roles
 
@@ -125,7 +126,7 @@ If you recently invited a user when creating a role assignment, this security pr
 
 However, if this security principal is not a recently invited user, it might be a deleted security principal. If you assign a role to a security principal and then you later delete that security principal without first removing the role assignment, the security principal will be listed as **Identity not found** and an **Unknown** type.
 
-If you list this role assignment using Azure PowerShell, you might see an empty `DisplayName` and an `ObjectType` set to **Unknown**. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following output:
+If you list this role assignment using Azure PowerShell, you might see an empty `DisplayName` and `SignInName`, or a value for `ObjectType` of `Unknown`. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following output:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -135,11 +136,11 @@ SignInName         :
 RoleDefinitionName : Storage Blob Data Contributor
 RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
 ObjectId           : 33333333-3333-3333-3333-333333333333
-ObjectType         : Unknown
+ObjectType         : User
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) returns a role assignment that is similar to the following output:
+Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
 
 ```
 {

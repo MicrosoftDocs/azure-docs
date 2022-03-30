@@ -10,8 +10,7 @@ ms.service: virtual-machines-sql
 ms.subservice: deployment
 ms.workload: iaas-sql-server
 ms.author: mathoma
-ms.reviewer: jroth
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Provision a Linux virtual machine running SQL Server in the Azure portal

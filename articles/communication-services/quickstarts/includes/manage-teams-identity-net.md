@@ -90,7 +90,7 @@ var aadClient = PublicClientApplicationBuilder
                 .WithRedirectUri(redirectUri)
                 .Build();
 
-string scope = "https://auth.msft.communication.azure.com/VoIP";
+string scope = "https://auth.msft.communication.azure.com/Teams.ManageCalls";
 
 var teamsUserAadToken = await aadClient
                         .AcquireTokenInteractive(new List<string> { scope })
@@ -110,12 +110,12 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
-### Step 3: Exchange the Azure AD user token for the Teams access token
+### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
 
 Use the `GetTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```csharp
-var accessToken = await client.GetTokenForTeamsUser(teamsUserAadToken.AccessToken);
+var accessToken = await client.GetTokenForTeamsUserAsync(teamsUserAadToken.AccessToken);
 Console.WriteLine($"Token: {accessToken.Value.Token}");
 ```
 

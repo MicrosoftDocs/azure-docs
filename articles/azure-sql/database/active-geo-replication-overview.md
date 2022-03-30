@@ -7,8 +7,8 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
-ms.date: 10/25/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 1/19/2022
 ---
 
 # Active geo-replication
@@ -19,12 +19,11 @@ Active geo-replication is a feature that lets you to create a continuously synch
 Active geo-replication is designed as a business continuity solution that lets you perform quick disaster recovery of individual databases in case of a regional disaster or a large scale outage. Once geo-replication is set up, you can initiate a geo-failover to a geo-secondary in a different Azure region. The geo-failover is initiated programmatically by the application or manually by the user.
 
 > [!NOTE]
-> Active geo-replication for Azure SQL Hyperscale is [now in public preview](https://aka.ms/hsgeodr). Current limitations include: only one geo-secondary in the same or a different region, forced and planned failover not currently supported, restore database from geo-secondary not supported, using a geo-secondary as the source database for Database Copy, or as the primary for another geo-secondary is not supported.
-> 
-> In the case you need to make the geo-secondary a primary (writable database), follow the steps below:
-> 1. Break the geo-replication link using the cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) in PowerShell or [az sql db replica delete-link](/cli/azure/sql/db/replica#az_sql_db_replica_delete_link) for Azure CLI, this will make the secondary database a read-write standalone database. Any data changes committed to the primary but not yet replicated to the secondary will be lost. These changes could be recovered when the old primary is available, or in some cases by restoring the old primary to the latest available point in time.
-> 2. If the old primary is available, delete it, then set up geo-replication for the new primary (a new secondary will be seeded). 
-> 3. Update connection strings in your application accordingly.
+> Active geo-replication for Azure SQL Hyperscale is [now in public preview](https://aka.ms/hsgeodr). Current limitations include: 
+> - Primary can have only one geo-secondary replica.
+> - Restore or database copy from geo-secondary is not supported.
+> - Can't use geo-secondary as a source for geo-replication to another database.
+
 
 > [!NOTE]
 > Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of instances of SQL Managed Instance, use [Auto-failover groups](auto-failover-group-overview.md).
@@ -199,7 +198,7 @@ To create a geo-secondary in a subscription different from the subscription of t
 > [!NOTE]
 > Cross-subscription geo-replication operations including setup and geo-failover are only supported using T-SQL commands.
 > 
-> Adding a geo-secondary using T-SQL is not supported when the primary and/or secondary servers have a [private endpoint](private-endpoint-overview.md) configured, and [public network access is denied](connectivity-settings.md#deny-public-network-access). If private endpoint is configured but public network access is allowed, adding a geo-secondary when connected to the primary server from a public IP address is supported. Once a geo-secondary is added, public access can be denied.
+> Adding a geo-secondary using T-SQL is not supported when connecting to the primary server over a [private endpoint](private-endpoint-overview.md). If a private endpoint is configured but public network access is allowed, adding a geo-secondary is supported when connected to the primary server from a public IP address. Once a geo-secondary is added, public access can be [denied](connectivity-settings.md#deny-public-network-access).
 > 
 > Creating a geo-secondary on a logical server in a different Azure tenant is not supported when [Azure Active Directory only](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) authentication for Azure SQL is active (enabled) on either primary or secondary logical server.
 
@@ -256,7 +255,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Gets the last replication time, last replication lag, and other information about the replication link for a given database. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Shows the status for all database operations including changes to replication links. |
 | [sys.sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |Causes the application to wait until all committed transactions are hardened to the transaction log of a geo-secondary. |
-|  | |
+
 
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a> PowerShell: Manage geo-failover of single and pooled databases
 
@@ -271,7 +270,6 @@ As discussed previously, active geo-replication can also be managed programmatic
 | [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Switches a secondary database to be primary to initiate failover. |
 | [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Terminates data replication between a SQL Database and the specified secondary database. |
 | [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Gets the geo-replication links for a database. |
-|  | |
 
 > [!TIP]
 > For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](scripts/setup-geodr-and-failover-elastic-pool-powershell.md).
@@ -287,7 +285,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 | [Get Replication Link](/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. **This option is not supported for SQL Managed Instance.**|
 | [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |
-|  | |
+
 
 ## Next steps
 

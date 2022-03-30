@@ -20,10 +20,14 @@ items:
     href: tutorial-nat-gateway-load-balancer-public-portal.md
   - name: Integrate NAT gateway internal load balancer
     href: tutorial-nat-gateway-load-balancer-internal-portal.md
+  - name: Migrate outbound access
+    href: tutorial-migrate-outbound-nat.md
+  - name: Migrate a virtual machine public IP address
+    href: tutorial-migrate-ilip-nat.md
   expanded: true
 - name: Concepts
   items:
-  - name: Resource
+  - name: Resources
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
@@ -33,6 +37,10 @@ items:
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:
+  - name: Move across regions
+    items:
+    - name: Create and configure NAT gateway after region move
+      href: region-move-nat-gateway.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot NAT gateway

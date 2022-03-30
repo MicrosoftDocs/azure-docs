@@ -22,6 +22,8 @@ You need Azure PowerShell and to be connected to Azure:
 
 If you don't have PowerShell installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
@@ -81,7 +83,7 @@ The deployment can take several minutes to complete.
 
 ## Deploy remote Bicep file
 
-Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az-bicep-build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 

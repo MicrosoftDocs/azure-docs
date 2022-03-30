@@ -10,7 +10,7 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Monitor your first metric by using the web portal

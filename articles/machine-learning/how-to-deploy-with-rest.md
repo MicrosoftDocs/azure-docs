@@ -1,7 +1,7 @@
 ---
-title: "Deploy models using managed online endpoints with REST APIs (preview)"
+title: "Deploy models using online endpoints with REST APIs (preview)"
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy models using managed online endpoints with REST APIs.
+description: Learn how to deploy models using online endpoints with REST APIs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: rsethur
 ms.author: seramasu
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
 ---
@@ -44,10 +44,11 @@ In this article, you learn how to use the new REST APIs to:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="set_endpoint_name":::
 
-## Azure Machine Learning managed online endpoints
-Managed online endpoints (preview) allow you to deploy your model without having to create and manage the underlying infrastructure. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
+## Azure Machine Learning online endpoints
 
-There are many ways to create an Azure Machine Learning online endpoints [including the Azure CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example a managed online endpoint with the REST API.
+Online endpoints (preview) allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
+
+There are many ways to create an Azure Machine Learning online endpoints [including the Azure CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
 
 ## Create machine learning assets
 
@@ -143,8 +144,8 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 * Learn how to deploy your model [using the Azure CLI](how-to-deploy-managed-online-endpoints.md).
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
-* Learn to [Troubleshoot managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
-* Learn how to [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+* Learn to [Troubleshoot online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+* Learn how to [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
 * Learn [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
 * [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).

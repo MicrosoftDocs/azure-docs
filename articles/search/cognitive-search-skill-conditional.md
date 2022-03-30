@@ -6,7 +6,7 @@ description: The conditional skill in Azure Cognitive Search enables filtering, 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 

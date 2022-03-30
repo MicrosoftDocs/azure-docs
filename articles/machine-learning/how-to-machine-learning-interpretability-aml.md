@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: mithigpe
 author: minthigpen
-ms.reviewer: Luis.Quintanilla
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021
@@ -26,7 +26,7 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Upload explanations to Azure Machine Learning Run History.
 
-* Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning studio.
+* Use a visualization dashboard to interact with your model explanations, both in a Jupyter Notebook and in the Azure Machine Learning studio.
 
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 
@@ -118,7 +118,7 @@ The following example shows how to use the interpretability package on your pers
                              classes=classes)
     ```
 
-### Explain the entire model behavior (global explanation) 
+### Explain the entire model behavior (global explanation)
 
 Refer to the following example to help you get the aggregate (global) feature importance values.
 
@@ -229,7 +229,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## Generate feature importance values via remote runs
 
-The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It is conceptually similar to the local process, except you:
+The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It’s conceptually similar to the local process, except you:
 
 * Use the `ExplanationClient` in the remote run to upload the interpretability context.
 * Download the context later in a local environment.
@@ -302,12 +302,12 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
 
 The visualizations support explanations on both engineered and raw features. Raw explanations are based on the features from the original dataset and engineered explanations are based on the features from the dataset with feature engineering applied.
 
-When attempting to interpret a model with respect to the original dataset, it is recommended to use raw explanations as each feature importance will correspond to a column from the original dataset. One scenario where engineered explanations might be useful is when examining the impact of individual categories from a categorical feature. If a one-hot encoding is applied to a categorical feature, then the resulting engineered explanations will include a different importance value per category, one per one-hot engineered feature. This encoding can be useful when narrowing down which part of the dataset is most informative to the model.
+When attempting to interpret a model with respect to the original dataset, it’s recommended to use raw explanations as each feature importance will correspond to a column from the original dataset. One scenario where engineered explanations might be useful is when examining the impact of individual categories from a categorical feature. If a one-hot encoding is applied to a categorical feature, then the resulting engineered explanations will include a different importance value per category, one per one-hot engineered feature. This encoding can be useful when narrowing down which part of the dataset is most informative to the model.
 
 > [!NOTE]
 > Engineered and raw explanations are computed sequentially. First an engineered explanation is created based on the model and featurization pipeline. Then the raw explanation is created based on that engineered explanation by aggregating the importance of engineered features that came from the same raw feature.
 
-### Create, edit and view dataset cohorts
+### Create, edit, and view dataset cohorts
 
 The top ribbon shows the overall statistics on your model and data. You can slice and dice your data into dataset cohorts, or subgroups, to investigate or compare your model’s performance and explanations across these defined subgroups. By comparing your dataset statistics and explanations across those subgroups, you can get a sense of why possible errors are happening in one group versus another.
 
@@ -318,7 +318,7 @@ The top ribbon shows the overall statistics on your model and data. You can slic
 The first three tabs of the explanation dashboard provide an overall analysis of the trained model along with its predictions and explanations.
 
 #### Model performance
-Evaluate the performance of your model by exploring the distribution of your prediction values and the values of your model performance metrics. You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset. Select filters along y-value and x-value to cut across different dimensions. View metrics such as accuracy, precision, recall, false positive rate (FPR) and false negative rate (FNR).
+Evaluate the performance of your model by exploring the distribution of your prediction values and the values of your model performance metrics. You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset. Select filters along y-value and x-value to cut across different dimensions. View metrics such as accuracy, precision, recall, false positive rate (FPR), and false negative rate (FNR).
 
 [![Model performance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
 
@@ -328,7 +328,7 @@ Explore your dataset statistics by selecting different filters along the X, Y, a
 [![Dataset explorer tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
 
 #### Aggregate feature importance
-Explore the top-k important features that impact your overall model predictions (also known as global explanation). Use the slider to show descending feature importance values. Select up to three cohorts to see their feature importance values side by side. Click on any of the feature bars in the graph to see how values of the selected feature impact model prediction in the dependence plot below.
+Explore the top-k important features that impact your overall model predictions (also known as global explanation). Use the slider to show descending feature importance values. Select up to three cohorts to see their feature importance values side by side. Select any of the feature bars in the graph to see how values of the selected feature impact model prediction in the dependence plot below.
 
 [![Aggregate feature importance tab in the explanation visualization](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
 
@@ -349,9 +349,9 @@ The fourth tab of the explanation tab lets you drill into an individual datapoin
 
 ### Visualization in Azure Machine Learning studio
 
-If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanations to Azure Machine Learning Run History), you can view the visualizations on the explanations dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the dashboard widget that's generated within your Jupyter notebook. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
+If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanations to Azure Machine Learning Run History), you can view the visualizations on the explanations dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the dashboard widget that's generated within your Jupyter Notebook. What-If datapoint generation and ICE plots are disabled as there’s no active compute in Azure Machine Learning studio that can perform their real-time computations.
 
-If the dataset, global, and local explanations are available, data populates all of the tabs. If only a global explanation is available, the Individual feature importance tab will be disabled.
+If the dataset, global, and local explanations are available, data populates all of the tabs. However, if only a global explanation is available, the Individual feature importance tab will be disabled.
 
 Follow one of these paths to access the explanations dashboard in Azure Machine Learning studio:
 
@@ -559,23 +559,22 @@ You can deploy the explainer along with the original model and use it at inferen
 
 ## Troubleshooting
 
-* **Sparse data not supported**: The model explanation dashboard breaks/slows down substantially with a large number of features, therefore we currently do not support sparse data format. Additionally, general memory issues will arise with large datasets and large number of features. 
+* **Sparse data not supported**: The model explanation dashboard breaks/slows down substantially with a large number of features, therefore we currently don’t support sparse data format. Additionally, general memory issues will arise with large datasets and large number of features.
+
 * **Supported explanations features matrix**
 
 Supported explanation tab | Raw features (dense) | Raw features (sparse) | Engineered features (dense) | Engineered features (sparse)
 :----- | :--- | :--- | :---- | :---- |
 Model performance   | Supported (not forecasting) | Supported (not forecasting)  | Supported | Supported |
-Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
+Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse data isn’t uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data isn’t uploaded and UI has issues rendering sparse data. |
  Aggregate feature importance | Supported | Supported | Supported | Supported |
- Individual feature importance| Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
+ Individual feature importance| Supported (not forecasting)   | Not supported. Since sparse data isn’t uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data isn’t uploaded and UI has issues rendering sparse data. |
 
+* **Forecasting models not supported with model explanations**: Interpretability, best model explanation, isn’t available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting regression models support explanations. However, in the explanation dashboard, the "Individual feature importance" tab isn’t supported for forecasting because of complexity in their data pipelines.
 
-* **Forecasting models not supported with model explanations**: Interpretability, best model explanation, is not available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting regression models support explanations. However, in the explanation dashboard, the "Individual feature importance" tab is not supported for forecasting because of complexity in their data pipelines.
+* **Local explanation for data index**: The explanation dashboard doesn’t support relating local importance values to a row identifier from the original validation dataset if that dataset is greater than 5000 datapoints as the dashboard randomly downsamples the data. However, the dashboard shows raw dataset feature values for each datapoint passed into the dashboard under the Individual feature importance tab. Users can map local importances back to the original dataset through matching the raw dataset feature values. If the validation dataset size is less than 5000 samples, the `index` feature in AzureML studio will correspond to the index in the validation dataset.
 
-* **Local explanation for data index**: The explanation dashboard does not support relating local importance values to a row identifier from the original validation dataset if that dataset is greater than 5000 datapoints as the dashboard randomly downsamples the data. However, the dashboard shows raw dataset feature values for each datapoint passed into the dashboard under the Individual feature importance tab. Users can map local importances back to the original dataset through matching the raw dataset feature values. If the validation dataset size is less than 5000 samples, the `index` feature in AzureML studio will correspond to the index in the validation dataset.
-
-* **What-if/ICE plots not supported in studio**: What-If and Individual Conditional Expectation (ICE) plots are not supported in Azure Machine Learning studio under the Explanations tab since the uploaded explanation needs an active compute to recalculate predictions and probabilities of perturbed features. It is currently supported in Jupyter notebooks when run as a widget using the SDK.
-
+* **What-if/ICE plots not supported in studio**: What-If and Individual Conditional Expectation (ICE) plots aren’t supported in Azure Machine Learning studio under the Explanations tab since the uploaded explanation needs an active compute to recalculate predictions and probabilities of perturbed features. It’s currently supported in Jupyter notebooks when run as a widget using the SDK.
 
 ## Next steps
 

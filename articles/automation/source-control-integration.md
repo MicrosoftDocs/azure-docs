@@ -14,6 +14,9 @@ ms.custom: devx-track-azurepowershell
 
  Source control integration lets you easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to synchronize different branches in source control with your development, test, and production Automation accounts.
 
+> [!NOTE]
+> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support MFA (Multi-Factor Authentication).
+
 ## Source control types
 
 Azure Automation supports three types of source control:
@@ -25,20 +28,21 @@ Azure Automation supports three types of source control:
 ## Prerequisites
 
 * A source control repository (GitHub or Azure DevOps)
-* A system-assigned [managed identity](automation-security-overview.md#managed-identities) is required. If you have not configured a system-assigned managed identity with your Automation account, see [Enable managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) to create it.
-* Assign the system-assigned managed identity to the [Contributor](automation-role-based-access-control.md#contributor) role in the Automation account.
+* The Automation account requires either a system-assigned or user assigned [managed identity](automation-security-overview.md#managed-identities). If you haven't configured a managed identity with your Automation account, see [Enable system-assigned managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) or [enable user-assigned managed identity](./add-user-assigned-identity.md) to create it.
+* Assign the user assigned or system-assigned managed identity to the [Contributor](automation-role-based-access-control.md#contributor) role in the Automation account.
 
 > [!NOTE]
-> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
+> Azure Automation supports both the system-assigned as well as user-assigned managed identity with source control integration. For using a user-assigned managed identity, create an automation variable `AUTOMATION_SC_USER_ASSIGNED_IDENTITY_ID` with the value as Client ID of the user-assigned identity. The user-assigned `Managed Identity` should be enabled and have contributor access to the automation account. If this variable is not created, by default, we use the system-assigned identity. 
+>
+> :::image type="content" source="./media/source-control-integration/user-assigned-managed-identity.png" alt-text="Screenshot that displays the user-assigned Managed Identity."::: 
+> 
+> If you have both a Run As account and managed identity enabled, then managed identity is given preference. If you want to use a Run As account instead, you can [create an Automation variable](./shared-resources/variables.md) of BOOLEAN type named `AUTOMATION_SC_USE_RUNAS` with a value of `true`.
 
 ## Configure source control
 
 This section tells how to configure source control for your Automation account. You can use either the Azure portal or PowerShell.
 
-> [!NOTE]
-> Azure Automation only supports the system-assigned managed identity with source control integration. If you have both a Run As account and system-assigned managed identity enabled, the managed identity is given preference. If you want to use a Run As account instead, you can [create an Automation variable](./shared-resources/variables.md) of BOOLEAN type named `AUTOMATION_SC_USE_RUNAS` with a value of `true`.
-
-### Assign system-assigned identity to Contributor role
+### Assign managed identity to Contributor role
 
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the Azure Automation account resource.
 
