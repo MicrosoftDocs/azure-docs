@@ -1,9 +1,10 @@
 ---
-title: Common cost analysis uses in Azure Cost Management
-description: This article explains how you can get results for common cost analysis tasks in Azure Cost Management.
+title: Common cost analysis uses in Cost Management
+titleSuffix: Azure Cost Management + Billing
+description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 12/20/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +13,7 @@ ms.reviewer: adwise
 
 # Common cost analysis uses
 
-Azure Cost Management users often want answers to questions that many others ask. This article walks you through getting results for common cost analysis tasks in Cost Management.
+Cost Management users often want answers to questions that many others ask. This article walks you through getting results for common cost analysis tasks in Cost Management.
 
 ## View forecasted costs
 
@@ -63,6 +64,18 @@ To view Azure and AWS costs together, you use management group scopes in Azure.
 1. Go to cost analysis and select **Accumulated costs**.
 1. Select **Group by** - **Provider**.
 
+## View New Commerce license and consumption costs
+
+You can view your New Commerce license and consumption products along with your Azure charges in Cost analysis. Select the filter list, then select **Provider**, and then choose from the list of options. For example, Microsoft 365 and Dynamics 365.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-select-provider.png" alt-text="Screenshot showing Provider filter selection." lightbox="./media/cost-analysis-common-uses/filter-select-provider.png" :::
+
+You can narrow to specific seat-based or consumption charges by using the **Charge type** filter and selecting values of **Purchase** or **Usage**.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-charge-type.png" alt-text="Screenshot showing Charge type filter selection." lightbox="./media/cost-analysis-common-uses/filter-charge-type.png" :::
+
+Currently, purchasing New Commerce products is only available for Partners.
+
 ## View cost breakdown by Azure service
 
 Viewing costs by an Azure service can help you to better understand the parts of your infrastructure that cost the most. For example, VM compute costs might be small. Yet you might accrue significant networking costs because of the amount of information emitting from the VMs. Understanding the primary cost drivers of your Azure services is essential so that you can adjust service usage, as needed.
@@ -86,6 +99,8 @@ Viewing invoice details, you can identify the service that has unexpected costs 
 ## View cost breakdown by Azure resource
 
 Your services are built with Azure resources. Reviewing costs based on resources can help you quickly identify your primary cost contributors. If a service has resources that are too expensive, consider making changes to reduce your costs.
+
+The view is only available for subscription and resource group scopes.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select **Cost by resource**.
@@ -128,6 +143,9 @@ The Pricing Model dimension is also used to view on demand and reservation charg
 ## View your reservation charges
 
 Reserved instances provide a way for you to save money with Azure. With reservations, you spend money up front for a given number of resources over time. Cost analysis shows the charges as they appear on your bill. The charges are shown as actual costs or amortized over the course of your reservation period.
+
+> [!NOTE]
+> Although you can buy a reservation with a pay-as-you-go (MS-AZR-0003P) subscription, Cost Analysis doesn't support viewing amortized reservation costs. If you try to view costs with the **Amortized cost** metric, you'll see the same results as **Actual Cost**.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Add a filter for **Pricing Model: Reservation**.

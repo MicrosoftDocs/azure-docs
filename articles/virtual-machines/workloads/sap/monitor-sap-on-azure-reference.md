@@ -1,9 +1,9 @@
 ---
 title: Monitor SAP on Azure data reference
 description: Important reference material needed when you monitor SAP on Azure. 
-author: Ajayan1008
+author: mamccrea
 ms.topic: reference
-ms.author: v-hborys
+ms.author: mamccrea
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap 
 ms.custom: subject-monitoring

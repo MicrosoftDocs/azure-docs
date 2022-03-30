@@ -1,13 +1,12 @@
 ---
 title: Add a polygon extrusion layer to an Android map | Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Android SDK.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 

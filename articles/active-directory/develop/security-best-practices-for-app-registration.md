@@ -35,7 +35,7 @@ This article describes security best practices for the following application reg
 
 It's important to keep Redirect URIs of your application up to date. A lapse in the ownership of one of the redirect URIs can lead to an application compromise. Ensure that all DNS records are updated and monitored periodically for changes. Along with maintaining ownership of all URIs, don't use wildcard reply URLs or insecure URI schemes such as http, or URN.
 
-![redirect Uri](media/active-directory-application-registration-best-practices/redirect-uri.png)
+![redirect URI](media/active-directory-application-registration-best-practices/redirect-uri.png)
 
 ### Redirect URI summary
 
@@ -49,7 +49,7 @@ It's important to keep Redirect URIs of your application up to date. A lapse in 
 
 ## Implicit flow token configuration
 
-Scenarios that require **implicit flow** can now use **Auth code flow** to reduce the risk of compromise associated with implicit grant flow misuse. If you configured your application registration to get Access tokens using implicit flow, but don't actively use it, we recommend you turn off the setting to protect from misuse.
+Scenarios that required **implicit flow** can now use **Auth code flow** to reduce the risk of compromise associated with implicit grant flow misuse. If you configured your application registration to get Access tokens using implicit flow, but don't actively use it, we recommend you turn off the setting to protect from misuse.
 
 ![access tokens used for implicit flows](media/active-directory-application-registration-best-practices/implict-grant-flow.png)
 
@@ -79,17 +79,11 @@ While it's convenient to use password secrets as a credential, we strongly recom
 ## AppId URI configuration
 
 Certain applications can expose resources (via WebAPI) and as such need to define an AppId URI that uniquely identifies the resource in a tenant. We recommend using either of the following URI schemes: api or https, and set the AppId URI in the following formats to avoid URI collisions in your organization.
+The AppId URI acts as the prefix for the scopes referenced in the API's code, and it must use a verified customer owned domain. For multi-tenant applications the value must also be globally unique.
 
-**Valid api schemes:**
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
-- api://_{appId}_
-- api://_{tenantId}/{appId}_
-- api://_{tenantId}/{string}_
-- https://_{verifiedCustomerDomain}/{string}_
-- https://_{string}.{verifiedCustomerDomain}_
-- https://_{string}.{verifiedCustomerDomain}/{string}_
-
-![application id uri](media/active-directory-application-registration-best-practices/app-id-uri.png)
+![Application ID URI](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
 ### AppId URI summary
 
@@ -98,6 +92,7 @@ Certain applications can expose resources (via WebAPI) and as such need to defin
 | Avoid collisions by using valid URI formats. | Use wildcard AppId URI |
 | Use verified domain in Line of Business (LoB) apps | Malformed URI    |
 | Inventory your AppId URIs                    |      -----             |
+| Use AppId URI to expose WebApi in your organization| Use AppId URI to identify the application, instead use the appId property|
 
 ## App ownership configuration
 

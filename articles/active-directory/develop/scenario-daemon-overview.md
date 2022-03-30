@@ -1,6 +1,6 @@
 ---
 title: Build a daemon app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -10,12 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/31/2020
+ms.date: 10/14/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
-
 ---
 
 # Scenario: Daemon application that calls web APIs
@@ -36,6 +34,14 @@ Here are some examples of use cases for daemon apps:
 
 There's another common case where non-daemon applications use client credentials: even when they act on behalf of users, they need to access a web API or a resource under their own identity for technical reasons. An example is access to secrets in Azure Key Vault or Azure SQL Database for a cache.
 
+> [!NOTE]
+> You can't deploy a daemon application to a regular user's device, and a regular user can't access a daemon application. Only a limited set of IT administrators can access devices that have daemon applications running, so a bad actor can't access a client secret or token from device traffic and act on behalf of the daemon application. The daemon application scenario doesn't replace device authentication.
+>
+> Examples of non-daemon applications:
+> - A mobile application that accesses a web service on behalf of an application, but not on behalf of a user.
+> - An IoT device that accesses a web service on behalf of a device, but not on behalf of a user.
+>
+
 Applications that acquire a token for their own identities:
 
 - Are confidential client applications. These apps, given that they access resources independently of users, need to prove their identity. They're also rather sensitive apps. They need to be approved by the Azure Active Directory (Azure AD) tenant admins.
@@ -43,10 +49,9 @@ Applications that acquire a token for their own identities:
 
 ## Specifics
 
-> [!IMPORTANT]
->
-> - Users can't interact with a daemon application. A daemon application requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform. This token is then used to call the web API (and is refreshed as needed).
-> - Because users can't interact with daemon applications, incremental consent isn't possible. All the required API permissions need to be configured at application registration. The code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent.
+Users can't interact with a daemon application. A daemon application requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform. This token is then used to call the web API (and is refreshed as needed).
+
+Because users can't interact with daemon applications, incremental consent isn't possible. All the required API permissions need to be configured at application registration. The code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent.
 
 For developers, the end-to-end experience for this scenario has the following aspects:
 
@@ -61,5 +66,5 @@ For developers, the end-to-end experience for this scenario has the following as
 
 ## Next steps
 
-Move on to the next article in this scenario, 
+Move on to the next article in this scenario,
 [App registration](./scenario-daemon-app-registration.md).

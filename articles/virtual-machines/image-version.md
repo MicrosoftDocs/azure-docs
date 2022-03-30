@@ -1,13 +1,14 @@
 ---
 title: Create an image definition and image version
-description: Learn how to create an image in a Shared Image Gallery in Azure.
-author: cynthn
+description: Learn how to create an image in an Azure Compute Gallery.
+author: sandeepraichura
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
-ms.author: cynthn
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: 
 
 ---
@@ -16,25 +17,25 @@ ms.custom:
 
 # Create an image definition and an image version 
 
-A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
+A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
 
-The Shared Image Gallery feature has multiple resource types:
+The Azure Compute Gallery feature has multiple resource types:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](./includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery, and a source for your image available in Azure. Image sources can be:
+To complete this article, you must have an existing Azure Compute Gallery, and a source for your image available in Azure. Image sources can be:
 - A VM in your subscription. You can capture an image from both [specialized and generalized](shared-image-galleries.md#generalized-and-specialized-images) VMs. 
 - A Managed image,
 - Managed OS and data disks.
 - OS and data disks as VHDs in a storage account.
 - Other image versions either in the same gallery or another gallery in the same subscription.
 
-If the the image will contain data disks, the data disk size cannot be more than 1 TB.
+If the image will contain data disks, the data disk size cannot be more than 1 TB.
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
@@ -52,10 +53,10 @@ To create an image from a VM in the portal, see [Capture an image of a VM](captu
 
 To create an image using a source other than a VM, follow these steps.
 
-1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Shared Image Gallery**.
+1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
 1. Select the gallery you want to use from the list.
-1. On the page for your image gallery, select **Add a new image definition** from the top of the page. 
-1. on the **Add new image definition to shared image gallery** page, in the **Basics** tab, select a **Region**. 
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. 
+1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**. 
 1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source.  
 1. For **VM generation**, select the option based on your source. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](generation-2.md).
@@ -82,7 +83,7 @@ To create an image using a source other than a VM, follow these steps.
 1. For **End of life date**, select a date from the calendar for when you think this version should stop being used.
 1. In the **Replication** tab, select the storage type from the drop-down.
 1. Set the **Default replica count**, you can override this for each region you add. 
-1. You need to replicate to the source region, so the first replica in the list will be in the region where you created the image. You can add more replicas by select the region from the drop-down and adjusting the replica count as necessary.
+1. You need to replicate to the source region, so the first replica in the list will be in the region where you created the image. You can add more replicas by selecting the region from the drop-down and adjusting the replica count as necessary.
 1. When you are done, select **Review + create**. Azure will validate the configuration.
 1. When image version passes validation, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
@@ -95,7 +96,7 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
@@ -119,7 +120,7 @@ az sig image-definition create \
 
 **Create the image version**
 
-Create an image version using [az sig image version create](/cli/azure/sig/image-version#az_sig_image_version_create).  
+Create an image version using [az sig image version create](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 The syntax for creating the image will change, depending on what you are using as your source. You can mix the source types, as long as you only have one OS source. You can also have different sources for each data disk.
 
@@ -134,7 +135,7 @@ The syntax for creating the image will change, depending on what you are using a
 | Snapshot or managed disk | `--data-snapshots <Resource ID of the snapshot or managed disk> --data-snapshot-luns <LUN number>` |
 | VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns <LUN number>` |
 
-For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version#az_sig_image_version_create-examples).
+For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version#az-sig-image-version-create-examples).
 
 In the example below, we are creating an image from a **VM**. The version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
 
@@ -164,7 +165,7 @@ Image definitions create a logical grouping for images. When making your image d
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition).
 
 In this example, the image definition is named *myImageDefinition*, and is for a specialized VM running Windows. To create a definition for images using Linux, use `-OsType Linux`. 
 

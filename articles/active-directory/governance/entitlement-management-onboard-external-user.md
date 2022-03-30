@@ -3,11 +3,10 @@ title: Tutorial - Onboard external users to Azure AD through an approval process
 description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: sama
+author: Sammak
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2021
@@ -23,7 +22,7 @@ ms.collection: M365-identity-device-management
 You can use entitlement management as a way of onboarding external users. This feature allows external users to request access to a set of resources and where you can set up approvals before they gain access to your directory. For external users onboarded through entitlement, you can manage their lifecycle through access packages. When their last access package expires, they'll be removed from your directory.
 
 In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve been asked to create an access package to onboard partners from an outside organization that your business group is working with. They will need access to a Teams group called **External collaboration**. 
-Approval is needed by an by internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
+Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
 To use Azure AD entitlement management, you must have one of the following licenses:
 
 - Azure AD Premium P2
@@ -63,7 +62,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. In the **Users who can request access** section, click **For users not in your directory** and then click **All users (All connected organizations + any new external users)**.
 
-3. Ensure that **Require approval** is set to **Yes**.
+3. Because any user who is not yet in your directory can view and submit a request for this access package, **Yes** is mandatory for the **Require approval** setting.
 
 4. The following settings allow you to configure how your approvals work for your external users:
 
@@ -129,4 +128,4 @@ In this step, you can delete the **External user package** access package.
 
 ## Next steps
 
-Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](/active-directory/governance/entitlement-management-access-package-first.md)
+Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](./entitlement-management-access-package-first.md)

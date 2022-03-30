@@ -11,7 +11,6 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2020
 ms.author: thwimmer
@@ -58,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 5. Select **Generate personal access token**.
 
-    ![url](media/contentful-provisioning-tutorial/generate.png)
+    ![Screenshot showing the SCIM URL to generate a personal access token.](media/contentful-provisioning-tutorial/generate.png)
 
 6. In the modal window, enter a name for your personal access token, and then select **Generate**.
 

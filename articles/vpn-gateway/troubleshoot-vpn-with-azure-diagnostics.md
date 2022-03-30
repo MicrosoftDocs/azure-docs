@@ -171,7 +171,7 @@ The official document
 
 ## <a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
 
-The last available table for VPN diagnostics is **P2SDiagnosticLog**. This table traces the activity for Point to Site.
+The last available table for VPN diagnostics is **P2SDiagnosticLog**. This table traces the activity for Point to Site (only IKEv2 and OpenVPN protocols).
 
 Here you have a sample query as reference.
 

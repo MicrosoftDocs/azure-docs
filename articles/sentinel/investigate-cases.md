@@ -1,29 +1,22 @@
 ---
-title: Investigate incidents with Azure Sentinel| Microsoft Docs
-description: In this article, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
-services: sentinel
-documentationcenter: na
+title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
+description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/02/2021
+ms.date: 01/30/2022
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
-# Investigate incidents with Azure Sentinel
+
+# Investigate incidents with Microsoft Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
+This article helps you investigate incidents with Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
 This article covers:
 > [!div class="checklist"]
@@ -31,7 +24,7 @@ This article covers:
 > * Use the investigation graph
 > * Respond to threats
 
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
+An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 ## Prerequisites
 
@@ -47,7 +40,7 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. You can filter the incidents as needed, for example by status or severity. For more information, see [Search for incidents](#search-for-incidents).
 
-1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, and the incident’s unique ID.
+1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, the incident’s unique ID, and any mapped MITRE ATT&CK tactics or techniques.
 
 1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. 
 
@@ -91,7 +84,7 @@ To use the investigation graph:
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
    >
-   > - Azure Sentinel currently supports investigation of **incidents up to 30 days old**.
+   > - Microsoft Sentinel currently supports investigation of **incidents up to 30 days old**.
 
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
@@ -116,6 +109,44 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
+## Comment on incidents
+
+As a security operations analyst, when investigating an incident you will want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration amongst coworkers. Microsoft Sentinel gives you a rich commenting environment to help you accomplish this.
+
+Another important thing that you can do with comments is enrich your incidents automatically. When you run a playbook on an incident that fetches relevant information from external sources (say, checking a file for malware at VirusTotal), you can have the playbook place the external source's response - along with any other information you define - in the incident's comments.
+
+Comments are simple to use. You access them through the **Comments** tab on the incident details page.
+
+:::image type="content" source="media/tutorial-investigate-cases/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
+
+### Frequently asked questions
+
+There are several considerations to take into account when using incident comments. The following list of questions points to these considerations.
+
+#### What kinds of input are supported?
+
+- **Text:** Comments in Microsoft Sentinel support text inputs in plain text, basic HTML, and Markdown. You can also paste copied text, HTML, and Markdown into the comment window.
+
+- **Images:** You can insert links to images in comments and the images will be displayed inline, but the images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and the like. Images can't be uploaded directly to comments.
+
+#### Is there a size limit on comments?
+
+- **Per comment:** A single comment can contain up to **30,000 characters**. 
+
+- **Per incident:** A single incident can contain up to **100 comments**.  
+
+    > [!NOTE]
+    > The size limit of a single incident record in the *SecurityIncident* table in Log Analytics is 64 KB. If this limit is exceeded, comments (starting with the earliest) will be truncated, which may affect the comments that will appear in [advanced search](#search-for-incidents) results.
+    >
+    > The actual incident records in the incidents database will not be affected.
+
+#### Who can edit or delete comments?
+
+- **Editing:** Only the author of a comment has permission to edit it.
+
+- **Deleting:** Only users with the [Microsoft Sentinel Contributor](roles.md) role have permission to delete comments. Even the comment's author must have this role in order to delete it.
+
+
 
 ## Closing an incident
 
@@ -129,7 +160,7 @@ Once you have resolved a particular incident (for example, when your investigati
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
 
-For more information about false positives and benign positives, see [Handle false positives in Azure Sentinel](false-positives.md).
+For more information about false positives and benign positives, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
 
@@ -154,19 +185,15 @@ By default, incident searches run across the **Incident ID**, **Title**, **Tags*
 
 Using advanced search options changes the search behavior as follows:
 
-|Search behavior  |Description  |
+| Search behavior  | Description  |
 |---------|---------|
-|**Search button color**     |The color of the search button changes, depending on the types of parameters currently being used in the search. <br><br>- As long as only the default parameters are selected, the button is grey. <br>- As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
-|**Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
-|**Entity parameters**     |All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
-|**Search strings**     |    Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
-|**Cross workspace support**     |    Advanced searches are not supported for cross-workspace views.     |
+| **Search button color**     | The color of the search button changes, depending on the types of parameters currently being used in the search. <ul><li>As long as only the default parameters are selected, the button is grey. <li>As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
+| **Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
+| **Entity parameters**     | All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
+| **Search strings**     | Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
+| **Cross workspace support**     | Advanced searches are not supported for cross-workspace views.     |
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
-|     |         |
 
-> [!NOTE]
-> Advanced search is currently in public preview.
->
 
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.
@@ -174,7 +201,7 @@ Using advanced search options changes the search behavior as follows:
 
 
 ## Next steps
-In this article, you learned how to get started investigating incidents using Azure Sentinel. For more information, see:
+In this article, you learned how to get started investigating incidents using Microsoft Sentinel. For more information, see:
 
-- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)

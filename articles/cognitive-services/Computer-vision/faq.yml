@@ -9,15 +9,14 @@ metadata:
   
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-    
 title: Computer Vision API Frequently Asked Questions
 summary: |
   > [!TIP]
-  > If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+  > If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
   
   
 
@@ -27,7 +26,7 @@ sections:
       - question: |
           How can I increase the transactions-per-second (TPS) allowed by the service?
         answer: |
-          The free (S0) tier only allows 20 transaction per minute. Upgrade to the S1 tier to get up to 10 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+          The free (S0) tier only allows 20 transaction per minute. Upgrade to the S1 tier to get up to 30 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
 
       - question: |
           The service is throwing an error because my image file is too large. How can I work around this? 
@@ -61,4 +60,4 @@ sections:
       - question: |
           Can Computer Vision be used to read license plates?
         answer: |
-          The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. We are constantly trying to improve our services to work across all scenarios.
+          The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. It is important to note that, at this time, the Computer Vision API is not optimized for license plate recognition (LPR). Although in some cases license plate text will be recognized, additional processing of the returned data might be needed to strip out state or province names and invalid characters. We are constantly trying to improve our services to work across all scenarios.

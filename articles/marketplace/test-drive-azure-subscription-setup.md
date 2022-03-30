@@ -1,19 +1,19 @@
 ---
 title: Set up an Azure Marketplace subscription for hosted test drives
-description: Explains how to set up an Azure Marketplace subscription for Dynamics 365 for Customer Engagement and Dynamics 365 for Operations test drives
+description: Explains how to set up an Azure Marketplace subscription for Dynamics 365 apps on Dataverse and Power Apps and Dynamics 365 Operations Apps test drives
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 03/16/2020
+ms.date: 12/03/2021
 ---
 
 # Set up an Azure Marketplace subscription for hosted test drives
 
-This article explains how to set up an Azure Marketplace subscription and **Dynamics 365 for Customer Engagement & Power Apps** or **Dynamics 365 for Operations** environment for test drives.
+This article explains how to set up an Azure Marketplace subscription and **Dynamics 365 apps on Dataverse and Power Apps** or **Dynamics 365 Operations Apps** environment for test drives.
 
-## Set up for Dynamics 365 for Customer Engagement & Power Apps
+## Set up for Dynamics 365 apps on Dataverse and Power Apps
 
 1. Sign into the [Azure portal](https://portal.azure.com/) with an Admin account.
 2. Verify you are in the tenant associated with your Dynamics 365 test drive instance by hovering over your account icon in the upper right corner. If you are not in the correct tenant, select the account icon to switch into the correct tenant.
@@ -60,7 +60,32 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
             :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Adding a client secret.":::
 
-5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
+5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant. There are two options for completing this step.
+
+    **Option 1**
+
+    1. Search for **Azure AD roles and administrators** and select the service.
+
+        :::image type="content" source="./media/test-drive/active-ad-roles.png" alt-text="Shows how to search for Azure AD roles and administrators.":::
+
+    2. On the **All roles** page, search for the **User Administrator** role and double-click **User administrator**.
+
+        :::image type="content" source="./media/test-drive/user-administrator.png" alt-text="Shows how to search for and select User administrator.":::
+
+    3. Select **Add Assignments**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-1.png" alt-text="Shows the Add assignments button.":::
+
+    4. Search for and select the above-created app, then **Add**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-2.png" alt-text="Shows a successful app assignment.":::
+
+    5. Note the Service Principal role successfully assigned to the application:
+
+        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="Shows the Service Principal role successfully assigned to the application.":::
+
+    **Option 2**
+
     1. Open an Administrative-level PowerShell command prompt.
     2. Install-Module MSOnline (run this command if MSOnline is not installed).
     3. Connect-MsolService (this will display a popup window; sign in with the newly created org tenant).
@@ -68,9 +93,9 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     5. $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId.
     6. Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal.
 
-        :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
+         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
 
-6. Create a new Security Group and add it to Canvas App (Power Apps). This step is applicable only to Canvas App (Power Apps) offers.
+6. Create a new Security Group and add it to Canvas App (Power Apps). This step is only applicable to Dynamics 365 for Customer Engagement & Power Apps offers with the Canvas Apps option.
     1. Create a new Security Group.
         1. Go to **Azure Active Directory**.
         1. Under **Manage**, select **Groups**.
@@ -96,7 +121,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
             > - Allow the above created security group to access your data source. For example, a SharePoint data source.
             > - Open SharePoint and share the data table with the Security Group.
 
-7. Add the just-created Azure app as an application user to your test drive CRM instance. This step is applicable only to Dynamics 365 Customer Engagement Offers.
+7. Add the just-created Azure app as an application user to your test drive CRM instance. This step is applicable only to Dynamics 365 apps on Dataverse and Power Apps Offers.
     1. Sign into **CRM instance** and select **Setting** > **Security** > **Users**.
     2. Change the view to **Application Users**.
 
@@ -113,7 +138,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     10. Enable the **Act on Behalf of Another User** privilege.
     11. Assign the application user the custom security role you created for your test drive.
 
-## Set up for Dynamics 365 for Operations
+## Set up for  Dynamics 365 Operations Apps
 
 1. Sign into the [Azure portal](https://portal.azure.com/) with an Admin account.
 2. Verify you are in the tenant associated with your Dynamics 365 test drive instance by hovering over your account icon in the upper right corner. If you are not in the correct tenant, select the account icon to switch into the correct tenant.
@@ -164,8 +189,8 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
 
-5. Now add the above app to **Dynamics 365 for Operations** to enable the app to manage users.
-    1. Find your **Dynamics 365 for Operations** instance.
+5. Now add the above app to **Dynamics 365 Operations Apps** to enable the app to manage users.
+    1. Find your **Dynamics 365 Operations Apps** instance.
     2. From the top-left corner, click the three-line menu (hamburger).
     3. Select **System Administration**.
     4. Select **Azure Active Directory applications**.

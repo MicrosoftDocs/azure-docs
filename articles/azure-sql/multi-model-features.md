@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
-ms.reviewer: mathoma, urmilano
+author: yorek
+ms.author: damauri
+ms.reviewer: mathoma, urmilano, kendralittle
 ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Azure SQL Database and SQL Managed Instance

@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > - Modify the node configuration mapping
 > - Check the compliance status of a managed node
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -34,7 +34,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create a configuration
 
-Review the code below and note the presence of two node [configurations](/powershell/scripting/dsc/configurations/configurations): `IsPresent` and `IsNotPresent`. This configuration calls one resource in each node block: the [nxPackage resource](/powershell/scripting/dsc/reference/resources/linux/lnxpackageresource). This resource manages the presence of the **apache2** package. Then, in a text editor, copy the following code to a local file and name it `LinuxConfig.ps1`:
+Review the code below and note the presence of two node [configurations](/powershell/dsc/configurations/configurations): `IsPresent` and `IsNotPresent`. This configuration calls one resource in each node block: the [nxPackage resource](/powershell/dsc/reference/resources/linux/lnxpackageresource). This resource manages the presence of the **apache2** package. Configuration names in Azure Automation must be limited to no more than 100 characters.
+
+Then, in a text editor, copy the following code to a local file and name it `LinuxConfig.ps1`:
 
 ```powershell
 Configuration LinuxConfig
@@ -43,8 +45,8 @@ Configuration LinuxConfig
 
     Node IsPresent
     {
-	    nxPackage apache2
-	    {
+        nxPackage apache2
+        {
             Name              = 'apache2'
             Ensure            = 'Present'
             PackageManager    = 'Apt'
@@ -53,8 +55,8 @@ Configuration LinuxConfig
 
     Node IsNotPresent
     {
-	    nxPackage apache2
-	    {
+        nxPackage apache2
+        {
             Name              = 'apache2'
             Ensure            = 'Absent'
         }
@@ -126,7 +128,7 @@ You can verify the installation running the following command:
 Get-AzAutomationModule `
     -ResourceGroupName $resourceGroup `
     -AutomationAccountName $automationAccount `
-    -Name $moduleName 
+    -Name $moduleName
 ```
 
 ## Import configuration to Azure Automation
@@ -184,7 +186,7 @@ Wait for the compilation job to complete before proceeding. The configuration mu
 while ((Get-AzAutomationDscCompilationJob `
          -ResourceGroupName $resourceGroup `
          -AutomationAccountName $automationAccount `
-         -ConfigurationName $configurationName).Status -ne "Completed") 
+         -ConfigurationName $configurationName).Status -ne "Completed")
 {
    Write-Output "Wait"
    Start-Sleep -Seconds 5
@@ -202,19 +204,19 @@ Get-AzAutomationDscNodeConfiguration `
 
 ## Register the Azure Linux VM for an Automation account
 
-Register the Azure Linux VM as a Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) cmdlet only supports VMs running Windows OS. The Azure Linux VM will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+Register the Azure Linux VM as a Desired State Configuration (DSC) node for the Azure Automation account. The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) cmdlet only supports VMs running Windows OS. The Azure Linux VM will first need to be configured for DSC. For detailed steps, see [Get started with Desired State Configuration (DSC) for Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 
-1. Construct a python script with the registration command using PowerShell for later execution on your Azure Linux VM by running the following code:
+1. Construct a Python script with the registration command using PowerShell for later execution on your Azure Linux VM by running the following code:
 
    ```powershell
     $primaryKey = (Get-AzAutomationRegistrationInfo `
         -ResourceGroupName $resourceGroup `
         -AutomationAccountName $automationAccount).PrimaryKey
-    
+
     $URL = (Get-AzAutomationRegistrationInfo `
         -ResourceGroupName $resourceGroup `
         -AutomationAccountName $automationAccount).Endpoint
-    
+
     Write-Output "sudo /opt/microsoft/dsc/Scripts/Register.py $primaryKey $URL"
    ```
 
@@ -252,7 +254,7 @@ Register the Azure Linux VM as a Desired State Configuration (DSC) node for the 
    {
         ReturnValue=0
    }
-   
+
    ```
 
 1. You can verify the registration in PowerShell using the following command:
@@ -261,7 +263,7 @@ Register the Azure Linux VM as a Desired State Configuration (DSC) node for the 
      Get-AzAutomationDscNode `
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `
-       -Name $VM  
+       -Name $VM
    ```
 
    The output should look similar as shown below:
@@ -322,7 +324,7 @@ The output should look similar as shown below:
 
    :::image type="content" source="media/dsc-linux-powershell/get-azautomationdscnodereport-output.png" alt-text="Output from Get-AzAutomationDscNodeReport command.":::
 
-The first report may not be available immediately and may take up to 30 minutes after you enable a node. For more information about report data, see see [Using a DSC report server](/powershell/scripting/dsc/pull-server/reportserver).
+The first report may not be available immediately and may take up to 30 minutes after you enable a node. For more information about report data, see see [Using a DSC report server](/powershell/dsc/pull-server/reportserver).
 
 ## Clean up resources
 
@@ -336,7 +338,7 @@ The following steps help you delete the resources created for this tutorial that
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `
        -Name $VM).Id
-    
+
     Unregister-AzAutomationDscNode `
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `
@@ -359,7 +361,7 @@ The following steps help you delete the resources created for this tutorial that
        -Name $nodeConfigurationName0 `
        -IgnoreNodeMappings `
        -Force
-    
+
     Remove-AzAutomationDscNodeConfiguration `
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `
@@ -372,7 +374,7 @@ The following steps help you delete the resources created for this tutorial that
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `
        -Name $nodeConfigurationName0
-    
+
     Get-AzAutomationDscNodeConfiguration `
        -ResourceGroupName $resourceGroup `
        -AutomationAccountName $automationAccount `

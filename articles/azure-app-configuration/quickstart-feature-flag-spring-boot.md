@@ -3,11 +3,11 @@ title: Quickstart for adding feature flags to Spring Boot with Azure App Configu
 description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration
 author: mrm9084
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/25/2021
 ms.author: mametcal
-ms.custom: devx-track-java
-
+ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 

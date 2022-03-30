@@ -4,10 +4,9 @@ description: Create a new Azure API Management instance by using Azure PowerShel
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ms.date: 09/14/2020
 ms.author: danlep
 ---

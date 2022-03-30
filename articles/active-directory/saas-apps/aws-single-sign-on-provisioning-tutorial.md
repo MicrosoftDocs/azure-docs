@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: thwimmer
@@ -63,9 +62,9 @@ Add AWS Single Sign-On from the Azure AD application gallery to start managing p
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to AWS Single Sign-On, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to AWS Single Sign-On 
@@ -166,7 +165,40 @@ Once you've configured provisioning, use the following resources to monitor your
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Troubleshooting Tips
-Check the AWS SSO troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting).
+
+### Missing attributes
+When exporting a user to AWS, they are required to have the following attributes
+
+* firstName
+* lastName
+* displayName
+* userName 
+
+Users who don't have these attributes will fail with the following error
+
+![errorcode](https://user-images.githubusercontent.com/83957767/146811532-8b95a90b-2a32-4094-87a3-1b8180793a66.png)
+
+
+### Multi-valued attributes
+AWS does not support the following multi-valued attributes:
+
+* email
+* phone numbers
+
+Trying to flow the above as multi-valued attributes will result in the following error message
+
+![errorcode2](https://user-images.githubusercontent.com/83957767/146811704-8980c317-aa6b-43ad-bfb8-a17534fcb9d0.png)
+
+
+There are two ways to resolve this
+
+1. Ensure the user only has one value for phoneNumber/email
+2. Remove the duplicate attributes. For example, having two different attributes being mapped from Azure AD both mapped to "phoneNumber___" on the AWS side  would result in the error if both attributes have values in Azure AD. Only having one attribute mapped to a "phoneNumber____ " attribute would resolve the error.
+
+### Invalid characters
+Currently AWS SSO is not allowing some other characters that Azure AD supports like tab (\t), new line (\n), return carriage (\r), and characters such as " <|>|;|:% ".
+
+You can also check the AWS SSO troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting) for more troubleshooting tips
 
 ## Additional resources
 

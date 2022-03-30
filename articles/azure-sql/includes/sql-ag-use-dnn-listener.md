@@ -4,7 +4,6 @@ description: Message to redirect customers to using the DNN listener instead of 
 ms.topic: include
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: jroth
 ---
 
 > [!NOTE]

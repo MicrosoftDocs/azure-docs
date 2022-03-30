@@ -26,13 +26,13 @@ Currently, Azure Purview captures runtime lineage from the following Azure Synap
 
 ## Access secured Azure Purview account
       
-If your Purview account is protected by firewall, learn how to let Azure Synapse [access a secured Purview account](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) through Purview private endpoints.
+If your Azure Purview account is protected by firewall, learn how to let Azure Synapse [access a secured Azure Purview account](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) through Azure Purview private endpoints.
 
-## Bring Azure Synapse lineage into Purview
+## Bring Azure Synapse lineage into Azure Purview
 
-### Step 1: Connect Azure Synapse workspace to your Purview account
+### Step 1: Connect Azure Synapse workspace to your Azure Purview account
 
-You can connect an Azure Synapse workspace to Purview, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect Synapse workspace to Azure Purview](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse workspaces can connect to a single Azure Purview account for holistic lineage tracking.
+You can connect an Azure Synapse workspace to Azure Purview, and the connection enables Azure Synapse to push lineage information to Azure Purview. Follow the steps in [Connect Synapse workspace to Azure Purview](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse workspaces can connect to a single Azure Purview account for holistic lineage tracking.
 
 ### Step 2: Run pipeline in Azure Synapse workspace
 
@@ -44,15 +44,15 @@ After you run the Azure Synapse pipeline, in the Synapse pipeline monitoring vie
 
 :::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view.":::
 
-### Step 4: View lineage information in your Purview account
+### Step 4: View lineage information in your Azure Purview account
 
-In your Purview account, you can browse assets and choose type "Azure Synapse Analytics". You can also search the Data Catalog using keywords.
+In your Azure Purview account, you can browse assets and choose type "Azure Synapse Analytics". You can also search the Data Catalog using keywords.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Browse the Azure Synapse assets in Purview."
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Browse the Azure Synapse assets in Azure Purview."
 
 Select the Synapse account -> pipeline -> activity, you can view the lineage information.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse the Azure Synapse pipeline lineage in Purview." lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse the Azure Synapse pipeline lineage in Azure Purview." lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
 
 ## Next steps
 

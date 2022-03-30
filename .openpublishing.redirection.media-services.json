@@ -619,11 +619,81 @@
           "source_path_from_root": "/articles/media-services/video-indexer/index.yml",
           "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
           "redirect_document_id": false
-        },     
+        },
         {
-            "source_path_from_root": "/articles/media-services/latest/latest/questions-collection.md",
-            "redirect_url": "/articles/media-services/latest/frequently-asked-questions.yml",
+            "source_path_from_root": "/articles/media-services/latest/security-private-link-how-to.md",
+            "redirect_url": "/azure/media-services/latest/security-private-link-arm-how-to",
             "redirect_document_id": false
-      }       
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/asset-create-asset-upload-portal-quickstart.md",
+            "redirect_url": "/azure/media-services/latest/video-on-demand-simple-portal-quickstart",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/architecture-design-multi-drm-system.md",
+            "redirect_url": "/azure/media-services/latest/drm-content-protection-concept",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/job-create-cli-how-to.md",
+            "redirect_url": "/azure/media-services/latest/job-create-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-subclip-video-dotnet-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-subclip-video-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-subclip-video-rest-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-subclip-video-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-custom-presets-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-custom-transform-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-generate-thumbnails-dotnet-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-generate-thumbnails-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/crop-howto.md",
+            "redirect_url": "/azure/media-services/latest/transform-crop-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-custom-preset-cli-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-custom-transform-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-custom-preset-rest-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-custom-transform-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/transform-generate-thumbnails-rest-how-to.md",
+            "redirect_url": "/azure/media-services/latest/transform-generate-thumbnails-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/media-reserved-units-cli-how-to.md",
+            "redirect_url": "/azure/media-services/latest/media-reserved-units-how-to",
+            "redirect_document_id": false
+          },
+        {
+            "source_path_from_root": "/articles/media-services/latest/latest/asset-publish-cli-how-to.md",
+            "redirect_url": "/azure/media-services/latest/video-on-demand-simple-portal-quickstart",
+            "redirect_document_id": false
+      },
+        {
+          "source_path_from_root": "/articles/media-services/video-indexer/upload-index-video.md",
+          "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-video",
+          "redirect_document_id": false
+        }
     ]
 }

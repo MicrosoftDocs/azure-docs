@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/11/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 ---
@@ -34,11 +34,11 @@ You must have sufficient permissions to register an application with your Azure 
 ### Check Azure AD permissions
 
 1. Select **Azure Active Directory**.
-1. Note your role. If you have the **User** role, you must make sure that non-administrators can register applications.
+1. Find your role under **Overview**->**My feed**. If you have the **User** role, you must make sure that non-administrators can register applications.
 
-   ![Find your role. If you're a User, ensure non-admins can register apps](./media/howto-create-service-principal-portal/view-user-info.png)
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Screenshot showing how to find your role.":::
 
-1. In the left pane, select **User settings**.
+1. In the left pane, select **Users** and then **User settings**.
 1. Check the **App registrations** setting. This value can only be set by an administrator. If set to **Yes**, any user in the Azure AD tenant can register an app.
 
 If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [Azure AD built-in roles](../roles/permissions-reference.md#all-roles) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
@@ -63,9 +63,9 @@ To check your subscription permissions:
 
    ![Select the subscription you want to create the service principal in](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Select **View** in **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
+1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
 
-   ![This example shows the user is assigned the Owner role](./media/howto-create-service-principal-portal/view-user-role.png)
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="Screenshot showing the user is assigned the Owner role.":::
 
 ## Register an application with Azure AD and create a service principal
 
@@ -153,7 +153,7 @@ To upload the certificate:
 1. Select **Azure Active Directory**.
 1. From **App registrations** in Azure AD, select your application.
 1. Select **Certificates & secrets**.
-1. Select **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
+1. Select **Certificates** > **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
 
     ![Select Upload certificate and select the one you want to add](./media/howto-create-service-principal-portal/upload-cert.png)
 

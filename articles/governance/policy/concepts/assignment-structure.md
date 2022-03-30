@@ -21,6 +21,7 @@ You use JSON to create a policy assignment. The policy assignment contains eleme
 - policy definition
 - non-compliance messages
 - parameters
+- identity
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -132,8 +133,10 @@ after creation of the initial assignment.
 ## Policy definition ID
 
 This field must be the full path name of either a policy definition or an initiative definition.
-`policyDefinitionId` is a string and not an array. It's recommended that if multiple policies are
-often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
+`policyDefinitionId` is a string and not an array. The latest content of the assigned policy
+definition or initiative will be retrieved each time the policy assignment is evaluated. It's
+recommended that if multiple policies are often assigned together, to use an
+[initiative](./initiative-definition-structure.md) instead.
 
 ## Non-compliance messages
 
@@ -194,6 +197,25 @@ In this example, the parameters previously defined in the policy definition are 
 same policy definition is reusable with a different set of parameters for a different department,
 reducing the duplication and complexity of policy definitions while providing flexibility.
 
+## Identity 
+For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment. 
+
+```json
+# System assigned identity 
+ "identity": {
+    "type": "SystemAssigned"
+  }
+# User assigned identity 
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/SubscriptionID/resourceGroups/testResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {}
+    }
+  },
+```
+
+
+
 ## Next steps
 
 - Learn about the [policy definition structure](./definition-structure.md).
@@ -202,3 +224,4 @@ reducing the duplication and complexity of policy definitions while providing fl
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with
   [Organize your resources with Azure management groups](../../management-groups/overview.md).
+  

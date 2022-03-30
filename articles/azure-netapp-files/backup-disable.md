@@ -3,7 +3,7 @@ title: Disable backup functionality for an Azure NetApp Files volume  | Microsof
 description: Describes how to disable the backup functionality for a volume that no longer needs backup protection. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Disable backup functionality for a volume 
 
@@ -46,5 +45,5 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files backup FAQs](faq-backup.md)
 

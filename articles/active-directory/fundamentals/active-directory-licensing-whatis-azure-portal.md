@@ -4,7 +4,7 @@ description: Learn about Azure Active Directory group-based licensing, including
 services: active-directory
 keywords: Azure AD licensing
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -30,7 +30,7 @@ You must have one of the following licenses **for every user who benefits from**
 
 - Paid or trial subscription for Azure AD Premium P1 and above
 
-- Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 or Office 365 GCC G3 or Office 365 E3 for GCCH or Office 365 E3 for DOD and above
+- Paid or trial edition of Microsoft 365 Business Premium or Office 365 Enterprise E3 or Office 365 A3 or Office 365 GCC G3 or Office 365 E3 for GCCH or Office 365 E3 for DOD and above
 
 ### Required number of licenses
 For any groups assigned a license, you must also have a license for each unique member. While you don't have to assign each member of the group a license, you must have at least enough licenses to include all of the members. For example, if you have 1,000 unique members who are part of licensed groups in your tenant, you must have at least 1,000 licenses to meet the licensing agreement.
@@ -55,7 +55,7 @@ Here are the main features of group-based licensing:
 
 ## Your feedback is welcome!
 
-If you have feedback or feature requests, share them with us using [the Azure AD admin forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
+If you have feedback or feature requests, share them with us using [the Azure AD admin forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps
 

@@ -3,15 +3,15 @@ title: Azure Traffic Manager subnet override using Azure PowerShell | Microsoft 
 description: This article will help you understand how Traffic Manager subnet override is used to override the routing method of a Traffic Manager profile to direct traffic to an endpoint based upon the end-user IP address via predefined IP range to endpoint mappings using Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
-author: duongau
+author: asudbring
 
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: duau
+ms.author: allensu
 ---
 
-# Traffic Manager subnet override using Azure Powershell
+# Traffic Manager subnet override using Azure PowerShell
 
 Traffic Manager subnet override allows you to alter the routing method of a profile.  The addition of an override will direct traffic based upon the end user's IP address with a predefined IP range to endpoint mapping. 
 

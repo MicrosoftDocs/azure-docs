@@ -131,9 +131,3 @@ Audit logs are provided in JSON format. Here is an example of what an audit log 
     "env_cloud_deploymentUnit": null
 }
 ```
-
-## Access Audit Logs
-
-These logs are stored in Azure and can't be accessed directly. If you need to access these logs, file a support ticket. For more information, see [Contact Microsoft Support](https://azure.microsoft.com/support/options/). 
-
-Once the support ticket is filed, Microsoft will download and provide you access to these logs.

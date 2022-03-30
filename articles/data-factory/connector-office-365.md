@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/04/2022
 ms.author: jianleishen
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory or Synapse Analytics
@@ -27,6 +27,9 @@ For now, within a single copy activity you can only **copy data from Office 365 
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Office 365 tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](/graph/data-connect-datasets#regions) for the list of supported Office regions and corresponding Azure regions.
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
 
+> [!Note]
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported. 
+
 ## Prerequisites
 
 To copy data from Office 365 into Azure, you need to complete the following prerequisite steps:
@@ -45,9 +48,6 @@ If this is the first time you are requesting data for this context (a combinatio
 
 Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
 
-## Policy validation
-
-If ADF is created as part of a managed app and Azure policies assignments are made on resources within the management resource group, then for every copy activity run, ADF will check to make sure the policy assignments are enforced. Refer [here](/graph/data-connect-policies#policies) for a list of supported policies.
 
 ## Getting started
 

@@ -2,7 +2,7 @@
 title: Set up a lab with React on Linux using Azure Lab Services
 description: Learn how to set up labs to React development class. 
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
 ---

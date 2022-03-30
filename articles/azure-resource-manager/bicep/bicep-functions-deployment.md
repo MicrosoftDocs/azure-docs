@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/30/2021
 ---
 
 # Deployment functions for Bicep
@@ -16,6 +16,8 @@ This article describes the Bicep functions for getting values related to the cur
 `deployment()`
 
 Returns information about the current deployment operation.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
@@ -105,6 +107,8 @@ The preceding example returns the following object:
 `environment()`
 
 Returns information about the Azure environment used for deployment.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 

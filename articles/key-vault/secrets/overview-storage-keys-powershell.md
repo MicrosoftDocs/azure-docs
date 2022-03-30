@@ -27,6 +27,9 @@ When you use the managed storage account key feature, consider the following poi
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
+> [!IMPORTANT]
+> Regenerating key directly in storage account breaks managed storage account setup and can invalidate SAS tokens in use and cause an outage.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Service principal application ID
@@ -190,7 +193,7 @@ The commands in this section complete the following actions:
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
 - Verify that the shared access signature was saved in your key vault as a secret.
--
+
 ### Set variables
 
 First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the \<YourStorageAccountName\> and \<YourKeyVaultName\> placeholders.

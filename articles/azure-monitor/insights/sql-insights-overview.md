@@ -4,7 +4,7 @@ description: Overview of SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
+ms.date: 11/10/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
@@ -47,7 +47,12 @@ SQL insights has no support or has limited support for the following:
 - **Secondary replicas**: Metrics can be gathered for only a single secondary replica per database. If a database has more than one secondary replica, only one can be monitored.
 - **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure Virtual Machines, authentication through Active Directory on a custom domain controller is not supported.  
 
+## Regional availability
+
+SQL Insights is available in all Azure regions where Azure Monitor is [available](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), with the exception of Azure government and national clouds.
+
 ## Opening SQL insights
+
 To open SQL insights:
 
 1. In the Azure portal, go to the **Azure Monitor** menu.
@@ -63,7 +68,7 @@ SQL insights performs all monitoring remotely. No agents are installed on the vi
 
 SQL insights uses dedicated monitoring virtual machines to remotely collect data from your SQL resources. Each monitoring virtual machine has the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and the Workload Insights (WLI) extension installed. 
 
-The WLI extension includes the open-source [Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/). SQL insights uses [data collection rules](../agents/data-collection-rule-overview.md) to specify the data collection settings for Telegraf's [SQL Server plug-in](https://www.influxdata.com/integration/microsoft-sql-server/).
+The WLI extension includes the open-source [Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/). SQL insights uses [data collection rules](../essentials/data-collection-rule-overview.md) to specify the data collection settings for Telegraf's [SQL Server plug-in](https://www.influxdata.com/integration/microsoft-sql-server/).
 
 Different sets of data are available for Azure SQL Database, Azure SQL Managed Instance, and SQL Server. The following tables describe the available data. You can customize which datasets to collect and the frequency of collection when you [create a monitoring profile](sql-insights-enable.md#create-sql-monitoring-profile).
 
@@ -121,4 +126,4 @@ The tables have the following columns:
 
 ## Next steps
 
-- For frequently asked questions about SQL insights, see [Frequently asked questions](/azure/azure-monitor/faq#sql-insights-preview).
+- For frequently asked questions about SQL insights, see [Frequently asked questions](../faq.yml).

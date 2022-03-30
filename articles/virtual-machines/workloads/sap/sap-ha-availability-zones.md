@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -108,6 +108,7 @@ Azure regions where such an active/active deployment should be possible without 
 - East US (two of the three zones)
 - South Central US (two of the three zones)
 - UK South (two of the three zones)
+- Southeast Asia
 
 Azure regions where this SAP deployment architecture across zones is not recommended are:
 
@@ -130,13 +131,13 @@ The following considerations apply for this configuration:
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
-- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disk), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
+- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disks), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
 - The same is true for the shared sapmnt directory, which is a shared disk (Windows), a CIFS share (Windows), or an NFS share (Linux). You need to use a technology that replicates these shared disks or shares between the zones. These technologies are supported:
   - For Windows, a cluster solution that uses SIOS DataKeeper, as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 	
     Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for additional application instances.
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for additional application instances.
 - To achieve run time consistency for critical business processes, you can try to direct certain batch jobs and users to application instances that are in-zone with the active DBMS instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in the case of a zonal failover, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. 
 
@@ -149,7 +150,6 @@ If you can't find an acceptable delta between the network latency within one zon
 
 Azure regions where this type of deployment architecture across different zones may be preferable are:
 
-- Southeast Asia
 - Australia East
 - Brazil South
 - Germany West Central
@@ -170,13 +170,13 @@ The following considerations apply for this configuration:
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
-- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disk), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
+- Azure Premium Storage, [Ultra SSD storage](../../disks-types.md#ultra-disks), or ANF don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
 - The same is true for the shared sapmnt directory, which is a shared disk (Windows), a CIFS share (Windows), or an NFS share (Linux). You need to use a technology that replicates these shared disks or shares between the zones. These technologies are supported:
 	- For Windows, a cluster solution that uses SIOS DataKeeper, as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 	
   Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for  additional application instances.
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for  additional application instances.
 - You should deploy dormant VMs in the passive zone (from a DBMS point of view) so you can start application resources for the case of a zone failure.
 	- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) is currently unable to replicate active VMs to dormant VMs between zones. 
 - You should invest in automation that allows you to automatically start the SAP application layer in the second zone if a zonal outage occurs.
@@ -200,13 +200,13 @@ The following considerations apply for this configuration:
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
-- Azure Premium Storage and [Ultra SSD storage](../../disks-types.md#ultra-disk) don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
+- Azure Premium Storage and [Ultra SSD storage](../../disks-types.md#ultra-disks) don't support any type of storage replication across zones. The application (DBMS or SAP Central Services) must replicate important data.
 - The same is true for the shared sapmnt directory, which is a shared disk (Windows), a CIFS share (Windows), or an NFS share (Linux). You need to use a technology that replicates these shared disks or shares between the zones. These technologies are supported:
 	- For Windows, a cluster solution that uses SIOS DataKeeper, as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 
   Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. 
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. 
 
 
 

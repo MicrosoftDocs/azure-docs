@@ -1,57 +1,47 @@
 ---
-title: Intelligent Tuning - Azure Database for PostgreSQL - Flexible Server
-description: This article describes Intelligent Tuning features in Azure Database for PostgreSQL - Flexible Server.
+title: Intelligent tuning - Azure Database for PostgreSQL - Flexible Server
+description: This article describes the intelligent tuning feature in Azure Database for PostgreSQL - Flexible Server.
 author: nathan-wisner-ms
 ms.author: nathanwisner
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 11/30/2021
 ---
 
-# Perform Intelligent Tuning on your PostgreSQL Flex Server
+# Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
 
-> [!IMPORTANT]
-> Intelligent Tuning is in preview
 
-**Applies to:** Azure Database for PostgreSQL - Flex Server versions 11 and above
+**Applies to:** Azure Database for PostgreSQL - Flexible Server versions 11 and later.
 
-The Intelligent Tuning features in Azure Database for PostgreSQL Flexible Server provides a way to automatically improve your databases performance. With our service, Intelligent Tuning automatically adjusts your Checkpoint_completion_target, min_wal_size and max_wal_size based on usage patterns and values. Our service will query statistics around your database every 30 minutes and make constant adjustments to optimize your performance without any interaction from the user.
+The intelligent tuning feature in Azure Database for PostgreSQL - Flexible Server provides a way to automatically improve your database's performance. Intelligent tuning automatically adjusts your `checkpoint_completion_target`, `min_wal_size`, and `bgwriter_delay` parameters based on usage patterns and values. It queries statistics for your database every 30 minutes and makes constant adjustments to optimize performance without any interaction.
 
-## Enabling Intelligent Tuning
+Intelligent tuning is an opt-in feature, so it isn't active by default on a server. It's available for singular databases and isn't global. Enabling it on one database doesn't enable it on all connected databases.
 
-Intelligent Tuning is an opt-in feature, so it isn't active by default on a server. The tuning is available for singular databases and isn't global, so enabling it on one database doesn't enable it on all databases connected.
-
-### Enable Intelligent Tuning using the Azure portal
+## Enable intelligent tuning by using the Azure portal
 
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
-2. Select Server Parameters in the Settings section of the menu.
-3. Search for the Intelligent Tuning parameter.
-4. Set the value to True and Save.
+2. In the **Settings** section of the menu, select **Server Parameters**.
+3. Search for the intelligent tuning parameter.
+4. Set the value to **True**, and the select **Save**.
 
-Allow up to 35 minutes for the first batch of data to persist in the azure_sys database.
+Allow up to 35 minutes for the first batch of data to persist in the *azure_sys* database.
 
-## Information about Intelligent Tuning
+## Information about intelligent tuning
 
-Intelligent tuning operates based around three main features for the given time
+Intelligent tuning operates around three main parameters for the given time: `checkpoint_completion_target`, `min_wal_size`, and `bgwriter_delay`.
 
-* Checkpoint_completion_target
-* Min_wal_size
-* Max_wal_size
+These three parameters mostly affect: 
 
-These three variables mostly affect the following
+* The duration of checkpoints.
+* The frequency of checkpoints.
+* The duration of synchronizations.
 
-* The duration of checkpoints
-* The frequency of checkpoints
-* The duration of synchronizations
-
-Intelligent tuning operates in both directions, it attempts to lower durations during high workloads and increasing them during idle segments. These rules are the ways we attempt to optimize these features so users can get personalized results during difficult time periods without manual updates.
+Intelligent tuning operates in both directions. It tries to lower durations during high workloads and increase durations during idle segments. In this way, you can get personalized results during difficult time periods without manual updates.
 
 ## Limitations and known issues
 
-* Optimizations are only issued in specific ranges, there's the possibility that there may not be any changes made
-* Intelligent Tuning functionality can be delayed by deleted databases in the query that can cause slight delays in the execution of improvements
-  
-Optimizations are only made in the storage sections as of now, expanding into other various categories is TBD
+* Intelligent tuning makes optimizations only in specific ranges. It's possible that the feature won't make any changes.
+* Deleted databases in the query can cause slight delays in the feature's execution of improvements.
+* At this time, the feature makes optimizations only in the storage sections.

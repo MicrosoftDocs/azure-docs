@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: sample
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/04/2019
 ---
 # Elastic Database client library with Entity Framework

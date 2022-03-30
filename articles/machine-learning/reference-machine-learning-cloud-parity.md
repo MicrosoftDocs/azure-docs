@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2021
+ms.date: 03/14/2022
 ms.custom: references_regions
 ---
 
@@ -51,7 +51,7 @@ The information in the rest of this document provides information on what featur
 | **[Compute instance](concept-compute-instance.md)** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
-| Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
+| Virtual Network (VNet) support                                             | GA       | YES                | YES         |
 | **SDK support** |  |  | | 
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
@@ -76,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
 | [Integrate Azure Stream Analytics with Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Public Preview       | NO                 | NO          |
-| **[Labeling](how-to-create-labeling-projects.md)** |   | | |
+| **Labeling [images](how-to-create-image-labeling-projects.md) and [text](how-to-create-text-labeling-projects.md)** |   | | |
 | Labeling Project Management Portal                                        | GA                   | YES                | YES         |
 | Labeler Portal                                                            | GA                   | YES                | YES         |
 | Labeling using private workforce                                          | GA                   | YES                | YES         |
@@ -161,7 +161,7 @@ The information in the rest of this document provides information on what featur
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
-| Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
+| Virtual Network (VNet) support                                             | GA   | YES       | N/A        |
 | **SDK support** |    | | |
 | Python SDK support                                                         | GA               | YES       | N/A        |
 | **Security** |   | | |
@@ -191,7 +191,7 @@ The information in the rest of this document provides information on what featur
 | Labeler Portal                                                            | GA               | YES       | N/A        |
 | Labeling using private workforce                                          | GA               | YES       | N/A        |
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
-| **Responsible ML** |    | | |
+| **Responsible AI** |    | | |
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
 | Differential privacy SmartNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |

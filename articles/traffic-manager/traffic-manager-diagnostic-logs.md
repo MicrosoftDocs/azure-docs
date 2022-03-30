@@ -2,15 +2,14 @@
 title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
-author: duongau
+author: asudbring
 
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: duau
+ms.author: allensu
 ---
 
 # Enable resource logging in Azure Traffic Manager

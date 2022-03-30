@@ -3,7 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/14/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ All operating systems are assumed to be x64. x86 is not supported for any operat
 |CentOS 6, 7, and 8       | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
 |Oracle Linux 6.x, 7.x, 8x | Linux agents require access to an update repository.        |
 |Red Hat Enterprise 6, 7, and 8      | Linux agents require access to an update repository.        |
-|SUSE Linux Enterprise Server 12, 15, 15.1, and 15.2      | Linux agents require access to an update repository.     |
+|SUSE Linux Enterprise Server 12, 15, and 15.1      | Linux agents require access to an update repository.     |
 |Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, and 20.04 LTS       |Linux agents require access to an update repository.         |
 
 > [!NOTE]
@@ -39,7 +39,7 @@ The following table lists operating systems not supported by Update Management:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br> For Azure Windows Virtual Desktop (WVD), the recommended method<br> to manage updates is [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) for Windows 10 client machine patch management. |
+|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br>For Azure Virtual Desktop, the recommended method to manage updates is [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) for Windows 10 client machine patch management. |
 |Windows Server 2016 Nano Server     | Not supported.       |
 |Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../../aks/node-updates-kured.md)|
 

@@ -1,17 +1,17 @@
 ---
 title: Share gallery images across tenants 
 description: Learn how to create scale sets using images that are shared across Azure tenants using Shared Image Galleries.
-author: cynthn
-ms.author: cynthn
+author: sandeepraichura
+ms.author: saraic
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.date: 04/05/2019
-ms.reviewer: akjosh
-ms.custom: akjosh, devx-track-azurecli
+ms.reviewer: cynthn
+ms.custom: devx-track-azurecli
 
 ---
-# Share images across tenants with Shared Image Gallery
+# Share images across tenants with Azure Compute Gallery
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 

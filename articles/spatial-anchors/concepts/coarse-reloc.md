@@ -1,11 +1,11 @@
 ---
 title: Coarse relocalization
 description: Learn how and when to use coarse relocalization. Coarse relocalization helps you find anchors that are near you. 
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
@@ -23,7 +23,7 @@ Coarse relocalization works by tagging anchors with various on-device sensor rea
 
 ## When to use coarse relocalization
 
-If you're planning to handle more than 35 spatial anchors in a space larger than a tennis court, you'll probably benefit from coarse relocalization spatial indexing.
+If you're planning to handle anchors in a space larger than a tennis court, you'll probably benefit from coarse relocalization spatial indexing.
 
 The fast lookup of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of, say, millions of geo-distributed anchors. The complexity of spatial indexing is all hidden, so you can focus on your application logic. All the difficult work is done behind the scenes by Azure Spatial Anchors.
 
@@ -61,7 +61,7 @@ This table summarizes the availability of the sensor data on supported platforms
 | **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>6</sup>|
 
 
-<sup>1</sup> An external GPS device can be associated with HoloLens. Contact [our support](../spatial-anchor-support.md) if you'd be willing to use HoloLens with a GPS tracker.<br/>
+<sup>1</sup> An external GPS device can be associated with HoloLens. Handle the [UpdatedSensorFingerprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) event to submit [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) readings if you are using HoloLens with an external GPS tracker.<br/>
 <sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
 <sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
 <sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>

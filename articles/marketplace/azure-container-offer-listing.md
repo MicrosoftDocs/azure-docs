@@ -1,12 +1,12 @@
 ---
 title: Configure Azure Container offer listing details on Microsoft AppSource
-description: Configure Azure Container offer listing details on Microsoft AppSource.
+description: Configure Azure Container offer listing details in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
 # Configure Azure Container offer listing details
@@ -83,15 +83,15 @@ The following examples show how the offer listing fields appear in different pla
 
 This shows search results in Azure Marketplace:
 
-[![Illustrates the search results in Azure Marketplace](media/azure-container/azure-create-7-search-results-mkt-plc-small.png)](media/azure-container/azure-create-7-search-results-mkt-plc.png#lightbox)
+[![Illustrates search results in Azure Marketplace](media/azure-container/azure-create-7-search-results-mkt-plc-small.png)](media/azure-container/azure-create-7-search-results-mkt-plc.png#lightbox)
 
-This shows the **Offer listing** page in Azure portal:
+This shows the **Offer listing** page in the Azure portal:
 
-:::image type="content" source="media/azure-container/azure-create-8-offer-listing-portal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+:::image type="content" source="media/azure-container/azure-create-8-offer-listing-portal.png" alt-text="Illustrates the Offer listing page in the Azure portal.":::
 
-This shows search results in Azure portal:
+This shows search results in the Azure portal:
 
-[![Illustrates the search results in Azure portal.](media/azure-container/azure-create-9-search-results-portal-small.png)](media/azure-container/azure-create-9-search-results-portal.png#lightbox) -->
+[![Illustrates search results in the Azure portal.](media/azure-container/azure-create-9-search-results-portal-small.png)](media/azure-container/azure-create-9-search-results-portal.png#lightbox) -->
 
 ## Next steps
 

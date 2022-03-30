@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 03/02/2022
 
 ms.author: mimart
 author: msmimart
@@ -29,7 +29,7 @@ By setting up federation with Google, you can allow invited users to sign in to 
 > [!IMPORTANT]
 >
 > - **Starting July 12, 2021**, if Azure AD B2B customers set up new Google integrations for use with self-service sign-up or for inviting external users for their custom or line-of-business applications, authentication could be blocked for Gmail users (with the error screen shown below in [What to expect](#what-to-expect)). This issue occurs only if you create Google integration for self-service sign-up user flows or invitations after July 12, 2021 and Gmail authentications in your custom or line-of-business applications haven’t been moved to system web-views. Because system web-views are enabled by default, most apps will not be affected. To avoid the issue, we strongly advise you to move Gmail authentications to system browsers before creating any new Google integrations for self-service sign-up. Please refer to [Action needed for embedded web-views](#action-needed-for-embedded-frameworks).
-> - **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for external user invitations or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for external user invitations or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](#deprecation-of-web-view-sign-in-support).
 
 ## What is the experience for the Google user?
 
@@ -56,7 +56,7 @@ You can also give Google guest users a direct link to an application or resource
 
 ## Deprecation of web-view sign-in support
 
-Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
+Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
 - Microsoft apps (e.g. Teams and Power Apps) on Windows 
@@ -70,11 +70,7 @@ This change does not affect:
 - Microsoft 365 services that are accessed through a website (for example, SharePoint Online, Office web apps, and Teams web app)
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
-
-We’re confirming with Google whether this change affects the following:
 - Windows apps that use the Web Account Manager (WAM) or Web Authentication Broker (WAB).  
-
-We’re continuing to test various platforms and scenarios, and will update this article accordingly.
 
 ### Action needed for embedded web-views
 
@@ -82,20 +78,55 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 
 ### What to expect
 
-Before Google puts these changes into place on September 30, 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. Users who sign in with a Gmail account in an embedded web-view will be prompted to enter a code in a separate browser to finish signing in.
+Starting September 30, Microsoft will globally roll out a device sign-in flow that serves as a workaround for apps still using embedded web-views to ensure that authentication isn’t blocked.
+
+### How to sign in with the device sign-in flow
+
+The device sign-in flow prompts users who sign in with a Gmail account in an embedded web-view to enter a code in a separate browser before they can finish signing in. If users are signing in with their Gmail account for the first time with no active sessions in the browser, they'll see the following sequence of screens. If an existing Gmail account is already signed in, some of these steps might be eliminated.
+
+1. On the **Sign in** screen, the user enters their Gmail address and selects **Next**.
+
+   ![Screenshot showing the sign-in screen](media/google-federation/1-sign-in.png)
+
+1. The following screen appears, prompting the user to open a new window, navigate to https://microsoft.com/devicelogin, and enter the 9-digit alphanumeric code displayed.
+
+   ![Screenshot showing the 9-digit code](media/google-federation/2-sign-in-code.png)
+
+1. The device sign-in page opens, where the user can enter the code. 
+
+   ![Screenshot showing the device sign-in page](media/google-federation/3-enter-code.png)
+
+1. If the codes match, for security purposes the user is asked to reenter their email to confirm their app and sign-in location.
+
+   ![Screenshot showing the screen for reentering email](media/google-federation/4-sign-in-reenter-email.png)
+
+1. The user signs in to Google with their email and password.
+
+   ![Screenshot showing the Google sign-in screen](media/google-federation/5-sign-in-with-google.png)
+
+1. Once again, they're asked to confirm the app they're signing into.
+
+   ![Screenshot showing application confirmation screen](media/google-federation/6-confirm-sign-in.png)
+
+1. The user selects **Continue**. A prompt confirms that they’re signed in. The user closes the tab or window and is returned to the first screen, where they're now signed in to the app.
+
+   ![Screenshot showing sign-in confirmation](media/google-federation/7-app-sign-in-confirmed.png)
 
 Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
+
 1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
 3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode going forward.
+
+If you want to request an extension, impacted customers with affected OAuth client ID(s) should have received an email from Google Developers with the following information regarding a one-time policy enforcement extension, which must be completed by Jan 31, 2022:
+
+- "If necessary, you may request a one-time **policy enforcement extension for embedded webviews** for each listed OAuth client ID until January 31, 2022. For clarity, the policy for embedded webviews will be enforced on February 1, 2022 with no exceptions or extensions."
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 
 If applications are not migrated to an allowed web-view for authentication, then affected Gmail users will see the following screen.
 
 ![Google sign-in error if apps are not migrated to system browsers](media/google-federation/google-sign-in-error-ewv.png)
-
-We will update this document as dates and further details are shared by Google.
 
 ### Distinguishing between CEF/Electron and embedded web-views
 
@@ -109,33 +140,37 @@ Follow [Google’s guidance](https://developers.googleblog.com/2016/08/modernizi
 
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
-2. Accept the terms of service if you're prompted to do so.
-3. Create a new project: In the upper-left corner of the page, select the project list, and then on the **Select a project** page, select **New Project**.
-4. On the **New Project** page, give the project a name (for example, **Azure AD B2B**), and then select **Create**: 
+
+1. Accept the terms of service if you're prompted to do so.
+
+1. Create a new project: At the top of the page, select the project menu to open the **Select a project** page. Choose  **New Project**.
+
+1. On the **New Project** page, give the project a name (for example, `MyB2BApp`), and then select **Create**:
    
    ![Screenshot that shows a New Project page.](media/google-federation/google-new-project.png)
 
-4. On the **APIs & Services** page, select **View** under your new project.
+1. Open the new project by selecting the link in the **Notifications** message box or by using the project menu at the top of the page.
 
-5. Select **Go to APIs overview** on the APIs card. Select **OAuth consent screen**.
+1. In the left menu, select **APIs & Services**, and then select **OAuth consent screen**.
 
-6. Select **External**, and then select **Create**. 
+1. Under **User Type**, select **External**, and then select **Create**.
 
-7. On the **OAuth consent screen**, enter an **Application name**:
+1. On the **OAuth consent screen**, under **App information**, enter an **App name**.
 
-   ![Screenshot that shows the Google OAuth consent screen.](media/google-federation/google-oauth-consent-screen.png)
+1. Under **User support email**, select an email address.
 
-8. Scroll to the **Authorized domains** section and enter **microsoftonline.com**:
+1. Under **Authorized domains**, select **Add domain**, and then add the `microsoftonline.com` domain.
 
-   ![Screenshot that shows the Authorized domains section.](media/google-federation/google-oauth-authorized-domains.PNG)
+1. Under **Developer contact information**, enter an email address.
 
-9. Select **Save**.
+1. Select **Save and continue**.
 
-10. Select **Credentials**. On the **Create credentials** menu, select **OAuth client ID**:
+1. In the left menu, select **Credentials**.
 
-    ![Screenshot that shows the Google APIs Create credentials menu.](media/google-federation/google-api-credentials.png)
+1. Select **Create credentials**, and then select **OAuth client ID**.
 
-11. Under **Application type**, select **Web application**. Give the application a suitable name, like **Azure AD B2B**. Under **Authorized redirect URIs**, enter the following URIs:
+1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Azure AD B2B`. Under **Authorized redirect URIs**, add the following URIs:
+
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
@@ -143,13 +178,14 @@ First, create a new project in the Google Developers Console to obtain a client 
     > [!NOTE]
     > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
 
-    ![Screenshot that shows the Authorized redirect URIs section.](media/google-federation/google-create-oauth-client-id.png)
-
-12. Select **Create**. Copy the client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
+1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
 
     ![Screenshot that shows the OAuth client ID and client secret.](media/google-federation/google-auth-client-id-secret.png)
 
-13. You can leave your project at a publishing status of **Testing** and add test users to the OAuth consent screen. Or you can select the **Publish app** button on the OAuth consent screen to make the app available to any user with a Google Account.
+1. You can leave your project at a publishing status of **Testing** and add test users to the OAuth consent screen. Or you can select the **Publish app** button on the OAuth consent screen to make the app available to any user with a Google Account.
+
+   > [!NOTE]
+   > In some cases, your app might require verification by Google (for example, if you update the application logo). For more information, see Google's [verification status help](https://support.google.com/cloud/answer/10311615#verification-status).
 
 ## Step 2: Configure Google federation in Azure AD 
 
@@ -159,7 +195,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
 2. Select **External Identities**.
 3. Select **All identity providers**, and then select the **Google** button.
-4. Enter the client ID and client secret you obtained earlier. Select **Save**: 
+4. Enter the client ID and client secret you obtained earlier. Select **Save**:
 
    ![Screenshot that shows the Add Google identity provider page.](media/google-federation/google-identity-provider.png)
 

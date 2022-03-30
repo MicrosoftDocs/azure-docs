@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/27/2022
 ---
 
 # Copy data from Square using Azure Data Factory or Synapse Analytics (Preview)
@@ -18,6 +18,9 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+
+> [!Note]
+> Currently, this connector doesn't support sandbox accounts.
 
 ## Supported capabilities
 

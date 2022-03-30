@@ -5,12 +5,12 @@ description: Learn how to use the Identities & Access Tokens tool in the Azure p
 author: manoskow
 manager: chpalm
 services: azure-communication-services
-
 ms.author: manoskow
 ms.date: 07/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
+ms.custom: mode-other
 ---
 
 # Quickstart: Quickly create Azure Communication Services access tokens for testing
@@ -42,3 +42,4 @@ You may also want to:
 
  - [Learn about authentication](../../concepts/authentication.md)
  - [Learn about client and server architecture](../../concepts/client-and-server-architecture.md)
+ - [Deploy trusted authentication service hero sample](../../samples/trusted-auth-sample.md)

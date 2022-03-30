@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: mbullwin
 ---
@@ -68,7 +68,6 @@ If there's an error at this step:
 1. First check if the connection string is valid. 
 2. Then check if there's sufficient permissions and that the ingestion worker IP address is granted access.
 3. Then check if required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
-
 
 ### Schema configuration
 
@@ -178,7 +177,7 @@ Consider the following scenarios:
     * If you want to use *SUM* to aggregate your data, make sure your metrics are additive in each dimension. Here are some examples of *non-additive* metrics:
       - Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
       - Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
-    * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
+    * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is **100,000**. If your data exceeds that limit, ingestion will fail for that timestamp.
 
 ## Advanced settings
 

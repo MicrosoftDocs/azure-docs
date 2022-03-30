@@ -54,3 +54,5 @@ To view the details about one of your SQL requests, open the SQL request to navi
 For more information on monitoring pipeline runs, see the [Monitor pipeline runs in Synapse Studio](how-to-monitor-pipeline-runs.md) article. 
 
 For more information on monitoring Apache Spark applications, see the [Monitor Apache Spark applications in Synapse Studio](how-to-monitor-spark-applications.md) article.
+
+To analyze historical queries, see [Historical query storage and analysis in Azure Synapse Analytics](../sql/query-history-storage-analysis.md).

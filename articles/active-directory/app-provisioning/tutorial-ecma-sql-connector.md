@@ -1,13 +1,13 @@
 ---
-title:  Azure AD ECMA Connector Host generic SQL connector tutorial
-description: This tutorial describes how to use the on-premises application provisioning generic SQL connector.
+title:  Azure AD Provisioning to SQL applications (preview)
+description: This tutorial describes how to provision users from Azure AD into a SQL database.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 02/08/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 
 
-# Azure AD ECMA Connector Host generic SQL connector tutorial
+# Configuring Azure AD to provision users into a SQL database
 
 [!INCLUDE [active-directory-app-provisioning-sql.md](../../../includes/active-directory-app-provisioning-sql.md)]
 

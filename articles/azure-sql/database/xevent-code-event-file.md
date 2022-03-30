@@ -1,6 +1,6 @@
 ---
 title: XEvent Event File code
-description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
+description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database and SQL Managed Instance. Azure Storage is a required part of this scenario.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -9,19 +9,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
-ms.date: 06/06/2020
+ms.reviewer: kendralittle, mathoma
+ms.date: 03/25/2022
 ---
-# Event File target code for extended events in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Event File target code for extended events in Azure SQL Database and SQL Managed Instance
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
-In Microsoft SQL Server, the [Event File target](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server, the [Event File target](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server) is used to store event outputs into a local hard drive file. But local storage is not available to Azure SQL Database or SQL Managed Instance. Instead, use Azure Blob Storage to support the Event File target.
 
-This topic presents a two-phase code sample:
+This article presents a two-phase code sample:
 
 - PowerShell, to create an Azure Storage container in the cloud.
 - Transact-SQL:
@@ -40,15 +40,11 @@ This topic presents a two-phase code sample:
 
   - Optionally you can [create an **AdventureWorksLT** demonstration database](single-database-create-quickstart.md) in minutes.
 
-- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
-  You can download the latest ssms.exe from:
-
-  - Topic titled [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
-  - [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
+- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version: [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 - You must have the [Azure PowerShell modules](https://go.microsoft.com/?linkid=9811175) installed.
 
-  - The modules provide commands such as - **New-AzStorageAccount**.
+  - The modules provide commands, such as - `New-AzStorageAccount`.
 
 ## Phase 1: PowerShell code for Azure Storage container
 
@@ -60,7 +56,7 @@ The script starts with commands to clean up after a possible previous run, and i
 2. Start PowerShell ISE as an Administrator.
 3. At the prompt, type<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>and then press Enter.
 4. In PowerShell ISE, open your **.ps1** file. Run the script.
-5. The script first starts a new window in which you log in to Azure.
+5. The script first starts a new window in which you sign in to Azure.
 
    - If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
 
@@ -68,7 +64,7 @@ The script starts with commands to clean up after a possible previous run, and i
 
 ### PowerShell code
 
-This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+This PowerShell script assumes you've already installed the `Az` module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -244,8 +240,8 @@ The script starts with commands to clean up after a possible previous run, and i
 The PowerShell script printed a few named values when it ended. You must edit the Transact-SQL script to use those values. Find **TODO** in the Transact-SQL script to locate the edit points.
 
 1. Open SQL Server Management Studio (ssms.exe).
-2. Connect to your database in Azure SQL Database.
-3. Click to open a new query pane.
+2. Connect to your database in Azure SQL Database or SQL Managed Instance.
+3. Select to open a new query pane.
 4. Paste the following Transact-SQL script into the query pane.
 5. Find every **TODO** in the script and make the appropriate edits.
 6. Save, and then run the script.
@@ -259,7 +255,7 @@ The PowerShell script printed a few named values when it ended. You must edit th
 ---- TODO: First, run the earlier PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
----- Transact-SQL code for Event File target on Azure SQL Database.
+---- Transact-SQL code for Event File target on Azure SQL Database or SQL Managed Instance.
 
 SET NOCOUNT ON;
 GO
@@ -446,7 +442,7 @@ GO
 
 ## Output
 
-When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
+When the Transact-SQL script completes, select a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
 
 Here is one **\<event>** element that was generated during testing:
 
@@ -501,13 +497,13 @@ An explanation of advanced options for the viewing of data from extended events 
 
 Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Server.
 
-- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as *C:\myeventdata.xel*. The file would be written to the local hard drive of the computer that hosts SQL Server.
+- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as `C:\myeventdata.xel`. The file would be written to the local hard drive of the computer that hosts SQL Server.
 - You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
-- In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like *C:\myfile.xel*.
+- In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like `C:\myfile.xel`.
 
-  - No Azure Storage account need be involved.
+  - An Azure Storage account is not needed.
 
-## More information
+## Next steps
 
 For more info about accounts and containers in the Azure Storage service, see:
 

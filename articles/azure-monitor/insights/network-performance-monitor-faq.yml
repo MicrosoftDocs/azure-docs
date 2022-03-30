@@ -2,12 +2,11 @@
 metadata:
   title: "FAQs - Network Performance Monitor solution in Azure | Microsoft Docs"
   description: "This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks."
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-monitor
   author: vinynigam
   ms.author: vinigam
   ms.date: 10/12/2018
-    
 title: Network Performance Monitor solution FAQ
 summary: |
 

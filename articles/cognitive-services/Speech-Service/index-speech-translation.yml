@@ -6,12 +6,12 @@ metadata:
   title: Speech translation documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 04/13/2020
-  ms.author: pafarley
+  ms.author: eur
 
 landingContent:
 - title: About speech translation
@@ -37,7 +37,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: Translate and synthesize text with REST APIs
-          url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+          url: /learn/modules/python-flask-build-ai-web-app/
 - title: Reference
   linkLists:
     - linkListType: reference

@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 07/01/2021
 ms.topic: quickstart
+ms.custom: mode-api
 ---
 
 # Quickstart: Deploy native C++ OpenXR sample to HoloLens

@@ -38,11 +38,12 @@ The following exhausts possible configuration options within the file:
         "enabled": <true|false>
     },
     "globalValidation": {
-        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
+        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|RejectWith401|RejectWith404",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
             "/path1",
-            "/path2"
+            "/path2",
+            "/path3/subpath/*"
         ]
     },
     "httpSettings": {

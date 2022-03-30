@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: lazzeri
-author: FrancescaLazzeri
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
 ---

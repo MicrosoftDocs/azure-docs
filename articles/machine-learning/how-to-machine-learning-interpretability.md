@@ -1,22 +1,23 @@
 ---
-title: Model interpretability in Azure Machine Learning (preview)
+title: Model interpretability (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to understand & explain how your machine learning model makes predictions during training & inferencing using the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 02/25/2021
+ms.custom: responsible-ml, mktng-kw-nov2021
+ms.date: 11/04/2021
 ---
 
 # Model interpretability in Azure Machine Learning (preview)
 
+This article describes methods you can use for model interpretability in Azure Machine Learning. 
 
-## Model interpretability overview
+## Why does model interpretability matter?
 
 Model interpretability is critical for data scientists, auditors, and business decision makers alike to ensure compliance with company policies, industry standards, and government regulations:
 
@@ -47,13 +48,11 @@ Using the classes and methods in the SDK, you can:
 + Achieve model interpretability on real-world datasets at scale, during training and inference.
 + Use an interactive visualization dashboard to discover patterns in data and explanations at training time
 
-In machine learning, **features** are the data fields used to predict a target data point. For example,
-to predict credit risk, data fields for age, account size, and account age might be used. In this case,
-age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
+In machine learning, **features** are the data fields used to predict a target data point. For example, to predict credit risk, data fields for age, account size, and account age might be used. In this case, age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and account age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
 
-## Supported interpretability techniques
+## Supported model interpretability techniques
 
- `azureml-interpret` uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
+ `azureml-interpret` uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source Python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
 
 |Interpretability Technique|Description|Type|
 |--|--|--------------------|

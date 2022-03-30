@@ -3,18 +3,18 @@ title: Manage access to apps
 titleSuffix: Azure AD
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: ergreenl
+ms.reviewer: davidmu
 ---
 
-# Manage access to apps in Azure Active Directory
+# Manage access to an application
 
 Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, IT Administrators or help desk have to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. Often, the assignment decision is intended to be delegated to the business decision maker, requiring their approval before IT makes the assignment.  
 

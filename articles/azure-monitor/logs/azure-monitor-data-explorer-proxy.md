@@ -1,11 +1,11 @@
 ---
 title: Cross-resource query Azure Data Explorer by using Azure Monitor
 description: Use Azure Monitor to perform cross-product queries between Azure Data Explorer, Log Analytics workspaces, and classic Application Insights applications in Azure Monitor.
-author: osalzberg
-ms.author: bwren
-ms.reviewer: bwren
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 03/28/2022
+ms.reviewer: osalzberg
 
 ---
 # Cross-resource query Azure Data Explorer by using Azure Monitor
@@ -14,9 +14,6 @@ Azure Monitor supports cross-service queries between Azure Data Explorer, [Appli
 The following diagram shows the Azure Monitor cross-service flow:
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram that shows the flow of queries between a user, Azure Monitor, a proxy, and Azure Data Explorer.":::
-
->[!NOTE]
-> Azure Monitor cross-service query is in public preview. Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
 
 ## Cross-query your Log Analytics or Application Insights resources and Azure Data Explorer
 
@@ -33,6 +30,17 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 >* Database names are case sensitive.
 >* Cross-resource query as an alert is not supported.
 >* Identifying the Timestamp column in the cluster is not supported, Log Analytics query API will not pass along the time filter
+> * The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+
+## Function supportability
+
+The Azure Monitor cross-service queries support functions for both Application Insights, Log Analytics and Azure Data Explorer.
+This capability enables cross-cluster queries to reference an Azure Monitor/Azure Data Explorer tabular function directly.
+The following commands are supported with the cross-service query:
+
+* `.show functions`
+* `.show function {FunctionName}`
+* `.show database {DatabaseName} schema as json`
 
 ## Combine Azure Data Explorer cluster tables with a Log Analytics workspace
 

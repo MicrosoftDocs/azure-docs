@@ -4,6 +4,7 @@ description: Learn how to code and configure Durable Functions to run in WebJobs
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: azfuncdf
+ms.devlang: csharp
 #Customer intent: As a developer, I want to understand how to use the WebJobs SDK to create, publish, and manage Durable Functions as part of my Web Apps in Azure App Service, not as standalone Azure Functions.
 ---
 

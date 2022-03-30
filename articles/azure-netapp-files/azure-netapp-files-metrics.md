@@ -3,7 +3,7 @@ title: Metrics for Azure NetApp Files | Microsoft Docs
 description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. Use these metrics to understand usage and performance.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
 
@@ -134,5 +133,5 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)

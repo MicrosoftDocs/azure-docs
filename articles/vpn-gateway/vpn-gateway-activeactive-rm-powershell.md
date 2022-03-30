@@ -3,13 +3,13 @@ title: 'Configure active-active S2S VPN connections'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active connections with VPN gateways using PowerShell.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
-ms.author: yushwang
-ms.reviewer: cherylmc 
+ms.author: cherylmc
+
 ms.custom: devx-track-azurepowershell
 
 ---

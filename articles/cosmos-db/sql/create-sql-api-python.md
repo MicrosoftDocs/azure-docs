@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: rosouz
-ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python]
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api
 ---
 
 # Quickstart: Build a Python application using an Azure Cosmos DB SQL API account
@@ -22,7 +22,7 @@ ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019, devx
 > * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+> * [Go](create-sql-api-go.md)
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and from Visual Studio Code with a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
@@ -69,8 +69,9 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```cmd
-    md "git-samples"
+    md git-samples
     ```
+
    If you are using a bash prompt, you should instead use the following command:
 
    ```bash

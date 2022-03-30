@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/18/2021
+ms.date: 03/28/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -43,7 +43,7 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 > [!WARNING]
 > The failover and availability logic described in this document can be disabled on the client configuration, which is not advised unless the user application is going to handle availability errors itself. This can be achieved by:
 >
-> * Setting the [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK to false.
+> * Setting the [ConnectionPolicy.EnableEndpointDiscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK to false.
 > * Setting the [CosmosClientOptions.LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) property in .NET V3 SDK to true.
 > * Setting the [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) method in Java V4 SDK to false.
 > * Setting the [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK to false.
@@ -59,7 +59,7 @@ In these cases, the client using the Azure Cosmos SDK exposes logs and includes 
 
 When determining the next region in order of preference, the SDK client will use the account region list, prioritizing the preferred regions (if any).
 
-For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](../high-availability.md#slas-for-availability).
+For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](../high-availability.md#slas).
 
 ## <a id="remove-region"></a>Removing a region from the account
 
@@ -93,7 +93,7 @@ If the user has configured a preferred region list with more than one region and
 
 ## Next steps
 
-* Review the [Availability SLAs](../high-availability.md#slas-for-availability).
+* Review the [Availability SLAs](../high-availability.md#slas).
 * Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use the latest [Java SDK](sql-api-sdk-java-v4.md)
 * Use the latest [Python SDK](sql-api-sdk-python.md)

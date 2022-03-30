@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot the Azure Percept DK device
 description: Get troubleshooting tips for some of the more common issues with Azure Percept DK and IoT Edge
-author: juniem
-ms.author: amiyouss
+author: nkhuyent
+ms.author: juniem
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021

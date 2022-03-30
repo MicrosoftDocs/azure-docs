@@ -3,7 +3,7 @@ title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Active Directory domain.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 12/08/2021
 ms.author: helohr
 manager: femila
 ---
@@ -32,7 +32,7 @@ To set up a storage account:
 4. Enter the following information into the  **Create storage account** page:
 
     - Create a new resource group.
-    - Enter a unique name for your storage account.
+    - Enter a unique name for your storage account. This storage account name currently has a limit of 15 characters.
     - For **Location**, we recommend you choose the same location as the Azure Virtual Desktop host pool.
     - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).)
     - For **Account type**, select **StorageV2** or **FileStorage** (only available if Performance tier is Premium).
@@ -192,7 +192,7 @@ To configure FSLogix on your session host VM:
 
 2. [Download and install FSLogix](/fslogix/install-ht).
 
-5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+3. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
@@ -204,7 +204,7 @@ To configure FSLogix on your session host VM:
 
     - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
 
-6. Restart the VM.
+4. Restart the VM.
 
 ## Testing
 

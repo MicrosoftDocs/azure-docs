@@ -15,7 +15,7 @@ ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Tutorial: Call the Microsoft Graph API from a Windows Desktop app
+# Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app
 
 In this tutorial, you build a native Windows Desktop .NET (XAML) app that signs in users and gets an access token to call the Microsoft Graph API. 
 
@@ -126,7 +126,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```csharp
     using Microsoft.Identity.Client;
     ```
-   <!-- Workaround for Docs conversion bug -->
+    <!-- Workaround for Docs conversion bug -->
 
 2. Update the app class to the following:
 

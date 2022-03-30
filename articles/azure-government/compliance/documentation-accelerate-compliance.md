@@ -10,7 +10,6 @@ manager: pathuff
 
 ms.assetid: 
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
@@ -70,7 +69,7 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  > [!NOTE]
 >The information provided here will allow partners and customers to sign up and learn about the compliance program. The program is designed to help Azure and Azure Government customers successfully prepare their environments for authorization and request a FedRAMP ATO. This information does not constitute an offer of any kind, and submitting the forms below in no way guarantees participation in the program. At this time, the program details shared with partners and customers are notional and subject to change without notice.
 
- * Free [training on FedRAMP](https://www.fedramp.gov/learning/).
+ * Free [training on FedRAMP](https://www.fedramp.gov/training/).
  * FedRAMP [templates](https://www.fedramp.gov/templates/) to help you with program requirements.
  * Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
  * Are you a partner and want to join our program? Fill out the [form](https://aka.ms/partnerazcl).

@@ -6,7 +6,6 @@ ms.subservice:
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: jroth
 ms.date: 06/25/2020
 ---
 # Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 
@@ -479,8 +478,8 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### Register a new application in Azure Active Directory
  
  1. Go to https://portal.azure.com
- 2. Open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Go to Properties and write down the Directory ID. This is the `tenant ID`
- 3. Click [**App registrations**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+ 2. Open the [Azure Active Directory blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Go to Properties and write down the Directory ID. This is the `tenant ID`
+ 3. Click [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Click **New registration**
  5. Enter a **Name** like `<resourceGroupName>-app`, select **Accounts in this organization directory only**
  6. Select Application Type **Web**, enter a sign-on URL (for example http://localhost) and click Add. The sign-on URL is not used and can be any valid URL. Once done, Click **Register**
@@ -559,7 +558,7 @@ You should see the following output:
 Assign the custom role `Linux Fence Agent Role-<username>` that was created in the last step to the Service Principal. Do not use the Owner role anymore!
  
 1. Go to https://portal.azure.com
-2. Open the [All resources blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
+2. Open the [All resources blade](https://portal.azure.com/#blade/HubsExtension/BrowseAll)
 3. Select the virtual machine of the first cluster node
 4. Click **Access control (IAM)**
 5. Click **Add a role assignment**

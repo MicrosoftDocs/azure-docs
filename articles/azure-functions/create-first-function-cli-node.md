@@ -1,17 +1,17 @@
 ---
 title: Create a JavaScript function from the command line - Azure Functions
 description: Learn how to create a JavaScript function from the command line, then publish the local Node.js project to serverless hosting in Azure Functions.
-ms.date: 11/03/2020
+ms.date: 11/18/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.devlang: javascript
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create a JavaScript function in Azure from the command line
 
-
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
-In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -23,15 +23,15 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x.
++ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-+ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
++ [Node.js](https://nodejs.org/) version 14 or 16 (preview). 
 
 ### Prerequisite check
 
@@ -39,7 +39,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure CLI](#tab/azure-cli)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
@@ -47,9 +47,9 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
++ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
@@ -59,7 +59,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```console
     func init LocalFunctionProj --javascript
@@ -77,10 +77,10 @@ In Azure Functions, a function project is a container for one or more individual
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ```  
-    
+    ```
+
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
-    
+
 ### (Optional) Examine the file contents
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
@@ -95,7 +95,7 @@ For an HTTP trigger, the function receives request data in the variable `req` as
 
 #### function.json
 
-*function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. 
+*function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type.
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/function.json":::
 
@@ -108,25 +108,25 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 4. Create the function app in Azure:
 
     # [Azure CLI](#tab/azure-cli)
-        
+
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you're using Node.js 10, also change `--runtime-version` to `10`.
-    
+
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Node.js 16, also change `--runtime-version` to `16`.
+
     # [Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location <REGION>
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 14 -FunctionsVersion 4 -Location <REGION>
     ```
-    
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Node.js 10, change `-RuntimeVersion` to `10`.
-    
+
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Node.js 16, change `-RuntimeVersion` to `16`.
+
     ---
-    
-    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
-    
+
+    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]

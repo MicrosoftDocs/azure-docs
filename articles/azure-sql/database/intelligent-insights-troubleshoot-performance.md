@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: troubleshooting
 author: AlainDormehlMSFT
 ms.author: aldorme
-ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
+ms.reviewer: kendralittle, mathoma, wiassaf
+ms.date: 11/04/2021
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Intelligent Insights automatically detects performance issues based on query exe
 | :------------------- | ------------------- | ------------------- |
 | [Reaching resource limits](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumption of available resources (DTUs), database worker threads, or database login sessions available on the monitored subscription has reached its resource limits. This is affecting performance. | Consumption of CPU resources is reaching its resource limits. This is affecting the database performance. |
 | [Workload increase](intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload increase or continuous accumulation of workload on the database was detected. This is affecting performance. | Workload increase has been detected. This is affecting the database performance. |
-| [Memory pressure](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time, or an increased accumulation of workers that requested memory grants exists. This is affecting performance. | Workers that have requested memory grants are waiting for memory allocations for a statistically significant amount of time. This is affecting the database performance. |
+| [Memory pressure](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time, or an increased accumulation of workers that requested memory grants exist. This is affecting performance. | Workers that have requested memory grants are waiting for memory allocations for a statistically significant amount of time. This is affecting the database performance. |
 | [Locking](intelligent-insights-troubleshoot-performance.md#locking) | Excessive database locking was detected affecting performance. | Excessive database locking was detected affecting the database performance. |
 | [Increased MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | The maximum degree of parallelism option (MAXDOP) has changed affecting the query execution efficiency. This is affecting performance. | The maximum degree of parallelism option (MAXDOP) has changed affecting the query execution efficiency. This is affecting performance. |
 | [Pagelatch contention](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times and causing pagelatch contention. This is affecting performance. | Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times and causing pagelatch contention. This is affecting database the performance. |
@@ -104,7 +104,7 @@ You can optimize or remove queries related to the clerks with the highest memory
 
 You also can reduce the workload by optimizing or distributing it over multiple databases. Or you can distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your database to increase the amount of memory resources available to the database.
 
-For additional troubleshooting suggestions, see [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994).
+For additional troubleshooting suggestions, see [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994). For more information on out of memory errors in Azure SQL Database, see [Troubleshoot out of memory errors with Azure SQL Database](troubleshoot-memory-errors-issues.md).
 
 ## Locking
 
@@ -220,7 +220,7 @@ For more information on optimizing query performance, see [Query tuning](/previo
 
 ### What is happening
 
-This detectable performance pattern indicates a database performance condition in which a bottleneck of threads trying to access tempDB resources exists. (This condition isn't IO related.) The typical scenario for this performance issue is hundreds of concurrent queries that all create, use, and then drop small tempDB tables. The system detected that the number of concurrent queries using the same tempDB tables increased with sufficient statistical significance to affect database performance compared to the past seven-day performance baseline.
+This detectable performance pattern indicates a database performance condition in which a bottleneck of threads trying to access tempDB resources exists. (This condition isn't IO-related.) The typical scenario for this performance issue is hundreds of concurrent queries that all create, use, and then drop small tempDB tables. The system detected that the number of concurrent queries using the same tempDB tables increased with sufficient statistical significance to affect database performance compared to the past seven-day performance baseline.
 
 ### Troubleshooting
 

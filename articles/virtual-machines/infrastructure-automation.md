@@ -66,15 +66,15 @@ Learn more details about cloud-init on Azure:
 
 
 ## PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
 DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
 
 Learn how to:
 
-- [Create a basic DSC configuration](/powershell/scripting/dsc/quickstarts/website-quickstart).
-- [Configure a DSC pull server](/powershell/scripting/dsc/pull-server/pullserver).
-- [Use DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+- [Create a basic DSC configuration](/powershell/dsc/quickstarts/website-quickstart).
+- [Configure a DSC pull server](/powershell/dsc/pull-server/pullserver).
+- [Use DSC for Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 
 
 ## Azure Custom Script Extension

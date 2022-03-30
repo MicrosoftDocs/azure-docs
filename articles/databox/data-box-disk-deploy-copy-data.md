@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/14/2019
+ms.date: 11/09/2021
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
 ::: zone target="docs"
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
-- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+- Your client computer that is used to copy data to the disks is running a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -53,7 +53,7 @@ Review the following considerations before you copy the data to the disks:
 
 - It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
 - While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
-- If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
+- If data that is being uploaded by Data Box Disk is concurrently uploaded by other applications outside of Data Box Disk, this could result in upload job failures and data corruption.
 
    > [!IMPORTANT]
    >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
@@ -61,7 +61,7 @@ Review the following considerations before you copy the data to the disks:
 - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
 - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
-
+- If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the Data Box Split Copy Tool (DataBoxDiskSplitCopy.exe) or the Data Box Disk Validation tool (DataBoxDiskValidation.cmd) will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
@@ -268,7 +268,7 @@ After the data copy is complete, you can proceed to validate your data. If you u
 
 ## Validate data
 
-If you did not use the Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
+If you did not use the Data Box Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
 
 1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. This is available for Windows environment only. Linux users need to validate that the source data that is copied to the disk meets the [prerequisites](./data-box-disk-limits.md).
     

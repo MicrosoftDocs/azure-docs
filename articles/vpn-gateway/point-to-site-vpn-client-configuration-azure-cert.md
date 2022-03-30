@@ -1,5 +1,5 @@
 ---
-title: 'Create & install P2S VPN client configuration files: certificate authentication'
+title: 'P2S VPN client profile configuration files: certificate authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to generate and install VPN client configuration files for Windows, Linux (strongSwan), and macOS. This article applies to VPN Gateway P2S configurations that use certificate authentication.
 services: vpn-gateway
@@ -10,9 +10,9 @@ ms.date: 07/15/2021
 ms.author: cherylmc
 ---
 
-# Generate and install VPN client configuration files for P2S certificate authentication
+# Generate and install VPN client profile configuration files for certificate authentication
 
-When you connect to an Azure VNet using Point-to-Site and certificate authentication, you use the VPN client that is natively installed on the operating system from which you are connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients for Windows, Mac IKEv2 VPN, or Linux.
+When you connect to an Azure VNet using Point-to-Site and certificate authentication, you use the VPN client that is natively installed on the operating system from which you’re connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients for Windows, Mac IKEv2 VPN, or Linux.
 
 The VPN client configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the Point-to-Site VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
@@ -28,7 +28,7 @@ The VPN client configuration files that you generate are specific to the P2S VPN
 You can generate client configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file. Unzip the file to view the following folders:
 
 * **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
-* **Generic**, which contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder is not present.
+* **Generic**, which contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder isn’t present.
 
 ### <a name="zipportal"></a>Generate files using the Azure portal
 
@@ -57,20 +57,20 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ## <a name="installmac"></a>Mac (macOS)
 
-In order to connect to Azure, you must manually configure the native IKEv2 VPN client. Azure does not provide a *mobileconfig* file. You can find all of the information that you need for configuration in the **Generic** folder. 
+In order to connect to Azure, you must manually configure the native IKEv2 VPN client. Azure doesn’t provide a *mobileconfig* file. You can find all of the information that you need for configuration in the **Generic** folder. 
 
-If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. On the VPN gateway, verify that the SKU is not Basic. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
+If you don't see the Generic folder in your download, it's likely that IKEv2 wasn’t selected as a tunnel type. Note that the VPN gateway Basic SKU doesn’t support IKEv2. On the VPN gateway, verify that the SKU isn’t Basic. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
 
 The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
-* **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.
+* **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN gateway during P2S connection setup.
 
 Use the following steps to configure the native VPN client on Mac for certificate authentication. These steps must be completed on every Mac that you want to connect to Azure.
 
 ### Import root certificate file
 
-1. Copy to the root certificate file to your Mac. Double-click the certificate. The certificate will either automatically install, or you will see the **Add Certificates** page.
+1. Copy to the root certificate file to your Mac. Double-click the certificate. The certificate will either automatically install, or you’ll see the **Add Certificates** page.
 1. On the **Add Certificates** page, select **login** from the dropdown.
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/login.png" alt-text="Screenshot shows Add Certificates page with login selected.":::
@@ -113,28 +113,28 @@ Verify that both the client and the root certificate are installed. The client c
    **Catalina:** 
 
      * For **Authentication Settings** select **None**. 
-     * Select **Certificate**, click **Select** and select the correct client certificate that you installed earlier. Then, click **OK**.
+     * Select **Certificate**, select **Select** and select the correct client certificate that you installed earlier. Then, select **OK**.
    
         :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png" alt-text="Screenshot shows the Network window with None selected for Authentication Settings and Certificate selected.":::
 
    **Big Sur:**
 
-      * Click **Authentication Settings**, then select **Certificate**. 
+      * Select **Authentication Settings**, then select **Certificate**. 
 
         :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/authentication-certificate.png" alt-text="Screenshot shows authentication settings with certificate selected." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/authentication-certificate.png":::
 
-      * Click **Select** to open the **Choose An Identity** page. The **Choose An Identity** page displays a list of certificates for you to choose from. If you are unsure which certificate to use, you can click **Show Certificate** to see more information about each certificate.
+      * Select **Select** to open the **Choose An Identity** page. The **Choose An Identity** page displays a list of certificates for you to choose from. If you’re unsure which certificate to use, you can select **Show Certificate** to see more information about each certificate.
 
         :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/show-certificate.png" alt-text="Screenshot shows certificate properties.." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/show-certificate.png":::
       * Select the proper certificate, then select **Continue**.
 
         :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/choose-identity.png" alt-text="Screenshot shows Choose an Identity, where you can select a certificate." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/choose-identity.png":::
    
-      * On the **Authentication Settings** page, verify that the correct certificate is shown, then click **OK**.
+      * On the **Authentication Settings** page, verify that the correct certificate is shown, then select **OK**.
 
         :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png" alt-text="Screenshot shows the Choose An Identity dialog box where you can select the proper certificate." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/certificate.png":::
 
-1. For both Catalina and Big Sur, in the **Local ID** field, specify the name of the certificate. In this example, it is `P2SChildCert`.
+1. For both Catalina and Big Sur, in the **Local ID** field, specify the name of the certificate. In this example, it’s `P2SChildCert`.
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/local-id.png" alt-text="Screenshot shows local ID value." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/local-id.png":::
 1. Select **Apply** to save all changes. 
@@ -154,13 +154,13 @@ Verify that both the client and the root certificate are installed. The client c
 
 ### <a name="genlinuxcerts"></a>Generate certificates
 
-If you have not already generated certificates, use the following steps:
+If you haven’t already generated certificates, use the following steps:
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Install and configure
 
-The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
+The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 doesn’t support strongSwan GUI. If you want to use Ubuntu 16.0.10, you’ll have to use the [command line](#linuxinstallcli). The following examples may not match screens that you see, depending on your version of Linux and strongSwan.
 
 1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example.
 
@@ -198,7 +198,7 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
 
 ### Generate certificates
 
-If you have not already generated certificates, use the following steps:
+If you haven’t already generated certificates, use the following steps:
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
@@ -208,8 +208,8 @@ If you have not already generated certificates, use the following steps:
 1. Extract the file.
 1. From the **Generic** folder, copy or move the **VpnServerRoot.cer** to **/etc/ipsec.d/cacerts**.
 1. Copy or move **cp client.p12** to **/etc/ipsec.d/private/**. This file is the client certificate for the VPN gateway.
-1. Open the **VpnSettings.xml** file and copy the `<VpnServer>` value. You will use this value in the next step.
-1. Adjust the values in the example below, then add the example to the **/etc/ipsec.conf** configuration.
+1. Open the **VpnSettings.xml** file and copy the `<VpnServer>` value. You’ll use this value in the next step.
+1. Adjust the values in the following example, then add the example to the **/etc/ipsec.conf** configuration.
   
    ```
    conn azure

@@ -78,7 +78,7 @@ To change your routing preference to Internet routing:
 
    - To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-   - To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az_login) command:
+   - To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
      ```azurecli
      az login
@@ -92,7 +92,7 @@ To change your routing preference to Internet routing:
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. To change your routing preference to Internet routing, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--routing-choice` parameter to `InternetRouting`.
+3. To change your routing preference to Internet routing, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--routing-choice` parameter to `InternetRouting`.
 
    ```azurecli
    az storage account update --name <storage-account-name> --routing-choice InternetRouting
@@ -127,7 +127,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
    - To create a route-specific endpoint that uses the Microsoft network routing preference, set the `-PublishMicrosoftEndpoint` parameter to `true`.
 
-   - To create a route-specific endpoint that uses the Internet routing preference, set the `-PublishInternetEndpointTo` parameter to `true`.
+   - To create a route-specific endpoint that uses the Internet routing preference, set the `-PublishInternetEndpoint` parameter to `true`.
 
    The following example creates a route-specific endpoint that uses the Microsoft network routing preference.
 
@@ -143,7 +143,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To configure a route-specific endpoint, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command.
+1. To configure a route-specific endpoint, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command.
 
    - To create a route-specific endpoint that uses the Microsoft network routing preference, set the `--publish-microsoft-endpoints` parameter to `true`.
 
@@ -190,7 +190,7 @@ If you configured a route-specific endpoint, you can find the endpoint in the pr
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To print the endpoints to the console, use the [az storage account show](/cli/azure/storage/account#az_storage_account_show) property of the storage account object.
+1. To print the endpoints to the console, use the [az storage account show](/cli/azure/storage/account#az-storage-account-show) property of the storage account object.
 
    ```azurecli
    az storage account show -g <resource-group-name> -n <storage-account-name>

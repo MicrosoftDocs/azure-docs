@@ -52,6 +52,7 @@ To complete this tutorial, you need:
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
 * To install mydumper/myloader on your Azure VM. For more information, see the article [mydumper/myloader](concepts-migrate-mydumper-myloader.md).
 * To download and run the sample database script for the [classicmodels](https://www.mysqltutorial.org/wp-content/uploads/2018/03/mysqlsampledatabase.zip) database on the source server.
+* Configure [binlog_expire_logs_seconds](./concepts-server-parameters.md#binlog_expire_logs_seconds) on the source server to ensure that binlogs aren’t purged before the replica commit the changes. Post successful cutover you can reset the value.
 
 ## Configure networking requirements
 
@@ -163,7 +164,7 @@ To configure Data in replication, perform the following steps:
         iii. To configure Data in replication, run the following command:
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, @cert);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, @cert);
         ```
 
         > [!Note]
@@ -172,7 +173,7 @@ To configure Data in replication, perform the following steps:
     * If SSL enforcement isn't enabled, then run the following command:
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, ‘’);
         ```
 
 9. To start replication from the replica server, call the below stored procedure.
