@@ -81,6 +81,8 @@
       items:
       - name: Consent and permissions overview
         href: consent-and-permissions-overview.md
+      - name: Admin consent workflow overview
+        href: admin.consent-workflow-overview.md
       - name: Manage and evaluate consent requests
         href: manage-consent-requests.md
       - name: Protect against consent phishing

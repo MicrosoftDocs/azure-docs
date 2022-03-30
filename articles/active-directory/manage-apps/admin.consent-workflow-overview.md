@@ -25,7 +25,7 @@ In such situations where user consent is disabled, an admin can grant users the 
 
 When attempting to sign in,  users may see a consent prompt like the one in the following screenshot: 
 
-:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-off.png" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
+:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-off.png" alt-text="consent prompt when workflow is off.":::
 
 If the user doesn’t know who to contact to grant them access, they may be unable to use the application. This situation also requires administrators to create a separate workflow to track requests for applications if they're open to receiving them.
 As an admin, the following options exist for you to determine how users consent to applications:
@@ -38,7 +38,7 @@ To learn how to configure the admin consent workflow, see [configure-admin-conse
 
 When you configure the admin consent workflow, your end users can request for consent directly through the prompt. The users may see a consent prompt like the one in the following screenshot:
 
-:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-on.PNG" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
+:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-on.PNG" alt-text="consent prompt when workflow is on.":::
 
 When an administrator responds to a request, the user receives an email alert informing them that the request has been processed.
 
