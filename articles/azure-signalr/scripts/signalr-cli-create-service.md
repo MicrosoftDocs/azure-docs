@@ -18,11 +18,8 @@ This sample script creates a new Azure SignalR Service resource in a new resourc
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
-
 ## Sample script
 
-This script creates a new SignalR Service resource and a new resource group. 
 
 ```azurecli-interactive
 #!/bin/bash
