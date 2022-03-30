@@ -44,6 +44,8 @@
       href: tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: tutorial-custom-domain.md
+    - name: Managed identity to connect MySQL
+    - href: tutorial-managed-identities-mysql.md
     - name: Managed identity to connect Key Vault
       href: tutorial-managed-identities-key-vault.md
     - name: Managed identity to invoke Azure Functions
