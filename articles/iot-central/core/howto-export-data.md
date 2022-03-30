@@ -143,7 +143,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 
     ```azurecli
-    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central"
+    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central" --scopes /subscriptions/<SubscriptionId>
     ```
 
     Make a note of the `appId`, `password`, and `tenant` values in the command output, you need them in the following steps.
