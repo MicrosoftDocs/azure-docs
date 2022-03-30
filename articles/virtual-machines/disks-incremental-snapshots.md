@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/31/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli 
@@ -158,6 +158,8 @@ You can use the CopyStart option to initiate a copy of incremental snapshots fro
 
 ### Get started
 
+#### CLI
+
 ```azurecli
 subscriptionId=<yourSubscriptionID>
 resourceGroupName=<yourResourceGroupName>
@@ -165,12 +167,29 @@ name=<targetSnapshotName>
 sourceSnapshotResourceId=<sourceSnapshotResourceId>
 targetRegion=<validRegion>
 
-az login
-az account set --subscription $subscriptionId
-az deployment group create -g $resourceGroupName \
---template-uri https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/CrossRegionCopyOfSnapshots/CopyStartIncrementalSnapshots.json \
---parameters "name=$name" "sourceSnapshotResourceId=$sourceSnapshotResourceId" "targetRegion=$targetRegion"
-az resource show -n $name -g $resourceGroupName --namespace Microsoft.Compute --resource-type snapshots --api-version 2020-12-01 --query [properties.completionPercent] -o tsv
+sourceSnapshotId=$(az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [id] -o tsv)
+
+az snapshot create -g $resourceGroupName -n $targetSnapshotName --source $sourceSnapshotId --incremental --copy-start
+
+az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
+```
+
+#### PowerShell
+
+```azurepowershell
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+
+$sourceSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $sourceSnapshotName
+
+$snapshotconfig = New-AzSnapshotConfig -Location $targetRegion -CreateOption CopyStart -Incremental -SourceResourceId $sourceSnapshot.Id
+
+New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $targetSnapshotName -Snapshot $snapshotconfig
+
+$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $targetSnapshotName
+
+$targetSnapshot.CompletionPercent
 ```
 
 ## Next steps
