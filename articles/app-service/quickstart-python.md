@@ -157,7 +157,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 | [!INCLUDE [VS Code deploy step 4](<./includes/quickstart-python/deploy-visual-studio-code-4.md>)] | :::image type="content" source="./media/quickstart-python/deploy-visual-studio-code-4-240px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/deploy-visual-studio-code-4.png"::: |
 | [!INCLUDE [VS Code deploy step 5](<./includes/quickstart-python/deploy-visual-studio-code-5.md>)] | :::image type="content" source="./media/quickstart-python/deploy-visual-studio-code-5-240px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/deploy-visual-studio-code-5.png"::: |
 
-### [Deploy using Azure CLI](#tab/azure-cli)
+### [Deploy using Azure CLI](#tab/azure-cli-deploy)
 
 [!INCLUDE [Deploy Azure CLI](<./includes/quickstart-python/deploy-cli.md>)]
 
