@@ -20,7 +20,7 @@ This guide assumes you have already <a href="https://portal.azure.com/#create/Mi
   
 ## Submit data to the service
 
-You submit either a local image or a remote image to the Analyze API. 
+The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
 
 #### [REST](#tab/rest)
 
