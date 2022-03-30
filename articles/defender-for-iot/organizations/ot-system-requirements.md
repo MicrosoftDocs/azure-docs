@@ -75,8 +75,8 @@ Defender for IoT sensor and on-premises management console software is built on 
 
 |Name  |Supported models and versions |
 |---------|---------|
-|C5600 (Corporate)     |- 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5 with HPE Smart Array P408i-a SR Gen10 Controller <br>-3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with HPE Smart Array P408i-a SR Controller       |
-|E1800 (Enterprise)    | -2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with HPE Smart Array P208i-a <br> -3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with HPE Smart Array P208i-a <br> -3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with Dell PERC H330      |
+|C5600 (Corporate)|- 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5 with HPE Smart Array P408i-a SR Gen10 Controller <br>-3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with HPE Smart Array P408i-a SR Controller|
+|E1800 (Enterprise)| -2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with HPE Smart Array P208i-a <br> -3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with HPE Smart Array P208i-a <br> -3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 with Dell PERC H330|
 |L500 (Line) <br> L100 (Line) <br> L60 (Line)     | -128GB M.2 M-key 2260* 2242 (SATA 3 6 Gbps) PLP<br> -HPE Edgeline 256GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD <br>-128GB 3ME3 Wide Temperature mSATA SSD
 
 ## Supported physical appliances
@@ -225,7 +225,7 @@ Optional modules for port expansion:
 |Rear:| 2 x USB 3.0|
 |Internal| 1 x USB 3.0|
 |Power|Dual Hot Plug Power Supplies 500 W|
-|Rack support| HPE 1U Short Friction Rail Kit|
+|Rack support|HPE 1U Short Friction Rail Kit|
 
 ### Appliance BOM
 
