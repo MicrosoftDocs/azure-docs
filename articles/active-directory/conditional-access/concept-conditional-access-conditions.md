@@ -186,7 +186,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 ## Device state (preview)
 
 > [!CAUTION]
-> **This preview feature has being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
+> **This preview feature is being deprecated.** Customers should use the **Filter for devices** condition in the Conditional Access policy, to satisfy scenarios previously achieved using device state (preview) condition.
 
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
