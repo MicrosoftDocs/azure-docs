@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya 
 ms.author: trkeya
-ms.date: 03/29/2022
+ms.date: 03/30/2022
 ---
 
 # Test a SaaS plan
@@ -53,7 +53,7 @@ Publishers can use Commercial Marketplace to verify the purchase of a test plan.
 
 1. Download the .CSV file and verify that the new subscription for your test plan is shown in the report.
 
-## Send Metered Usage Event
+## Send metered usage Event
 
 If your test plan is configured to send usage events, it is important to test the metered plan usage by sending metered events to [Marketplace Metered API](marketplace-metering-service-apis.md). This is an example of how to send metered usage events using Postman.
 
@@ -79,7 +79,7 @@ _Query parameters:_
 
 | Parameter | Comment |
 | ------------ | ------------- |
-| resourceId | This is will your SaaS subscriptionId |
+| resourceId | This will be your SaaS subscriptionId |
 | quantity | You can enter 1 for quantity as the test value |
 | dimension | Enter the name of the dimension defined in the metered plan |
 | planId | Enter the metered plan ID |

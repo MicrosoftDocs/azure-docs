@@ -66,7 +66,7 @@ Configure this page the same in both the DEV and PROD offers.
 
 ### Preview audience
 
-In the DEV offer, include the Azure Active Directory (AAD) user principal names or Microsoft account (MSA) email addresses of developers and testers, including yourself. The user principal name of a user on AAD can be different than the email of that user. For example, jane.doe@contoso.com will not work but janedoe@contoso.com will. The users you designate will have access to the DEV offer when you share the **Preview** link during the development and testing phase.
+In the DEV offer, include the Azure Active Directory (Azure AD) user principal names or Microsoft account (MSA) email addresses of developers and testers, including yourself. The user principal name of a user on Azure AD can be different than the email of that user. For example, jane.doe@contoso.com will not work but janedoe@contoso.com will. The users you designate will have access to the DEV offer when you share the **Preview** link during the development and testing phase.
 
 In the PROD offer, include the Azure AD user principal name or Microsoft Account email of the users who will validate the offer before selecting the **Go Live button** to publish the offer live.
 
@@ -80,7 +80,7 @@ This table describes the differences between the settings for DEV offers and PRO
 | ------------ | ------------- | ------------- |
 | Landing page URL | Enter your dev/test endpoint. | Enter your production endpoint. |
 | Connection webhook | Enter your dev/test endpoint. | Enter your production endpoint. |
-| Azure Active Directory tenant ID | Enter your test app registration tenant ID (AAD directory ID). | Enter your production app registration tenant ID. |
+| Azure Active Directory tenant ID | Enter your test app registration tenant ID (Azure AD directory ID). | Enter your production app registration tenant ID. |
 | Azure Active Directory application ID | Enter your test app registration application ID (client ID). | Enter your production app registration application ID. |
 ||||
 

@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 03/29/2022
+ms.date: 03/30/2022
 ---
 
 # Preview and subscribe to a SaaS offer in the commercial marketplace
@@ -80,11 +80,11 @@ As a publisher, you will be notified that you have a pending subscription. You c
 1. Once someone subscribes to your offer, you’ll be notified of a new subscription.
 1. Using Postman, you can post against the Activate a subscription API to activate the pending subscription by providing the `planId`.
 
-    [ ![Screedshot shows the planIdin postman.](./media/review-publish-offer/test-plan1.png) ](./media/review-publish-offer/test-plan1.png#lightbox)
+    [ ![Screedshot shows the planId in postman.](./media/review-publish-offer/test-plan-1.png) ](./media/review-publish-offer/test-plan-1.png#lightbox)
 
 Once activation is successful, you will receive status code 202 Accepted.
 
-[ ![Screenshot illustrates the 202 message.](./media/review-publish-offer/test-plan2.png) ](./media/review-publish-offer/test-plan2.png#lightbox)
+[ ![Screenshot illustrates the 202 message.](./media/review-publish-offer/test-plan-2.png) ](./media/review-publish-offer/test-plan-2.png#lightbox)
 
 ## Next step
 
