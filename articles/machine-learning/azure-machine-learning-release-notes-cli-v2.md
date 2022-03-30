@@ -9,6 +9,7 @@ ms.topic: reference
 ms.author: minxia
 author: mx-iao
 ms.date: 11/03/2021
+ms.custom: cliv2
 ---
 
 # Azure Machine Learning CLI (v2) release notes

@@ -10776,11 +10776,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/reports-monitoring/reference-azure-ad-sla-performance.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/overview-monitoring",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/manage-apps/get-it-now-azure-marketplace.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
