@@ -15,9 +15,8 @@ KMS Plugin for Key Vault is the recommended choice for using a third party tool 
 
 Features:
 * Use a key in Key Vault for etcd encryption
-* Use a key in Key Vault protected by a Hardware Security Module (HSM)
 * Bring your own keys
-* Provide encryption at rest of data stored in etcd like secrets, keys, and certs in etcd
+* Provide encryption at rest for secrets stored in etcd
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
