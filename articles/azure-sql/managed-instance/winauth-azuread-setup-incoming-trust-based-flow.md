@@ -33,7 +33,7 @@ To implement the incoming trust-based authentication flow, first ensure that the
 |Prerequisite  |Description  |
 |---------|---------|
 |Client must run Windows 10, Windows Server 2012, or a higher version of Windows. |         |
-|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](../../active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status`  |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
@@ -114,7 +114,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
       - Enter the password for your Azure AD global administrator account.
       - If your organization uses other modern authentication methods such as MFA (Azure Multi-Factor Authentication) or Smart Card, follow the instructions as requested for sign in.
 
-    If this is the first time you're configuring Azure AD Kerberos settings, the [Get-AzureAdKerberosServer cmdlet](/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises#view-and-verify-the-azure-ad-kerberos-server) will display empty information, as in the following sample output:
+    If this is the first time you're configuring Azure AD Kerberos settings, the [Get-AzureAdKerberosServer cmdlet](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises#view-and-verify-the-azure-ad-kerberos-server) will display empty information, as in the following sample output:
 
     ```
     ID                  :
@@ -154,7 +154,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 1. Add the Trusted Domain Object.
 
-    Run the [Set-AzureAdKerberosServer PowerShell cmdlet](/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises#create-a-kerberos-server-object) to add the Trusted Domain Object. Be sure to include `-SetupCloudTrust` parameter. If there is no Azure AD service account, this command will create a new Azure AD service account. If there is an Azure AD service account already, this command will only create the requested Trusted Domain object.
+    Run the [Set-AzureAdKerberosServer PowerShell cmdlet](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises#create-a-kerberos-server-object) to add the Trusted Domain Object. Be sure to include `-SetupCloudTrust` parameter. If there is no Azure AD service account, this command will create a new Azure AD service account. If there is an Azure AD service account already, this command will only create the requested Trusted Domain object.
 
     ```powershell
     Set-AzureAdKerberosServer -Domain $domain ` 
@@ -184,7 +184,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 ## Configure the Group Policy Object (GPO) 
 
-1. Identify your [Azure AD tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+1. Identify your [Azure AD tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
 
 1. Deploy the following Group Policy setting to client machines using the incoming trust-based flow:
 

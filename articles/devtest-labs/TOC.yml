@@ -243,7 +243,7 @@
         href: devtest-lab-guidance-governance-policy-compliance.md
       - name: Application migration and integration
         href: devtest-lab-guidance-governance-application-migration-integration.md
-  - name: Test your app in Azure
+  - name: Set up an app for testing
     href: test-app-azure.md
   - name: Troubleshoot
     items:
