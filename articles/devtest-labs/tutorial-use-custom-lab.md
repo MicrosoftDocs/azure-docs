@@ -2,7 +2,7 @@
 title: Access a lab and lab VM
 description: Learn how to access a lab in Azure DevTest Labs, and claim, connect to, and unclaim a lab virtual machine.
 ms.topic: tutorial
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ---
 
 # Tutorial: Access a lab in Azure DevTest Labs
@@ -10,9 +10,10 @@ ms.date: 03/29/2021
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Claim a lab virtual machine (VM) in Azure DevTest Labs
-> * Connect to the lab VM
-> * Unclaim the lab VM
+> * Claim a lab virtual machine (VM) in Azure DevTest Labs.
+> * Connect to the lab VM.
+> * Unclaim the lab VM.
+> * Delete the lab VM when no longer needed.
 
 ## Prerequisites
 
@@ -28,11 +29,11 @@ To claim a lab VM, follow these steps. You automatically have [Owner](/azure/rol
 
 1. On the lab **Overview** page, select **Claimable virtual machines** under **My Lab** in the left navigation.
 
-1. On the **Claimable virtual machines** page, select the **...** (ellipsis) next to the listing for a claimable VM, and select **Claim machine** from the context menu.
+1. On the **Claimable virtual machines** page, select the ellipsis **...**  next to the listing for an available VM, and select **Claim machine** from the context menu.
 
    :::image type="content" source="./media/tutorial-use-custom-lab/claimable-virtual-machines-claimed.png" alt-text="Screenshot showing Claim machine in the context menu.":::
 
-1. On the lab **Overview** page, confirm that you now see the VM in the list under **My virtual machines**, and that the VM is starting up.
+1. On the lab **Overview** page, confirm that you now see the VM in the list under **My virtual machines**.
 
    :::image type="content" source="./media/tutorial-use-custom-lab/my-virtual-machines-2.png" alt-text="Screenshot showing the claimed V M in the My virtual machines list.":::
 
@@ -80,7 +81,7 @@ After you're done using the VM, unclaim the VM so someone else can claim it, by 
 
 When you're done using a VM, you can delete it. Or, the lab owner can delete the entire lab when it's no longer needed, which deletes all lab VMs and resources. To delete an individual lab VM, follow these steps:
 
-1. Select the **...** (ellipsis) next to the VM in the **My virtual machines** list or on the **Claimable virtual machines** page, and select **Delete** from the context menu.
+1. Select the ellipsis **...** next to the VM in the **My virtual machines** list or on the **Claimable virtual machines** page, and select **Delete** from the context menu.
 
 1. On the **Are you sure you want to delete it** page, select **Delete**.
 
