@@ -75,12 +75,12 @@ Issue : User cannot access Preview data because they don’t have right permissi
 Option 1: The user who wants to preview incoming data needs to be added as a Contributor on Subscription.
 
 Option 2: The user needs to be added as Stream Analytics Query tester role on Subscription.
-![ASA query tester role](./media/process-data-azure-stream-analytics/ASA-Query-tester-role.png)
+![ASA query tester role](./media/process-data-azure-stream-analytics/query-tester-role.png)
 
 Option 3: The user can create Azure Stream Analytics job. Set input as Event Hub and navigate to "Query" to preview incoming data from Event Hub.
 
 Option 4: The admin can create a custom role on the subscription. Add the following permissions to the custom role and then add user to the new custom role.
-![Add permissions to custom role](./media/process-data-azure-stream-analytics/Permissions-to-custom-role.png)
+![Add permissions to custom role](./media/process-data-azure-stream-analytics/permissions-to-custom-role.png)
 
 
 
