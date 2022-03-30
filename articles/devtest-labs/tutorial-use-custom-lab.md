@@ -2,7 +2,7 @@
 title: Access a lab and lab VM
 description: Learn how to access a lab in Azure DevTest Labs, and claim, connect to, and unclaim a lab virtual machine.
 ms.topic: tutorial
-ms.date: 03/30/2021
+ms.date: 03/30/2022
 ---
 
 # Tutorial: Access a lab in Azure DevTest Labs
@@ -23,7 +23,7 @@ The owner or administrator of the lab can give you the URL to access the lab in 
 
 ## Claim a lab VM
 
-To claim a lab VM, follow these steps. You automatically have [Owner](/azure/role-based-access-control/built-in-roles.md#owner) role on all lab VMs you claim or create, unless you make them claimable.
+To claim a lab VM, follow these steps. For more information about claiming VMs, see [Use claim capabilities in Azure DevTest Labs](devtest-lab-use-claim-capabilities.md).
 
 1. Go to the URL for your lab in the Azure portal.
 
@@ -38,6 +38,8 @@ To claim a lab VM, follow these steps. You automatically have [Owner](/azure/rol
    :::image type="content" source="./media/tutorial-use-custom-lab/my-virtual-machines-2.png" alt-text="Screenshot showing the claimed V M in the My virtual machines list.":::
 
 ## Connect to a lab VM
+
+You can connect to any running lab VM. A claimable but unclaimed VMs is stopped, so you must claim it to connect to it.
 
 To connect to a Windows machine through Remote Desktop Protocol (RDP), follow these steps. For steps to connect to a Linux VM, see [Connect to a Linux VM in your lab](connect-linux-virtual-machine.md).
 
@@ -58,6 +60,8 @@ To connect to a Windows machine through Remote Desktop Protocol (RDP), follow th
 1. If you receive a dialog box that states, **The identity of the remote computer cannot be verified**, select the check box for **Don't ask me again for connections to this computer**. Then select **Yes**.
 
    :::image type="content" source="./media/tutorial-use-custom-lab/remote-computer-verification.png" alt-text="Screenshot of remote computer verification.":::
+
+Once you connect to the VM, you can use it to do your work. You have [Owner](/azure/role-based-access-control/built-in-roles.md#owner) role on all lab VMs you claim or create, unless you unclaim them. 
 
 ## Unclaim a lab VM
 
