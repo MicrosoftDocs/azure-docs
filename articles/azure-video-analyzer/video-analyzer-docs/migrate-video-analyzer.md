@@ -25,7 +25,7 @@ If you're using Video Analyzer on an edge server together with the [Spatial Anal
 If you're using Video Analyzer on an edge server to analyze live video with other AI models, your options are as follows.
 
 * If you're using an AI model from the [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo) provided by Intel(R), you may be able to make use of their Deep Learning (DL) Streamer video analytics framework. See [OpenVINO™ Toolkit - DL Streamer repository](https://github.com/openvinotoolkit/dlstreamer_gst) for more information.
-* If you're using an AI model optimized for running on NVIDIA(R) GPU, then you should consider the different [reference implementations](https://developer.nvidia.com/deepstream-getting-started) provided for their [DeepStream SDK](https://developer.nvidia.com/deepstream-sdk). The [Intelligent Video Analytics with NVIDIA Jetson and Microsoft Azure](https://github.com/toolboc/Intelligent-Video-Analytics-with-NVIDIA-Jetson-and-Microsoft-Azure) example demonstrating an end-to-end architecture for video analytics may also be of help.
+* If you're using an AI model optimized for running on NVIDIA(R) GPU, then you should consider the different [reference implementations](https://developer.nvidia.com/deepstream-getting-started) provided for their [DeepStream SDK](https://developer.nvidia.com/deepstream-sdk). Also check out the [Intelligent Video Analytics with NVIDIA Jetson and Microsoft Azure](https://github.com/toolboc/Intelligent-Video-Analytics-with-NVIDIA-Jetson-and-Microsoft-Azure) example that demonstrates an end-to-end architecture for video analytics.
 
 ## Video Management Systems
 
