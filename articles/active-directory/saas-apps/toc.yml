@@ -2090,6 +2090,8 @@
         href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
         href: surveymonkey-enterprise-tutorial.md
+      - name: Swit
+        href: swit-tutorial.md  
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
       - name: SynchroNet CLICK
