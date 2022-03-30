@@ -31,7 +31,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
 
-   :::image type="content" source="./media/single-database-create-quickstart/select-deployment.png" alt-text="Add to Azure SQL":::
+   :::image type="content" source="./media/single-database-create-quickstart/select-deployment.png" alt-text="Add to Azure SQL" lightbox="media/single-database-create-quickstart/select-deployment.png":::
 
 1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
 1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
@@ -50,24 +50,24 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Under **Compute + storage**, select **Configure database**.
 1. This quickstart uses a serverless database, so leave **Service tier** set to **General Purpose (Scalable compute and storage options)** and set **Compute tier** to **Serverless**. Select **Apply**.
 
-      :::image type="content" source="./media/single-database-create-quickstart/configure-database.png" alt-text="configure serverless database":::
+      :::image type="content" source="./media/single-database-create-quickstart/configure-database.png" alt-text="configure serverless database" lightbox="media/single-database-create-quickstart/configure-database.png":::
 
 1. Select **Next: Networking** at the bottom of the page.
 
-   :::image type="content" source="./media/single-database-create-quickstart/new-sql-database-basics.png" alt-text="New SQL database - Basic tab":::
+   :::image type="content" source="./media/single-database-create-quickstart/new-sql-database-basics.png" alt-text="New SQL database - Basic tab" lightbox="media/single-database-create-quickstart/new-sql-database-basics.png":::
 
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Next: Security** at the bottom of the page.
 
-   :::image type="content" source="./media/single-database-create-quickstart/networking.png" alt-text="Networking tab":::
+   :::image type="content" source="./media/single-database-create-quickstart/networking.png" alt-text="Networking tab" lightbox="media/single-database-create-quickstart/networking.png":::
   
 1. On the **Security tab**, you have the option to enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md). Select **Next: Additional settings** at the bottom of the page.
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
 
 1. Select **Review + create** at the bottom of the page:
 
-   :::image type="content" source="./media/single-database-create-quickstart/additional-settings.png" alt-text="Additional settings tab":::
+   :::image type="content" source="./media/single-database-create-quickstart/additional-settings.png" alt-text="Additional settings tab" lightbox="media/single-database-create-quickstart/additional-settings.png":::
 
 1. On the **Review + create** page, after reviewing, select **Create**.
 
