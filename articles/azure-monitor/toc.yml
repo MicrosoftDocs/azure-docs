@@ -694,9 +694,7 @@ items:
         href: alerts/itsmc-overview.md
       - name: ITSM Connector Partners Setup
         items:
-        - name: Overview
-          href: alerts/itsmc-connections.md
-        - name: ServiceNow
+        - name: ServiceNow ITSM
           href: alerts/itsmc-connections-servicenow.md
         - name: System Center Service Manager
           items:
@@ -704,10 +702,6 @@ items:
             href: alerts/itsmc-connections-scsm.md
           - name: Create Service Manager web app
             href: alerts/itsmc-service-manager-script.md
-        - name: Cherwell
-          href: alerts/itsmc-connections-cherwell.md
-        - name: Provance
-          href: alerts/itsmc-connections-provance.md
       - name: ITSM Connector Azure Configuration
         href: alerts/itsmc-definition.md
       - name: Data Synced From Your ITSM Product
@@ -724,17 +718,17 @@ items:
           href: alerts/itsmc-resync-servicenow.md
         - name: Connector deletion
           href: alerts/itsmc-connector-deletion.md
-      - name: Integrate with Secure Export
+      - name: Integrate with Secure Webhook
         items:
         - name: Overview
           href: alerts/it-service-management-connector-secure-webhook-connections.md
-        - name: Secure Export Azure Configuration
+        - name: Secure Webhook Azure Configuration
           href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
         - name: ITSM Connector Partners Setup
           items:
-          - name: BMC
+          - name: BMC Helix
             href: alerts/itsmc-secure-webhook-connections-bmc.md
-          - name: ServiceNow
+          - name: ServiceNow ITOM
             href: alerts/itsmc-secure-webhook-connections-servicenow.md
     - name: Migrate classic alert rules
       items:
