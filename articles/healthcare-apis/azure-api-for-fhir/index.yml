@@ -38,8 +38,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure AD configuration for Azure API for FHIR
-            url: azure-active-directory-configuration.md
+          - text: Azure AD identity configuration for Azure API for FHIR
+            url: azure-active-directory-identity-configuration.md
           - text: Access token validation
             url: azure-api-fhir-access-token-validation.md
 
@@ -87,7 +87,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure export
-            url: configure-export.data.md
+            url: configure-export-data.md
           - text: Export data
             url: export-data.md
           - text: Convert data
