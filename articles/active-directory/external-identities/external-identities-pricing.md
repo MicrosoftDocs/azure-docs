@@ -42,7 +42,7 @@ The pricing tier that applies to your guest users is based on the highest pricin
 
 ## Link your Azure AD tenant to a subscription
 
-An Azure AD tenant must be linked to a resource group within an Azure subscription for proper billing and access to features. If the directory doesn't already have a subscription and resource group you can link to, you'll have the opportunity to create a subscription during this process, and then you'll need to [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) within the new subscription.
+An Azure AD tenant must be linked to a resource group within an Azure subscription for proper billing and access to features.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](../../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
 
@@ -58,16 +58,21 @@ An Azure AD tenant must be linked to a resource group within an Azure subscripti
 
     ![Select the tenant and link a subscription](media/external-identities-pricing/linked-subscriptions.png)
 
-7. In the Link a subscription pane, select a **Subscription** and a **Resource group**. Then select **Apply**.
+7. In the **Link a subscription** pane, select a **Subscription** and a **Resource group**. Then select **Apply**. (If there are no subscriptions listed, see [What if I can't find a subscription?](#what-if-i-cant-find-a-subscription).)
 
     ![Select a subscription and resource group](media/external-identities-pricing/link-subscription-resource.png)
 
-   > [!NOTE]
-   >
-   >- If there are no subscriptions listed, you can [associate an existing subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
-   >- Or you can create a new subscription if necessary by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) in the new subscription, and then repeat the steps above to link it to your tenant.
-
 After you complete these steps, your Azure subscription is billed based on your Azure Direct or Enterprise Agreement details, if applicable.
+
+## What if I can't find a subscription?
+
+If no subscriptions are available in the **Link a subscription** pane, here are some possible reasons:
+
+- You don't have the appropriate permissions. Be sure to sign in with an Azure account that's been assigned at least the [Contributor](../../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
+
+- A subscription exists, but it hasn't been associated with your directory yet. You can [associate an existing subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
+
+- No subscription exists. In the **Link a subscription** pane, you can create a subscription by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) in the new subscription, and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
 ## Next steps
 
