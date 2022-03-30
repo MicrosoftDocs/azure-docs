@@ -99,7 +99,7 @@ If you do not have the SeBackupPrivilege credential:
 - You will not be able to copy SACLs for Azure Files copy service jobs.
 - You may experience access issues and receive this error: Could not read SACLs from share due to insufficient privileges.
 
- For more information, see how to obtain the [“SeBackupPrivilege” credential](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440). 
+ For more information, see how to obtain the [SeBackupPrivilege credential](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440). 
 
 **Default ACLs transfer**  
 
