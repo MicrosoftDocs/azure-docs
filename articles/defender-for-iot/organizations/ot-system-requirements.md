@@ -96,6 +96,9 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 |**Dell Edge Gateway 5200** <br>L500| |60Mbp/s|1000|Wall mount|
 |**YS-Techsystems YS-FIT2** <br>L100|1 x RJ45|10Mbp/s|100|DIN/VESA|
 
+> [!NOTE]
+> Bandwidth capacity may vary depending on protocol distribution.
+
 ### Supported appliances for on-premises management consoles
 
 |Model / Capacity| Monitoring Ports|Monitored Sensors|Mounting|
