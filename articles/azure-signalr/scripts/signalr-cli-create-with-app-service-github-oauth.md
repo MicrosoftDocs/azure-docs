@@ -24,7 +24,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/azure-signalr/create-signalr-with-app-service-github-oauth/create-signalr-with-app-service-github-oauth.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh" id="FullScript":::
 
 ## Enable Github authentication and Git deployment
 
