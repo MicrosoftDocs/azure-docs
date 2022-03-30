@@ -1,10 +1,10 @@
 ---
 title: Collaborate in Microsoft Teams with a Microsoft Sentinel incident team | Microsoft Docs
 description: Learn how to connect to Microsoft Teams from Microsoft Sentinel to collaborate with others on your team using Microsoft Sentinel data.
-author: batamig
+author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 03/30/2022
+ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 

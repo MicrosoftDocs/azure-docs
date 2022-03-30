@@ -3,7 +3,7 @@ title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
 description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/30/2022
+ms.date: 03/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
