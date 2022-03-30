@@ -17,11 +17,12 @@ This article shows you how to create a managed identity for an app in Azure Spri
 
 The following video describes how to manage secrets using Azure Key Vault.
 
+
 > [!VIDEO https://www.youtube.com/embed/A8YQOoZncu8?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 ## Prerequisites
 
-* [JDK 8](/azure/java/jdk/java-jdk-install)
+* [JDK 8](/azure/java/jdk/java-jdk-install) installed
 * [Maven 3.0 or above](http://maven.apache.org/install.html)
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](/azure/cloud-shell/overview)
 * An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
