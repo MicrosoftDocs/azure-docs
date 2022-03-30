@@ -1,10 +1,11 @@
 ---
 title: Versioning policy - Azure Database for PostgreSQL - Single Server and Flexible Server (Preview)
 description: Describes the policy around Postgres major and minor versions in Azure Database for PostgreSQL - Single Server.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 12/14/2021
 ms.custom: fasttrack-edit
 ---
@@ -65,4 +66,4 @@ Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.pos
 ## Next steps
 - See Azure Database for PostgreSQL - Single Server [supported versions](./concepts-supported-versions.md)
 - See Azure Database for PostgreSQL - Flexible Server [supported versions](flexible-server/concepts-supported-versions.md)
-- See Azure Database for PostgreSQL - Hyperscale (Citus) [supported versions](concepts-hyperscale-versions.md)
+- See Azure Database for PostgreSQL - Hyperscale (Citus) [supported versions](hyperscale/reference-versions.md)

@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/27/2021
 ---
 

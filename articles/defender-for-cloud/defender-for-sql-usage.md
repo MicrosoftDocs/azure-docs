@@ -2,6 +2,8 @@
 title: How to set up Microsoft Defender for SQL
 description: Learn how to enable Microsoft Defender for Cloud's optional Microsoft Defender for SQL plan
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 
@@ -18,10 +20,10 @@ You'll see alerts when there are suspicious database activities, potential vulne
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Protected SQL versions:|SQL Server (versions currently [supported by Microsoft](/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions))|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
-|||
+
 
 
 

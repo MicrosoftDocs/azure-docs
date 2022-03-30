@@ -87,7 +87,7 @@ The Azure portal, you can create a deployment manifest and push the deployment t
 
 #### Select your device and set modules
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/), and then go to your IoT hub.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and then go to your IoT hub.
 1. On the left pane, select **IoT Edge**.
 1. In the list of devices, select the ID of the target device.
 1. Select **Set Modules**.

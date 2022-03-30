@@ -3,11 +3,11 @@ title: 'Troubleshooting issues with provisioning to on-premises applications'
 description: Describes how to troubleshoot various issues you might encounter when you install and use the ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 02/03/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -56,7 +56,7 @@ To resolve the following issues, run the ECMA host as an admin:
 
 ## Turn on verbose logging 
 
-By default, `switchValue` for the ECMA Connector Host is set to `Error`. This setting means it will only log events that are errors. To enable verbose logging for the ECMA host service or wizard, set `switchValue` to `Verbose` in both locations as shown.
+By default, `switchValue` for the ECMA Connector Host is set to `Verbose`. This will emit detailed logging that will help you troubleshoot issues. You can change the verbosity to `Error` if you would like to limit the number of logs emitted to only errors. Wen using the SQL connector without Windows Integrated Auth, we recommend setting the `switchValue` to `Error` as it will ensure that the connection string is not emitted in the logs. In order to change the verbosity to error, please update the `switchValue` to "Error" in both places as shown below.
 
 The file location for verbose service logging is C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config.
   ```
@@ -70,7 +70,7 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
       </appSettings> 
       <system.diagnostics> 
         <sources> 
-      <source name="ConnectorsLog" switchValue="Verbose"> 
+      <source name="ConnectorsLog" switchValue="Error"> 
             <listeners> 
               <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
                 <filter type=""/> 
@@ -78,14 +78,14 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
             </listeners> 
           </source> 
           <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-          <source name="ECMA2Host" switchValue="Verbose"> 
+          <source name="ECMA2Host" switchValue="Error"> 
             <listeners>  
               <add initializeData="ECMA2Host" type="System.Diagnos
   ```
 
-The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config.
+The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config.
   ```
-        <source name="ConnectorsLog" switchValue="Verbose"> 
+        <source name="ConnectorsLog" switchValue="Error"> 
           <listeners> 
             <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
               <filter type=""/> 
@@ -93,7 +93,7 @@ The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2
           </listeners> 
         </source> 
         <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-        <source name="ECMA2Host" switchValue="Verbose"> 
+        <source name="ECMA2Host" switchValue="Error"> 
           <listeners> 
             <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
   ```

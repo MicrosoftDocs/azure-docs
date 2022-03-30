@@ -4,12 +4,11 @@ description: Learn how to extend or renew Azure resource role assignments in Azu
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 10/19/2021

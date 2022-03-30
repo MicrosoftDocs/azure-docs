@@ -7,7 +7,6 @@ documentationcenter: na
 author: KumudD
 manager: 
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -109,7 +108,7 @@ When there is an exact prefix match between a route with an explicit IP prefix a
    3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
    4. The AzureCloud tag </br></br>
 
-To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
+To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in PowerShell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -128,7 +127,7 @@ When BGP routes are present or a Service Endpoint is configured on your subnet, 
 
 
 > [!NOTE] 
-> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through Powershell and CLI. There is no support for use with containers. 
+> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through PowerShell and CLI. There is no support for use with containers. 
 
 ## Next hop types across Azure tools
 

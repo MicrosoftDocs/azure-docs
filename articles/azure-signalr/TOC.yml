@@ -47,6 +47,8 @@
     href: signalr-concept-internals.md
   - name: Service mode
     href: concept-service-mode.md
+  - name: Connection string
+    href: concept-connection-string.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
@@ -59,14 +61,14 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Upstream settings
       href: concept-upstream.md
-  - name: Availability
-    items:
-      - name: Gracefully shutdown your app server.
-        href: server-graceful-shutdown.md
   - name: High availability
     items:
+    - name: Gracefully shutdown your app server
+      href: server-graceful-shutdown.md
     - name: Resiliency and disaster recovery
       href: signalr-concept-disaster-recovery.md
+    - name: Availability zones
+      href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
   - name: Performance considerations
@@ -93,6 +95,8 @@
       href: signalr-howto-scale-signalr.md
     - name: Multiple instances
       href: signalr-howto-scale-multi-instances.md
+    - name: Autoscale
+      href: signalr-howto-scale-autoscale.md
   - name: Secure
     items:
     - name: Access key rotation
@@ -111,6 +115,8 @@
       href: signalr-howto-authorize-application.md
     - name: Authorize from Managed Identity
       href: signalr-howto-authorize-managed-identity.md
+    - name: Custom domain
+      href: howto-custom-domain.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
@@ -131,6 +137,8 @@
       href: signalr-howto-troubleshoot-method.md
     - name: Troubleshooting with live trace tool
       href: signalr-howto-troubleshoot-live-trace.md
+  - name: Move across regions
+    href: signalr-howto-move-across-regions.md
 
 - name: References
   items:

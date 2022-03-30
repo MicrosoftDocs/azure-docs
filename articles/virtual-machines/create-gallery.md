@@ -1,21 +1,23 @@
 ---
 title: Create an Azure Compute Gallery for sharing resources
 description: Learn how to create an Azure Compute Gallery.
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/05/2021
-ms.author: cynthn
-ms.custom: template-how-to 
+ms.author: saraic
+ms.reviewer: cynthn
+ms.custom: template-how-to, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 
 # Create a gallery for storing and sharing resources
 
 
-An [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies sharing resources, like images and application packages, across your organization.  
+An [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies sharing resources, like images and application packages, across your organization.  
 
 The Azure Compute Gallery lets you share custom VM images and application packages with others in your organization, within or across regions, within an AAD tenant. Choose what you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group resources. 
 
@@ -44,7 +46,7 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
 
 ### [CLI](#tab/cli)
 
-Create a gallery using [az sig create](/cli/azure/sig#az_sig_create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create a gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus

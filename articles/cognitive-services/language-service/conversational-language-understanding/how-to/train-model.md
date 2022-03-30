@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
@@ -19,15 +19,19 @@ After you have completed [tagging your utterances](./tag-utterances.md), you can
 
 You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
 
-The training times can be anywhere from a few seconds when dealing with orchestration workflow projects, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs. 
+The training times can be anywhere from a few seconds up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs. 
 
 ## Train model
 
-Enter a new model name or select an existing model from the **Model Name** dropdown. Press the enter key after you add a model name. Select whether you want to evaluate your model by changing the **Run evaluation with training** toggle. If enabled, your tagged utterances will be spilt into 3 parts; 80% for training, 10% for validation and 10% for testing. Afterwards, you'll be able to see the model's evaluation results.
+Select **Train model** on the left of the screen. Select **Start a training job** from the top menu.
+
+Enter a new model name or select an existing model from the **Model Name** dropdown. 
+
+Select whether you want to evaluate your model by changing the **Run evaluation with training** toggle. If enabled, your tagged utterances will be spilt into 2 parts; 80% for training, 20% for testing. Afterwards, you'll be able to see the model's evaluation results.
 
 :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the Train model page for Conversational Language Understanding projects." lightbox="../media/train-model.png":::
 
-Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page.
+Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page. Only successfully completed tasks will generate models.
 
 ## Evaluate model
 

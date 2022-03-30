@@ -3,12 +3,15 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 10/29/2021
+ms.date: 02/10/2022
 ---
 
 
 # Monitoring Azure Service Bus data reference
 See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Service Bus. The resource provider for these metrics is **Microsoft.ServiceBus/namespaces**.
@@ -141,9 +144,53 @@ The following management operations are captured in operational logs:
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
+
+## Runtime audit logs
+Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive messages) in Service Bus.  
+
+> [!NOTE] 
+> Runtime audit logs are currently available only in the **premium** tier.  
+
+Runtime audit logs include the elements listed in the following table:
+
+Name | Description
+------- | -------
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
+`ActivityName` | Runtime operation name.  
+`ResourceId` | Resource associated with the activity. 
+`Timestamp` | Aggregation time.
+`Status` | Status of the activity (success or failure).
+`Protocol` | Type of the protocol associated with the operation.
+`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
+`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
+`NetworkType` | Type of the network access: `Public` or`Private`.
+`ClientIP` | IP address of the client application.
+`Count` | Total number of operations performed during the aggregated period of 1 minute. 
+`Properties` | Metadata that are specific to the data plane operation. 
+`Category` | Log category
+
+Here's an example of a runtime audit log entry:
+
+```json
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "Time": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthId": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Category": "RuntimeAuditLogs"
+ }
+
+```
+
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
-
 
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).

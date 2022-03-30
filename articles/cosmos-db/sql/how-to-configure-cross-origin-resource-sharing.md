@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-
+ms.devlang: javascript
 ---
 
 # Configure Cross-Origin Resource Sharing (CORS)

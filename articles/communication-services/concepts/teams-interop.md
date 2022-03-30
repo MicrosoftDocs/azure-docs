@@ -13,9 +13,9 @@ ms.subservice: teams-interop
 # Teams interoperability
 
 > [!IMPORTANT]
-> Bring your own identity (BYOI) interoperability for Teams meeting is now generally available to all Communication Services applications and Teams organizations.
+> Bring your own identity (BYOI) interoperability for Teams meetings is now generally available to all Communication Services applications and Teams organizations.
 >
-> Teams interoperability with Communication Services SDK for Teams calling and Teams meetings is in public preview and available to Web-based applications.
+> Interoperability with Communication Services SDK with Teams identities is in public preview and available to Web-based applications.
 >
 > Preview APIs and SDKs are provided without a service-level agreement and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

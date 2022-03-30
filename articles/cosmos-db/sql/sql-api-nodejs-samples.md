@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.author: dech
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 # Node.js examples to manage data in Azure Cosmos DB

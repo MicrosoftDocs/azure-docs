@@ -116,7 +116,7 @@
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
   - name: CLI
-    href: /cli/azure/cloud-service?view=azure-cli-latest
+    href: /cli/azure/cloud-service
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 01/31/2022
 ms.author: owend
 ms.reviewer: minewiskan 
 ms.custom: devx-track-azurepowershell
@@ -20,7 +20,7 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 
 **Minimum Requirements:**
 
-* .NET 4.5 Framework
+* .NET 4.8 Framework
 * 64-bit version of Windows 8 / Windows Server 2012 R2 (or later)
 
 **Recommended:**

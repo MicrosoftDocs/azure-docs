@@ -6,7 +6,6 @@ documentationcenter: na
 author: damendo
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -61,43 +60,46 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Australia East  
       Australia Southeast  
       Brazil South  
+      Brazil Southeast
       Canada Central  
       Canada East  
       Central India  
       Central US  
       China East 2  
-	  China North   
-	  China North 2 	  
+      China North   
+      China North 2 	  
    :::column-end:::
    :::column span="":::
       East Asia  
-	  East US  
+      East US  
       East US 2  
       East US 2 EUAP  
       France Central  
       Germany West Central  
-	  Japan East  
+      Japan East  
       Japan West  
       Korea Central  
       Korea South  
-	  North Central US 	  
+      North Central US	
+      North Europe   
    :::column-end:::
    :::column span="":::
-      North Europe  
-	  South Africa North  
+      Norway East
+      South Africa North  
       South Central US  
       South India  
       Southeast Asia  
       Switzerland North  
       Switzerland West  
-	  UAE North  
-	  UK South  
-      UK West     
-	  USGov Arizona
+      UAE Central  
+      UAE North  
+      UK South  
+      UK West  
+      USGov Arizona  
    :::column-end:::
    :::column span="":::
       USGov Texas  
-	  USGov Virginia  
+      USGov Virginia  
       USNat East  
       USNat West  
       USSec East  
@@ -106,6 +108,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
       West Europe  
       West US  
       West US 2  
+      West US 3  
    :::column-end:::
 :::row-end:::
 
@@ -118,22 +121,26 @@ The Log Analytics workspace must exist in the following regions:
       Australia East  
       Australia Southeast  
       Brazil South  
-	  Brazil Southeast  
+      Brazil Southeast 
+      Canada East  
       Canada Central  
       Central India  
       Central US  
-      China East 2      
-      East Asia  
+      China East 2  
+      China North  
+      China North 2  
    :::column-end:::
    :::column span="":::
+      East Asia  
       East US  
-	  East US 2  
+      East US 2  
       East US 2 EUAP  
       France Central  
-	  Germany West Central  
-	  Japan East  
-	  Japan West  
-	  Korea Central  
+      Germany West Central  
+      Japan East  
+      Japan West  
+      Korea Central   
+      Korea South  
       North Central US  
       North Europe  
    :::column-end:::
@@ -141,25 +148,28 @@ The Log Analytics workspace must exist in the following regions:
       Norway East  
       South Africa North  
       South Central US  
-	  Southeast Asia  
+      South India  
+      Southeast Asia  
       Switzerland North  
       Switzerland West  
       UAE Central  
-	  UAE North  
-	  UK South  
-      UK West      
+      UAE North  
+      UK South  
+      UK West  
+      USGov Arizona  
    :::column-end:::
    :::column span="":::
-      USGov Arizona  
+      USGov Texas  
       USGov Virginia  
       USNat East  
-	  USNat West   
-	  USSec East  
+      USNat West   
+      USSec East  
       USSec West  
       West Central US  
       West Europe  
       West US  
       West US 2  
+      West US 3  
    :::column-end:::
 :::row-end:::
 

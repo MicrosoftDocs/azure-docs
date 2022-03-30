@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 12/17/2021
 ---
 
 # Create a query that invokes semantic ranking and returns semantic captions
@@ -24,17 +24,17 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 + A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe. If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
 
-+ [Enable semantic search on your service](semantic-search-overview.md#enable-semantic-search). 
++ [Semantic search enabled on your search service](semantic-search-overview.md#enable-semantic-search). 
 
 + An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
 
 + A search client for sending queries.
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query or use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
 
 + A search client for updating indexes.
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md) or code that makes REST calls to the preview APIs. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
+  The search client must support preview REST APIs on the query request. You can use the Azure portal, [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
 
 + A [query request](/rest/api/searchservice/preview-api/search-documents) must include `queryType=semantic` and other parameters described in this article.
 
@@ -98,6 +98,20 @@ You can only specify a single title field as part of your semantic configuration
 You're only required to specify one field between `titleField`, `prioritizedContentFields`, and `prioritizedKeywordsFields`, but it's best to add the fields to your semantic configuration if they exist in your search index.
 
 Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index) and can be updated at any time without rebuilding your index. When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
+
+### [**Azure portal**](#tab/portal)
+
+1. [Sign in to Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+
+1. Open an index.
+
+1. Select **Semantic Configurations** and then select **Add Semantic Configuration**.
+
+   The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
+
+   Select **OK** to save the changes.
+
+   :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
 
 ### [**REST API**](#tab/rest)
 
@@ -179,6 +193,20 @@ When selecting fields for your semantic configuration, choose only fields of the
 > [!NOTE]
 > Subfields of Collection(Edm.ComplexType) fields are not currently supported by semantic search and won't be used for semantic ranking, captions, or answers.
 
+## Query in Azure portal
+
+[Search explorer](search-explorer.md) has been updated to include options for semantic queries. To create a semantic query in the portal, follow the steps below:
+
+1. Open the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
+
+1. Click **Search explorer** at the top of the overview page.
+
+1. Choose an index that has content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+
+1. In Search explorer, set query options that enable semantic queries, semantic configurations, and spell correction. You can also paste the required query parameters into the query string.
+
+:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screen shot showing query options in Search explorer." border="true":::
+
 ## Query using REST
 
 Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request programmatically. A response includes captions and highlighting automatically. If you want spelling correction or answers in the response, add **`speller`** or **`answers`** to the request.
@@ -245,23 +273,6 @@ The following table summarizes the parameters used in a semantic query. For a li
 
 ---
 
-## Query in Azure portal
-
-> [!Note]
-> The portal does not yet support querying with the 2021-04-30-Preview API version that includes semantic configurations. To query with a semantic configuration, you can use the [REST API](#query-using-rest) or an [SDK](#query-using-azure-sdks).
-
-
-[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after completing the following steps:
-
-1. Open the [Azure portal](https://portal.azure.com).
-
-1. Click **Search explorer** at the top of the overview page.
-
-1. Choose an index that has content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
-
-1. In Search explorer, set query options that enable semantic queries, searchFields, and spell correction. You can also paste the required query parameters into the query string.
-
-:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Query options in Search explorer" border="true":::
 
 ### Formulate the request
 

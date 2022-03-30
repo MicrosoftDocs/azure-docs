@@ -11,7 +11,7 @@
     expanded: true
     items:
     - name: List of app integration tutorials
-      href: /azure/active-directory/saas-apps/tutorial-list
+      href: ../saas-apps/tutorial-list.md
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
   - name: Samples

@@ -7,7 +7,7 @@ ms.date: 12/02/2021
 
 # Iterative loops in Bicep
 
-This article shows you how to use the `for` syntax to iterate over items in a collection. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment. To go through a quickstart, see [Quickstart: Create multiple instances](./quickstart-loops.md).
+This article shows you how to use the `for` syntax to iterate over items in a collection. This functionality is supported starting in v0.3.1 onward. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment. To go through a quickstart, see [Quickstart: Create multiple instances](./quickstart-loops.md).
 
 ### Microsoft Learn
 
@@ -340,4 +340,4 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-06-01
 
 ## Next steps
 
-- To set dependencies on resources that are created in a loop, see [Resource dependencies](./resource-declaration.md#dependencies).
+- To set dependencies on resources that are created in a loop, see [Resource dependencies](resource-dependencies.md).

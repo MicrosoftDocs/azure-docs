@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 12/01/2021
+ms.date: 01/24/2022
 ms.author: helohr
 ---
 
@@ -81,6 +81,10 @@ You can enable [multifactor authentication](set-up-mfa.md) for Azure AD-joined V
 ## User profiles
 
 You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
+
+## Accessing on-premises resources
+
+While you don't need an Active Directory to deploy or access your Azure AD-joined VMs, an Active Directory and line-of-sight to it are needed to access on-premises resources from those VMs. To learn more about accessing on-premises resources, see [How SSO to on-premises resources works on Azure AD joined devices](../active-directory/devices/azuread-join-sso.md).
 
 ## Next steps
 

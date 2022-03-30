@@ -35,7 +35,9 @@ For more information about the auto-inflate feature, see [Automatically scale th
 
  [Event Hubs Premium](./event-hubs-premium-overview.md) provides superior performance and better isolation with in a managed multitenant PaaS environment. The resources in a Premium tier are isolated at the CPU and memory level so that each tenant workload runs in isolation. This resource container is called a *Processing Unit*(PU). You can purchase 1, 2, 4, 8 or 16 processing Units for each Event Hubs Premium namespace. 
 
-How much you can ingest and stream with a processing unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. One processing unit can approximately offer core capacity of ~5-10 MB/s ingress and 10-20 MB/s egress, given that we have sufficient partitions so that storage is not a throttling factor.  
+How much you can ingest and stream with a processing unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
+
+For example, Event Hubs Premium namespace with 1 PU and 1 event hub(100 partitions) can approximately offer core capacity of ~5-10 MB/s ingress and 10-20 MB/s egress for both AMQP or Kafka workloads.
 
 To learn about configuring PUs for a premium tier namespace, see [Configure processing units](configure-processing-units-premium-namespace.md).
 

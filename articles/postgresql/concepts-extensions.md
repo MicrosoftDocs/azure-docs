@@ -1,10 +1,11 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Single Server
-description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Single Server
-author: sunilagarwal
-ms.author: sunila
+description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 03/25/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
@@ -22,8 +23,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | data type for case-insensitive character strings|
@@ -67,8 +68,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
 > |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | data type for auto-encrypted passwords|
@@ -113,8 +114,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.3.2           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.3.2           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1.0             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | support for indexing common datatypes in GiST|
 > |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | data type for auto-encrypted passwords|
@@ -162,8 +163,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.3.0           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.3.0           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/9.5/btree-gin.html)                    | 1.0             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | support for indexing common datatypes in GiST|
 > |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | data type for auto-encrypted passwords|
@@ -209,7 +210,8 @@ There is a tradeoff between the query execution information pg_stat_statements p
 ## dblink and postgres_fdw
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON puts all Azure IPs on the allow list.
 
-Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers in the same region.
+> [!NOTE]
+> Currently, outbound connections from Azure Database for PostgreSQL via foreign data wrapper extensions such as postgres_fdw  are not supported, except for connections to other Azure Database for PostgreSQL servers in the same Azure region.
 
 ## uuid
 If you are planning to use `uuid_generate_v4()` from the [uuid-ossp extension](https://www.postgresql.org/docs/current/uuid-ossp.html), consider comparing with `gen_random_uuid()` from the [pgcrypto extension](https://www.postgresql.org/docs/current/pgcrypto.html) for performance benefits.
@@ -254,7 +256,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 
 You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
-### Restoring a Timescale database
+### Restoring a Timescale database using pg_dump and pg_restore
 To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore()` and `timescaledb_post restore()`.
 
 First prepare the destination database:
@@ -273,7 +275,22 @@ Now you can run pg_dump on the original database and then do pg_restore. After t
 ```SQL
 SELECT timescaledb_post_restore();
 ```
+For more details on restore method wiith Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
 
+
+### Restoring a Timescale database using timescaledb-backup
+
+ While running `SELECT timescaledb_post_restore()` procedure listed above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
+ To do so you should do following
+   1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
+   2. Create target Azure Database for PostgreSQL server and database
+   3. Enable Timescale extension as shown above
+   4. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
+   5. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
+
+ More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
+> [!NOTE]
+> When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
 
 ## Next steps
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).

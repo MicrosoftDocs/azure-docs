@@ -48,7 +48,7 @@ To resolve this issue, [restore the Key-Vault key or secret](backup-azure-restor
 
 Error message: Backup failed in allocating storage from protection service
 
-Backup operation failed because Azure Key Vault do not have required access to the Recovery Service Vault. [Assign required permissions to the vault to access the encryption key](/azure/backup/encryption-at-rest-with-cmk?tabs=portal#assign-user-assigned-managed-identity-to-the-vault-in-preview) and retry the operation. 
+Backup operation failed because Azure Key Vault do not have required access to the Recovery Service Vault. [Assign required permissions to the vault to access the encryption key](./encryption-at-rest-with-cmk.md?tabs=portal#assign-user-assigned-managed-identity-to-the-vault-in-preview) and retry the operation. 
 
 
 ## Next steps

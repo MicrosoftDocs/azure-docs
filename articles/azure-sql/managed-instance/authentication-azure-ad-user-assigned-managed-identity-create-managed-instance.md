@@ -18,13 +18,13 @@ ms.date: 12/15/2021
 > [!NOTE]
 > User-assigned managed identity for Azure SQL is in **public preview**. If you are looking for a guide on Azure SQL Database, see [Create an Azure SQL logical server using a user-assigned managed identity](../database/authentication-azure-ad-user-assigned-managed-identity-create-server.md)
 
-This how-to guide outlines the steps to create an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). For more information on the benefits of using a user-assigned managed identity for the server identity in Azure SQL Database, see [User-assigned managed identity in Azure AD for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md).
+This how-to guide outlines the steps to create an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) with a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). For more information on the benefits of using a user-assigned managed identity for the server identity in Azure SQL Database, see [User-assigned managed identity in Azure AD for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md).
 
 ## Prerequisites
 
 -  To provision a Managed Instance with a user-assigned managed identity, the [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role (or a role with greater permissions), along with an Azure RBAC role containing the following action is required:
-   - Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action - For example, the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) has this action.
-- Create a user-assigned managed identity and assign it the necessary permission to be a server or managed instance identity. For more information, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) and [user-assigned managed identity permissions for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md#permissions).
+   - Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action - For example, the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) has this action.
+- Create a user-assigned managed identity and assign it the necessary permission to be a server or managed instance identity. For more information, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) and [user-assigned managed identity permissions for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md#permissions).
 - [Az.Sql module 3.4](https://www.powershellgallery.com/packages/Az.Sql/3.4.0) or higher is required when using PowerShell for user-assigned managed identities.
 - [The Azure CLI 2.26.0](/cli/azure/install-azure-cli) or higher is required to use the Azure CLI with user-assigned managed identities.
 - For a list of limitations and known issues with using user-assigned managed identity, see [User-assigned managed identity in Azure AD for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md#limitations-and-known-issues)
@@ -96,7 +96,7 @@ Replace the following values in the example:
 az sql mi create --assign-identity --identity-type UserAssigned --user-assigned-identity-id /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managedIdentity> --primary-user-assigned-identity-id /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<primaryIdentity> --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <managedinstancename> --subnet /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>
 ```
 
-For more information, see [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create).
+For more information, see [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create).
 
 > [!NOTE]
 > The above example provisions a managed instance with only a user-assigned managed identity. You could set the `--identity-type` to be `UserAssigned,SystemAssigned` if you wanted both types of managed identities to be created with the instance.
@@ -133,9 +133,9 @@ For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsq
 > [!NOTE]
 > The above example provisions a managed instance with only a user-assigned managed identity. You could set the You could set the `-IdentityType` to be `"UserAssigned,SystemAssigned"` if you wanted both types of managed identities to be created with the instance.
 
-# [Rest API](#tab/rest-api)
+# [REST API](#tab/rest-api)
 
-The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) Rest API can be used to create a managed instance with a user-assigned managed identity.
+The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/managed-instances/create-or-update) REST API can be used to create a managed instance with a user-assigned managed identity.
 
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.

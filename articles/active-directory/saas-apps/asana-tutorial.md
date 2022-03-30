@@ -78,6 +78,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://app.asana.com/`
+    
+    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL:
+    `https://app.asana.com/-/saml/consume`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

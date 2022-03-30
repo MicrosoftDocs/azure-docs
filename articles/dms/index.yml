@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: Migrate using Azure Data Studio
             url: migration-using-azure-data-studio.md
+          - text: Get Azure recommendation for migration using Azure Data Studio
+            url: ads-sku-recommend.md
           - text: Database migration scenario status
             url: resource-scenario-status.md
           - text: Overview of prerequisites
@@ -126,10 +128,3 @@ landingContent:
             url: /sql/dea/database-experimentation-assistant-overview
           - text: Data Access Migration Toolkit
             url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
-# Card 5
-  - title: Migrate Oracle to Azure
-    linkLists:
-      - linkListType: video
-        links:
-          - text: Migrate to SQL Database single database
-            url: /azure/postgresql/howto-migrate-from-oracle

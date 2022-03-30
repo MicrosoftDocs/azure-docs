@@ -1,5 +1,5 @@
 ---
-title: Deploy a custom container as a managed online endpoint
+title: Deploy a custom container as an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn how to use a custom container to use open-source servers in Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,17 @@ ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: deploy, devplatv2
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2
+ms.devlang: azurecli
 ---
 
-# Deploy a TensorFlow model served with TF Serving using a custom container in a managed online endpoint (preview)
+# Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint (preview)
 
-Learn how to deploy a custom container as a managed online endpoint in Azure Machine Learning.
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
 
@@ -183,5 +186,5 @@ az ml model delete -n tfserving-mounted --version 1
 ## Next steps
 
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Troubleshooting managed online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)
+- [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)
 - [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)

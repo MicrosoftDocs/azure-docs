@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 03/17/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -127,9 +127,9 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
-## Azure Healthcare APIs
+## Azure Health Data Services
 
-### Healthcare APIs service limits
+### Azure Health Data Services limits
 
 [!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
 
@@ -201,6 +201,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure Virtual Desktop Service limits
+
+[!INCLUDE [azure-virtual-desktop-service-limits](../../../includes/azure-virtual-desktop-limits.md)]
 
 ## Azure VMware Solution limits
 
@@ -299,7 +303,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](../../media-services/previous/media-services-quotas-and-limitations.md)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -358,7 +362,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-firewall-limits](../../../includes/firewall-limits.md)]
 
-### Azure Front Door Service limits
+### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
@@ -366,7 +370,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Purview limits
+## Azure Purview limits
 
 The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
 

@@ -2,8 +2,8 @@
 title: Use REST to manage ML resources
 titleSuffix: Azure Machine Learning
 description: How to use REST APIs to create, run, and delete Azure Machine Learning resources, such as a workspace, or register models.
-author: lobrien
-ms.author: laobri
+author: blackmist
+ms.author: larryfr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -216,7 +216,7 @@ You can explore the REST API using the general pattern of:
 | subscriptions/YOUR-SUBSCRIPTION-ID/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
 | resourceGroups/YOUR-RESOURCE-GROUP/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
-| provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
+| provider-resource-path/ | workspaces/MyWorkspace/experiments/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
 
 

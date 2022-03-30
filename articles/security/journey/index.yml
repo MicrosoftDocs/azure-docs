@@ -103,8 +103,8 @@ landingContent:
             url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Review and audit
             url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: Identity and network risks
-            url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Monitor security posture
+            url: /azure/architecture/framework/security/monitor-resources?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 # Card
   - title: Optimize your security investments

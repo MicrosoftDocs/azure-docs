@@ -8,6 +8,7 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
+ms.devlang: java
 ---
 
 # Quickstart: Azure Key Vault Key client library for Java
@@ -171,7 +172,7 @@ Now that your application is authenticated, you can create a key in your key vau
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
+You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -196,7 +197,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
+You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey

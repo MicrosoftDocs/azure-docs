@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 03/29/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -87,6 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | roleAssignments | tenant | 36 | Must be a globally unique identifier (GUID). |
+> | roleDefinitions | tenant | 36 | Must be a globally unique identifier (GUID). |
 
 ## Microsoft.Automation
 
@@ -122,6 +124,14 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | blockchainMembers | global | 2-20 | Lowercase letters and numbers.<br><br>Start with lowercase letter. |
+
+## Microsoft.Blueprint
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | blueprint| Management groups, Subscriptions, Resource groups | 90 | Alphanumerics, underscores, and hyphens. |
+> | blueprintAssignments | Management groups, Subscriptions, Resource groups | 90 | Alphanumerics, underscores, and hyphens. |
 
 ## Microsoft.BotService
 
@@ -388,7 +398,7 @@ In the following tables, the term alphanumeric refers to:
 > | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
-> | namespaces / eventhubs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / eventhubs | namespace | 1-256 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 
@@ -458,7 +468,7 @@ In the following tables, the term alphanumeric refers to:
 > | integrationAccounts / sessions | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 > | integrationServiceEnvironments | resource group | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
 > | integrationServiceEnvironments / managedApis | integration service environment | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
-> | workflows | resource group | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | workflows | resource group | 1-43 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 
 ## Microsoft.MachineLearning
 
@@ -633,7 +643,7 @@ In the following tables, the term alphanumeric refers to:
 > | autoProvisioningSettings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | connectors | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | deviceSecurityGroups | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
-> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` | 
+> | informationProtectionPolicies | resource group | see values | Use one of:<br>`custom`<br>`effective` |
 > | iotSecuritySolutions | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | locations / applicationWhitelistings | subscription | 1-260 | Alphanumerics, underscores, and hyphens. |
 > | locations / jitNetworkAccessPolicies | resource group | 1-260 | Alphanumerics, underscores, and hyphens. |
@@ -679,14 +689,15 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. <br><br> Can't have any special characters, such as `@`. |
-> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place.<br><br> Can't have any special characters, such as `@`. |
+> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place. |
 > | servers / administrators | server |  | Must be `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
+> | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
 ## Microsoft.Storage
 
@@ -729,6 +740,15 @@ In the following tables, the term alphanumeric refers to:
 > | streamingjobs / outputs | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
 > | streamingjobs / transformations | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
 
+## Microsoft.Synapse
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
+> | workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
+> | workspaces / sqlPools | workspace | 1-15  |  Can contain only letters, numbers, or underscore.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
+
 ## Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
@@ -744,7 +764,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  | 
+> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
 > | sites | global or per domain. See note below. | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |

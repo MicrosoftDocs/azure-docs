@@ -4,7 +4,7 @@ description: Tutorial - Learn how to deploy the Apache Spark application metrics
 services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -49,7 +49,7 @@ Note: This step can be skipped if you already have an AKS cluster.
 ## Create a service principal and grant permission to Synapse workspace
 
 ```bash
-az ad sp create-for-rbac --name <service_principal_name> --role Contributor
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 ```
 
 The result should look like:

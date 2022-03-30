@@ -4,7 +4,7 @@ description: Learn how to modify your webhooks, logic apps, and runbooks to prep
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 2/23/2022
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
 

@@ -43,7 +43,7 @@ SQL Database and SQL Managed Instance also provide several business continuity f
 - [Temporal tables](../temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](automated-backups-overview.md) and [Point in Time Restore](recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
 - You can [restore a deleted database](recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **server has not been deleted**.
-- [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance.
+- [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years.  
 - [Active geo-replication](active-geo-replication-overview.md) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade.
 - [Auto-failover group](auto-failover-group-overview.md#terminology-and-capabilities) allows the application to automatically recover in case of a datacenter outage.
 

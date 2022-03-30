@@ -13,6 +13,10 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to analyze diagnostics data in Azure Spring Cloud.
+
 Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
 
 * Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
@@ -22,7 +26,7 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/spring-cloud/app#az_spring_cloud_app_logs)!
+> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/spring-cloud/app#az-spring-cloud-app-logs)!
 
 ## Logs
 
@@ -31,6 +35,7 @@ Choose the log category and metric category you want to monitor.
 | **ApplicationConsole** | Console log of all customer applications. |
 | **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. |
 | **IngressLogs** | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs. |
+| **BuildLogs** | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage. |
 
 ## Metrics
 
@@ -51,8 +56,8 @@ To get started, enable one of these services to receive the data. To learn about
 1. Select **Save**.
 
 > [!NOTE]
-> 1. There might be a gap of up to 15 minutes between when logs or metrics are emitted and when they appear in your storage account, your event hub, or Log Analytics.
-> 1. If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+> There might be a gap of up to 15 minutes between when logs or metrics are emitted and when they appear in your storage account, your event hub, or Log Analytics.
+> If the Azure Spring Cloud instance is deleted or moved, the operation won't cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 ## View the logs and metrics
 
@@ -196,6 +201,26 @@ To review log entries for a specific `requestId` value *\<request_ID>*, run the 
 AppPlatformIngressLogs
 | where TimeGenerated > ago(1h) and ReqId == "<request_ID>" 
 | project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
+### Show build log entries for a specific app
+
+To review log entries for a specific app during the build process, run the following query:
+
+```sql
+AppPlatformBuildLogs
+| where TimeGenerated > ago(1h) and PodName contains "<app-name>"
+| sort by TimeGenerated
+```
+
+### Show build log entries for a specific app in a specific build stage
+
+To review log entries for a specific app in a specific build stage, run the following query. Replace the *`<app-name>`* placeholder with your application name. Replace the *`<build-stage>`* placeholder with one of the following values, which represent the stages of the build process: `prepare`, `detect`, `restore`, `analyze`, `build`, `export`, or `completion`.
+
+```sql
+AppPlatformBuildLogs
+| where TimeGenerated > ago(1h) and PodName contains "<app-name>" and ContainerName == "<build-stage>"
 | sort by TimeGenerated
 ```
 

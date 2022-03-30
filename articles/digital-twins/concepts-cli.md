@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins CLI command set.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/07/2021
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -28,7 +28,7 @@ Some of the actions you can do using the command set include:
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
 
-The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+The command set is called `az dt`, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt).
 
 ## Uses (deploy and validate)
 
@@ -38,11 +38,11 @@ Apart from generally managing your instance, the CLI is also a useful tool for d
 
 ## Get the command set
 
-The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI (azure-iot)](https://github.com/Azure/azure-iot-cli-extension), so follow these steps to make sure you have the latest `azure-iot` extension with the **az dt** commands.
+The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI (azure-iot)](https://github.com/Azure/azure-iot-cli-extension), so follow these steps to make sure you have the latest `azure-iot` extension with the `az dt` commands.
 
 ### CLI version requirements
 
-If you're using the Azure CLI with PowerShell, your Azure CLI version should be **2.3.1** or above as a requirement of the extension package.
+If you're using the Azure CLI with PowerShell, your Azure CLI version should be 2.3.1 or above as a requirement of the extension package.
 
 You can check the version of your Azure CLI with this CLI command:
 ```azurecli
@@ -64,4 +64,4 @@ az extension add --upgrade --name azure-iot
 ## Next steps
 
 Explore the CLI and its full set of commands through the reference docs:
-* [az dt command reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt command reference](/cli/azure/dt)

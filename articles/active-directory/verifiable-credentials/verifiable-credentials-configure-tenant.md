@@ -4,10 +4,10 @@ description: In this tutorial, you learn how to configure your tenant to support
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 02/24/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -31,6 +31,8 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ![Diagram that illustrates the Azure AD Verifiable Credentials architecture.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
 
+See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going over the setup of the Azure AD Verifiable Credential service.
+
 ## Prerequisites
 
 - If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -45,22 +47,23 @@ Create a service principal for the Request Service API. The service API is the M
 
 To create the service principal:
 
-1. Run the following PowerShell commands. These commands install and import the `AzureAD` module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps#installation).
+1. Run the following PowerShell commands. These commands install and import the `Az` module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps#installation).
 
     ```powershell
-    if ((Get-Module -ListAvailable -Name "AzureAD") -eq $null) {  Install-Module "AzureAD" -Scope CurrentUser }  Import-Module AzureAD
+    if ((Get-Module -ListAvailable -Name "Az.Accounts") -eq $null) { Install-Module -Name "Az.Accounts" -Scope CurrentUser }
+    if ((Get-Module -ListAvailable -Name "Az.Resources") -eq $null) { Install-Module "Az.Resources" -Scope CurrentUser }
     ```
 
 1. Run the following PowerShell command to connect to your Azure AD tenant. Replace \<*your-tenant-ID*> with your [Azure AD tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
     ```powershell
-    Connect-AzureAD -TenantId <your-tenant-ID>
+    Connect-AzAccount -TenantId <your-tenant-ID>
     ```
 
 1. Run the following command in the same PowerShell session. The `AppId` `bbb94529-53a3-4be5-a069-7eaf2712b826` refers to the Verifiable Credentials Microsoft service.
 
     ```powershell
-    New-AzureADServicePrincipal -AppId "bbb94529-53a3-4be5-a069-7eaf2712b826" -DisplayName "Verifiable Credential Request Service" 
+    New-AzADServicePrincipal -ApplicationId "bbb94529-53a3-4be5-a069-7eaf2712b826" -DisplayName "Verifiable Credential Request Service" 
     ```
 
 ## Create a key vault
@@ -79,6 +82,8 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal that you created.
 
+### Set access policies for the Verifiable Credentials Admin user
+
 1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
 
 1. Under **Settings**, select **Access policies**.
@@ -91,20 +96,34 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
 1. To save the changes, select **Save**.
 
+### Set access policies for the Verifiable Credentials Issuer and Request services
+
 1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Request Service**.
 
 1. In **Add access policy**:
 
     1. For **Key permissions**, select **Get** and **Sign**.
 
-    1. For **Secret permissions**, select **Get**.
-
     1. For **Select principal**, select **Verifiable Credential Request Service**.
 
     1. Select **Add**.  
         
-       ![Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service.](media/verifiable-credentials-configure-tenant/set-key-vault-service-principal-access-policy.png)
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/request-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Issuer Service." :::
 
+The access policies for the Verifiable Credentials Issuer service should be added automatically. If the **Verifiable Credential Issuer Service** doesn't appear in the list of access policies, take the following steps to manually add access policies to the service.
+
+1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Issuer Service**.
+
+1. In **Add access policy**:
+
+    1. For **Key permissions**, select **Get** and **Sign**.
+
+    1. For **Select principal**, select **Verifiable Credential Issuer Service**.
+
+    1. Select **Add**.  
+
+     :::image type="content" source="media/verifiable-credentials-configure-tenant/issuer-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service." :::
+       
 1. Select **Save** to save the new policy you created.
 
 ## Register an application in Azure AD
@@ -163,7 +182,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
     1. **Organization name**: Enter a name to reference your business within Verifiable Credentials. Your customers don't see this name.
 
-    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.   
+    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
             
         >[!IMPORTANT]
         > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.

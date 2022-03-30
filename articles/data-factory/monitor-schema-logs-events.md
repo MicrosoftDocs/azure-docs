@@ -88,6 +88,7 @@ The following lists of attributes are used for monitoring.
    "start":"",
    "end":"",
    "status":"",
+   "location": "",
    "properties":
     {
       "Parameters": {
@@ -97,7 +98,14 @@ The following lists of attributes are used for monitoring.
         "ExecutionStart": "",
         "TriggerId": "",
         "SubscriptionId": ""
-      }
+      },
+      "Predecessors": [
+            {
+                "Name": "",
+                "Id": "",
+                "InvokedByType": ""
+            }
+        ]
     }
 }
 ```
@@ -116,6 +124,8 @@ The following lists of attributes are used for monitoring.
 |**start**| String | The start time of the activity runs in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`. |
 |**end**| String | The end time of the activity runs in timespan UTC format. If the diagnostic log shows an activity has started but not yet ended, the property value is `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |**status**| String | The final status of the pipeline run. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
+|**location**| String | The Azure region of the pipeline run. | `eastasia`|
+|**predecessors**| String | The calling object of the pipeline along with ID. | `Manual`|
 
 ### Trigger-run log attributes
 

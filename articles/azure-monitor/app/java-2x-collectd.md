@@ -3,10 +3,8 @@ title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
-
 ---
 
 # collectd: Linux performance metrics in Application Insights [Deprecated]
@@ -26,6 +24,8 @@ In the [Microsoft Azure portal](https://portal.azure.com), open the [Application
 Take a copy of the instrumentation key, which identifies the resource.
 
 ![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/java-collectd/instrumentation-key-001.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Install collectd and the plug-in
 On your Linux server machines:

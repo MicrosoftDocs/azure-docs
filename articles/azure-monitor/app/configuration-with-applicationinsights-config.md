@@ -3,8 +3,8 @@ title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 ms.topic: conceptual
 ms.date: 05/22/2019
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-
 ms.reviewer: olegan
 ---
 
@@ -24,6 +24,9 @@ This document describes the sections you see in the configuration file, how they
 
 > [!NOTE]
 > ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For configuring .NET Core applications, follow [this](./asp-net-core.md) guide.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 
 ## Telemetry Modules (ASP.NET)
 Each Telemetry Module collects a specific type of data and uses the core API to send the data. The modules are installed by different NuGet packages, which also add the required lines to the .config file.

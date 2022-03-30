@@ -72,6 +72,9 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
 1. Select **Review + create** and then **Create**, to create your Front Door profile. Go to the resource once created.
 
+    > [!NOTE]
+    > The creation of this redirect rule will incur a small charge.
+
 ## Next steps
 
 - Learn [how Front Door works](front-door-routing-architecture.md).

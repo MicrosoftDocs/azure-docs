@@ -7,12 +7,14 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 12/06/2021
+ms.date: 04/06/2022
 ---
 
 # Revenue dashboard in commercial marketplace analytics
 
-This article provides information on the _Revenue dashboard_ in Microsoft Partner Center. The Revenue dashboard shows the summary of _billed sales_ of all offer purchases and consumption through the commercial marketplace. Use this report to understand your revenue information across customers, billing models, offer plans, and so on. It provides a unified view across entities and helps answer queries, such as:
+This article provides information on the _Revenue dashboard_ in Microsoft Partner Center. The Revenue dashboard shows the summary of _billed sales_ of all offer purchases and consumption through the commercial marketplace. It enables you to reconcile billed sales, payouts, and analytic reports in the commercial marketplace.
+
+Use this report to understand your revenue information across customers, billing models, offer plans, and so on. It provides a unified view across entities and helps answer queries, such as:
 
 - How much revenue was invoiced to customers and when can I expect payouts?
 - Which customer transacted the offer and where are they located?
@@ -35,10 +37,6 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 
 ## Access the Revenue dashboard
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Insights** tile.
@@ -48,16 +46,6 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 1. In the left menu, under **Marketplace offers**, select **Revenue**.
 
     [ ![Illustrates the Revenue dashboard.](./media/revenue-dashboard/revenue-dashboard.png) ](./media/revenue-dashboard/revenue-dashboard.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-
-1. In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Revenue**.
-
-    :::image type="content" source="./media/revenue-dashboard/revenue-dashboard-nav.png" alt-text="Illustrates the Revenue dashboard link in the left nav of the Partner Center Home page.":::
-
----
 
 ## Elements of the Revenue dashboard
 
@@ -168,7 +156,7 @@ Details widget with expandable and collapsible view.
 
 [ ![Illustrates the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-1.png) ](./media/revenue-dashboard/details-widget-1.png#lightbox)
 
-[ ![Illustrates the collapsable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
+[ ![Illustrates the collapsible view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
 
 Note the following:
 
@@ -187,7 +175,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 
 | Data field | Definition |
 |----|---------|
-|<img width=200/>|<img width=500/>|
+| <img width=130/> | |
 | Billed revenue | Represents billed sales of a partner for customer’s offer purchases and consumption through the commercial marketplace. This is in transaction currency and will always be present in download reports. |
 | Estimated revenue (USD) | Estimated revenue reported in US dollars. This column will always be present in download reports. |
 | Estimated revenue (PC) | Estimated revenue reported in partner preferred currency. This column will always be present in download reports. |
@@ -209,6 +197,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Asset Id | An identifier for the software assets. Same as the `order id` in the orders report in Partner Center. |
 | Offer type | Type of offer, such as SaaS, VM, and so on. |
 | Offer name | Display name of the offer |
+| Is Private Offer | Indicates whether a marketplace offer is a private or a public offer.<br><ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>
 | Offer plan | Specific offer plan, also referred to as SKU |
 | Trial deployment | Denotes whether the offer was in trial deployment at the time of billing |
 | Service Start Date | The start date of the order subscription term |
@@ -237,4 +226,14 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Payment sent date | The date on which payment was sent to the partner |
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM-based offers. Units will be displayed as NA for offers with custom meters. |
-|||
+|
+
+## Next steps
+
+- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics Frequently Asked Questions](analytics-faq.yml).
+- For information on payout statements, see [Payout statements](/partner-center/payout-statement).
+- For information on Payout schedules, see [Payout schedules and processes](/partner-center/payout-policy-details).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).

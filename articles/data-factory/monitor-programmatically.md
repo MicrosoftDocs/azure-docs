@@ -4,7 +4,7 @@ description: Learn how to monitor a pipeline in a data factory by using differen
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 01/26/2022
 author: joshuha-msft
 ms.author: joowen
 ms.custom: devx-track-python

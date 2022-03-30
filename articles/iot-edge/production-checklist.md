@@ -1,9 +1,9 @@
 ---
 title: Prepare to deploy your solution in production - Azure IoT Edge
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -84,7 +84,8 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Be consistent with upstream protocol
   * Set up host storage for system modules
   * Reduce memory space used by the IoT Edge hub
-  * Do not use debug versions of module images
+  * Use correct module images in deployment manifests
+  * Be mindful of twin size limits when using custom modules
 
 ### Be consistent with upstream protocol
 
@@ -130,9 +131,20 @@ The IoT Edge hub module stores messages temporarily if they cannot be delivered 
 
 The default value of the timeToLiveSecs parameter is 7200 seconds, which is two hours.
 
-### Do not use debug versions of module images
+### Use correct module images in deployment manifests
+If an empty or wrong module image is used, the Edge agent retries to load the image, which causes extra traffic to be generated. Add the correct images to the deployment manifest to avoid generating unnecessary traffic.
 
+#### Don't use debug versions of module images
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
+
+### Be mindful of twin size limits when using custom modules
+
+The deployment manifest that contains custom modules is part of the EdgeAgent twin. Review the [limitation on module twin size](../iot-hub/iot-hub-devguide-module-twins.md#module-twin-size).
+
+If you deploy a large number of modules, you might exhaust this twin size limit. Consider some common mitigations to this hard limit:
+
+- Store any configuration in the custom module twin, which has its own limit.
+- Store some configuration that points to a non-space-limited location (that is, to a blob store).
 
 ## Container management
 
@@ -195,20 +207,24 @@ If your networking setup requires that you explicitly permit connections made fr
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
 * **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
-In all three cases, the DNS name would match the pattern \*.azure-devices.net.
+In all three cases, the fully-qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
-Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the DNS name is mcr.microsoft.com. The container engine connects to other registries as configured in the deployment.
+Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
-   | URL (\* = wildcard) | Outbound TCP Ports | Usage |
+   | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Microsoft Container Registry |
-   | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
-   | \*.azurecr.io | 443 | Personal and third-party container registries |
-   | \*.blob.core.windows.net | 443 | Download Azure Container Registry image deltas from blob storage |
-   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
-   | \*.docker.io  | 443 | Docker Hub access (optional) |
+   | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
+   | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
+   | `\*.azurecr.io` | 443 | Personal and third-party container registries |
+   | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
+   | `\*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
+   | `\*.docker.io`  | 443 | Docker Hub access (optional) |
+
+<sup>1</sup>Open port 8883 for secure MQTT or port 5671 for secure AMQP. If you can only make connections via port 443 then either of these protocols can be run through a WebSocket tunnel.
+
+Since the IP address of an IoT hub can change without notice, always use the FQDN to allow-list configuration. To learn more, see [Understanding the IP address of your IoT hub](../iot-hub/iot-hub-understand-ip-address.md).
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 

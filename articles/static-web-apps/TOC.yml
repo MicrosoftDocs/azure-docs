@@ -60,8 +60,26 @@
           href: authentication-custom.md
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
-    - name: Custom domain
-      href: custom-domain.md
+    - name: Custom domains
+      items:
+      - name: About custom domains
+        href: custom-domain.md
+      - name: Use Azure DNS
+        items:
+        - name: Delegate your domain to Azure DNS
+          href: azure-dns-zone.md
+        - name: Set up a custom domain
+          href: custom-domain-azure-dns.md
+        - name: Set up the apex domain
+          href: apex-domain-azure-dns.md
+      - name: Use an external provider
+        items:
+        - name: Set up a custom domain
+          href: custom-domain-external.md
+        - name: Set up the apex domain
+          href: apex-domain-external.md
+      - name: Manage the default domain
+        href: custom-domain-default.md
 - name: How-to guides
   items:
     - name: APIs
@@ -76,6 +94,8 @@
           href: private-endpoint.md
         - name: Secure authentication secrets
           href: key-vault-secrets.md
+        - name: Set up password protection
+          href: password-protection.md
     - name: Set up local development
       href: local-development.md
     - name: Configure app settings
@@ -85,6 +105,8 @@
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
+    - name: Enable enterprise-grade edge
+      href: enterprise-edge.md
     - name: Reset deployment tokens
       href: deployment-token-management.md
     - name: Troubleshoot errors
@@ -120,10 +142,16 @@
       href: front-door-manual.md
     - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
+- name: Samples
+  items:
+    - name: Serverless app with Azure SQL
+      href: https://github.com/Azure-Samples/azure-sql-db-fullstack-serverless-kickstart
 - name: Reference
   items:
     - name: Azure CLI
       href: /cli/azure/staticwebapp
+    - name: REST API
+      href: /rest/api/appservice/static-sites
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
@@ -142,3 +170,4 @@
       href: quotas.md
     - name: Frequently asked questions
       href: faq.yml
+      displayName: faq

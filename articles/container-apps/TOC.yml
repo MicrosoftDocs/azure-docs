@@ -42,8 +42,8 @@
   items:
     - name: Scale an app
       href: scale-app.md
-    - name: Secure an app
-      href: secure-app.md
+    - name: Manage secrets
+      href: manage-secrets.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
@@ -54,6 +54,8 @@
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
       href: github-actions-cli.md
+    - name: Use a custom VNET
+      href: vnet-custom.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
@@ -66,6 +68,8 @@
   items:
     - name: ARM API specification
       href: azure-resource-manager-api-spec.md
+    - name: Azure CLI reference
+      href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
     - name: Pricing
@@ -74,3 +78,5 @@
       href: quotas.md
     - name: Frequently asked questions
       href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
+    - name: "Video: Build and deliver apps with Container Apps"
+      href: https://www.youtube.com/watch?v=b3dopSTnSRg

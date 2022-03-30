@@ -60,7 +60,7 @@ Here's the code:
         <br>
         <input id="callee-acs-user-id"
             type="text"
-            placeholder="Enter callee's ACS user identity in format: '8:acs:resourceId_userId'"
+            placeholder="Enter callee's Azure Communication Services user identity in format: '8:acs:resourceId_userId'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -80,7 +80,7 @@ Here's the code:
 </html>
 ```
 
-## ACS Calling Web SDK Object model
+## Azure Communication Services Calling Web SDK Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
@@ -182,7 +182,7 @@ startCallButton.onclick = async () => {
 /**
  * Accepting an incoming call with video
  * Add an event listener to accept a call when the `acceptCallButton` is clicked:
- * After subscrigin to the `CallAgent.on('incomingCall')` event, you can accept the incoming call.
+ * After subscribing to the `CallAgent.on('incomingCall')` event, you can accept the incoming call.
  * You can pass the local video stream which you want to use to accept the call with.
  */
 acceptCallButton.onclick = async () => {
@@ -415,7 +415,7 @@ On the first tab, enter a valid user access token, and on the other tab enter an
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page - b":::
 
-On the first tab, enter the ACS user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
+On the first tab, enter the Azure Communication Services user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page - c":::
 
 From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following:

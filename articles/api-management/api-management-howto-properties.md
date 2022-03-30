@@ -29,7 +29,7 @@ ms.author: danlep
 
 Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
-For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/2021-04-01-preview/named-value/create-or-update).
+For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/current-ga/named-value/create-or-update).
 
 ## Key vault secrets
 
@@ -100,7 +100,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create) command:
+To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az-apim-nv-create) command:
 
 ```azurecli
 az apim nv create --resource-group apim-hello-word-resource-group \
@@ -108,28 +108,28 @@ az apim nv create --resource-group apim-hello-word-resource-group \
     --secret true --service-name apim-hello-world --value test
 ```
 
-After you create a named value, you can update it by using the [az apim nv update](/cli/azure/apim/nv#az_apim_nv_update) command. To see all your named values, run the [az apim nv list](/cli/azure/apim/nv#az_apim_nv_list) command:
+After you create a named value, you can update it by using the [az apim nv update](/cli/azure/apim/nv#az-apim-nv-update) command. To see all your named values, run the [az apim nv list](/cli/azure/apim/nv#az-apim-nv-list) command:
 
 ```azurecli
 az apim nv list --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --output table
 ```
 
-To see the details of the named value you created for this example, run the [az apim nv show](/cli/azure/apim/nv#az_apim_nv_show) command:
+To see the details of the named value you created for this example, run the [az apim nv show](/cli/azure/apim/nv#az-apim-nv-show) command:
 
 ```azurecli
 az apim nv show --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --named-value-id named_value_01
 ```
 
-This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az_apim_nv_show_secret) command:
+This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az-apim-nv-show-secret) command:
 
 ```azurecli
 az apim nv show-secret --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --named-value-id named_value_01
 ```
 
-To delete a named value, use the [az apim nv delete](/cli/azure/apim/nv#az_apim_nv_delete) command:
+To delete a named value, use the [az apim nv delete](/cli/azure/apim/nv#az-apim-nv-delete) command:
 
 ```azurecli
 az apim nv delete --resource-group apim-hello-word-resource-group \

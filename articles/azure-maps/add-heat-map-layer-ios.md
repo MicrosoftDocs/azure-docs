@@ -25,7 +25,7 @@ You can use heat maps in many different scenarios, including:
 > [!TIP]
 > Heat map layers by default render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` option of the layer to `NSPredicate(format: "%@ == \"Point\"", NSExpression.geometryTypeAZMVariable)`. If you want to include MultiPoint features as well, use `NSCompoundPredicate`.
 
-[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny)
+[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps](/shows/internet-of-things-show/heat-maps-and-image-overlays-in-azure-maps/player?format=ny)
 
 ## Prerequisites
 

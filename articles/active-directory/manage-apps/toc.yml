@@ -16,16 +16,16 @@
       href: add-application-portal-assign-users.md
     - name: Enable single sign-on
       href: add-application-portal-setup-sso.md
-    - name: Configure properties
-      href: add-application-portal-configure.md
     - name: View applications
       href: view-applications-portal.md
     - name: Delete applications
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: List of app integration tutorials
-      href: /azure/active-directory/saas-apps/tutorial-list
+    - name: Manage access and security
+      href: tutorial-manage-access-security.md
+    - name: Govern and monitor
+      href: tutorial-govern-monitor.md
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -45,6 +45,8 @@
       href: overview-application-gallery.md
     - name: Application ownership
       href: overview-assign-app-owners.md
+    - name: Application properties
+      href: application-properties.md
     - name: Application security
       items:
       - name: App access options
@@ -86,8 +88,12 @@
   - name: How-to guides
     expanded: false
     items:
+    - name: Application integration guidance
+      href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
+    - name: Configure properties
+      href: add-application-portal-configure.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
@@ -96,7 +102,7 @@
           href: configure-user-consent.md
         - name: Configure group owner consent
           href: configure-user-consent-groups.md
-        - name: Configure risked-based step-up consent
+        - name: Configure risk-based step-up consent
           href: configure-risk-based-step-up-consent.md
         - name: Configure permission classifications
           href: configure-permission-classifications.md
@@ -148,6 +154,8 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
+    - name: Publish applications
+      href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
@@ -156,26 +164,44 @@
         href: secure-hybrid-access-integrations.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
-      - name: F5
+    - name: F5
+      items:
+      - name: Deploy F5 BIG-IP in Azure
+        href: f5-bigip-deployment-guide.md
+      - name: F5 BIG-IP and Azure AD integration
         items:
-        - name: Integrate F5 BIG-IP with Azure Active Directory
+        - name: Integrate F5 BIG-IP with Azure AD
           href: f5-aad-integration.md
-        - name: Deploy F5 BIG-IP Virtual Edition VM in Azure
-          href: f5-bigip-deployment-guide.md
-        - name: Configure F5 BIG-IP SSL-VPN solution in Azure AD
-          href: f5-aad-password-less-vpn.md
-        - name: Configure F5 BIG-IP Access Policy Manager for form-based SSO
-          href: f5-big-ip-forms-advanced.md
-        - name: Configure F5 BIG-IP Access Policy Manager for header-based SSO
-          href: f5-big-ip-header-advanced.md
-        - name: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IPC
-          href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
-        - name: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO        
-          href: f5-big-ip-ldap-header-easybutton.md
-        - name: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication    
-          href: f5-big-ip-kerberos-advanced.md
-      - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+        - name: Easy Button guided configuration
+          items:
+          - name: Kerberos
+            href: f5-big-ip-kerberos-easy-button.md
+          - name: Headers
+            href: f5-big-ip-headers-easy-button.md
+          - name: Headers and LDAP
+            href: f5-big-ip-ldap-header-easybutton.md
+          - name: Oracle EBS
+            href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+          - name: Oracle JDE
+            href: f5-big-ip-oracle-jde-easy-button.md
+          - name: Oracle PeopleSoft
+            href: f5-big-ip-oracle-peoplesoft-easy-button.md
+          - name: SAP ERP
+            href: f5-big-ip-sap-erp-easy-button.md
+        - name: Advanced configuration
+          items:
+            - name: Headers
+              href: f5-big-ip-header-advanced.md
+            - name: Kerberos
+              href: f5-big-ip-kerberos-advanced.md
+            - name: Form-based
+              href: f5-big-ip-forms-advanced.md 
+            - name: SSL-VPN
+              href: f5-aad-password-less-vpn.md  
+            - name: B2C
+              href: ../../active-directory-b2c/partner-f5.md
+    - name: Silverfort
+      href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
       - name: Linked
@@ -190,6 +216,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Troubleshoot Microsoft Application Network sign-in
+        href: troubleshoot-app-publishing.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
       - name: Unexpected consent prompt

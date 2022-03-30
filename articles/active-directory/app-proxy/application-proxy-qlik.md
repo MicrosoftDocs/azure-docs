@@ -3,7 +3,7 @@ title: Azure Active Directory Application Proxy and Qlik Sense
 description:  Integrate Azure Active Directory Application Proxy with Qlik Sense.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK & resources'
 description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
-ms.date: 11/11/2021
-ms.author: anfeldma
+ms.date: 03/04/2022
+ms.author: jroth
 ms.custom: devx-track-dotnet
 
 ---
@@ -36,6 +36,7 @@ ms.custom: devx-track-dotnet
 
 | | Links |
 |---|---|
+|**Release notes**|[Release notes](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
 |**Samples**|[.NET code samples](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
@@ -68,7 +69,7 @@ Below is a list of any know issues affecting the [recommended minimum version](#
 
 | Issue | Impact | Mitigation | Tracking link |
 | --- | --- | --- | --- |
-| When using Direct mode with an account with multiple write locations, the SDK might not detect when a region is added to the account. The background process that [refreshes the account information](troubleshoot-sdk-availability.md#adding-a-region-to-an-account) fails to start. |If a new region is added to the account which is part of the PreferredLocations on a higher order than the current region, the SDK won't detect the new available region. |Restart the application. |https://github.com/Azure/azure-cosmos-dotnet-v2/issues/852 |
+| When using Direct mode with an account with multiple write locations, the SDK might not detect when a region is added to the account. The background process that [refreshes the account information](troubleshoot-sdk-availability.md#adding-a-region-to-an-account) fails to start. |If a new region is added to the account which is part of the PreferredLocations on a higher order than the current region, the SDK won't detect the new available region. |Upgrade to 2.17.0. |https://github.com/Azure/azure-cosmos-dotnet-v2/issues/852 |
 
 ## FAQ
 

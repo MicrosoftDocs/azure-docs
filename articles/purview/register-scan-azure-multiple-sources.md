@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage multiple Azure sources
-description: This guide describes how to connect to multiple Azure sources in Azure Purview at once, and use Purview's features to scan and manage your sources.
+description: This guide describes how to connect to multiple Azure sources in Azure Purview at once, and use Azure Purview's features to scan and manage your sources.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -18,29 +18,25 @@ This article outlines how to register multiple Azure sources and how to authenti
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Source Dependant](catalog-lineage-user-guide.md)|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](tutorial-data-owner-policies-resource-group.md) | [Source Dependant](catalog-lineage-user-guide.md)|
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register multiple Azure sources in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register multiple Azure sources in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Prerequisites for registration
 
-You need to set up some authentication to be able to enumerate resources under a subscription or resource group.
+Azure Purview needs permissions to be able to list resources under a subscription or resource group.
 
-1. Go to the subscription or the resource group in the Azure portal.  
-1. Select **Access Control (IAM)** from the left menu.
-1. Select **+Add**.
-1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name). 
-1. Select **Save** to finish the role assignment.
+[!INCLUDE [Permissions to list resources](./includes/authentication-to-enumerate-resources.md)]
 
 ### Authentication for registration
 
@@ -89,7 +85,7 @@ Follow the steps below to scan multiple Azure sources to automatically identify 
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Azure Purview Studio.
 1. Select the data source that you registered.
 1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
 1. For **Name**, fill in the name.
@@ -158,7 +154,7 @@ To manage a scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

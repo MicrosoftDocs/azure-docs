@@ -186,6 +186,15 @@ To support Active Directory authentication on SQL Managed Instance, new spec fie
 Prepare the following yaml specification to deploy a SQL Managed Instance. The fields described above should be specified in the spec.
 
 ```yaml
+apiVersion: v1
+data:
+  password: <your base64 encoded password>
+  username: <your base64 encoded username>
+kind: Secret
+metadata:
+  name: my-login-secret
+type: Opaque
+---
 apiVersion: sql.arcdata.microsoft.com/v2
 kind: SqlManagedInstance
 metadata:
@@ -209,7 +218,7 @@ spec:
       keytabSecret: <Keytab secret name>
   services:
     primary:
-      type: NodePort
+      type: LoadBalancer
       dnsName: <Endpoint DNS name>
       port: <Endpoint port number>
   storage:

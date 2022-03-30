@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/30/2021
+ms.date: 03/03/2022
 ms.author: abnarain
 ---
 
@@ -966,7 +966,19 @@ The following table applies to Azure Batch.
 
     :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Uncheck Use System Trust Store":::
 
-## Web Activity
+### HDI activity stuck in preparing for cluster  
+
+If the HDI activity is stuck in preparing for cluster, follow the guidelines below:  
+
+1. Make sure the timeout is greater than what is described below and wait for the execution to complete or until it is timed out, and wait for Time To Live (TTL) time before submitting new jobs.  
+
+    *The max default time that it takes to spin up a cluster is 2 hours, and if you have any init script, it will add up, up to another 2 hours.*
+
+2. Make sure the storage and HDI are provisioned in the same region.
+3. Make sure that the service principal used for accessing the HDI cluster is valid.
+4. If the issue still persists, as a workaround, delete the HDI linked service and re-create it with a new name.
+
+## Web Activity  
 
 ### Error code: 2128
 
@@ -1020,6 +1032,15 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## General
+
+### REST continuation token NULL error 
+
+**Error message:** {\"token\":null,\"range\":{\"min\":\..}
+
+**Cause:** When querying across multiple partitions/pages, backend service  returns continuation token in JObject format with 3 properties: **token, min and max key ranges**,  for instance, {\"token\":null,\"range\":{\"min\":\"05C1E9AB0DAD76\",\"max":\"05C1E9CD673398"}}). Depending on source data, querying can result 0 indicating missing token though there is more data to fetch.
+
+**Recommendation:** When the continuationToken is non-null, as the string {\"token\":null,\"range\":{\"min\":\"05C1E9AB0DAD76\",\"max":\"05C1E9CD673398"}}, it is required  to call queryActivityRuns API again with the continuation token from the previous response. You need to pass the full string for the query API again. The activities will be returned in the subsequent pages for the query result. You should ignore that there is empty array in this page, as long as the full continuationToken value != null, you need continue querying. For more details, please refer to [REST api for pipeline run query.](/rest/api/datafactory/activity-runs/query-by-pipeline-run) 
+
 
 ### Activity stuck issue
 

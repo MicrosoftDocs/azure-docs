@@ -4,7 +4,7 @@ description: Learn about common errors that exist in the IT Service Management C
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 01/18/2021
+ms.date: 2/23/2022
 
 ---
 
@@ -47,7 +47,12 @@ The following sections describe common errors that appear in the connector statu
 
 **Cause**: ServiceNow rate limits are too high or too low.
 
-**Resolution**: Increase or cancel the rate limits in the ServiceNow instance, as explained in the [ServiceNow documentation](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
+**Resolution**: Increase or cancel the rate limits in the ServiceNow instance, as explained in the ServiceNow documentation for each release:
+
+* [Rate limit troubleshooting for ServiceNow Orlando](https://docs.servicenow.com/bundle/orlando-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
+* [Rate limit troubleshooting for ServiceNow Paris](https://docs.servicenow.com/bundle/paris-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
+* [Rate limit troubleshooting for ServiceNow Quebec](https://docs.servicenow.com/bundle/quebec-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
+* [Rate limit troubleshooting for ServiceNow Rome](https://docs.servicenow.com/bundle/rome-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
 
 ## Invalid refresh token
 

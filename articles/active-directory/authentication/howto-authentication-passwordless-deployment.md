@@ -10,7 +10,7 @@ ms.date: 05/28/2021
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -119,7 +119,7 @@ Microsoft provides communication templates for end users. Download the [authenti
 
 Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Azure AD logs registration of security keys and Microsoft Authenticator app, and any other changes to the authentication methods. 
 
-For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo.md) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
+For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
 
 This method can also be used for easy recovery when the user has lost or forgotten their authentication factor such as security key or Microsoft Authenticator app but needs to sign in to **register a new strong authentication method**. 
 

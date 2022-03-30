@@ -5,10 +5,9 @@ services: ddos-protection
 documentationcenter: na
 author: aletheatoh
 ms.service: ddos-protection
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/15/2021
+ms.date: 03/08/2022
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include

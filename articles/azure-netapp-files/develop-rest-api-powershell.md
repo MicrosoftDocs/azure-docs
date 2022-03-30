@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API using PowerShell
 
@@ -36,7 +35,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
    2. Enter the following command in the Azure CLI:  
 
       ```azurecli
-      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> --role Contributor | ConvertFrom-Json         
+      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> --role Contributor --scopes /subscriptions/<subscription-id> | ConvertFrom-Json         
       ```
 
       To display the service principal information, type `$RBAC_SP` and press Enter.

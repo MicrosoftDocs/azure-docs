@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc, mode-other
-ms.date: 08/16/2021
+ms.date: 01/13/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

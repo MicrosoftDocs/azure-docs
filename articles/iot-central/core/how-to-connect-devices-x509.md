@@ -27,7 +27,7 @@ zone_pivot_groups: programming-languages-set-ten
 
 # How to connect devices with X.509 certificates to IoT Central Application
 
-IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509 certificates. X.509 certificates are recommended in production environments. For more information, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
+IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509 certificates. X.509 certificates are recommended in production environments. For more information, see [Device authentication concepts](concepts-device-authentication.md).
 
 This guide shows two ways to use X.509 certificates - [group enrollments](how-to-connect-devices-x509.md#use-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-individual-enrollment) useful for testing. The article also describes how to [roll device certificates](#roll-x509-device-certificates) to maintain connectivity when certificates expire.
 
@@ -390,9 +390,9 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
 
 To learn more, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).
 
-## Connect an IoT Edge leaf device
+## Connect a downstream device to IoT Edge
 
-IoT Edge uses X.509 certificates to secure the connection between leaf devices and an IoT Edge device acting as a gateway. To learn more about configuring this scenario, see [Connect a downstream device to an Azure IoT Edge gateway](../../iot-edge/how-to-connect-downstream-device.md).
+IoT Edge uses X.509 certificates to secure the connection between downstream devices and an IoT Edge device acting as a transparent gateway. To learn more about configuring this scenario, see [Connect a downstream device to an Azure IoT Edge gateway](../../iot-edge/how-to-connect-downstream-device.md).
 
 ## Roll X.509 device certificates
 

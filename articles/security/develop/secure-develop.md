@@ -11,7 +11,6 @@ ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -148,7 +147,7 @@ Ensuring that your application is secure is as important as testing any other fu
 
 ### Run security verification tests
 
-[Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contains SVTs for multiple services of the Azure platform. You run these SVTs periodically to ensure that your Azure subscription and the different resources that comprise your application are in a secure state. You can also automate these tests by using the continuous integration/continuous deployment (CI/CD) extensions feature of AzSK, which makes SVTs available as a Visual Studio extension.
+[Secure DevOps Kit for Azure](https://github.com/azsk/AzTS-docs/#readme) (AzSK) contains SVTs for multiple services of the Azure platform. You run these SVTs periodically to ensure that your Azure subscription and the different resources that comprise your application are in a secure state. You can also automate these tests by using the continuous integration/continuous deployment (CI/CD) extensions feature of AzSK, which makes SVTs available as a Visual Studio extension.
 
 ## Next steps
 

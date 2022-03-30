@@ -20,8 +20,8 @@ Here are some configurations within each service that can help improve overall t
 
 - **Inherit Partitioning** – This SQL output configuration option enables inheriting the partitioning scheme of your previous query step or input. With this enabled, writing to a disk-based table and having a [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topology for your job, expect to see better throughputs. This partitioning already automatically happens for many other [outputs](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Table locking (TABLOCK) is also disabled for bulk inserts made with this option.
 
-> [!NOTE]
-> When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. This upper limit was observed on a table with a single identity column and a clustered index. In this case, consider using [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 in your query, to explicitly specify the number of output writers. Based on your schema and choice of indexes, your observations may vary.
+   > [!NOTE]
+   > When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. This upper limit was observed on a table with a single identity column and a clustered index. In this case, consider using [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 in your query, to explicitly specify the number of output writers. Based on your schema and choice of indexes, your observations may vary.
 
 - **Batch Size** - SQL output configuration allows you to specify the maximum batch size in an Azure Stream Analytics SQL output based on the nature of your destination table/workload. Batch size is the maximum number of records that sent with every bulk insert transaction. In clustered columnstore indexes, batch sizes around [100K](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) allow for more parallelization, minimal logging, and locking optimizations. In disk-based tables, 10K (default) or lower may be optimal for your solution, as higher batch sizes may trigger lock escalation during bulk inserts.
 
@@ -54,7 +54,7 @@ In summary, with the partitioned output feature in Azure Stream Analytics for SQ
 
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics output to Azure SQL Database](sql-database-output.md)
-* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](/sql-database-output-managed-identity.md)
+* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](./sql-database-output-managed-identity.md)
 * [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md)
 * [Update or merge records in Azure SQL Database with Azure Functions](sql-database-upsert.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

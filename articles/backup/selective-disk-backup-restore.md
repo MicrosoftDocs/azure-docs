@@ -66,7 +66,7 @@ az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-nam
 ### Modify protection for already backed up VMs with Azure CLI
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
 ```
 
 ### Backup only OS disk during configure backup with Azure CLI

@@ -10,8 +10,7 @@ ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Key Vault virtual machine extension for Windows
 
@@ -26,6 +25,10 @@ The Key Vault VM extension supports below versions of Windows:
 - Windows Server 2012
 
 The Key Vault VM extension is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
+
+> [!NOTE]
+> The Key Vault VM extension downloads all the certificates in the windows certificate store or to the location provided by "certificateStoreLocation" property in the VM extension settings. Currently, the KV VM extension grants access to the private key of the certificate only to the local system admin account. Additionally, it is currently not possible to define certificate store location per certificate. The VM extension team is working on a solution to close this feature gap.
+
 
 ### Supported certificate content types
 

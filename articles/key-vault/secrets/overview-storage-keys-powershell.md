@@ -193,7 +193,7 @@ The commands in this section complete the following actions:
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
 - Verify that the shared access signature was saved in your key vault as a secret.
--
+
 ### Set variables
 
 First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the \<YourStorageAccountName\> and \<YourKeyVaultName\> placeholders.

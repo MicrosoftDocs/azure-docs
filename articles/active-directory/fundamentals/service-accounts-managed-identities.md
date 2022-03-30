@@ -3,7 +3,7 @@ title: Securing managed identities in Azure Active Directory
 description: Explanation of how to find, assess, and increase the security of managed identities.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

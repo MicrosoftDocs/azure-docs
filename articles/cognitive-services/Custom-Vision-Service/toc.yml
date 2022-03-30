@@ -68,7 +68,7 @@ items:
       href: export-model-python.md
   - name: Integrate storage notifications
     href: storage-integration.md
-  - name: Copy and move projects
+  - name: Copy and back up projects
     href: copy-move-projects.md
   - name: View or delete account data
     href: ./export-delete-data.md

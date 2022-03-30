@@ -435,9 +435,6 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 [video-on-youtube-com-478y]: https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1
 
-[video-on-channel9-479c]: https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3120
-
-
 [resource-blog-saas-patterns-app-dev-sql-db-768h]: https://azure.microsoft.com/blog/saas-patterns-accelerate-saas-application-development-on-sql-database/
 
 

@@ -2,7 +2,7 @@
 metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
   ms.date: 11/02/2021
   author: v-amallick
@@ -58,7 +58,7 @@ sections:
           
           ![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
           
-          If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
+          If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#modify-default-settings).
           
       - question: |
           Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
@@ -194,6 +194,11 @@ sections:
           - The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
           
           If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
+          
+      - question: |
+          Can backup items in a vault be deleted if its Resource Group has a delete lock?
+        answer: |
+          No, backup items in a vault cannot be deleted if the corresponding Resource Group has a delete lock.     
           
   - name: Retention and recovery
     questions:

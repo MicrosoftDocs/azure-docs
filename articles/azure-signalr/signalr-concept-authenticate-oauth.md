@@ -1,11 +1,12 @@
 ---
 title: Guide for authenticating Azure SignalR Service clients
 description: Learn how to implement your own authentication and integrate it with Azure SignalR Service by following the e2e example.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.author: zhshang
+ms.author: lianwei
+ms.devlang: csharp
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 # Azure SignalR Service authentication

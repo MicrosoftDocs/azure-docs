@@ -6,9 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 01/10/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -21,21 +21,13 @@ Use this article to quickly get the answers to common questions about conversati
 
 See the [quickstart](./quickstart.md) to quickly create your first project, or the [how-to article](./how-to/create-project.md) for more details. 
 
-## How do I connect other service applications in orchestration workflow projects?
+## How do I connect conversation language projects to other service applications?
 
-See the [Build schema article](./how-to/build-schema.md#build-project-schema-for-orchestration-workflow-projects) for information on connecting another project as an intent.
-
-## Which LUIS applications can I connect to in orchestration workflow projects?
-
-LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU. See [region limits](./service-limits.md#region-limits) for more information. 
+See the [orchestration workflow documentation](../orchestration-workflow/overview.md) for more information.
 
 ## Training is taking a long time, is this expected?
 
 For conversation projects, long training times are expected. Based on the number of examples you have your training times may vary from 5 minutes to 1 hour or more. 
-
-## Can I add entities to orchestration workflow projects?
-
-No. Orchestration projects are only enabled for intents that can be connected to other projects for routing. 
 
 ## How do I use entity components?
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Get started with Azure Automation State Configuration
 
-This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview).
+This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 
 > [!NOTE]
 > Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
@@ -28,6 +28,8 @@ To complete the examples in this article, the following are required:
 
 You create a simple [DSC configuration](/powershell/dsc/configurations/configurations) that ensures either the
 presence or absence of the **Web-Server** Windows Feature (IIS), depending on how you assign nodes.
+
+Configuration names in Azure Automation must be limited to no more than 100 characters.
 
 1. Start [VSCode](https://code.visualstudio.com/docs) (or any text editor).
 1. Type the following text:
@@ -242,6 +244,6 @@ If you no longer want a node to be managed by State Configuration, you can unreg
 
 - For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
 - To enable the feature for VMs in your environment, see [Enable Azure Automation State Configuration](automation-dsc-onboarding.md).
-- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview/overview).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

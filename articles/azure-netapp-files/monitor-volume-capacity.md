@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Monitor the capacity of a volume  
 
@@ -55,7 +54,7 @@ Azure NetApp Files leverages the standard [Azure Monitor](../azure-monitor/overv
 
 ## Using Azure CLI  
 
-You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true) commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to monitor a volume.
+You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume) commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to monitor a volume.
  
 ## Using REST API  
 

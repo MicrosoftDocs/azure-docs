@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: luisquintanilla
-ms.author: luquinta
+author: ssalgadodev
+ms.author: ssalgado
 ms.custom: mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
@@ -50,7 +50,7 @@ To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train
 
 Training a single or multiple models requires the visualization and inspection of desired metrics to make sure the model performs as expected. You can [use TensorBoard in Azure Machine Learning to track and visualize experiment metrics](./how-to-monitor-tensorboard.md)
 
-## Responsible ML: Privacy and fairness
+## Responsible AI: Privacy and fairness
 
 ### Preserve data privacy with differential privacy
 

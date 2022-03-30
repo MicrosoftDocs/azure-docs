@@ -191,11 +191,21 @@ Activity functions have all the same behaviors as regular queue-triggered functi
 
 Entity functions are also executed on a single thread and operations are processed one-at-a-time. However, entity functions do not have any restrictions on the type of code that can be executed.
 
+## Function timeouts
+
+Activity, orchestrator, and entity functions are subject to the same [function timeouts](../functions-scale.md#timeout) as all Azure Functions. As a general rule, Durable Functions treats function timeouts the same way as unhandled exceptions thrown by the application code. For example, if an activity times out, the function execution is recorded as a failure, and the orchestrator is notified and handles the timeout just like any other exception: retries take place if specified by the call, or an exception handler may be executed.
+
 ## Concurrency throttles
 
 Azure Functions supports executing multiple functions concurrently within a single app instance. This concurrent execution helps increase parallelism and minimizes the number of "cold starts" that a typical app will experience over time. However, high concurrency can exhaust per-VM system resources such network connections or available memory. Depending on the needs of the function app, it may be necessary to throttle the per-instance concurrency to avoid the possibility of running out of memory in high-load situations.
 
 Activity, orchestrator, and entity function concurrency limits can be configured in the **host.json** file. The relevant settings are `durableTask/maxConcurrentActivityFunctions` for activity functions and `durableTask/maxConcurrentOrchestratorFunctions` for both orchestrator and entity functions. These settings control the maximum number of orchestrator, entity, or activity functions that can be loaded into memory concurrently.
+
+> [!NOTE]
+> The concurrency throttles only apply locally, to limit what is currently being processed on one individual machine. Thus, these throttles do not limit the total throughput of the system. Quite to the contrary, they can actually support proper scale out, as they prevent individual machines from taking on too much work at once. If this leads to unprocessed work accumulating in the queues, the autoscaler adds more machines. The total throughput of the system thus scales out as needed.
+
+> [!NOTE] 
+> The `durableTask/maxConcurrentOrchestratorFunctions` limit applies only to the act of processing new events or operations. Orchestrations or entities that are idle waiting for events or operations do not count towards the limit.
 
 ### Functions 2.0
 
@@ -298,9 +308,14 @@ In all other situations, there is typically no observable performance improvemen
 > [!NOTE]
 > These settings should only be used after an orchestrator function has been fully developed and tested. The default aggressive replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time, and is therefore disabled by default.
 
-### Entity function unloading
+## Entity operation batching
 
-Entity functions process up to 20 operations in a single batch. As soon as an entity finishes processing a batch of operations, it persists its state and unloads from memory. You can delay the unloading of entities from memory using the extended sessions setting. Entities continue to persist their state changes as before, but remain in memory for the configured period of time to reduce the number of loads from storage. This reduction of loads from storage can improve the overall throughput of frequently accessed entities.
+To improve performance and cost, entity operations are executed in batches. Each batch is billed as a single function execution.
+
+By default, the maximum batch size is 50 (for consumption plans) and 5000 (for all other plans). The maximum batch size can also be configured in the [host.json](durable-functions-bindings.md#host-json) file. If the maximum batch size is 1, batching is effectively disabled.
+
+> [!NOTE]
+> If individual entity operations take a long time to execute, it may be beneficial to limit the maximum batch size to reduce the risk of [function timeouts](#function-timeouts), in particular on consumption plans.
 
 ## Performance targets
 

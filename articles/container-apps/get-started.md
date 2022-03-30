@@ -5,16 +5,23 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/21/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Deploy your first container app
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+The Azure Container Apps Preview service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 In this quickstart, you create a secure Container Apps environment and deploy your first container app.
+
+## Prerequisites
+
+- An Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -26,9 +33,7 @@ To create the environment, run the following command:
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)
@@ -37,16 +42,14 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
+Now that you have an environment created, you can deploy your first container app. With the `containerapp create` command, deploy a container image to Azure Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -58,7 +61,7 @@ az containerapp create \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
   --ingress 'external' \
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 # [PowerShell](#tab/powershell)
@@ -71,22 +74,25 @@ az containerapp create `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
   --ingress 'external' `
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 ---
+
+> [!NOTE]
+> Make sure the value for the `--image` parameter is in lower case.
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
 ## Verify deployment
 
-The `create` command returned the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
+The `create` command returned the fully qualified domain name for the container app. Copy this location to a web browser and see the following message:
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
 # [Bash](#tab/bash)
 
@@ -97,9 +103,8 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group delete `
-  --name $RESOURCE_GROUP
+```powershell
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---

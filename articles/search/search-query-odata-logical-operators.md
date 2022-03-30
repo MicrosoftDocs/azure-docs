@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Syntax and reference documentation for using OData logical operators, and, or, and not, in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 09/16/2021

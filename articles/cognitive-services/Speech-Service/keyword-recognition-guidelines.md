@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp
 ---
 
 # Recommendations and guidelines for keyword recognition

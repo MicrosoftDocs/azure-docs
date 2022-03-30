@@ -3,7 +3,7 @@ title: Azure Active Directory security operations for Privileged Identity Manage
 description: Guidance to establish baselines and use Azure Active Directory Privileged Identity Management (PIM) to monitor and alert on potential issues with accounts that are governed by PIM.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

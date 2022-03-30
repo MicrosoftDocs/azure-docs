@@ -1,6 +1,6 @@
 ---
-title: AMD GPU driver extension - Azure Windows VMs 
-description: Microsoft Azure extension for installing AMD GPU Drivers on NVv4-series VMs running Windows.
+title: AMD GPU Driver Extension - Azure Windows VMs 
+description: Microsoft Azure extension for installing AMD GPU drivers on NVv4-series VMs running Windows.
 services: virtual-machines-windows
 author: vikancha-MSFT
 manager: jkabat
@@ -15,9 +15,9 @@ ms.author: vikancha
 ms.custom: devx-track-azurepowershell
 
 ---
-# AMD GPU driver extension for Windows
+# AMD GPU Driver Extension for Windows
 
-This article provides an overview of the VM extension to deploy AMD GPU drivers on Windows [NVv4-series](../nvv4-series.md) VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
+This article provides an overview of the virtual machine (VM) extension to deploy AMD GPU drivers on Windows [NVv4-series](../nvv4-series.md) VMs. When you install AMD drivers by using this extension, you're accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM might reboot to complete the driver setup.
 
 Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series AMD GPU driver setup for Windows](../windows/n-series-amd-driver-setup.md).
 
@@ -36,11 +36,11 @@ This extension supports the following OSs:
 
 ### Internet connectivity
 
-The Microsoft Azure Extension for AMD GPU Drivers requires that the target VM is connected to the internet and have access.
+The Microsoft Azure Extension for AMD GPU Drivers requires that the target VM is connected to the internet and has access.
 
 ## Extension schema
 
-The following JSON shows the schema for the extension.
+The following JSON shows the schema for the extension:
 
 ```json
 {
@@ -64,50 +64,50 @@ The following JSON shows the schema for the extension.
 
 ### Properties
 
-| Name | Value / Example | Data Type |
+| Name | Value/Example | Data type |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | AmdGpuDriverWindows | string |
 | typeHandlerVersion | 1.1 | int |
 
-
 ## Deployment
+
 ### Azure portal
 
 You can deploy Azure AMD VM extensions in the Azure portal.
 
 1. In a browser, go to the [Azure portal](https://portal.azure.com).
 
-2. Go to the virtual machine on which you want to install the driver.
+1. Go to the virtual machine on which you want to install the driver.
 
-3. In the left menu, select **Extensions**.
+1. On the left menu, select **Extensions**.
 
     :::image type="content" source="./media/amd-ext-portal/extensions-menu.png" alt-text="Screenshot that shows selecting Extensions in the Azure portal menu.":::
 
-4. Select **Add**.
+1. Select **Add**.
 
     :::image type="content" source="./media/amd-ext-portal/add-extension.png" alt-text="Screenshot that shows adding a V M extension for the selected V M.":::
 
-5. Scroll to find and select **AMD GPU Driver Extension**, and then select **Next**.
+1. Scroll to find and select **AMD GPU Driver Extension**, and then select **Next**.
 
-    :::image type="content" source="./media/amd-ext-portal/select-amd-extension.png" alt-text="Screenshot that shows selecting AMD G P U driver.":::
+    :::image type="content" source="./media/amd-ext-portal/select-amd-extension.png" alt-text="Screenshot that shows selecting AMD G P U Driver Extension.":::
 
-6. Select **Review + create** and then click **Create**, wait a few minutes for the driver to be deployed.
+1. Select **Review + create**, and select **Create**. Wait a few minutes for the driver to deploy.
 
-    :::image type="content" source="./media/amd-ext-portal/create-amd-extension.png" alt-text="Screenshot that shows selecting the review and create button.":::
+    :::image type="content" source="./media/amd-ext-portal/create-amd-extension.png" alt-text="Screenshot that shows selecting the Review + create button.":::
   
-7. Verify that the extension is added to the list of installed extensions.
+1. Verify that the extension was added to the list of installed extensions.
 
     :::image type="content" source="./media/amd-ext-portal/verify-extension.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
-### Azure Resource Manager Template 
+### Azure Resource Manager template
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
+You can use Azure Resource Manager templates to deploy Azure VM extensions. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration.
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md).
 
-The following example assumes the extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
+The following example assumes the extension is nested inside the virtual machine resource. When the extension resource is nested, the JSON is placed in the `"resources": []` object of the virtual machine.
 
 ```json
 {
@@ -161,7 +161,7 @@ az vm extension set `
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and Azure CLI. To see the deployment state of extensions for a given VM, run the following command.
+You can retrieve data about the state of extension deployments from the Azure portal and by using Azure PowerShell and the Azure CLI. To see the deployment state of extensions for a given VM, run the following command:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -179,21 +179,20 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.AmdGpuDriverMicrosoft\
 
 ### Error codes
 
-| Error Code | Meaning | Possible Action |
+| Error Code | Meaning | Possible action |
 | :---: | --- | --- |
-| 0 | Operation successful |
+| 0 | Operation successful. |
 | 1 | Operation successful. Reboot required. |
-| 100 | Operation not supported or could not be completed. | Possible causes: PowerShell version not supported, VM size is not an N-series VM, Failure downloading data. Check the log files to determine cause of error. |
+| 100 | Operation not supported or couldn't be completed. | Possible causes are that the PowerShell version isn't supported, the VM size isn't an N-series VM, and a failure occurred in downloading data. Check the log files to determine the cause of the error. |
 | 240, 840 | Operation timeout. | Retry operation. |
-| -1 | Exception occurred. | Check the log files to determine cause of exception. |
-| -5x | Operation interrupted due to pending reboot. | Reboot VM. Installation will continue after reboot. Uninstall should be invoked manually. |
-
+| -1 | Exception occurred. | Check the log files to determine the cause of the exception. |
+| -5x | Operation interrupted due to pending reboot. | Reboot VM. Installation continues after the reboot. Uninstall should be invoked manually. |
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure support, read the [Azure support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
-For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
 
-For more information about N-series VMs, see [GPU optimized virtual machine sizes](../sizes-gpu.md).
+- For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
+- For more information about N-series VMs, see [GPU optimized virtual machine sizes](../sizes-gpu.md).

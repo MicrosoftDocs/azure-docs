@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Web Session normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview) | Microsoft Docs
 description: This article displays the Microsoft Sentinel Web Session normalization schema.
 services: sentinel
 cloud: na
@@ -11,11 +11,11 @@ ms.author: ofshezaf
 
 ---
 
-# Microsoft Sentinel Web Session normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview)
 
 The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Network normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -33,7 +33,7 @@ The Web Session normalization schema represents any HTTP network session, and is
 
 The ASIM Web Session schema represents HTTP and HTTPS protocol activity. Since the schema represents protocol activity, it is governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. 
 
-The Web Session schema does not represent audit events from source devices. For example, an event modifying a Web Security Gateway policy cannot be represented by the Web Session schema.
+The Web Session schema doesn't represent audit events from source devices. For example, an event modifying a Web Security Gateway policy can't be represented by the Web Session schema.
 
 Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of the [ASIM Network Session schema](network-normalization-schema.md).
 
@@ -45,22 +45,28 @@ The most important fields in a Web Session schema are:
 
 Web Session events may also include [User](network-normalization-schema.md#user) and [Process](process-events-normalization-schema.md) information for the user and process initiating the request. 
 
+
 ## Parsers
 
-### Source-agnostic parsers
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
 
-To use the source-agnostic parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
+### Unifying parsers
 
-| Name | Description | Usage instructions |
-| ---- | --- | --- |
-| <a name="imwebsession"></name>**imWebSession** | Aggregative parser that uses *union* to include normalized events from all *Web Session* sources. <br><br>Example: Network sessions fields that support [HTTP session fields](#http-session-fields) |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
-| **ASimWebSession** | Similar to the [imWebSession](#imwebsession) function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
-| **ASimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
-| | | |
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_WebSession` filtering parser or the `_ASim_WebSession` parameter-less parser.
+
+You can also use workspace-deployed `ImWebSession` and `ASimWebSession` parsers by deploying them from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). For more information, see [built-in ASIM parsers and workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers).
+
+### Out-of-the-box, source-specific parsers
+
+Microsoft Sentinel provides the following out-of-the-box, product-specific DNS parsers:
+
+| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
+| --- | --------------------------- | ------------------------------ | 
+|**Squid Proxy** | `_ASim_WebSession_SquidProxy` (regular) <br> `_Im_WebSession_SquidProxy` (filtering) <br><br>  | `ASimWebSessionSquidProxy` (regular) <br>`vimWebSessionSquidProxy` (filtering) <br><br> |
+| **Zscaler ZIA** |`_ASim_WebSessionZscalerZIA` (regular)<br> `_Im_WebSessionZscalerZIA` (filtering)  | `AsimWebSessionZscalerZIA` (regular)<br> `vimWebSessionSzcalerZIA` (filtering)  |
 
 
-Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
 
 ### Add your own normalized parsers
 
@@ -68,8 +74,6 @@ When implementing custom parsers for the Web Session information model, name you
 
 - `vimWebSession<vendor><Product>` for parametrized parsers
 - `ASimWebSession<vendor><Product>` for regular parsers
-
-Then, add the new parser to `imWebSession` or `ASimWebSession` respectively.
 
 ### Filtering parser parameters
 
@@ -81,23 +85,27 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
-| **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
-| **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. | 
-| **ventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
+| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
+| **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items.|  
+| **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. The length of the list is limited to 10,000 items. | 
+| **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
-| | | |
+
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
-imWebSession (hurl_has_any = torProxies)
+_Im_WebSession (url_has_any = torProxies)
 ```
+
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 ## Schema details
 
-The Web Session information model is aligned is the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
+The Web Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
 
 To conform with industry best practices, the Web Session schema uses the descriptors **Src** and **Dst** to identify the session source and destination devices, without including the token **Dvc** in the field name.
 
@@ -108,9 +116,15 @@ Fields that describe the user and application associated with the source and des
 Other ASIM schemas typically use **Target** instead of **Dst**.
 
 
-### Common fields
+### Common ASIM fields
 
-Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Web Session events:
+> [!IMPORTANT]
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
+>
+
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for Web Session events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -118,18 +132,28 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`         |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.2`         |
 | **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
-| | | | |
+
+
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+
 
 ### Network session fields
 
 HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also included in the Web Session schema.
 
-The following ASIM Network Session schema have specific guidelines when used for a Web Session event:
-- The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
+The following ASIM Network Session schema fields have specific guidelines when used for a Web Session event:
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
-- The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
+- The field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
 - For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
 
 ### <a name="Intermediary"></a>Intermediary device fields
@@ -166,26 +190,31 @@ The following are additional fields that are specific to web sessions:
 | **FileHashType** | Optional | Enumerated | The type of the hash in the [Hash](#hash) field. Possible values include: `MD5`, `SHA1`, `SHA256`, and `SHA512`. |
 | **FileSize** | Optional | Integer | For HTTP uploads, the size in bytes of the uploaded file. |
 | **FileContentType** | Optional | String | For HTTP uploads, the content type of the uploaded file. |
-| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br>Example: `AnyAnyDrop`|
-| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example: `23`|
+| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-common-fields.md#dvcaction) was decided upon.<br><br>Example: `AnyAnyDrop`|
+| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-common-fields.md#dvcaction) was decided upon.<br><br> Example: `23`|
 | **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber`|
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`Tr.124`|
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`EICAR Test File`|
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`Trojan`|
 | **ThreatRiskLevel** | Optional | Integer | The risk level associated with the Session. The level should be a number between **0** and a **100**.<br><br>**Note**: The value may be provided in the source record using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatriskleveloriginal). |
 | <a name="threatriskleveloriginal"></a>**ThreatRiskLevelOriginal** | Optional | String | The risk level as reported by the reporting device. |
-| | | | |
+
 
 ### Other fields
 
 If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
 
+### Schema updates
+
+The Web Session schema relies on the Network Session schema. Therefore, [Network Session schema updates](network-normalization-schema.md#schema-updates) apply to the Web Session schema as well.
+
 ## Next steps
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)
 

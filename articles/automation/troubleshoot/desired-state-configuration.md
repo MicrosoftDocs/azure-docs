@@ -333,6 +333,20 @@ DSC configurations that take a long time to compile can cause this error.
 
 You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/dsc/configurations/import-dscresource) calls.
 
+## Scenario: Error while onboarding a machine
+
+#### Issue
+
+You receive a `agent has a problem` error when you onboard a machine.
+
+### Cause
+
+This is a known issue. You cannot assign the same configuration again as the node remains in pending state.
+
+### Resolution
+
+The work around is to apply different test configuration and apply the original configuration again.
+
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:

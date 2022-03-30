@@ -3,10 +3,11 @@ title: 'Tutorial: Deploy Web Application Connected to Azure Storage Blob with Se
 description: Create a web app connected to Azure Storage Blob with Service Connector.
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Deploy Web Application Connected to Azure Storage Blob with Service Connector
@@ -51,14 +52,14 @@ git clone https://github.com/Azure-Samples/serviceconnector-webapp-storageblob-d
 
 and go to the root folder of repository:
 ```Bash
-cd WebAppStorageMISample
+cd serviceconnector-webapp-storageblob-dotnet
 ```
 
 ## 3. Create the App Service app
 
 In the terminal, make sure you're in the *WebAppStorageMISample* repository folder that contains the app code.
 
-Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```Azure CLI
 az webapp up --name <app-name> --sku B1 --location eastus --resource-group ServiceConnector-tutorial-rg

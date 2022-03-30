@@ -36,13 +36,12 @@ Parameters are case-sensitive and are all optional.
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `namedEntities` output) is lower than this value, the entity is not returned. The default is 0. |
 | `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/named-entity-recognition/how-to-call.md#determine-how-to-process-the-data-optional) to use when calling the entity recognition API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
 
-
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
 | `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md). |
-| `text`          | The text to analyze.          |
+| `text`          | The text to analyze. |
 
 ## Skill outputs
 

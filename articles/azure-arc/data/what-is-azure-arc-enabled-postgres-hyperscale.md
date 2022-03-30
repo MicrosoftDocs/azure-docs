@@ -48,11 +48,11 @@ Microsoft offers Postgres database services in Azure in two ways:
 - As a semi-managed service with Azure Arc as it is operated by customers or their partners/vendors
 
 ### In Azure PaaS
-**In [Azure PaaS](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for Postgres as a managed service:
+**In [Azure PaaS](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for PostgreSQL as a managed service:
 
 :::row:::
     :::column:::
-        Azure Database for Postgres Single server and Azure Database for Postgres Flexible server. These services are Microsoft managed single-node/single instance Postgres form factor. Azure Database for Postgres Flexible server is the most recent evolution of this service.
+        Azure Database for PostgreSQL Single server and Azure Database for PostgreSQL Flexible server. These services are Microsoft managed single-node/single instance Postgres form factor. Azure Database for PostgreSQL Flexible server is the most recent evolution of this service.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/postgres-hyperscale/azure-database-for-postgresql-bigger.png" alt-text="Azure Database for PostgreSQL":::
@@ -76,8 +76,8 @@ Microsoft offers Postgres database services in Azure in two ways:
 
 :::row:::
     :::column:::
-        **With Azure Arc**, Microsoft offers **a single** Postgres product/service: **Azure Arc-enabled PostgreSQL Hyperscale**. With Azure Arc, we simplified the product definition and the customer experience for Postgres compared to Azure PaaS by providing **one Postgres product** that is capable of:
-        - deploying single-node/single-instance Postgres like Azure Database for Postgres Single/Flexible server,
+        **With Azure Arc**, Microsoft offers **a single** Postgres product/service: **Azure Arc-enabled PostgreSQL Hyperscale**. With Azure Arc, we simplified the product definition and the customer experience for PostgreSQL compared to Azure PaaS by providing **one Postgres product** that is capable of:
+        - deploying single-node/single-instance Postgres like Azure Database for PostgreSQL Single/Flexible server,
         - deploying multi-nodes/multi-instances Postgres like Azure Database for PostgreSQL Hyperscale (Citus),
         - great flexibility by allowing customers to morph their Postgres deployments from one-node to multi-nodes of Postgres and vice versa if they desire so. They are able to do so with no data migration and with a simple experience.
     :::column-end:::
@@ -117,7 +117,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 - The scale-out and scale-in operations are not automatic. They are controlled by the users. Users may script these operations and automate the execution of those scripts. Not all workloads can benefit from scaling out. Read further details on this topic as suggested in the "Next steps" section.
 
 **To learn more about these capabilities, you can also refer to this Data Exposed episode:**
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
 
 
 ## Roles and responsibilities: Azure managed services (Platform as a service (PaaS)) _vs._ Azure Arc-enabled data services
@@ -139,11 +139,11 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 
 
 - **Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to potentially benefit from better performances**:
-    * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
-    * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
-    * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
-    * [Table colocation](../../postgresql/concepts-hyperscale-colocation.md)
-    * [Distribute and modify tables](../../postgresql/howto-hyperscale-modify-distributed-tables.md)
-    * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
-    * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)* 
+    * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
+    * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
+    * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
+    * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
+    * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)* 
 

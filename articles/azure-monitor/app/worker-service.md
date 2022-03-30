@@ -2,9 +2,9 @@
 title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-
 ---
 
 # Application Insights for Worker Service applications (non-HTTP applications)
@@ -20,6 +20,8 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
 ## Prerequisites
 
 A valid Application Insights instrumentation key. This key is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get an instrumentation key, see [Create an Application Insights resource](./create-new-resource.md).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Using Application Insights SDK for Worker Services
 

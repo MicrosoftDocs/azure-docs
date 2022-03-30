@@ -1,5 +1,5 @@
 ---
-title: Purview migration best practices
+title: Azure Purview migration best practices
 description: This article provides steps to perform backup and recovery for migration best practices.
 author: hophanms
 ms.author: hophan
@@ -103,14 +103,14 @@ Below steps are referring to [Azure Purview API documentation](/rest/api/purview
 |Task|Description|
 |-------------|-----------------|
 |**Account information**|Maintain Account information by granting access for the admin and/or service principal to the account at root level|
-|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection.md)|
+|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection)|
 |**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](/rest/api/purview/scanningdataplane/scan-rulesets/get)|
 |**Manual classifications**|Get a list of all manual classifications by calling get classifications APIs and get details of each classification|
 |**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|
 |**Data sources**|Call the [Get all data sources API](/rest/api/purview/scanningdataplane/scans/list-by-data-source) to list data sources with details. You also have to get the triggers by calling [Get trigger API](/rest/api/purview/scanningdataplane/triggers/get-trigger). There is also [Create data sources API](/rest/api/purview/scanningdataplane/data-sources/create-or-update) if you need to re-create the sources in bulk in the new account.|
 |**Credentials**|Create and maintain credentials used while scanning. There is no API to extract credentials, so this must be redone in the new account.|
 |**Self-hosted integration runtime (SHIR)**|Get a list of SHIR and get updated keys from the new account then update the SHIRs. This must be done [manually inside the SHIRs' hosts](manage-integration-runtimes.md#create-a-self-hosted-integration-runtime).|
-|**ADF connections**|Currently an ADF can be connected to one Purview at a time. You must disconnect ADF from failed Purview account and reconnect it to the new account later.|
+|**ADF connections**|Currently an ADF can be connected to one Azure Purview at a time. You must disconnect ADF from failed Azure Purview account and reconnect it to the new account later.|
 
 
 ### Run scans
@@ -325,7 +325,7 @@ To complete the asset migration, you must remap the relationships. There are thr
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
 #### Using Azure Purview Portal
-The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Purview Studio.
+The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Azure Purview Studio.
 
 #### Using Azure Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.
@@ -358,4 +358,4 @@ If you have extracted asset information from previous steps, the contact details
 To assign contacts to assets, you need a list of `guids` and identify all `objectid` of the contacts. You can automate this process by iterating through all assets and reassign contacts to all assets using the [Create Or Update Entities API](/rest/api/purview/catalogdataplane/entity/create-or-update-entities)
 
 ## Next steps
--  [Create a Purview account](./create-catalog-portal.md)
+-  [Create an Azure Purview account](./create-catalog-portal.md)

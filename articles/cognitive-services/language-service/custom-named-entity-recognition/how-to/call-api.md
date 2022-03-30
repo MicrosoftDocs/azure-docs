@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/16/2021
+ms.topic: how-to
+ms.date: 02/16/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -30,11 +30,18 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## Deploy your model
 
-1. Go to your project in [Language studio](https://aka.ms/custom-extraction)
+Deploying a model hosts it, and makes it available for predictions through an endpoint.
 
-2. Select **Deploy model** from the left side menu.
+When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
 
-3. Select the model you want to deploy, then select **Deploy model**.
+> [!NOTE]
+> You can only have ten deployment names
+
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+   
+### Delete deployment
+
+To delete a deployment, select the deployment you want to delete and select **Delete deployment**
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
@@ -44,7 +51,7 @@ See the [application development lifecycle](../overview.md#application-developme
 > 4. Click on **Run the test**.
 > 5. In the **Result** tab, you can see the extracted entities from your text. You can also view the JSON response under the **JSON** tab.
 
-## Send a text classification request to your model
+## Send an entity recognition request to your model
 
 # [Using Language Studio](#tab/language-studio)
 
@@ -87,7 +94,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 First you will need to get your resource key and endpoint
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
@@ -142,11 +149,11 @@ First you will need to get your resource key and endpoint
 
 [!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
 
-# [Using the client libraries](#tab/client)
+# [Using the client libraries (Azure SDK)](#tab/client)
 
 ## Use the client libraries
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
@@ -163,7 +170,7 @@ First you will need to get your resource key and endpoint
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample9_RecognizeCustomEntitiesConvenience.cs)
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample9_RecognizeCustomEntities.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)

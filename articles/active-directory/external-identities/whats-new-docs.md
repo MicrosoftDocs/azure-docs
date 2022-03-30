@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 12/02/2021
+ms.date: 03/09/2022
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -15,6 +15,40 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## February 2022
+
+### Updated articles
+
+- [Add Google as an identity provider for B2B guest users](google-federation.md)
+- [External Identities in Azure Active Directory](external-identities-overview.md)
+- [Overview: Cross-tenant access with Azure AD External Identities (Preview)](cross-tenant-access-overview.md)
+- [B2B collaboration overview](what-is-b2b.md)
+- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
+- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
+- [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
+- [Azure Active Directory B2B best practices](b2b-fundamentals.md)
+- [Azure Active Directory B2B collaboration FAQs](faq.yml)
+- [Email one-time passcode authentication](one-time-passcode.md)
+- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
+- [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
+- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
+- [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
+
+## January 2022
+
+### Updated articles
+
+- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
+- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
+
+
+## December 2021
+
+### Updated articles
+
+- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
+
+
 ## November 2021
 
 ### Updated articles
@@ -22,7 +56,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 - [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
 - [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
 - [Azure Active Directory external identities: What's new](whats-new-docs.md)
-- [Conditional Access for B2B collaboration users](conditional-access.md)
+- [Conditional Access for B2B collaboration users](authentication-conditional-access.md)
 
 
 ## October 2021
@@ -49,7 +83,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 ### Updated articles
 
 - [Identity Providers for External Identities](identity-providers.md)
-- [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md)
+- [Enable B2B external collaboration and manage who can invite guests](external-collaboration-settings-configure.md)
 - [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
 - [Add Google as an identity provider for B2B guest users](google-federation.md)
 - [Azure Active Directory (Azure AD) identity provider for External Identities](azure-ad-account.md)
@@ -75,14 +109,14 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 - [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
 - [Add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
 - [Add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
-- [What are External Identities in Azure Active Directory?](compare-with-b2c.md)
+- [What are External Identities in Azure Active Directory?](external-identities-overview.md)
 - [Billing model for Azure AD External Identities](external-identities-pricing.md)
 - [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md)
 - [What is guest user access in Azure Active Directory B2B?](what-is-b2b.md)
 - [Use API connectors to customize and extend self-service sign-up](api-connectors-overview.md)
 - [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
 - [The elements of the B2B collaboration invitation email - Azure Active Directory](invitation-email-elements.md)
-- [Conditional Access for B2B collaboration users](conditional-access.md)
+- [Conditional Access for B2B collaboration users](authentication-conditional-access.md)
 
 
 ## June 2021
@@ -114,7 +148,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 - [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
 - [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
 - [What is guest user access in Azure Active Directory B2B?](what-is-b2b.md)
-- [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md)
+- [Enable B2B external collaboration and manage who can invite guests](external-collaboration-settings-configure.md)
 - [Billing model for Azure AD External Identities](external-identities-pricing.md)
 - [Example: Configure SAML/WS-Fed IdP federation with Active Directory Federation Services (AD FS) (preview)](direct-federation-adfs.md)
 - [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
@@ -138,7 +172,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 - [The elements of the B2B collaboration invitation email - Azure Active Directory](invitation-email-elements.md)
 - [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
 - [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
-- [Conditional Access for B2B collaboration users](conditional-access.md)
+- [Conditional Access for B2B collaboration users](authentication-conditional-access.md)
 
 ## March 2021
 
@@ -172,7 +206,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 ### Updated articles
 
 - [Azure Active Directory B2B best practices](b2b-fundamentals.md)
-- [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md)
+- [Enable B2B external collaboration and manage who can invite guests](external-collaboration-settings-configure.md)
 - [Azure Active Directory B2B collaboration FAQs](faq.yml)
 - [Email one-time passcode authentication](one-time-passcode.md)
 - [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)

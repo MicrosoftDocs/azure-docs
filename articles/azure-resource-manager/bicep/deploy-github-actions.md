@@ -32,7 +32,7 @@ az group create -n exampleRG -l westus
 
 ## Generate deployment credentials
 
-Your GitHub action runs under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
+Your GitHub action runs under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
 
 Replace the placeholder `myApp` with the name of your application. Replace `{subscription-id}` with your subscription ID.
 

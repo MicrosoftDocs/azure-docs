@@ -7,8 +7,8 @@ ms.subservice: backup-restore
 ms.custom: load & move data, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: kendralittle, mathoma
 ms.date: 05/24/2019
 ---

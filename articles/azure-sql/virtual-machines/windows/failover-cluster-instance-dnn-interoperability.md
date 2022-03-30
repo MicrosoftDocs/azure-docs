@@ -107,7 +107,10 @@ For client access, the **Failover Partner** property can handle database mirrori
 
 ## MSDTC
 
-The FCI can participate in distributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC). Though both clustered MSDTC and local MSDTC are supported with FCI DNN, in Azure, a load balancer is still necessary for clustered MSDTC. The DNN defined in the FCI does not replace the Azure Load Balancer requirement for the clustered MSDTC in Azure. 
+The FCI can participate in distributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC). Clustered MSDTC and local MSDTC are supported with FCI DNN. In Azure, an Azure Load Balancer is necessary for a clustered MSDTC deployment. 
+
+> [!TIP]
+>The DNN defined in the FCI does not replace the Azure Load Balancer requirement for the clustered MSDTC.
 
 ## FileStream
 

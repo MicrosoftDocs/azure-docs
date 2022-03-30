@@ -4,16 +4,15 @@ description: This topic describes in more detail features which are in preview i
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/19/2021
-ms.author: b-hchen
+ms.date: 01/26/2022
+ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 
@@ -30,6 +29,9 @@ The following diagram illustrates cross-region replication between the source an
 
  ![Diagram that shows cross-region replication between the source and destination HANA servers.](../media/azure-netapp-files/application-cross-region-replication.png) 
 
+> [!NOTE]  
+> When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix will then be changed to `DR2-`. 
+
 > [!IMPORTANT]
 > * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
 > * You need to replicate at least the data volume and the log-backup volume. 
@@ -43,7 +45,7 @@ The following table summarizes the replication schedule options. It also describ
 |     Volume type    |     Default replication schedule    |     Available options    |     Notes    |
 |---|---|---|---|
 |     Data    |     Daily    |     Daily, hourly    |     The choice   you select impacts Recover Time Objective (RTO) and the amount of transferred   data.    |
-|     Log    |     -    |     -    |     Log volumes   are not replicated.    |
+|     Log    |     -    |     -    |     Log volumes aren't replicated.    |
 |     SAP shared    |     Every 10 minutes    |     Every 10 minutes, hourly, daily    |     You should   choose a schedule based on your SLA requirements and the data stored in the shared   volume.    |
 |     Data-backup    |     Daily    |     Daily, weekly    |     Replicating   the data-backup volumes is optional.    |
 |     Log-backup    |     Every 10 minutes    |     Every 10 minutes    |     This setting   impacts Recover Point Objective (RPO).     |
@@ -73,14 +75,14 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     * **Group name**:  
         The volume group name. 
     * **SAP node memory**:  
-        This value defines the size of the SAP HANA database on the host. It is used to calculate the required volume size and throughput. 
+        This value defines the size of the SAP HANA database on the host. It's used to calculate the required volume size and throughput. 
     * **Capacity overhead (%)**:  
         When you use snapshots for data protection, you need to plan for extra capacity. This field will add additional size (%) for the data volume.  
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
         Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes will be created with the first host.
     * **Multiple-host**:  
-        Select this option if you are adding additional hosts to a multiple-hosts HANA system.
+        Select this option if you're adding additional hosts to a multiple-hosts HANA system.
     * **Disaster recover destination**:  
         Select this option to create volumes for a HANA system as a DR site using [cross-region replication](cross-region-replication-introduction.md).  
     
@@ -94,7 +96,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     * **Proximity placement group (PPG)**:  
         Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
-        Even if you do not need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
+        Even if you don't need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
     * **Capacity pool**:  
         All volumes will be placed in a single manual QoS capacity pool.   
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
@@ -125,12 +127,12 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     The Volumes tab also displays the volume type: 
  
-    * **DP** - Indicates destination in the cross-region replication setting. Volumes of this type are not online but in replication mode.
+    * **DP** - Indicates destination in the cross-region replication setting. Volumes of this type aren't online but in replication mode.
     * **RW** - Indicates that reads and writes are allowed.
 
-    The default type for the log volume is RW, and the setting cannot be changed.
+    The default type for the log volume is `RW`, and the setting can't be changed.
 
-    The default type for the data, shared, and log-backup volumes is DP, and the setting cannot be changed.
+    The default type for the data, shared, and log-backup volumes is `DP`, and the setting can't be changed.
 
     The default type for the data-backup volume is DP, but this setting can be changed to RW.  
 
@@ -147,6 +149,39 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     1. For each DP volume that you created, copy the volume **Resource ID**.
 
     2. For each source volume, click **Replication** and then **Authorize**. Paste the **Resource ID** of each corresponding destination volume. 
+
+## Setup options for replicating an SAP HANA database using HANA system replication for HA
+
+In some situations, you might want to combine an HA setup of HANA system replication with a disaster-recovery (DR) setup using cross-region replication (CRR). Depending on the specific usage pattern and service-level agreement (SLA), two setup options for replication are possible. This section describes the options.  
+
+### Replicate only the primary HANA database volumes 
+
+In this scenario, you typically don’t change roles for primary and secondary systems. A takeover is done only in an emergency case. As such, the application-consistent snapshot backups required for CRR are taken mostly on the primary host. This is the case because only the primary HANA database can be used to create a backup.
+
+The following diagram describes this scenario:
+
+[ ![Diagram that shows replication for only the primary HANA database volumes.](../media/azure-netapp-files/replicate-only-primary-database-volumes.png) ](../media/azure-netapp-files/replicate-only-primary-database-volumes.png#lightbox)
+
+In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups of both the primary and secondary systems, the system can be recovered at the DR site. In the diagram, a single volume is used for the log backups of the primary and secondary systems.
+
+In case of a takeover by the secondary HSR host, the backups taken in the secondary system won’t be replicated, but log backups of the secondary will continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO will increase because more logs are to be recovered, depending on how long the HSR pair will run in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new CRR replication including the data volume of the secondary system.
+
+The workflow for this scenario is identical to the [Add volumes](#add-volumes) workflow.
+
+### Replicate both primary and secondary HANA database volumes  
+
+For reasons other than HA, you might want to periodically switch roles between the primary and secondary HANA systems. In this scenario, applications-consistent backups must be created on both HANA hosts. 
+
+The following diagram describes this scenario:
+
+[ ![Diagram that shows replication for both the primary and the secondary HANA database volumes.](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png) ](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png#lightbox)
+
+In this scenario, you might want to replicate both sets of volumes from the primary and secondary HANA systems as shown in the diagram. 
+
+To create the volumes for the secondary replication target, the naming convention will be adapted. To distinguish between the replication of the primary and secondary database, the prefix will change from `DR` to `DR2` for the secondary HANA system. Except this name change, the workflow is identical to the [Add volumes](#add-volumes) workflow.
+
+> [!NOTE]  
+> For a detailed discussion of a DR solution for HANA with Azure NetApp Files, see [NetApp technical report TR-4891: SAP HANA disaster recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-anf_data_protection_overview_overview.html). This technical report provides detailed background and examples about using CRR for SAP HANA on Azure NetApp Files.
 
 ## Next steps  
 

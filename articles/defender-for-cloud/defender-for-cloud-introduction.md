@@ -2,8 +2,10 @@
 title: Microsoft Defender for Cloud - an introduction
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.custom: mvc
-ms.date: 12/12/2021
+ms.date: 02/28/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -136,6 +138,7 @@ The **Defender plans** page of Microsoft Defender for Cloud offers the following
 - [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
+- [Microsoft Defender for Azure Cosmos DB (Preview)](concept-defender-for-cosmos.md)
 
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 
@@ -146,7 +149,7 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 - To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 - If you're ready to enable enhanced security features now, [Quickstart: Enable enhanced security features](enable-enhanced-security.md) walks you through the steps.
 

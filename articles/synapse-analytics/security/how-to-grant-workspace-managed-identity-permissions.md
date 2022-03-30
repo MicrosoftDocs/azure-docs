@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: mesrivas
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: subject-rbac-steps
 ---
 

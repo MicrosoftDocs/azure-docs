@@ -10,7 +10,6 @@ keywords: VM isolation,isolated VM,isolation,isolated
 ms.assetid: 
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
-ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/20/2021

@@ -30,10 +30,10 @@ Defender for Cloud depends on the [Log Analytics agent](../azure-monitor/agents/
 
 Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](enable-data-collection.md#manual-agent)
 
-To learn more about the specific Defender for Cloud features available on Windows and Linux, see [Feature coverage for machines](supported-machines-endpoint-solutions-clouds.md).
+To learn more about the specific Defender for Cloud features available on Windows and Linux, see [Feature coverage for machines](supported-machines-endpoint-solutions-clouds-containers.md).
 
 > [!NOTE]
-> Even though **Microsoft Defender for servers** is designed to protect servers, most of its are supported for Windows 10 machines. One feature that isn't currently supported is [Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
+> Even though **Microsoft Defender for servers** is designed to protect servers, most of its features are supported for Windows 10 machines. One feature that isn't currently supported is [Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 ## Managed virtual machine services <a name="virtual-machine"></a>
 

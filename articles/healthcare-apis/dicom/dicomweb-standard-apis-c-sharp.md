@@ -1,18 +1,15 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with C# - Azure Healthcare APIs 
+title:  Using DICOMweb&trade;Standard APIs with C# - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with C#. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 02/15/2022
 ms.author: aersoy
 ---
 
 # Using DICOMweb&trade; Standard APIs with C#
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This tutorial uses C# to demonstrate working with the DICOM service.
 
@@ -40,7 +37,7 @@ To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM
 
 After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
-1. Sign into the [Azure portal](https://ms.portal.azure.com/).
+1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
@@ -351,7 +348,7 @@ _Details:_
 DicomWebResponse response = await client.DeleteSeriesAsync(studyInstanceUid, seriesInstanceUid);
 ```
 
-This response deletes the green-square instance (it is the only element left in the series) from the server. If it's successful, the response status code will contain no content.
+This response deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code will contain no content.
 
 ### Delete a specific study
 
@@ -365,7 +362,7 @@ _Details:_
 DicomWebResponse response = await client.DeleteStudyAsync(studyInstanceUid);
 ```
 
-This response deletes the blue-circle instance (it is the only element left in the series) from the server. If it's successful, the response status code contains no content.
+This response deletes the blue-circle instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
 
 ### Next Steps
 

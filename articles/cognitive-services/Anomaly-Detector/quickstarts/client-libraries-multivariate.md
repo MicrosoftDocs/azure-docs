@@ -12,6 +12,7 @@ ms.topic: quickstart
 ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
+ms.devlang: csharp, java, javascript, python
 ms.custom: mode-api
 ---
 

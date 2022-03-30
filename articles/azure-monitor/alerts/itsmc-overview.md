@@ -2,9 +2,7 @@
 title: IT Service Management Connector overview
 description: This article provides an overview of IT Service Management Connector (ITSMC).
 ms.topic: conceptual
-author: nolavime
-ms.author: v-jysur
-ms.date: 12/16/2020
+ms.date: 2/23/2022
 ms.custom: references_regions
 
 ---

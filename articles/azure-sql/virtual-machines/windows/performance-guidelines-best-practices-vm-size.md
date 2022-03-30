@@ -8,7 +8,6 @@ editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: performance
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -176,7 +175,8 @@ For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requi
 
 ## Next steps
 
-To learn more, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
+
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
 - [Security](security-considerations-best-practices.md)
