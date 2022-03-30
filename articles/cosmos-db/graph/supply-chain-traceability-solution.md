@@ -33,20 +33,20 @@ Traceability solutions had to address the needs of data harmonization and data i
 
 ## Solution architecture
 
-Supply chain traceability commonly shares patterns in ingesting pallet movements, handing quality incidents, and tracing/analyzing store data. Infosys developed a traceability solution that uses Azure application services, integration services, and database services. The solution provides the following capabilities:
+Supply chain traceability commonly shares patterns in ingesting pallet movements, handing quality incidents, and tracing/analyzing store data. Infosys developed an end-to-end traceability solution that uses Azure application services, integration services, and database services. The solution provides these capabilities:
 
 * Receive streaming data from factories, warehouses, and distribution centers across geographies.
 * Ingest and process parallel stock-movement events.
-* View a knowledge graph that analyzes relationships between raw materials, production batches, pallets of finished goods, multilevel parent/child relationships of pallets (co-pack/repack), and movement of goods.
+* View a knowledge graph that analyzes relationships between raw materials, production batches, pallets of finished goods, multilevel parent/child relationships of pallets (copack/repack), and movement of goods.
 * Access to a user portal with a search capability that includes wildcards and specific keywords.
 * Identify impacts of a quality incident, such as affected raw materials, batches, pallets, and locations of pallets.
 * Capture the history of events across multiple markets, including product recall information.
 
-Infosys offers an end-to-end traceability solution that supports cloud-native, API-first, and data-driven capabilities. The following diagram illustrates the architecture of this solution:
+The Infosys traceability solution supports cloud-native, API-first, and data-driven capabilities. The following diagram illustrates the architecture of this solution:
 
 :::image type="content" source="./media/supply-chain-traceability-solution/solution-architecture.png" alt-text="Diagram that shows the architecture of the Infosys supply chain traceability solution." lightbox="./media/supply-chain-traceability-solution/solution-architecture.png" border="false":::
 
-The architecture uses the following Azure services to help with specalized tasks:
+The architecture uses the following Azure services to help with specialized tasks:
 
 * Azure Cosmos DB enables you to scale performance up or down elastically. By using the Gremlin API, you can create and query complex relationships between raw materials, finished goods, and warehouses.
 * Azure API Management provides APIs for stock movement events to third-party logistics (3PL) providers and warehouse management systems (WMSs).  
@@ -59,31 +59,31 @@ The architecture uses the following Azure services to help with specalized tasks
 
 ## Graph database and its data design
 
-The production and distribution of goods require maintaining a complex and dynamic set of relationships. An adaptive data model in the form of a traceability graph allows storing such relationships starting from the receipt of raw material, manufacturing the finished goods in a factory, transferring to different warehouses during supply chain, and finally transferring to the customer warehouse. Here's a high-level visualization of the process:
+The production and distribution of goods require maintaining a complex and dynamic set of relationships. An adaptive data model in the form of a traceability graph allows storing these relationships through all the steps in the supply chain. Here's a high-level visualization of the process:
 
 :::image type="content" source="./media/supply-chain-traceability-solution/data-design-visualization.png" alt-text="Graph of supply chain data design." lightbox="./media/supply-chain-traceability-solution/data-design-visualization.png" border="true":::
 
-The preceding diagram is a simplified view of a complex process. However, getting the vital stock movement information from the factories and warehouses in real time makes it possible to create an elaborate graph that connects all these disparate pieces of information:
+The preceding diagram is a simplified view of a complex process. However, getting vital stock-movement information from the factories and warehouses in real time makes it possible to create an elaborate graph that connects all these disparate pieces of information:
 
 1. The traceability process starts when the supplier sends raw materials to the factories. The solution creates the initial nodes (vertices) of the graph and relationships (edges).
 
-1. The finished goods (items) are produced from raw materials and packed into pallets.
+1. The finished goods are produced from raw materials and packed into pallets.
 
-1. The pallets are moved to factory warehouses or market warehouses according to customer orders. The warehouses might be a company's own or from 3PL providers. 
+1. The pallets are moved to factory warehouses or market warehouses according to customer orders. The warehouses might be owned by the company or by 3PL providers. 
 
 1. The pallets are shipped to various other warehouses according to customer orders. Depending on customers' needs, child pallets or child-of-child pallets are created to accommodate the ordered quantity. 
 
-   Sometimes, a whole new item is made by mixing multiple items. For example, in a copack scenario that produces a variety pack, sometimes the same item is repacked to smaller or larger quantities to a different pallet as part of a customer order.
+   Sometimes, a whole new item is made by mixing multiple items. For example, in a copack scenario that produces a variety pack, sometimes the same item is repacked to smaller or larger quantities in a different pallet as part of a customer order.
 
    :::image type="content" source="./media/supply-chain-traceability-solution/pallet-relationship.png" alt-text="Pallet relationship in the solution for supply chain traceability." lightbox="./media/supply-chain-traceability-solution/pallet-relationship.png" border="true":::
 
 1. Pallets travel through the supply chain network and eventually reach the customer warehouse. During that process, the pallets can be further broken down or combined with other pallets to produce new pallets to fulfill customer orders.
 
-1. Eventually, the system creates a complex graph that holds vital relationship information for quality incident management.
+1. Eventually, the system creates a complex graph that holds relationship information for quality incident management.
 
    :::image type="content" source="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" alt-text="Diagram that shows the complete architecture for the supply chain object relationship." lightbox="./media/supply-chain-traceability-solution/supply-chain-object-relationship.png" border="true":::
 
-1. These intricate relationships are vital in a quality incident where the system can track and trace pallets across the supply chain. The graph and its traversals provide the required information for this. For example, if there's an issue with one raw material, the graph can show the affected pallets and the current location.
+   These intricate relationships are vital in a quality incident where the system can track and trace pallets across the supply chain. The graph and its traversals provide the required information for this. For example, if there's an issue with one raw material, the graph can show the affected pallets and the current location.
 
 ## Next steps
 
