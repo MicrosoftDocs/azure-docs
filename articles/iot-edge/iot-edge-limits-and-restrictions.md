@@ -67,5 +67,13 @@ IoT Hub only supports file upload APIs for device identities, not module identit
 
 For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md).
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+### AMQP transport
+When using Node.js to send device to cloud messages with the AMQP protocol to an Edge runtime, messages stop sending after 2047 messages. No error is thrown and the messages start sending again after approximately 25 minutes, then cycle repeats. If the client connects directly to Azure Hub, there's no issue with sending messages. This issue has been fixed in IoT Edge 1.2.
+
+:::moniker-end
+<!-- end 1.1 -->
+
 ## Next steps
 For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).
