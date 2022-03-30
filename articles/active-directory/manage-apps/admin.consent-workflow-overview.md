@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 03/30/2022
 ms.author: ergreenl
 ms.reviewer: davidmu
 ms.collection: M365-identity-device-management
@@ -19,18 +19,18 @@ ms.collection: M365-identity-device-management
 
 # Overview of admin consent workflow
 
-There may be situations where your end-users need to consent to permissions for applications that they're creating or using with their work accounts. However, non-admin users aren't allowed to consent to permissions that require admin consent. Also, users can’t consent to applications when user consent is disabled in the user’s tenant.
+There may be situations where your end-users need to consent to permissions for applications that they're creating or using with their work accounts. However, non-admin users aren't allowed to consent to permissions that require admin consent. Also, users can’t consent to applications when [user consent](configure-user-consent.md) is disabled in the user’s tenant.
  
 In such situations where user consent is disabled, an admin can grant users the ability to make requests for gaining access to applications by enabling the admin consent workflow. In this article, you’ll learn about the user and admin experience when the admin consent workflow is disabled vs when it's enabled.
 
 When attempting to sign in,  users may see a consent prompt like the one in the following screenshot: 
 
-*Insert consent prompt here*
+:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-off.png" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
 
 If the user doesn’t know who to contact to grant them access, they may be unable to use the application. This situation also requires administrators to create a separate workflow to track requests for applications if they're open to receiving them.
 As an admin, the following options exist for you to determine how users consent to applications:
 - Disable user consent. For example, a high school may want to turn off user consent so that the school IT administration has full control over all the applications that are used in their tenant. 
-- Allow users to consent to the required permissions. You can decide what settings are correct for you. Reference the [Microsoft recommended user consent setting here](linkId.md) . It's NOT recommended to keep user consent open if you have sensitive data in your tenant. 
+- Allow users to consent to the required permissions. It's NOT recommended to keep user consent open if you have sensitive data in your tenant. 
 - If you still want to retain admin-only consent for certain permissions but want to assist your end-users in onboarding their application, you can use the admin consent workflow to evaluate and respond to admin consent requests. This way, you can have a queue of all the requests for admin consent for your tenant and can track and respond to them directly through the Azure portal. 
 To learn how to configure the admin consent workflow, see [configure-admin-consent-workflow.md](configure-admin-consent-workflow.md).
 
@@ -38,11 +38,11 @@ To learn how to configure the admin consent workflow, see [configure-admin-conse
 
 When you configure the admin consent workflow, your end users can request for consent directly through the prompt. The users may see a consent prompt like the one in the following screenshot:
 
-*insert new consent prompt here*
+:::image type="content" source="media/configure-admin-consent-workflow/admin-consent-workflow-on.PNG" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
 
 When an administrator responds to a request, the user receives an email alert informing them that the request has been processed.
 
-When the user submits a consent request, the request shows up in the admin consent request page in the Azure portal. Administrators and designated reviewers sign in to view and act on the new requests. Reviewers only see consent requests that were created after they were designated as reviewers. Requests show up in the following two tabs in the admin consent requests blade
+When the user submits a consent request, the request shows up in the admin consent request page in the Azure portal. Administrators and designated reviewers sign in to [view and act on the new requests](review-admin-consent-requests.md). Reviewers only see consent requests that were created after they were designated as reviewers. Requests show up in the following two tabs in the admin consent requests blade.
 - My pending: This shows any active requests that have the signed-in user designated as a reviewer. Although reviewers can block or deny requests, only people with the correct RBAC permissions to consent to the requested permissions can do so. 
 - All(Preview): All requests, active or expired, that exist in the tenant.
 Each request includes information about the application and the user(s) requesting the application. 
@@ -77,12 +77,6 @@ The table below outlines the scenarios and audit values available for the admin 
 
 ## Next steps
 
-- [Configure the admin consent request workflow](configure-admin-consent-workflow.md)
+- [Enable the admin consent request workflow](configure-admin-consent-workflow.md)
 - [Review admin consent request](review-admin-consent-requests.md)
-
-
-
-
-
-
-
+- [Manage consent requests](manage-consent-requests.md)
