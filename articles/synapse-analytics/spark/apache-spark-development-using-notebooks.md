@@ -595,7 +595,7 @@ Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkut
 * If enabled, priority is: edited / new > committed > published. 
 
 
-## Active Session management 
+## Active session management 
 
 You can reuse your notebook sessions conveniently now without having to start new ones. Synapse notebook now supports managing your active sessions in the **Manage sessions** list, you can see all the sessions in the current workspace started by you from notebook.
 
