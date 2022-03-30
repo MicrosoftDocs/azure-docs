@@ -13,15 +13,18 @@
   items:
     - name: Basics of the identity platform
       displayName: introduction, basics, overview
+      expanded: true
       items:
-        - name: Authentication & authorization
+        - name: Authentication and authorization
           href: authentication-vs-authorization.md
-        - name: OAuth 2.0 & OpenID Connect
+        - name: OAuth 2.0 and OpenID Connect
           href: active-directory-v2-protocols.md
         - name: Security tokens
           href: security-tokens.md
         - name: Microsoft Graph
           href: microsoft-graph-intro.md
+        - name: Microsoft Authentication Library (MSAL)
+          href: msal-overview.md
     - name: Permissions and access
       displayName: Access control
       items:
@@ -63,23 +66,6 @@
           href: active-directory-how-applications-are-added.md
         - name: Single-tenant and multi-tenant apps
           href: single-and-multi-tenant-apps.md
-    - name: Microsoft authentication libraries
-      displayName: msal, microsoft.identity.web
-      items:
-        - name: "Overview: Microsoft Authentication Library (MSAL)"
-          href: msal-overview.md
-        - name: "Overview: Microsoft.Identity.Web"
-          displayName: auth, library, .NET Core, msal
-          href: microsoft-identity-web.md
-        - name: "MSAL: supported authentication flows"
-          href: msal-authentication-flows.md
-        - name: Acquire and cache tokens
-          href: msal-acquire-cache-tokens.md
-        - name: Public and confidential client apps
-          href: msal-client-applications.md
-        - name: National clouds and MSAL
-          displayName: china, germany, gov, 21vianet
-          href: msal-national-cloud.md
     - name: Workload identities
       href: workload-identities-overview.md
     - name: Workload identity federation
@@ -245,12 +231,18 @@
           href: ./howto-restore-app.md
 - name: Reference
   items:
-    - name: SDK library and API reference
-      displayName: authentication library, msal
+    - name: Microsoft Authentication Library (MSAL) reference
+      displayName: SDK, library, msal, auth
       items:
-        - name: List of Microsoft auth SDK libraries
-          displayName: MSAL, auth library, SDK
-          href: reference-v2-libraries.md
+        - name: Auth flows supported by MSAL
+          href: msal-authentication-flows.md
+        - name: Request and cache tokens
+          href: msal-acquire-cache-tokens.md
+        - name: Public and confidential client apps
+          href: msal-client-applications.md
+        - name: National clouds and MSAL
+          displayName: china, germany, gov, 21vianet
+          href: msal-national-cloud.md
         - name: MSAL Android
           items:
             - name: Android MSAL configuration file
@@ -273,7 +265,7 @@
               href: msal-android-handling-exceptions.md
             - name: Logging in MSAL for Android
               href: msal-logging-android.md
-        - name: MSAL iOS & macOS
+        - name: MSAL iOS and macOS
           items:
             - name: MSAL for iOS and macOS differences
               href: msal-differences-ios-macos.md
@@ -369,9 +361,9 @@
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Instantiation with custom HttpClient
                   href: msal-net-provide-httpclient.md
-                - name: Web browser interaction (system & embedded)
+                - name: Web browser interaction (system and embedded)
                   href: msal-net-web-browsers.md
-            - name: Token acquisition & caching
+            - name: Token acquisition and caching
               displayName: caching, token caching, caching tokens
               items:
                 - name: Get a token from the cache
@@ -384,13 +376,13 @@
                   href: msal-net-token-cache-serialization.md
                 - name: Get consent for several resources
                   href: msal-net-user-gets-consent-for-multiple-resources.md
-            - name: Connections & integrations
+            - name: Connections and integrations
               items:
                 - name: Integrate with AD FS
                   href: msal-net-adfs-support.md
                 - name: Integrate with Azure AD B2C
                   href: msal-net-aad-b2c-considerations.md
-            - name: Error handling & logging
+            - name: Error handling and logging
               displayName: MSAL.NET
               items:
                 - name: Handle errors and exceptions in MSAL.NET
@@ -412,6 +404,9 @@
                   href: msal-net-migration-ios-broker.md
                 - name: Differences between ADAL.NET and MSAL.NET
                   href: msal-net-differences-adal-net.md
+            - name: Microsoft.Identity.Web (MSAL wrapper)
+              displayName: auth, library, .NET Core, msal
+              href: microsoft-identity-web.md
         - name: MSAL Python
           items:
             - name: Custom token cache serialization
@@ -425,8 +420,6 @@
               href: msal-error-handling-python.md
             - name: Logging in MSAL for Python
               href: msal-logging-python.md
-        - name: Microsoft Graph API reference (identity operations)
-          href: /graph/api/resources/azure-ad-overview
     - name: App registrations reference
       items:
         - name: Application manifest
@@ -438,7 +431,7 @@
           href: supported-accounts-validation.md
     - name: Protocol reference (OAuth, OIDC, SAML)
       items:
-        - name: OAuth 2.0 & OpenID Connect (OIDC)
+        - name: OAuth 2.0 and OpenID Connect (OIDC)
           items:
             - name: Token grant flows
               items:
@@ -491,16 +484,21 @@
               href: reference-saml-tokens.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
+    - name: List of Microsoft authentication SDKs
+      displayName: MSAL, auth library, SDK
+      href: reference-v2-libraries.md
     - name: AADSTS error code reference
       href: reference-aadsts-error-codes.md
     - name: "Endpoint reference: Admin consent URI"
       href: v2-admin-consent.md
-    - name: "Endpoint reference: National & public cloud URIs"
+    - name: "Endpoint reference: National and public cloud URIs"
       displayName: china, germany, gov, 21vianet
       href: authentication-national-cloud.md
     - name: Glossary of terms
       displayName: dictionary, terminology
       href: developer-glossary.md
+    - name: Microsoft Graph API reference (identity operations)
+      href: /graph/api/resources/azure-ad-overview
 - name: Resources
   items:
     - name: Help and support options
