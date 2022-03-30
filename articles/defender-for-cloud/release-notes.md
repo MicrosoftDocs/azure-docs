@@ -32,7 +32,7 @@ Updates in March include:
 - [Deprecated Microsoft Defender for IoT device recommendations](#deprecated-microsoft-defender-for-iot-device-recommendations)
 - [Deprecated Microsoft Defender for IoT device alerts](#deprecated-microsoft-defender-for-iot-device-alerts)
 - [Posture management and threat protection for AWS and GCP released for general availability (GA)](#posture-management-and-threat-protection-for-aws-and-gcp-released-for-general-availability-ga)
-- [Registry scan for Windows images in ACR added support for national clouds](#registry-scan-for-windows-images-in-acr-added-support-for-national-clouds)
+- [Registry scan for Windows images in ACR added support for national clouds for preview](#registry-scan-for-windows-images-in-acr-added-support-for-national-clouds-for-preview)
 
 ### Deprecated the recommendations to install the network traffic data collection agent
 
@@ -136,7 +136,7 @@ All Microsoft Defender for IoT device alerts are  no longer visible in Microsoft
 
 Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.md) and [GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
-### Registry scan for Windows images in ACR added support for national clouds
+### Registry scan for Windows images in ACR added support for national clouds for preview
 
 Registry scan for Windows images is now supported in Azure Government and Azure China 21Vianet.
 
