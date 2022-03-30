@@ -80,7 +80,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 If the original exception has multiple levels of inner exceptions, then you can control the number of levels of inner exceptions to be serialized by setting `FabricTransportRemotingListenerSettings.RemotingExceptionDepth`.
 
-2. Enable DataContract remoting exception serialization on the **Client** by using `FabricTransportRemotingSettings.ExceptionSerializationTechnique` while creating the Client Factory
+2. Enable DataContract remoting exception serialization on the **Client** by using `FabricTransportRemotingSettings.ExceptionDeserializationTechnique` while creating the Client Factory
 - ServiceProxyFactory creation
 ```csharp
 var serviceProxyFactory = new ServiceProxyFactory(
