@@ -2,7 +2,7 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 03/30/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -44,10 +44,6 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 - Disks encrypted with platform-managed keys or customer-managed keys are supported. However, the restore will fail for the restore points of a disk that is encrypted using customer-managed keys (CMK) if the Disk Encryption Set KeyVault key is disabled or deleted.
 
 - Currently, the Backup policy can't be modified, and the Snapshot Resource group that is assigned to a backup instance when you  configure the backup of a disk can't be changed.
-
-- Currently, the Azure portal experience to configure the backup of disks is limited to a maximum of 20 disks from the same subscription.
-
-- Azure Disk Backup supports PowerShell. Currently, Azure CLI isn’t supported.
 
 - When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
 

@@ -10,6 +10,8 @@ author: likebupt
 ms.reviewer: laobri
 ms.date: 10/21/2021
 ms.topic: conceptual
+ms.custom: cliv2
+
 ---
 # What is an Azure Machine Learning component (preview)?
 
