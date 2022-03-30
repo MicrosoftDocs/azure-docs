@@ -557,6 +557,8 @@ items:
       href: question-answering/how-to/create-test-deploy.md
     - name: Export/import/refresh
       href: question-answering/how-to/export-import-refresh.md
+    - name: Refresh URL source content
+      href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
