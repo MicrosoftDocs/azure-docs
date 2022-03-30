@@ -46,25 +46,14 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription.
+2. If your identity is associated with more than one subscription, then set your active subscription. Then, get the storage account context.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Get the storage account context that defines the storage account you want to use.
-
-   ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   $ctx = $storageAccount.Context
+   $ctx = $storageAccount.Context   
    ```
-
-   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 3. Upload a blob by using the `Set-AzStorageBlobContent` command. Set tags by using the `-Tag` parameter.
 
@@ -136,27 +125,16 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription.
+2. If your identity is associated with more than one subscription, then set your active subscription. Then, get the storage account context.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Get the storage account context that defines the storage account you want to use.
-
-   ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   $ctx = $storageAccount.Context
+   $ctx = $storageAccount.Context   
    ```
 
-   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
-
-4. To get the tags of a blob, use the `Get-AzStorageBlobTag` command and set the `-Blob` parameter to the name of the blob.
+3. To get the tags of a blob, use the `Get-AzStorageBlobTag` command and set the `-Blob` parameter to the name of the blob.
 
     ```powershell
     $containerName = "myContainer"
@@ -164,7 +142,7 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
     Get-AzStorageBlobTag -Context $ctx -Container $containerName -Blob $blobName
     ```
 
-5. To set the tags of a blob, use the `Set-AzStorageBlobTag` command. Set the `-Blob` parameter to the name of the blob, and set the `-Tag` parameter to a collection of name and value pairs.
+4. To set the tags of a blob, use the `Set-AzStorageBlobTag` command. Set the `-Blob` parameter to the name of the blob, and set the `-Tag` parameter to a collection of name and value pairs.
 
     ```powershell
     $containerName = "myContainer"
@@ -243,34 +221,23 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription.
+2. If your identity is associated with more than one subscription, then set your active subscription. Then, get the storage account context.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Get the storage account context that defines the storage account you want to use.
-
-   ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   $ctx = $storageAccount.Context
+   $ctx = $storageAccount.Context   
    ```
 
-   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
-
-4. To find all blobs that match a specific blob tag, use the `Get-AzStorageBlobByTag` command. 
+3. To find all blobs that match a specific blob tag, use the `Get-AzStorageBlobByTag` command. 
 
     ```powershell
     $filterExpression = """tag1""='value1'"
     Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $ctx
     ```
 
-5. To find blobs only in a specific container, include the container name in the `-TagFilterSqlExpression`.
+4. To find blobs only in a specific container, include the container name in the `-TagFilterSqlExpression`.
 
     ```powershell
     $filterExpression = "@container='myContainer' AND ""tag1""='value1'"
