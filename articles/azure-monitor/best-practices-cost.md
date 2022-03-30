@@ -9,38 +9,44 @@ ms.date: 03/08/2022
 ---
 
 # Azure Monitor best practices - Cost management
-This article provides guidance on reducing your cloud monitoring costs by implementing and managing Azure Monitor in the most cost effective manner. This includes leveraging cost saving features and ensuring that you're not paying for data collection that provides little or no value. It also provides guidance for detecting and analyzing excessive usage. 
+This article provides guidance on reducing your cloud monitoring costs by implementing and managing Azure Monitor in the most cost effective manner. This includes leveraging cost saving features and ensuring that you're not paying for data collection that provides little or no value. It also provides guidance for regularly monitoring your usage so that you can proactively detect and identify sources responsible for excessive usage.
 
 
-
-
-
-
-## Configure
-You can start using Azure Monitor with a single Log Analytics workspace using default options. As your monitoring environment grows, you will need to make decisions about whether to combine multiple services in a single workspace or create multiple workspaces, and you want to evaluate configuration options that allow you to reduce your monitoring costs.
+## Configure workspaces
+You can start using Azure Monitor with a single Log Analytics workspace using default options. As your monitoring environment grows, you will need to make decisions about whether to have multiple services share a single workspace or create multiple workspaces, and you want to evaluate configuration options that allow you to reduce your monitoring costs.
 
 ### Configure pricing tier or dedicated cluster
-By default, your workspace will use Pay-As-You-Go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by configuring a commitment tier. [Dedicated clusters](logs/logs-dedicated-clusters.md) provide additional functionality and cost savings if you ingest at least 500 GB per day, collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach the 500 GB.
+By default, your workspace will use Pay-As-You-Go pricing with no minimum data volume. If you collect a sufficient amount of data, you can significantly decrease your cost by using a [commitment tier](logs/cost-logs.md#commitment-tiers). [Dedicated clusters](logs/logs-dedicated-clusters.md) provide additional functionality and cost savings if you ingest at least 500 GB per day, collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach the 500 GB.
 
-See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for you  environment.
+See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for you  environment. See [Usage and estimated costs](usage-estimated-costs.md#usage-and-estimated-costs) to view estimated costs for your usage at different pricing tiers.
 
 ### Determine most cost effective workspace configuration
-
-
 There can be cost implications when you combine different services such as operational data from Azure Monitor and security data from Azure Sentinel and Microsoft Defender for Cloud. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for a description of these implications and guidance on determining your most cost effective configuration.
 
-### Configure Basic Logs for low value tables (preview)
-Use [Basic Logs](logs/basic-logs-configure.md) to save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. 
 
-### Reduce long-term retention with Archived Logs (preview)
-Data collected in a Log Analytics workspace is retained for 31 days at no charge (90 days if Azure Sentinel is enabled on the workspace). You incur retention charges for any data that you retain beyond this duration.
+## Configure tables 
+Aside from [tables that don't incur charges](logs/cost-logs.md#data-size-calculation), all data in a Log Analytics workspace is billed at the same rate. You may be collecting data though that you query infrequently or that you need to archive for compliance but rarely access. 
 
-For data that you need to retain long-term for compliance or occasional investigation, configure [Archived Logs](logs/data-retention-archive.md) which allows you to retain data at a significantly reduced cost.
+### Configure data retention and archiving
+Data collected in a Log Analytics workspace is retained for 31 days at no charge (90 days if Azure Sentinel is enabled on the workspace). You incur retention charges for any data that you retain beyond this duration. 
 
-### Optimize alert rules
+You can set a separate 
 
+You may have a requirement to retain long-term for compliance or occasional investigation
 
+For data that you need, configure [Archived Logs](logs/data-retention-archive.md) which allows you to retain data at a significantly reduced cost.
 
+### Configure Basic Logs for tables requireing minimal queries (preview)
+You can save on data ingestion costs by configuring [certain tables](logs/basic-logs-configure.md#which-tables-support-basic-logs) in your Log Analytics workspace that you primarily use for debugging, troubleshooting and auditing as [Basic Logs](logs/basic-logs-configure.md). Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. They can't be used for alerting, their retention is set to 8 days, they support a limited version of the query language, and there is a cost for querying them. If you query these tables infrequently though, this query cost can be more than offset by the reduced ingestion cost.
+
+The decision whether to configure a table for Basic Logs is based on the following criteris:
+
+- The table currently support Basic Logs.
+- You don't require more than eight days of data retention for the table.
+- You only require basic queries of the data using a limited version of the query language.
+- The cost savings for data ingestion over a month exceeds the expected cost for any queries
+
+See [Query Basic Logs in Azure Monitor (Preview)](/logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
 
 
 
@@ -140,6 +146,12 @@ You should regularly
 
 
 
+
+
+
+
+
+## Alerts
 
 
 

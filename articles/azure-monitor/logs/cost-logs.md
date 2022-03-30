@@ -31,12 +31,9 @@ The following [standard columns](log-standard-columns.md) that are common to all
 
 
 ### Excluded tables
-The following tables are free from data ingestion charges altogether. You can always refer to the [_IsBillable](log-standard-columns.md#_isbillable) column, which indicates whether a record was excluded from billing for data ingestion. 
+Some tables are free from data ingestion charges altogether, including [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage), [Operation](/azure/azure-monitor/reference/tables/operation). This will always be indicated by the [_IsBillable](log-standard-columns.md#_isbillable) column, which indicates whether a record was excluded from billing for data ingestion. 
 
-- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
-- [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat)
-- [Usage](/azure/azure-monitor/reference/tables/usage)
-- [Operation](/azure/azure-monitor/reference/tables/operation)
+
 
 ### Charges for other solutions and services
 Some solutions have more specific policies about free data ingestion. For example [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. Services such as [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/azure-defender/), [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
