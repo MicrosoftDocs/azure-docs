@@ -168,7 +168,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Enterprise Deployment: HPE ProLiant DL20+
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Picture of the HPE ProLiant DL20+":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -176,7 +176,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="Photo of the DL20+ panel":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel":::
 
 |Quantity| |PN|Description|
 |:----|:----|:----|:----|
@@ -246,6 +246,7 @@ Optional modules for port expansion:
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
 Enterprise Deployment: Dell PowerEdge R340 XL
+
 |Component|	Technical Specifications|
 |:----|----|
 |Chassis|	1U rack server|
