@@ -20,6 +20,8 @@
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Create template specs
+    href: quickstart-create-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -56,7 +58,7 @@
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine
-      href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json 
+      href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Containers
     items:
     - name: Container Instances

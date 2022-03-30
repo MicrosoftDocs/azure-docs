@@ -31,41 +31,43 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
 
-   ![Add to Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
+   :::image type="content" source="./media/single-database-create-quickstart/select-deployment.png" alt-text="Add to Azure SQL" lightbox="media/single-database-create-quickstart/select-deployment.png":::
 
 1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
 1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
 1. For **Database name**, enter *mySampleDatabase*.
 1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
    - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it's available or not.
+   - **Location**: Select a location from the dropdown list.
+   - **Authentication method**: Select **Use SQL authentication**.
    - **Server admin login**: Enter *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
-   - **Location**: Select a location from the dropdown list.
+   
 
    Select **OK**.
 
 1. Leave **Want to use SQL elastic pool** set to **No**.
 1. Under **Compute + storage**, select **Configure database**.
-1. This quickstart uses a serverless database, so select **Serverless**, and then select **Apply**.
+1. This quickstart uses a serverless database, so leave **Service tier** set to **General Purpose (Scalable compute and storage options)** and set **Compute tier** to **Serverless**. Select **Apply**.
 
-      ![configure serverless database](./media/single-database-create-quickstart/configure-database.png)
+      :::image type="content" source="./media/single-database-create-quickstart/configure-database.png" alt-text="configure serverless database" lightbox="media/single-database-create-quickstart/configure-database.png":::
 
 1. Select **Next: Networking** at the bottom of the page.
 
-   ![New SQL database - Basic tab](./media/single-database-create-quickstart/new-sql-database-basics.png)
+   :::image type="content" source="./media/single-database-create-quickstart/new-sql-database-basics.png" alt-text="New SQL database - Basic tab":::
 
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
-1. Select **Next: Additional settings** at the bottom of the page.
+1. Select **Next: Security** at the bottom of the page.
 
-   ![Networking tab](./media/single-database-create-quickstart/networking.png)
+   :::image type="content" source="./media/single-database-create-quickstart/networking.png" alt-text="Networking tab":::
   
+1. On the **Security tab**, you have the option to enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md). Select **Next: Additional settings** at the bottom of the page.
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
-1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
-1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
+
 1. Select **Review + create** at the bottom of the page:
 
-   ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)
+   :::image type="content" source="./media/single-database-create-quickstart/additional-settings.png" alt-text="Additional settings tab":::
 
 1. On the **Review + create** page, after reviewing, select **Create**.
 
@@ -278,7 +280,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 1. On the page for your database, select **Query editor (preview)** in the left menu.
 1. Enter your server admin login information, and select **OK**.
 
-   ![Sign in to Query editor](./media/single-database-create-quickstart/query-editor-login.png)
+   :::image type="content" source="./media/single-database-create-quickstart/query-editor-login.png" alt-text="Sign in to Query editor":::
 
 1. Enter the following query in the **Query editor** pane.
 
@@ -291,7 +293,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 1. Select **Run**, and then review the query results in the **Results** pane.
 
-   ![Query editor results](./media/single-database-create-quickstart/query-editor-results.png)
+   :::image type="content" source="./media/single-database-create-quickstart/query-editor-results.png" alt-text="Query editor results" lightbox="media/single-database-create-quickstart/query-editor-results.png":::
 
 1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
