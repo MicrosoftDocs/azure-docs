@@ -43,7 +43,7 @@ With the Azure Machine Learning CLI extension v1 (`azure-cli-ml`), only some of 
 
 # [CLI v2](#tab/vnetpleconfigurationsv2cli)
 
-With the Azure Machine Learning CLI extension v2 ('ml'), ll of the commands communicate with the Azure Resource Manager. This includes operational data such as YAML parameters and metadata. If your Azure Machine Learning workspace is public (that is, not behind a virtual network), then there is no additional configuration required. Communications are secured using HTTPS/TLS 1.2.
+With the Azure Machine Learning CLI extension v2 ('ml'), all of the commands communicate with the Azure Resource Manager. This includes operational data such as YAML parameters and metadata. If your Azure Machine Learning workspace is public (that is, not behind a virtual network), then there is no additional configuration required. Communications are secured using HTTPS/TLS 1.2.
 
 If your Azure Machine Learning workspace uses a private endpoint and virtual network and you are using CLI v2, choose one of the following configurations to use:
 
