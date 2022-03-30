@@ -102,7 +102,7 @@ If you would rather integrate with an existing workspace, perform the following 
    }
    ```
 
-2. Add the [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) following the steps in the Terraform documentation.
+2. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) following the steps in the Terraform documentation.
 
 ## Enable from Azure Monitor in the portal
 
