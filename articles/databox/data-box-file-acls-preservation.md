@@ -83,11 +83,13 @@ During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACL
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
 - If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-In order for a user to copy SACLs from their files, the user must have the “SeBackupPrivilege” credential granted. “SeBackupPrivilege” is required to read SACLs. Users that are members of the “Administrators” and “Backup Operators” groups have this privilege by default. 
+In order for you to copy SACLs from your files, you must have the “SeBackupPrivilege” credential granted. “SeBackupPrivilege” is required to read SACLs. If you are a member of the “Administrators” or “Backup Operators” group, you will have this privilege by default. 
 
-If a user does not have the “SeBackupPrivilege” credential, they will not be able to copy SACLs for Azure Files copy service jobs and they may experience access issues.
+If you do not have the “SeBackupPrivilege” credential:
+- You will not be able to copy SACLs for Azure Files copy service jobs.
+- You may experience access issues and receive this error: "Could not read SACLs from share due to insufficient privileges."
 
- Maybe also link to some documentation about [how to obtain the “SeBackupPrivilege”](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440).
+ For more information, see how to obtain the [“SeBackupPrivilege” credential](/windows/win32/secauthz/privilege-constants?msclkid=862cc08daf8911ec93453a319be9a440). 
 
 
 **Default ACLs transfer**  
