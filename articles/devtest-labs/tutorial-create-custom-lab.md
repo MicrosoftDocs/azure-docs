@@ -15,7 +15,7 @@ In this Azure DevTest Labs tutorial, you learn how to:
 > * Add a user in the DevTest Labs User role.
 > * Delete the lab when no longer needed.
 
-In the [next tutorial](tutorial-use-custom-lab.md), lab users, such as developers, testers, and trainees, access the lab and claim, connect to, and unclaim lab VMs.
+In the [next tutorial](tutorial-use-custom-lab.md), lab users, such as developers, testers, and trainees, learn how to connect to the lab VM and claim and unclaim lab VMs.
 
 ## Prerequisite
 
