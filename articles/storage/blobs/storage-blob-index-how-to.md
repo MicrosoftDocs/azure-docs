@@ -205,44 +205,6 @@ az --version
 
 ---
 
-## Lifecycle management with blob index tag filters
-
-### [Portal](#tab/azure-portal)
-
-1. In the [Azure portal](https://portal.azure.com/), select your storage account.
-
-2. Navigate to the **Lifecycle Management** option under **Blob Service**
-
-3. Select *Add rule* and then fill out the Action set form fields
-
-4. Select **Filter** set to add optional filter for prefix match and blob index match
-
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot of the Azure portal showing how to add index tags for lifecycle management.":::
-
-5. Select **Review + add** to review the rule settings
-
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Screenshot of the Azure portal showing a lifecycle management rule with blob index tags filter example":::
-
-6. Select **Add** to apply the new rule to the lifecycle management policy
-
-### [PowerShell](#tab/azure-powershell)
-
-Description goes here.
-
-```powershell
-Code here.
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-Description goes here.
-
-```azurecli
-az --version
-```
-
----
-
 ## Next steps
 
 - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
