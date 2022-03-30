@@ -37,11 +37,9 @@ The subscription or resource group needs to be registered with Azure Purview to 
 
 - [Register multiple sources - Azure Purview](register-scan-azure-multiple-sources.md)
 
-Enable the resource group or the subscription for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
+Follow this link to [Enable the resource group or subscription for access policies](./how-to-enable-data-use-governance.md) in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
 
 ![Image shows how to register a resource group or subscription for policy.](./media/tutorial-data-owner-policies-resource-group/register-resource-group-for-policy.png)
-
-Follow this link for more information and best practices related to [registering a data resource for Data use governance](./how-to-enable-data-use-governance.md)
 
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*:

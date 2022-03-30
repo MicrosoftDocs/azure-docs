@@ -15,6 +15,3 @@ In the vCore-based purchasing model, you pay for:
 - Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
 - The type and amount of data and log storage.
 - Backup storage.
-
-> [!IMPORTANT]
-> Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.

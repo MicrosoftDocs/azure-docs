@@ -10,6 +10,8 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/21/2021
+ms.custom: cliv1
+
 ---
 
 # Use Managed identities with Azure Machine Learning

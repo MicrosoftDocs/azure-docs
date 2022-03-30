@@ -1,6 +1,6 @@
 ---
-title: Quickstart for managing Azure file shares
-description: See how to create and manage Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
+title: Quickstart for creating and using Azure file shares
+description: See how to create and use Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
@@ -12,8 +12,8 @@ ms.devlang: azurecli
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Create and manage Azure file shares
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using either the Azure portal, Azure CLI, or Azure PowerShell module.
+# Quickstart: Create and use an Azure file share
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide shows you how to create an SMB Azure file share using either the Azure portal, Azure CLI, or Azure PowerShell module.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module Az version 0.7 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account.
+If you would like to install and use PowerShell locally, this guide requires the Azure PowerShell module Az version 0.7 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account.
 
 # [Azure CLI](#tab/azure-cli)
 
