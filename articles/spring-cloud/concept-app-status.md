@@ -29,49 +29,62 @@ To view general status of an application type, select **Apps** in the left navig
 
 ![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
 
-The deployment status is reported as one of the following values:
+## Deployment status
 
-| Enum    | Definition                        |
+The deployment status sho0ws the running state of the deployment. The status is reported as one of the following values:
+
+| Value   | Definition                        |
 |---------|-----------------------------------|
 | Running | The deployment SHOULD be running. |
 | Stopped | The deployment SHOULD be stopped. |
 
+## Provisioning status
+
+The *deployment provisioning* status describes the state of operations of the deployment resource. This status shows the comparison between the functionality and the deployment definition.
+
 The provisioning state is accessible only from the CLI.  It is reported as one of the following values:
 
-| Enum      | Definition                                              |
+| Value     | Definition                                              |
 |-----------|---------------------------------------------------------|
-| Creating  | The resource is creating.                               |
-| Updating  | The resource is updating.                               |
-| Succeeded | Successfully supplied resources and deploys the binary. |
+| Creating  | The resource is creating and is not ready.              |
+| Updating  | The resource is updating and the functionality may be different from the deployment definition until the update is complete.                               |
+| Succeeded | Successfully supplied resources and deploys the binary. The deployment's functionality is the same as the definition and all app instances are working. |
 | Failed    | Failed to achieve the *Succeeded* goal.                 |
 | Deleting  | The resource is being deleted. This prevents operation, and the resource is not available in this status. |
 
 ## App instances status
 
-To view the status of a specific instance of a deployed app, select the **Name** of the app in the **Apps** UI. The results will display:
+The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **Name** of the app in the **Apps** UI. The results will display:
 
-* **Status**: Whether the instance is running or its state
-* **DiscoveryStatus**: The registered status of the app instance in Eureka server
+* **Status**: Whether the instance is running or it's current state
+* **DiscoveryStatus**: The registered status of the app instance in the Eureka server
 
 ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
+### App instance status
+
 The instance status is reported as one of the following values:
 
-| Enum        | Definition |
+| Value       | Definition |
 |-------------|------------|
-| Starting    | The binary is successfully deployed to the given instance. Instance booting the jar file may fail because jar cannot run properly. |
-| Running     | The instance works. |
-| Failed      | The app instance failed to start user’s binary after several retries. |
-| Terminating | The app instance is shutting down. |
+| Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file may fail because the jar cannot run properly. Azure Spring Cloud will restart the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
+| Running     | The instance works. The instance can serve requests from inside Azure Spring Cloud. |
+| Failed      | The app instance failed to start the user’s binary after several retries. The app instance may be in one of the following states:<br/>- The app may stay in the *Starting* status and never be ready for serving requests.<br/>- The app may boot up but crashed in a few seconds. |
+| Terminating | The app instance is shutting down. The app may not serve requests and the app instance will be removed. |
+
+### App discovery status
 
 The discovery status of the instance is reported as one of the following values:
 
-| Enum           | Definition |
+| Value          | Definition |
 |----------------|------------|
 | UP             | The app instance is registered to Eureka and ready to receive traffic |
 | OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
 | DOWN           | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
 
+## App registration status
+
+The *app registration* status shows the state in service discovery. Azure Spring Cloud uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's halth checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks).
 ## Next steps
 
 * [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)
