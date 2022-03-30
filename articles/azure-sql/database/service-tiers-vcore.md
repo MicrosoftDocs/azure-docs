@@ -22,7 +22,7 @@ This article provides a brief overview of the vCore purchasing model used by bot
 [!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
 
 > [!IMPORTANT]
-> On Azure SQL Database, compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
+> In Azure SQL Database, compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
 
 The vCore purchasing model provides transparency in the hardware details that power compute, control over the hardware generation, higher scaling granularity, and pricing discounts with the [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 
