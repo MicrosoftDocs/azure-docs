@@ -1,8 +1,8 @@
 ---
 title: Automatic OS image upgrades with Azure virtual machine scale sets
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
-author: mamccrea
-ms.author: mamccrea
+author: ju-shim
+ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
@@ -125,7 +125,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
 
 > [!NOTE]
-> The **upgradePolicy** mode and [automaticOSUpgradePolicy](/dotnet/api/microsoft.azure.management.compute.models.automaticosupgradepolicy.enableautomaticosupgrade?view=azure-dotnet) are different settings and control different behaviors.
+> The **Upgrade Policy mode** and [automaticOSUpgradePolicy](/dotnet/api/microsoft.azure.management.compute.models.automaticosupgradepolicy.enableautomaticosupgrade?view=azure-dotnet) parameter are different settings and control different behaviors. If you are adjusting the Upgrade Policy mode, remember to address the Automatic OS Upgrade Policy setting as well.
 
 ### REST API
 The following example describes how to set automatic OS upgrades on a scale set model:
