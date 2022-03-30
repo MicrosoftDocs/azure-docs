@@ -40,6 +40,8 @@
     href: repair-automanage-account.md
   - name: Move an Automanaged virtual machine across regions
     href: move-automanaged-vms.md
+  - name: Preview Windows Server VNext Datacenter Azure Edition 
+    href: preview-wsae.md
 - name: Resources
   expanded: true
   items:
