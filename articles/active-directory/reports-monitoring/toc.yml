@@ -104,6 +104,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
   - name: Basic info in the sign-in logs
     href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
@@ -138,8 +140,6 @@
       href: workbook-sensitive-operations-report.md
 - name: Recommendations
   items:
-    - name: Convert from per-user MFA to conditional access MFA
-      href: recommendation-convert-to-conditional-access-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
