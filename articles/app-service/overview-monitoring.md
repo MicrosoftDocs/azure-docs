@@ -14,7 +14,7 @@ Azure App Service provides several monitoring options for monitoring resources f
 
 Azure Monitor is a monitoring service that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premise. The Azure Monitor data platform collects data into logs and metrics where they can be analyzed. App Service monitoring data can be shipped to Azure Monitor through Diagnostic Settings.
 
-Diagnostic settings lets you export logs to other services, such as Log Analytics, Storage account, and Event Hub. Large amounts of data using SQL-like Kusto can be queried with Log Analytics. You can capture platform logs in Azure Monitor Logs as configured via Diagnostic Settings, and instrument your app further with the dedicated application performance management feature (Application Insights) for additional telemetry and logs.
+Diagnostic settings lets you export logs to other services, such as Log Analytics, Storage account, and Event Hubs. Large amounts of data using SQL-like Kusto can be queried with Log Analytics. You can capture platform logs in Azure Monitor Logs as configured via Diagnostic Settings, and instrument your app further with the dedicated application performance management feature (Application Insights) for additional telemetry and logs.
 
 For an end-to-end tutorial on Diagnostic Settings, see the article [Troubleshoot an App Service app with Azure Monitor](tutorial-troubleshoot-monitor.md).
 
