@@ -126,7 +126,7 @@ Inside the `Main` method, add the following code to initialize the CosmosClient 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
 
 > [!Note]
-> Once bulk execution is specified in the [CosmosClientOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnet), they are effectively immutable for the lifetime of the CosmosClient. Changing the values will have no effect.
+> Once bulk execution is specified in the [CosmosClientOptions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions), they are effectively immutable for the lifetime of the CosmosClient. Changing the values will have no effect.
 
 After the bulk execution is enabled, the CosmosClient internally groups concurrent operations into single service calls. This way it optimizes the throughput utilization by distributing service calls across partitions, and finally assigning individual results to the original callers.
 
