@@ -19,7 +19,7 @@ ms.date: 06/06/2020
 
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
-In Microsoft SQL Server, the [Event File target](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server, the [Event File target](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) is used to store event outputs into a local hard drive file. In Azure SQL Database and Azure SQL Managed Instance, local storage is not accessible to users. You can instead use Azure Storage blobs in the Event File target.
 
 This topic presents a two-phase code sample:
 
@@ -501,9 +501,9 @@ An explanation of advanced options for the viewing of data from extended events 
 
 Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Server.
 
-- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as *C:\myeventdata.xel*. The file would be written to the local hard drive of the computer that hosts SQL Server.
+- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as `C:\myeventdata.xel`. The file would be written to the local hard drive of the computer that hosts SQL Server.
 - You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
-- In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like *C:\myfile.xel*.
+- In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like `C:\myfile.xel`.
 
   - No Azure Storage account need be involved.
 
