@@ -29,7 +29,7 @@ The following steps show how to deploy a new Data Share account using a Resource
 ### Export the template and deploy from the portal
 
 1. Login to the [Azure portal](https://portal.azure.com).
-2. Select **All resources** and then select your Data Share account
+1. Select **All resources** and then select your Data Share account
 4. Select **Automation** > **Export template**
 5. Choose **Deploy** in the **Export template** blade.
 6. Click **Edit parameters** to open the **parameters.json** file in the online editor.
