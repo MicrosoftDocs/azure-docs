@@ -41,7 +41,7 @@ A subscription tells Event Grid which events on a topic you're interested in rec
 
 For examples of creating subscriptions, see:
 
-* [Azure CLI samples for Event Grid](cli-samples.md)
+* [Azure CLI samples for Event Grid](scripts/event-grid-cli-subscribe-custom-topic.md)
 * [Azure PowerShell samples for Event Grid](powershell-samples.md)
 * [Azure Resource Manager templates for Event Grid](template-samples.md)
 
