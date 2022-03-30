@@ -472,6 +472,10 @@ It's important to note that the following example doesn't cause the ApplicationI
 
 For more information, see [ILogger configuration](ilogger.md#logging-level).
 
+### How can I get all custom ILogger error messages?
+
+Disable adaptive sampling. Examples of how to do this are provided in [Configure the Application Insights SDK](#configure-the-application-insights-sdk) section of this article.
+
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
 The extension method `UseApplicationInsights()` is still supported, but it's marked as obsolete in Application Insights SDK version 2.8.0 and later. It will be removed in the next major version of the SDK. To enable Application Insights telemetry, we recommend using `AddApplicationInsightsTelemetry()` because it provides overloads to control some configuration. Also, in ASP.NET Core 3.X apps, `services.AddApplicationInsightsTelemetry()` is the only way to enable Application Insights.
