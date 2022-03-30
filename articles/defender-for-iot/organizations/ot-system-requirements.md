@@ -122,9 +122,9 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 70.7 cm <br> -1.69 x 17.11 x 27.83 in         |
 |Weight    | Max 16.72 kg / 35.86 lb        |
 
-### CORPORATE DEPLOYMENT: HPE PROLIANT DL360
+### Corporate deployment: HPE ProLiant DL360
 
-|Component	| Technical specifications|
+|Component| Technical specifications|
 |---------|---------|
 |Chassis |	1U rack server|
 |Dimensions	| 42.9 x 43.46 x 70.7 (cm)/1.69" x 17.11" x 27.83" (in)|
@@ -135,7 +135,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Storage|	6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5|
 |Network controller|	On-board: 2 x 1 Gb <br> On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 
-### CORPORATE DEPLOYMENT: HPE PROLIANT DL360
+### Corporate deployment: HPE ProLiant DL360
 
 |Component |Technical Specifications  |
 |---------|---------|
@@ -166,9 +166,9 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 | PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr   |
 
-### Enterprise Deployment: HPE ProLiant DL20+
+### Enterprise deployment: HPE ProLiant DL20+
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Picture of the HPE ProLiant DL20+":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -176,7 +176,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel":::
+:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="Photo of the DL20+ panel":::
 
 |Quantity| |PN|Description|
 |:----|:----|:----|:----|
@@ -195,7 +195,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 Optional modules for port expansion:
 |Location | Type |Specifications |
-| ------------------------- | ---------------------- | ----------------------------------------------- |
+| ------------------------- | ---------------------- | -------------------------------- |
 | PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
 | PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
@@ -206,7 +206,7 @@ Optional modules for port expansion:
 
 :::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20":::
 
-### ENTERPRISE DEPLOYMENT: HPE PROLIANT DL20
+### Enterprise deployment: HPE ProLiant DL20
 
 |Component |	Technical specifications|
 |----|----|
@@ -246,7 +246,6 @@ Optional modules for port expansion:
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
 Enterprise Deployment: Dell PowerEdge R340 XL
-
 |Component|	Technical Specifications|
 |:----|----|
 |Chassis|	1U rack server|
@@ -280,12 +279,50 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10Gb-1Gb|
 |SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10GbE|
 
-***INSERT Object TABLE HERE***
+|Description|SKU|Qty|
+|:----|:----|:----|
+|OEM PowerEdge R340 XL|210-ARGO|1|
+|PowerEdge R340XL Motherboard|329-BECZ|1|
+|Trusted Platform Module 2.0|461-AAEM|1|
+|3.5" Chassis with up to 4 Hot Plug Hard Drives|321-BDUX|1|
+|Brand/Bezel, Embedded OS, OEM PowerEdge R340XL|325-BDGR|1|
+|OEM PowerEdge R340 Shipping, DAO|340-CJQL|1|
+|OEM PowerEdge R340 Shipping Material, 3.5" Chassis, DAO|340-CJQM|1|
+|Intel Xeon E-2144G 3.6Ghz, 8m cache, 4C/8T, turbo (71W)|338-BQPK|1|
+|Heatsin for 80w or less CPU|412-AAPW|1|
+|2666 MT/s UDIMMs|370-AEKM|1|
+|Performance Optimized|370-AAIP|1|
+|RAID 5|780-BCDP|1|
+|PERC H330 RAID Controller|405-AAMT|1|
+|No Operating System|619-ABVR|1|
+|No Media Required|605-BBFN|1|
+|iDRAC9, Enterprise|385-BBKT|1|
+|iDRAC9 Group Manager, Enabled|379-BCQV|1|
+|iDRAC, Legacy Password, OEM|379-BCRF|1|
+|PCle Riser, 1x FH x8 Pcle Gen 3 slot, 1x LP x4 Pcle Gen3 slot, <br> R240/R340 |330-BBMH|1|
+|Standard Fan|384-BBWF|1|
+|No Internal Optical Drive for x4 and x8 HDD Chassis|429-ABBF|1|
+|Dual Hot Plug Power Supplies 350W|450-AEUV|1|
+|Performance BIOS Settings|384-BBBL|1|
+|UEFI BIOS Boot Mode with GPT Partition|800-BBDM|1|
+|ReadyRails Sliding Rails Without Cable Management Arm|770-BCWN|1|
+|No Systems Documentation, No OpenManage DVD Kit|631-AACK|1|
+|US Order|332-1286|1|
+|Basic Next Business Day 15 months|709-BBFH|1|
+|ProSupport Next Business Day Onsite Service Initial, 15 Month(s)|865-BBQK|1|
+|ProSupport Next Business Day Onsite Service Extension, 24 Month(s)|865-BBQL|1|
+|On-site Installation Declined|900-9997|1|
+|8GB 2666 MT/s DDR4 ECC UDIMM|370-AEKN|4|
+|2TB 7.3 RPM SATA 6Gbps 512 3.5 in Hot-plug Hard Drive|400-ASHX|3|
+|On-Board LOM|542-BBP|1|
+|NEMA 5-15P to C13 Wall Plug, 125 Volt, 15 AMP, 10 Feet (3m), Power Cord, North America|450-AALV|2|
+|Enterprise Program Management Support |973-3700|1|
+
 
 ### SMB Deployment: HPE ProLiant DL20+
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+":::
 
-### SMB DEPLOYMENT: HPE PROLIANT DL20
+### SMB Deployment: HPE ProLiant DL20
 
 |Component|Technical specifications|
 |:----|----|
@@ -306,7 +343,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-### APPLIANCE BOM
+### Appliance BOM
 
 |PN|Description|Quantity|
 |:----|:----|:----|
