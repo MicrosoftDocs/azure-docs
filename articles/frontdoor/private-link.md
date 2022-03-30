@@ -30,7 +30,7 @@ You must approve the private endpoint connection before traffic can pass to the 
 
 After you enable an origin for Private Link and approve the private endpoint connection, it can take a few minutes for the connection to get established. During this time, requests to the origin will receive an Azure Front Door error message. The error message will go away once the connection is established.
 
-Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin will communicate using the established private link over the Microsoft backbone network. Incoming traffic to your origin are now secured when arriving at your Azure Front Door.
+Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin will communicate using the established private link over the Microsoft backbone network. Incoming traffic to your origin is now secured when arriving at your Azure Front Door.
 
 :::image type="content" source="./media/concept-private-link/enable-private-endpoint.png" alt-text="Screenshot of enable Private Link service checkbox from origin configuration page.":::
 
@@ -51,7 +51,7 @@ Azure Front Door private endpoints are available in the following regions:
 
 ## Limitations
 
-Origin support for direct private end point connectivity are limited to Storage (Azure Blobs), App Services and internal load balancers.
+Origin support for direct private end point connectivity is limited to Storage (Azure Blobs), App Services and internal load balancers.
 
 For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door private link endpoint.
 
