@@ -10,7 +10,7 @@ author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: deploy, devplatv2, devx-track-azurecli 
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 
