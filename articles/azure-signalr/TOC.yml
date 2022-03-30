@@ -26,21 +26,26 @@
     displayName: deploy azure resource manager template
   - name: REST API
     href: signalr-quickstart-rest-api.md
-
 - name: Tutorials
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
   - name: Build a Blazor Server chat app
     href: signalr-tutorial-build-blazor-server-chat-app.md
-
 - name: Samples
   items:
   - name: Code samples
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
-    href: signalr-reference-cli.md
-
+    items:
+    - name: Overview
+      href: signalr-reference-cli.md
+    - name: Create a new SignalR Service
+      href: scripts/signalr-cli-create-service.md
+    - name: Create a new SignalR Service and Web App
+      href: scripts/signalr-cli-create-with-app-service.md
+    - name: Create a new SignalR Service and Web App with GitHub OAuth
+      href: scripts/signalr-cli-create-with-app-service-github-oauth.md
 - name: Concepts
   items:
   - name: Azure SignalR Service internals
