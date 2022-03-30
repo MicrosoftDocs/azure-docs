@@ -417,7 +417,7 @@ The following commands demonstrate how to work with machine learning pipelines:
 
     For more information, see [az ml pipeline create](/cli/azure/ml(v1)/pipeline#az-ml-pipeline-create).
 
-    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-yaml-pipeline.md).
+    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
 
 + Run a pipeline:
 
@@ -427,7 +427,7 @@ The following commands demonstrate how to work with machine learning pipelines:
 
     For more information, see [az ml run submit-pipeline](/cli/azure/ml(v1)/run#az-ml-run-submit-pipeline).
 
-    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-yaml-pipeline.md).
+    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
 
 + Schedule a pipeline:
 
