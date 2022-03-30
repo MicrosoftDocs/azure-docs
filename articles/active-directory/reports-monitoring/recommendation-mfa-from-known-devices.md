@@ -36,6 +36,10 @@ MFA enables you to enhance the security posture of your tenant. While enabling M
 
 The remember multi-factor authentication feature sets a persistent cookie on the browser when a user selects the Don't ask again for X days option at sign-in. The user isn't prompted again for MFA from that browser until the cookie expires. If the user opens a different browser on the same device or clears the cookies, they're prompted again to verify.
 
+![Remember MFA on trusted devices](./media/recommendation-mfa-from-known-devices\remember-mfa-on-trusted-devices.png)
+
+
+
 For more information, see [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
 
 
