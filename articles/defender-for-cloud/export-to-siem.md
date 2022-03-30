@@ -36,9 +36,9 @@ Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud
 - [Stream alerts to Microsoft Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
 - [Connect all subscriptions in your tenant to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
 
-When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well. If you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated, but the the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert are not updated.
+When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert is also shown as closed in Microsoft Sentinel. If you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated, but the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert aren't updated.
 
-Enabling the preview feature, **bi-directional alert synchronization**, automatically syncs the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
+You can enable the preview feature **bi-directional alert synchronization** to automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
 
 Learn more in [Connect alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
@@ -62,7 +62,7 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 To stream alerts into **ArcSight**, **Splunk**, **QRadar**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions, connect Defender for Cloud to Azure monitor using Azure Event Hubs:
 
 > [!NOTE]
-> To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group. You'll need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md): [Deploy export to event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).
+> To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group. You'll need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md): [Deploy export to an event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).
 
 1. Enable [continuous export](continuous-export.md) to stream Defender for Cloud alerts into a dedicated event hub at the subscription level. To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
@@ -70,7 +70,7 @@ To stream alerts into **ArcSight**, **Splunk**, **QRadar**, **SumoLogic**, **Sys
 
 1. Optionally, stream the raw logs to the event hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
 
-To view the event schemas of the exported data types, visit the [Event hub event schemas](https://aka.ms/ASCAutomationSchemas).
+To view the event schemas of the exported data types, visit the [Event Hubs event schemas](https://aka.ms/ASCAutomationSchemas).
 
 
 ## Other streaming options 
