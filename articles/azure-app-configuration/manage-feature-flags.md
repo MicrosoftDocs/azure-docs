@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
-author: malev
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 03/31/2022
-ms.author: maud-lv
+ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using App Configuration.
@@ -84,7 +84,7 @@ To change a feature flag's state value:
 
 ## Access feature flags
 
-Feature flags created by the Feature Manager are stored and retrieved as regular key values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key values, in the **Operations** menu open the **Configuration explorer**.
+Feature flags created by the Feature Manager are stored and retrieved as regular key-values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key-values, in the **Operations** menu open the **Configuration explorer**.
 
 :::image type="content" source="media/azure-app-configuration-feature-flag-retrieve.png" alt-text="Screenshot of the Azure platform. Retrieve a feature flag.":::
 
@@ -92,6 +92,6 @@ Your application can retrieve these values by using the App Configuration config
 
 ## Next steps
 
-In this tutorial, you learned how to manage feature flags and their states by using App Configuration. For more information about feature-management support in App Configuration and ASP.NET Core, see the following article:
+In this tutorial, you learned how to manage feature flags and their states by using App Configuration. For more information about feature-management support in App Configuration and ASP.NET Core, go to:
 
 * [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md)
