@@ -14,7 +14,13 @@ This article discusses solutions to problems that you might encounter when you u
 
 ### Issue
 
-You cannot create an Automation account with a GUID already used as an Automation account name in the same subscription and region. For example, when you try to create an Automation account with the name *8a2f48c1-9e99-472c-be1b-dcc11429c9ff* and if there is already an existing Automation account with a different name but with the same *accountId*, then the account creation will fail and displays the following error:
+When you create an Automation account with a GUID as an account name, you encounter an error.
+
+### Cause
+
+An *accountid* is a unique identifier across all Automation accounts in a region and when the account name is a GUID, we keep both Automation *accountid* and *name* as GUID. In this scenario, when you create a new Automation account and specify a GUID (as an account name) and, if it conflicts with any existing Automation *accountid*, you encounter an error.
+
+For example, when you try to create an Automation account with the name *8a2f48c1-9e99-472c-be1b-dcc11429c9ff* and if there is already an existing Automation *accountid* across all Automation accounts in that region, then the account creation will fail and you will see the following error:
 
  ```error
     {
@@ -26,13 +32,9 @@ You cannot create an Automation account with a GUID already used as an Automatio
     }
 
 ```
-### Cause
+ ### Resolution
 
-An *accountid* is a unique identifier across all Automation accounts in a region. This error appears when you use the Automation account name (GUID) as the *accountId* for another Automation account.
-
-### Resolution
-
-Always ensure to create an Automation account with a new name.
+Ensure that you create an Automation account with a new name.
 
 ## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
 
