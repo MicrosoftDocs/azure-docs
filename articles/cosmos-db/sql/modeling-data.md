@@ -337,9 +337,9 @@ Now, if I had an author, I immediately know which books they've written, and con
 
 ## Hybrid data models
 
-We've now looked at embedding (or denormalizing) and referencing (or normalizing) data. Each have their upsides and compromises as we've seen.
+We've now looked at embedding (or denormalizing) and referencing (or normalizing) data. Each approach has upsides and compromises.
 
-It doesn't always have to be either or, don't be scared to mix things up a little.
+It doesn't always have to be either-or, don't be scared to mix things up a little.
 
 Based on your application's specific usage patterns and workloads there may be cases where mixing embedded and referenced data makes sense and could lead to simpler application logic with fewer server round trips while still maintaining a good level of performance.
 

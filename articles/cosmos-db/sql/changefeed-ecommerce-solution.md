@@ -43,9 +43,9 @@ The following diagram represents the data flow and components involved in the so
 
 3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos container. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../../azure-functions/functions-overview.md).  
 
-4. **Azure Function:** The Azure Function processes the new data and sends it to an [Azure Event Hub](../../event-hubs/event-hubs-about.md).  
+4. **Azure Function:** The Azure Function processes the new data and sends it to [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
-5. **Event Hub:** The Azure Event Hub stores these events and sends them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) to perform further analysis.  
+5. **Azure event hub:** The event hub stores these events and sends them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) to perform further analysis.  
 
 6. **Azure Stream Analytics:** Azure Stream Analytics defines queries to process the events and perform real-time data analysis. This data is then sent to [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
@@ -67,7 +67,7 @@ The following diagram represents the data flow and components involved in the so
 
 ## Create Azure resources 
 
-Create the Azure resources - Azure Cosmos DB, storage account, event hub, Stream Analytics required by the solution. You will deploy these resources through an Azure Resource Manager template. Use the following steps to deploy these resources: 
+Create the Azure resources: Azure Cosmos DB, storage account, event hub, and Stream Analytics required by the solution. You will deploy these resources through an Azure Resource Manager template. Use the following steps to deploy these resources: 
 
 1. Set the Windows PowerShell execution policy to **Unrestricted**. To do so, open **Windows PowerShell as an Administrator** and run the following commands:
 
@@ -78,7 +78,7 @@ Create the Azure resources - Azure Cosmos DB, storage account, event hub, Stream
 
 2. From the GitHub repository you downloaded in the previous step, navigate to the **Azure Resource Manager** folder, and open the file called **parameters.json** file.  
 
-3. Provide values for cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name, parameters as indicated in **parameters.json** file. You'll need to use the names that you give to each of your resources later.  
+3. Provide values for `cosmosdbaccount_name`, `eventhubnamespace_name`, `storageaccount_name`, parameters as indicated in **parameters.json** file. You'll need to use the names that you give to each of your resources later.  
 
 4. From **Windows PowerShell**, navigate to the **Azure Resource Manager** folder and run the following command:
 
@@ -91,7 +91,7 @@ Create the Azure resources - Azure Cosmos DB, storage account, event hub, Stream
 
 You will now create a collection to hold e-commerce site events. When a user views an item, adds an item to their cart, or purchases an item, the collection will receive a record that includes the action ("viewed", "added", or "purchased"), the name of the item involved, the price of the item involved, and the ID number of the user cart involved.
 
-1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that's created by the template deployment.  
+1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that's been created by the template deployment.  
 
 2. From the **Data Explorer** pane, select **New Collection** and fill the form with the following details:  
 
@@ -133,7 +133,7 @@ Azure Storage Accounts allow users to store data. In this lab, you will use a st
 
 An Azure event hub receives the event data, stores, processes, and forwards the data. In this lab, the event hub will receive a document every time a new event occurs (whenever an item is viewed by a user, added to a user's cart, or purchased by a user) and then will forward that document to Azure Stream Analytics.
 
-1. Return to your resource group and open the **Event Hub Namespace** that you created and named in the prelab.  
+1. Return to your resource group and open the **Event Hubs Namespace** that you created and named in the prelab.  
 
 2. Select **Shared access policies** from the menu on the left-hand side.  
 
@@ -196,7 +196,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    * In the **Input** alias field, enter **input**.  
    * Select the option for **Select Event Hub from your subscriptions**.  
    * Set the **Subscription** field to your subscription.  
-   * In the **Event Hub namespace** field, enter the name of your event hub namespace that you created during the prelab.  
+   * In the **Event Hubs namespace** field, enter the name of your event hub namespace that you created during the prelab.  
    * In the **Event Hub name** field, select the option for **Use existing** and choose **event-hub1** from the drop-down menu.  
    * Leave **Event Hub policy** name field set to its default value.  
    * Leave **Event serialization format** as **JSON**.  
@@ -302,7 +302,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
    The REVENUE query calculates revenue by summing up the prices of all items purchased each minute. This metric can help e-commerce companies evaluate its financial performance and also understand what times of day contribute to most revenue. This can impact the overall company strategy, marketing in particular.
 
-   The UNIQUE VISITORS query calculates how many unique visitors are on the site every five seconds by detecting unique cart id's. This metric can help e-commerce companies evaluate their site activity and strategize how to acquire more customers.
+   The UNIQUE VISITORS query calculates how many unique visitors are on the site every five seconds by detecting unique cart ID's. This metric can help e-commerce companies evaluate their site activity and strategize how to acquire more customers.
 
 8. You can now add tiles for these datasets as well.
 
