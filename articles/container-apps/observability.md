@@ -31,11 +31,9 @@ Container Apps offers the following features:
 
 ## Observability features
 
-There are many methods to observe running application.  Azure Monitor offers many features to view your log and metrics data. Two primary features are Metrics, that displays information automatically gathered information from your container app, and Log Analytics to display your your application log data.
+There are many methods to observe running application.  Azure Monitor offers features to view your log and metrics data. Two primary features are Metrics, that displays information automatically gathered information from your container app, and Log Analytics to display your your application log data.  Through these features, you can configure alerts to send notifications based on metrics and log data.
 
-With both Metrics and Log Analytics, you can set alerts to notify you when certain thresholds have been reached.
-
-While Container Apps doesn't support Application Insights auto-instrumentation agent to monitor your application, you can instrument your application code using Application Insights SDKS.  For more information see [Application Insights overview](_../azure-monitor/app-insights-overview)
+Application Insights is a powerful tools to monitor your web and background application.  While Container Apps doesn't support Application Insights auto-instrumentation agent to monitor your application, you can instrument your application code using Application Insights SDKS.  For more information see [Application Insights overview](_../azure-monitor/app-insights-overview)
 
 <!--  
 ### Container details and state
@@ -69,7 +67,7 @@ What events are available.  Is there a list?  Does the user have to enable them?
 
 ### Metrics
 
-Metrics are collected by Azure Monitor and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage and network activity, and the number of requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded. These metrics can be gathered using both and Azure portal and the Azure CLI.  For more information about how to use the metrics explorer, goto [Gettings started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
+Metrics are collected by Azure Monitor and provide insight into the resources used by your container apps. This resource usage data helps you easily see the resources your container app is using such as CPU usage and network activity, and the number of requests it's handling. You can configure alerts so that you can quickly react if thresholds are exceeded. These metrics can be gathered using both and Azure portal and the Azure CLI.  For more information about how to use the metrics explorer, goto [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 
 <!--
@@ -79,7 +77,7 @@ Metrics are collected by Azure Monitor and provide insight into the resources us
 
 #### Available metrics
 
-Azure Monitor provides the following metrics for your container app.  
+Container Apps provides the following metrics for your container app.  
 
 * CPU usage nanocores
 * Memory working set bytes
@@ -87,28 +85,23 @@ Azure Monitor provides the following metrics for your container app.
 * Network out bytes
 * Number of Requests
 
-
-The information can be split by container app revisions and replica.  For more information regarding metrics
-
 #### Overview page
 
 The Metrics explorer can be accessed though the Azure portal from both the Metrics menu item on your container app page and via Azure Monitor.  
 
 First navigate to your container app in the Azure portal.
 
-On the **Overview** page, the **Monitoring** section displays the most recent metric information for your application.
+On the **Overview** page, the **Monitoring** section displays the most recent metric information for your application.  The metrics include CPU, memory and network utilization.
 
 :::image type="content" source="media/observability/overview-metrics.png" alt-text="Monitoring section in container app overview":::
 
-From this view you can pin one or more charts to your dashboard, and select a chart to enlarge it. From the expanded view you can perform that same actions to the chart as you can from the Metrics page.
+From this view you can pin one or more charts to your dashboard.  You can select a chart to show an enlarged view where you can perform the same actions to the chart as you can from the Metrics explorer.
 
+#### Metrics explorer
 
-#### Metrics page
-
-1. Select **Metrics** in the left side menu.
+The Metrics explorer can be accessed from Azure Monitor or resource page for your container app.
  
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Container Apps metrics main page":::
-
 
 The Metric page allows you to select the metric, filter and split the information by revision and replica.    Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
@@ -146,14 +139,17 @@ Using the Azure portal, logs can be viewed from either the **Monitor**->**Logs**
 
 For more information regarding the Log Analytics interface and running log queries see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
 
-
 #### Log Analytics via the Azure CLI
 
 You can also view the logs by submitting a query to the Log Analytics workspace via the Azure CLI.  For more information see [Viewing Logs](monitor.md#viewing-logs)
 
-#### Setting Log Analytics alerts
+#### Log alerts
 
+Log alerts allow you to run a Log Analytics query at set intervals and trigger an alert based the the results.  Similar to alerts in Metrics, you can set rules to perform actions.
 
+Alerts can be split by dimensions, such as, revision and replica.  
+
+To learn more about log alerts, refer to [Log alerts in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)
 
 ## Observability throughout the application lifecycle
 
