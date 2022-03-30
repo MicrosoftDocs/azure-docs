@@ -149,7 +149,7 @@ containers:
 
 ---
 
-The optional [failureThreshold](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) setting defines the number of attempts Kubernetes tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe. Refer to Configure [Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) for details.
+The optional [failureThreshold](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) setting defines the number of attempts Kubernetes tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe. Refer to [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) for details.
 
 ## Next steps
 
