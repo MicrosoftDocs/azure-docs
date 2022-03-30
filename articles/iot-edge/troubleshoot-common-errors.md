@@ -491,6 +491,9 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
 
+:::moniker-end
+<!-- end 1.2 -->
+
 ## Security daemon couldn't start successfully
 
 **Observed behavior:**
@@ -508,15 +511,10 @@ For all Linux distros except CentOS 7 (including Debian 9), IoT Edge's default c
 
 **Resolution:**
 
-Make sure that `/var/run/iotedge` is writable by the `iotedge` user so that `iotedged` can unlock and mount the sockets itself. Depending on the distro, `/var/run` is ephemeral so the directory should be recreated on every boot.
-
-If you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
+There's no reason to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
 1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
-
-:::moniker-end
-<!-- end 1.2 -->
 
 ## Next steps
 
