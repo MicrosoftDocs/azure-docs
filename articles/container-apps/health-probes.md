@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Heath probes in Azure Container Apps
 
-Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S), but exec probes are not supported.
+Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S), but `exec` probes aren't supported.
 
 Container Apps support the following probes:
 
@@ -20,11 +20,11 @@ Container Apps support the following probes:
 - [Readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes): Signals that a replica is ready to accept traffic.
 
 > [!NOTE]
-> The referenced Kubernetes documentation often refers to the `kublet` command line tool, which is not available to you in Container Apps. Probes in container apps are implemented as either HTTP or TCP endpoints exclusively.
+> The referenced Kubernetes documentation often refers to the `kublet` command line tool, which is not available to you in Container Apps. Probes in Container Apps are implemented as either HTTP(S) or TCP endpoints exclusively.
 
 ## HTTP probes
 
-HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside that range indicates a failure.
+HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside this range indicates a failure.
 
 The following example demonstrates how to implement a liveness endpoint in JavaScript.
 
@@ -35,7 +35,7 @@ const app = express();
 app.get('/liveness', (req, res) => {
   let isSystemStable = false;
   
-  // check for database stability
+  // check for database availability
   // check filesystem structure
   //  etc.
 
@@ -56,7 +56,7 @@ TCP probes listen for a response from the server. If no response is recognized, 
 ## Restrictions
 
 - You can only add one of each probe type per container.
-- `exec` probes are not supported.
+- `exec` probes aren't supported.
 
 ## Examples
 
