@@ -136,7 +136,7 @@ The following steps show how to deploy a new Data Share account using a Resource
         ```
             
 
-13. Click **Save** in the online editor.
+13. Select **Save** in the online editor.
 
 14. Under the **Project details** section, select the **Subscription** dropdown to choose the subscription where the target Data Share account will be deployed.
 
