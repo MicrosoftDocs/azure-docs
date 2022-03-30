@@ -382,6 +382,25 @@ To access system properties:
 
 3. Select **System Properties** from the **General** section.
 
+## Download a support diagnostics for support
+
+This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket. 
+
+This feature is supported for the following sensor versions:
+
+- **22.1.1** - Download a diagnostic log from the sensor console
+- **22.1.3** - For locally-managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+
+**To download a diagnostics log**:
+
+1. On the sensor console, select **System settings** > **Backup & Restore** > **Backup**.
+
+1. Under **Logs**, select **Support Ticket Diagnostics**, and then select **Export**.
+
+    :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option.":::
+
+1. For a locally-managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support).
+
 ## Next steps
 
 For more information, see:

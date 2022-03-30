@@ -87,6 +87,23 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
 
+## Upload a diagnostics log for support (Public preview)
+
+If you need to open a support ticket for a locally managed sensor, upload a diagnostics log to the Azure portal for the support team.
+
+For cloud-connected sensors, the diagnostics log is automatically available to your support team when you open a support ticket.
+
+**To upload a diagnostics report**:
+
+1. Make sure you have the diagnostics report available for upload. For more information, see [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-a-support-diagnostics-for-support).
+
+1. In Defender for IoT in the Azure portal, go to the **Sites and sensors** page and select the locally-managed sensor that's related to your support ticket.
+
+1. For your selected sensor, select the **...** options menu on the right > **Send diagnostic files to support (Preview)**. For example:
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
+
+
 ## Next steps
 
 [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)

@@ -36,7 +36,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.x | 04/2022 | 12/2022 |
+| 22.2.1 | 04/2022 | 12/2022 |
+| 22.2.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
@@ -46,23 +47,58 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## April 2022
 
-**Sensor version**: 22.2.x
+**Sensor version**: 22.2.1
 
-- PCAP file downloads from the Azure portal
-- Remote sensor updates from the Azure portal
-- Learn and close alerts from the Azure portal
-- Support and detection policies for hybrid networks
-- Remote sensor configuration from the Azure portal
-- Automatic certificate updates
-- Enhanced OT device detection
-- Support for Windows 11 and Server 2019 devices
+- [Device detection enhancements](#device-detection-enhancements)
+- [Download PCAP files from the Azure portal](#download-pcap-files-from-the-azure-portal)
+- [Learn and close alerts from the Azure portal](#learn-and-close-alerts-from-the-azure-portal)
+- [Update and configure your sensor remotely from the Azure portal](#update-and-configure-your-sensor-remotely-from-the-azure-portal)
+- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements)
+- [Documentation improvements](#documentation-improvements)
+
+### Device detection enhancements
+
 - Active asset support
+
+- Support and detection policies for hybrid networks
+
+- Support for Windows 11 and Server 2019 devices
+
+### Download PCAP files from the Azure portal
+
+### Learn and close alerts from the Azure portal
+
+### Update and configure your sensor remotely from the Azure portal
+
+### Automatic certificate updates
+
+### Support diagnostic log enhancements (Public preview)
+
+Starting in sensor version [22.1.1](#new-support-diagnostics-log), you can download a diagnostic log from the sensor console to send to support when you open a ticket.
+
+Now, for locally-managed sensors, you can upload that diagnostic log directly on the Azure portal. For cloud-connected sensors, starting from sensor version 22.1.3, the diagnostic log is automatically available to support when you open the ticket.
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the Send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
+
+For more information, see:
+
+- [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-a-support-diagnostics-for-support)
+- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+
+### Upload diagnostics for support from the Azure portal
+
+Uploading the diag log - supported for offline sensors starting in version 22.1.1.
+
+Cloud support for uploading the file starting in April
+
+Cloud connected sensors, starting in april - log gets sent automatically to support when you open a ticket - for sensor versions starting in 22.1.3.
+
 
 ### Documentation improvements
 
 **Release note tracking per version**
 
-Starting in version 22.2.x, we're tracking our release notes per sensor version, including major and minor versions. Going forward, find the sensor software version released in a given month at the top of the release notes for that month.
+Starting in version 22.2.x, we're tracking our release notes per sensor version, including major and minor versions. Going forward, find the sensor software version released in a given month at the top of the release notes for that month. For example, in April 2022, we're releasing version 22.2.1.
 
 For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
@@ -91,6 +127,7 @@ This month we've reorganized our Defender for IoT documentation for end-user org
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
+- [Upload diagnostics for support from the Azure portal](#upload-diagnostics-for-support-from-the-azure-portal)
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
