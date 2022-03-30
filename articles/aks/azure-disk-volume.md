@@ -3,7 +3,7 @@ title: Create a static volume for pods in Azure Kubernetes Service (AKS)
 description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/09/2019
+ms.date: 03/29/2019
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
@@ -81,6 +81,7 @@ Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the 
 
 ```yaml
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
   name: pvc-azuredisk
 spec:
