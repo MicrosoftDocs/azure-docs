@@ -112,6 +112,10 @@ $migOpId = az datamigration sql-managed-instance show --managed-instance-name "m
 az datamigration sql-managed-instance cutover --managed-instance-name "mySQLMI" --resource-group "myRG" --target-db-name "AdventureWorks2008" --migration-operation-id $migOpId
 ```
 
+> [!TIP] 
+> If you receive the error "The subscription is not registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run 
+> ```azurepowershell    Register-AzResourceProvider -ProviderNamespace "Microsoft.DataMigration".   ```
+
 ## Next steps
 
 - For Azure PowerShell reference documentation for SQL Server database migrations, see [Az.DataMigration](/powershell/module/az.datamigration).

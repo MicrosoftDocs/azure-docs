@@ -10,7 +10,7 @@ author: blackmist
 ms.date: 01/07/2022
 ms.topic: how-to
 ms.custom: devplatv2, devx-track-azurecli 
-ms.devlang: azurecli
+ms.devlang: azurecli, cliv2
 
 ---
 
