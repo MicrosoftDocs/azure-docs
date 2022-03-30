@@ -148,7 +148,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Optional modules for port expansion
 
-| Location  |        Type                |Specifications                                                 |
+| Location  |Type |Specifications |
 | ------------------------- | ---------------------- | ----------------------------------------------- |
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
 | PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
@@ -247,7 +247,7 @@ Optional modules for port expansion:
 
 Enterprise Deployment: Dell PowerEdge R340 XL
 |Component|Technical Specifications|
-|:----|----|
+|----|----|
 |Chassis|1U rack server|
 |Dimensions|42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
 |Weight|Max 29.98 lb/13.6 Kg|
