@@ -50,7 +50,7 @@ Some things to consider when selecting a pricing option:
 
 - For the first four options, Microsoft does the currency conversion.
 - Microsoft suggests using a flat rate pricing for software solutions.
-- See [Price changes to commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+- See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 > [!IMPORTANT]
 > Occasionally, Microsoft expands the list of supported core sizes available. When this occurs, we will notify you and request that you take action on your offer within a specified time-frame. If you do not review your offer within the time-frame specified, we’ll publish the new core sizes at the price that we have calculated for you. For details about updating core sizes, see [Update core size for an Azure virtual machine offer](azure-vm-plan-manage.md).

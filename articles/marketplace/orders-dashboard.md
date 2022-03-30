@@ -92,7 +92,7 @@ Subscription offers can use one of two pricing models with each plan: either sit
 You can create multiple plans to configure different price points based on the number of users. These fields are optional during creation of an offer in Partner center. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields can be edited as part of an update to your plan.
 - **Metered Billing**: On top of Flat Rate pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. Higher the consumption of metered units may lead to higher charges for the customer.
 
-For more details on seat, site, and metered-based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md) and [Price changes to commercial marketplace offers](price-changes.md).
+For more details on seat, site, and metered-based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md) and [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ### Orders by offers
 

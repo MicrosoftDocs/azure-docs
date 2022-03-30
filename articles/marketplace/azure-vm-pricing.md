@@ -24,7 +24,7 @@ Some things to consider when selecting a pricing option:
 
 - In the first four options, Microsoft does the currency conversion.
 - Microsoft suggests using a flat rate pricing for software solutions.
-- See [Price changes to commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active offers.
+- See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active offers.
 
 ## New offering pricing
 

@@ -10,7 +10,7 @@ ms.reviewer: keferna
 ms.date: 04/01/2022
 ---
 
-# Price changes to commercial marketplace offers
+# Changing prices in active commercial marketplace offers
 
 ## Overview
 

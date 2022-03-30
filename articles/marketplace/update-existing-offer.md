@@ -73,7 +73,7 @@ Complete these steps to update available images in a plan for an offer that you'
 
 ## Offer a virtual machine plan at a new price
 
-See [Price changes to commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 <!-- After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
 
