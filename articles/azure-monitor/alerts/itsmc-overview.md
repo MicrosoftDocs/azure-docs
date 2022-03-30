@@ -20,10 +20,9 @@ The ITSM Connector supports connections with the following ITSM tools:
 -	ServiceNow ITSM or ITOM
 -	System Center Service Manager (SCSM)
 -	BMC
-
->[!NOTE]
-> As of March 1, 2022, System Center ITSM integrations with Azure alerts is no longer enabled for new customers. New System Center ITSM Connections are not supported.
-> Existing ITSM connections are supported.
+  >[!NOTE]
+  > As of March 1, 2022, System Center ITSM integrations with Azure alerts is no longer enabled for new customers. New System Center ITSM Connections are not supported.
+  > Existing ITSM connections are supported.
 
 For information about legal terms and the privacy policy, see [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 ## ITSM Connector Workflow
