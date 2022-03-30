@@ -3,6 +3,7 @@ title: Monitoring Azure IoT Hub Device Provisioning Service
 description: Start here to learn how to monitor Azure IoT Hub Device Provisioning Service 
 author: kgremban
 ms.author: kgremban
+ms.topic: conceptual 
 ms.service: iot-dps
 ms.custom: subject-monitoring
 ms.date: 03/29/2022
@@ -48,7 +49,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 <!-- Include any additional information on collecting logs.  The number of things that diagnostics settings control is expanding -->
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for DPS are listed in [Azure IoT Hub Device Provisioning Service monitoring data reference](monitor-service-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for DPS are listed in [Azure IoT Hub Device Provisioning Service monitoring data reference](monitor-iot-dps-reference.md#resource-logs).
 
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
 
@@ -81,7 +82,7 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
 
 For a list of the types of resource logs collected for DPS, see [Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#resource-logs).  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-service-reference.md#azure-monitor-logs-tables). 
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#azure-monitor-logs-tables). 
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 

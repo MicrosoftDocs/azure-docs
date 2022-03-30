@@ -72,7 +72,7 @@
     href: concepts-device-oem-security-practices.md
 - name: How-to guides
   items:
-  - name: Development
+  - name: Develop
     items:
     - name: How to send additional data from devices
       href: how-to-send-additional-data.md
@@ -80,7 +80,7 @@
       href: how-to-use-custom-allocation-policies.md
     - name: Communicate with your DPS using MQTT protocol
       href: iot-dps-mqtt-support.md    
-  - name: Manage Device Provisioning Service
+  - name: Manage
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
