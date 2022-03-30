@@ -492,7 +492,7 @@ private void startCall() {
 }
 ```
 
-In this quickstart, we rely on the function `getNextAvailableCamera` to pick the camera that the call will use, it takes the enumeration of cameras as input and iterates the list to get the next camera available, if the argument is null the function picks the first device on the list. If there is no available cameras when we tap `Start Call`, it will start an audio call. But if the remote participant answered with video we can still see the remote video stream.
+In this quickstart, we rely on the function `getNextAvailableCamera` to pick the camera that the call will use, it takes the enumeration of cameras as input and iterates the list to get the next camera available, if the argument is null the function picks the first device on the list. If there are no available cameras when we tap `Start Call`, it will start an audio call. But if the remote participant answered with video we can still see the remote video stream.
 
 ```java
 private VideoDeviceInfo getNextAvailableCamera(VideoDeviceInfo camera) {
@@ -819,7 +819,7 @@ Completed application             |  1:1 Call
 Now app will be updated to let the user choose between 1:1 calls or group calls.
 ### Update layout
 
-It gonna use RadioButtons to select if the SDK need to create a 1:1 call or if should join a group call,  those will be at the top so the first section of `app/src/main/res/layout/activity_main.xml` will ends this way.
+It's going to use RadioButtons to select if the SDK needs to create a 1:1 call or if it should join a group call. Those will be at the top, so the first section of `app/src/main/res/layout/activity_main.xml` will end this way.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
