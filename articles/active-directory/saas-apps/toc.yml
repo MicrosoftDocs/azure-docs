@@ -856,7 +856,7 @@
         href: fortes-change-cloud-tutorial.md
       - name: FortiGate SSL VPN
         href: fortigate-ssl-vpn-tutorial.md
-      - name: FortiSASE SIA
+      - name: FortiSASE
         href: fortisase-sia-tutorial.md
       - name: FortiWeb Web Application Firewall
         href: fortiweb-web-application-firewall-tutorial.md 
@@ -1086,6 +1086,8 @@
         href: inforretailinformationmanagement-tutorial.md
       - name: InformaCast
         href: informacast-tutorial.md
+      - name: Informatica Platform
+        href: informatica-platform-tutorial.md  
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -1208,6 +1210,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Kao Navi
         href: kao-navi-tutorial.md
+      - name: Keepabl
+        href: keepabl-tutorial.md  
       - name: Keeper Password Manager
         href: keeperpasswordmanager-tutorial.md
       - name: Kemp LoadMaster Azure AD integration
@@ -1380,8 +1384,6 @@
         href: michigan-data-hub-single-sign-on-tutorial.md
       - name: MiHCM
         href: mihcm-tutorial.md  
-      - name: Mimecast Admin Console
-        href: mimecast-admin-console-tutorial.md
       - name: Mimecast
         href: mimecast-personal-portal-tutorial.md
       - name: Mindflash
@@ -1470,7 +1472,7 @@
         href: netskope-cloud-security-tutorial.md
       - name: Netskope User Authentication
         href: netskope-user-authentication-tutorial.md
-      - name: Netsparker Enterprise
+      - name: Invicti
         href: netsparker-enterprise-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
@@ -1600,6 +1602,8 @@
         href: pantheon-tutorial.md 
       - name: Parkalot - Car park management
         href: parkalot-car-park-management-tutorial.md       
+      - name: ParkHere Corporate
+        href: parkhere-corporate-tutorial.md
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -2088,6 +2092,8 @@
         href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
         href: surveymonkey-enterprise-tutorial.md
+      - name: Swit
+        href: swit-tutorial.md  
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
       - name: SynchroNet CLICK
@@ -2609,6 +2615,8 @@
         href: directprint-io-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
+      - name: embed signage
+        href: embed-signage-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
       - name: Eletive
@@ -2951,6 +2959,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Yellowbox
+        href: yellowbox-provisioning-tutorial.md
       - name: Zapier
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk

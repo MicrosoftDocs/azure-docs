@@ -154,7 +154,7 @@ Azure Monitor's Change Analysis is a free service. Once enabled, the Change Anal
 - Incur any billing cost to subscriptions. 
 - Have any performance impact for scanning Azure Resource properties changes. 
 
-### Data retention
+## Data retention
 Change Analysis provides 14 days of data retention.
 
 ## Enable Change Analysis at scale for Web App in-guest file and environment variable changes

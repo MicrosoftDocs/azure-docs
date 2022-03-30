@@ -34,7 +34,7 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >
 > - You can only use autoscale in the Azure public cloud.
 > - You can only configure autoscale with the Azure portal.
-> - You can only deploy the scaling plan to US and European regions.
+> - You can only deploy the scaling plan to US, Canadian, and European regions.
 
 ## Requirements
 
@@ -47,7 +47,7 @@ Before you create your first scaling plan, make sure you follow these guidelines
 
 ## Create a custom RBAC role in your subscription
 
-To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. Creating this RBAC role at any level lower than your subscription, like at the host pool or VM level, will prevent the autoscale feature from working properly.
+To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Azure Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. Creating this RBAC role at any level lower than your subscription, like at the host pool or VM level, will prevent the autoscale feature from working properly.
 
 To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md) while using the following JSON template. This template already includes any permissions you need. For more detailed instructions, see [Assign custom roles with the Azure portal](#assign-custom-roles-with-the-azure-portal).
 ```json
@@ -191,7 +191,7 @@ To create a scaling plan:
 
 ## Configure a schedule
 
-Schedules let you define when autoscale activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscale only turns off VMs when a session host has no sessions active. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
+Schedules let you define when autoscale activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
 
 To create or change a schedule:
 

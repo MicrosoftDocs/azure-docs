@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 03/15/2022
+ms.date: 03/27/2022
 ms.custom: references_regions
 ---
 
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
+The **tabs** below show the features that are available, by environment, for Microsoft Defender for Containers.
 
 ## Supported features by environment 
 
@@ -37,8 +37,8 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | X | Log Analytics agent | Defender for Servers |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
-| Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
+| Vulnerability assessment | Registry scan | - | - | - | - | - |
+| Vulnerability assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| EKS | Preview | ✓ | Agentless | Defender for Containers |
@@ -55,8 +55,8 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | GCP VMs | Preview | X | Log Analytics agent | Defender for Servers |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
-| Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
+| Vulnerability assessment | Registry scan | - | - | - | - | - |
+| Vulnerability assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | GKE | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| GKE | Preview | ✓ | Agentless | Defender for Containers |
@@ -73,8 +73,8 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers |
-| Vulnerability Assessment | Registry scan | ACR, Private ACR | Preview | ✓ (Preview) | Agentless | Defender for Containers |
-| Vulnerability Assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
+| Vulnerability assessment | Registry scan | ACR, Private ACR | Preview | ✓ (Preview) | Agentless | Defender for Containers |
+| Vulnerability assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | X | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | ✓ | Defender extension | Defender for Containers |

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, cliv1
 ms.author: ssambare
 author:  shivanissambare
 ms.reviewer: larryfr
@@ -92,7 +92,7 @@ When **attaching** an existing AKS cluster, we support all currently supported A
 
 ### Available and default versions
 
-To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli) command [az aks get-versions](/cli/azure/aks#az_aks_get_versions). For example, the following command returns the versions available in the West US region:
+To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli) command [az aks get-versions](/cli/azure/aks#az-aks-get-versions). For example, the following command returns the versions available in the West US region:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -199,7 +199,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create aks -n myaks
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) reference.
 
 # [Portal](#tab/azure-portal)
 
@@ -224,7 +224,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
+* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
 * [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
@@ -278,7 +278,7 @@ To attach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach_aks) reference.
+For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az-ml-computetarget-attach-aks) reference.
 
 # [Portal](#tab/azure-portal)
 
