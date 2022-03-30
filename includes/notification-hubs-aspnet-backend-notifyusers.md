@@ -20,9 +20,6 @@ The following sections discuss the creation of a new ASP.NET WebAPI backend. Thi
 
 Create the new ASP.NET Core 6.0 web API backend by doing the following actions:
 
-> [!IMPORTANT]
-> If you are using Visual Studio 2022 or earlier, before starting this tutorial, ensure that you have installed the latest version of NuGet Package Manager for Visual Studio.
->
 >To check, start Visual Studio. On the **Tools** menu, select **Extensions and Updates**. Search for **NuGet Package Manager** in your version of Visual Studio, and make sure you have the latest version. If your version is not the latest version, uninstall it, and then reinstall the NuGet Package Manager.
 
 ![Screenshot of the Extensions and Updates dialog box with the NuGet Package manage for Visual Studios package highlighted.][B4]
@@ -34,11 +31,11 @@ Create the new ASP.NET Core 6.0 web API backend by doing the following actions:
 
 2. Select **Server Explorer**, and sign in to your Azure account. To create the web site resources on your account, you must be signed in.
 
-3. In Visual Studio,from the File menu, select **New > Project**.
+3. In Visual Studio's **File** menu, select **New** > **Project**.
 
 4. Enter **Web API** in the search box.
 
-5. Select the **ASP.NET Core Web API** template and select **Next**.
+5. Select the **ASP.NET Core Web API** project template and select **Next**.
 
 6. In the **Configure your new project** dialog, name the project **AppBackend** and select **Next**.
 
@@ -49,13 +46,13 @@ Create the new ASP.NET Core 6.0 web API backend by doing the following actions:
    * Select **Create**.
 
 ## Remove the WeatherForecast template files
-1. Remove the WeatherForecast.cs and Controllers/WeatherForecastController.cs example files from the new AppBackend project.
-2. Open Properties\launchSettings.json.
+1. Remove the *WeatherForecast.cs* and *Controllers/WeatherForecastController.cs* example files from the new *AppBackend* project.
+2. Open *Properties\launchSettings.json*.
 3. Change **launchUrl** properties from **weatherforcast** to **appbackend**.
 
 In the **Configure Microsoft Azure Web App** window, select a subscription and then, in the **App Service plan** list, do either of the following actions:
 
-   * Select an app service plan that you've already created.
+   * Select an Azure App Service plan that you've already created.
    * Select **Create a new app service plan**, and then create one.
 
    You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
@@ -144,7 +141,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
 
     > [!NOTE]
     > Security note: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.
-5. To register the message handler, add the following code at the end of the `Register` method in the **Program.cs** class:
+5. To register the message handler, add the following code at the end of the `Register` method in the *Program.cs* file:
 
     ```csharp
     config.MessageHandlers.Add(new AuthenticationTestHandler());
