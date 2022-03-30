@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 QnA Maker automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
 
-[!INCLUDE [Custom question answering](../includes/new-version.md)]
+[!INCLUDE [Custom question answering](/includes/new-version.md)]
 
 ## About encryption key management
 
