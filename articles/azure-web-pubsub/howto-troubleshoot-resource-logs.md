@@ -50,6 +50,8 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
 
+> Azure Active Directory access to live trace tool is not supported, please enable `Access Key` in `Keys` menu.
+
 ### Capture the resource logs
 
 The live trace tool provides some fundamental functionalities to help you capture the resource logs for troubleshooting.
@@ -104,7 +106,7 @@ Currently Azure Web PubSub supports integrate with [Azure Storage](../azure-moni
 > [!NOTE]
 > The storage account should be the same region to Azure Web PubSub service.
 
-### Archive to a storage account
+### Archive to Azure Storage Account
 
 Logs are stored in the storage account that configured in **Diagnostics setting** pane. A container named `insights-logs-<CATEGORY_NAME>` is created automatically to store resource logs. Inside the container, logs are stored in the file `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. Basically, the path is combined by `resource ID` and `Date Time`. The log files are split by `hour`. Therefore, the minutes always be `m=00`.
 
@@ -161,6 +163,42 @@ The following code is an example of an archive log JSON string:
   "location": "westus"
 }
 ```
+
+### Archive to Azure Log Analytics
+
+Once you check `Send to Log Analytics`, and select target Azure Log Analytics, the logs will be stored in the target. To view resource logs, follow these steps:
+
+1. Click `Logs` in your target Log Analytics.
+
+    ![Log Analytics menu item](./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png)
+
+2. Enter `SignalRServiceDiagnosticLogs` and select time range to query resource logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+
+    ![Query log in Log Analytics](./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png)
+
+To use sample query for SignalR service, please follow the steps below:
+1. Click `Logs` in your target Log Analytics.
+2. Click `Queries` to open query explorer.
+3. Select `Resource type` to group sample queries in resource type.
+4. Click `Run` to run the script.
+    ![Query log in Log Analytics](./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png)
+
+
+Archive log columns include elements listed in the following table:
+
+Name | Description
+------- | ------- 
+TimeGenerated | Log event time
+Collection | Collection of the log event. Allowed values are: `Connection`, `Authorization` and `Throttling`
+OperationName | Operation name of the event
+Location | Location of your Azure SignalR Service
+Level | Log event level
+CallerIpAddress | IP address of your server/client
+Message | Detailed message of log event
+UserId | Identity of the user
+ConnectionId | Identity of the connection
+ConnectionType | Type of the connection. Allowed values are: `Server` \| `Client`. `Server`: connection from server side; `Client`: connection from client side
+TransportType | Transport type of the connection. Allowed values are: `Websockets` \| `ServerSentEvents` \| `LongPolling`
 
 ## Troubleshoot with the resource logs
 
