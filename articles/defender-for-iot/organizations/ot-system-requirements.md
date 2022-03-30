@@ -124,9 +124,9 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Corporate deployment: HPE ProLiant DL360
 
-|Component| Technical specifications|
+|Component|Technical specifications|
 |---------|---------|
-|Chassis |	1U rack server|
+|Chassis |1U rack server|
 |Dimensions	| 42.9 x 43.46 x 70.7 (cm)/1.69" x 17.11" x 27.83" (in)|
 |Weight	| Max 16.27 kg (35.86 lb)|
 |Processor	| Intel Xeon Silver 4215 R 3.2 GHz| 11M cache| 8c/16T| 130 W|
@@ -168,7 +168,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Enterprise deployment: HPE ProLiant DL20+
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="HPE ProLiant D120+ View":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -176,7 +176,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="Photo of the DL20+ panel":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel":::
 
 |Quantity| |PN|Description|
 |:----|:----|:----|:----|
@@ -208,7 +208,7 @@ Optional modules for port expansion:
 
 ### Enterprise deployment: HPE ProLiant DL20
 
-|Component |	Technical specifications|
+|Component |Technical specifications|
 |----|----|
 |Chassis |	1U rack server|
 |Dimensions |(height x width x depth)	4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
@@ -246,19 +246,19 @@ Optional modules for port expansion:
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
 
 Enterprise Deployment: Dell PowerEdge R340 XL
-|Component|	Technical Specifications|
+|Component|Technical Specifications|
 |:----|----|
-|Chassis|	1U rack server|
-|Dimensions|	42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
-|Weight|	Max 29.98 lb/13.6 Kg|
-|Processor|	Intel Xeon E-2144G 3.6GHz| 8M cache|4C/8T| turbo (71W)|
-|Chipset|	Intel C246|
-|Memory|	32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
-|Storage|	3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
-|Network controller|	On-board: 2 x 1Gb Broadcom BCM5720|
+|Chassis|1U rack server|
+|Dimensions|42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
+|Weight|Max 29.98 lb/13.6 Kg|
+|Processor|Intel Xeon E-2144G 3.6GHz| 8M cache|4C/8T| turbo (71W)|
+|Chipset|Intel C246|
+|Memory|32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
+|Storage|3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
+|Network controller|On-board: 2 x 1Gb Broadcom BCM5720|
 |On-board LOM| iDRAC Port Card 1Gb Broadcom BCM5720|
 |External| 1 x Intel Ethernet i350 QP 1Gb Server Adapter| Low Profile|
-|Management|	iDRAC 9 Enterprise|
+|Management|iDRAC 9 Enterprise|
 |Device access|	2 rear USB 3.0 <br> 1 front USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 350W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks with support for optional tool-less cable management arm.
@@ -325,7 +325,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 ### SMB Deployment: HPE ProLiant DL20
 
 |Component|Technical specifications|
-|:----|----|
+|----|----|
 |Chassis|	1U rack server|
 |Dimensions (height x width x depth)|	4.32 x 43.46 x 38.22 cm/<br>1.70 x 17.11 x 15.05 inch|
 |Weight|	7.88 kg/17.37 lb|
