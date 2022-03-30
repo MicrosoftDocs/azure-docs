@@ -597,11 +597,11 @@ Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkut
 
 ## Active Session management 
 
-You can reuse your notebook sessions conveniently now without having to start new ones. Synapse notebook now supports managing your active sessions in the **Active sessions** list, you can see all the sessions in the current workspace started by you from notebook.
+You can reuse your notebook sessions conveniently now without having to start new ones. Synapse notebook now supports managing your active sessions in the **Manage sessions** list, you can see all the sessions in the current workspace started by you from notebook.
 
    ![Screenshot of notebook-manage-sessions](./media/apache-spark-development-using-notebooks/synapse-notebook-manage-sessions.png)
 
-In the sessions list you can see the session information and the corresponding notebook that is currently attached to the session. You can operate Detach with notebook, Stop the session, and View in monitoring from here. Moreover, you can easily connect your selected notebook to an active session in the list started from another notebook, the session will be detached from the previous notebook (if it's not idle) then attach to the current one.
+In the **Active sessions** list you can see the session information and the corresponding notebook that is currently attached to the session. You can operate Detach with notebook, Stop the session, and View in monitoring from here. Moreover, you can easily connect your selected notebook to an active session in the list started from another notebook, the session will be detached from the previous notebook (if it's not idle) then attach to the current one.
 
    ![Screenshot of notebook-sessions-list](./media/apache-spark-development-using-notebooks/synapse-notebook-sessions-list.png)
 
