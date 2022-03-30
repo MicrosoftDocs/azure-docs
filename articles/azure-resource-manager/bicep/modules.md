@@ -99,7 +99,7 @@ The full path for a module in a registry can be long. Instead of providing the f
 
 ### File in template spec
 
-After creating a [template spec](../templates/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
+After you create a [template spec](../bicep/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
 
 ```bicep
 module <symbolic-name> 'ts:<sub-id>/<rg-name>/<template-spec-name>:<version>' = {
