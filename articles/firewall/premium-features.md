@@ -33,6 +33,10 @@ The TLS (Transport Layer Security) protocol primarily provides cryptography for 
 
 Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS.
 
+:::image type="content" source="media/premium-features/end-to-end-transport-layer-security.png" alt-text="End-to-end TLS for Azure Firewall Standard":::
+
+:::image type="content" source="media/premium-features/transport-layer-security-inspection.png" alt-text="TLS with Azure Firewall Premium":::
+
 The following three use cases are supported:
 - Outbound TLS Inspection: To protect against malicious traffic that is sent from an internal client hosted in Azure to the Internet.
 - East-West TLS Inspection (includes traffic that goes from/to an on-premises network): To protect your Azure workloads from potential malicious traffic sent from within Azure.
