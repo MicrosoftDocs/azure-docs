@@ -33,7 +33,7 @@ There are several commercial solutions for [Video Management Systems](./terminol
 
 ## Next steps
 
-Migrate your applications from Video Analyzer using steps described above by 01 December 2022.
+Migrate your applications from Video Analyzer using suggestions described above by 01 December 2022.
 
 
 

@@ -7,6 +7,6 @@ ms.author: anilmur
 ---
 
 > [!NOTE]
-> **Migrate your applications off of Video Analyzer by 01 December 2022.** We’re retiring the Video Analyzer preview service. 
+> We’re retiring the Azure Video Analyzer preview service, you're advised to **migrate your applications off of Video Analyzer by 01 December 2022.**  
 >
-> **Action Required**: To minimize disruption to your workloads, review the [migration guide](../migrate-video-analyzer.md) to migrate your application off of Video Analyzer before December 01, 2022. After December 1, 2024 your Azure Video Analyzer account will no longer function.
+> **Action Required**: To minimize disruption to your workloads, migrate your application from Video Analyzer per suggestions described in this [migration guide](../migrate-video-analyzer.md) before December 01, 2022. After December 1, 2024 your Azure Video Analyzer account will no longer function.
