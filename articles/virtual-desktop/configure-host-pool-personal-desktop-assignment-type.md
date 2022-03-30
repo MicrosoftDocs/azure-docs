@@ -89,12 +89,11 @@ To directly assign a user to a session host in the Azure portal:
 To unassign a personal desktop, run the following PowerShell cmdlet:
 
 ```powershell
-Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser "" -Force
+Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser "" 
 ```
 
 >[!IMPORTANT]
 > - Azure Virtual Desktop will not delete any VHD or profile data for unassigned personal desktops.
-> - You must include the _-Force_ parameter when running the PowerShell cmdlet to unassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
 > - There must be no existing user sessions on the session host when you unassign the user from the personal desktop. If there's an existing user session on the session host while you're unassigning it, you won't be able to unassign the personal desktop successfully.
 > - If the session host has no user assignment, nothing will happen when you run this cmdlet.
 
