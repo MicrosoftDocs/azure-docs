@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 01/21/2022
+ms.date: 03/30/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -60,6 +60,10 @@ To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Uni
 Azure NetApp Files supports modifying `SMB Shares` by using Microsoft Management Console (MMC). However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
 
 You can change the NTFS permissions of the root volume by using [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure.
+
+## Can I change the SMB share name after the SMB volume has been created?
+
+No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.
 
 ## Next steps  
 
