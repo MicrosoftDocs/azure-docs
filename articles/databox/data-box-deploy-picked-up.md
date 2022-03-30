@@ -128,6 +128,8 @@ Follow the guidelines for the region you're shipping from if you're using Micros
 
 ### Self-managed shipping
 
+[!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
+
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
 
 ::: zone target="chromeless"

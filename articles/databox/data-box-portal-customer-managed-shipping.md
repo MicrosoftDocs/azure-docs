@@ -20,7 +20,7 @@ This article describes self-managed shipping tasks to order, pick up, and drop-o
 
 ## Prerequisites
 
-Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-deploy-ordered.md). Self-managed shipping is only available in the following regions:
+Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-deploy-ordered.md). 
 
 [!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
 

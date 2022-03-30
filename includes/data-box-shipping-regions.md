@@ -6,6 +6,7 @@ ms.topic: include
 ms.date: 03/30/2022
 ms.author: alkohli
 ---
+Self-managed shipping is only available in the following regions:
 
 | Region        | Region         | Region         | Region    | Region    |
 |---------------|----------------|----------------|-----------|-----------|
