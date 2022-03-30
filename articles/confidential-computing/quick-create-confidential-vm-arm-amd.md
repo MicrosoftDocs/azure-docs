@@ -191,7 +191,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Give `Confidential Guest VM Agent` permissions to `get` and `release` the key vault.
     
         ```azurecli
-        $cvmAgent = az ad sp list --display-name "Confidential Guest VM Agent" | Out-String | ConvertFrom-Json
+        $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
         az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
         ```
 
@@ -209,7 +209,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Give `Confidential Guest VM Agent` permissions to `get` and `release` the key vault.
     
         ```azurecli
-        $cvmAgent = az ad sp list --display-name "Confidential Guest VM Agent" | Out-String | ConvertFrom-Json
+        $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
         az keyvault set-policy --name $hsm --object-id $cvmAgent.objectId --key-permission get release    
         ```
 
