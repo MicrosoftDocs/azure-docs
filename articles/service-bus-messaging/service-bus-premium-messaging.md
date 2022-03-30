@@ -2,7 +2,8 @@
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 11/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Service Bus Premium and Standard messaging tiers
@@ -19,14 +20,11 @@ Some high-level differences are highlighted in the following table.
 | Predictable performance |Variable latency |
 | Fixed pricing |Pay as you go variable pricing |
 | Ability to scale workload up and down |N/A |
-| Message size up to 1 MB. [Support for message payloads up to 100 MB](#large-messages-support-preview) currently exists in preview. |Message size up to 256 KB |
+| Message size up to 100 MB. For more information, see [Large message support](#large-messages-support). |Message size up to 256 KB |
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
 Not only is this performance more predictable and available, but it is also faster. With Premium Messaging, peak performance is much faster than with the Standard tier.
-
-> [!NOTE]
-> Batch size limit for Premium Messaging is 1 MB.
 
 ## Premium Messaging technical differences
 
@@ -88,7 +86,7 @@ Getting started with Premium Messaging is straightforward and the process is sim
 
 You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
 
-## Large messages support (Preview)
+## Large messages support
 Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that have used larger message payloads on other enterprise messaging brokers and are looking to seamlessly migrate to Azure Service Bus.
 
 Here are some considerations when sending large messages on Azure Service Bus -
@@ -98,6 +96,7 @@ Here are some considerations when sending large messages on Azure Service Bus -
    * Sending large messages will result in decreased throughput and increased latency.
    * While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
    * The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
+   * Batching is not supported. 
 
 ### Enabling large messages support for a new queue (or topic)
 
@@ -117,6 +116,3 @@ To learn more about Service Bus Messaging, see the following links:
 
 - [Automatically update messaging units](automate-update-messaging-units.md).
 - [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-
-

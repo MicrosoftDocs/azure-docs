@@ -10,12 +10,17 @@ ms.date: 03/05/2021
 Container insights provides a rich monitoring experience for Azure Kubernetes Service (AKS) and AKS engine clusters. This article describes how to achieve a similar monitoring experience by enabling monitoring for Kubernetes clusters that are hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x.
 
 >[!NOTE]
+> We are phasing out Container Insights support for Azure Red Hat OpenShift v4.x by May 2022. We recommend customers to migrate Container Insights on Azure Arc enabled Kubernetes, which offers an upgraded experience and 1-click onboarding. For more information, please visit our [documentation](./container-insights-enable-arc-enabled-clusters.md)
+>
+
+
+>[!NOTE]
 >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
 >
 
 You can enable Container insights for one or more existing deployments of Azure Red Hat OpenShift v4.x by using the supported methods described in this article.
 
-For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift#az_openshift_create&preserve-view=true).
+For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## Supported and unsupported features
 
@@ -38,7 +43,7 @@ Container insights supports monitoring Azure Red Hat OpenShift v4.x as described
 
 - A [Log Analytics workspace](../logs/design-logs-deployment.md).
 
-    Container insights supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
+    Container insights supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
 
 - To enable and access the features in Container insights, you need to have, at minimum, an Azure *Contributor* role in the Azure subscription and a [*Log Analytics Contributor*](../logs/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Container insights.
 

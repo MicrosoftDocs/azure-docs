@@ -5,10 +5,7 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure Functions Premium plan
@@ -35,7 +32,7 @@ Billing for the Premium plan is based on the number of core seconds and memory a
 
 ## Create a Premium plan
 
-When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create an App Service plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they most both run on the same operating system (Windows or Linux). 
+When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create an App Service plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux). 
 
 The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
 
@@ -77,6 +74,8 @@ Pre-warmed instances are instances warmed as a buffer during scale and activatio
 
 When an app has a long warm-up (like a custom container image), you may need to increase this buffer. A pre-warmed instance becomes active only after all active instances have been sufficiently used.
 
+You can also define a warmup trigger that is run during the pre-warming process. You can use a warmup trigger to pre-load custom dependencies during the pre-warming process so your functions are ready to start processing requests immediately. To learn more, see [Azure Functions warmup trigger](functions-bindings-warmup.md).
+
 Consider this example of how always-ready instances and pre-warmed instances work together. A premium function app has five always ready instances configured, and the default of one pre-warmed instance. When the app is idle and no events are triggering, the app is provisioned and running with five instances. At this time, you aren't billed for a pre-warmed instance as the always-ready instances aren't used, and no pre-warmed instance is allocated.
 
 As soon as the first trigger comes in, the five always-ready instances become active, and a pre-warmed instance is allocated. The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer. If the rate of executions continues to increase, the five active instances are eventually used. When the platform decides to scale beyond five instances, it scales into the pre-warmed instance. When that happens, there are now six active instances, and a seventh instance is instantly provisioned and fill the pre-warmed buffer. This sequence of scaling and pre-warming continues until the maximum instance count for the app is reached. No instances are pre-warmed or activated beyond the maximum.
@@ -93,7 +92,7 @@ In addition to the [plan maximum instance count](#plan-and-sku-settings), you ca
 
 ## Private network connectivity
 
-Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
+Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/overview-vnet-integration.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
@@ -108,6 +107,12 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 ## Longer run duration
 
 Azure Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes. 
+
+## Migration
+
+If you have an existing function app, you can use Azure CLI commands to migrate your app between a Consumption plan and a Premium plan on Windows. The specific commands depend on the direction of the migration. To learn more, see [Plan migration](functions-how-to-use-azure-function-app-settings.md#plan-migration).
+
+This migration isn't supported on Linux.
 
 ## Plan and SKU settings
 
@@ -154,7 +159,7 @@ For example, a JavaScript function app is constrained by the default memory limi
 
 And for plans with more than 4GB memory, ensure the Bitness Platform Setting is set to `64 Bit` under [General Settings](../app-service/configure-common.md#configure-general-settings).
 
-## Region Max Scale Out
+## Region max scale out
 
 Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
@@ -168,37 +173,41 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Australia Southeast | 100 | 20 |
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
-|Central US| 100 | 20 |
+|Central India| 100 | 20 |
+|Central US| 100 | 40 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 20 |
+|East US | 100 | 40 |
 |East US 2| 100 | 20 |
 |France Central| 100 | 20 |
-|Germany West Central| 100 | Not Available |
+|Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
 |Japan West| 100 | 20 |
+|Jio India West| 100 | 20 |
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
-|North Europe| 100 | 20 |
+|North Europe| 100 | 40 |
 |Norway East| 100 | 20 |
+|South Africa North| 100 | 20 |
 |South Central US| 100 | 20 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
-|Switzerland North| 100 | Not Available |
-|Switzerland West| 100 | Not Available |
+|Switzerland North| 100 | 20 |
+|Switzerland West| 100 | 20 |
+|UAE North| 100 | 20 |
 |UK South| 100 | 20 |
 |UK West| 100 | 20 |
 |USGov Arizona| 100 | 20 |
+|USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
-|USNat East| 100 | Not Available |
-|USNat West| 100 | Not Available |
-|West Europe| 100 | 20 |
-|West India| 100 | 20 |
 |West Central US| 100 | 20 |
+|West Europe| 100 | 40 |
+|West India| 100 | 20 |
 |West US| 100 | 20 |
 |West US 2| 100 | 20 |
+|West US 3| 100 | 20 |
 
 ## Next steps
 

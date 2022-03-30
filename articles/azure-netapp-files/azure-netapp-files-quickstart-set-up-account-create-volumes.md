@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Set up Azure NetApp Files and NFS volume'
 description: Quickstart - Describes how to quickly set up Azure NetApp Files and create a volume.
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 08/10/2020
-ms.custom: devx-track-azurecli, subject-armqs
+ms.date: 10/04/2021
+ms.custom: devx-track-azurecli, subject-armqs, mode-ui
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
 
@@ -17,7 +17,7 @@ This article shows you how to quickly set up Azure NetApp Files and create an NF
 
 In this quickstart, you will set up the following items:
 
-- Registration for Azure NetApp Files and NetApp Resource Provider
+- Registration for NetApp Resource Provider
 - A NetApp account
 - A capacity pool
 - An NFS volume for Azure NetApp Files
@@ -26,14 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To see all features that you can enable for an NFS volume and relevant considerations, see [Create an NFS volume](azure-netapp-files-create-volumes.md). 
 
-## Before you begin
-
-> [!IMPORTANT]
-> You need to be granted access to the Azure NetApp Files service. To request access to the service, see the [Azure NetApp Files waitlist submission page](https://aka.ms/azurenetappfiles).  You must wait for an official confirmation email from the Azure NetApp Files team before continuing.
-
----
-
-## Register for Azure NetApp Files and NetApp Resource Provider
+## Register for NetApp Resource Provider
 
 > [!NOTE]
 > The registration process can take some time to complete.
@@ -71,9 +64,7 @@ Prepare your environment for the Azure CLI.
 
 None.
 
-Use the Azure portal, PowerShell, or the Azure CLI to register for Azure NetApp Files and the NetApp Resource Provider.
-
-See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more information.
+Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resource Provider](azure-netapp-files-register.md).
 
 ---
 
@@ -141,7 +132,7 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
     > To obtain the region name that is supported by our command line tools, please use `az account list-locations --query "[].{Region:name}" --out table`
     >
 
-2. Create a new resource group by using the [az group create](/cli/azure/group#az_group_create) command:
+2. Create a new resource group by using the [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli-interactive
     az group create \
@@ -149,7 +140,7 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
         --location $LOCATION
     ```
 
-3. Create Azure NetApp Files account with [az netappfiles account create](/cli/azure/netappfiles/account#az_netappfiles_account_create) command:
+3. Create Azure NetApp Files account with [az netappfiles account create](/cli/azure/netappfiles/account#az-netappfiles-account-create) command:
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -170,7 +161,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 ---
 
-## Set up a capacity pool
+## Create a capacity pool
 
 # [Portal](#tab/azure-portal)
 
@@ -220,7 +211,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. Create a new capacity pool by using the [az netappfiles pool create](/cli/azure/netappfiles/pool#az_netappfiles_pool_create)
+2. Create a new capacity pool by using the [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create)
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -335,7 +326,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
     SUBNET_NAME="myANFSubnet"
     ```
 
-1. Create virtual network without subnet by using the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command.
+1. Create virtual network without subnet by using the [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command.
 
     ```azurecli-interactive
     az network vnet create \
@@ -346,7 +337,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
     ```
 
-2. Create a delegated subnet by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) command.
+2. Create a delegated subnet by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command.
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -357,7 +348,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. Create the volume by using the [az netappfiles volume create](/cli/azure/netappfiles/volume#az_netappfiles_volume_create) command.
+3. Create the volume by using the [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) command.
 
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -441,7 +432,7 @@ When you are done and if you want to, you can delete the resource group. The act
 > [!IMPORTANT]
 > All resources within the resource groups will be permanently deleted and cannot be undone.
 
-1. Delete resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
+1. Delete resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
     ```azurecli-interactive
     az group delete \

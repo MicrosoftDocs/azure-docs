@@ -11,7 +11,7 @@ ms.date: 10/19/2018
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available for the v1 runtime. The JSON schema is at http://json.schemastore.org/host.
+The *host.json* metadata file contains configuration options that affect all functions in a function app instance. This article lists the settings that are available for the version 1.x runtime. The JSON schema is at http://json.schemastore.org/host.
 
 > [!NOTE]
 > This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x and later, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
@@ -144,7 +144,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md#functions-1x).
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md?tabs=functionsv1#hostjson-settings).
 
 ## functions
 
@@ -371,4 +371,4 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 > [Learn how to update the host.json file](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [See global settings in environment variables](functions-app-settings.md)
+> [Persist settings in environment variables](functions-app-settings.md)

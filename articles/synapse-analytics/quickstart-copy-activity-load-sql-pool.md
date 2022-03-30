@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: to load data into dedicated SQL pool using the copy activity"
 description: Use the pipeline copy activity in Azure Synapse Analytics to load data into dedicated SQL pool.
-services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
 manager: shwang
@@ -9,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, mode-other
 ms.date: 11/02/2020
 ---
 
@@ -31,7 +30,7 @@ In this quickstart, you learn how to *load data from Azure SQL Database into Azu
 
 After your Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
 In this quickstart, we use the workspace named "adftest2020" as an example. It will automatically navigate you to the Synapse Studio home page.
@@ -126,6 +125,6 @@ In this section, you manually trigger the pipeline published in the previous ste
 Advance to the following article to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Connector overview](../data-factory/connector-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Copy activity](../data-factory/copy-activity-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Connector overview](../data-factory/connector-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Copy activity](../data-factory/copy-activity-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)

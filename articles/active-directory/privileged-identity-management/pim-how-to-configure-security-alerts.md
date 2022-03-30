@@ -4,7 +4,7 @@ description: Configure security alerts for Azure AD roles Privileged Identity Ma
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
@@ -13,6 +13,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.date: 06/30/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

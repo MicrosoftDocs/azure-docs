@@ -1,7 +1,6 @@
 ---
 title: Multi-tenant apps with RLS and elastic database tools
 description: Use elastic database tools with row-level security to build an application with a highly scalable data tier.
-services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
@@ -9,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security
@@ -40,7 +39,7 @@ The goal is to use the elastic database client library [data-dependent routing](
 
 This project extends the one described in [Elastic DB Tools for Azure SQL - Entity Framework Integration](elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multi-tenant shard databases. The project builds a simple console application for creating blogs and posts. The project includes four tenants, plus two multi-tenant shard databases. This configuration is illustrated in the preceding diagram.
 
-Build and run the application. This run bootstraps the elastic database tools’ shard map manager, and performs the following tests:
+Build and run the application. This run bootstraps the elastic database tools' shard map manager, and performs the following tests:
 
 1. Using Entity Framework and LINQ, create a new blog and then display all blogs for each tenant
 2. Using ADO.NET SqlClient, display all blogs for a tenant
@@ -233,7 +232,7 @@ CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
     WITH SCHEMABINDING
 AS
     RETURN SELECT 1 AS fn_accessResult
-        -- Use the user in your application’s connection string.
+        -- Use the user in your application's connection string.
         -- Here we use 'dbo' only for demo purposes!
         WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo')
         AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId;
@@ -340,7 +339,7 @@ GO
 
 ## Summary
 
-Elastic database tools and row-level security can be used together to scale out an application’s data tier with support for both multi-tenant and single-tenant shards. Multi-tenant shards can be used to store data more efficiently. This efficiency is pronounced where a large number of tenants have only a few rows of data. Single-tenant shards can support premium tenants which have stricter performance and isolation requirements. For more information, see [Row-Level Security reference][rls].
+Elastic database tools and row-level security can be used together to scale out an application's data tier with support for both multi-tenant and single-tenant shards. Multi-tenant shards can be used to store data more efficiently. This efficiency is pronounced where a large number of tenants have only a few rows of data. Single-tenant shards can support premium tenants which have stricter performance and isolation requirements. For more information, see [Row-Level Security reference][rls].
 
 ## Additional resources
 
@@ -352,7 +351,7 @@ Elastic database tools and row-level security can be used together to scale out 
 
 ## Questions and Feature Requests
 
-For questions, contact us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html). And add any feature requests to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, contact us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html). And add any feature requests to the [SQL Database feedback forum](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png

@@ -1,15 +1,15 @@
 ---
-title: Configure Dynamics 365 for Customer Engagement & Power Apps offer availability on Microsoft AppSource (Azure Marketplace).
-description: Configure Dynamics 365 for Customer Engagement & Power Apps offer availability on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 apps on Dataverse and Power Apps offer availability on Microsoft AppSource (Azure Marketplace).
+description: Configure Dynamics 365 apps on Dataverse and Power Apps offer availability on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
+ms.date: 12/03/2021
 ---
 
-# Configure Dynamics 365 for Customer Engagement & Power Apps offer availability
+# Configure Dynamics 365 apps on Dataverse and Power Apps offer availability
 
 This page lets you define where and how to make your offer available, including markets and preview audience.
 
@@ -36,5 +36,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu.
 
 Do one of the following:
 
-- If you chose to enable app license management through Microsoft, then go to [Create Dynamics 365 for Customer Engagement & Power Apps plans](dynamics-365-customer-engage-plans.md).
+- If you chose to enable app license management through Microsoft, then go to [Create Dynamics 365 apps on Dataverse and Power Apps plans](dynamics-365-customer-engage-plans.md).
 - Otherwise, go to [Set offer technical configuration](dynamics-365-customer-engage-technical-configuration.md).

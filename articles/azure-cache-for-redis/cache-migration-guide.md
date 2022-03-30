@@ -1,12 +1,12 @@
 ---
 title: Migrate to Azure Cache for Redis
 description: Learn how to migrate your existing cache to Azure Cache for Redis
-author: yegu-ms
+author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.author: yegu
+ms.date: 11/17/2021
+ms.author: franlanglois
 ---
 # Migrate to Azure Cache for Redis
 
@@ -16,12 +16,13 @@ This article describes a number of approaches to migrate an existing Redis cache
 
 Open-source Redis can run in many compute environments. Common examples include:
 
-- **On-premises** - Redis caches running in private datacenters.
+- **On-premises** - Redis caches running in private data centers.
 - **Cloud-based VMs** - Redis caches running on Azure VMs, AWS EC2, and so on.
 - **Hosting services** - Managed Redis services such as AWS ElastiCache.
-- **Different regions** - Redis caches located in another Azure region.
 
-If you have such a cache, you may be able to move it to Azure Cache for Redis with minimal interruption or downtime.
+If you have such a cache, you may be able to move it to Azure Cache for Redis with minimal interruption or downtime. 
+
+If you're looking to move from one Azure region to another, we recommend you see our [Move Azure Cache for Redis instances to different regions](cache-moving-resources.md) article.
 
 ## Migration options
 
@@ -88,7 +89,7 @@ General steps to implement this option are:
 
 ### Migrate programmatically
 
-You can create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Cache for Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Cache for Redis instance to another. This tool is useful for moving data between cache instances in different Azure Cache regions. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
+You can create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Cache for Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Cache for Redis instance to another. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
 
 > [!NOTE]
 > This tool isn't officially supported by Microsoft. 

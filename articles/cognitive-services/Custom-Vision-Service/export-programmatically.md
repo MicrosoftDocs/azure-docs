@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2021
 ms.author: pafarley
+ms.devlang: python
 ---
 
 # Export a model programmatically

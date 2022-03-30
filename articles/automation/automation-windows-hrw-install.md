@@ -3,7 +3,7 @@ title: Deploy an agent-based Windows Hybrid Runbook Worker in Automation
 description: This article tells how to deploy an agent-based Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/27/2021
+ms.date: 10/06/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,9 +12,13 @@ ms.custom: devx-track-azurepowershell
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
-Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to deploy a user Hybrid Runbook Worker on a Windows machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group. For User Hybrid Runbook Workers, see also [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md)
+Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to deploy a user Hybrid Runbook Worker on a Windows machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group. For user Hybrid Runbook Workers, see also [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md)
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
+
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](./extension-based-hybrid-runbook-worker-install.md#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+
 
 ## Prerequisites
 
@@ -22,7 +26,7 @@ Before you start, make sure that you have the following.
 
 ### A Log Analytics workspace
 
-The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/design-logs-deployment.md) before you create the workspace.
 
@@ -76,6 +80,7 @@ To install and configure a Windows user Hybrid Runbook Worker, you can use one o
 
 * Use a provided PowerShell script to completely [automate](#automated-deployment) the process of configuring one or more Windows machines. This is the recommended method for machines in your datacenter or another cloud environment.
 * Manually import the Automation solution, install the Log Analytics agent for Windows, and configure the worker role on the machine.
+* Agent-based hybrid worker uses MMA proxy setting. You have to pass the proxy setting while installing the log analytics extension(MMA) and this setting will be stored under MMA configuration(registry) on VM.
 
 ## Automated deployment
 
@@ -164,22 +169,22 @@ To install and configure a Windows Hybrid Runbook Worker, perform the following 
 
 1. Deploy the Log Analytics agent to the target machine.
 
-    * For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. You can use an Azure Resource Manager template, PowerShell, or Azure Policy to assign the [Deploy Log Analytics agent for *Linux* or *Windows* VMs](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Once the agent is installed, the machine can be added to a Hybrid Runbook Worker group in your Automation account.
+    - For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. You can use an Azure Resource Manager template, PowerShell, or Azure Policy to assign the [Deploy Log Analytics agent for *Linux* or *Windows* VMs](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Once the agent is installed, the machine can be added to a Hybrid Runbook Worker group in your Automation account.
     
-    * For non-Azure machines, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). Arc-enabled servers support deploying the Log Analytics agent using the following methods:
+    - For non-Azure machines, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). Azure Arc-enabled servers support deploying the Log Analytics agent using the following methods:
     
-        - Using the VM extensions framework.
+      - Using the VM extensions framework.
         
-            This feature in Azure Arc-enabled servers allows you to deploy the Log Analytics agent VM extension to a non-Azure Windows and/or Linux server. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc-enabled servers:
+        This feature in Azure Arc-enabled servers allows you to deploy the Log Analytics agent VM extension to a non-Azure Windows or Linux server. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc-enabled servers:
         
-            - The [Azure portal](../azure-arc/servers/manage-vm-extensions-portal.md)
-            - The [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
-            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
-            - Azure [Resource Manager templates](../azure-arc/servers/manage-vm-extensions-template.md)
+        - The [Azure portal](../azure-arc/servers/manage-vm-extensions-portal.md)
+        - The [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
+        - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
+        - Azure [Resource Manager templates](../azure-arc/servers/manage-vm-extensions-template.md)
         
-        - Using Azure Policy.
+      - Using Azure Policy.
         
-            Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
+      Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
 
     We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
@@ -247,6 +252,9 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 ```powershell-interactive
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
+> [!NOTE]
+> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 ## Remove a Hybrid Worker group
 
@@ -258,12 +266,24 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. On the properties page for the selected group, select **Delete**. A message asks you to confirm this action. Select **Yes** if you're sure that you want to continue.
+1. On the properties page for the selected group, select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
+1. Select **Yes** if you're sure that you want to continue. 
 
-   ![Confirmation message](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
+This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
-   This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
+## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
+You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md)
+
+**Actions** | **Description**
+--- | ---
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group. 
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
+
+  
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).

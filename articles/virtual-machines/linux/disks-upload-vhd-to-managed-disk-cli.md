@@ -41,7 +41,7 @@ This kind of managed disk has two unique states:
 
 Before you can create an empty standard HDD for uploading, you'll need the file size of the VHD you want to upload, in bytes. To get that, you can use either `wc -c <yourFileName>.vhd` or `ls -al <yourFileName>.vhd`. This value is used when specifying the **--upload-size-bytes** parameter.
 
-Create an empty standard HDD for uploading by specifying both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az_disk_create) cmdlet:
+Create an empty standard HDD for uploading by specifying both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
 
@@ -76,7 +76,7 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
 
-This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
+This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob

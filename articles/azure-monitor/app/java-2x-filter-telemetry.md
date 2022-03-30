@@ -3,9 +3,8 @@ title: Filter Azure Application Insights telemetry in your Java web app
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
 ms.topic: conceptual
 ms.date: 3/14/2019
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
 ---
 
 # Filter telemetry in your Java web app
@@ -33,7 +32,7 @@ The out-of-the-box filters include:
 In ApplicationInsights.xml, add a `TelemetryProcessors` section like this example:
 
 
-```XML
+```xml
 
     <ApplicationInsights>
       <TelemetryProcessors>
@@ -86,7 +85,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
 ### Metric Telemetry filter
 
-```XML
+```xml
 
            <Processor type="MetricTelemetryFilter">
                   <Add name="NotNeeded" value="metric1,metric2"/>
@@ -98,7 +97,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
 ### Page View Telemetry filter
 
-```XML
+```xml
 
            <Processor type="PageViewTelemetryFilter">
                   <Add name="DurationThresholdInMS" value="500"/>
@@ -115,7 +114,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 ### Request Telemetry Filter
 
 
-```XML
+```xml
 
            <Processor type="RequestTelemetryFilter">
                   <Add name="MinimumDurationInMS" value="500"/>
@@ -133,7 +132,7 @@ Filters out all telemetry that have values in the SyntheticSource property. Thes
 Filter out telemetry for all synthetic requests:
 
 
-```XML
+```xml
 
            <Processor type="SyntheticSourceFilter" />
 ```
@@ -141,7 +140,7 @@ Filter out telemetry for all synthetic requests:
 Filter out telemetry for specific synthetic sources:
 
 
-```XML
+```xml
 
            <Processor type="SyntheticSourceFilter" >
                   <Add name="NotNeeded" value="source1,source2"/>
@@ -155,7 +154,7 @@ Filter out telemetry for specific synthetic sources:
 Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
-```XML
+```xml
 
            <Processor type="TelemetryEventFilter" >
                   <Add name="NotNeededNames" value="event1, event2"/>
@@ -170,7 +169,7 @@ Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.m
 
 Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-2x-trace-logs.md)).
 
-```XML
+```xml
 
            <Processor type="TraceTelemetryFilter">
                   <Add name="FromSeverityLevel" value="ERROR"/>
@@ -230,7 +229,7 @@ In your code, create a class that implements `TelemetryProcessor`:
 
 In ApplicationInsights.xml:
 
-```XML
+```xml
 
 
     <ApplicationInsights>

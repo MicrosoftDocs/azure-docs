@@ -178,7 +178,7 @@ Add routing tables to the guest OS by completing the steps in [Configure the gue
 
 The previous steps created a virtual network and subnet, attached NICs, then created a VM. A public IP address and network security group rules that allow SSH traffic were not created. To configure the guest OS for multiple NICs, you need to allow remote connections and run commands locally on the VM.
 
-To allow SSH traffic, create a network security group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) as follows:
+To allow SSH traffic, create a network security group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) as follows:
 
 ```azurecli
 az network nsg rule create \
@@ -189,7 +189,7 @@ az network nsg rule create \
     --destination-port-ranges 22
 ```
 
-Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) and assign it to the first NIC with [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update):
+Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) and assign it to the first NIC with [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -201,7 +201,7 @@ az network nic ip-config update \
     --public-ip myPublicIP
 ```
 
-To view the public IP address of the VM, use [az vm show](/cli/azure/vm#az_vm_show) as follows::
+To view the public IP address of the VM, use [az vm show](/cli/azure/vm#az-vm-show) as follows::
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
@@ -215,7 +215,7 @@ ssh azureuser@137.117.58.232
 
 To send to or from a secondary network interface, you have to manually add persistent routes to the operating system for each secondary network interface. In this article, *eth1* is the secondary interface. Instructions for adding persistent routes to the operating system vary by distro. See documentation for your distro for instructions.
 
-When adding the route to the operating system, the gateway address is *.1* for whichever subnet the network interface is in. For example, if the network interface is assigned the address *10.0.2.4*, the gateway you specify for the route is *10.0.2.1*. You can define a specific network for the route's destination, or specify a destination of *0.0.0.0*, if you want all traffic for the interface to go through the specified gateway. The gateway for each subnet is managed by the virtual network.
+When adding the route to the operating system, the gateway address is the first address of the subnet the network interface is in. For example, if the subnet has been assigned the range *10.0.2.0/24*, the gateway you specify for the route is *10.0.2.1* or if the subnet has been assigned the range *10.0.2.128/25*, the gateway you specify for the route is *10.0.2.129*. You can define a specific network for the route's destination, or specify a destination of *0.0.0.0*, if you want all traffic for the interface to go through the specified gateway. The gateway for each subnet is managed by the virtual network.
 
 Once you've added the route for a secondary interface, verify that the route is in your route table with `route -n`. The following example output is for the route table that has the two network interfaces added to the VM in this article:
 

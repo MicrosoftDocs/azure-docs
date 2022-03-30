@@ -27,7 +27,7 @@ Even when you publish to your function app from a local project, you can still u
 
 # [Azure CLI](#tab/azurecli)
 
-In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` and setting it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -172,7 +172,7 @@ Keep the following considerations in mind when you disable functions:
 
 + When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
 
-+ At this time, function names that contain a hyphen (`-`) can't be disabled when running on Linux in a Dedicated (App Service) plan. If you need to disable your functions when running on Linux in a Dedicated plan, don't use hyphens in your function names.
++ At this time, function names that contain a hyphen (`-`) can't be disabled when running on Linux plan. If you need to disable your functions when running on Linux plan, don't use hyphens in your function names.
 
 ## Next steps
 

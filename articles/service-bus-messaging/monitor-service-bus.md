@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Service Bus. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 05/18/2021
+ms.date: 02/10/2022
 ---
 
 # Monitor Azure Service Bus
@@ -36,6 +36,10 @@ Platform metrics and the activity log are collected and stored automatically, bu
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Service Bus are listed in [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md#resource-logs).
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+
 
 ### Azure Storage 
 The diagnostic logging information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
@@ -110,6 +114,7 @@ Using Azure Monitor Log Analytics requires you to create a diagnostic configurat
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
+
 For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).
 
 ### Sample Kusto queries
@@ -128,6 +133,15 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where Category == "OperationalLogs"
     | summarize count() by EventName_s, _ResourceId
     ```
++ Get runtime audit logs generated in the last one hour. 
+
+    ```Kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(1h)
+    | where ResourceProvider =="MICROSOFT.SERVICEBUS"
+    | where Category == "RuntimeAuditLogs"    
+    ```
+
 
 + Get access attempts to a key vault that resulted in "key not found" error.
 

@@ -2,11 +2,11 @@
 title: Azure EA pricing
 description: Describes Azure EA pricing overview
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/11/2021
 ms.author: banders
 ---
 
@@ -28,7 +28,9 @@ Microsoft may drop the current Enterprise Agreement price for individual Azure s
 
 ### Current effective pricing
 
-Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise portal](https://ea.azure.com/) and viewing the price sheet page for that enrollment. If you purchase Azure indirectly through one of our channel partners, you'll need to obtain your pricing updates from your channel partner unless they've enabled markup pricing to be displayed for your enrollment.
+Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise portal](https://ea.azure.com/) and viewing the price sheet page for that enrollment. Direct EA customers can now view and download **price sheet** in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). See [view price sheet](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+
+If you purchase Azure indirectly through one of our channel partners, you'll need to obtain your pricing updates from your channel partner unless they've enabled markup pricing to be displayed for your enrollment.
 
 ### Introduction of new Azure services
 

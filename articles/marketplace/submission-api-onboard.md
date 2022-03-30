@@ -59,11 +59,11 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-For the tenant_id value in the POST URI and the client_id and client_secret parameters, specify the tenant ID, client ID and the key for your application that you retrieved from Partner Center in the previous section. For the resource parameter, you must specify https://api.partner.microsoft.com.
+For the tenant_id value in the POST URI and the client_id and client_secret parameters, specify the tenant ID, client ID and the key for your application that you retrieved from Partner Center in the previous section. For the resource parameter, you must specify `https://api.partner.microsoft.com`.
 
 ### Step 3: Use the Partner Center submission API
 
-After you have an Azure AD access token, call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the [Ingestion API](https://apidocs.microsoft.com/services/partneringestion/) swagger.
+After you have an Azure AD access token, call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the [Ingestion API](https://ingestionapi-swagger.azureedge.net/#/) Swagger.
 
 ## Next steps
 

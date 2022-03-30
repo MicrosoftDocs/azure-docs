@@ -1,26 +1,18 @@
 ---
-title: Enrich entities with geolocation data in Azure Sentinel using REST API  | Microsoft Docs
-description: This article describes how you can enrich entities in Azure Sentinel with geolocation data via REST API.
-services: sentinel
-documentationcenter: na
+title: Enrich entities with geolocation data in Microsoft Sentinel using REST API  | Microsoft Docs
+description: This article describes how you can enrich entities in Microsoft Sentinel with geolocation data via REST API.
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/21/2021
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/09/2021
 ms.author: bagol
 ---
 
-# Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)
+# Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)
 
-This article shows you how to enrich entities in Azure Sentinel with geolocation data using the REST API.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This article shows you how to enrich entities in Microsoft Sentinel with geolocation data using the REST API.
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -60,7 +52,7 @@ This command retrieves geolocation data for a given IP Address.
 |**400**     |      IP address not provided or is in invalid format    |
 |**404**     | Geolocation data not found for this IP address         |
 |**429**     |      Too many requests, try again in the specified timeframe    |
-|     |         |
+
 
 ### Fields returned in the response
 
@@ -83,7 +75,7 @@ This command retrieves geolocation data for a given IP Address.
 |**state**     |  The state where this IP address is located       |
 |**stateCf**     | A numeric rating of confidence that the value in the 'state' field is correct on a scale of 0-100        |
 |**stateCode**     |   The abbreviated name for the state where this IP address is located      |
-|     |         |
+
 
 
 ## Throttling limits for the API
@@ -117,12 +109,12 @@ This API has a limit of 100 calls, per user, per hour.
 
 ## Next steps
 
-To learn more about Azure Sentinel, see the following articles:
+To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn more about entities:
 
-    - [Azure Sentinel entity types reference](entities-reference.md)
-    - [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md)
-    - [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md)
+    - [Microsoft Sentinel entity types reference](entities-reference.md)
+    - [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
+    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
 
-- Explore other uses of the [Azure Sentinel API](/rest/api/securityinsights/)
+- Explore other uses of the [Microsoft Sentinel API](/rest/api/securityinsights/)

@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 You can use a preconfigured ELK environment for this tutorial and if you already have one, skip to the **Setup Logstash** section. However, if you do not have one, the following steps creates one in Azure.
 
-1. Create an ELK Certified by [Bitnami](https://ms.portal.azure.com/#create/bitnami.elk4-6) in Azure. For the purposes of the tutorial, there are not any particular specifications to follow for the creation of this server.
+1. Create an ELK Certified by [Bitnami](https://portal.azure.com/#create/bitnami.elk4-6) in Azure. For the purposes of the tutorial, there are not any particular specifications to follow for the creation of this server.
 
 2. Go to your resource in Azure portal and enter the **Boot Diagnostics** tab under the **Support + Troubleshooting** section. Next, click on the **Serial Log** tab.
 

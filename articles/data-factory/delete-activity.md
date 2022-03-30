@@ -47,6 +47,21 @@ Here are some recommendations for using the Delete activity:
 -   [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
 -   [HDFS](connector-hdfs.md)
 
+## Create a Delete activity with UI
+
+To use a Delete activity in a pipeline, complete the following steps:
+
+1. Search for _Delete_ in the pipeline Activities pane, and drag a Delete activity to the pipeline canvas.
+1. Select the new Delete activity on the canvas if it is not already selected, and its  **Source** tab, to edit its details.
+
+   :::image type="content" source="media/delete-activity/delete-activity.png" alt-text="Shows the UI for a Delete activity.":::
+
+1. Select an existing or create a new Dataset specifying the files to be deleted.  If multiple files are selected, optionally enable recursive deletion, which deletes data in any child folders as well.  You can also specify a maximum number of concurrent connections for the operation.
+1. Optionally configure logging by selecting the **Logging settings** tab and selecting an existing or creating a new logging account linked service location to log results of the delete operations performed.
+
+   :::image type="content" source="media/delete-activity/delete-activity-logging-settings.png" alt-text="Shows the &nbsp;Logging settings&nbsp; tab for a Delete activity.":::
+
+
 ## Syntax
 
 ```json
@@ -360,10 +375,10 @@ You can create a pipeline to clean up the old or expired files by leveraging fil
 
 ### Move files by chaining the Copy activity and the Delete activity
 
-You can move a file by using a copy activity to copy a file and then a delete activity to delete a file in a pipeline.  When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample:
+You can move a file by using a Copy activity to copy a file and then a Delete activity to delete a file in a pipeline.  When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample.
 
 > [!NOTE]
-> If you want to move the entire folder by defining a dataset containing a folder path only, and then using a copy activity and a the Delete activity to reference to the same dataset representing a folder, you need to be very careful. It is because you have to make sure that there will NOT be new files arriving into the folder between copying operation and deleting operation.  If there are new files arriving at the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been stared, it is possible that the Delete activity will delete this new arriving file which has NOT been copied to the destination yet by deleting the entire folder. 
+> If you want to move the entire folder by defining a dataset containing a folder path only, and then using a Copy activity and a Delete activity to reference to the same dataset representing a folder, you need to be very careful. You must ensure that there **will not** be any new files arriving into the folder between the copy operation and the delete operation. If new files arrive in the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been started, then the Delete activity might delete the newly arriving file which has NOT been copied to the destination yet by deleting the entire folder. 
 
 #### Sample pipeline
 

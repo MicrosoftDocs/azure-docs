@@ -3,13 +3,14 @@ title: 'Integrate with a client app using Speech SDK'
 titleSuffix: Azure Cognitive Services
 description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -306,7 +307,7 @@ Add the code-behind source as follows:
    // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
    const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-   const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
+   const string region = "YourServiceRegion"; // The subscription service region. 
 
    var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");

@@ -5,9 +5,9 @@ description: This topic describes how to deal with delimited text format in Azur
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/25/2022
 ms.author: jianleishen
 ---
 
@@ -17,7 +17,21 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the delimited text files or write the data into delimited text format**. 
 
-Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+Delimited text format is supported for the following connectors: 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure Files](connector-azure-file-storage.md)
+- [File System](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
 
 ## Dataset properties
 
@@ -27,13 +41,13 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **DelimitedText**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`.  | Yes      |
-| columnDelimiter  | The character(s) used to separate columns in a file. <br>The default value is **comma  `,`**. When the column delimiter is defined as empty string, which means no delimiter, the whole line is taken as a single column.<br>Currently, column delimiter as empty string or multi-char is only supported for mapping data flow but not Copy activity.  | No       |
-| rowDelimiter     | The single character or "\r\n" used to separate rows in a file. <br>The default value is any of the following values **on read: ["\r\n", "\r",  "\n"]**, and **"\n" or "\r\n" on write** by mapping data flow and Copy activity respectively. <br>When the row delimiter is set to no delimiter (empty string), the column delimiter must be set as no delimiter (empty string) as well, which means to treat the entire content as a single value.<br>Currently, row delimiter as empty string is only supported for mapping data flow but not Copy activity. | No       |
+| columnDelimiter  | The character(s) used to separate columns in a file. <br>The default value is **comma  `,`**. When the column delimiter is defined as empty string, which means no delimiter, the whole line is taken as a single column.<br>Currently, column delimiter as empty string is only supported for mapping data flow but not Copy activity.  | No       |
+| rowDelimiter     |  For Copy activity, the single character or "\r\n" used to separate rows in a file. The default value is any of the following values **on read: ["\r\n", "\r", "\n"]**; **on write: "\r\n"**. "\r\n" is only supported in copy command.<br>For Mapping data flow, the single or two characters used to separate rows in a file. The default value is any of the following values **on read: ["\r\n", "\r", "\n"]**; **on write: "\n"**.<br>When the row delimiter is set to no delimiter (empty string), the column delimiter must be set as no delimiter (empty string) as well, which means to treat the entire content as a single value.<br>Currently, row delimiter as empty string is only supported for mapping data flow but not Copy activity. | No       |
 | quoteChar        | The single character to quote column values if it contains column delimiter. <br>The default value is **double quotes** `"`. <br>When `quoteChar` is defined as empty string, it means there is no quote char and column value is not quoted, and `escapeChar` is used to escape the column delimiter and itself. | No       |
 | escapeChar       | The single character to escape quotes inside a quoted value.<br>The default value is **backslash `\`**. <br>When `escapeChar` is defined as empty string, the `quoteChar` must be set as empty string as well, in which case make sure all column values don't contain delimiters. | No       |
 | firstRowAsHeader | Specifies whether to treat/make the first row as a header line with names of columns.<br>Allowed values are **true** and **false** (default).<br>When first row as header is false, note UI data preview and lookup activity output auto generate column names as Prop_{n} (starting from 0), copy activity requires [explicit mapping](copy-activity-schema-and-type-mapping.md#explicit-mapping) from source to sink and locates columns by ordinal (starting from 1), and mapping data flow lists and locates columns with name as Column_{n} (starting from 1).  | No       |
 | nullValue        | Specifies the string representation of null value. <br>The default value is **empty string**. | No       |
-| encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Note mapping data flow doesn't support UTF-7 encoding. | No       |
+| encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8","UTF-8 without BOM", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Note mapping data flow doesn't support UTF-7 encoding. | No       |
 | compressionCodec | The compression codec used to read/write text files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy**, or **lz4**. Default is not compressed. <br>**Note** currently Copy activity doesn't support "snappy" & "lz4", and mapping data flow doesn't support "ZipDeflate", "TarGzip" and "Tar". <br>**Note** when using copy activity to decompress **ZipDeflate**/**TarGzip**/**Tar** file(s) and write to file-based sink data store, by default files are extracted to the folder:`<path specified in dataset>/<folder named as source compressed file>/`, use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` on [copy activity source](#delimited-text-as-source) to control whether to preserve the name of the compressed file(s) as folder structure. | No       |
 | compressionLevel | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
 
@@ -138,7 +152,7 @@ Supported **delimited text write settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to delimited text format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+In mapping data flows, you can read and write to delimited text format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties), and you can read delimited text format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 ### Source properties
 
@@ -203,6 +217,21 @@ CSVSource sink(allowSchemaDrift: true,
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> CSVSink
 ```
+
+## Related connectors and formats
+
+Here are some common connectors and formats related to the delimited text format:
+
+- Azure Blob Storage (connector-azure-blob-storage.md)
+- Binary format (format-binary.md)
+- Dataverse(connector-dynamics-crm-office-365.md)
+- Delta format(format-delta.md)
+- Excel format(format-excel.md)
+- File System(connector-file-system.md)
+- FTP(connector-ftp.md)
+- HTTP(connector-http.md)
+- JSON format(format-json.md)
+- Parquet format(format-parquet.md)
 
 ## Next steps
 

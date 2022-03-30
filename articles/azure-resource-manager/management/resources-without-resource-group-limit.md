@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 03/23/2022
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -11,10 +11,11 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
-Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md). 
+Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md).
 
 ## Microsoft.AlertsManagement
 
+* prometheusRuleGroups
 * resourceHealthAlertRules
 * smartDetectorAlertRules
 
@@ -41,8 +42,9 @@ Some resources have a limit on the number instances per region. This limit is di
 * galleries/images/versions
 * images
 * snapshots
-* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 * virtualMachines
+* virtualMachines/extensions
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 
 ## Microsoft.ContainerInstance
 
@@ -82,11 +84,13 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.DevTestLab
 
+* labs/virtualMachines - By default, limited to 800 instances. That limit can be increased by contacting support.
 * schedules
 
-## Microsoft.EnterpriseKnowledgeGraph
+## Microsoft.EdgeOrder
 
-* services
+* orderItems
+* orders
 
 ## Microsoft.EventHub
 
@@ -108,8 +112,8 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.HybridCompute
 
-* machines - supports up to 5,000 instances
-* machines/extensions - supports an unlimited number of VM extension instances
+* machines - Supports up to 5,000 instances.
+* machines/extensions
 
 ## microsoft.insights
 
@@ -132,6 +136,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/capacityPools/volumes/subvolumes
 * netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 
@@ -140,43 +145,50 @@ Some resources have a limit on the number instances per region. This limit is di
 * applicationGatewayWebApplicationFirewallPolicies
 * applicationSecurityGroups
 * bastionHosts
+* customIpPrefixes
 * ddosProtectionPlans
+* dnsForwardingRulesets
+* dnsForwardingRulesets/forwardingRules
+* dnsForwardingRulesets/virtualNetworkLinks
+* dnsResolvers
+* dnsResolvers/inboundEndpoints
+* dnsResolvers/outboundEndpoints
 * dnszones
 * dnszones/A
 * dnszones/AAAA
+* dnszones/all
 * dnszones/CAA
 * dnszones/CNAME
 * dnszones/MX
 * dnszones/NS
 * dnszones/PTR
+* dnszones/recordsets
 * dnszones/SOA
 * dnszones/SRV
 * dnszones/TXT
-* dnszones/all
-* dnszones/recordsets
+* expressRouteCrossConnections
 * networkIntentPolicies
 * networkInterfaces
+* networkSecurityGroups
 * privateDnsZones
 * privateDnsZones/A
 * privateDnsZones/AAAA
+* privateDnsZones/all
 * privateDnsZones/CNAME
 * privateDnsZones/MX
 * privateDnsZones/PTR
 * privateDnsZones/SOA
 * privateDnsZones/SRV
 * privateDnsZones/TXT
-* privateDnsZones/all
 * privateDnsZones/virtualNetworkLinks
+* privateEndpointRedirectMaps
 * privateEndpoints
 * privateLinkServices
 * publicIPAddresses
 * serviceEndpointPolicies
 * trafficmanagerprofiles
+* virtualNetworks/privateDnsZoneLinks
 * virtualNetworkTaps
-
-## Microsoft.PortalSdk
-
-* rootResources
 
 ## Microsoft.PowerBI
 
@@ -191,10 +203,6 @@ Some resources have a limit on the number instances per region. This limit is di
 
 * namespaces
 
-## Microsoft.Scheduler
-
-* jobcollections
-
 ## Microsoft.ServiceBus
 
 * namespaces
@@ -206,19 +214,42 @@ Some resources have a limit on the number instances per region. This limit is di
 * accounts/groupPolicies
 * accounts/jobs
 * accounts/models
+* accounts/networks
 * accounts/storageContainers
 
 ## Microsoft.Sql
 
+* instancePools
+* managedInstances
+* managedInstances/databases
+* managedInstances/metricDefinitions
+* managedInstances/metrics
+* managedInstances/sqlAgent
+* servers
 * servers/databases
+* servers/databases/databaseState
+* servers/elasticpools
+* servers/jobAccounts
+* servers/jobAgents
+* virtualClusters
 
 ## Microsoft.Storage
 
 * storageAccounts
 
+## Microsoft.StoragePool
+
+* diskPools
+* diskPools/iscsiTargets
+
 ## Microsoft.StreamAnalytics
 
 * streamingjobs - By default, limited to 800 instances. That limit can be increased by contacting support.
+
+## Microsoft.Web
+
+* apiManagementAccounts/apis
+* sites
 
 ## Next steps
 

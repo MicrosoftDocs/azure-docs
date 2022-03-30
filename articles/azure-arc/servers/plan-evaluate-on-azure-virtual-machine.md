@@ -1,7 +1,7 @@
 ---
 title: How to evaluate Azure Arc-enabled servers with an Azure VM
 description: Learn how to evaluate Azure Arc-enabled servers using an Azure virtual machine.
-ms.date: 09/20/2021
+ms.date: 10/01/2021
 ms.topic: conceptual
 ---
 
@@ -11,10 +11,13 @@ Azure Arc-enabled servers is designed to help you connect servers running on-pre
 
 While you cannot install Azure Arc-enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc-enabled servers to run on an Azure VM for *evaluation and testing purposes only*. This article will help you set up an Azure VM before you can enable Azure Arc-enabled servers on it.
 
+> [!NOTE]
+> The steps in this article are intended for virtual machines hosted in the Azure cloud. Azure Arc-enabled servers is not supported on virtual machines running on Azure Stack Hub or Azure Stack Edge.
+
 ## Prerequisites
 
 * Your account is assigned to the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role.
-* The Azure virtual machine is running an [operating system supported by Azure Arc-enabled servers](agent-overview.md#supported-operating-systems). If you don't have an Azure VM, you can deploy a [simple Windows VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json) or a [simple Ubuntu Linux 18.04 LTS VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json).
+* The Azure virtual machine is running an [operating system supported by Azure Arc-enabled servers](prerequisites.md#supported-operating-systems). If you don't have an Azure VM, you can deploy a [simple Windows VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json) or a [simple Ubuntu Linux 18.04 LTS VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json).
 * Your Azure VM can communicate outbound to download the Azure Connected Machine agent package for Windows from the [Microsoft Download Center](https://aka.ms/AzureConnectedMachineAgent), and Linux from the Microsoft [package repository](https://packages.microsoft.com/). If outbound connectivity to the Internet is restricted following your IT security policy, you will need to download the agent package manually and copy it to a folder on the Azure VM.
 * An account with elevated (that is, an administrator or as root) privileges on the VM, and RDP or SSH access to the VM.
 * To register and manage the Azure VM with Azure Arc-enabled servers, you are a member of the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
@@ -25,7 +28,7 @@ To start managing your Azure VM as an Azure Arc-enabled server, you need to make
 
 1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Azure Arc-enabled servers support many of the same extensions as Azure VMs, the Azure Arc-enabled servers agent can't manage VM extensions already deployed to the VM.
 
-2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Arc-enabled servers Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
+2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
 
 3. Create a security rule to deny access to the Azure Instance Metadata Service (IMDS). IMDS is a REST API that applications can call to get information about the VM's representation in Azure, including its resource ID and location. IMDS also provides access to any managed identities assigned to the machine. Azure Arc-enabled servers provides its own IMDS implementation and returns information about the Azure Arc representation of the VM. To avoid situations where both IMDS endpoints are available and apps have to choose between the two, you block access to the Azure VM IMDS so that the Azure Arc-enabled server IMDS implementation is the only one available.
 
@@ -116,4 +119,4 @@ After you install and configure the agent to register with Azure Arc-enabled ser
 
 * Learn about our [supported Azure VM extensions](manage-vm-extensions.md) available to simplify deployment with other Azure services like Automation, KeyVault, and others for your Windows or Linux machine.
 
-* When you have finished testing, see [Remove Azure Arc-enabled servers agent](manage-agent.md#remove-the-agent).
+* When you have finished testing, [uninstall the Azure Arc-enabled servers agent](manage-agent.md#uninstall-the-agent).

@@ -2,10 +2,9 @@
 title: Create a Private Endpoint for a secure connection
 titleSuffix: Azure Cognitive Search
 description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
-
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: markheff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
@@ -24,7 +23,7 @@ You can create a private endpoint in the Azure portal, as described in this arti
 
 ## Why use a Private Endpoint for secure access?
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enables you to:
 

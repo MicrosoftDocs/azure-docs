@@ -26,7 +26,7 @@ The following table lists available authentication methods and typical scenarios
 | [Individual AD identity](#individual-login-with-azure-ad)                | `az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell                             | Interactive push/pull by developers, testers                                    | Yes                              | AD token must be renewed every 3 hours     |
 | [AD service principal](#service-principal)                  | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell<br/><br/> Registry login settings in APIs or tooling<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)                                           | Unattended push from CI/CD pipeline<br/><br/> Unattended pull to Azure or external services  | Yes                              | SP password default expiry is 1 year       |
 | [Managed identity for Azure resources](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell                                       | Unattended push from Azure CI/CD pipeline<br/><br/> Unattended pull to Azure services<br/><br/>   | Yes                              | Use only from select Azure services that [support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
-| [AKS cluster managed identity](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster in the same or a different subscription                                                 | No, pull access only             | Only available with AKS cluster            |
+| [AKS cluster managed identity](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster in the same or a different subscription                                                 | No, pull access only             | Only available with AKS cluster<br/><br/>Can't be used for cross-tenant authentication            |
 | [AKS cluster service principal](authenticate-aks-cross-tenant.md)                    | Enable when AKS cluster created or updated  | Unattended pull to AKS cluster from registry in another AD tenant                                                  | No, pull access only             | Only available with AKS cluster            |
 | [Admin user](#admin-account)                            | `docker login`                                          | Interactive push/pull by individual developer or tester<br/><br/>Portal deployment of image from registry to Azure App Service or Azure Container Instances                      | No, always pull and push access  | Single account per registry, not recommended for multiple users         |
 | [Repository-scoped access token](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)    | Interactive push/pull to repository by individual developer or tester<br/><br/> Unattended pull from repository by individual system or external device                  | Yes                              | Not currently integrated with AD identity  |
@@ -35,7 +35,7 @@ The following table lists available authentication methods and typical scenarios
 
 ### [Azure CLI](#tab/azure-cli)
 
-When working with your registry directly, such as pulling images to and pushing images from a development workstation to a registry you created, authenticate by using your individual Azure identity. Sign in to the [Azure CLI](/cli/azure/install-azure-cli) with [az login](/cli/azure/reference-index#az_login), and then run the [az acr login](/cli/azure/acr#az_acr_login) command:
+When working with your registry directly, such as pulling images to and pushing images from a development workstation to a registry you created, authenticate by using your individual Azure identity. Sign in to the [Azure CLI](/cli/azure/install-azure-cli) with [az login](/cli/azure/reference-index#az-login), and then run the [az acr login](/cli/azure/acr#az-acr-login) command:
 
 ```azurecli
 az login
@@ -71,7 +71,7 @@ Output displays the access token, abbreviated here:
 ```
 For registry authentication, we recommend that you store the token credential in a safe location and follow recommended practices to manage [docker login](https://docs.docker.com/engine/reference/commandline/login/) credentials. For example, store the token value in an environment variable:
 
-```bash
+```azurecli
 TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query accessToken)
 ```
 
@@ -79,6 +79,13 @@ Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the 
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
+```
+Likewise, you can use the token returned by `az acr login` with the `helm registry login` command to authenticate with the registry:
+
+```console
+echo $TOKEN | helm registry login myregistry.azurecr.io \
+            --username 00000000-0000-0000-0000-000000000000 \
+            --password-stdin
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -127,7 +134,7 @@ The admin account is currently required for some scenarios to deploy an image fr
 > The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials. Individual identity is recommended for users and service principals for headless scenarios.
 >
 
-The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command when prompted for basic authentication to the registry. For example:
+The admin account is provided with two passwords, both of which can be regenerated. New passwords created for admin accounts are available immediately. Regenerating passwords for admin accounts will take 60 seconds to replicate and be available. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command when prompted for basic authentication to the registry. For example:
 
 ```
 docker login myregistry.azurecr.io
@@ -137,7 +144,7 @@ For recommended practices to manage login credentials, see the [docker login](ht
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr#az_acr_update) command in the Azure CLI:
+To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr#az-acr-update) command in the Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Standard API, SDK & resources'
 description: Learn all about the SQL API and .NET SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
-ms.date: 04/06/2021
-ms.author: anfeldma
+ms.date: 03/22/2022
+ms.author: jroth
 ms.custom: devx-track-dotnet
 
 
@@ -45,7 +45,17 @@ ms.custom: devx-track-dotnet
 |**Entity Framework Core tutorial**|[Entity Framework Core with Azure Cosmos DB Provider](/ef/core/providers/cosmos/#get-started)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
+## Release history
+
+Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)
+
+## <a name="recommended-version"></a> Recommended version
+
+Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.25.0**.
+
+## <a name="known-issues"></a> Known issues
+
+For a list of known issues with the recommended minimum version of the SDK, see [known issues section](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md#-known-issues).
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]

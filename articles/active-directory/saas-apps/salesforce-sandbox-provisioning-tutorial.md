@@ -36,6 +36,9 @@ Before configuring and enabling the provisioning service, you need to decide whi
 * When assigning a user to Salesforce Sandbox, you must select a valid user role. The "Default Access" role does not work for provisioning.
 
 > [!NOTE]
+> The Salesforce Sandbox app will, by default, append a string to the username and email of the users provisioned. Usernames and Emails have to be unique across all of Salesforce so this is to prevent creating real user data in the sandbox which would prevent these users being provisioned to the production Salesforce environment 
+
+> [!NOTE]
 > This app imports custom roles from Salesforce Sandbox as part of the provisioning process, which the customer may want to select when assigning users.
 
 ## Enable automated user provisioning

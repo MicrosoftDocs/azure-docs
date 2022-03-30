@@ -1,17 +1,13 @@
 ---
-title: Deploy disaster recovery using JetStream DR (Preview)
+title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/17/2021
 ms.custom: references_regions
 ---
 
-# Deploy disaster recovery using JetStream DR (Preview)
+# Deploy disaster recovery using JetStream DR
 
->[!IMPORTANT]
->JetStream DR on Azure VMware Solution (Preview) is currently in public preview.
->This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
->For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
@@ -23,7 +19,7 @@ To learn more about JetStream DR, see:
 
 - [JetStream Solution brief](https://www.jetstreamsoft.com/2020/09/28/solution-brief-disaster-recovery-for-avs/)
 
-- [JetStream DR on Azure Marketplace](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020)
+- [JetStream DR on Azure Marketplace](https://portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020)
 
 - [JetStream knowledge base articles](https://www.jetstreamsoft.com/resources/knowledge-base/)
 
@@ -73,7 +69,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - Network connectivity configured between the primary site JetStream appliances and the Azure Storage blob instance. 
 
-- [Setup and Subscribe to JetStream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
+- [Setup and Subscribe to JetStream DR](https://portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
 
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
@@ -92,7 +88,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
  
 - Network connectivity configured between the primary site JetStream appliances and the Azure Storage blob instance. 
 
-- [Setup and Subscribe to JetStream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
+- [Setup and Subscribe to JetStream DR](https://portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
 
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
@@ -283,33 +279,6 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Uninstall-JetDR-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
 
  1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
-
-
-## Region availability
-
-JetStream DR for Azure VMware Solutions is available in the following regions: 
-
-- East US 
-
-- North Europe 
-
-- US South 
-
-- West Europe 
-
-- Central US 
-
-- West US 
-
-- East Asia 
-
-- Japan East 
-
-- Brazil South 
-
-- Canada East 
-
-- UK West 
 
 
  

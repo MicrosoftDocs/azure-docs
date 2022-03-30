@@ -92,7 +92,9 @@ The router can have four routing statuses: Provisioned, Provisioning, Failed, or
 * A **None** status indicates that the Virtual hub did not provision the router. This can happen if the Virtual WAN is of type *Basic*, or if the virtual hub was deployed prior to the service being made available.
 * A **Failed** status indicates failure during instantiation. In order to instantiate or reset the router, you can locate the **Reset Router** option by navigating to the virtual hub Overview page in the Azure portal.
 
-Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets connected to a single virtual Hub.
+Every virtual hub router supports an aggregate throughput up to 50 Gbps. 
+
+Connectivity between the virtual network connections assumes, by default, a maximum total of 2000 VM workload across all VNets connected to a single virtual Hub. This [limit](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) can be increased opening an online customer support request. For cost implication, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page. 
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 
@@ -124,6 +126,15 @@ If you have pre-existing routes in the Routing section for the hub in the Azure 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
 If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
 
+## Gated public preview
+The below features are currently in gated public preview.
+
+| Feature | Description |
+| ---------- | --------- |
+| Routing Intent and Policies Enabling Inter-hub security | This feature allows customers to configure internet-bound, private or inter-hub traffic flow through the Azure Firewall. Please review [Routing Intent and Policies](../virtual-wan/how-to-routing-policies.md) to learn more. |
+| Hub to Hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). Please review [Hub to Hub over ER preview link](virtual-wan-faq.md#expressroute-bow-tie)
+| BGP peering with a virtual hub | This feature provides the ability for the virtual hub to pair with and directly exchange routing information through Border Gateway Protocol (BGP) routing protocol. Please review the concept [BGP peering with a virtual hub](create-bgp-peering-hub-portal.md) and the guide [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md)
+
 ## <a name="faq"></a>FAQ
 
 For frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).
@@ -136,4 +147,3 @@ Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the
 
 - [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
 - [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
-

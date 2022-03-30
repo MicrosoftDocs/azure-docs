@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: luquinta
-author: luisquintanilla
-ms.date: 07/15/2021
+ms.author: ssalgado
+author: ssalgadodev
+ms.date: 10/21/2021
 # As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 
@@ -16,7 +16,7 @@ ms.date: 07/15/2021
 
 In this article, you'll learn how to connect to an Azure Machine Learning compute instance using Visual Studio Code.
 
-An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators.
+An [Azure Machine Learning compute instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators.
 
 There are two ways you can connect to a compute instance from Visual Studio Code:
 

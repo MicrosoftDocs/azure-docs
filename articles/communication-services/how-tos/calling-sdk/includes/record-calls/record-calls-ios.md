@@ -9,14 +9,14 @@ ms.author: rifox
 
 ## Record calls
 > [!WARNING]
-> Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling iOS SDK has the `isRecordingActive` as part of the `Call` object and `didChangeRecordingState` is part of `CallDelegate` delegate. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
+> Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the Azure Communication Services Calling iOS SDK has the `isRecordingActive` as part of the `Call` object and `didChangeRecordingState` is part of `CallDelegate` delegate. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling iOS SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling iOS SDK
 
-Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
+Call recording is an extended feature of the core `Call` object. You first need to obtain the recording feature object:
 
 ```swift
-let callRecordingFeature = call.api(RecordingFeature.self)
+let callRecordingFeature = call.feature(Features.recording)
 ```
 
 Then, to check if the call is being recorded, inspect the `isRecordingActive` property of `callRecordingFeature`. It returns `Bool`.
@@ -25,13 +25,13 @@ Then, to check if the call is being recorded, inspect the `isRecordingActive` pr
 let isRecordingActive = callRecordingFeature.isRecordingActive;
 ```
 
-You can also subscribe to recording changes by implementing `RecordingFeatureDelegate` delegate on your class with the event `didChangeRecordingState`:
+You can also subscribe to recording changes by implementing `RecordingCallFeatureDelegate` delegate on your class with the event `didChangeRecordingState`:
 
 ```swift
 callRecordingFeature.delegate = self
 
-// didChangeRecordingState is a member of RecordingFeatureDelegate
-public func recordingFeature(_ recordingFeature: RecordingFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
+// didChangeRecordingState is a member of RecordingCallFeatureDelegate
+public func recordingCallFeature(_ recordingCallFeature: RecordingCallFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
     let isRecordingActive = recordingFeature.isRecordingActive
 }
 ```

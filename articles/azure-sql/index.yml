@@ -7,14 +7,14 @@ metadata:
   title: Azure SQL documentation
   description:  "Azure SQL is a family of SQL Server database engine products in the cloud, from a fully managed database in Azure SQL Database, a fully managed instance in Azure SQL Managed Instance, or SQL Server installed to virtual machine in Azure."
   services: sql-database
-  ms.service: sql-database
+  ms.service: sql-db-mi
   ms.subservice: service-overview
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer:
+  ms.reviewer: kendralittle
   ms.date: 10/30/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -29,7 +29,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: database/doc-changes-updates-release-notes.md?tabs=single-database
+            url: database/doc-changes-updates-release-notes-whats-new.md
       - linkListType: overview
         links:
           - text: What is SQL Database?
@@ -45,7 +45,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Database overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -66,13 +66,9 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
-          - text: Feedback? Take the survey! 
-            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
+            url: managed-instance/doc-changes-updates-release-notes-whats-new.md
       - linkListType: overview
         links:
-          - text: What's new? 
-            url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
           - text: What is SQL Managed Instance?
             url: managed-instance/sql-managed-instance-paas-overview.md
           - text: What are instance pools? 
@@ -88,7 +84,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Managed Instance overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -109,7 +105,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What's new? 
-            url: virtual-machines/windows/doc-changes-updates-release-notes.md
+            url: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
           - text: What is SQL Server on Windows VM? 
             url: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
           - text: What is SQL Server on Linux VM? 
@@ -123,7 +119,7 @@ landingContent:
       - linkListType: video
         links:
           - text: SQL Server on Azure VM overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
+            url: /shows/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server

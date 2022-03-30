@@ -4,12 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/12/2020
+ms.date: 10/21/2021
 ms.topic: how-to
+ms.devlang: csharp, golang, java, python
 ms.custom: "devx-track-python,devx-track-csharp"
 
 
@@ -75,7 +76,9 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az_ml_service_show) command:
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
+If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az-ml-service-show) command:
 
 ```azurecli
 az ml service show -n <service-name>
@@ -156,6 +159,8 @@ print(token)
 ```
 
 If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml service get-access-token -n <service-name>

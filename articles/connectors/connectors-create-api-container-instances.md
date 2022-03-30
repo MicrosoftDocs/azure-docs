@@ -1,6 +1,6 @@
 ---
 title: Deploy & manage Azure Container Instances
-description: Automate tasks and workflows that create and manage container deployments in Azure Container Instances by using Azure Logic Apps
+description: Automate tasks and workflows that create and manage container deployments in Azure Container Instances by using Azure Logic Apps.
 services: logic-apps, container-instances
 ms.service: logic-apps
 ms.suite: integration
@@ -8,15 +8,14 @@ author: dlepow
 ms.author: danlep
 ms.manager: gwallace
 ms.reviewer: estfan, macolso
-ms.topic: article
+ms.topic: how-to
 tags: connectors
 ms.date: 01/14/2020
 ---
 
 # Deploy and manage Azure Container Instances by using Azure Logic Apps
 
-With Azure Logic Apps and the Azure Container Instance connector, 
-you can set up automated tasks and workflows that deploy and manage [container groups](../container-instances/container-instances-container-groups.md). The Container Instance connector supports the following actions:
+With Azure Logic Apps and the Azure Container Instance connector, you can set up automated tasks and workflows that deploy and manage [container groups](../container-instances/container-instances-container-groups.md). The Container Instance connector supports the following actions:
 
 * Create or delete a container group
 * Get the properties of a container group
@@ -33,8 +32,8 @@ If you're new to logic apps, review
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142Fs). 
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and [how to create and manage container instances](../container-instances/container-instances-quickstart.md)

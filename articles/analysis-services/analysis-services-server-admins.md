@@ -4,7 +4,7 @@ description: This article describes how to manage server administrators for an A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 2/4/2021
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan 
 ms.custom: devx-track-azurepowershell

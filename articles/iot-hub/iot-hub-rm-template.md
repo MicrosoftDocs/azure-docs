@@ -1,9 +1,9 @@
 ---
 title: Create an Azure IoT Hub using a template (.NET) | Microsoft Docs
 description: How to use an Azure Resource Manager template to create an IoT Hub with a C# program.
-author: robinsh
+author: kgremban
 
-ms.author: robinsh
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp

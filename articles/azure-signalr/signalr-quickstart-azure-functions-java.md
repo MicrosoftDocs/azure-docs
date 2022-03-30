@@ -1,15 +1,13 @@
 ---
 title: Use Java to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Java.
-author: sffamily
-ms.author: zhshang
+author: vicancy
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.custom:
-  - devx-track-java
-  - mode-api
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service
@@ -52,7 +50,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Configure and run the Azure Function app
 
-1. Make sure you have Azure Function Core Tools, java (version 11 in the sample) and maven installed.
+1. Make sure you have Azure Function Core Tools, Java (version 11 in the sample) and maven installed.
     
     ```bash
     mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=11
@@ -71,7 +69,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     ```java
     package com.signalr;
-  
+    
     import com.google.gson.Gson;
     import com.microsoft.azure.functions.ExecutionContext;
     import com.microsoft.azure.functions.HttpMethod;
@@ -99,6 +97,9 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     import java.util.Optional;
     
     public class Function {
+        private static String Etag = "";
+        private static String StarCount;
+    
         @FunctionName("index")
         public HttpResponseMessage run(
                 @HttpTrigger(
@@ -111,7 +112,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             String text = IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
             return request.createResponseBuilder(HttpStatus.OK).header("Content-Type", "text/html").body(text).build();
         }
-  
+    
         @FunctionName("negotiate")
         public SignalRConnectionInfo negotiate(
                 @HttpTrigger(
@@ -129,13 +130,21 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         @SignalROutput(name = "$return", hubName = "serverless")
         public SignalRMessage broadcast(
             @TimerTrigger(name = "timeTrigger", schedule = "*/5 * * * * *") String timerInfo) throws IOException, InterruptedException {
-            
             HttpClient client = HttpClient.newHttpClient();
-            HttpRequest req = HttpRequest.newBuilder().uri(URI.create("https://api.github.com/repos/azure/azure-signalr")).header("User-Agent", "serverless").build();
+            HttpRequest req = HttpRequest.newBuilder().uri(URI.create("https://api.github.com/repos/azure/azure-signalr")).header("User-Agent", "serverless").header("If-None-Match", Etag).build();
             HttpResponse<String> res = client.send(req, BodyHandlers.ofString());
-            Gson gson = new Gson();
-            GitResult result = gson.fromJson(res.body(), GitResult.class);
-            return new SignalRMessage("newMessage", "Current star count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
+            if (res.headers().firstValue("Etag").isPresent())
+            {
+                Etag = res.headers().firstValue("Etag").get();
+            }
+            if (res.statusCode() == 200)
+            {
+                Gson gson = new Gson();
+                GitResult result = gson.fromJson(res.body(), GitResult.class);
+                StarCount = result.stargazers_count;
+            }
+            
+            return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-signalr is:".concat(StarCount));
         }
     
         class GitResult {

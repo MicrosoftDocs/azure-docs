@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to export or delete your workspace with the Azure Machine Learning studio, CLI, SDK, and authenticated REST APIs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: lobrien
-ms.author: laobri
-ms.date: 08/05/2021
+ms.subservice: mldata
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---

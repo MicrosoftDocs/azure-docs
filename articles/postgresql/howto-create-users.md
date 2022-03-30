@@ -1,10 +1,11 @@
 ---
 title: Create users - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL - Single Server.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal
 ms.date: 09/22/2019
 ---
 
@@ -27,7 +28,7 @@ The Azure Database for PostgreSQL server is created with the 3 default roles def
 Your server admin user is a member of the azure_pg_admin role. However, the server admin account is not part of the azure_superuser role. Since this service is a managed PaaS service, only Microsoft is part of the super user role.
 
 The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, the server admin user is granted these privileges:
-  LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
+  LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION
 
 The server admin user account can be used to create additional users and grant those users into the azure_pg_admin role. Also, the server admin account can be used to create less privileged users and roles that have access to individual databases and schemas.
 

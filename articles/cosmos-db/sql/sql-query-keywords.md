@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: tisande
 
 ---
@@ -112,7 +112,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 |Node.js SDK|Unsupported|
 |Python SDK|Unsupported|
 
-There are some additional restrictions on queries with an aggregate system function and a subquery with `DISTINCT`:
+There are some additional restrictions on queries with an aggregate system function and a subquery with `DISTINCT`. The below queries are unsupported:
 
 |**Restriction**|**Example**|
 |-------|----------------------|
@@ -121,6 +121,7 @@ There are some additional restrictions on queries with an aggregate system funct
 |GROUP BY clause in the outer query|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) AS d GROUP BY d.year|
 |Nested subquery|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4 FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
 |Multiple aggregations|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) AS d|
+|COUNT() must have 1 as a parameter|SELECT COUNT(lastName) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName|
 
 ## LIKE
 

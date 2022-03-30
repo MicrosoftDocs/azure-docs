@@ -1,6 +1,6 @@
 ---
 title: Configure local metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
-description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes custer
+description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes cluster
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -27,6 +27,9 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 ### Deploy StatsD and Prometheus to the cluster
 
 Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We will access the Prometheus dashboard via its Service.
+
+> [!NOTE]
+> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: v1
@@ -233,5 +236,6 @@ Here is a sample configuration of local logging:
 
 ## Next steps
 
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs in the cloud](how-to-configure-local-metrics-logs.md)
+* Learn about [configuring and persisting logs in the cloud](how-to-configure-cloud-metrics-logs.md)

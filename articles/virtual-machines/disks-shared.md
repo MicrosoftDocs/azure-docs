@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.date: 01/13/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -45,8 +45,8 @@ Some popular applications running on WSFC include:
 
 - [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
     - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
-- Scale-out File Server (SoFS) [template] (https://aka.ms/azure-shared-disk-sofs-template)
-- SAP ASCS/SCS [template] (https://aka.ms/azure-shared-disk-sapacs-template)
+- Scale-out File Server (SoFS) [template](https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [template](https://aka.ms/azure-shared-disk-sapacs-template)
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
 
@@ -55,7 +55,8 @@ Some popular applications running on WSFC include:
 Azure shared disks are supported on:
 - [SUSE SLE HA 15 SP1 and above](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL developer preview on any RHEL 8 version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
+- [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage-configuring-rhel-high-availability-on-azure)
+    - It may be possible to use RHEL 7 or an older version of RHEL 8 with shared disks, contact SharedDiskFeedback @microsoft.com
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
@@ -147,44 +148,6 @@ The following is an example of a 4-node Linux cluster with a single writer and t
 #### Ultra pricing
 
 Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There is no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
-
-## Frequently asked questions
-
-**Q: Is the shared disks feature supported for unmanaged disks or page blobs?**
-
-**A:** No. The feature is supported only for ultra disks and Premium SSD managed disks.
-
-**Q: Which regions support shared disks?**
-
-**A:** For regional information, see our [conceptual article](/azure/virtual-machines/disks-shared).
-
-**Q: Can shared disks be used as an OS disk?**
-
-**A:** No. Shared disks are only supported for data disks.
-
-**Q: Which disk sizes support shared disks?**
-
-**A:** For supported sizes, see our [conceptual article](/azure/virtual-machines/disks-shared).
-
-**Q: If I have an existing disk, can I enable shared disks on it?**
-
-**A:** All managed disks that are created by using API version 2019-07-01 or a later version can enable shared disks. To do this, you have to unmount the disk from all VMs that it is attached to. Next, edit the maxShares property on the disk.
-
-**Q: If I no longer want to use a disk in shared mode, how do I disable it?**
-
-**A:** Unmount the disk from all VMs that it is attached to. Then change the maxShare property on the disk to **1**.
-
-**Q: Can I resize a shared disk?**
-
-**A:** Yes.
-
-**Q: Can I enable write accelerator on a disk that also has shared disks enabled?**
-
-**A:** No. You can't enable write accelerator on a disk that also has shared disks enabled.
-
-**Q: Can I enable host caching for a disk that has shared disks enabled?**
-
-**A:** The only supported host caching option is **None**.
 
 ## Next steps
 

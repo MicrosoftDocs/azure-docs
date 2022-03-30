@@ -3,19 +3,18 @@ title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
 ms.date: 11/22/2020
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
 ---
 
-# Quickstart: Get started with Application Insights in a Java web project
+# Get started with Application Insights in a Java web project
 
 > [!CAUTION]
 > This document applies to Application Insights Java 2.x which is no longer recommended.
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
-In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+In this tutorial, you use the Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -35,6 +34,8 @@ Application Insights is an extensible analytics service for web developers that 
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
 
+    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Add the Application Insights SDK for Java to your project
 
 *Choose your project type.*
@@ -45,14 +46,14 @@ If your project is already set up to use Maven for build, merge the following co
 
 Then, refresh the project dependencies to get the binaries downloaded.
 
-```XML
+```xml
     <dependencies>
       <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web-auto</artifactId>
         <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>2.6.2</version>
+        <version>2.6.4</version>
       </dependency>
     </dependencies>
 ```
@@ -65,7 +66,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 ```gradle
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.2'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.4'
       // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
@@ -89,7 +90,7 @@ Add *ApplicationInsights.xml* to the resources folder in your project, or make s
 
 Replace the instrumentation key with the one that you got from the Azure portal.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
@@ -219,7 +220,7 @@ Open **Investigate**, **Metrics**, to see a range of performance counters.
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the *ApplicationInsights.xml* file:
 
-```XML
+```xml
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
@@ -230,7 +231,7 @@ You can specify additional performance counters to be collected.
 
 #### JMX counters (exposed by the Java Virtual Machine)
 
-```XML
+```xml
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
@@ -250,7 +251,7 @@ You can specify additional performance counters to be collected.
 #### Windows performance counters
 Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-portal) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
-```XML
+```xml
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />

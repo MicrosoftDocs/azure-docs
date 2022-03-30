@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Run a parallel workload using the .NET API
 description: Tutorial - Transcode media files in parallel with ffmpeg in Azure Batch using the Batch .NET client library
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 12/13/2021
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -185,7 +185,7 @@ For details about uploading files as blobs to a storage account with .NET, see [
 
 Next, the sample creates a pool of compute nodes in the Batch account with a call to `CreatePoolIfNotExistAsync`. This defined method uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 low-priority nodes in size *Standard_A1_v2*.
+The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 Spot nodes in size *Standard_A1_v2*.
 
 >[!Note]
 >Be sure you check your node quotas. See [Batch service quotas and limits](batch-quota-limit.md#increase-a-quota) for instructions on how to create a quota request."

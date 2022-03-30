@@ -3,12 +3,12 @@ title: Add or edit Azure role assignment conditions using Azure PowerShell (prev
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 11/16/2021
 ms.author: rolyon
 ---
 
@@ -74,7 +74,7 @@ Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobSe
 In PowerShell, if your condition includes a dollar sign ($), you must prefix it with a backtick (\`). For example, the following condition uses dollar signs to delineate the tag key name. For more information about rules for quotation marks in PowerShell, see [About Quoting Rules](/powershell/module/microsoft.powershell.core/about/about_quoting_rules).
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
 
 ## Edit a condition

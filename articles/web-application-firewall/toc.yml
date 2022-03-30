@@ -57,8 +57,10 @@
       href: ./ag/custom-waf-rules-overview.md
     - name: Geomatch custom rules
       href: ./ag/geomatch-custom-rules.md
-    - name: Request size limits and exclusion lists
+    - name: Exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
+    - name: Request size limits
+      href: ./ag/application-gateway-waf-request-size-limits.md
     - name: WAF Policy overview
       href: ./ag/policy-overview.md
     - name: Bot protection overview
@@ -121,6 +123,8 @@
        href: ./ag/associate-waf-policy-existing-gateway.md
      - name: Resource logs
        href: ./ag/web-application-firewall-logs.md
+     - name: Monitoring and logging
+       href: ./ag/application-gateway-waf-metrics.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
@@ -137,9 +141,9 @@
       href: ./afds/waf-front-door-rate-limit-powershell.md
     - name: Configure a geo-filtering WAF policy
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
-    - name: Monitor and logging
+    - name: Monitoring and logging
       href: ./afds/waf-front-door-monitor.md
-  - name: Using Azure Sentinel with Web Application Firewall
+  - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
   - name: Troubleshoot
     items:
@@ -151,8 +155,12 @@
           href: ./ag/log-analytics.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: ./ag/application-gateway-crs-rulegroups-rules.md
+  - name: Managed rules
+    items:
+     - name: Front Door
+       href: ./afds/waf-front-door-drs.md
+     - name: Application Gateway
+       href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
     items:
     - name: Front Door

@@ -33,6 +33,11 @@ This document walks you through the steps for installing Azure SQL Managed Insta
   - Enter and confirm a password for the SQL Server instance
   - Select the storage class as appropriate for data
   - Select the storage class as appropriate for logs
+  - Select the storage class as appropriate for backups
+ 
+ > [!NOTE]
+>Note: Starting with the February release, a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+If no storage class is specified for backups, the default storage class in kubernetes is used and if this is not RWX capable, the Arc SQL Managed Instance installation may not succeed. 
 
 - Click the **Deploy** button
 

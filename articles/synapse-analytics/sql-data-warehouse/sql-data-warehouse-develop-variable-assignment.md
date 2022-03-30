@@ -1,7 +1,6 @@
 ---
 title: Assign variables
 description: In this article, you'll find essential tips for assigning T-SQL variables for dedicated SQL pools in Azure Synapse Analytics.
-services: synapse-analytics
 author: MSTehrani 
 manager: craigg
 ms.service: synapse-analytics

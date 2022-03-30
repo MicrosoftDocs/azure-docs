@@ -41,7 +41,7 @@ In this article, learn how to:
 
 ## What is a compute cluster?
 
-Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute cluster is a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
+Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute cluster is a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. Compute cluster supports **no public IP (preview)** deployment as well in virtual network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
 
 Compute clusters can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
 
@@ -62,7 +62,6 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 > [!TIP]
 > Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication.
-
 
 ## Create
 
@@ -93,6 +92,7 @@ You can also configure several advanced properties when you create Azure Machine
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2 --location westus2
@@ -101,7 +101,7 @@ az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STAN
 > [!WARNING]
 > When using a compute cluster in a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
-For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_amlcompute).
+For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
 # [Studio](#tab/azure-studio)
 
@@ -124,6 +124,8 @@ compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
 ```
     
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 Set the `vm-priority`:
     
@@ -188,6 +190,9 @@ In the studio, choose **Low Priority** when you create a VM.
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
+
 * Create a new managed compute cluster with managed identity
 
   * User-assigned managed identity
@@ -228,6 +233,8 @@ See [Set up managed identity in studio](how-to-create-attach-compute-studio.md#m
 ## Troubleshooting
 
 There is a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+### Stuck at resizing
 
 If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
 

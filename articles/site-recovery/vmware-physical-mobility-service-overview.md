@@ -84,7 +84,7 @@ During a push installation of the Mobility service, the following steps are perf
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Screenshot that shows the progress of the installation and the active Proceed to Configuration button when the installation is finished.":::
 
-1. In **Configuration Server Details**, specify the IP address and passphrase that you configured.
+1. In **Configuration Server Details**, specify the IP address and passphrase that you configured. To generate the passphrase, follow the steps mentioned [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-mobility-install-configuration-mgr#prepare-the-installation-files).
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Mobility service registration page.":::
 
@@ -132,7 +132,7 @@ Setting | Details
 --- | ---
 Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.  Note: in prior versions, the correct switches were Mobility Service (MS)  or master target (MT)
+`/Role` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed. 
 `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
@@ -171,7 +171,7 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 Setting | Details
 --- | ---
 Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
-`-r` | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
+`-r` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed.
 `-d` | Optional parameter. Specifies the Mobility service installation location: `/usr/local/ASR`.
 `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
 `-q` | Optional. Specifies whether to run the installer in silent mode.
@@ -187,7 +187,7 @@ Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CS
 ## Azure Virtual Machine agent
 
 - **Windows VMs**: From version 9.7.0.0 of the Mobility service, the [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent) is installed by the Mobility service installer. This ensures that when the machine fails over to Azure, the Azure VM meets the agent installation prerequisite for using any VM extension.
-- **Linux VMs**: The  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) must be installed manually on the Azure VM after failover.
+- **Linux VMs**: The  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) is automatically installed on the Azure VM after failover.
 
 ## Locate installer files
 

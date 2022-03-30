@@ -29,6 +29,74 @@
       href: tutorial-data-explorer-import.md
     - name: Visualize and analyze the data using Time Series Insights
       href: tutorial-visualize-data-time-series-insights.md
+- name: How-to guides
+  items:
+  - name: Install and provision IoT Edge
+    items:
+    - name: Create an IoT Edge device
+      href: ../iot-edge/how-to-create-iot-edge-device.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Linux containers on Linux hosts
+      items:
+      - name: Provision a single device
+        items:
+        - name: X.509 certificate attestation
+          href: ../iot-edge/how-to-provision-single-device-linux-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Symmetric key attestation
+          href: ../iot-edge/how-to-provision-single-device-linux-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+      - name: Provision devices at scale
+        items:
+        - name: X.509 certificate attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: TPM attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json    
+        - name: Symmetric key attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Linux containers on Windows hosts
+      items:
+      - name: Provision a single device
+        items:
+        - name: X.509 certificate attestation
+          href: ../iot-edge/how-to-provision-single-device-linux-on-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Symmetric key attestation
+          href: ../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+      - name: Provision devices at scale
+        items:
+        - name: X.509 certificate attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: TPM attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Symmetric key attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+      - name: Configure nested virtualization for Windows VMs
+        href: ../iot-edge/nested-virtualization.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+      - name: Create virtual switch
+        href: ../iot-edge/how-to-create-virtual-switch.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+      - name: Configure GPU acceleration
+        href: ../iot-edge/gpu-acceleration.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Windows containers on Windows hosts
+      items:
+      - name: Provision a single device
+        items:
+        - name: Symmetric key attestation
+          href: ../iot-edge/how-to-provision-single-device-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: X.509 certificate attestation
+          href: ../iot-edge/how-to-provision-single-device-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+      - name: Provision devices at scale
+        items:
+        - name: Symmetric key attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: X.509 certificate attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: TPM attestation
+          href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Update IoT Edge
+      href: ../iot-edge/how-to-update-iot-edge.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Manage device certificates
+      href: ../iot-edge/how-to-manage-device-certificates.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Run IoT Edge on Kubernetes
+      href: ../iot-edge/how-to-install-iot-edge-kubernetes.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+    - name: Deploy IoT Edge VM using an ARM template
+      href: ../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
 - name: Reference
   items:
     - name: Command-line Arguments
@@ -52,14 +120,12 @@
     - name: IoT Hub Device Provisioning Service
       href: ../iot-dps/index.yml
     - name: IoT Central
-      href: /microsoft-iot-central/
+      href: ../iot-central/index.yml
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ./index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: IoT device developer
+    href: ../iot-develop/index.yml

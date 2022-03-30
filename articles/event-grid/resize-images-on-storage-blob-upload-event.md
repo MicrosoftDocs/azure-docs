@@ -2,7 +2,9 @@
 title: 'Tutorial: Use Azure Event Grid to automate resizing uploaded images'
 description: 'Tutorial: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.'
 ms.topic: tutorial
-ms.date: 09/28/2021
+ms.date: 03/21/2022
+ms.devlang: csharp, javascript
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Automate resizing uploaded images using Event Grid
@@ -134,7 +136,7 @@ Create a function app by using the [az functionapp create](/cli/azure/functionap
 2. Create a function app. 
 
     ```azurecli-interactive
-    az functionapp create --name $functionapp --storage-account $functionstorage --resource-group $resourceGroupName --consumption-plan-location $location --functions-version 2    
+    az functionapp create --name $functionapp --storage-account $functionstorage --resource-group $resourceGroupName --consumption-plan-location $location --functions-version 3    
     ```
 
 ---
@@ -150,7 +152,7 @@ The function needs credentials for the Blob storage account, which are added to 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings "AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2 FUNCTIONS_WORKER_RUNTIME=dotnet"
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2 FUNCTIONS_WORKER_RUNTIME=dotnet
 ```
 
 ```azurepowershell-interactive
@@ -166,7 +168,7 @@ blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName -n $b
 
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings "FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString FUNCTIONS_WORKER_RUNTIME=node"
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString FUNCTIONS_WORKER_RUNTIME=node WEBSITE_NODE_DEFAULT_VERSION=~10
 ```
 
 ---
@@ -187,12 +189,12 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 # [Node.js v10 SDK](#tab/nodejsv10)
 
-The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
+The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
 ```
 
 ---
@@ -209,7 +211,7 @@ To learn more about this function, see the [function.json and run.csx files](htt
 
 # [Node.js v10 SDK](#tab/nodejsv10)
 
-To learn more about this function, see the [function.json and index.js files](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
+To learn more about this function, see the [function.json and index.js files](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail).
 
 ---
 

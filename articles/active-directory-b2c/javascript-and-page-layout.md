@@ -3,15 +3,15 @@ title: JavaScript and page layout versions
 titleSuffix: Azure AD B2C
 description: Learn how to enable JavaScript and use page layout versions in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.custom: project-no-code, devx-track-js
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -162,7 +162,7 @@ Follow these guidelines when you customize the interface of your application usi
 
 A common way to help your customers with their sign-up success is to allow them to see what they’ve entered as their password. This option helps users sign up by enabling them to easily see and make corrections to their password if needed. Any field of type password has a checkbox with a **Show password** label.  This enables the user to see the password in plain text. Include this code snippet into your sign-up or sign-in template for a self-asserted page:
 
-```Javascript
+```javascript
 function makePwdToggler(pwd){
   // Create show-password checkbox
   var checkbox = document.createElement('input');
@@ -208,7 +208,7 @@ setupPwdTogglers();
 
 Include the following code into your page where you want to include a **Terms of Use** checkbox. This checkbox is typically needed in your local account sign-up and social account sign-up pages.
 
-```Javascript
+```javascript
 function addTermsOfUseLink() {
     // find the terms of use label element
     var termsOfUseLabel = document.querySelector('#api label[for="termsOfUse"]');

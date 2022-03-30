@@ -1,13 +1,14 @@
 ---
 title: Create a VM from a specialized image version
-description: Create a VM using a specialized image version in a Shared Image Gallery.
-author: cynthn
+description: Create a VM using a specialized image version in an Azure Compute Gallery.
+author: sandeepraichura
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/05/2021
-ms.author: cynthn
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -15,7 +16,11 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
-Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
+Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
+
+> [!IMPORTANT]
+> 
+> When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
 
 Replace resource names as needed in these examples. 
 
@@ -39,7 +44,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 
 ### [CLI](#tab/cli)
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -51,7 +56,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 
@@ -120,7 +125,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourceAddressPrefix * `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
-   -DestinationPortRange 3389 -Access Allow
+   -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `
@@ -154,8 +159,8 @@ New-AzVM `
 
 **Next steps**
 
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+You can also create Azure Compute Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

@@ -1,13 +1,14 @@
----	
+---
 title: Enrolling or renewing Azure Dev Tools for Teaching subscriptions
-description: Description of how to create or renew an Azure Dev subscription.	
-author: v-shmck	
-ms.author: rymend	
-ms.topic: quickstart	
+description: Description of how to create or renew an Azure Dev subscription.
+author: v-shmck
+ms.author: rymend
+ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
-ms.date: 01/07/2021	
----	
+ms.date: 01/07/2021
+ms.custom: mode-other
+---
 
 # Enroll or renew an Azure Dev Tools for Teaching subscription
 
@@ -61,7 +62,7 @@ You can complete the renewal process as early as 90 days before the expiration d
 1. Confirm all enrollment information and click **Place Order**. Confirmation emails will be sent to your inbox with updates on enrollment status and any possible next steps.
 
 
-## Next steps	
+## Next steps
 
 - [Set up access for Azure Dev Tools](set-up-access.md)
 

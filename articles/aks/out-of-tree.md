@@ -52,6 +52,16 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
+### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
 ## Create an AKS cluster with Cloud Controller Manager
 
 To create a cluster using the Cloud Controller Manager, pass `EnableCloudControllerManager=True` as a customer header to the Azure API using the Azure CLI.
@@ -66,7 +76,7 @@ az aks create -n aks -g myResourceGroup --aks-custom-headers EnableCloudControll
 To upgrade a cluster to use the Cloud Controller Manager, pass `EnableCloudControllerManager=True` as a customer header to the Azure API using the Azure CLI.
 
 ```azurecli-interactive
-az aks upgrade -n aks -g myResourceGroup --aks-custom-headers EnableCloudControllerManager=True
+az aks upgrade -n aks -g myResourceGroup -k <version> --aks-custom-headers EnableCloudControllerManager=True
 ```
 
 ## Next steps
@@ -77,9 +87,9 @@ az aks upgrade -n aks -g myResourceGroup --aks-custom-headers EnableCloudControl
 
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [csi-docs]: csi-storage-drivers.md
 
 <!-- LINKS - External -->

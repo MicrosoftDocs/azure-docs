@@ -5,7 +5,8 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # ARM template deployment what-if operation
 
@@ -94,17 +95,17 @@ The preceding commands return a text summary that you can manually inspect. To g
 
 To preview changes before deploying a template, use:
 
-* [az deployment group what-if](/cli/azure/deployment/group#az_deployment_group_what_if) for resource group deployments
-* [az deployment sub what-if](/cli/azure/deployment/sub#az_deployment_sub_what_if) for subscription level deployments
-* [az deployment mg what-if](/cli/azure/deployment/mg#az_deployment_mg_what_if) for management group deployments
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) for tenant deployments
+* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
+* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
+* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
-* [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)
-* [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create).
-* [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)
+* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
 For example, use `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments.
 
@@ -382,9 +383,8 @@ You see the expected changes and can confirm that you want the deployment to run
 
 You can use the what-if operation through the Azure SDKs.
 
-* For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
-
-* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
+* For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations).
+* For Java, use [DeploymentWhatIf Class](/java/api/com.azure.resourcemanager.resources.models.deploymentwhatif).
 
 * For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 

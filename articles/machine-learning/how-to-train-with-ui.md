@@ -1,7 +1,7 @@
 ---
 title: Create a Training Job with the job creation UI
 titleSuffix: Azure Machine Learning
-description: Learn how to use the job creation UI in Azure Machine Learning Studio to create a training job. 
+description: Learn how to use the job creation UI in Azure Machine Learning studio to create a training job. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.custom: devplatv2
 author: wenxwei
 ms.author: wenxwei
-ms.date: 06/22/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
 # Create a training job with the job creation UI (preview)
 
-There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the CLI (v2) (preview)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning Studio.
+There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the CLI (v2) (preview)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning studio.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Understanding of what a job is in Azure Machine Learning. See [Introducing jobs](how-to-train-cli.md#introducing-jobs).
+* Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
 
 ## Get started
 
@@ -50,7 +50,7 @@ The first step in the job creation UI is to select the compute target on which y
 | --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance?](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Attached Kubernetes cluster | [Configure Azure Arc enabled machine learning (preview)](how-to-attach-arc-kubernetes.md). | 
+| Attached Kubernetes cluster | [Configure Azure Arc-enabled machine learning (preview)](how-to-attach-arc-kubernetes.md). | 
 
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
@@ -68,7 +68,7 @@ For more information on creating the various types, see:
 | --- | --- | 
 | Compute instance | [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) | 
 | Compute cluster | [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) | 
-| Attached Kubernetes cluster | [Attach an Azure Arc enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md) | 
+| Attached Kubernetes cluster | [Attach an Azure Arc-enabled Kubernetes cluster](how-to-attach-arc-kubernetes.md) | 
 
 ## Specify the necessary environment
 
@@ -115,7 +115,7 @@ The command is run from the root directory of the uploaded code folder. After yo
 
 If the code is in the root directory, you can directly refer to it in the command. For instance, `python main.py`.
 
-If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model) is:
+If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/word-language-model) is:
 
 ```tree
 .
@@ -130,16 +130,9 @@ Here, the source code is in the `src` subdirectory. The command would be `python
 
 #### Inputs
 
-There are two ways to do input binding: 
+When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
 
-* Input name: When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `{inputs.input_name}`. For instance, `{inputs.wiki}`. You can then refer to it in the command, for instance, `--data {inputs.wiki}`.
 [![Refer input name in the command](media/how-to-train-with-ui/input-command-name.png)](media/how-to-train-with-ui/input-command-name.png)
-
-* Path: You can use `--data .path` to specify a cloud location. The path is what you enter in the **Path on compute** field.
-[![Refer input path in the command](media/how-to-train-with-ui/input-command-path.png)](media/how-to-train-with-ui/input-command-path.png)
-
->[!NOTE] 
->In the **command to start the job**, you must add a period to the **Path on compute** value. For instance, `/data/wikitext-2` becomes `./data/wikitext-2`.
 
 ## Review and Create 
 

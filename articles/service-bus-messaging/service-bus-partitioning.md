@@ -3,6 +3,7 @@ title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 ms.topic: article
 ms.date: 09/21/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -67,7 +68,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
     ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.PartitionKey = "myPartitionKey";
     await sender.SendMessageAsync(msg); 
-    await ts.CompleteAsync();
+    ts.Complete();
 }
 committableTransaction.Commit();
 ```
@@ -87,7 +88,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
     ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.SessionId = "mySession";
     await sender.SendMessageAsync(msg); 
-    await ts.CompleteAsync();
+    ts.Complete();
 }
 committableTransaction.Commit();
 ```

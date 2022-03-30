@@ -3,15 +3,15 @@ title: Set up a password reset flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a password reset flow in Azure Active Directory B2C (Azure AD B2C).
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -144,6 +144,7 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true"/>
         </OutputClaims>
+        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
       </TechnicalProfile>
       <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
         <Metadata>
@@ -335,6 +336,11 @@ Custom policies are a set of XML files that you upload to your Azure AD B2C tena
 
 ::: zone-end
 
+## Troubleshoot Azure AD B2C user flows and custom policies
+Your application needs to handle certain errors coming from Azure B2C service. Learn [how to troubleshoot Azure AD B2C's user flows and custom policies](troubleshoot.md).
+
 ## Next steps
 
 Set up a [force password reset](force-password-reset.md).
+
+[Sign-up and Sign-in with embedded password reset](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).

@@ -3,14 +3,14 @@ title: Enable Azure AD B2C custom domains
 titleSuffix: Azure AD B2C
 description: Learn how to enable custom domains in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
-ms.author: mimart
+ms.date: 11/23/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
@@ -28,6 +28,10 @@ This article describes how to enable custom domains in your redirect URLs for Az
 
 You can enable custom domains for Azure AD B2C by using [Azure Front Door](https://azure.microsoft.com/services/frontdoor/). Azure Front Door is a global entry point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. You can render Azure AD B2C content behind Azure Front Door, and then configure an option in Azure Front Door to deliver the content via a custom domain in your application's URL.
 
+Watch this video to learn about Azure AD B2C custom domain.
+
+>[!Video https://www.youtube.com/embed/mVNB59VK-DQ]
+
 The following diagram illustrates Azure Front Door integration:
 
 1. From an application, a user selects the sign-in button, which takes them to the Azure AD B2C sign-in page. This page specifies a custom domain name.
@@ -43,7 +47,7 @@ The following diagram illustrates Azure Front Door integration:
 
 When using custom domains, consider the following:
 
-- You can set up multiple custom domains. For the maximum number of supported custom domains, see [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) for Azure Front Door.
+- You can set up multiple custom domains. For the maximum number of supported custom domains, see [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so extra charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
 - To use Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md), you need to confirm your firewall configuration and rules work correctly with your Azure AD B2C user flows.
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com* (unless you're using a custom policy and you [block access](#block-access-to-the-default-domain-name).
@@ -85,8 +89,9 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     > You can manage your custom domain with any publicly available DNS service, such as GoDaddy. If you don't have a DNS server, you can use  [Azure DNS zone](../dns/dns-getstarted-portal.md), or [App Service domains](../app-service/manage-custom-dns-buy-domain.md).
 
 1. [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name). Verify each subdomain, or hostname you plan to use. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not the top-level domain *contoso.com*. 
-
-    After the domain is verified, **delete** the DNS TXT record you created.
+    
+    > [!IMPORTANT]
+    > After the domain is verified, **delete** the DNS TXT record you created.
 
     
 ## Step 2. Create a new Azure Front Door instance
@@ -406,7 +411,7 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
-To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom polies.  
+To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom policies.  
 
 ### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     

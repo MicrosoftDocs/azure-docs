@@ -1,23 +1,23 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
-description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Azure Sentinel.
-services: sentinel
+description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 11/09/2021
+ms.custom: ignite-fall-2021
 ---
 
 # CEF and CommonSecurityLog field mapping
 
-The following tables map Common Event Format (CEF) field names to the names they use in Azure Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Azure Sentinel.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Microsoft Sentinel.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
 
 > [!NOTE]
-> An Azure Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
+> A Microsoft Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
 >
 
 ## A - C
@@ -27,7 +27,7 @@ For more information, see [Connect your external solution using Common Event For
 | act    |    <a name="deviceaction"></a> DeviceAction     |  The action mentioned in the event.       |
 |   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
-| | | |
+
 
 ## D
 
@@ -83,7 +83,7 @@ For more information, see [Connect your external solution using Common Event For
 | fsize | FileSize | The size of the file. |
 |Host    |  Computer       | Host, from Syslog        |
 |in     |  ReceivedBytes      |Number of bytes transferred inbound.         |
-| | | |
+
 
 ## M - P
 
@@ -103,7 +103,7 @@ For more information, see [Connect your external solution using Common Event For
 | out | SentBytes | Number of bytes transferred outbound. |
 | Outcome | Outcome | Outcome of the event, such as `success` or `failure`.|
 |proto    |  Protocol       | Transport protocol that identifies the Layer-4 protocol used. <br><br>Possible values include protocol names, such as `TCP` or `UDP`.        |
-| | | |
+
 
 ## R - T
 
@@ -131,7 +131,7 @@ For more information, see [Connect your external solution using Common Event For
 | suid | SourceUserID | Identifies the source user by ID. |
 | suser | SourceUserName | Identifies the source user by name. |
 | type | EventType | Event type. Value values include: <br>- `0`: base event <br>- `1`: aggregated <br>- `2`: correlation event <br>- `3`: action event <br><br>**Note**: This event can be omitted for base events. |
-| | | |
+
 
 ## Custom fields
 
@@ -159,7 +159,7 @@ The following table maps CEF key and CommonSecurityLog names for the *IPv6* addr
 |     cfp3Label    |     deviceCustomFloatingPoint3Label    |
 |     cfp4    |     DeviceCustomFloatingPoint4    |
 |     cfp4Label    |     deviceCustomFloatingPoint4Label    |
-| | |
+
 
 ### Custom number fields
 
@@ -173,7 +173,7 @@ The following table maps CEF key and CommonSecurityLog names for the *number* fi
 |     cn2Label    |     DeviceCustomNumber2Label       |
 |     cn3    |     DeviceCustomNumber3       |
 |     cn3Label    |     DeviceCustomNumber3Label       |
-| | |
+
 
 ### Custom string fields
 
@@ -197,7 +197,7 @@ The following table maps CEF key and CommonSecurityLog names for the *string* fi
 |     flexString1Label    |     FlexString1Label    |
 |     flexString2    |     FlexString2    |
 |     flexString2Label    |     FlexString2Label    |
-| | |
+
 
 > [!TIP]
 > <a name="use-sparingly"></a><sup>1</sup> We recommend that you use the **DeviceCustomString** fields sparingly and use more specific, built-in fields when possible.
@@ -215,7 +215,7 @@ The following table maps CEF key and CommonSecurityLog names for the *timestamp*
 |     deviceCustomDate2Label    |     DeviceCustomDate2Label    |
 |     flexDate1    |     FlexDate1    |
 |     flexDate1Label    |     FlexDate1Label    |
-| | |
+
 
 ### Custom integer data fields
 
@@ -227,11 +227,11 @@ The following table maps CEF key and CommonSecurityLog names for the *integer* f
 |     flexNumber1Label    |     FlexNumber1Label    |
 |     flexNumber2    |     FlexNumber2    |
 |     flexNumber2Label    |     FlexNumber2Label    |
-| | |
+
 
 ## Enrichment fields
 
-The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich the original events received from the source devices, and don't have mappings in CEF keys:
+The following **CommonSecurityLog** fields are added by Microsoft Sentinel to enrich the original events received from the source devices, and don't have mappings in CEF keys:
 
 ### Threat intelligence fields
 
@@ -246,7 +246,7 @@ The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich
 |  **ThreatConfidence**   |   The [MaliciousIP](#MaliciousIP) threat confidence, according to the threat intelligence feed.      |
 | **ThreatDescription**    |   The [MaliciousIP](#MaliciousIP) threat description, according to the threat intelligence feed.      |
 | **ThreatSeverity** | The threat severity for the [MaliciousIP](#MaliciousIP), according to the threat intelligence feed at the time of the record ingestion. |
-|     |         |
+
 
 ### Additional enrichment fields
 
@@ -257,7 +257,7 @@ The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich
 |**RemotePort**     |   The remote port. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.      |
 |**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the original value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
 |**SourceSystem**     | Always defined as **OpsManager**.        |
-|     |         |
+
 
 ## Next steps
 

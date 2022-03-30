@@ -5,10 +5,9 @@ metadata:
   author: TheovanKraay
   ms.service: cosmos-db
   ms.subservice: cosmosdb-cassandra
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 08/12/2020
   ms.author: thvankra
-    
 title: Frequently asked questions about the Cassandra API in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

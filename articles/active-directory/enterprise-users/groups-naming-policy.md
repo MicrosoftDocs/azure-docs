@@ -4,7 +4,7 @@ description: How to set up naming policy for Microsoft 365 groups in Azure Activ
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -232,11 +232,11 @@ After you set a group naming policy in Azure AD, when a user creates a group in 
 Workload | Compliance
 ----------- | -------------------------------
 Azure Active Directory portals | The Azure AD portal and the Access Panel portal show the naming policy enforced name when the user types in a group name when creating or editing a group. When a user enters a custom blocked word, an error message with the blocked word is displayed so that the user can remove it.
-Outlook Web Access (OWA) | Outlook Web Access shows the naming policy enforced name when the user types a group name or group alias. When an user enters a custom blocked word, an error message is shown in the UI along with the blocked word so that the user can remove it.
+Outlook Web Access (OWA) | Outlook Web Access shows the naming policy enforced name when the user types a group name or group alias. When a user enters a custom blocked word, an error message is shown in the UI along with the blocked word so that the user can remove it.
 Outlook Desktop | Groups created in Outlook desktop are compliant with the naming policy settings. Outlook desktop app doesn't yet show the preview of the enforced group name and doesn't return the custom blocked word errors when the user enters the group name. However, the naming policy is automatically applied when creating or editing a group, and users see error messages if there are custom blocked words in the group name or alias.
 Microsoft Teams | Microsoft Teams shows the group naming policy enforced name when the user enters a team name. When a user enters a custom blocked word, an error message is shown along with the blocked word so that the user can remove it.
-SharePoint  |  SharePoint shows the naming policy enforced name when the user types a site name or group email address. When an user enters a custom blocked word, an error message is shown, along with the blocked word so that the user can remove it.
-Microsoft Stream | Microsoft Stream shows the group naming policy enforced name when the user types a group name or group email alias. When an user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
+SharePoint | SharePoint shows the naming policy enforced name when the user types a site name or group email address. When a user enters a custom blocked word, an error message is shown, along with the blocked word so that the user can remove it.
+Microsoft Stream | Microsoft Stream shows the group naming policy enforced name when the user types a group name or group email alias. When a user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
 Outlook iOS and Android App | Groups created in Outlook apps are compliant with the configured naming policy. Outlook mobile app doesn't yet show the preview of the naming policy enforced name, and doesn't return custom blocked word errors when the user enters the group name. However, the naming policy is automatically applied on clicking create/edit and users see error messages if there are custom blocked words in the group name or alias.
 Groups mobile app | Groups created in the Groups mobile app are compliant with the naming policy. Groups mobile app does not show the preview of the naming policy and does not return custom blocked word errors when the user enters the group name. But the naming policy is automatically applied when creating or editing a group and users is presented with appropriate errors if there are custom blocked words in the group name or alias.
 Planner | Planner is compliant with the naming policy. Planner shows the naming policy preview when entering the plan name. When a user enters a custom blocked word, an error message is shown when creating the plan.

@@ -1,14 +1,13 @@
 ---
 title: Red Hat workloads on Azure overview | Microsoft Docs
 description: Learn about the Red Hat product offerings available on Azure.
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: overview
 ms.date: 02/10/2020
-ms.author: alsin
-
+ms.author: mamccrea
 ---
 
 # Red Hat workloads on Azure
@@ -25,9 +24,9 @@ Azure offers a wide offering of RHEL images on Azure. These images are made avai
 
 Azure offers a variety of RHEL pay-as-you-go images. These images come properly entitled for RHEL and are attached to a source of updates (Red Hat Update Infrastructure). These images charge a premium fee for the RHEL entitlement and updates. RHEL pay-as-you-go image variants include:
 
-* Standard RHEL.
-* RHEL for SAP.
-* RHEL for SAP with High Availability and Update Services.
+* RHEL
+* RHEL for SAP
+* RHEL for SAP with High Availability (HA) and Update Services
 
 You might want to use the pay-as-you-go images if you don't want to worry about paying separately for the appropriate number of subscriptions.
 

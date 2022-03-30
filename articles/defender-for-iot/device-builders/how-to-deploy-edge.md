@@ -2,14 +2,16 @@
 title: Deploy IoT Edge security module
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy a security module on your IoT Edge device
 
-**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices.
-The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
-To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Install Defender for IoT micro agent for Edge (Preview)](how-to-install-micro-agent-for-edge.md).
+>
+
+**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices. The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts. To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
 In this article, you'll learn how to deploy a security module on your IoT Edge device.
 
@@ -19,7 +21,7 @@ Use the following steps to deploy a Defender for IoT security module for IoT Edg
 
 ### Prerequisites
 
-1. In your IoT Hub, make sure your device is [Register a new device](../../iot-edge/how-to-register-device.md#register-a-new-device).
+1. In your IoT Hub, make sure your device is [Register a new device](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
 
 1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
@@ -36,7 +38,7 @@ Use the following steps to deploy a Defender for IoT security module for IoT Edg
 
 1. From the Azure portal, open **Marketplace**.
 
-1. Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
+1. Select **Internet of Things**, then search for **Microsoft Defender for IoT** and select it.
 
    :::image type="content" source="media/howto/edge-onboarding.png" alt-text="Select Defender for IoT":::
 

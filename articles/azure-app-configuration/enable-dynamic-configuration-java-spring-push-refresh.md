@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a subscription to send configuration change events from App Configuration to a Web Hook
-> * Deploy an a Spring Boot application to App Service
+> * Deploy a Spring Boot application to App Service
 > * Set up your Java Spring app to update its configuration in response to changes in App Configuration.
 > * Consume the latest configuration in your application.
 

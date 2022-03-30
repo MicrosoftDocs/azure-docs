@@ -6,7 +6,6 @@ ms.subservice: hadr
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: jroth
 ms.date: 03/11/2020
 ---
 # Tutorial: Configure an availability group listener for SQL Server on RHEL virtual machines in Azure

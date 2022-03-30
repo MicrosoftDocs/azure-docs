@@ -1,7 +1,7 @@
 ---
 title: Move a Log Analytics workspace to another Azure region by using the Azure portal
 description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
-author: yossiy
+author: yossi-y
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
@@ -72,7 +72,7 @@ The following procedures show how to prepare the workspace and resources for the
 1. Select the workspace, solutions, saved searches, alerts, query packs, and other workspace-related resources that you have (such as an Automation account). Then select **Export template** on the toolbar.
     
     > [!NOTE]
-    > Azure Sentinel can't be exported with a template. You need to [onboard Sentinel](../../sentinel/quickstart-onboard.md) to a target workspace.
+    > Microsoft Sentinel can't be exported with a template. You need to [onboard Sentinel](../../sentinel/quickstart-onboard.md) to a target workspace.
    
 1. Select **Deploy** on the toolbar to edit and prepare the template for deployment.
 1. Select **Edit parameters** on the toolbar to open the *parameters.json* file in the online editor.
@@ -207,7 +207,7 @@ The following procedures show how to prepare the workspace and resources for the
         },
         {
           "type": "microsoft.insights/scheduledqueryrules",
-          "apiVersion": "2021-02-01-preview",
+          "apiVersion": "2021-08-01",
           "name": "[parameters('alertName')]",
           "location": "france central",
           "properties": {
@@ -281,7 +281,7 @@ The following procedures show how to prepare the workspace and resources for the
 1. Your workspace, including selected resources, is now deployed in the target region. You can complete the remaining configuration in the workspace for paring functionality to the original workspace.
    - *Connect agents*: Use any of the available options, including Data Collection Rules, to configure the required agents on virtual machines and virtual machine scale sets and to specify the new target workspace as the destination.
    - *Diagnostic settings*: Update diagnostic settings in identified resources, with the target workspace as the destination.
-   - *Install solutions*: Some solutions, such as [Azure Sentinel](../../sentinel/quickstart-onboard.md), require certain onboarding procedures and weren't included in the template. You should onboard them separately to the new workspace.
+   - *Install solutions*: Some solutions, such as [Microsoft Sentinel](../../sentinel/quickstart-onboard.md), require certain onboarding procedures and weren't included in the template. You should onboard them separately to the new workspace.
    - *Configure the Data Collector API*: Configure Data Collector API instances to send data to the target workspace.
    - *Configure alert rules*: When alerts aren't exported in the template, you need to configure them manually in the target workspace.
 1. Verify that new data isn't ingested to the original workspace. Run the following query in your original workspace, and observe that there's no ingestion after the migration:

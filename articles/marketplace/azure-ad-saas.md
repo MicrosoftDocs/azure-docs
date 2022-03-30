@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 12/07/2021
 ---
 
 # Azure AD and transactable SaaS offers in the commercial marketplace
@@ -48,7 +48,7 @@ This table provides details for the purchase management process steps.
 | ------------ | ------------- | ------------- |
 | 1. The buyer signs in to the commercial marketplace with their Azure ID identity and selects a SaaS offer. | No publisher action required. | Not applicable |
 | 2. After purchasing, the buyer selects **Configure account** in Azure Marketplace or **Configure now** in AppSource, which directs the buyer to the publisher’s landing page for this offer. The buyer must be able to sign in to the publisher’s SaaS application with Azure AD SSO and must only be asked for minimal consent that does not require Azure AD administrator approval. | Design a [landing page](azure-ad-transactable-saas-landing-page.md) for the offer so that it receives a user with their Azure AD or Microsoft account (MSA) identity and facilitates any additional provisioning or setup that’s required. | Required |
-| 3. The publisher requests purchase details from the SaaS fulfillment API. | Using an [access token](./partner-center-portal/pc-saas-registration.md) generated from the landing page’s Application ID, [call the resolve endpoint](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) to retrieve specifics about the purchase. | Required |
+| 3. The publisher requests purchase details from the SaaS fulfillment API. | Using an [access token](./partner-center-portal/pc-saas-registration.md) generated from the landing page’s Application ID, [call the resolve endpoint](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) to retrieve specifics about the purchase. | Required |
 | 4. Through Azure AD and the Microsoft Graph API, the publisher gathers the company and user details required to provision the buyer in the publisher’s SaaS application.  | Decompose the Azure AD user token to find name and email, or [call the Microsoft Graph API](/graph/use-the-api) and use delegated permissions to [retrieve information](/graph/api/user-get) about the user who is logged in. | Required |
 ||||
 
@@ -62,7 +62,7 @@ This table describes the details about the subscription management process steps
 
 | Process step | Publisher action | Recommended or required for publishers |
 | ------------ | ------------- | ------------- |
-| 5. The publisher manages the subscription to the SaaS application through the SaaS fulfillment API. | Handle subscription changes and other management tasks through the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>This step requires an access token as described in process step 3. | Required |
+| 5. The publisher manages the subscription to the SaaS application through the SaaS fulfillment API. | Handle subscription changes and other management tasks through the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-apis.md).<br><br>This step requires an access token as described in process step 3. | Required |
 | 6. When using metered pricing, the publisher emits usage events to the metering service API. | If your SaaS app features usage-based billing, make usage notifications through the [Marketplace metering service APIs](marketplace-metering-service-apis.md).<br><br>This step requires an access token as described in Step 3. | Required for metering |
 ||||
 

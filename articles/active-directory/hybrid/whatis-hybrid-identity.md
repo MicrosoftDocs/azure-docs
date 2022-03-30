@@ -4,7 +4,7 @@ description: Hybrid identity is having a common user identity for authentication
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity

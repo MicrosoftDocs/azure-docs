@@ -7,8 +7,8 @@ metadata:
   services: iot-hub
   ms.service: iot-hub
   ms.topic: landing-page
-  author: robinsh
-  ms.author: robinsh
+  author: kgremban
+  ms.author: kgremban
   ms.date: 08/11/2021
 
 landingContent:
@@ -40,10 +40,6 @@ landingContent:
    linkLists:
    - linkListType: concept
      links:
-     - text: Configure devices using the device SDKs
-       url: ../iot-develop/about-iot-sdks.md
-     - text: Build using the service SDKs
-       url: iot-hub-devguide-sdks.md
      - text: Process device data locally using IoT Edge
        url: ../iot-edge/about-iot-edge.md
      - text: Model your environment with Azure Digital Twins
@@ -58,6 +54,15 @@ landingContent:
        url: ../iot-fundamentals/howto-use-iot-explorer.md
      - text: Develop using the Azure IoT Tools for VS Code
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+
+ - title: Azure IoT SDKs
+   linkLists:
+   - linkListType: concept
+     links:
+     - text: Learn about Azure IoT device SDKs
+       url: ../iot-develop/about-iot-sdks.md
+     - text: Learn about Azure IoT service SDKs
+       url: iot-hub-devguide-sdks.md
 
  -   title: Select your protocol
      linkLists:

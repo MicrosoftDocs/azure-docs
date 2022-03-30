@@ -5,7 +5,6 @@ description: In this quickstart, you learn how to create an Azure Active Directo
 services: active-directory
 author: rwike77
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,8 +12,8 @@ ms.topic: quickstart
 ms.date: 02/15/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-#Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
+#Customer intent: As an application developer, I need to create a Microsoft identity environment so I can use it to register applications.
 ---
 
 # Quickstart: Set up a tenant

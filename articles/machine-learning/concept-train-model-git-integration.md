@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training run.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 04/08/2021
+ms.date: 10/21/2021
 ---
 # Git integration for Azure Machine Learning
 
@@ -184,6 +184,7 @@ run.properties['azureml.git.commit']
 ```
 
 ### Azure CLI
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 The `az ml run` CLI command can be used to retrieve the properties from a run. For example, the following command returns the properties for the last run in the experiment named `train-on-amlcompute`:
 

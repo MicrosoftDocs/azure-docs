@@ -3,7 +3,7 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 07/06/2021
+ms.date: 01/13/2022
 ms.custom: "devx-track-csharp, seodec18"
 
 ---
@@ -14,7 +14,7 @@ Azure provides built-in diagnostics to assist with debugging an [App Service app
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor (preview)](#send-logs-to-azure-monitor-preview) section. 
+> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
 >
 >
 
@@ -34,14 +34,14 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 ## Enable application logging (Windows)
 
-> [!NOTE]
-> Application logging for blob storage can only use storage accounts in the same region as the App Service
-
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
 
 The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
+
+> [!NOTE]
+> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
 
 > [!NOTE]
 > Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the App Service file system (without code modifications to write logs to external storage).
@@ -65,9 +65,13 @@ Select the **Level**, or the level of details to log. The following table shows 
 
 When finished, select **Save**.
 
+> [!NOTE]
+> If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
+
 ## Enable application logging (Linux/Container)
 
-To enable application logging for Linux apps or custom container apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
+To enable application logging for Linux apps or custom containers in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 In **Application logging**, select **File System**.
 
@@ -81,6 +85,9 @@ To enable web server logging for Windows apps in the [Azure portal](https://port
 
 For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system. 
 
+> [!NOTE]
+> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
+
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
 > [!NOTE]
@@ -92,6 +99,10 @@ In **Retention Period (Days)**, set the number of days the logs should be retain
 >
 
 When finished, select **Save**.
+
+> [!NOTE]
+> If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
 
 ## Log detailed errors
 
@@ -154,10 +165,10 @@ If you configure the Azure Storage blobs option for a log type, you need a clien
 
 For logs stored in the App Service file system, the easiest way is to download the ZIP file in the browser at:
 
-- Linux/container apps: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Linux/custom containers: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Windows apps: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-For Linux/container apps, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
+For Linux/custom containers, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
 
 For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* directory in the App Service file system. It has the following structure:
 
@@ -169,12 +180,12 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 | **Web Server Logs** | */LogFiles/http/RawLogs/* | Contains text files formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). This information can be read using a text editor or a utility like [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>App Service doesn't support the `s-computername`, `s-ip`, or `cs-version` fields. |
 | **Deployment logs** | */LogFiles/Git/* and */deployments/* | Contain logs generated by the internal deployment processes, as well as logs for Git deployments. |
 
-## Send logs to Azure Monitor (preview)
+## Send logs to Azure Monitor
 
-With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings (preview)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
+With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
 
 > [!div class="mx-imgBorder"]
-> ![Diagnostic Settings (preview)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+> ![Diagnostic Settings](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
 ### Supported log types
 
@@ -190,14 +201,24 @@ The following table shows the supported log types and descriptions:
 | AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
+| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
 <sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
 
 <sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
+
+<sup>3</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
+
+## Networking considerations
+
+If you secure your Azure Storage account by [only allowing selected networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule), it can receive logs from App Service only if both of the following are true:
+
+- The Azure Storage account is in a different Azure region from the App Service app.
+- All outbound addresses of the App Service app are [added to the Storage account's firewall rules](../storage/common/storage-network-security.md#managing-ip-network-rules). To find the outbound addresses for your app, see [Find outbound IPs](overview-inbound-outbound-ips.md#find-outbound-ips).
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

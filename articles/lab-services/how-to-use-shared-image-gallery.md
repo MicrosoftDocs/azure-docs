@@ -1,7 +1,7 @@
 ---
 title: Use a shared image gallery in Azure Lab Services | Microsoft Docs
 description: Learn how to configure a lab account to use a shared image gallery so that a user can share an image with other and another user can use the image to create a template VM in the lab. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/11/2020
 ---
 

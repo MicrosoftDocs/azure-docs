@@ -2,12 +2,13 @@
 title: Quickstart - Azure Key Vault Secret client library for Java
 description: Provides a quickstart for the Azure Key Vault Secret client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.devlang: java
 ---
 
 # Quickstart: Azure Key Vault Secret client library for Java
@@ -170,7 +171,7 @@ Now that your application is authenticated, you can put a secret into your key v
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -195,7 +196,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
+You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -224,7 +225,7 @@ import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
 import com.azure.security.keyvault.secrets.models.DeletedSecret;
-import com.azure.security.keyvault.secrets.models.KeyVaultSecret
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, IllegalArgumentException {

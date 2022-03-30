@@ -4,11 +4,10 @@ description: Create a single database in Azure SQL Database using an Azure Resou
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell
-ms.devlang:
+ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell, mode-arm
 ms.topic: quickstart
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 06/24/2020
 ---
 

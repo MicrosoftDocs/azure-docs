@@ -1,17 +1,16 @@
 ---
 title: Azure Web Application Firewall on Azure Front Door DRS rule groups and rules
 description: This article  provides information on Web Application Firewall DRS rule groups and rules.
-services: web-application-firewall
-author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/29/2021
+author: vhorne
 ms.author: victorh
 ms.topic: conceptual
+ms.date: 02/04/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 
 ## Default rule sets
@@ -57,6 +56,9 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 |Notice       |2|
 
 There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
+
+> [!NOTE]
+> Body inspection is only available on DRS 2.0
 
 ### DRS 2.0
 
@@ -284,6 +286,9 @@ Front Door.
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
 
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 
 ### <a name="drs942-20"></a> SQLI - SQL Injection
 |RuleId|Description|
@@ -347,7 +352,7 @@ Front Door.
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
 |944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-20"></a> MS-ThreatIntel-WebShells
@@ -443,7 +448,7 @@ Front Door.
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
-|941140|XSS Filter - Category 4: Javascript URI Vector|
+|941140|XSS Filter - Category 4: JavaScript URI Vector|
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
@@ -465,6 +470,9 @@ Front Door.
 |941330|IE XSS Filters - Attack Detected.|
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
+
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### <a name="drs942-11"></a> SQLI - SQL Injection
 |RuleId|Description|
@@ -523,7 +531,7 @@ Front Door.
 |944130|Suspicious Java class detected|
 |944200|Magic bytes Detected, probable java serialization in use|
 |944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
-|944240|Remote Command Execution: Java serialization (CVE-2015-5842)|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-11"></a> MS-ThreatIntel-WebShells
@@ -644,6 +652,9 @@ Front Door.
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
+>[!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ### <a name="drs942-10"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
@@ -701,7 +712,7 @@ Front Door.
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
 |944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 # [Bot rules](#tab/bot)

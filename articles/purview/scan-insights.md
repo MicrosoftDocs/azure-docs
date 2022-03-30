@@ -1,6 +1,6 @@
 ---
 title: Scan insights on your data in Azure Purview
-description: This how-to guide describes how to view and use Purview Insights scan reporting on your data. 
+description: This how-to guide describes how to view and use Azure Purview Insights scan reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
@@ -19,35 +19,35 @@ This how-to guide describes how to access, view, and filter Azure Purview scan i
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> * View insights from your Purview account.
+> * View insights from your Azure Purview account.
 > * Get a bird's eye view of your scans.
 
 ## Prerequisites
 
-Before getting started with Purview insights, make sure that you've completed the following steps:
+Before getting started with Azure Purview insights, make sure that you've completed the following steps:
 
 * Set up your Azure resources and populate the account with data.
 * Set up and complete a scan on the data source.
 
 For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
-## Use Purview Scan Insights
+## Use Azure Purview Scan Insights
 
 In Azure Purview, you can register and scan source types. You can view the scan status over time in Scan Insights. The insights tell you how many scans failed, succeeded, or get canceled within a certain time period.
 
 ### View scan insights
 
-1. Go to the **Azure Purview** instance screen in the Azure portal and select your Purview account.
+1. Go to the **Azure Purview** instance screen in the Azure portal and select your Azure Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Open Purview Studio** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Open Azure Purview Studio** tile.
 
-   :::image type="content" source="./media/scan-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/scan-insights/portal-access.png" alt-text="Launch Azure Purview from the Azure portal":::
 
-1. On the Purview **Home** page, select **Insights** on the left menu.
+1. On the Azure Purview **Home** page, select **Insights** on the left menu.
 
    :::image type="content" source="./media/scan-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** area, select **Scans** to display the Purview **Scan insights** report.
+1. In the **Insights** area, select **Scans** to display the Azure Purview **Scan insights** report.
 
 ### View high-level KPIs to show count of scans by status and deep-dive into each scan
  

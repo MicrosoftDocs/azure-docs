@@ -2,9 +2,9 @@
 title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs 
 description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
 keywords: 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -34,38 +34,14 @@ Check the version of the security daemon running on your device by using the com
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
-Get the latest repository configuration from Microsoft:
-
-* **Ubuntu Server 18.04**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-* **Raspberry Pi OS Stretch**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-Copy the generated list.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-Install Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
 Update apt.
 
    ```bash
    sudo apt-get update
    ```
+
+   > [!NOTE]
+   > For instructions to get the latest repository configuration from Microsoft see the preliminary steps to [Install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -116,27 +92,46 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 # [Linux on Windows](#tab/linuxonwindows)
 
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
->[!NOTE]
->Currently, there is not support for IoT Edge version 1.2 running on Linux for Windows virtual machines.
-
-:::moniker-end
-<!-- end 1.2 -->
-
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
 >[!IMPORTANT]
 >If you are updating a device from the public preview version of IoT Edge for Linux on Windows to the generally available version, you need to uninstall and reinstall Azure IoT Edge.
 >
->To find out if you're currently using the public preview version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.0.x, you are running the public preview version. Uninstall the app and then [Install and provision IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md) again. If your listed version is 1.1.x, you are running the generally available version and can receive updates through Microsoft Update.
+>To find out if you're currently using the public preview version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.0.x, you are running the public preview version. Uninstall the app and then [Install and provision IoT Edge for Linux on Windows](how-to-provision-single-device-linux-on-windows-symmetric.md) again. If your listed version is 1.1.x, you are running the generally available version and can receive updates through Microsoft Update.
 
-With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and you cannot manually update or change the IoT Edge components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically. 
+>[!IMPORTANT]
+>If you are updating a Windows Server SKU device previous to 1.1.2110.03111 version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
+>
+>Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) introduced a change to the VM technology (HCS to VMMS) used for EFLOW Windows Server deployments. You can execute the VM migration with the following steps:
+>
+> 1. Using Microsoft Update, download and install the 1.1.2110.03111 update (same as any other EFLOW update, no need for manual steps as long as EFLOW updates are turned on).
+> 2. Once EFLOW update is finished, open an elevated PowerShell session.
+> 3. Run the migration script:
+>
+>   ```powershell
+>   Migrate-EflowVmFromHcsToVmms
+>   ```
+>
+> Note: Fresh EFLOW 1.1.2110.0311 msi installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
+
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!IMPORTANT]
+>This is a Public Preview version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
+>
+>To find out if you're currently using the continuous release version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.2.x.y, you are running the continuous release version.
+<!-- end 1.2 -->
+:::moniker-end
+
+
+With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and you cannot manually update or change the IoT Edge components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
-
 
 To receive IoT Edge for Linux on Windows updates, the Windows host should be configured to receive updates for other Microsoft products. You can turn this option with the following steps:
 
@@ -148,9 +143,6 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 1. Toggle the *Receive updates for other Microsoft products when you update Windows* button to **On**.
 
-:::moniker-end
-<!-- end 1.1 -->
-
 # [Windows](#tab/windows)
 
 <!-- 1.2 -->
@@ -158,6 +150,8 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 >[!NOTE]
 >Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
+>
+>To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -165,7 +159,37 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
+With IoT Edge for Windows, IoT Edge runs directly on the Windows device.
+
+Use the `Update-IoTEdge` command to update the security daemon. The script automatically pulls the latest version of the security daemon.
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge
+```
+
+Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
+
+If you want to update to a specific version of the security daemon, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -OfflineInstallationPath <absolute path to directory>
+```
+
+>[!NOTE]
+>The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Rename the file to remove the architecture suffix if it has one.
+
+If you want to update a device offline, find the version you want to target from [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the *IoTEdgeSecurityDaemon.ps1* and *Microsoft-Azure-IoTEdge.cab* files. It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
+
+If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
+
+To update with offline components, [dot source](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. Then, use the `-OfflineInstallationPath` parameter as part of the `Update-IoTEdge` command and provide the absolute path to the file directory. For example,
+
+```powershell
+. <path>\IoTEdgeSecurityDaemon.ps1
+Update-IoTEdge -OfflineInstallationPath <path>
+```
+
+For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell scripts for IoT Edge with Windows containers](reference-windows-scripts.md).
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -248,52 +272,25 @@ Before automating any update processes, validate that it works on test machines.
 
 When you're ready, follow these steps to update IoT Edge on your devices:
 
-1. Get the latest repository configuration from Microsoft:
-
-   * **Ubuntu Server 18.04**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
-
-   * **Raspberry Pi OS Stretch**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-     ```
-
-2. Copy the generated list.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-3. Install Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
-4. Update apt.
+1. Update apt.
 
    ```bash
    sudo apt-get update
    ```
 
-5. Uninstall the previous version of IoT Edge, leaving your configuration files in place.
+1. Uninstall the previous version of IoT Edge, leaving your configuration files in place.
 
    ```bash
    sudo apt-get remove iotedge
    ```
 
-6. Install the most recent version of IoT Edge, along with the IoT identity service.
+1. Install the most recent version of IoT Edge, along with the IoT identity service.
 
    ```bash
    sudo apt-get install aziot-edge
    ```
 
-7. Import your old config.yaml file into its new format, and apply the configuration info.
+1. Import your old config.yaml file into its new format, and apply the configuration info.
 
    ```bash
    sudo iotedge config import
@@ -316,7 +313,7 @@ As previews, release candidate versions aren't included as the latest version th
 
 Use the sections in this article to learn how to update an IoT Edge device to a specific version of the security daemon or runtime modules.
 
-If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 ## Next steps
 

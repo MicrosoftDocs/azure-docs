@@ -1,21 +1,22 @@
 ---
-title: Azure AD secure hybrid access with F5 deployment guide | Microsoft Docs
+title: Secure hybrid access with F5 deployment guide
+titleSuffix: Azure AD
 description: Tutorial to deploy F5 BIG-IP Virtual Edition (VE) VM in Azure IaaS for Secure hybrid access
 services: active-directory
-author: davidmu1
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: davidmu
+ms.author: gasinh
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
 ---
 
-# Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access
+# Deploy F5 BIG-IP Virtual Edition VM in Azure
 
 This tutorial walks you through the end to end process of deploying BIG-IP Vitural Edition (VE) in Azure IaaS. By the end of this tutorial you should have:
 
@@ -41,9 +42,9 @@ Prior F5 BIG-IP experience or knowledge isn't necessary, however, we do recommen
 
 - A wildcard or Subject Alternative Name (SAN) certificate, to publish web applications over Secure Socket Layer (SSL). [Let’s encrypt](https://letsencrypt.org/) offers free 90 days certificate for  testing.
 
-- An SSL certificate for securing the BIG-IPs management interface. A certificate used to publish web apps can be used, if its subject corresponds to the BIG-IP's Fully qualified domain name (FQDN). For example, a wildcard certificate defined with a subject *.contoso.com would be suitable for `https://big-ip-vm.contoso.com:8443`
+- An SSL certificate for securing the BIG-IPs management interface. A certificate used to publish web apps can be used, if its subject corresponds to the BIG-IP's Fully qualified domain name (FQDN). For example, a wildcard certificate defined with a subject `*.contoso.com` would be suitable for `https://big-ip-vm.contoso.com:8443`
 
-VM deployment and base system configs take approx. 30 minutes, at which point your BIG-IP platform will be ready for implementing any of the SHA scenarios listed [here](f5-aad-integration.md).
+VM deployment and base system configs take approximately 30 minutes, at which point your BIG-IP platform will be ready for implementing any of the SHA scenarios listed in [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md).
 
 For testing the scenarios, this tutorial assumes the BIG-IP will be deployed into an Azure resource group containing an Active Directory (AD) environment. The environment should consist of a Domain Controller (DC) and web host (IIS) VMs. Having these servers in other locations to the BIG-IP VM is also ok, providing the BIG-IP has line of sight to each of the roles required to support a given scenario. Scenarios where the BIG-IP VM is connected to another environment over a VPN connection are also supported.
 
@@ -229,7 +230,7 @@ The following steps assume the DNS zone of the public domain used for your SHA s
   If you manage your DNS domain namespace using an external provider like [GoDaddy](https://www.godaddy.com/), then you'll need to create records using their own DNS management facility.
 
 >[!NOTE]
->You can also use a PC’s local hosts file if testing and frequently switching DNS records. The localhosts file on a Windows PC can be accessed by pressing Win + R on the keyboard and submitting the word **drivers** in the run box. Just be mindful that a localhost record will only provide DNS resolution for the local PC, not other clients.
+>You can also use a PC’s local hosts file if testing and frequently switching DNS records. The local hosts file on a Windows PC can be accessed by pressing Win + R on the keyboard and entering *drivers* in the **Run** box. Just be mindful that a local host record will only provide DNS resolution for the local PC, not other clients.
 
 ## Client traffic
 
@@ -350,7 +351,7 @@ Provisioning both, Client and Server SSL profiles will have the BIG-IP pre-confi
 
 2. From the **Import Type** drop down list, select **PKCS 12(IIS)**
 
-3. Provide a name for the imported certificate, for example,  `ContosoWilcardCert`
+3. Provide a name for the imported certificate, such as `ContosoWildcardCert`.
 
 4. Select **Choose File** to browse to the SSL web certificate who’s subject name corresponds to the domain suffix you plan on using for published services
 
@@ -358,7 +359,7 @@ Provisioning both, Client and Server SSL profiles will have the BIG-IP pre-confi
 
 6. From the left-navigation bar, go to **Local Traffic** > **Profiles** > **SSL** > **Client** and then select **Create**
 
-7. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile and ensure the Parent profile is set to **clientssl**
+7. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile and ensure the Parent profile is set to `clientssl`.
 
 ![The image shows update big-ip](./media/f5ve-deployment-plan/client-ssl.png)
 
@@ -370,7 +371,7 @@ Provisioning both, Client and Server SSL profiles will have the BIG-IP pre-confi
 
 10.	Repeat steps 6-9 to create an **SSL server certificate profile**. From the top ribbon, select **SSL** > **Server** > **Create**.
 
-11.	In the **New Server SSL Profile** page, provide a unique friendly name for the new server SSL profile and ensure the Parent profile is set to **serverssl**
+11.	In the **New Server SSL Profile** page, provide a unique friendly name for the new server SSL profile and ensure the Parent profile is set to `serverssl`.
 
 12.	Select the far-right check box for the Certificate and Key rows and from the drop-down list select your imported certificate, followed by **Finished**.
 

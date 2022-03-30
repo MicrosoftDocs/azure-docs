@@ -9,10 +9,10 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: ddos-protection
-ms.devlang: na
-ms.topic: how-to
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: mode-ui
 ms.date: 05/17/2019
 ms.author: yitoh
 
@@ -70,6 +70,12 @@ You cannot move a virtual network to another resource group or subscription when
 3. Select **DDoS protection**, under **SETTINGS**.
 4. Select **Standard**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
 
+### Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
+
+Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md)
+
+:::image type="content" source="/azure/firewall-manager/media/configure-ddos/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan":::
+
 ### Enable DDoS protection for all virtual networks
 
 This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. See [Azure Policy built-in definitions for Azure DDoS Protection Standard](policy-reference.md) for full list of built-in policies. 
@@ -113,7 +119,7 @@ If you want to delete a DDoS protection plan, you must first dissociate all virt
 
 ## Next steps
 
-To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
+To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials. 
 
 > [!div class="nextstepaction"]
 > [View and configure DDoS protection telemetry](telemetry.md)

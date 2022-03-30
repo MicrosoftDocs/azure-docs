@@ -1,11 +1,11 @@
 ---
-author: erhopf
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: erhopf
+ms.author: rwaller
 ---
 
 ## Prerequisites

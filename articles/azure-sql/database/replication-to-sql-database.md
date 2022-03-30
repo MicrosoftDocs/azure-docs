@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: ferno-ms
 ms.author: ferno
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 04/28/2020
 ---
 # Replication to Azure SQL Database
@@ -54,7 +54,6 @@ There are different [types of replication](/sql/relational-databases/replication
 | [**Peer-to-peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
 | [**Bidirectional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
 | [**Updatable subscriptions**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
-| &nbsp; | &nbsp; | &nbsp; |
 
   
 ## Remarks

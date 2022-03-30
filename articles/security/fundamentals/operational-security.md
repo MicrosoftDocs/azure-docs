@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -40,7 +39,7 @@ Azure Operational Security refers to the services, controls, and features availa
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
 1.	[Azure Monitor](../../azure-monitor/index.yml)
 
-2.	[Azure Security Center](../../security-center/security-center-introduction.md)
+2.	[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 
 3.	[Azure Monitor](../../azure-monitor/overview.md)
 
@@ -109,15 +108,15 @@ A good example of a solution that uses multiple services to provide additional f
 
 When you create a deployment, runbooks in [Azure Automation](../../automation/automation-intro.md) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/management/overview.md#resource-groups), so you can be more granular.
+Microsoft Defender for Cloud helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/management/overview.md#resource-groups), so you can be more granular.
 
 ### Security policies and recommendations
 
 A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group.
 
-In Security Center, you define policies according to your company's security requirements and the type of applications or sensitivity of the data.
+In Defender for Cloud, you define policies according to your company's security requirements and the type of applications or sensitivity of the data.
 
 ![Security policies and recommendations](./media/operational-security/azure-operational-security-fig5.png)
 
@@ -127,11 +126,11 @@ Policies that are enabled in the subscription level automatically propagate to a
 
 ### Data collection
 
-Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When your first access Security Center, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Security Center policy.
+Defender for Cloud collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When your first access Defender for Cloud, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Defender for Cloud policy.
 
 ### Data sources
 
-- Azure Security Center analyzes data from the following sources to provide visibility into your security state, identify vulnerabilities and recommend mitigations, and detect active threats:
+- Microsoft Defender for Cloud analyzes data from the following sources to provide visibility into your security state, identify vulnerabilities and recommend mitigations, and detect active threats:
 
 -	Azure Services: Uses information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
 
@@ -143,7 +142,7 @@ Security Center collects data from your virtual machines (VMs) to assess their s
 
 ### Data protection
 
-To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes security-related data, including configuration information, metadata, event logs, crash dump files, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
+To help customers prevent, detect, and respond to threats, Microsoft Defender for Cloud collects and processes security-related data, including configuration information, metadata, event logs, crash dump files, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
 -	**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.
 
@@ -153,11 +152,11 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 ### Data location
 
-Azure Security Center collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises. Azure Security Center performs this analysis within the same Geo as the workspace, and deletes the ephemeral copies when analysis is complete. Machine artifacts are stored centrally in the same region as the VM.
+Microsoft Defender for Cloud collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises. Microsoft Defender for Cloud performs this analysis within the same Geo as the workspace, and deletes the ephemeral copies when analysis is complete. Machine artifacts are stored centrally in the same region as the VM.
 
 -	**Your Storage Accounts**: A storage account is specified for each region where virtual machines are running. This enables you to store data in the same region as the virtual machine from which the data is collected.
 
--	**Azure Security Center Storage**: Information about security alerts, including partner alerts, recommendations, and security health status is stored centrally, currently in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
+-	**Microsoft Defender for Cloud Storage**: Information about security alerts, including partner alerts, recommendations, and security health status is stored centrally, currently in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
 
 
 ## Azure Monitor
@@ -222,7 +221,7 @@ Auditing your network security is vital for detecting network vulnerabilities an
 
 Network Watcher currently has the following capabilities:
 
--	**<a href="/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
+-	**<a href="/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and REST API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
 
 
 -	**<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verifies </a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
@@ -307,7 +306,7 @@ For customers interested in storing their [audit events](../../active-directory/
 
 ## Summary
 
-This article summaries protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
+This article summarizes protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
 
 This article explains
 
@@ -338,5 +337,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
-A set of steps and tasks that you can follow to optimize your use of Security Center based on your organization’s security requirements and cloud management model.
+- [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

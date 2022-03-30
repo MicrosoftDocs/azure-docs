@@ -23,8 +23,8 @@ _You may not have access permissions configured correctly. Please ensure you hav
 ### Q: I'm encountering a 500-type error when importing content to the Device Update service.
 _An error code in the 500 range may indicate an issue with the Device Update service. Please wait 5 minutes, then try again. If the same error persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
-### Q: I'm encountering an error code when importing content and would like to parse it.
-_Please refer to the [Device Update Error Codes](./device-update-error-codes.md) documentation for information on parsing error codes._
+### Q: I'm encountering an error message when importing content and would like to understand more about it.
+_Please refer to the [Device Update Error Codes](./device-update-error-codes.md#device-update-content-service) documentation for more detailed information on import-related error messages._
 
 ## <a name="device-failure"></a>Device failures
 

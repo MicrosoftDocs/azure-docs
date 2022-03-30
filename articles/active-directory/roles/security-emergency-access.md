@@ -3,15 +3,15 @@ title: Manage emergency access admin accounts - Azure AD
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
-manager: daveba
+manager: karenhoran
 ms.author: rolyon
-ms.date: 11/05/2020
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: markwahl-msft
+ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
@@ -35,6 +35,36 @@ An organization might need to use an emergency access account in the following s
 ## Create emergency access accounts
 
 Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
+
+### How to create an emergency access account
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as an existing Global Administrator.
+
+1. Select **Azure Active Directory** > **Users**.
+
+1. Select **New user**.
+
+1. Select **Create user**.
+
+1. Give the account a **User name**.
+
+1. Give the account a **Name**.
+
+1. Create a long and complex password for the account.
+
+1. Under **Roles**, assign the **Global Administrator** role.
+
+1. Under **Usage location**, select the appropriate location.
+
+    :::image type="content" source="./media/security-emergency-access/create-emergency-access-account-azure-ad.png" alt-text="Creating an emergency access account in Azure AD." lightbox="./media/security-emergency-access/create-emergency-access-account-azure-ad.png":::
+
+1. Select **Create**.
+
+1. [Store account credentials safely](#store-account-credentials-safely).
+
+1. [Monitor sign-in and audit logs](#monitor-sign-in-and-audit-logs).
+
+1. [Validate accounts regularly](#validate-accounts-regularly).
 
 When configuring these accounts, the following requirements must be met:
 
@@ -92,7 +122,29 @@ Organizations should monitor sign-in and audit log activity from the emergency a
     1. Under **Search query**, enter the following query, inserting the object IDs of the two break glass accounts.
         > [!NOTE]
         > For each additional break glass account you want to include, add another "or UserId == "ObjectGuid"" to the query.
-
+                
+        Sample queries:
+        ```kusto
+        // Search for a single Object ID (UserID)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
+        ```
+        
+        ```kusto
+        // Search for multiple Object IDs (UserIds)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448" or UserId == "0383eb26-1cbc-4be7-97fd-e8a0d8f4e62b"
+        ```
+        
+        ```kusto
+        // Search for a single UserPrincipalName
+        SigninLogs
+        | project UserPrincipalName 
+        | where UserPrincipalName == "user@yourdomain.onmicrosoft.com"
+        ```
+        
         ![Add the object IDs of the break glass accounts to an alert rule](./media/security-emergency-access/query-image1.png)
 
     1. Under **Alert logic**, enter the following:

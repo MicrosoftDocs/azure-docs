@@ -185,7 +185,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Application supports Just in time user provisioning and after authentication users are created in the application automatically. JIT will work, if you have clicked the **Create Un-recognized User Account** checkbox during SAML configuration setting at iLMS admin portal.
 
-If you need to create an user manually, then follow below steps:
+If you need to create a user manually, then follow below steps:
 
 1. Sign in to your iLMS company site as an administrator.
 
@@ -232,4 +232,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure iLMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure iLMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
