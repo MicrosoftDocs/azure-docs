@@ -40,5 +40,4 @@ Check the section on managing Azure Purview role assignments in this [guide](../
 >[!WARNING]
 > **Known issues** related to permissions
 > - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../../active-directory/roles/permissions-reference.md#directory-readers)
-> - Azure Purview *Policy author* role is not sufficient to create policies. It also requires Azure Purview *Data source admin* role as well.
-> - An issues has been reported when IAM Owner, which is required to enable Data use governance, is not directly applied to the data resource but instead inherited from a management group or a subscription. This issue is currently under investigation.
+> - An issue reported where role IAM Owner, which is required to enable Data use governance, is not directly assigned to the data resource but instead inherited from a management group or a subscription. Fix is being deployed to production regions. Updated: March 29, 2022.
