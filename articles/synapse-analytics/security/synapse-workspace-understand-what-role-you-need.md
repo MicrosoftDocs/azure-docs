@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 3/07/2022
+ms.date: 03/23/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
@@ -18,17 +18,17 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ### Access Synapse Studio
 
-You can open Synapse Studio and view details of the workspace and list any of its Azure resources (SQL pools, Spark pools, or Integration runtimes) if you've been assigned any Synapse RBAC role or have the Azure Owner, Contributor, or Reader role on the workspace.
+You can open Synapse Studio and view details of the workspace and list any of its Azure resources such as SQL pools, Spark pools, or Integration runtimes. You will see if you've been assigned any Synapse RBAC role or have the Azure Owner, Contributor, or Reader role on the workspace.
 
 ### Resource management
 
 You can create SQL pools, Data Explorer pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
 
-You can pause or scale a dedicated SQL pool, configure a Spark pool or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
+You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
 ### View and edit code artifacts
 
-With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, KQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers, and credentials.  (These artifacts can be published or saved with additional permissions.)  
+With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, KQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers, and credentials. These artifacts can be published or saved with additional permissions.  
 
 If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts.
 
@@ -54,7 +54,6 @@ You can commit code artifacts to a working branch of a Git repository if the wor
 
 If you close Synapse Studio without publishing or committing changes to code artifacts, then those changes will be lost.
 
-
 ## Tasks and required roles
 
 The table below lists common tasks and for each task, the Synapse RBAC, or Azure RBAC roles required.  
@@ -74,7 +73,7 @@ All Synapse RBAC permissions/actions shown in the table are prefixed `Microsoft/
 
 Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 --|--|--
-|Open Synapse Studio on a workspace|Synapse User, or|read
+|Open Synapse Studio on a workspace|Synapse User, or |read
 | |Azure Owner, Contributor, or Reader on the workspace|none
 |List SQL pools, Data Explorer pools, Apache Spark pools, Integration runtimes and access their configuration details|Synapse User, or|read|
 ||Azure Owner, Contributor, or Reader on the workspace|none
