@@ -77,9 +77,13 @@ The cause of this problem can be one of three things:
 
     - How to disable `EnforceCertificateNameCheck` from the Azure portal:
     
-      In the portal, use a toggle button to turn this setting on or off in the Azure Front Door **Design** pane.
+      In the portal, use a toggle button to turn this setting on or off in the Azure Front Door (classic) **Design** pane.
     
       ![Screenshot that shows the toggle button.](https://user-images.githubusercontent.com/63200992/148067710-1b9b6053-efe3-45eb-859f-f747de300653.png)
+
+      For Azure Front Door Standard and Premium tier, this setting can be found in the origin settings when you add an origin to an origin group or configuring a route.
+
+      :::image type="content" source="./media/troubleshoot-issues/validation-checkbox.png" alt-text="Screenshot of the certificate subject name validation checkbox.":::
 
 * The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend pool. To resolve this issue, you have two options:
 
