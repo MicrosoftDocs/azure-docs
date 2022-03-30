@@ -63,7 +63,7 @@ The production and distribution of goods require maintaining a complex and dynam
 
 :::image type="content" source="./media/supply-chain-traceability-solution/data-design-visualization.png" alt-text="Graph of supply chain data design." lightbox="./media/supply-chain-traceability-solution/data-design-visualization.png" border="true":::
 
-The preceding diagram is a simplified view of a complex process. However, getting vital stock-movement information from the factories and warehouses in real time makes it possible to create an elaborate graph that connects all these disparate pieces of information:
+The preceding diagram is a simplified view of a complex process. However, getting stock-movement information from the factories and warehouses in real time makes it possible to create an elaborate graph that connects all these disparate pieces of information:
 
 1. The traceability process starts when the supplier sends raw materials to the factories. The solution creates the initial nodes (vertices) of the graph and relationships (edges).
 
