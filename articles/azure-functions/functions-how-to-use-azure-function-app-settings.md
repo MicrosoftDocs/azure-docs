@@ -251,10 +251,16 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
-> [!NOTE]
-> Not all App Service features are available when a function app runs on the Consumption hosting plan.
+The following matrix indicates Azure portal feature support by hosting plan and operating system:
 
-The rest of this article focuses on the following App Service features in the Azure portal that are useful for Functions:
+| Feature | Consumption plan | Premium plan  | Dedicated plan | 
+| --- | --- | --- | --- |
+| [Advanced tools (Kudu)](#kudu) | Windows: ✔ <br/>Linux: **X** | ✔ | ✔|
+| [App Service editor](#editor) | Windows: ✔ <br/>Linux: **X**   | Windows: ✔ <br/>Linux: **X** | Windows: ✔ <br/>Linux: **X**|
+| [Backups](../app-service/manage-backup.md) |**X** |**X** | ✔|
+| [Console](#console) | Windows: command-line <br/>Linux: **X** | Windows: command-line <br/>Linux: SSH | Windows: command-line <br/>Linux: SSH |
+
+The rest of this article focuses on the following features in the portal that are useful for your function apps:
 
 + [App Service editor](#editor)
 + [Console](#console)
