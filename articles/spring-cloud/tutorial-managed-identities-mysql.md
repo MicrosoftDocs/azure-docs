@@ -157,3 +157,6 @@ This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/m
     
 ## Next Steps
 
+[Managed identity to connect Key Vault](tutorial-managed-identities-key-vault.md)
+[Managed identity to invoke Azure functions](tutorial-managed-identities-functions.md)
+
