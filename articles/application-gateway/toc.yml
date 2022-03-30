@@ -7,7 +7,7 @@
   - name: Application Gateway v2
     href: overview-v2.md
   - name: Well-Architected review of Application Gateway
-    href: /azure/architecture/framework/services/networking/application-gateway-v2?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
+    href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
