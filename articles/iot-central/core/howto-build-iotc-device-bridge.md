@@ -8,13 +8,14 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 12/21/2021
 ms.topic: how-to
+custom: contperf-fy22q3
 
 # Administrator
 ---
 
 # Use the IoT Central device bridge to connect other IoT clouds to IoT Central
 
-The IoT Central device bridge is an open-source solution that connects other IoT clouds to your IoT Central application. Examples of other IoT clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/). The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
+The IoT Central device bridge is an open-source solution that connects other IoT clouds such as [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/) to your IoT Central application. The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
 
 The device bridge lets you combine the power of IoT Central with devices such as asset tracking devices connected to Sigfox's low-power wide area network, air quality monitoring devices on the Particle Device Cloud, or soil moisture monitoring devices on The Things Network. You can use IoT Central application features such as rules and analytics on the data, create workflows in Power Automate and Azure Logic apps, or export the data.
 

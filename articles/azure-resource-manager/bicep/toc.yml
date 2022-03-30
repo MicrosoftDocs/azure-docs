@@ -51,6 +51,8 @@
       href: ../../event-hubs/event-hubs-bicep-namespace-event-hub.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
+    - name: Batch
+      href: ../../batch/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine
