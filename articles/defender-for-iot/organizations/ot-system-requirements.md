@@ -89,7 +89,7 @@ Microsoft has validated the following physical appliances. Using any of the appl
 - **In-lab experience**, where Microsoft support teams have been trained using validated physical appliances and have a working knowledge of the hardware
 - **Availability**, as these physical appliances are available worldwide and long term
 
-Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
+Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
 ### Supported appliances for OT network sensors
 
@@ -116,7 +116,6 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360":::
 
-
 |Component  |Specifications|
 |---------|---------|
 |Chassis     |1U Rack Server         |
@@ -124,6 +123,7 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 |Weight    | Max 16.72 kg / 35.86 lb        |
 
 ### CORPORATE DEPLOYMENT: HPE PROLIANT DL360
+
 |Component	| Technical specifications|
 |---------|---------|
 |Chassis |	1U rack server|
@@ -146,8 +146,9 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 |Power            |2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit
 |Rack support     | HPE 1U Gen10 SFF Easy Install Rail Kit        |
 
-### Optional modules for port expansion:
-| PCI Slot 1 (Low profile)  |                        |                                                 |
+### Optional modules for port expansion
+
+| Location  |        Type                |Specifications                                                 |
 | ------------------------- | ---------------------- | ----------------------------------------------- |
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
 | PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
@@ -164,7 +165,6 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 | SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
 | PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr   |
-
 
 ### Enterprise Deployment: HPE ProLiant DL20+
 
@@ -204,3 +204,120 @@ Optional modules for port expansion:
 | SFPs for Fiber Optic NICs | MultiMode, Short Range | 455883-B21 - HPE BLc 10G SFP+ SR Transceiver    |
 | SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
 
+:::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20":::
+
+### ENTERPRISE DEPLOYMENT: HPE PROLIANT DL20
+
+|Component |	Technical specifications|
+|----|----|
+|Chassis |	1U rack server|
+|Dimensions |(height x width x depth)	4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
+|Weight|	7.9 kg/17.41 lb|
+|Processor|	Intel Xeon E-2234| 3.6 GHz| 4C/8T| 71 W|
+|Chipset|	Intel C242|
+|Memory	| 2 x 16-GB Dual Rank x8 DDR4-2666|
+|Storage|	3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
+|Network controller|	On-board: 2 x 1 Gb|
+|On-board| iLO Port Card 1 Gb|
+|External |1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|Management|	HPE iLO Advanced|
+|Device access	Front: 1 x USB 3.0| 1 x USB iLO Service Port|
+|Rear:| 2 x USB 3.0|
+|Internal| 1 x USB 3.0|
+|Power|	Dual Hot Plug Power Supplies 500 W|
+|Rack support| HPE 1U Short Friction Rail Kit|
+
+### Appliance BOM
+
+|PN|Description: high end|Quantity|
+|:----|:----|:----|
+|P06963-B21|HPE DL20 Gen10 4SFF CTO Server|1|
+|P06963-B21|HPE DL20 Gen10 4SFF CTO Server|1|
+|P17104-L21|HPE DL20 Gen10 E-2234 FIO Kit|1|
+|879507-B21|HPE 16-GB 2Rx8 PC4-2666V-E STND Kit|2|
+|655710-B21|HPE 1-TB SATA 7.2 K SFF SC DS HDD|3|
+|P06667-B21|HPE DL20 Gen10 x8x16 FLOM Riser Kit|1|
+|665240-B21|HPE Ethernet 1-Gb 4-port 366FLR Adapter|1|
+|782961-B21|HPE 12-W Smart Storage Battery|1|
+|869081-B21|HPE Smart Array P408i-a SR G10 LH Controller|1|
+|865408-B21|HPE 500-W FS Plat Hot Plug LH Power Supply Kit|2|
+|512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
+|P06722-B21|HPE DL20 Gen10 RPS Enablement FIO Kit|1|
+|775612-B21|HPE 1U Short Friction Rail Kit|1|
+
+Enterprise Deployment: Dell PowerEdge R340 XL
+|Component|	Technical Specifications|
+|:----|----|
+|Chassis|	1U rack server|
+|Dimensions|	42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
+|Weight|	Max 29.98 lb/13.6 Kg|
+|Processor|	Intel Xeon E-2144G 3.6GHz| 8M cache|4C/8T| turbo (71W)|
+|Chipset|	Intel C246|
+|Memory|	32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
+|Storage|	3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
+|Network controller|	On-board: 2 x 1Gb Broadcom BCM5720|
+|On-board LOM| iDRAC Port Card 1Gb Broadcom BCM5720|
+|External| 1 x Intel Ethernet i350 QP 1Gb Server Adapter| Low Profile|
+|Management|	iDRAC 9 Enterprise|
+|Device access|	2 rear USB 3.0 <br> 1 front USB 3.0|
+|Power|	Dual Hot Plug Power Supplies 350W|
+|Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks with support for optional tool-less cable management arm.
+
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340":::
+
+
+ ### Optional modules for port expansion:
+
+|Location|Type|Specification|
+|-----|-----|-----|
+|PCI Slot 1 (Low profile)|Quad Port Eth NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
+|PCI Slot 1 (Low profile)|Quad Port Eth NIC|Broadcom 5719 Quad Port 540-BBHB|
+|PCI Slot 1 (Low profile)|DP F/O NIC|Intel X710 Dual Port - MCBX-NIC01-A00|
+|PCI Slot 2 (High profile)|Quad Port Eth NIC|Intel® i350 Quad Port - MCBX-NIC00-A00|
+|PCI Slot 2 (High profile)|DP F/O NIC|Intel X710 Dual Port - MCBX-NIC01-A00|
+|PCI Slot 2 (High profile)|Quad Port F/O NIC|Intel X710-DA4 - MCBX-NIC02-A00|
+|SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10Gb-1Gb|
+|SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10GbE|
+
+***INSERT Object TABLE HERE***
+
+### SMB Deployment: HPE ProLiant DL20+
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+":::
+
+### SMB DEPLOYMENT: HPE PROLIANT DL20
+
+|Component|Technical specifications|
+|:----|----|
+|Chassis|	1U rack server|
+|Dimensions (height x width x depth)|	4.32 x 43.46 x 38.22 cm/<br>1.70 x 17.11 x 15.05 inch|
+|Weight|	7.88 kg/17.37 lb|
+|Processor|	Intel Xeon E-2224| 3.4 GHz| 4C| 71 W|
+|Chipset|	Intel C242|
+|Memory|	1 x 8-GB Dual Rank x8 DDR4-2666|
+|Storage|	2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with Smart Array P208i-a|
+|Network controller|	On-board: 2 x 1 Gb|
+|On-board| iLO Port Card 1 Gb|
+|External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|Management|	HPE iLO Advanced|
+|Device access	Front| 1 x USB 3.0| 1 x USB iLO Service Port|
+|Rear| 2 x USB 3.0|
+|Internal| 1 x USB 3.0|
+|Power|Hot Plug Power Supply 290 W|
+|Rack support|HPE 1U Short Friction Rail Kit|
+
+### APPLIANCE BOM
+
+|PN|Description|Quantity|
+|:----|:----|:----|
+|P06961-B21|HPE DL20 Gen10 NHP 2LFF CTO Server|1|
+|P06961-B21|HPE DL20 Gen10 NHP 2LFF CTO Server|1|
+|P17102-L21|HPE DL20 Gen10 E-2224 FIO Kit|1|
+|879505-B21|HPE 8-GB 1Rx8 PC4-2666V-E STND Kit|1|
+|801882-B21|HPE 1-TB SATA 7.2 K LFF RW HDD|2|
+|P06667-B21|HPE DL20 Gen10 x8x16 FLOM Riser Kit|1|
+|665240-B21|HPE Ethernet 1-Gb 4-port 366FLR Adapter|1|
+|869079-B21|HPE Smart Array E208i-a SR G10 LH Controller|1|
+|P21649-B21|HPE DL20 Gen10 Plat 290 W FIO PSU Kit|1|
+|P06683-B21|HPE DL20 Gen10 M.2 SATA/LFF AROC Cable Kit|1|
+|512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
+|775612-B21|HPE 1U Short Friction Rail Kit|1|
