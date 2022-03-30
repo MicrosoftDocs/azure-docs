@@ -105,7 +105,7 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 
 ## Corporate deployment: HPE ProLiant DL360
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Proliant Dl360 view":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360":::
 
 
 |Component  |Specifications|
@@ -150,7 +150,7 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 | PCI Slot 1 (Low profile)  | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
 | PCI Slot 2 (High profile) | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
 | PCI Slot 2 (High profile) | DP F/O NIC             | 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr |
-| PCI Slot 2 (High profile) | Quad Port F/O NIC      | 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI   |:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="":::
+| PCI Slot 2 (High profile) | Quad Port F/O NIC      | 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI   |
 | SFPs for Fiber Optic NICs | MultiMode, Short Range | 455883-B21 - HPE BLc 10G SFP+ SR Transceiver    |
 | SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
 | PCI Slot 1 (Low profile)  | Quad Port Eth NIC      | 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI  |
@@ -159,6 +159,7 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 
 ### Enterprise Deployment: HPE ProLiant DL20+
 
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -166,7 +167,7 @@ Microsoft has partnered with [Arrow Electronics](www.arrow.com) to provide pre-c
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="DL20+ Panel":::
+:::image type="content" source="media/ot-system-requirements/HPE ProLiant DL20+.png" alt-text="Photo of the DL20+ panel":::
 
 |Quantity| |PN|Description|
 |:----|:----|:----|:----|
