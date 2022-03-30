@@ -53,19 +53,19 @@ You can view the properties associated with your newly created confidential ledg
 az confidentialledger show --name "myLedger" --resource-group "myResourceGroup"
 ```
 
-This will return a json object displaying the ledger's properties, including your role:
+This will return a JSON object displaying the ledger's properties, including your role:
 
 ```json
 "ledgerRoleName": "Administrator",
 ```
 
-To update the properties of a confidential ledger, use do so, use the Azure CLI [az confidentialledger update](/cli/azure/confidentialledger#az-confidentialledger-update) command.
+To update the properties of a confidential ledger, use do so, use the Azure CLI [az confidentialledger update](/cli/azure/confidentialledger#az-confidentialledger-update) command. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurecli
-az confidentialledger update --name "myLedger" --resource-group "myResourceGroup" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<your-principal-id>" 
+az confidentialledger update --name "myLedger" --resource-group "myResourceGroup" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<your-principal-id>" 
 ```
 
-If you run [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show) again, you will see that the role has been updated.
+If you again run [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show), you will see that the role has been updated.
 
 ```json
 "ledgerRoleName": "Reader",
@@ -74,7 +74,6 @@ If you run [az confidentialledger show](/cli/azure/confidentialledger#az-confide
 ## Clean up resources
 
 [!INCLUDE [Clean up resources](../../includes/cli-rg-delete.md)]
-
 
 ## Next steps
 
