@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Health probes in Azure Container Apps
 
-Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S), but `exec` probes aren't supported.
+Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S) exclusively. Probe results are available as events in Kubernetes.
 
 Container Apps support the following probes:
 
@@ -57,6 +57,7 @@ TCP probes listen for a response from the server. If no response is recognized, 
 
 - You can only add one of each probe type per container.
 - `exec` probes aren't supported.
+- Port values must be integers; named ports aren't supported.
 
 ## Examples
 
@@ -150,6 +151,8 @@ containers:
 ```
 
 ---
+
+The optional [failureThreshold](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) setting defines the number of attempts Kubernetes tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe. Refer to Configure [Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes) for details.
 
 ## Next steps
 
