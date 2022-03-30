@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2022
+ms.date: 03/30/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -61,10 +61,10 @@ By default, storage accounts accept connections from clients on any network. You
 3. Choose which type of public network access you want to allow.
 
    - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
- 
-   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), select **Disabled**.
    
    - To allow traffic from all networks, select **Enabled from all networks**.
+   
+   - To block traffic from all networks and allow traffic only through a [private endpoint](storage-private-endpoints.md) use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.
 
 4. Select **Save** to apply your changes.
 
