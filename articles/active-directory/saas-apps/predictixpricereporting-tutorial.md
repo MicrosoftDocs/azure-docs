@@ -56,7 +56,7 @@ To configure and test Azure AD SSO with Predictix Price Reporting, perform the f
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Predictix Price Reporting SSO](#configure-predictix-price-reporting-sso)** - to configure the single sign-on settings on application side.
-   1. **[Create Predictix Price Reporting test user](#create-predictix-price-reporting-test-user)** - to have a counterpart of B.Simon in Predictix Price Reporting that is linked to the Azure AD representation of user.
+   1. **[Create a Predictix Price Reporting test user](#create-a-predictix-price-reporting-test-user)** - to have a counterpart of B.Simon in Predictix Price Reporting that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
