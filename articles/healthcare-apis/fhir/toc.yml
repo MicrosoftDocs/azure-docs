@@ -45,9 +45,7 @@ items:
     - name: Access using cURL
       href: using-curl.md
     - name: Access using REST Client
-      href: using-rest-client.md
-    - name: Bulk import data into the FHIR service
-      href: bulk-importing-fhir-data.md  
+      href: using-rest-client.md 
   - name: Configure settings
     expanded: true
     items:
@@ -69,7 +67,7 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples
       href: search-samples.md
-  - name: Operations
+  - name: FHIR operations
     expanded: true
     items:
     - name: $validate
@@ -92,13 +90,12 @@ items:
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md
-    - name: Copy data to Synapse
-      href: copy-to-synapse.md
+  - name: Bulk import data into the FHIR service
+    href: bulk-importing-fhir-data.md 
   - name: Convert data
-    expanded: true
-    items:
-    - name: Convert data
-      href: convert-data.md
+    href: convert-data.md
+  - name: Copy data to Synapse
+    href: copy-to-synapse.md
 - name: Concepts
   expanded: true
   items:
