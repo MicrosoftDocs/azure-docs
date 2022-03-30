@@ -130,7 +130,6 @@ $rg =@{
     Location = 'WestUS2'
 }
 New-AzResourceGroup @rg
-
 ```
 
 ### Provision a custom IP address prefix
@@ -143,11 +142,10 @@ $prefix =@{
     ResourceGroupName = 'myResourceGroup'
     Location = 'WestUS2'
     CIDR = '1.2.3.0/24'
-    Zone = '1,2,3'
     AuthorizationMessage = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd'
     SignedMessage = $byoipauthsigned
 }
-$myCustomIpPrefix = New-AzCustomIPPrefix @prefix
+$myCustomIpPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
 ```
 
 The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
@@ -183,7 +181,7 @@ When the custom IP prefix is in the **Provisioned** state, the following command
 Update-AzCustomIpPrefix -ResourceId $myCustomIPPrefix.Id -Commission
 ```
 
-As before, the operation is asynchronous. The [Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) command can be used again to retrieve the status. The **CommissionedState** field will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in **Commissioning**.
+As before, the operation is asynchronous. Use [Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) to retrieve the status. The **CommissionedState** field will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in **Commissioning**.
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.
