@@ -296,7 +296,7 @@ GET: https://marketplaceapi.microsoft.com/api/usageEvents
 
 | Parameter | Recommendation |
 | ------------ | ------------- |
-| ApiVersion | Use this format: 2018-08-31 |
+| ApiVersion | Use 2018-08-31. |
 | usageStartDate | DateTime in ISO8601 format. For example, 2020-12-03T15:00 or 2020-12-03 |
 | UsageEndDate (optional) | DateTime in ISO8601 format. Default = current date |
 | offerId (optional) | Default = all available |
