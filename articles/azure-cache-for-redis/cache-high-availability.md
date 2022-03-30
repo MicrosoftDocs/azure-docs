@@ -35,7 +35,7 @@ An Azure Cache for Redis in the Standard or Premium tier runs on a pair of Redis
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="Data replication setup":::
 
 >[!NOTE]
->Normally, a Azure Cache for Redis client communicates with the primary node in a cache for all read and write requests. Certain clients can be configured to read from the replica node.
+>Normally, an Azure Cache for Redis client application communicates with the primary node in a cache for all read and write requests. Certain clients can be configured to read from the replica node.
 >
 >
 
@@ -117,17 +117,20 @@ An application using such a cache can read and write to any of the geo-distribut
 In the scenario where region for one of the caches in your replication group goes down, your application needs to switch to another region which is available.
 
 When a cache in your replication group is unavailable, we recommend monitoring memory usage for other caches in the same replication group. While one of the caches is down, all other caches in the replication group start saving metadata that they could not share with the cache that is unavailable. If the memory usage for the available caches starts growing at a high rate after one of the caches goes down, consider unlinking the cache that is unavailable from the replication group.
-See this <link to the new section that will be added to enterprise geo-replication article as described below> link to get more details on how to force-unlink.
 
-##Delete and recreate cache
+For more information on force-unlinking, see [Force-Unlink in case of region outage](cache-how-to-active-geo-replication.md#force-unlink-in-case-of-region-outage).
 
-In case of a regional outage, you could consider recreating your cache in a different region and updating your application to connect to the new cache instead. It is important to understand that data will be lost, and your applications should be resilient to data loss. Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored and available for use again. See this article for more strategies for moving your cache to a different region.
+## Delete and recreate cache
+
+If you experience a regional outage, consider recreating your cache in a different region and updating your application to connect to the new cache instead. It is important to understand that data will be lost during a regional outage. Your applications should be resilient to data loss.
+
+Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](/azure/azure-cache-for-redis/cache-moving-resources).
 
 ## Next steps
 
 Learn more about how to configure Azure Cache for Redis high-availability options.
 
-* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
-* [Add replicas to Azure Cache for Redis](cache-how-to-multi-replicas.md)
-* [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md)
-* [Set up geo-replication for Azure Cache for Redis](cache-how-to-geo-replication.md)
+- [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
+- [Add replicas to Azure Cache for Redis](cache-how-to-multi-replicas.md)
+- [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md)
+- [Set up geo-replication for Azure Cache for Redis](cache-how-to-geo-replication.md)

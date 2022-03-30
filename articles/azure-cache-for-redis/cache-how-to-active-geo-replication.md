@@ -45,6 +45,23 @@ Active geo-replication groups up to five Enterprise Azure Cache for Redis instan
 
 To remove a cache instance from an active geo-replication group, you just delete the instance. The remaining instances will reconfigure themselves automatically.
 
+## Force-Unlink in case of region outage
+
+In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group.
+
+You should remove the unavailable cache because the available caches in the replication group start storing the metadata that hasn’t been shared with the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
+
+1. Go to Azure Portal and select one of the caches in the replication group that is still available.
+1. Select to **Active geo-replication** in the Resource menu on the left to see the settings in the working pane.
+1. Choose the cache that you need to force-unlink and click **Force unlink**.
+
+    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-georeplication-group.png" alt-text="screenshot of active geo-replication group":::
+
+1. You are prompted to confirm.
+1. Once the affected region availability is restored, you need to delete the affected cache and recreate it to add it back to your replication group.
+
+    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-cache-active-georeplication-unlink.png" alt-text="screenshot of unlinking in active geo-replication":::
+
 ## Next steps
 
 Learn more about Azure Cache for Redis features.
