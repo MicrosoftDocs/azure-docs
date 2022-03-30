@@ -11,7 +11,7 @@ ms.author: anilmur
 
 This article describes some options to migrate your video analysis application off of Video Analyzer. 
 
-[!INCLUDE [v2 deprecation notice](./includes/v2-deprecation-notice.md)]
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 ## When using Spatial Analysis
 
