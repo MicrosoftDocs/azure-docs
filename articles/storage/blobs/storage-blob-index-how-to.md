@@ -233,7 +233,7 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
 5. Select the **Blob Index tags filter** button to add additional tag filters (up to 10).
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot of the Azure portal showing how to Filter and find tagged blobs using index tags":::
+   :::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot of the Azure portal showing how to Filter and find tagged blobs using index tags":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -273,7 +273,7 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 5. To find blobs only in a specific container, include the container name in the `-TagFilterSqlExpression`.
 
     ```powershell
-    $filterExpression = "@container='containername' AND ""tag1""='value1'"
+    $filterExpression = "@container='myContainer' AND ""tag1""='value1'"
     Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $ctx
     ``` 
 
