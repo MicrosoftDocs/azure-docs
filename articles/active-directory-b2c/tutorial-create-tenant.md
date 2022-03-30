@@ -39,6 +39,8 @@ You learn how to register an application in the next tutorial.
 
 - An Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
 
+- Resource Provider "Microsoft.AzureActiveDirectory" should be registered for the subscription - this is required for new tenant creation.
+
 ## Create an Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
