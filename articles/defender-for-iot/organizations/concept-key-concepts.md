@@ -7,6 +7,10 @@ ms.topic: article
 
 # Basic concepts
 
+> [!NOTE]
+> THIS PAGE HAS BEEN INCORPORATED INTO [Welcome to Microsoft Defender for IoT for organizations](overview.md) and will be deleted before merging.
+>
+
 This article describes key advantages of Microsoft Defender for IoT.
 
 ## Rapid non-invasive deployment and passive monitoring

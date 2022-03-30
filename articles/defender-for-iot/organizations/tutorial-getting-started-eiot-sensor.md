@@ -24,11 +24,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure subscription is required for this tutorial.
+Before you start, make sure that you have the following:
 
-If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have an Azure subscription added to Defender for IoT. If you already have a subscription that is onboarded for Microsoft Defender for IoT for OT environments, you will need to perform the same procedure again to add a new subscription.
 
-If you already have a subscription that is onboarded for Microsoft Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+- The following Azure permissions:
+
+
 
 There is a minimum security level needed to access different parts of Microsoft Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
 
@@ -233,4 +235,11 @@ sudo apt purge -y microsoft-eiot-sensor
 
 ## Next steps
 
-[Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations)
+For more information, see:
+
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
+- [View and manage alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)](workbooks.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)

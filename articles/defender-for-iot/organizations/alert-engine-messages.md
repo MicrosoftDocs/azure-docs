@@ -9,13 +9,24 @@ ms.topic: how-to
 
 This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define Forwarding rules, Exclusion rules, and custom alerts and define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event.
 
- ### Alert news
+### Alert news
 
-New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts tht can be re-enabled are marked with an asterisk (*) in the tables below.
+New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts that can be re-enabled are marked with an asterisk (*) in the tables below.
 
 You may have configured newly disabled alerts in your Forwarding rules. If so, you may need to update related Defender for IoT Exclusion rules, or update SIEM rules and playbooks where relevant.  
 
 See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-microsoft-defender-for-iot) for detailed information about changes made to alerts.
+
+## Supported alert types
+
+| Alert type | Description |
+|-|-|
+| Policy violation alerts | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> - A new device is detected.  <br /> - A new configuration is detected on a device. <br /> - A device not defined as a programming device carries out a programming change. <br /> - A firmware version changed. |
+| Protocol violation alerts | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. | 
+| Operational alerts | Triggered when the Operational engine detects network operational incidents or a device malfunctioning. For example, a network device was stopped through a Stop PLC command, or an interface on a sensor stopped monitoring traffic. |
+| Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
+| Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but is not defined as a scanning device. |
+
 
 ## Policy engine alerts
 

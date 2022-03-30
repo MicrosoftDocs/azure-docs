@@ -42,7 +42,8 @@ Users with Defender for IoT Security Reader permissions can automatically and ma
 
 ### Automatically push threat intelligence updates to sensors ###
 
-Threat intelligence packages can be automatically updated to *cloud connected* sensors as they are released by Defender for IoT. Ensure automatic package update by onboarding your cloud connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](getting-started.md#onboard-a-sensor).
+Threat intelligence packages can be automatically updated to *cloud connected* sensors as they are released by Defender for IoT. Ensure automatic package update by onboarding your cloud connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor).
+.
 
 ### Manually push threat intelligence updates to sensors ###
 
@@ -130,6 +131,6 @@ If cloud connected threat intelligence updates fail, review  connection  informa
 
 For more information, see:
 
-- [Onboard a sensor](getting-started.md#onboard-a-sensor)
+- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 
 - [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

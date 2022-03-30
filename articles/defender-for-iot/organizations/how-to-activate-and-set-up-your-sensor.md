@@ -266,7 +266,7 @@ For more information, see:
 
 - [Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
 
-- [Onboard a sensor](getting-started.md#onboard-a-sensor)
+- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 
 - [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 
