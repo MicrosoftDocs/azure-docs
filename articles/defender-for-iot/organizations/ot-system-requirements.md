@@ -178,7 +178,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel":::
 
-|Quantity| |PN|Description|
+|Quantity|PN|Description|
 |----|---|----|
 |1|P44111-B21|HPE DL20 Gen10+ 4SFF CTO Svr|
 |1|P45252-B21|Intel Xeon E-2234 FIO CPU for HPE|
@@ -211,9 +211,9 @@ Optional modules for port expansion:
 |Component|Technical specifications|
 |----|----|
 |Chassis |1U rack server|
-|Dimensions |(height x width x depth)4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch|
+|Dimensions |(height x width x depth) <br> 4.32 x 43.46 x 38.22 cm/<br> 1.70 x 17.11 x 15.05 inch|
 |Weight|7.9 kg/17.41 lb|
-|Processor|Intel Xeon E-2234| 3.6 GHz| 4C/8T| 71 W|
+|Processor|Intel Xeon E-2234 3.6 GHz 4C/8T 71 W|
 |Chipset|Intel C242|
 |Memory	| 2 x 16-GB Dual Rank x8 DDR4-2666|
 |Storage|3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 5 with Smart Array P408i-a SR Controller|
@@ -252,13 +252,13 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |Chassis|1U rack server|
 |Dimensions|42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in)|
 |Weight|Max 29.98 lb/13.6 Kg|
-|Processor|Intel Xeon E-2144G 3.6GHz| 8M cache|4C/8T| turbo (71W)|
+|Processor|Intel Xeon E-2144G 3.6GHz<br>8M cache4C/8T turbo (71W)|
 |Chipset|Intel C246|
 |Memory|32 GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM|
 |Storage|3 X 2TB 7.2K RPM SATA 6Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5|
 |Network controller|On-board: 2 x 1Gb Broadcom BCM5720|
 |On-board LOM| iDRAC Port Card 1Gb Broadcom BCM5720|
-|External| 1 x Intel Ethernet i350 QP 1Gb Server Adapter| Low Profile|
+|External| 1 x Intel Ethernet i350 QP 1Gb Server Adapter Low Profile|
 |Management|iDRAC 9 Enterprise|
 |Device access|	2 rear USB 3.0 <br> 1 front USB 3.0|
 |Power|	Dual Hot Plug Power Supplies 350W|
@@ -330,7 +330,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |Chassis|1U rack server|
 |Dimensions (height x width x depth)|4.32 x 43.46 x 38.22 cm/<br>1.70 x 17.11 x 15.05 inch|
 |Weight|7.88 kg/17.37 lb|
-|Processor|	Intel Xeon E-2224| 3.4 GHz| 4C| 71 W|
+|Processor|	Intel Xeon E-2224 <br> 3.4 GHz 4C 71 W|
 |Chipset|Intel C242|
 |Memory|1 x 8-GB Dual Rank x8 DDR4-2666|
 |Storage|2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with Smart Array P208i-a|
