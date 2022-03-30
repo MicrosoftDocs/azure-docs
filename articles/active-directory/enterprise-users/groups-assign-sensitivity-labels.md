@@ -37,22 +37,19 @@ To apply published labels to groups, you must first enable the feature. These st
     ```
 
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
-1. Fetch the current group settings for the Azure AD organization.
+1. Fetch the current group settings for the Azure AD organization and display the current group settings.
 
     ```powershell
     $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
-    $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
-    $setting = $template.CreateDirectorySetting()
+    $Setting = $grpUnifiedSetting
+    $grpUnifiedSetting.Values
     ```
 
     > [!NOTE]
-    > If no group settings have been created for this Azure AD organization you will get an error that reads "Cannot bind argument to parameter 'Id' because it is null". In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.
-
-1. Next, display the current group settings.
-
-    ```powershell
-    $Setting.Values
-    ```
+    > If no group settings have been created for this Azure AD organization, you will get an empty screen. In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.  
+    
+    > [!NOTE]
+    > If the sensitivity label has been enabled previously, you will see **EnableMIPLabels** =  **True**. In this case, you do not need to do anything.
 
 1. Enable the feature:
 

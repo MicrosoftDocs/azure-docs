@@ -28,14 +28,12 @@ This section describes language support in Video Analyzer for Media.
     - Keywords
     - Topics
     - Labels
-    - [NEW] Frame Patters (Only to Hebrew as of now).
-
-- Search in specific language
+    - Frame patterns (Only to Hebrew as of now)
 - Language customization
- 
-| **Language**                      | **Code**       | **Transcription** | **LID*   | **MLID**  | **Translation** | **Customization** (Speech custom model) |
-|:------------:|:------------:|:--------------------:|:-------:|:-------:|:-------------:|:-------------------------------------:|
-| Afrikaans                        | `af-ZA`      |                 |  |  | ✔        | ✔                                |
+
+| **Language**                      | **Code**       | **Transcription** | **LID**   | **MLID**  | **Translation** | **Customization** (Language model) |
+|:------------:|:------------:|:--------------------:|:-------:|:-------:|:-------------:|:------------------------------:|
+| Afrikaans                        | `af-ZA`      |            |  |  | ✔        | ✔                                |
 | Arabic (Iraq)                    | `ar-IQ`      | ✔               |  |  | ✔        | ✔                                |
 | Arabic (Israel)                  | `ar-IL`      | ✔               |  |  | ✔        | ✔                                |
 | Arabic (Jordan)                  | `ar-JO`      | ✔               |  |  | ✔        | ✔                                |
@@ -112,10 +110,10 @@ This section describes language support in Video Analyzer for Media.
 
 The following table describes language support in the Video Analyzer for Media frontend experiences.
 
-* [portal](https://aka.ms/vi-portal-link) experience provided in the settings page
-* [widgets](video-indexer-embed-widgets.md), as provided in the language dropdown in the insights widget
+* portal - the portal column lists supported languages for the [web portal](https://aka.ms/vi-portal-link)
+* widgets - the [widgets](video-indexer-embed-widgets.md) column lists supported languages for translating the index file
 
-| **Language**                      | **Code**       | **Web experience** | **Widgets experience**   | 
+| **Language**                      | **Code**       | **Portal** | **Widgets**   | 
 |:------------:|:------------:|:--------------------:|:-------:|
 | Afrikaans                        | `af-ZA`      |           | ✔ |  
 | Arabic (Iraq)                    | `ar-IQ`      |           |  |
