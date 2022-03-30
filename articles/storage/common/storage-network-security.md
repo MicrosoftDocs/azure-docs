@@ -64,7 +64,7 @@ By default, storage accounts accept connections from clients on any network. You
    
    - To allow traffic from all networks, select **Enabled from all networks**.
    
-   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.
+   - To block traffic from all networks, use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.  
 
 4. Select **Save** to apply your changes.
 
@@ -82,11 +82,13 @@ By default, storage accounts accept connections from clients on any network. You
      Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
      ```
 
-   - To allow traffic only through a [private endpoint](storage-private-endpoints.md), use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`.
+   - To block traffic from all networks, use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`.
    
      ```powershell
      Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
      ```
+     
+     With allow traffic only through a [private endpoint](storage-private-endpoints.md)
 
    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
 
