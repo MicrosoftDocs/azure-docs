@@ -410,7 +410,7 @@ CallComposite callComposite =
 
 ### Apply localization configuration
 
-To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the ocalization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LocalizationConfiguration.getSupportedLanguages()` provides list of supported languages.
+To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LocalizationConfiguration.getSupportedLanguages()` provides list of supported languages.
 
 #### [Kotlin](#tab/kotlin)
 
