@@ -1,26 +1,24 @@
 ---
-title: Manage user-assigned managed identities for an application in Azure Spring Cloud (Preview)
-titleSuffix: Azure Spring Cloud Enterprise Tier
+title: Manage user-assigned managed identities for an application in Azure Spring Cloud (preview)
 description: How to manage user-assigned managed identities for applications.
-author: N.A.
+author: karlerickson
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 03/31/2022
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: spring-cloud-tier-selection
 ---
 
-# Manage user-assigned managed identities for an application in Azure Spring Cloud (Preview)
+# Manage user-assigned managed identities for an application in Azure Spring Cloud (preview)
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to assign or remove user-assigned managed identities for an application in Azure Spring Cloud, using the Azure portal and CLI.
+This article shows you how to assign or remove user-assigned managed identities for an application in Azure Spring Cloud, using the Azure portal and Azure CLI.
 
-Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your application in Azure Spring Cloud. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory (Azure AD) to an Azure resource such as your application in Azure Spring Cloud. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
 ## Prerequisites
-TODO(jiec): Check the cli version in below requirements before publish this doc.
 
 If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -41,9 +39,9 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 
 ::: zone-end
 
+## Assign user-assigned managed identities when creating an application
 
-## Assign user-assigned managed identities when create an application
-Create an application and assign user-assigned managed identity at the same time.
+Create an application and assign user-assigned managed identity at the same time by using the following command:
 
 ```azurecli
 az spring-cloud app create \
@@ -53,25 +51,25 @@ az spring-cloud app create \
     --user-assigned <space-separated user identity resource IDs to assign>
 ```
 
-## Assign user-assigned managed identities to an existed app
+## Assign user-assigned managed identities to an existing application
 
-Assign user-assigned managed identity requires setting an additional property on the application.
+Assigning user-assigned managed identity requires setting an additional property on the application.
 
-# [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-To assign user-assigned managed identity to an existed app in the portal:
+To assign user-assigned managed identity to an existing application in the Azure portal, follow these steps:
 
-1. Navigate to an app in the portal as you normally would.
+1. Navigate to an application in the Azure portal as you normally would.
 2. Scroll down to the **Settings** group in the left navigation pane.
 3. Select **Identity**.
-4. Within the **User assigned** tab, click "Add"
-5. Choose one or more user-assigned managed identities from right panel and then click "Add" from this panel.
+4. Within the **User assigned** tab, select **Add**.
+5. Choose one or more user-assigned managed identities from right panel and then select **Add** from this panel.
 
 ![Managed identity in portal](./media/enterprise/msi/app-user-mi-add.jpg)
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-Use `az spring-cloud app identity assign` command to assign one or more user-assigned managed identities on an existing app.
+Use the following command to assign one or more user-assigned managed identities on an existing app:
 
 ```azurecli
 az spring-cloud app identity assign \
@@ -85,29 +83,29 @@ az spring-cloud app identity assign \
 
 ## Obtain tokens for Azure resources
 
-An app can use its managed identity to get tokens to access other resources protected by Azure Active Directory, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
+An application can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
 
-You may need to [configure the target resource to allow access from your application](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
+You may need to configure the target resource to allow access from your application. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, be sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md)
 
-Azure Spring Cloud shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token.  See [How to use VM token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
+Azure Spring Cloud shares the same endpoint for token acquisition with Azure Virtual Machines. We recommend using Java SDK or Spring Boot starters to acquire a token. For various code and script examples and guidance on important topics such as handling token expiration and HTTP errors, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## Remove user-assigned managed identities from an existed app
+## Remove user-assigned managed identities from an existing app
 
-Remove user-assigned managed identities will remove the assginment between the identities and the application. And will not delete the identities themselves.
+Removing user-assigned managed identities will remove the assignment between the identities and the application, and will not delete the identities themselves.
 
-# [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-To remove user-assigned managed identities from an app that no longer needs it:
+To remove user-assigned managed identities from an application that no longer needs it, follow these steps:
 
-1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
+1. Sign in to the Azure portal using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
 1. Navigate to the desired application and select **Identity**.
-1. Under **User assigned**, select target identities and then click **Remove**.
+1. Under **User assigned**, select target identities and then select **Remove**.
 
 ![Managed identity](./media/enterprise/msi/app-user-mi-remove.jpg)
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-To remove user-assigned managed identities from an app that no longer needs it, use the following command:
+To remove user-assigned managed identities from an application that no longer needs it, use the following command:
 
 ```azurecli
 az spring-cloud app identity remove \
@@ -119,7 +117,7 @@ az spring-cloud app identity remove \
 
 ## Limitations
 
-See [Quotas and Service Plans for Azure Spring Cloud](./quotas.md) for user-assigned managed identity limitations.
+For user-assigned managed identity limitations, see [Quotas and service plans for Azure Spring Cloud](./quotas.md).
 
 ---
 
