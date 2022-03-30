@@ -23,7 +23,7 @@ Using the Dev Box service, users can select a dev box appropriate for their proj
 
 <!-- :::image type="content" source="./media/overview-what-is-project-fidalgo-dev-box/project-fidalgo-service-strucure.png" alt-text="Diagram that shows the Project Fidalgo Dev Box service structure."::: -->
 
-![Diagram that shows the Project Fidalgo Dev Box service structure.](../media/overview-what-is-project-fidalgo-dev-box/project-fidalgo-service-strucure.png)
+![Diagram that shows the Project Fidalgo Dev Box service structure.](./media/overview-what-is-project-fidalgo-dev-box/project-fidalgo-service-strucure.png)
 
 > [!NOTE]
 > This image shows the Project Fidalgo Dev Box service structure.
