@@ -30,10 +30,10 @@ The following steps show how to deploy a new Data Share account using a Resource
 
 1. Login to the [Azure portal](https://portal.azure.com).
 1. Select **All resources** and then select your Data Share account
-4. Select **Automation** > **Export template**
-5. Choose **Deploy** in the **Export template** blade.
-6. Click **Edit parameters** to open the **parameters.json** file in the online editor.
-6. To edit the parameter of the Data Share account name, change the property under **parameters** > **value** from the source Data Share Account's name to the name of the Data Share Account you want to create in a new region, ensure the name is in quotes:
+1. Select **Automation** > **Export template**
+1. Choose **Deploy** in the **Export template** blade.
+1. Click **Edit parameters** to open the **parameters.json** file in the online editor.
+1. To edit the parameter of the Data Share account name, change the property under **parameters** > **value** from the source Data Share Account's name to the name of the Data Share Account you want to create in a new region, ensure the name is in quotes:
     ```json
             {
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -46,11 +46,11 @@ The following steps show how to deploy a new Data Share account using a Resource
             }
     ```
 
-8.  Click **Save** in the editor.
+1.  Click **Save** in the editor.
 
-9.  Click **Edit template** to open the **template.json** file in the online editor.
+1.  Click **Edit template** to open the **template.json** file in the online editor.
 
-10. To edit the target region where the Data Share account will be moved, change the **location** property under **resources** in the online editor:
+1. To edit the target region where the Data Share account will be moved, change the **location** property under **resources** in the online editor:
 
     ```json
             "resources": [
@@ -67,9 +67,9 @@ The following steps show how to deploy a new Data Share account using a Resource
            ]
     ```
 
-11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
+1. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-12. You can also change other parameters in the template if you choose. This is optional depending on your requirements:
+1. You can also change other parameters in the template if you choose. This is optional depending on your requirements:
 
     * **Sent Shares** - You can edit which Sent Shares are deployed into the target Data Share Account by adding or removing Shares from the **resources** section in the **template.json** file.:
         ```json
@@ -136,25 +136,25 @@ The following steps show how to deploy a new Data Share account using a Resource
         ```
             
 
-13. Select **Save** in the online editor.
+1. Select **Save** in the online editor.
 
-14. Under the **Project details** section, select the **Subscription** dropdown to choose the subscription where the target Data Share account will be deployed.
+1. Under the **Project details** section, select the **Subscription** dropdown to choose the subscription where the target Data Share account will be deployed.
 
-15. Select the **Resource group** dropdown to choose the resource group where the target Data Share account will be deployed.  You can click **Create new** to create a new resource group for the target Data Share account.
+1. Select the **Resource group** dropdown to choose the resource group where the target Data Share account will be deployed.  You can click **Create new** to create a new resource group for the target Data Share account.
 
-16. Verify that the **Location** field is set to the target location you want the Data Share account to be deployed to.
+1. Verify that the **Location** field is set to the target location you want the Data Share account to be deployed to.
 
-17. Verify under **Instance details** that the name matches the name that you entered in the parameters editor above.
+1. Verify under **Instance details** that the name matches the name that you entered in the parameters editor above.
 
-18. Click **Review + Create** to advance to the next page.
+1. Click **Review + Create** to advance to the next page.
 
-19. Review the terms and click **Create** to begin the deployment.
+1. Review the terms and click **Create** to begin the deployment.
 
-20. Once the deployment finishes, go to the newly created Data Share account. 
+1. Once the deployment finishes, go to the newly created Data Share account. 
 
-21. If you were unable to transfer datasets using the template, you will need to re-add datasets to all of your Sent Shares.
+1. If you were unable to transfer datasets using the template, you will need to re-add datasets to all of your Sent Shares.
 
-22. Resend invitations to all recipients of your sent shares and alert the consumers of your shares that they will need to reaccept and remap the data you are sharing with them. 
+1. Resend invitations to all recipients of your sent shares and alert the consumers of your shares that they will need to reaccept and remap the data you are sharing with them. 
 
 ## Verify
 
