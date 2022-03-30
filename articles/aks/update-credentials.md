@@ -67,7 +67,7 @@ If you chose to update the existing service principal credentials in the previou
 To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --role Contributor
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used in the next step.
