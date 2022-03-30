@@ -229,7 +229,7 @@ Set the `analytical TTL` property to `-1` for infinite retention or use a positi
 
 ### PowerShell
 
-* [Update Analytical ttl](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) to update `-AnalyticalStorageTtl`.
+* Use [Update Analytical ttl](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) to update `-AnalyticalStorageTtl`.
 * Check the migration status in the Azure portal.
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
