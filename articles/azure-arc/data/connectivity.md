@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 03/30/2022
 ms.topic: conceptual
 ---
 
@@ -194,6 +194,10 @@ A computer running Azure CLI that is uploading monitoring metrics or logs to Azu
 - `*.ods.opinsights.azure.com`
 - `*.oms.opinsights.azure.com`
 - `*.monitoring.azure.com`
+
+For example, to upload usage metrics data services will connect to `https://<azureRegion>.monitoring.azure.com/` where `<azureRegion>` is the region where data services is deployed.
+
+Likewise, data services will connect to the log analytics workspace at `https://<customer_id>.ods.opinsights.azure.com` where `<customer_id>` represents your subscription.
 
 #### Protocol
 
