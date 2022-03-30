@@ -101,7 +101,7 @@ In AKS, four initial `StorageClasses` are created for cluster using the in-tree 
 | `azurefile` | Uses Azure Standard storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-premium` | Uses Azure Premium storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted.|
 
-For clusters using the new Container Storage Interface (CSI) external plugins (preview) the following extra `StorageClasses` are created:
+For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-drivers] the following extra `StorageClasses` are created:
 
 | Permission | Reason |
 |---|---|
@@ -111,6 +111,9 @@ For clusters using the new Container Storage Interface (CSI) external plugins (p
 | `azurefile-csi-premium` | Uses Azure Premium storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted.|
 
 Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes. 
+
+> [!IMPORTANT]
+> Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default.  The `default` class will be the same as `managed-csi`
 
 You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
@@ -223,3 +226,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
+[csi-storage-drivers]: csi-storage-drivers.md

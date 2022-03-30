@@ -192,7 +192,7 @@ Running this command will open a browser window running the sample app, which di
 
 If you no longer need the resources created in this article, follow these steps to delete them. 
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az_group_delete) command. Removing the resource group will also remove:
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az-group-delete) command. Removing the resource group will also remove:
 * The Azure Digital Twins instance (from the end-to-end tutorial)
 * The IoT hub and the hub device registration  (from the end-to-end tutorial)
 * The Event Grid topic and associated subscriptions
