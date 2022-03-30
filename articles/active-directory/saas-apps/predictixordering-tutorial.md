@@ -56,7 +56,7 @@ To configure and test Azure AD SSO with Predictix Ordering, perform the followin
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Predictix Ordering SSO](#configure-predictix-ordering-sso)** - to configure the single sign-on settings on application side.
-   1. **[Create Predictix Ordering test user](#create-predictix-ordering-test-user)** - to have a counterpart of B.Simon in Predictix Ordering that is linked to the Azure AD representation of user.
+   1. **[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** - to have a counterpart of B.Simon in Predictix Ordering that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
