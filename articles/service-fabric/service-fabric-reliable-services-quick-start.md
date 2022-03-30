@@ -1,7 +1,7 @@
 ---
 title: Create your first Service Fabric application in C# 
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
-ms.topic: conceptual
+ms.t[Check this page for a training video which would also show you how to create a stateless Reliable service.](/shows/building-microservices-applications-on-azure-service-fabric/creating-a-stateless-reliable-service)opic: conceptual
 ms.date: 07/10/2019
 ms.custom: "sfrev, devx-track-csharp"
 
@@ -14,6 +14,7 @@ ms.custom: "sfrev, devx-track-csharp"
 
 An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
+[Check this page for a training video which would also show you how to create a stateless Reliable service.](/shows/building-microservices-applications-on-azure-service-fabric/creating-a-stateless-reliable-service)
 ## Basic concepts
 
 To get started with Reliable Services, you only need to understand a few basic concepts:
