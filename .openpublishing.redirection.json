@@ -19814,6 +19814,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/event-grid/cli-samples.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
       "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
       "redirect_document_id": true
