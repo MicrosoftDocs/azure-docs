@@ -124,6 +124,9 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
 
+> [!NOTE]
+> The **upgradePolicy** mode and [automaticOSUpgradePolicy](/dotnet/api/microsoft.azure.management.compute.models.automaticosupgradepolicy.enableautomaticosupgrade?view=azure-dotnet) are different settings and control different behaviors.
+
 ### REST API
 The following example describes how to set automatic OS upgrades on a scale set model:
 
