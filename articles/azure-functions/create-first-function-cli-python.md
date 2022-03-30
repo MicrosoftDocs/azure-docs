@@ -258,7 +258,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.9 --functions-version 4 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you are using Python 3.8, 3.7 or 3.6, change `--runtime-version` to `3.8`, `3.7` or `3.6`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you are using Python 3.8, 3.7, or 3.6, change `--runtime-version` to `3.8`, `3.7`, or `3.6`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -266,7 +266,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccountName <STORAGE_NAME> -FunctionsVersion 4 -RuntimeVersion 3.9 -Runtime python -Location '<REGION>'
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.8, 3.7 or 3.6, change `-RuntimeVersion` to `3.8`, `3.7` or `3.6`, respectively.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.8, 3.7, or 3.6, change `-RuntimeVersion` to `3.8`, `3.7`, or `3.6`, respectively.
 
     ---
 
