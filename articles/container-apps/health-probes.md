@@ -11,19 +11,19 @@ ms.author: cshoe
 
 # Heath probes in Azure Container Apps
 
-Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(s), but exec probes are not supported.
+Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S), but exec probes are not supported.
 
-HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status.
+HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Respond with an HTTP status code greater than or equal to 200 and less than 400 from your configured health endpoint to indicate success. Return any other code to indicate failure.
 
 Container Apps support the following probes:
 
-- [Liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command): Reports the overall heath of your replica.
+- [Liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command): Reports the overall health of your replica.
 - [Startup](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes): Delay reporting on a liveness state for slower apps with a startup probe.
 - [Readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes): Signals that a replica is ready to accept traffic.
 
 ## Restrictions
 
-- You can only add one of each probe type per container app.
+- You can only add one of each probe type per container.
 - `exec` probes are not supported.
 
 ## Examples
@@ -88,32 +88,32 @@ The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM
 ```yml
 ...
 containers:
-- image: nginx
-  name: web
-  probes:
-  - type: liveness
-    httpGet:
-      path: "/health"
-      port: 8080
-      httpHeaders:
-      - name: Custom-Header
-        value: liveness probe
-      initialDelaySeconds: 7
-      periodSeconds: 3
-  - type: readiness
-    tcpSocket:
-      port: 8081
-    initialDelaySeconds: 10
-    periodSeconds: 3
-  - type: startup
-    httpGet:
-      path: "/startup"
-      port: 8080
-      httpHeaders:
-      - name: Custom-Header
-        value: startup probe
-      initialDelaySeconds: 3
-      periodSeconds: 3
+  - image: nginx
+    name: web
+    probes:
+      - type: liveness
+        httpGet:
+          path: "/health"
+          port: 8080
+          httpHeaders:
+            - name: Custom-Header
+              value: liveness probe
+          initialDelaySeconds: 7
+          periodSeconds: 3
+      - type: readiness
+        tcpSocket:
+          port: 8081
+        initialDelaySeconds: 10
+        periodSeconds: 3
+      - type: startup
+        httpGet:
+          path: "/startup"
+          port: 8080
+          httpHeaders:
+            - name: Custom-Header
+              value: startup probe
+          initialDelaySeconds: 3
+          periodSeconds: 3
 ...
 ```
 
