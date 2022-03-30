@@ -692,33 +692,7 @@ items:
       items:
       - name: ITSM Connector Overview
         href: alerts/itsmc-overview.md
-      - name: ITSM Connector Partners Setup
-        items:
-        - name: ServiceNow ITSM
-          href: alerts/itsmc-connections-servicenow.md
-        - name: System Center Service Manager
-          items:
-          - name: Setup
-            href: alerts/itsmc-connections-scsm.md
-          - name: Create Service Manager web app
-            href: alerts/itsmc-service-manager-script.md
-      - name: ITSM Connector Azure Configuration
-        href: alerts/itsmc-definition.md
-      - name: Data Synced From Your ITSM Product
-        href: alerts/itsmc-synced-data.md
-      - name: Troubleshooting problems in ITSM Connector
-        items:
-        - name: Overview
-          href: alerts/itsmc-troubleshoot-overview.md
-        - name: Dashboard Investigation
-          href: alerts/itsmc-dashboard.md
-        - name: Common Errors
-          href: alerts/itsmc-dashboard-errors.md
-        - name: Sync ITSM Connector
-          href: alerts/itsmc-resync-servicenow.md
-        - name: Connector deletion
-          href: alerts/itsmc-connector-deletion.md
-      - name: Integrate with Secure Webhook
+      - name: Integrate with a Secure Webhook Action
         items:
         - name: Overview
           href: alerts/it-service-management-connector-secure-webhook-connections.md
@@ -730,6 +704,34 @@ items:
             href: alerts/itsmc-secure-webhook-connections-bmc.md
           - name: ServiceNow ITOM
             href: alerts/itsmc-secure-webhook-connections-servicenow.md
+      - name: Integrate with an ITSM Action
+        items: 
+          - name: ITSM Connector Partners Setup
+            items:
+            - name: ServiceNow ITSM
+              href: alerts/itsmc-connections-servicenow.md
+            - name: System Center Service Manager
+              items:
+              - name: Setup
+                href: alerts/itsmc-connections-scsm.md
+              - name: Create Service Manager web app
+                href: alerts/itsmc-service-manager-script.md
+          - name: ITSM Connector Azure Configuration
+            href: alerts/itsmc-definition.md
+          - name: Data Synced From Your ITSM Product
+            href: alerts/itsmc-synced-data.md
+          - name: Troubleshooting problems in ITSM Connector
+            items:
+            - name: Overview
+              href: alerts/itsmc-troubleshoot-overview.md
+            - name: Dashboard Investigation
+              href: alerts/itsmc-dashboard.md
+            - name: Common Errors
+              href: alerts/itsmc-dashboard-errors.md
+            - name: Sync ITSM Connector
+              href: alerts/itsmc-resync-servicenow.md
+            - name: Connector deletion
+              href: alerts/itsmc-connector-deletion.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
