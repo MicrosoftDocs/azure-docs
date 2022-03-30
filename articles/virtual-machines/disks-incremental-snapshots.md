@@ -147,9 +147,9 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Cross-region snapshot copy
 
-You can copy incremental snapshots to any region of your choice. Azure manages the copy process removing the maintenance overhead of managing the copy process by staging a storage account in the target region. Moreover, Azure ensures that only changes since the last snapshot in the target region are copied to the target region to reduce the data footprint, reducing the recovery point objective. You can check the progress of the copy so you can know when a target snapshot is ready to restore disks in the target region. Customers are charged only for the bandwidth cost of the data transfer across the region. There is no additional cost for copying an incremental snapshot.
+You can copy incremental snapshots to any region of your choice. Azure manages the copy process removing the maintenance overhead of managing the copy process by staging a storage account in the target region. Moreover, Azure ensures that only changes since the last snapshot in the target region are copied to the target region to reduce the data footprint, reducing the recovery point objective. You can check the progress of the copy so you can know when a target snapshot is ready to restore disks in the target region. Customers are charged only for the bandwidth cost of the data transfer across the region.
 
-:::image type="content" source="media/disks-incremental-snapshots/cross-region-snapshot.png" alt-text="Diagram of Azure orchestrated cross-region copy of incremental snapshots via the Clone option." lightbox="media/disks-incremental-snapshots/cross-region-snapshot.png":::
+:::image type="content" source="media/disks-incremental-snapshots/cross-region-snapshot.png" alt-text="Diagram of Azure orchestrated cross-region copy of incremental snapshots via the clone option." lightbox="media/disks-incremental-snapshots/cross-region-snapshot.png":::
 
 ### Restrictions
 
@@ -215,7 +215,7 @@ $targetSnapshot.CompletionPercent
 You can also copy an incremental snapshot across regions in the Azure portal. However, you must use this specific link to access the portal, for now: https://aka.ms/incrementalsnapshot 
 
 1. Sign in to the [Azure portal](https://aka.ms/incrementalsnapshot) and navigate to the incremental snapshot you'd like to migrate.
-1. Select **Copy Snapshot**.
+1. Select **Copy snapshot**.
 
     :::image type="content" source="media/disks-incremental-snapshots/disks-copy-snapshot.png" alt-text="Screenshot of snapshot overview, copy snapshot highlighted." lightbox="media/disks-incremental-snapshots/disks-copy-snapshot.png":::
 

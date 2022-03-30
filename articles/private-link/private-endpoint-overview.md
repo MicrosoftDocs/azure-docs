@@ -77,6 +77,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
