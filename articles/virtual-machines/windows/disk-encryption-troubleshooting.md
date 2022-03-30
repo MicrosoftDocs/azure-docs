@@ -41,7 +41,7 @@ When encrypting a VM fails with the error message "Failed to send DiskEncryption
 - Make sure the Key Vault exists in the same region and subscription as the Virtual Machine
 - Ensure that you have [set key vault advanced access policies](disk-encryption-key-vault.md#set-key-vault-advanced-access-policies) properly
 - If you are using KEK, ensure the key exists and is enabled in Key Vault
-- Check VM name, data disks, and keys follow [key vault resource naming restrictons](../../azure-resource-manager/management/resource-name-rules.md#microsoftkeyvault)
+- Check VM name, data disks, and keys follow [key vault resource naming restrictions](../../azure-resource-manager/management/resource-name-rules.md#microsoftkeyvault)
 - Check for any typos in the Key Vault name or KEK name in your PowerShell or CLI command
 >[!NOTE]
    > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
