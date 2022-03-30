@@ -75,7 +75,7 @@ The [Azure Activity log](../essentials/platform-logs-overview.md) includes servi
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Activity log<br>Azure Monitor Logs | Service Health records are stored in the Azure Activity log, so you can view them in the Azure portal or perform any other activities you can perform with the Activity log. | [View service health notifications by using the Azure portal](../../service-health/service-notifications.md) |
+| Activity log | Service Health records are stored in the Azure Activity log, so you can view them in the Azure portal or perform any other activities you can perform with the Activity log. | [View service health notifications by using the Azure portal](../../service-health/service-notifications.md) |
 
 
 ## Azure resources
