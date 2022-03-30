@@ -105,6 +105,9 @@
           href: quickstart-create-front-door-powershell.md
         - name: CLI
           href: quickstart-create-front-door-cli.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: quickstart-create-front-door-bicep.md
         - name: ARM Template
           displayName: Resource Manager
           href: quickstart-create-front-door-template.md
