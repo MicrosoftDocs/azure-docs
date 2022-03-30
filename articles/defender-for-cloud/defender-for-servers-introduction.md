@@ -23,24 +23,24 @@ To protect machines in hybrid and multi-cloud environments, Defender for Cloud u
 
 Microsoft Defender for servers adds threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, on-premises, or in a multi-cloud environment. Two plans are available to enhance the security features that Microsoft Defender for Cloud provides:
 
-- [**Microsoft Defender for servers Plan 1**](defender-for-servers-introduction.md#defender-for-servers-plan-1-for-microsoft-defender-for-endpoint) - adds support for Microsoft Defender for Endpoint optimized for cloud workloads with:
+- **Microsoft Defender for servers Plan 1** - adds support for Microsoft Defender for Endpoint optimized for cloud workloads with:
     - Per hour licensing to lower costs for protecting virtual machines
     - Automatic deployment to cloud workloads
     - Alerts and vulnerability data within Microsoft Defender for Cloud
 
-- **Microsoft Defender for servers Plan 2** - includes the benefits of Plan 1 and support for all of the other Microsoft Defender for servers features.
+- **Microsoft Defender for servers Plan 2** (formerly Defender for servers) - includes the benefits of Plan 1 and support for all of the other Microsoft Defender for servers features.
 
 For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-To enable Microsoft Defender for servers:
+To enable the Microsoft Defender for servers plans:
 
 1. Go to **Environment settings** and select your subscription.
 2. If Microsoft Defender for servers is not enabled, set it to **On**.
     Plan 2 is selected by default.
 
-    If you want to enable Defender for server Plan 1:
+    If you want to change the Defender for server plan:
    1. In the **Plan/Pricing** column, click **configure**.
-   2. Select **Plan 1**.
+   2. Select the plan that you want.
 
 The following table describes what's included in each plan at a high level.
 
@@ -117,25 +117,6 @@ The threat detection and protection capabilities provided with Microsoft Defende
     Log Analytics agent for Linux collects auditd records and enriches and aggregates them into events. Defender for Cloud continuously adds new analytics that use Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics span across suspicious processes, dubious sign-in attempts, kernel module loading, and other activities. These activities can indicate a machine is either under attack or has been breached.  
 
     For a list of the Linux alerts, see the [Reference table of alerts](alerts-reference.md#alerts-linux).
-
-## Defender for servers Plan 1 for Microsoft Defender for Endpoint
-
-The default plan for Defender for servers (Plan 2) includes comprehensive server protection with all of the features available for each platform. If you just need Microsoft Defender for Endpoint, you can enable Defender for servers and configure it to Plan 1. This lets you take advantage of the benefits of licensing, deploying and integrating Microsoft Defender for Endpoint through Microsoft Defender for Cloud in a pricing model optimized for dynamic consumption.
-
-Learn more about the [comparison between Plan 1 and Plan 2](#what-are-the-microsoft-defender-for-server-plans).
-
-To enable Defender for servers Plan 1:
-
-1. Go to **Environment settings** and select your subscription.
-1. If Microsoft Defender for servers is not enabled, set it to **On**.
-1. In the **Plan/Pricing** column, click **configure**.
-1. Select **Plan 1**.
-
-If after you enable Defender for servers Plan 1 you want to enable all of the Defender for servers capabilities, configure Defender for servers Plan 2:
-
-1. Go to **Environment settings** and select your subscription.
-2. In the **Plan/Pricing** column, click **configure**.
-3. Select **Plan 2**.
 
 ## How does Defender for servers collect data?
 
