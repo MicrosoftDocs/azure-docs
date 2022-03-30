@@ -64,13 +64,17 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 - Support for Windows 11 and Server 2019 devices
 
-### Download PCAP files from the Azure portal
+### Download PCAP files from the Azure portal (Public preview)
 
-### Learn and close alerts from the Azure portal
+Now you can download PCAP files for specific alerts from the Azure portal. In Defender for IoT on the Azure portal, on an alert details page in the **Entities** > **IP** section, select **Download full list to CSV**.
 
-### Update and configure your sensor remotely from the Azure portal
+For more information, see [Download a PCAP log file for a specific alert](how-to-manage-cloud-alerts.md#download-a-pcap-log-file-for-a-specific-alert).
 
-### Automatic certificate updates
+### Learn and close alerts from the Azure portal  (Public preview)
+
+### Update and configure your sensor remotely from the Azure portal  (Public preview)
+
+### Automatic certificate updates  (Public preview)
 
 ### Support diagnostic log enhancements (Public preview)
 

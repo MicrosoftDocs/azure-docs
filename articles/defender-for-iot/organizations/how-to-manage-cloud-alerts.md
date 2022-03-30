@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts in the Defender for IoT portal on Azure
 description: View and manage alerts detected by cloud-connected network sensors in the Defender for IoT portal on Azure. 
-ms.date: 02/02/2022
+ms.date: 03/30/2022
 ms.topic: how-to
 ---
 
@@ -85,20 +85,16 @@ This section describes the information available in the Alerts table.
 
 Various Alerts page options help you easily find and view alerts and alert information important to you.
 
-**To filter the view:**
+- **To filter the view**, use the **Search**, **Time Range**, and **Filter** options at the top of the Alerts page.
 
-1. Use the **Search**, **Time Range**, and **Filter** options at the top of the Alerts page.
+- **To group alerts:**
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/filters-on-alerts-page.png" alt-text="Screenshot of the filters bar on the Alerts page in the Azure portal.":::
-
-**To group alerts:**
-
-1. Select **Group by** at the top right of the Alerts page.
-1. Group the view by the:
-   - alert severity
-   - alert name
-   - site associated with alert 
-   - engine associated with the alert
+    1. Select **Group by** at the top right of the Alerts page.
+    1. Group the view by the:
+       - alert severity
+       - alert name
+       - site associated with alert
+       - engine associated with the alert
 
 ### Customize the view by category
 
@@ -107,6 +103,7 @@ Use the category filter to quickly find information important to you. Using cate
 :::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Screenshot of the Category filter option in Alerts page in the Azure portal.":::
 
 The following categories are available:
+
 - Abnormal Communication Behavior
 - Abnormal HTTP Communication Behavior
 - Authentication
@@ -140,34 +137,45 @@ The number of alerts currently detected appears on the top-left section of the A
 
 1. Select **Group by** and select a group. The number of alerts is displayed for each group.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/group-by-severity.png" alt-text="Screenshot of the Alerts page, filtered by severity.":::
-
 1. Alternatively use the **Add filter** option to choose a subject of interest and select **Column.** The column dropdown shows the number alerts associated with the column name.
-
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-count-breakdown.png" alt-text="Screenshot of Alert filters showing protocols with count for each protocol.":::
 
 ## View alert descriptions and other details
 
 View more information about the alert, such as:
+
 - the alert description
 - links to related MITRE ATT&CK information
 - details about protocols
 - traffic and entities associated with the alert
-- alert remediation steps  
+- alert remediation steps
 
 **To view details:**
 
 1. Select an alert.
-1. The details pane opens with the alert description, source, and destination information and other details.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal.":::
+1. The details pane opens on the right with the alert description, source, and destination information and other details.
 
-1. To view more details and review remediation steps,  select **View full details**. The Alert Details pane provides more information about source device and related entities. Related links in the MITRE Partnership website are also available.
+1. To view more details and review remediation steps,  select **View full details**. 
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details.":::
-  
-If you're integrating with Microsoft Sentinel, the Alert details and entity information are sent to Microsoft Sentinel.  
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
+    The alert details page provides more information about source device and related entities. Related links in the MITRE Partnership website are also available.
+
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details." lightbox="media/how-to-view-manage-cloud-alerts/alert-full-details.png":::
+
+If you're integrating with Microsoft Sentinel, the Alert details and entity information are sent to Microsoft Sentinel.
+
+### Download a PCAP log file for a specific alert
+
+For sensors with software versions 22.2.x and higher, you can download a PCAP log file directly from the alert details page.
+
+**To download a PCAP log file**:
+
+1. In the **Alerts** page in the Azure portal, select an alert with IP address entities listed.
+
+1. On the alert details, page, under **Entities**, expand the **IP** section and select **Download full list to CSV**.
+
+The PCAP file for the selected alert is downloaded and you can save it locally.
 ### Alert remediation steps
 
 Defender for IoT provides remediation steps you can carry out for the alert. Remediation steps are designed to help SOC teams better understand OT issues and resolutions.
@@ -177,7 +185,7 @@ Defender for IoT provides remediation steps you can carry out for the alert. Rem
 1. Select an alert from the Alerts page.
 1. Select **Take action** in the dialog box that opens.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/take-action-cloud-alert.png" alt-text="Screenshot of a remediation action for a sample alert in the Azure portal.":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/take-action-cloud-alert.png" alt-text="Screenshot of a remediation action for a sample alert in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/take-action-cloud-alert.png":::
 
 ## Manage alert status and severity
 

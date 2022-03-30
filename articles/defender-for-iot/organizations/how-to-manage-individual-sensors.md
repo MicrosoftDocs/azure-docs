@@ -1,7 +1,7 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 03/10/2022
+ms.date: 03/30/2022
 ms.topic: how-to
 ---
 
