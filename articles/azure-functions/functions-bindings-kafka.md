@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Invoke Azure Functions and write values out to [Apache Kafka](https://kafka.apache.org/) event streams.
 
 > [!IMPORTANT]
-> Kafka bindings are only available for Azure Functions on the [Premium Plan](functions-premium-plan.md) and on Kubernetes, where scaling is handed by [KEDA](functions-kubernetes-keda.md).
+> Kafka bindings are only available for Azure Functions on the [Elastic Premium Plan](functions-premium-plan.md), [Dedicated (App Service) plan](dedicated-plan.md), and on Kubernetes, where scaling is handed by [KEDA](functions-kubernetes-keda.md).
 
 | Action | Type |
 |---------|---------|
@@ -87,9 +87,9 @@ This section describes the configuration settings available for this binding.
 |Property  |Default | Description |
 |---------|---------|---------|
 | MaxBatchSize | 64 | Maximum batch size when calling a Kafka triggered function. | 
-| SubscriberIntervalInSeconds | 1 | Defines the minimum frequency in messages are executed per function. Only if the message volume is less than MaxBatchSize / SubscriberIntervalInSeconds| 
+| SubscriberIntervalInSeconds | 1 | Defines the minimum frequency incoming messages are executed, per function in seconds. Only when the message volume is less than `MaxBatchSize` / `SubscriberIntervalInSeconds`| 
 | ExecutorChannelCapacity | 1| Defines the channel message capacity. Once capacity is reached, the Kafka subscriber pauses until the function catches up. |
-| ChannelFullRetryIntervalInMs | 50 | Defines the subscriber retry interval in milliseconds used when attempting to add items to at-capacity channel. | 
+| ChannelFullRetryIntervalInMs | 50 | Defines the subscriber retry interval, in milliseconds, used when attempting to add items to an at-capacity channel. | 
 
 ## Next steps
 

@@ -163,7 +163,7 @@ The following table explains the binding configuration properties that you set i
 
 Both keys and values types are supported with built-in [Avro](http://avro.apache.org/docs/current/) and [Protobuf](https://developers.google.com/protocol-buffers/) serialization.
 
-1. In the Functions App application settings (or _local.settings.json_ during development), set the authentication credentials for your Confluent Cloud environment.
+1. In application settings or in the _local.settings.json_ file during local development, set the authentication credentials for your Confluent Cloud environment.
 
     - **BootstrapServer**: Contains the value of bootstrap server found in Confluent Cloud settings page. The value will resemble `xyz-xyzxzy.westeurope.azure.confluent.cloud:9092`.
 
