@@ -27,7 +27,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - [Azure CLI version 3.1.0 or later](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- At least one already provisioned user-assigned managed identity. For more information, see [Manage user-assigned managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+- At least one already provisioned user-assigned managed identity. For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 ::: zone-end
 
@@ -35,7 +35,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 
 - An already provisioned Azure Spring Cloud instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](./quickstart.md).
 - [Azure CLI version 3.1.0 or later](/cli/azure/install-azure-cli).
-- At least one already provisioned user-assigned managed identity. For more information, see [Manage user-assigned managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+- At least one already provisioned user-assigned managed identity. For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 ::: zone-end
 

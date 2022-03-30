@@ -43,11 +43,11 @@ Azure Spring Cloud shares the same endpoint for token acquisition with Azure Vir
 
 The following table provides links to articles that contain examples:
 
-| Azure service   | tutorial                                                                                                                             |
-|-----------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Key Vault       | [Tutorial: Use a managed identity to connect Key Vault to an Azure Spring Cloud app](./tutorial-managed-identities-key-vault)        |
-| Azure Functions | [Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Cloud app](./tutorial-managed-identities-functions) |
-| Azure SQL       | [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](./connect-managed-identity-to-azure-sql)         |
+| Azure service   | tutorial                                                                                                                              |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Key Vault       | [Tutorial: Use a managed identity to connect Key Vault to an Azure Spring Cloud app](tutorial-managed-identities-key-vault.md)        |
+| Azure Functions | [Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Cloud app](tutorial-managed-identities-functions.md) |
+| Azure SQL       | [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](connect-managed-identity-to-azure-sql.md)         |
 
 ## Best practices when using managed identities
 
