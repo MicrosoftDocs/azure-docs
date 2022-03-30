@@ -80,21 +80,6 @@ The location is the region where the custom image will be created. The following
 - Australia East
 - UK South
 - UK West
-- Brazil South
-- Canada Central
-- Central India
-- Central US
-- France Central
-- Germany West Central
-- Japan East
-- North Central US
-- Norway East
-- Switzerland North
-- Jio India West
-- UAE North
-- East Asia
-- Korea Central
-- South Africa North
 
 ```json
     "location": "<region>",
