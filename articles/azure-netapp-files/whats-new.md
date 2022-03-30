@@ -20,6 +20,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+* [Reset Active Directory Public Preview](create-active-directory-connections.md#reset-active-directory)
+
+
 ## March 2022
 
 * Features that are now generally available (GA)   
