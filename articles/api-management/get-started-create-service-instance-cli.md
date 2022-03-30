@@ -34,7 +34,7 @@ az group create --name myResourceGroup --location centralus
 
 ## Create a new service
 
-Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az_apim_create) command and provide a service name and publisher details. The service name must be unique within Azure.
+Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and provide a service name and publisher details. The service name must be unique within Azure.
 
 In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the name of the API publisher's organization and the email address to receive notifications.
 
@@ -75,7 +75,7 @@ When your API Management service instance is online, you're ready to use it. Sta
 
 ## Clean up resources
 
-You can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group and the API Management service instance when they aren't needed.
+You can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and the API Management service instance when they aren't needed.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
