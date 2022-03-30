@@ -336,7 +336,12 @@ sections:
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
           Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
-          
+      
+      - question: |
+          Does the Azure Monitor Agent support private links?
+        answer: |
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [View steps here](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) on how to set this up.
+
       - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
