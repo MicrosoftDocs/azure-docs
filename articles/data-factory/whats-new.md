@@ -40,6 +40,8 @@ This page is updated monthly, so revisit it regularly.
  
 <tr><td>Web activity timeout improvement</td><td>You can configure response timeout in a Web activity to prevent it from timing out if the response period is more than 1 minute, especially in the case of synchronous APIs.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307">Learn more</a></td></tr> 
 
+</table>
+
 ## February 2022
 <br>
 <table>
