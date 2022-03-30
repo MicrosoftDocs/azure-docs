@@ -158,22 +158,10 @@
     items:
     - name: Create a namespace
       href: service-bus-create-namespace-portal.md
-    - name: Send and receive messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-get-started-with-queues-legacy.md
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-queues-legacy.md 
-      - name: PHP
-        href: service-bus-php-how-to-use-queues.md
-    - name: Publish and subscribe for messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md        
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
-      - name: PHP
-        href: service-bus-php-how-to-use-topics-subscriptions.md
+    - name: Send and receive messages using PHP
+      href: service-bus-php-how-to-use-queues.md
+    - name: Publish and subscribe for messages using PHP
+      href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md    
     - name: Message handling

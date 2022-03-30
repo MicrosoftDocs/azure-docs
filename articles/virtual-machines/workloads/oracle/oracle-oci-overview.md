@@ -50,6 +50,7 @@ Cross-cloud connectivity is limited to the following regions:
 * Azure Germany West Central & OCI Germany Central (Frankfurt)
 * Azure West US 3 & OCI US West ((Phoenix)
 * Azure Korea Central region & OCI South Korea Central (Seoul)
+* Azure Southeast Asia region & OCI Singapore (Singapore)
 
 
 ## Networking

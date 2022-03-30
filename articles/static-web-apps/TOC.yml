@@ -84,6 +84,8 @@
           href: private-endpoint.md
         - name: Secure authentication secrets
           href: key-vault-secrets.md
+        - name: Set up password protection
+          href: password-protection.md
     - name: Set up local development
       href: local-development.md
     - name: Configure app settings
@@ -158,3 +160,4 @@
       href: quotas.md
     - name: Frequently asked questions
       href: faq.yml
+      displayName: faq

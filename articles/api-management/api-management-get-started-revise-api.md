@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
-ms.date: 03/10/2022
+ms.date: 03/30/2022
 ms.author: danlep
 
 ---
@@ -92,7 +92,7 @@ To begin using Azure CLI:
 
 Use this procedure to create and update a release.
 
-1. Run the [az apim api list](/cli/azure/apim/api#az_apim_api_list) command to see your API IDs:
+1. Run the [az apim api list](/cli/azure/apim/api#az-apim-api-list) command to see your API IDs:
 
    ```azurecli
    az apim api list --resource-group apim-hello-word-resource-group \
@@ -101,7 +101,7 @@ Use this procedure to create and update a release.
 
    The API ID to use in the next command is the `Name` value. The API revision is in the `ApiRevision` column.
 
-1. To create the release, with a release note, run the [az apim api release create](/cli/azure/apim/api/release#az_apim_api_release_create) command:
+1. To create the release, with a release note, run the [az apim api release create](/cli/azure/apim/api/release#az-apim-api-release-create) command:
 
    ```azurecli
    az apim api release create --resource-group apim-hello-word-resource-group \
@@ -111,7 +111,7 @@ Use this procedure to create and update a release.
 
    The revision that you release becomes the current revision.
 
-1. To see your releases, use the [az apim api release list](/cli/azure/apim/api/release#az_apim_api_release_list) command:
+1. To see your releases, use the [az apim api release list](/cli/azure/apim/api/release#az-apim-api-release-list) command:
 
    ```azurecli
    az apim api release list --resource-group apim-hello-word-resource-group \
@@ -130,7 +130,7 @@ Use this procedure to create and update a release.
 
    Use the value in the `Name` column for the release ID.
 
-You can remove any release by running the [az apim api release delete ](/cli/azure/apim/api/release#az_apim_api_release_delete) command:
+You can remove any release by running the [az apim api release delete ](/cli/azure/apim/api/release#az-apim-api-release-delete) command:
 
 ```azurecli
 az apim api release delete --resource-group apim-hello-word-resource-group \

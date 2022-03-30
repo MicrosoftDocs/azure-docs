@@ -6,6 +6,7 @@ ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.devlang: python
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
+adobe-target: true
 ---
 
 # Configure a Linux Python app for Azure App Service
@@ -22,9 +23,9 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 - **Azure CLI**: you have two options.
 
-    - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
-    
+  - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
+  - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
 
@@ -34,26 +35,26 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 - **Azure CLI**:
 
-    -  Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
-    
-        ```azurecli
-        az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
-        ```
-        
-        Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
-    
-    - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
-        
-        ```azurecli
-        az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
-        ```
-    
-    - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
-    
-        ```azurecli
-        az webapp list-runtimes --linux | grep PYTHON
-        ```
-    
+  - Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show):
+
+    ```azurecli
+    az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+    ```
+
+    Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
+
+  - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set)
+
+    ```azurecli
+    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
+    ```
+
+  - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az-webapp-list-runtimes):
+
+    ```azurecli
+    az webapp list-runtimes --os linux | grep PYTHON
+    ```
+
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
 <!-- <a> element here to preserve external links-->
@@ -71,7 +72,7 @@ App Service's build system, called Oryx, performs the following steps when you d
 
 1. Run custom post-build script if specified by the `POST_BUILD_COMMAND` setting. (Again, the script can run other Python and Node.js scripts, pip and npm commands, and Node-based tools.)
 
-By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty. 
+By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty.
 
 - To disable running collectstatic when building Django apps, set the `DISABLE_COLLECTSTATIC` setting to true.
 
@@ -79,7 +80,7 @@ By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTS
 
 - To run post-build commands, set the `POST_BUILD_COMMAND` setting to contain either a command, such as `echo Post-build command`, or a path to a script file relative to your project root, such as `scripts/postbuild.sh`. All commands must use relative paths to the project root folder.
 
-For additional settings that customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
+For additional settings that customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
 To access the build and deployment logs, see [Access deployment logs](#access-deployment-logs).
 
@@ -87,7 +88,7 @@ For more information on how App Service runs and builds Python apps in Linux, se
 
 > [!NOTE]
 > The `PRE_BUILD_SCRIPT_PATH` and `POST_BUILD_SCRIPT_PATH` settings are identical to `PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` and are supported for legacy purposes.
-> 
+>
 > A setting named `SCM_DO_BUILD_DURING_DEPLOYMENT`, if it contains `true` or 1, triggers an Oryx build happens during deployment. The setting is true when deploying using git, the Azure CLI command `az webapp up`, and Visual Studio Code.
 
 > [!NOTE]
@@ -98,21 +99,21 @@ For more information on how App Service runs and builds Python apps in Linux, se
 Existing web applications can be redeployed to Azure as follows:
 
 1. **Source repository**: Maintain your source code in a suitable repository like GitHub, which enables you to set up continuous deployment later in this process.
-    1. Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.    
+    1. Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.
 
-1. **Database**: If your app depends on a database, provision the necessary resources on Azure as well. See [Tutorial: Deploy a Django web app with PostgreSQL - create a database](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) for an example.
+1. **Database**: If your app depends on a database, provision the necessary resources on Azure as well. See [Tutorial: Deploy a Django web app with PostgreSQL - create a database](tutorial-python-postgresql-app.md#3---create-the-postgresql-database-in-azure) for an example.
 
-1. **App service resources**: Create a resource group, App Service Plan, and App Service web app to host your application. You can most easily do this by doing an initial deployment of your code through the Azure CLI command `az webapp up`, as shown on [Tutorial: Deploy a Django web app with PostgreSQL - deploy the code](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Replace the names of the resource group, App Service Plan, and the web app to be more suitable for your application.
+1. **App service resources**: Create a resource group, App Service Plan, and App Service web app to host your application. You can most easily do this by doing an initial deployment of your code through the Azure CLI command [`az webapp up`](/cli/azure/webapp?az-webapp-up). Or, you can create and deploy resources as shown in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md). Replace the names of the resource group, App Service Plan, and the web app to be more suitable for your application.
 
 1. **Environment variables**: If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described on [Access environment variables](#access-app-settings-as-environment-variables).
-    - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - configure variables to connect the database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
+    - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - configure variables to connect the database](tutorial-python-postgresql-app.md#5---connect-the-web-app-to-the-database).
     - See [Production settings for Django apps](#production-settings-for-django-apps) for specific settings for typical Django apps.
 
 1. **App startup**: Review the section, [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If needed, you can [Customize the startup command](#customize-startup-command).
 
 1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](./deploy-continuous-deployment.md) if using GitHub actions.
 
-1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
+1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#7---migrate-app-database).
     - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
@@ -136,7 +137,7 @@ If your Django web app includes static front-end files, first follow the instruc
 
 For App Service, you then make the following modifications:
 
-1. Consider using environment variables (for local development) and App Settings (when deploying to the cloud) to dynamically set the Django `STATIC_URL` and `STATIC_ROOT` variables. For example:    
+1. Consider using environment variables (for local development) and App Settings (when deploying to the cloud) to dynamically set the Django `STATIC_URL` and `STATIC_ROOT` variables. For example:
 
     ```python
     STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
@@ -185,9 +186,9 @@ When deployed to App Service, Python apps run within a Linux Docker container th
 This container has the following characteristics:
 
 - Apps are run using the [Gunicorn WSGI HTTP Server](https://gunicorn.org/), using the additional arguments `--bind=0.0.0.0 --timeout 600`.
-    - You can provide configuration settings for Gunicorn through a *gunicorn.conf.py* file in the project root, as described on [Gunicorn configuration overview](https://docs.gunicorn.org/en/stable/configure.html#configuration-file) (docs.gunicorn.org). You can alternately [customize the startup command](#customize-startup-command).
+  - You can provide configuration settings for Gunicorn through a *gunicorn.conf.py* file in the project root, as described on [Gunicorn configuration overview](https://docs.gunicorn.org/en/stable/configure.html#configuration-file) (docs.gunicorn.org). You can alternately [customize the startup command](#customize-startup-command).
 
-    - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy as described on [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html) (docs.gunicorn.org).
+  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy as described on [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html) (docs.gunicorn.org).
 
 - By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6+, such as Django.
 
@@ -195,8 +196,8 @@ This container has the following characteristics:
 
     The *requirements.txt* file *must* be in the project root for dependencies to be installed. Otherwise, the build process reports the error: "Could not find setup.py or requirements.txt; Not running pip install." If you encounter this error, check the location of your requirements file.
 
-- App Service automatically defines an environment variable named `WEBSITE_HOSTNAME` with the web app's URL, such as `msdocs-hello-world.azurewebsites.net`. It also defines `WEBSITE_SITE_NAME` with the name of your app, such as `msdocs-hello-world`. 
-   
+- App Service automatically defines an environment variable named `WEBSITE_HOSTNAME` with the web app's URL, such as `msdocs-hello-world.azurewebsites.net`. It also defines `WEBSITE_SITE_NAME` with the name of your app, such as `msdocs-hello-world`.
+
 - npm and Node.js are installed in the container so you can run Node-based build tools, such as yarn.
 
 ## Container startup process
@@ -239,7 +240,7 @@ If your main app module is contained in a different file, use a different name f
 
 ### Default behavior
 
-If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder and shown in the following image.
+If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the *opt/defaultsite* folder and shown in the following image.
 
 If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
@@ -259,51 +260,51 @@ To specify a startup command or command file:
 
 - **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
-- **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
+- **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command with the `--startup-file` parameter to set the startup command or file:
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
-        
+
     Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
-        
+
 App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code. You can also check the [Diagnostic logs](#access-diagnostic-logs) for additional information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
 
 ### Example startup commands
 
-- **Added Gunicorn arguments**: The following example adds the `--workers=4` to a Gunicorn command line for starting a Django app: 
+- **Added Gunicorn arguments**: The following example adds the `--workers=4` to a Gunicorn command line for starting a Django app:
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
     # that contains wsgi.py; <module> is the name of the folder containing wsgi.py.
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
-    ```    
+    ```
 
     For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
-    ```bash    
+    ```bash
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi --access-logfile '-' --error-logfile '-'
-    ```    
+    ```
 
     These logs will appear in the [App Service log stream](#access-diagnostic-logs).
 
     For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
-    
+
 - **Custom Flask main module**: by default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
     ```
-    
+
     If your main module is in a subfolder, such as `website`, specify that folder with the `--chdir` argument:
-    
+
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
-    
+
 - **Use a non-Gunicorn server**: To use a different web server, such as [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), use the appropriate command as the startup command or in the startup command file:
 
     ```bash
@@ -381,29 +382,29 @@ The following sections provide additional guidance for specific issues.
 
 - **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
 
-    - Restart the App Service, wait 15-20 seconds, and check the app again.
-    
-    - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, replacing `<resource-group-name>` and `<app-name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
-    
-    - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, use the following steps:
+  - Restart the App Service, wait 15-20 seconds, and check the app again.
+
+  - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, replacing `<resource-group-name>` and `<app-name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
+
+  - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, use the following steps:
       1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with the value of 1, redeploy your code, wait a few minutes, then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
       1. Review your deployment process, [check the deployment logs](#access-deployment-logs), correct any errors, and redeploy the app.
-    
-    - If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
+
+  - If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
 - <a name="service-unavailable"></a>**You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the app itself did not start. This condition could indicate that the Gunicorn arguments are incorrect, or that there's an error in the app code.
 
-    - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
+  - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
 
-    - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
+  - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
-    - Examine the [app log stream](#access-diagnostic-logs) for any error messages. The logs will show any errors in the app code.
+  - Examine the [app log stream](#access-diagnostic-logs) for any error messages. The logs will show any errors in the app code.
 
 #### Could not find setup.py or requirements.txt
 
 - **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**: The Oryx build process failed to find your *requirements.txt* file.
 
-    - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+  - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
 #### ModuleNotFoundError when app starts
 
@@ -415,7 +416,7 @@ When attempting to run database migrations with a Django app, you may see "sqlit
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
-If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Configure environment variables to connect the database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Configure environment variables to connect the database](tutorial-python-postgresql-app.md#5---connect-the-web-app-to-the-database).
 
 #### Other issues
 
@@ -427,7 +428,7 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 - **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
-## More resources:
+## More resources
 
 - [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
 - [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)

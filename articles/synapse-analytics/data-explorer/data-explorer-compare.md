@@ -31,7 +31,7 @@ We recommend starting with Synapse Data Explorer if you are looking for a unifie
 | **Integrations** | Built-in ingestion pipelines | Event Hub, Event Grid, IoT Hub | Event Hub, Event Grid, and IoT Hub supported via the Azure portal for non-managed VNet |
 |  | Spark integration | Azure Data Explorer linked service: Built-in Kusto Spark integration with support for Azure Active Directory pass-though authentication, Synapse Workspace MSI, and Service Principal | Built-in Kusto Spark connector integration with support for Azure Active Directory pass-though authentication, Synapse Workspace MSI, and Service Principal |
 |  | KQL artifacts management | ✗ | Save KQL queries and integrate with Git |
-|  | Metadata sync | ✗ | External Tables sync with the central Synapse meta store for consumption by other Synapse services |
+|  | Metadata sync | ✗ | ✗ |
 | **Features** | KQL queries | ✓ | ✓ |
 |  | API and SDKs | ✓ | ✓ |
 |  | Connectors | ✓ | ✓ |

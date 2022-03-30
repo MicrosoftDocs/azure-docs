@@ -119,7 +119,7 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    // To call an ACS communication user, use {communicationUserId: 'ACS_USER_ID'}.
+    // To call an Azure Communication Services communication user, use {communicationUserId: 'ACS_USER_ID'}.
     // To call echobot, use {id: '8:echo123'}.
     call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
@@ -164,4 +164,4 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button.
 
 Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echobot.
-To call an ACS communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.
+To call an Azure Communication Services communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.
