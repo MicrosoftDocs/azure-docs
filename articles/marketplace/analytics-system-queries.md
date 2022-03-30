@@ -4,7 +4,7 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 02/23/2022
+ms.date: 03/30/2022
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
@@ -94,7 +94,7 @@ The following sections provide various report queries.
 
 **Report description**: Revenue report for the last 6M
 
-**QueryID**: `6fd7624b-aa9f-42df-a61d-67d42fd00e92`
+**QueryID**: `bf54dde4-7dc4-492f-a69a-f45de049bfcb`
 
 **Report query**:
 
