@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure Purview account using an ARM Template'
 description: This Quickstart describes how to create an Azure Purview account using an ARM Template.
 author: whhender
 ms.author: whhender
-ms.date: 03/17/2022
+ms.date: 03/30/2022
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-arm
@@ -21,7 +21,6 @@ For more information about Azure Purview, [see our overview page](overview.md). 
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal where you can customize values and deploy.
 The template will deploy an Azure Purview account into a new or existing resource group in your subscription.
-
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.azurepurview%2Fazure-purview-deployment%2Fazuredeploy.json)
 
@@ -54,9 +53,9 @@ After your Azure Purview account is created, you'll use the Azure Purview Studio
 
 After deployment, the first activities are usually:
 
-* Create a collection
-* Register a resource
-* Scan the resource
+* [Create a collection](quickstart-create-collection.md)
+* [Register a resource](azure-purview-connector-overview.md)
+* [Scan the resource](concept-scans-and-ingestion.md)
 
 At this time, these actions aren't able to be taken through an Azure Resource Manager template. Follow the guides above to get started!
 
@@ -85,3 +84,20 @@ Follow these next articles to learn how to navigate the Azure Purview Studio, cr
 > [Using the Azure Purview Studio](use-azure-purview-studio.md)
 > [Create a collection](quickstart-create-collection.md)
 > [Add users to your Azure Purview account](catalog-permissions.md)
+
+
+
+```json
+        "resources": [
+        {
+        "type": "Microsoft.DataShare/accounts",
+        "apiVersion": "2021-08-01",
+        "name": "[parameters('accounts_my_datashare_account_name')]",
+        "location": "<target-region>",
+        "identity": {
+            "type": "SystemAssigned"
+        }
+        "properties": {}
+        }
+       ]
+```
