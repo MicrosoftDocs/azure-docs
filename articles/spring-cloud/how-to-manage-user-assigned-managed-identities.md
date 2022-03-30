@@ -20,7 +20,7 @@ Managed identities for Azure resources provide an automatically managed identity
 
 ## Prerequisites
 
-If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
+- If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
 ::: zone pivot="sc-enterprise-tier"
 
