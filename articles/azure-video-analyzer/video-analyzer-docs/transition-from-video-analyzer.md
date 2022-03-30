@@ -1,15 +1,15 @@
 ---
-title: Migrate from Azure Video Analyzer
-description: This article describes some options to migrate off of Video Analyzer
+title: Transition from Azure Video Analyzer
+description: This article describes some options to transition off of Video Analyzer
 manager: femila
 ms.topic: conceptual
 ms.date: 03/25/2022
 ms.author: anilmur
 ---
 
-# Migrate from Video Analyzer
+# Transition from Video Analyzer
 
-This article describes some options to migrate your video analysis application off of Video Analyzer. 
+This article describes some options to transition your video analysis application off of Video Analyzer. 
 
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
@@ -33,7 +33,7 @@ There are several commercial solutions for [Video Management Systems](./terminol
 
 ## Next steps
 
-Migrate your applications from Video Analyzer using suggestions described above by 01 December 2022.
+Transition your applications from Video Analyzer using suggestions described above by 01 December 2022.
 
 
 

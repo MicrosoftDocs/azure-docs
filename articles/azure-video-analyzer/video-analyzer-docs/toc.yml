@@ -111,8 +111,8 @@
       href: continuous-video-recording.md
 - name: How-to guides
   items:
-  - name: Migrate from Video Analyzer
-    href: migrate-video-analyzer.md
+  - name: Transition from Video Analyzer
+    href: transition-from-video-analyzer.md
   - name: Setup
     items:
     - name: Create a new account
