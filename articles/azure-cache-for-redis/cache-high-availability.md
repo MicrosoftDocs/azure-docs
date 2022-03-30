@@ -18,7 +18,7 @@ Various high availability options are available in the Standard, Premium, and En
 
 | Option | Description | Availability | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
-| [Standard replication](#standard-replication)| Dual-node replicated configuration in a single data center with automatic failover | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |✔|✔|-|
+| [Standard replication](#standard-replication-for-high-availability)| Dual-node replicated configuration in a single data center with automatic failover | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |✔|✔|-|
 | [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across AZs, with automatic failover | 99.9% in Premium; 99.99% in Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|✔|
 | [Geo-replication](#geo-replication) | Linked cache instances in two regions, with user-controlled failover | Premium; Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|Passive|Active|
 | [Import/Export]() | Point-in-time snapshot of data in cache.  | 99.9% |-|✔|✔|
@@ -73,46 +73,44 @@ A cache in either Enterprise tier runs on a Redis Enterprise *cluster*. It alway
 - An Enterprise cache has two same-sized *data nodes* and one smaller *quorum node*. 
 - An Enterprise Flash cache has three same-sized data nodes. 
 
-The Enterprise cluster divides Redis data into partitions internally. Each partition has a *primary* and at least one *replica*. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
+The Enterprise cluster divides Azure Cache for Redis data into partitions, internally. Each partition has a *primary* and at least one *replica*. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
 When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participates in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
 
-## Persistence 
+## Persistence
 
 Applicable tiers: **Premium**
 
-Since your cache data is stored in memory, a rare and unplanned failure of multiple nodes can cause all the data to be dropped. To avoid losing data completely, Redis persistence  https://redis.io/topics/persistence
-allows you to take periodic snapshots of in-memory data and store it to your storage account. A failure across multiple nodes causing data loss , your cache will load the snapshot from storage account. 
+Because your cache data is stored in memory, a rare and unplanned failure of multiple nodes can cause all the data to be dropped. To avoid losing data completely, [Redis persistence](https://redis.io/topics/persistence) allows you to take periodic snapshots of in-memory data, and store it to your storage account. If you experience a failure across multiple nodes causing data loss, your cache loads the snapshot from storage account.
 
-See this article for more information on how to set it up. https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json
+For more information on how to set it up, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
-## Import/Export 
+## Import/Export
 
 Applicable tiers: **Premium**, **Enterprise**,**Enterprise Flash**
 
 Azure cache for Redis supports the option to import and export RDB files to provide data portability. It allows you to import data into Azure Cache for Redis or export data from Azure Cache for Redis by leveraging a Azure Cache for Redis Database (RDB) snapshot. This RDB snapshot from a premium cache is exported to a blob in an Azure Storage Account.  You can create a script to trigger export periodically to your storage account. See this article for more information on how to set it up.
 
-Storage account considerations:
-1.  Consider choosing geo-redundant storage account to ensure high availability of persisted data.  See Data redundancy - Azure Storage | Microsoft Docs for more information. https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json
+### Storage account considerations
 
+Consider choosing a geo-redundant storage account to ensure high availability of persisted data. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## Geo-replication
 
 Applicable tiers: **Premium**
 
-[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions.  Geo-replication is designed mainly for disaster recovery.
-Two Premium tier cache instances are connected through geo-replication such that you can read and write to you primary cache, and that data is replicated to the secondary cache.
-See this article for more information and how to set it up. 
+[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions.  Geo-replication is designed mainly for disaster recovery. Two Premium tier cache instances are connected through geo-replication such that you can read and write to you primary cache, and that data is replicated to the secondary cache.
+For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](/azure/azure-cache-for-redis/cache-how-to-geo-replication).
 
-In a scenario where the region hosting the primary cache goes down, you’ll need to start the failover by first, unlinking the secondary cache, and then, updating your application to point to the secondary cache for reads and writes.
+In a scenario where the region hosting the primary cache goes down, you’ll need to start the failover by: first, unlinking the secondary cache, and then, updating your application to point to the secondary cache for reads and writes.
 
 ## Active geo-replication
 
-Applicable tiers: **Enterprise**,**Enterprise Flash**
+Applicable tiers: **Enterprise**, **Enterprise Flash**
 
-The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](cache-how-to-active-geo-replication.md). Using conflict-free replicated data types, the Redis Enterprise software supports writes to multiple cache instances and takes care of merging of changes and resolving conflicts. You can join up to 5 Enterprise tier cache instances in different Azure regions to form a geo-replication group. 
+The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](cache-how-to-active-geo-replication.md). Using conflict-free replicated data types, the Redis Enterprise software supports writes to multiple cache instances, and merges changes and resolves conflicts. You can join up to 5 Enterprise tier cache instances in different Azure regions to form a geo-replication group.
 
-An application using such a cache can read and write to any of the geo-distributed cache instances through their corresponding endpoints. The application should use what is the closest to each application instance, giving you the lowest latency. See this article for more information on how to set it up.
+An application using such a cache can read and write to any of the geo-distributed cache instances through their corresponding endpoints. The application should use what is the closest to each application instance, giving you the lowest latency. For more information on how to set it up see
 
 In the scenario where region for one of the caches in your replication group goes down, your application needs to switch to another region which is available.
 
