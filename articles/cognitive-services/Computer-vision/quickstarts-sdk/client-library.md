@@ -44,12 +44,6 @@ Get started with the Computer Vision Read REST API or client libraries. The Read
 
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]

@@ -570,8 +570,6 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-go
-    title: Go
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-set-diberry-3core

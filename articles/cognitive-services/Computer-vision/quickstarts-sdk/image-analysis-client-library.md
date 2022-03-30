@@ -44,12 +44,6 @@ Get started with the Image Analysis REST API or client libraries. The Analyze Im
 
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/image-analysis-go-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API quickstart](../includes/image-analysis-curl-quickstart.md)]

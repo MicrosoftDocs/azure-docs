@@ -50,12 +50,6 @@ Save a reference to the URL of the image you want to analyze.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_remoteimage)]
 
-#### [Go](#tab/go)
-
-In your `main` function, save a reference to the URL of the image you want to analyze.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_analyze_url)]
-
 ---
 
 
@@ -113,10 +107,6 @@ Specify which visual features you'd like to extract in your analysis. See the [V
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_features_remote)]
 
 
-#### [Go](#tab/go)
-The following function calls extract different visual features from the sample image. You'll define these functions in the following sections.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_features)]
 ---
 
 
@@ -174,19 +164,6 @@ Use the *language* parameter of your [analyze_image](/python/api/azure-cognitive
 
 ```python
 results_remote = computervision_client.analyze_image(remote_image_url , remote_image_features, remote_image_details, 'en')
-```
-
-#### [Go](#tab/go)
-
-Use the *language* parameter of your [AnalyzeImage](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient.AnalyzeImage) call to specify a language. A method call that specifies a language might look like the following.
-
-```go
-	imageAnalysis, err := client.AnalyzeImage(
-		computerVisionContext,
-		remoteImage,
-		features,
-		[]computervision.Details{},
-		"en")
 ```
 
 ---
@@ -289,12 +266,6 @@ The following code calls the Image Analysis API and prints the results to the co
 The following code calls the Image Analysis API and prints the results to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_analyze)]
-
-#### [Go](#tab/go)
-
-The following code calls the Image Analysis API and prints the results to the console.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_analyze)]
 
 
 ---
