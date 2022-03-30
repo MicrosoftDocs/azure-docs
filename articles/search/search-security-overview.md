@@ -40,16 +40,16 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations:
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations. Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset.
 
-+ Search, on behalf of an indexer, connects to external data sources to read in data for indexing.
-+ Search, on behalf of an indexer, writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
++ Indexer connects to external data sources to read in data for indexing.
++ Indexer writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + A custom skill connects to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or a managed identity if you're using Azure Active Directory. 
+Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
-If your Azure resource is behind a firewall, you'll need to create rules that admit search service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
+If your Azure resource is behind a firewall, you'll need to [create rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). For resources protected by Azure Private Link, you can [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
 ### Internal traffic
 
@@ -87,7 +87,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-+ [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation.
++ [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
 Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 

@@ -13,11 +13,14 @@ The Azure Monitor agent (AMA) collects monitoring data from the guest operating 
 Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure Portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Relationship to other agents
-The Azure Monitor agent is meant to replace the following legacy monitoring agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
+Eventually, the Azure Monitor agent will replace the following legacy monitoring agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
 
 - [Log Analytics agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).  
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
-- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
+
+**Currently**, the Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, with [a few limitations](#current-limitations).
+In future, it will also consolidate features from the Diagnostic extensions.  
 
 In addition to consolidating this functionality into a single agent, the Azure Monitor agent provides the following benefits over the existing agents:
 
@@ -27,14 +30,10 @@ In addition to consolidating this functionality into a single agent, the Azure M
 - **Improved extension management:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
 ### Current limitations
-When compared with the existing agents, this new agent doesn't yet have full parity.
+When compared with the legacy agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
     - Not all Log Analytics solutions are supported yet. [View supported features and services](#supported-services-and-features).
     - The support for collecting file based logs or IIS logs is in [private preview](https://aka.ms/amadcr-privatepreviews).
-
-- **Comparison with Azure Diagnostics extensions (WAD/LAD):**
-  - No support yet for Event Hubs and Storage accounts as destinations.
-  - No support yet for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
