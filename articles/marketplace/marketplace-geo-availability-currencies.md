@@ -174,7 +174,7 @@ For all paid offer types, you have the option of entering prices in USD or uploa
 To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
 
 > [!NOTE]
-> After a price for a market in your plan is published, it can't be changed. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+> To ensure prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change unless you republish your offer.
 
