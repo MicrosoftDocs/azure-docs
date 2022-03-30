@@ -127,7 +127,7 @@ Create a resource group in the desired location for provisioning the BYOIP range
 ```azurecli-interactive
   az group create \
     --name myResourceGroup \
-    --location westus
+    --location westus2
 ```
 ### Provision a custom IP address prefix
 The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `--authorization-message` parameter, use the variable **$byoipauth** that contains your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. Use the variable **$byoipauthsigned** for the `--signed-message` parameter created in the certificate readiness section.
@@ -138,7 +138,7 @@ The following command creates a custom IP prefix in the specified region and res
   az network public-ip prefix create \
     --name myCustomIpPrefix \
     --resource-group myResourceGroup \
-    --location westus \
+    --location westus2 \
     --cidr ‘1.2.3.0/24’ \
     --authorization-message $byoipauth \
     --signed-message $byoipauthsigned
