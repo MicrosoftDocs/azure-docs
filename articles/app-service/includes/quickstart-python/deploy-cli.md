@@ -10,7 +10,7 @@ Azure CLI has a command `az webapp up` that will create the necessary resources 
 
 #### [bash](#tab/terminal-bash)
 
-Create the webapp and other resources, then deploy your code to Azure using the [az webapp up](/cli/azure/webapp#az-webapp-up).
+Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 * The `--location` parameter defines the Azure region where the resources will be created.
 * The `--resource-group` parameter sets the name of the resource group, which acts as a container for all of the Azure resources related to this application.
@@ -32,7 +32,7 @@ az webapp up \
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
-Create the webapp and other resources, then deploy your code to Azure using the [az webapp up](/cli/azure/webapp#az-webapp-up).
+Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 * The `--location` parameter defines the Azure region where the resources will be created.
 * The `--resource-group` parameter sets the name of the resource group, which acts as a container for all of the Azure resources related to this application.
