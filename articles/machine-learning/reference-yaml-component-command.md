@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
+ms.custom: cliv2
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
