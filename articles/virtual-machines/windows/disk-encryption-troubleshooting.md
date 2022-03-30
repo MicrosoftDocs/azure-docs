@@ -29,25 +29,27 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 When encrypting a VM fails with the error message "Failed to send DiskEncryptionData...", it is usually caused by one of the following situations:
 
 - Having the Key Vault existing in a different region and/or subscription than the Virtual Machine
+- Advanced access policies in the Key Vault are not set to allow Azure Disk Encryption
+- Key Encryption Key, when in use, has been disabled or deleted in the Key Vault
 - Typo in the Resource ID or URL for the Key Vault or Key Encryption Key (KEK)
-- Special characters used while naming the resources. i.e _VMName, élite, etc
-- Lack of permissions in the Key Vault or the Key Encryption Key from the Key Vault
-- Network issues that prevent the VM/Host from accessing the required resources
+- Special characters used while naming the VM, data disks, or keys. i.e _VMName, élite, etc
 - Unsupported encryption scenarios
+- Network issues that prevent the VM/Host from accessing the required resources
 
 ### Suggestions
 
 - Make sure the Key Vault exists in the same region and subscription as the Virtual Machine
-- Ensure that you have [Set key vault advanced access policies](disk-encryption-key-vault.md#set-key-vault-advanced-access-policies) properly
-- Check for any typos in the Key Vault name or Key name in your Powershell or CLI command
+- Ensure that you have [set key vault advanced access policies](disk-encryption-key-vault.md#set-key-vault-advanced-access-policies) properly
+- If you are using KEK, ensure the key exists and is enabled in Key Vault
+- Check VM name, data disks, and keys follow [key vault resource naming restricitons](../../azure-resource-manager/management/resource-name-rules.md#microsoftkeyvault)
+- Check for any typos in the Key Vault name or KEK name in your Powershell or CLI command
 >[!NOTE]
    > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
 /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
-- Check for any special characters used while naming the resources, and recreate them without special characters
 - Ensure you are not following any [unsupported scenario](disk-encryption-windows.md#unsupported-scenarios)
-- Attempt encryption again
+- Ensure you are meeting [network requirements](disk-encryption-overview.md#networking-requirements) and try again
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
 
