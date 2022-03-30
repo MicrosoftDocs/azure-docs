@@ -16,7 +16,7 @@ Azure Monitor is a monitoring service that provides a complete set of features t
 
 Diagnostic settings lets you export logs to other services, such as Log Analytics, Storage account, and Event Hub. Large amounts of data using SQL-like Kusto can be queried with Log Analytics. You can capture platform logs in Azure Monitor Logs as configured via Diagnostic Settings, and instrument your app further with the dedicated application performance management feature (Application Insights) for additional telemetry and logs.
 
-For an end-to-end tutorial on Diagnostic Settings, see the article [Troubleshoot an App Service app with Azure Monitor](tutotrial-troubleshoot-monitor.md).
+For an end-to-end tutorial on Diagnostic Settings, see the article [Troubleshoot an App Service app with Azure Monitor](tutorial-troubleshoot-monitor.md).
 
 ## Quotas and alerts
 
@@ -27,7 +27,7 @@ Apps that are hosted in App Service are subject to certain limits on the resourc
 Build visualizations of [metrics](web-sites-monitor.md#understand-metrics) on Azure resources (web apps and App Service Plans). Metrics can be viewed by aggregates on data (ie. average, max, min, etc), instances, time range, and other filters. Metrics can monitor performance, memory, CPU, and other attributes.
 
 ## Activity logs
-View a historical log of [events changing your resource](get-resource-events.md#view-azure-activity-logs). Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include scaling of instances, updates to application settings, restarting of the web app, and many more. 
+View a historical log of [events changing your resource](get-resource-events.md#view-azure-activity-logs). Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include scaling of instances, updates to application settings, restarting of the web app, and many more.  
 
 ## Application Insights (via Azure Monitor)
 
