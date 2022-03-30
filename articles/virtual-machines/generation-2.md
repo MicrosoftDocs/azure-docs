@@ -37,8 +37,8 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Dsv4-series](dv4-dsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dav4-series](dav4-dasv4-series.md) | :heavy_check_mark: |  :x: |
 |[Dasv4-series](dav4-dasv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-|[Ddv4-series](ddv4-ddsv4-series.md) |:heavy_check_mark: | :heavy_check_mark: |
-|[Ddsv4-series](ddv4-ddsv4-series.md) |:heavy_check_mark: | :heavy_check_mark: |
+|[Ddv4-series](ddv4-ddsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
+|[Ddsv4-series](ddv4-ddsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dasv5-series](dasv5-dadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dadsv5-series](dasv5-dadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[DCasv5-series](dcasv5-dcadsv5-series.md) |  :x: | :heavy_check_mark: |
