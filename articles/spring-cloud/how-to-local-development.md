@@ -21,30 +21,30 @@ The section describes how to setup a local Config Server environment with both s
 
 1. Pull the official Config Server code from Github.
 
-``` shell
-git clone https://github.com/spring-cloud/spring-cloud-config.git
-```
+   ``` shell
+   git clone https://github.com/spring-cloud/spring-cloud-config.git
+   ```
 
 1. Build the source code and pull configurations from your own git repository.
 
-Find the `configserver.yml` file under `spring-cloud-config-server/src/main/resources`.
+   Find the `configserver.yml` file under `spring-cloud-config-server/src/main/resources`.
 
-```
-spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: <your-own-git-repo-uri>
-```
+   ```
+   spring:
+     cloud:
+       config:
+         server:
+           git:
+             uri: <your-own-git-repo-uri>
+   ```
 
 1. Use maven to build and run the Config Server code.
 
-``` shell
-mvn package -DskipTests
-cd spring-cloud-config-server
-../mvnw spring-boot:run
-```
+   ``` shell
+   mvn package -DskipTests
+   cd spring-cloud-config-server
+   ../mvnw spring-boot:run
+   ```
 After building the code, Config Server will start at localhost:8888.
 
 ### Client side preparation
@@ -68,9 +68,9 @@ The section describes how to setup a local Eureka environment with both server s
 
 1. Pull the official Eureka code from Github.
 
-``` shell
-git clone https://github.com/spring-cloud/spring-cloud-netflix.git
-```
+   ``` shell
+   git clone https://github.com/spring-cloud/spring-cloud-netflix.git
+   ```
 
 1. Build from source code and start the Eureka server service.
 
