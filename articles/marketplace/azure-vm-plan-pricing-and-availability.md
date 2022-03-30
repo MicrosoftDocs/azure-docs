@@ -1,12 +1,12 @@
 ---
-title: Configure pricing and availability for a virtual machine offer on Azure Marketplace
-description: Configure pricing and availability for a virtual machine offer in the Microsoft commercial marketplace.
+title: Configure pricing and availability for a virtual machine offer in Partner Center
+description: Configure pricing and availability for a virtual machine offer in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/18/2022
+ms.date: 03/29/2022
 ---
 
 # Configure pricing and availability for a virtual machine offer
@@ -31,9 +31,9 @@ Select **Save** to continue.
 
 ### Pricing
 
-For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license. 
+For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license.
 
-For a usage-based monthly billed plan, Microsoft will charge the customer for their hourly usage and they're billed monthly. This is our _Pay-as-you-go_ plan, where customers are only billed for the hours that they've used. When you select this plan, choose one of the following pricing options:
+For a usage-based monthly billed plan, Microsoft will charge the customer for their hourly usage and they're billed monthly. This is our *Pay-as-you-go* plan, where customers are only billed for the hours that they've used. When you select this plan, choose one of the following pricing options:
 
 - **Free** – Your VM offer is free.
 - **Flat rate (recommended)** – Your VM offer is the same hourly price regardless of the hardware it runs on.
@@ -41,18 +41,19 @@ For a usage-based monthly billed plan, Microsoft will charge the customer for th
 - **Per core size** – Your VM offer is priced based on the number of CPU cores on the hardware it's deployed on.
 - **Per market and core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on, and also for all markets. Currency conversion is done by you, the publisher. This option is easier if you use the import pricing feature.
 
-For **Per core size** and **Per market and core size**, enter a **Price per core**, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per core, if you choose. If using the _Per market and core size_ pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
+For **Per core size** and **Per market and core size**, enter a **Price per core**, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per core, if you choose. If using the *Per market and core size* pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
 
 > [!NOTE]
-> To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. Before you export pricing data, first select **Save draft** near the bottom of the page to save pricing changes.
+> To ensure the prices are right before you publish them, export the pricing spreadsheet and review them in each market. Before you export pricing data, first select **Save draft** to save pricing changes.
 
 Some things to consider when selecting a pricing option:
+
 - For the first four options, Microsoft does the currency conversion.
 - Microsoft suggests using a flat rate pricing for software solutions.
-- Prices are fixed, so once the plan is published the prices can't be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](support.md).
+- See [Price changes to commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 > [!IMPORTANT]
-> Occasionally, Microsoft expands the list of supported core sizes available. When this occurs, we will notify you and request that you take action on your offer within a specified timeframe. If you do not review your offer within the timeframe specified, we’ll publish the new core sizes at the price that we have calculated for you. For details about updating core sizes, see [Update core size for an Azure virtual machine offer](azure-vm-plan-manage.md).
+> Occasionally, Microsoft expands the list of supported core sizes available. When this occurs, we will notify you and request that you take action on your offer within a specified time-frame. If you do not review your offer within the time-frame specified, we’ll publish the new core sizes at the price that we have calculated for you. For details about updating core sizes, see [Update core size for an Azure virtual machine offer](azure-vm-plan-manage.md).
 
 ### Free Trial
 
@@ -75,12 +76,12 @@ Private offers aren't supported with Azure subscriptions established through a r
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
-Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**.
+Any Azure customer can deploy the offer using either PowerShell or CLI. If you wish to make this offer available to a limited set of customers, then set the plan to **Private**.
 
 Hidden plans don't generate preview links. However, you can test them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-).
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
-## Next step
+## Next steps
 
 - [Technical configuration](azure-vm-plan-technical-configuration.md)

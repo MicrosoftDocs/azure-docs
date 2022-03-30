@@ -54,7 +54,7 @@ The price change feature does not support the following scenarios:
 1. Price changes on hidden plans.
 2. Price changes on plans available in Azure Government cloud.
 3. Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#plan-a-price-change).
-4. Cancelling and modifying a price change through Partner Center. To cancel a price update, contact [support](/partner-center/report-problems-with-partner-center).
+4. Cancelling and modifying a price change through Partner Center. To cancel a price update, contact [support](https://go.microsoft.com/fwlink/?linkid=2056405).
 5. Changing prices from free or $0 to paid.
 6. Changing prices via APIs.
 

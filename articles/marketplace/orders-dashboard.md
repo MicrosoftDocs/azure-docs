@@ -92,7 +92,7 @@ Subscription offers can use one of two pricing models with each plan: either sit
 You can create multiple plans to configure different price points based on the number of users. These fields are optional during creation of an offer in Partner center. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields can be edited as part of an update to your plan.
 - **Metered Billing**: On top of Flat Rate pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. Higher the consumption of metered units may lead to higher charges for the customer.
 
-For more details on seat, site, and metered-based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md).
+For more details on seat, site, and metered-based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md) and [Price changes to commercial marketplace offers](price-changes.md).
 
 ### Orders by offers
 
@@ -194,7 +194,7 @@ The Order details table displays a numbered list of the 500 top orders sorted by
 | Term End Date | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
 | Not available | purchaseRecordId | The identifier of the purchase record for an order purchase | purchaseRecordId |
 | Not available | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
-| Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
+| Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax-inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
 | Not available | Currency | Billing currency for the order purchase | Currency |
 | Not available | HasTrial | Represents whether an offer has trial period enabled | HasTrial |
 | Is Trial | IsTrial | Represents whether an offer SKU is in trial period | IsTrial |

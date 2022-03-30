@@ -116,7 +116,7 @@ sections:
       - question: |
           How do I cancel or modify a scheduled price change?
         answer: |
-          If the price change has not yet taken effect, submit a [support request](https://partner.microsoft.com/support/?stage=1) to cancel the change, then schedule a new price change with needed modifications.
+          If the price change has not yet taken effect, submit a [support request](https://go.microsoft.com/fwlink/?linkid=2056405) to cancel the change, then schedule a new price change with needed modifications.
 
       - question: |
           If there is already a price change scheduled, can I make additional price changes?

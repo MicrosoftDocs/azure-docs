@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 07/09/2021
+ms.date: 03/28/2022
 ms.custom: contperf-fy21q2
 ---
 
@@ -73,7 +73,9 @@ Complete these steps to update available images in a plan for an offer that you'
 
 ## Offer a virtual machine plan at a new price
 
-After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
+See [Price changes to commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+
+<!-- After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
 
 1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
 1. Select the **Hide plan** checkbox. Save the draft before you continue.
@@ -87,7 +89,7 @@ Now that you have hidden the plan with the old price, create a copy of that plan
     > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop distribution of the parent plan later. Don’t use this option if you want to stop distribution of the parent plan.
 3. Complete all the required sections for the new plan, including the new price.
 1. Select **Save draft**.
-1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](review-publish-offer.md) for more details.
+1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](review-publish-offer.md) for more details. -->
 
 ## Sync private plan audiences
 
