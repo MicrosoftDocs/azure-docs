@@ -75,7 +75,7 @@ A cache in either Enterprise tier runs on a Redis Enterprise *cluster*. It alway
 
 The Enterprise cluster divides Azure Cache for Redis data into partitions, internally. Each partition has a *primary* and at least one *replica*. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
-When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participates in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
+When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication-for-high-availability) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participates in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
 
 ## Persistence
 
