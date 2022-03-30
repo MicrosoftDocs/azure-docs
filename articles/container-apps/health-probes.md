@@ -24,7 +24,7 @@ Container Apps support the following probes:
 
 ## HTTP probes
 
-HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other code outside that range indicates a failure.
+HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside that range indicates a failure.
 
 The following example demonstrates how to implement a liveness endpoint in JavaScript.
 
@@ -48,6 +48,10 @@ app.get('/liveness', (req, res) => {
   }
 })
 ```
+
+## TCP probes
+
+TCP probes listen for a response from the server. If no response is recognized, then the probe returns a failure.
 
 ## Restrictions
 
