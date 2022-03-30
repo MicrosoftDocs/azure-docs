@@ -4,6 +4,10 @@
   items:
   - name: About Azure Update management center
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: On-demand patching
+    href: quickstart-on-demand.md
 - name: How-to guides
   items:
   - name: Deploy
