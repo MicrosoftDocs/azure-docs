@@ -10,7 +10,7 @@ ms.reviewer: laobri
 author: shivanissambare
 ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli 
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 

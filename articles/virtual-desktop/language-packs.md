@@ -3,7 +3,7 @@ title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 03/30/2022
 ms.author: helohr
 manager: femila
 ---
@@ -53,8 +53,6 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004 or later 10C 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2110C.iso)
           - [Windows 10, version 2004 or later 11C 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2111C.iso)
           - [Windows 10, version 2004 or later 01C 2022 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2201C.iso)
-          - [Windows 10, version 2004 or later 02C 2022 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2202C.iso)
-          - [Windows 10, version 2004 or later 03C 2022 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2203C.iso)
           
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
