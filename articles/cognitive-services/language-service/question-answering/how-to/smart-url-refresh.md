@@ -12,9 +12,9 @@ ms.date: 02/28/2022
 
 # Use smart URL refresh with a project
 
-Custom question answering gives you the ability to refresh knowledge base projects by getting the latest content from a source URL and updating the corresponding knowledge base with one click. The service will ingest content from the URL and either create, merge, or delete question-and-answer pairs in the knowledge base. 
+Custom question answering gives you the ability to refresh your source contents by getting the latest content from a source URL and updating the corresponding knowledge base with one click. The service will ingest content from the URL and either create, merge, or delete question-and-answer pairs in the knowledge base. 
 
-This functionality is provided to support scenarios where the content in the source URL changes frequently, such as the FAQ page of a product that's updated often. Users need a simple mechanism to update the knowledge base. The service will refresh the source and update the knowledge base to the latest content while retaining any manual edits made previously.
+This functionality is provided to support scenarios where the content in the source URL changes frequently, such as the FAQ page of a product that's updated often. The service will refresh the source and update the knowledge base to the latest content while retaining any manual edits made previously.
 
 > [!NOTE]
 > This feature is only applicable to URL sources, and they must be refreshed individually, not in bulk. 
@@ -24,7 +24,7 @@ This functionality is provided to support scenarios where the content in the sou
 
 ## How it works
 
-If you have a knowledge base with a URL source that has changed, you can trigger a smart URL refresh to keep your knowledge base up to date. The service will scan the contents at the URL and generate new QnA pairs. It will add these pairs to your knowledge base and also delete any pairs that have disappeared from the source (with exceptions&mdash;see below). It also merges old and new QnA pairs in some situations (see below).
+If you have a knowledge base with a URL source that has changed, you can trigger a smart URL refresh to keep your knowledge base up to date. The service will scan the URL for updated content and generate QnA pairs. It will add any new QnA pairs to your knowledge base and also delete any pairs that have disappeared from the source (with exceptions&mdash;see below). It also merges old and new QnA pairs in some situations (see below).
 
 > [!IMPORTANT]
 > Because smart URL refresh can involve deleting old content from your knowledge base, you may want to [create a backup](./export-import-refresh.md) of your knowledge base before you do any refresh operations.
@@ -68,7 +68,7 @@ See the following example of a merge operation with differing questions and prom
 |old |"What is the new HR policy?"     |  "You may have to choose among the following options:"       | P1, P2        |
 |new |"What is the new payroll policy?"    |  "You may have to choose among the following options:"    |  P3, P4   |
 
-The prompts P1 and P2 of the old QnA pair are different from prompts P3 and P4 of the new QnA pair. They both have the same answer, `You may have to choose among the following options:`, but it leads to different prompts. In this case, the resulting QnA pair would look like this:
+The prompts P1 and P2 come from the original source and are different from prompts P3 and P4 of the new QnA pair. They both have the same answer, `You may have to choose among the following options:`, but it leads to different prompts. In this case, the resulting QnA pair would look like this:
 
 |Question  |Answer  |Prompts  |
 |---------|---------|--|
