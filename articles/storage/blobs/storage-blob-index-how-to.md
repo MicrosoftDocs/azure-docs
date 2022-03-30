@@ -4,7 +4,7 @@ description: See examples of how to use blob index tags to categorize, manage, a
 author: normesta
 
 ms.author: normesta
-ms.date: 03/29/2022
+ms.date: 03/30/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -69,10 +69,34 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 ### [Azure CLI](#tab/azure-cli)
 
-Description goes here.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Install the `storage-preview` extension.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+2. If you're using Azure CLI locally, run the login command.
+
+   ```azurecli
+   az login
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+
+3. Upload a blob by using the `az storage blob upload` command. Set tags by using the `--tags` parameter.
+
 
 ```azurecli
-az --version
+az storage blob upload --account-name mystorageaccount --container-name myContainer --name demo-file.txt --file C:\demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
 ```
 ---
 
@@ -134,11 +158,41 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 ### [Azure CLI](#tab/azure-cli)
 
-Description goes here.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Install the `storage-preview` extension.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+2. If you're using Azure CLI locally, run the login command.
+
+   ```azurecli
+   az login
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+
+3. To get the tags of a blob, use the `az storage blob tag list` command and set the `--name` parameter to the name of the blob.
 
 ```azurecli
-az --version
+az storage blob tag list --account-name mystorageaccount --container-name myContainer --name demo-file.txt --auth-mode login
 ```
+
+4. To set the tags of a blob, use the `az storage blob tag set` command. Set the `--name` parameter to the name of the blob, and set the `--tags` parameter to a collection of name and value pairs.
+
+```azurecli
+az storage blob tag set --account-name mystorageaccount --container-name myContainer --name demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
+```
+
 ---
 
 ## Filter and find data with blob index tags
@@ -197,11 +251,40 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
 ### [Azure CLI](#tab/azure-cli)
 
-Description goes here.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-```azurecli
-az --version
-```
+2. Install the `storage-preview` extension.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+2. If you're using Azure CLI locally, run the login command.
+
+   ```azurecli
+   az login
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+
+3. To find all blobs that match a specific blob tag, use the `az storage blob filter` command. 
+
+   ```azurecli
+   az storage blob filter --account-name mystorageaccount --tag-filter ""tag1"='value1' and "tag2"='value2'" --auth-mode login
+   ```
+
+4. To find blobs only in a specific container, include the container name in the `--tag-filter` parameter.
+
+   ```azurecli
+   az storage blob filter --account-name mystorageaccount --tag-filter ""@container"='myContainer' and "tag1"='value1' and "tag2"='value2'" --auth-mode login
+   ```
 
 ---
 
