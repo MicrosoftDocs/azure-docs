@@ -68,9 +68,8 @@ The attributes, which define the dimension itself, are shared across all plans f
 * Name
 * Unit of measure
 
-The other attributes of a dimension are specific to each plan and can have different values from plan to plan.  Before you publish the plan, you can edit these values and only this plan will be affected. Once you publish the plan, these attributes will no longer be editable. The attributes are:
+The other attributes of a dimension are specific to each plan and can have different values from plan to plan. Before you publish the plan, you can edit these values and only this plan will be affected. Once you publish the plan, the following attributes will no longer be editable:
 
-* Price per unit
 * Included quantity for monthly customers
 * Included quantity for annual customers
 
