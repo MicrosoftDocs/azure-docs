@@ -214,8 +214,12 @@ Create a connection between your web application and your App Configuration stor
 ```azurecli
 az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --user-identity client-id=<myIdentityClientId> subs-id=<myTestSubsId>
 ```
-
 `user-identity` refers to the user-assigned managed identity authentication type. Service Connector also supports the following authentications: system-assigned managed identity, connection string (secret) and service principal.
+
+There are two ways you can find the `client-id`:
+
+- In the Azure CLI, enter `az identity show -n <myIdentityName> -g <myResourceGroupName>  --query 'clientId'`.
+- In the Azure portal, open the Managed Identity that was created earlier and in **Overview**, get the value under **Client ID**.
 
 ### [Service principal](#tab/serviceprincipal)
 
