@@ -444,7 +444,7 @@ To create a virtual network, follow these steps:
     | **Region** | The location where you will deploy your secondary managed instance. |
     | **Subnet** | The name for your subnet. `default` is provided for you by default. |
     | **Address range**| The address range for your subnet. This must be different than the subnet address range used by the virtual network of your primary managed instance, such as `10.128.0.0/24`.  |
-    | &nbsp; | &nbsp; |
+
 
     ![Secondary virtual network values](./media/failover-group-add-instance-tutorial/secondary-virtual-network.png)
 
@@ -483,7 +483,7 @@ Create the secondary managed instance using the Azure portal.
     | **Region**| The location for your secondary managed instance.  |
     | **SQL Managed Instance admin login** | The login you want to use for your new secondary managed instance, such as `azureuser`. |
     | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
-    | &nbsp; | &nbsp; |
+
 
 1. Under the **Networking** tab, for the **Virtual Network**, select the virtual network you created for the secondary managed instance from the drop-down.
 
@@ -778,7 +778,7 @@ Create the gateway for the virtual network of your primary managed instance usin
     | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-primary`. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address, such as `primary-gateway-IP`. |
-    | &nbsp; | &nbsp; |
+
 
 1. Leave the other values as default, and then select **Review + create** to review the settings for your virtual network gateway.
 
@@ -859,7 +859,7 @@ Using the Azure portal, repeat the steps in the previous section to create the v
    | **Virtual network**| Select the virtual network for the secondary managed instance, such as `vnet-sql-mi-secondary`. |
    | **Public IP address**| Select **Create new**. |
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
-   | &nbsp; | &nbsp; |
+
 
    ![Secondary gateway settings](./media/failover-group-add-instance-tutorial/settings-for-secondary-gateway.png)
 

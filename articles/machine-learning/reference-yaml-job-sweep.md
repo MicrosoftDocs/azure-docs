@@ -6,6 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
+ms.custom: cliv2
 
 author: mx-iao
 ms.author: minxia

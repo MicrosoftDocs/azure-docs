@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for IRS 1075 September 2016 (Azure Government)
 description: Details of the IRS 1075 September 2016 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/15/2022
+ms.date: 03/10/2022
 ms.topic: sample
 ms.custom: generated
 ---

@@ -47,7 +47,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database or elastic pool. |
 | [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) | Creates a copy of a database that uses the snapshot at the current time. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
-|||
+
 
 ## Next steps
 

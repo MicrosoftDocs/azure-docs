@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
 ms.date: 03/08/2022
-ms.author: gwallace
+ms.author: timwarner
 ms.custom: generated
 ---
 
@@ -135,9 +135,9 @@ Returns sensitivity insight of a specific resource (replace placeholder {resourc
 
 ```kusto
 SecurityResources
-| where type == 'microsoft.security/insights/classification'
-| where properties.associatedResource contains '$resource_id'
-| project SensitivityInsight = properties.insightProperties.purviewCatalogs[0].sensitivity
+| where type =~ 'microsoft.security/insights'
+| where id endswith "microsoft.security/insights/classification"
+| where properties.associatedResource contains '{resource_id}'
 ```
 
 # [Azure CLI](#tab/azure-cli)

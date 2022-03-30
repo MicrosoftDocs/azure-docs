@@ -4,23 +4,23 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 03/24/2022
 ms.author: govindk
-ms.reviewer: sngun
-ms.custom: references_regions
-
+ms.reviewer: wiassaf
+ms.custom: references_regions, cosmos-db-video
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-📺 <B><a href="https://aka.ms/cosmos-db-video-continuous-backup-restore-intro" target="_blank">Video: Learn more about continuous backup and point-in-time restore</a></b>
 
 Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
 
 * To recover from an accidental write or delete operation within a container.
 * To restore a deleted account, database, or a container.
 * To restore into any region (where backups existed) at the restore point in time.
+
+>
+> [!VIDEO https://aka.ms/docs.continuous-backup-restore]
 
 Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
 
@@ -95,7 +95,7 @@ The following example is based on the price for an Azure Cosmos account deployed
 
   $0.15/GB * Data size in GB.
 
-For example, if you have 1-TB of data in two regions then:
+For example, if you have 1 TB of data in two regions then:
 
 * Backup storage cost is calculated as (1000 * 0.20 * 2) = $400 per month
 
@@ -137,6 +137,8 @@ Currently the point in time restore functionality has the following limitations:
 * The restore process restores all the properties of a container including its TTL configuration. As a result, it is possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
 * Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account or migrate an account from periodic to continuous mode.
+
+* Continuous mode restore may not restore throughput setting valid as of restore point. 
 
 ## Next steps
 

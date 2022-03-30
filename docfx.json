@@ -651,8 +651,8 @@
         "articles/container-registry/**/*.md": "tejaswikolli",
         "articles/data-lake-analytics/*.md": "xujiang1",
         "articles/defender-for-cloud/*.md": "elkrieger",
-        "articles/defender-for-iot/organizations/*.md": "shhazam",
-        "articles/defender-for-iot/device-builders/*.md": "elkrieger",
+        "articles/defender-for-iot/organizations/*.md": "bagol",
+        "articles/defender-for-iot/device-builders/*.md": "bagol",
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/devtest-labs/**/*.md": "juliako",
         "articles/event-grid/**/*.md": "spelluru",
@@ -806,6 +806,7 @@
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
+        "articles/azure-functions/durable/**/*.md": "durable",
         "articles/azure-monitor/app/**/*.md": "application-insights",
         "articles/azure-monitor/agents/**/*.md": "agents",
         "articles/azure-monitor/alerts/**/*.md": "alerts",

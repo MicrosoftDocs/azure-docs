@@ -62,7 +62,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds.md",
-            "redirect_url": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
+            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
             "redirect_document_id": false
         },
         {

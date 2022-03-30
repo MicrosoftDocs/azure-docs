@@ -55,13 +55,13 @@ This cmdlet removes all existing user sessions on the host pool's session host. 
 
 To delete a host pool using the Azure CLI, you first need to delete all app groups in the host pool. 
 
-To delete all app groups, use the [az desktopvirtualization applicationgroup delete](/cli/azure/desktopvirtualization/applicationgroup#az_desktopvirtualization_applicationgroup_delete) command:
+To delete all app groups, use the [az desktopvirtualization applicationgroup delete](/cli/azure/desktopvirtualization/applicationgroup#az-desktopvirtualization-applicationgroup-delete) command:
 
 ```azurecli
 az desktopvirtualization applicationgroup delete --name "MyApplicationGroup" --resource-group "MyResourceGroup"
 ```
 
-Next, delete the host pool using the [az desktopvirtualization hostpool delete](/cli/azure/desktopvirtualization/hostpool#az_desktopvirtualization_hostpool_delete) command:
+Next, delete the host pool using the [az desktopvirtualization hostpool delete](/cli/azure/desktopvirtualization/hostpool#az-desktopvirtualization-hostpool-delete) command:
 
 ```azurecli
 az desktopvirtualization hostpool delete --force true --name "MyHostPool" --resource-group "MyResourceGroup"

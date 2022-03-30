@@ -241,7 +241,7 @@
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-container-registries-cicd.md
-    - name: Protect your Kubernetes workloads
+    - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
     - name: Defender for Kubernetes (deprecated)
@@ -375,7 +375,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=securityS
+    href: /learn/browse/?term=defender%20for%20cloud
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

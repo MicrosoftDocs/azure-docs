@@ -1,60 +1,64 @@
 ---
 title: Increase networking quotas
 description: Learn how to request a networking quota increase in the Azure portal.
-ms.date: 12/02/2021
+ms.date: 03/25/2022
 ms.topic: how-to
 ---
 
 # Increase networking quotas
 
-This article shows how to request increases for networking quotas in the [Azure portal](https://portal.azure.com).
+This article shows how to request increases for networking quotas from [Azure Home](https://portal.azure.com) or from **My quotas**, a centralized location where you can view your quota usage and request quota increases.
 
-To view your current networking usage and quota in the Azure portal, open your subscription, then select **Usage + quotas**. You can also use the following options to view your network usage and limits.
+For quick access to request an increase, select **Quotas** on the Azure Home page.
 
-- [Usage CLI](/cli/azure/network#az_network_list_usages)
-- [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
-- [The network usage API](/rest/api/virtualnetwork/virtualnetworks/listusage)
+:::image type="content" source="media/networking-quota-request/quotas-icon.png" alt-text="Screenshot of the Quotas icon in the Azure portal.":::
 
-You can request an increase in the Azure portal by using **Help + support** or in **Usage + quotas** for your subscription.
+If you don't see **Quotas** on Azure Home, type "quotas" in the search box, then select **Quotas**. The **Quotas** icon will then appear on your Home page the next time you visit.
 
-> [!Note]
-> To change the default size of **Public IP Prefixes**, select **Min Public IP InterNetwork Prefix Length** from the dropdown list.
+You can also use the following options to view your network quota usage and limits:
 
-## Request networking quota increase by using Help + support
+- [Azure CLI](/cli/azure/network#az-network-list-usages)
+- [Azure PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+- [REST API](/rest/api/virtualnetwork/virtualnetworks/listusage)
+- **Usage + quotas** (in the left pane when viewing your subscription in the Azure portal) 
 
-Follow the instructions below to create a networking quota increase request by using **Help + support** in the Azure portal.
+Based on your subscription, you can typically request increases for these quotas:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and [open a new support request](how-to-create-azure-support-request.md).
+- Public IP Addresses
+- Public IP Addresses - Standard
+- Public IPv4 Prefix Length
 
-1. For **Issue type**, choose **Service and subscription limits (quotas)**.
+## Request networking quota increases
 
-1. Select the subscription that needs an increased quota.
+Follow these steps to request a networking quota increase from Azure Home.
 
-1. Under **Quota type**, select **Networking**. Then select **Next**.
+1. From [Azure Home](https://portal.azure.com), select **Quotas** and then select **Microsoft.Network**.
 
-   :::image type="content" source="media/networking-quota-request/new-networking-quota-request.png" alt-text="Screenshot of a new networking quota increase request in the Azure portal.":::
+1. Find the quota you want to increase, then select the support icon.
 
-1. In the **Problem details** section, select **Enter details**. Follow the prompts to select a deployment model, location, the resources to include in your request, and the new limit you would like on the subscription for those resources. When you're finished, select **Save and continue** to continue creating your support request.
+   :::image type="content" source="media/networking-quota-request/quota-support-icon.png" alt-text="Screenshot showing the support icon for a networking quota.":::
 
-    :::image type="content" source="media/networking-quota-request/quota-details-network.png" alt-text="Screenshot of the Quota details screen for a networking quota increase request in the Azure portal.":::
+1. In the **New support request** form, on the **Problem description** screen, some fields will be pre-filled for you. In the **Quota type** list, select **Networking**, then select **Next**.
 
-1. Complete the rest of the **Additional information** screen, and then select **Next**.
+   :::image type="content" source="media/networking-quota-request/new-networking-quota-request.png" alt-text="Screenshot of a networking quota support request in the Azure portal.":::
 
-1. On the **Review + create** screen, review the details that you'll send to support, and then select **Create**.
+1. On the **Additional details** screen, under P**rovide details for the request**, select **Enter details**.
 
-## Request networking quota increase from Usage + quotas
+1. In the **Quota details** pane, enter the information for your request.
 
-Follow these instructions to create a networking quota increase request from **Usage + quotas** in the Azure portal.
+   > [!IMPORTANT]
+   > To increase a static public IP address quota, select **Other** in the **Resources** list, then specify this information in the **Details** section.
 
-1. From https://portal.azure.com, search for and select **Subscriptions**.
+   :::image type="content" source="media/networking-quota-request/quota-details-network.png" alt-text="Screenshot of the Quota details pane for a networking quota increase request.":::
 
-1. Select the subscription that needs an increased quota.
+1. Select **Save and continue**. The information you entered will appear in the **Request summary** under **Problem details**.
 
-1. Select **Usage + quotas**.
+1. Continue to fill out the form, including your preferred contact method. When you're finished, select **Next**.
+1. Review your quota increase request information, then select **Create**.
 
-1. In the upper right corner, select **Request increase**.
+After your networking quota increase request has been submitted, a support engineer will contact you and assist you with the request.
 
-1. Follow the steps above (starting at step 4) to complete your request.
+For more information about support requests, see [Create an Azure support request](how-to-create-azure-support-request.md).
 
 ## Next steps
 

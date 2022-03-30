@@ -21,8 +21,10 @@
     href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
-  - name: Configuration settings
+  - name: Bastion configuration settings
     href: configuration-settings.md
+  - name: VM connections and features
+    href: vm-about.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
   - name: Work with NSGs

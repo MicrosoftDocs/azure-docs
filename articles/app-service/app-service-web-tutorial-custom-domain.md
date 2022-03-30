@@ -7,10 +7,6 @@ ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: tutorial
 ms.date: 05/27/2021
 ms.custom: mvc, seodec18, devx-track-azurepowershell
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
 ---
 
 # Tutorial: Map an existing custom DNS name to Azure App Service
