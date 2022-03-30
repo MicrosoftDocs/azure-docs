@@ -156,25 +156,36 @@ landingContent:
         links:
           - text: What is BareMetal Infrastructure for Nutanix? 
             url: workloads/nutanix-public-preview/nutanix-baremetal-overview.md
-      - linkListType: reference
-        links:
-          - text: High availability and disaster recovery
-            url: workloads/oracle/concepts-oracle-high-availability.md
-          - text: High availability features 
-            url: workloads/oracle/high-availability-features.md
-          - text: Options and considerations 
-            url: workloads/oracle/options-considerations-high-availability.md
-          - text: Choose how to recover
-            url: workloads/oracle/oracle-high-availability-recovery.md
+          - text: About the Public Preview
+            url: workloads/nutanix-public-preview/about-the-public-preview.md
+          - text: Architecture
+            url:  workloads/nutanix-public-preview/nutanix-baremetal-architecture.md  
+
       - linkListType: how-to-guide
         links:
-          - text: SnapCenter overview
-            url: workloads/oracle/netapp-snapcenter-integration-oracle-baremetal.md
-          - text: Set up SnapCenter to route traffic
-            url: workloads/oracle/set-up-snapcenter-to-route-traffic.md
-          - text: Configure SnapCenter
-            url: workloads/oracle/configure-snapcenter-oracle-baremetal.md
-          - text: Create on-demand backup
-            url: workloads/oracle/create-on-demand-backup-oracle-baremetal.md
-          - text: Restore Oracle Database
-            url: workloads/oracle/restore-oracle-database-baremetal.md
+          - text: Getting ready for Deployment
+            items:
+             - text: Requirements
+               url:  workloads/nutanix-public-preview/requirements.md
+             - text: Supported instances
+               url:  workloads/nutanix-public-preview/supported-instances.md
+          - text: Deployment
+            items:
+              - text: Overview
+                url:  workloads/nutanix-public-preview/nutanix-deployment-overview.md
+              - text: Registering Nutanix Clusters in Azure
+                url:  workloads/nutanix-public-preview/registering-nutanix-clusters.md
+              - text: Azure Portal Workflow
+                url:  workloads/nutanix-public-preview/azure-portal-workflow.md
+                items:
+                  - text: Setup networking infrastructure in Azure
+                    url:  workloads/nutanix-public-preview/setup-networking-infrastructure-in-azure.md
+                  - text: Nutanix Clusters Console Workflow
+                    url:  workloads/nutanix-public-preview/nutanix-clusters-console-workflow.md
+                  - text: User VM (UVM) Network Management 
+                    url:  workloads/nutanix-public-preview/uvm-network-management.md
+                  - text: Cluster Management
+                    url: cluster-management.md
+                  - text: Cluster Administration
+                    url:  workloads/nutanix-public-preview/cluster-administration.md
+  
