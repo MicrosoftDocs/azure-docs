@@ -36,7 +36,7 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
 6. Select the **Upload** button to upload the blob.
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Screenshot of the Azure portal showing how to upload a blob with index tags.":::
+   :::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Screenshot of the Azure portal showing how to upload a blob with index tags.":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -55,16 +55,24 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
+3. Get the storage account context that defines the storage account you want to use.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
 3. Upload a blob by using the `Set-AzStorageBlobContent` command. Set tags by using the `-Tag` parameter.
 
     ```powershell
-    $path          = "C:\temp\" 
     $containerName = "myContainer"
-    $filename      = "demo-file.txt"
-    $imageFiles    = $path + "*.png"
-    $file          = $path + $filename
+    $file = "C:\demo-file.txt"
 
-    Set-AzStorageBlobContent -File $file -Container $containerName -Context $context -Tag @{"tag1" = "value1"; "tag2" = "value2" }
+    Set-AzStorageBlobContent -File $file -Container $containerName -Context $ctx -Tag @{"tag1" = "value1"; "tag2" = "value2" }
     ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -91,13 +99,11 @@ This task can be performed by a [Storage Blob Data Owner](../../role-based-acces
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-
 3. Upload a blob by using the `az storage blob upload` command. Set tags by using the `--tags` parameter.
 
-
-```azurecli
-az storage blob upload --account-name mystorageaccount --container-name myContainer --name demo-file.txt --file C:\demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
-```
+   ```azurecli
+   az storage blob upload --account-name mystorageaccount --container-name myContainer --name demo-file.txt --file C:\demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
+   ```
 ---
 
 ## Get, set, and update blob index tags
@@ -120,7 +126,7 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 6. Select the **Save** button to confirm any updates to your blob.
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot of the Azure portal showing how to get, set, update, and delete index tags on blobs.":::
+   :::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot of the Azure portal showing how to get, set, update, and delete index tags on blobs.":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -139,21 +145,32 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. To get the tags of a blob, use the `Get-AzStorageBlobTag` command and set the `-Blob` parameter to the name of the blob.
+3. Get the storage account context that defines the storage account you want to use.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+4. To get the tags of a blob, use the `Get-AzStorageBlobTag` command and set the `-Blob` parameter to the name of the blob.
 
     ```powershell
     $containerName = "myContainer"
     $blobName = "myBlob" 
-    Get-AzStorageBlobTag -Context $context -Container $containerName -Blob $blobName
+    Get-AzStorageBlobTag -Context $ctx -Container $containerName -Blob $blobName
     ```
 
-4. To set the tags of a blob, use the `Set-AzStorageBlobTag` command. Set the `-Blob` parameter to the name of the blob, and set the `-Tag` parameter to a collection of name and value pairs.
+5. To set the tags of a blob, use the `Set-AzStorageBlobTag` command. Set the `-Blob` parameter to the name of the blob, and set the `-Tag` parameter to a collection of name and value pairs.
 
     ```powershell
     $containerName = "myContainer"
     $blobName = "myBlob" 
     $tags = @{"tag1" = "value1"; "tag2" = "value2" }
-    Set-AzStorageBlobTag -Context $context -Container $containerName -Blob $blobName -Tag $tags
+    Set-AzStorageBlobTag -Context $ctx -Container $containerName -Blob $blobName -Tag $tags
     ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -183,15 +200,15 @@ Setting and updating blob index tags can be performed by a [Storage Blob Data Ow
 
 3. To get the tags of a blob, use the `az storage blob tag list` command and set the `--name` parameter to the name of the blob.
 
-```azurecli
-az storage blob tag list --account-name mystorageaccount --container-name myContainer --name demo-file.txt --auth-mode login
-```
+   ```azurecli
+   az storage blob tag list --account-name mystorageaccount --container-name myContainer --name demo-file.txt --auth-mode login
+   ```
 
 4. To set the tags of a blob, use the `az storage blob tag set` command. Set the `--name` parameter to the name of the blob, and set the `--tags` parameter to a collection of name and value pairs.
 
-```azurecli
-az storage blob tag set --account-name mystorageaccount --container-name myContainer --name demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
-```
+   ```azurecli
+   az storage blob tag set --account-name mystorageaccount --container-name myContainer --name demo-file.txt --tags tag1=value1 tag2=value2 --auth-mode login
+   ```
 
 ---
 
@@ -235,18 +252,29 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. To find all blobs that match a specific blob tag, use the `Get-AzStorageBlobByTag` command. 
+3. Get the storage account context that defines the storage account you want to use.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   - Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+4. To find all blobs that match a specific blob tag, use the `Get-AzStorageBlobByTag` command. 
 
     ```powershell
     $filterExpression = """tag1""='value1'"
-    Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $context
+    Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $ctx
     ```
 
-4. To find blobs only in a specific container, include the container name in the `-TagFilterSqlExpression`.
+5. To find blobs only in a specific container, include the container name in the `-TagFilterSqlExpression`.
 
     ```powershell
     $filterExpression = "@container='containername' AND ""tag1""='value1'"
-    Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $context
+    Get-AzStorageBlobByTag -TagFilterSqlExpression $filterExpression -Context $ctx
     ``` 
 
 ### [Azure CLI](#tab/azure-cli)
