@@ -181,7 +181,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
 3. Register the agent with the replication appliance:
     ```
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-    UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
+    UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance FQDN> /PassphraseFilePath <Passphrase File Path>
     ```
 
 ### Install on Linux
