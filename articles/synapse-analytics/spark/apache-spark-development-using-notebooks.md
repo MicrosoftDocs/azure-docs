@@ -564,6 +564,11 @@ Available cell magics:
 
 Reference unpublished notebook is helpful when you want to debug "locally", when enabling this feature, notebook run will fetch the current content in web cache, if you run a cell including a reference notebooks statement, you will reference the presenting notebooks in the current notebook browser instead of a saved versions in cluster, that means the changes in your notebook editor can be referenced immediately by other notebooks without having to be published(Live mode) or committed(Git mode), by leveraging this approach you can easily avoid common libraries getting polluted during developing or debugging process. 
 
+You can enable Reference unpublished notebook from Properties panel: 
+
+   ![Screenshot of notebook-reference](./media/apache-spark-development-using-notebooks/synapse-notebook-reference.png)
+
+
 For different cases comparison please check the table below:  
 
 Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkutils.notebook.run](./microsoft-spark-utilities.md) has same behavior here. We use `%run` here as an example. 
@@ -584,12 +589,58 @@ Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkut
 |- Nb1 (Previously published and committed, edited) <br/> `%run Nb1`|Run **published** version of Nb1|Run **edited** version of Nb1| 
 
  
-## Conclusion 
+### Conclusion 
 
 * If disabled, always run **published** version. 
 * If enabled, priority is: edited / new > committed > published. 
 
 
+## Active session management 
+
+You can reuse your notebook sessions conveniently now without having to start new ones. Synapse notebook now supports managing your active sessions in the **Manage sessions** list, you can see all the sessions in the current workspace started by you from notebook.
+
+   ![Screenshot of notebook-manage-sessions](./media/apache-spark-development-using-notebooks/synapse-notebook-manage-sessions.png)
+
+In the **Active sessions** list you can see the session information and the corresponding notebook that is currently attached to the session. You can operate Detach with notebook, Stop the session, and View in monitoring from here. Moreover, you can easily connect your selected notebook to an active session in the list started from another notebook, the session will be detached from the previous notebook (if it's not idle) then attach to the current one.
+
+   ![Screenshot of notebook-sessions-list](./media/apache-spark-development-using-notebooks/synapse-notebook-sessions-list.png)
+
+
+## Python logging in Notebook
+
+You can find Python logs and set different log levels and format following the sample code below: 
+
+```python
+import logging
+
+# Customize the logging format for all loggers
+FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+formatter = logging.Formatter(fmt=FORMAT)
+for handler in logging.getLogger().handlers:
+    handler.setFormatter(formatter)
+
+# Customize log level for all loggers
+logging.getLogger().setLevel(logging.INFO)
+
+# Customize the log level for a specific logger
+customizedLogger = logging.getLogger('customized')
+customizedLogger.setLevel(logging.WARNING)
+
+# logger that use the default global log level
+defaultLogger = logging.getLogger('default')
+defaultLogger.debug("default debug message")
+defaultLogger.info("default info message")
+defaultLogger.warning("default warning message")
+defaultLogger.error("default error message")
+defaultLogger.critical("default critical message")
+
+# logger that use the customized log level
+customizedLogger.debug("customized debug message")
+customizedLogger.info("customized info message")
+customizedLogger.warning("customized warning message")
+customizedLogger.error("customized error message")
+customizedLogger.critical("customized critical message")
+```
 
 ## Integrate a notebook
 

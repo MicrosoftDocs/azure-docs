@@ -71,6 +71,8 @@
       href: concept-end-to-end-tls.md
     - name: Web Application Firewall
       href: web-application-firewall.md
+    - name: Private Link
+      href: private-link.md
   - name: Protocol
     items:
     - name: HTTP/2

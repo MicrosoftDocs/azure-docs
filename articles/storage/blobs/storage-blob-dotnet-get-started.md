@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 # Get started with Azure Blob Storage and .NET
 
-This article shows you to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 

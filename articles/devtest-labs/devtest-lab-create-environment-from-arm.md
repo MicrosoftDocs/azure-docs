@@ -2,6 +2,8 @@
 title: Use ARM templates to create multi-VM environments and PaaS resources
 description: Learn how to use Azure Resource Manager (ARM) templates to create multi-VM, platform-as-a-service (PaaS) environments and resources in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/03/2022
 ---
 
