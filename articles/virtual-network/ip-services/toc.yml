@@ -38,6 +38,10 @@ items:
     href: routing-preference-azure-kubernetes-service-cli.md
 - name: Concepts
   items:
+  - name: Custom IP address prefix (BYOIP)
+    href: custom-ip-address-prefix.md
+  - name: Manage a custom IP address prefix (BYOIP)
+    href: manage-custom-ip-address-prefix.md
   - name: Public IPs
     href: public-ip-addresses.md
   - name: Private IPs
@@ -64,6 +68,14 @@ items:
   items:
     - name: Configure IP addresses for an Azure network interface
       href: virtual-network-network-interface-addresses.md
+    - name: Create a custom IP address prefix (BYOIP)
+      items:
+      - name: Portal
+        href: create-custom-ip-address-prefix-portal.md      
+      - name: PowerShell
+        href: create-custom-ip-address-prefix-powershell.md
+      - name: CLI
+        href: create-custom-ip-address-prefix-cli.md
     - name: Resource management
       items:
       - name: Load balancer

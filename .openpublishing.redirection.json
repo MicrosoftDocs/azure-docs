@@ -914,6 +914,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-lb-with-azure-app-delivery-suite.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/load-balancing-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/overview.md",
+      "redirect_url": "/azure/frontdoor/front-door-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -19829,6 +19839,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/event-grid/cli-samples.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-create-custom-topic.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group-filter.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-blob.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/concept-ml-pipelines.md",
       "redirect_url": "/azure/machine-learning/concept-ml-pipelines",
       "redirect_document_id": true
@@ -21182,11 +21222,6 @@
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
