@@ -71,6 +71,9 @@ If your input data sent to the ML UDF is inconsistent with the schema that is ex
 - Validate input to your ML UDF is not null
 - Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
 
+> [!NOTE]
+> For optimization purposes, ML UDFs are evaluated for each row of a given query step, even when called via a conditional expression (`CASE WHEN [A] IS NOT NULL THEN udf.score(A) ELSE '' END`). If need be, use the [WITH](/stream-analytics-query/with-azure-stream-analytics) clause to create diverging paths, calling the ML UDF only where required, before using [UNION](/stream-analytics-query/union-azure-stream-analytics) to merge paths together again.
+
 ## Pass multiple input parameters to the UDF
 
 Most common examples of inputs to machine learning models are numpy arrays and DataFrames. You can create an array using a JavaScript UDF, and create a JSON-serialized DataFrame using the `WITH` clause.
