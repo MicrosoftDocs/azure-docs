@@ -206,7 +206,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
 
-    1. Give `Confidential Guest VM Agent` permissions to `get` and `release` the key vault.
+    1. Give `Confidential Guest VM Agent` permissions to managed HSM.
     
         ```azurecli
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
