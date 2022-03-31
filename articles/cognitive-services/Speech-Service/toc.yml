@@ -49,12 +49,10 @@ items:
       items:
       - name: How to recognize speech
         href: how-to-recognize-speech.md
+      - name: Change recognition source language
+        href: how-to-specify-source-language.md
       - name: Get speech recognition results
         href: get-speech-recognition-results.md
-    - name: Change recognition source language
-      href: how-to-specify-source-language.md
-    - name: Transcribe audio in batches
-      href: batch-transcription.md
     - name: Improve recognition with Custom Speech
       items:
         - name: Custom Speech overview
@@ -81,6 +79,8 @@ items:
           href: tutorial-tenant-model.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
+    - name: Transcribe audio in batches
+      href: batch-transcription.md
     - name: Ingestion Client
       href: ingestion-client.md
     - name: Speech-to-text FAQ
