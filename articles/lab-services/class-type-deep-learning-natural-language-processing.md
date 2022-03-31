@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-This article shows you how to set up a lab focused on deep learning in Natural Language Processing (NLP) using Azure Lab Services. Natural Language Processing (NLP) is a form of Artificial Intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities.  
+This article shows you how to set up a lab focused on deep learning in Natural Language Processing (NLP) using Azure Lab Services. NLP is a form of Artificial Intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities.  
 
 Students taking an NLP class get a Linux virtual machine (VM) to learn how to apply neural network algorithms. The algorithms teach students to develop deep learning models that are used for analyzing written human language.
 
@@ -35,12 +35,12 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 | Lab settings | Value |
 | ------------ | ------------------ |
 | Virtual machine (VM) size | **Small GPU (Compute)**. This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
-| VM image | [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). This image provides deep learning frameworks and tools for machine learning and data science. For more information on how to view the full list of installed tools on this image, see [What’s included on the DSVM?](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
+| VM image | [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). This image provides deep learning frameworks and tools for machine learning and data science. To view the full list of installed tools on this image, see [What’s included on the DSVM?](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Enable remote desktop connection | Optionally, check **Enable remote desktop connection**. The Data Science image is already configured to use X2Go so that teachers and students can connect using a GUI remote desktop. X2Go *doesn't* require the **Enable remote desktop connection** setting to be enabled. |
 | Template Virtual Machine Settings | Optionally, choose **Use a virtual machine image without customization**. If you're using the [April 2022 Update (preview)](lab-services-whats-new.md) and the DSVM has all the tools that your class requires, you can skip the template customization step. |
 
 > [!IMPORTANT]
-> We recommend using the X2Go with the Data Science image, if you choose to use RDP instead, you will need to connect to the Linux VM using SSH and install the RDP and GUI packages before publishing the lab. Then, students can connect to the Linux VM using RDP later.  For more information, see [Enable graphical remote desktop for Linux VMs](how-to-enable-remote-desktop-linux.md).
+> We recommend that you use the X2Go with the Data Science image. However, if you choose to use RDP instead, you'll need to connect to the Linux VM using SSH and install the RDP and GUI packages before publishing the lab. Then, students can connect to the Linux VM using RDP later. For more information, see [Enable graphical remote desktop for Linux VMs](how-to-enable-remote-desktop-linux.md).
 
 ## Template machine configuration
 
