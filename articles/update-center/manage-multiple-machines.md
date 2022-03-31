@@ -18,7 +18,7 @@ This article describes the various features that update management center (Previ
 - Deploy updates.
 - Set up recurring update deployment schedule.
 - Get insights on number of machines managed.
-- Information on how they are managed, and other relevant details. 
+- Information on how they're managed, and other relevant details. 
 
 Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all your machines in Azure subscription.
 
@@ -33,18 +33,18 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
    In the **Overview** page - the summary tiles show the following status:
 
-   - **Filters** —  use filters to focus on a subset of your resources. The selectors above the tiles return **Subscription**, **Resource group**, **Resource type**, (Azure VMs and Arc-enabled servers) **Location**, and **OS** type (Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource. 
+   - **Filters**—use filters to focus on a subset of your resources. The selectors above the tiles return **Subscription**, **Resource group**, **Resource type** (Azure VMs and Arc-enabled servers) **Location**, and **OS** type (Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource. 
 
-   - **Update status of machines** — shows the update status information for assessed machines that had applicable or needed updates. You can filter the results based on classification types. By default, all [classifications](/azure/automation/update-management/overview#update-classifications) are selected and as per the classification selection, the tile is updated.
+   - **Update status of machines**—shows the update status information for assessed machines that had applicable or needed updates. You can filter the results based on classification types. By default, all [classifications](/azure/automation/update-management/overview#update-classifications) are selected and as per the classification selection, the tile is updated.
 
       The graph provides a snapshot for all your machines in your subscription, regardless of whether or not you have used update management center (Preview) for that machine. This assessment data comes from Azure Resource Graph, and it stores the data for seven days. 
 
       From the assessment data available, machines are classified into the following categories:
 
-      - **No updates available** — no updates are pending for these machines and these machines are up to date.
-      -  **Updates available** — updates are pending for these machines and these machines aren't up to date.
-      - **Reboot Required** — pending a reboot for the updates to take effect.
-      - **No updates data** — no assessment data is available for these machines. 
+      - **No updates available**—no updates are pending for these machines and these machines are up to date.
+      -  **Updates available**—updates are pending for these machines and these machines aren't up to date.
+      - **Reboot Required**—pending a reboot for the updates to take effect.
+      - **No updates data**—no assessment data is available for these machines. 
    
       There could be the following reasons for no assessment data:
       - No assessment has been done over the last seven days
@@ -53,18 +53,18 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
    - **Patch orchestration configuration of Azure virtual machines** — all the Azure or Arc-enabled machines inventoried in the subscription are summarized by each update orchestration method. Values are: 
 
-      - **Azure orchestrated** — this mode enables automatic VM guest patching for the Azure virtual machine and Arc-enabled server. Subsequent patch installation is orchestrated by Azure. 
-      - **Image Default** — for Linux machines, it uses the default patching configuration.
-      - **OS orchestrated** — the OS automatically updates the machine.
-      - **Manual updates** — you control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates are disabled.
+      - **Azure orchestrated**—this mode enables automatic VM guest patching for the Azure virtual machine and Arc-enabled server. Subsequent patch installation is orchestrated by Azure. 
+      - **Image Default**—for Linux machines, it uses the default patching configuration.
+      - **OS orchestrated**—the OS automatically updates the machine.
+      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates are disabled.
 
    For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). 
 
-   - **Update installation status** — by default, the tile shows the status for last 30 days. Using the **Time** picker, you can choose a different range. The values are:
-      - **Failed** — is when one or more updates in the deployment have failed.
-      - **Completed** — is when the deployment ends successfully by the time range selected. 
-      - **Completed with warnings** — is when the deployment is completed successfully but had warnings.
-      - **In progress** — is when the deployment is currently running.
+   - **Update installation status**—by default, the tile shows the status for last 30 days. Using the **Time** picker, you can choose a different range. The values are:
+      - **Failed**—is when one or more updates in the deployment have failed.
+      - **Completed**—is when the deployment ends successfully by the time range selected. 
+      - **Completed with warnings**—is when the deployment is completed successfully but had warnings.
+      - **In progress**—is when the deployment is currently running.
 
 - Select the **Update status of machines** or **Patch orchestration configuration of Azure Virtual machines** to go to **Machines** page. 
 - Select the **Update installation status**, to go to **History** page. 
@@ -78,23 +78,23 @@ Update management center (Preview) in Azure enables you to browse information ab
    :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Update management center Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 
    On the page, the table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment.
-   - **Name** —
-   - **Update status** — the total number of updates available identified as applicable to the machine's OS.
-   - **Operating system** — the operating system running on the machine.
-   - **Resource type** — the machine is either hosted in Azure or is a hybrid machine managed by Arc-enabled servers.
-   - **Patch orchestration** —
-   - **Periodic assessment** —
-   - **Maintenance configuration** — 
-    - **Status** —
+   - **Name**
+   - **Update status**—the total number of updates available identified as applicable to the machine's OS.
+   - **Operating system**—the operating system running on the machine.
+   - **Resource type**—the machine is either hosted in Azure or is a hybrid machine managed by Arc-enabled servers.
+   - **Patch orchestration**—
+   - **Periodic assessment**—
+   - **Maintenance configuration**— 
+    - **Status**—
 
 The column **Patch Orchestration**, the machine's patch mode. Values are:
 
-   * **Automatic by OS** — the machine is automatically updated by the OS.
-   * **Azure orchestrated** — for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it's set to [automatic OS image upgrade](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
-   * **Image Default** — for Linux machines, its default patching configuration is used.
-   * **Manual** — you control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates is disabled.
+   * **Automatic by OS**—the machine is automatically updated by the OS.
+   * **Azure orchestrated**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it's set to [automatic OS image upgrade](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+   * **Image Default**—for Linux machines, its default patching configuration is used.
+   * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates is disabled.
 
-The machine's status — for an Azure VM, it shows it's [power state](/azure/virtual-machines/states-billing#power-states-and-billing), and for an Arc-enabled server, it shows if it is connected or not. 
+The machine's status—for an Azure VM, it shows it's [power state](/azure/virtual-machines/states-billing#power-states-and-billing), and for an Arc-enabled server, it shows if it's connected or not. 
 
 Use filters to focus on a subset of your resources. The selectors above the tiles return subscriptions, resource groups, resource types (that is, Azure VMs and Arc-enabled servers), regions, etc. and are based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource.
 
@@ -128,8 +128,8 @@ For the selected machine(s), if you want to proceed with installing updates on t
 1. In the **Updates**, specify the updates to include in the deployment by specifying:
 
    * Include Update classification
-   * Include KB ID/package — for Windows, you can refer to [MSRC](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest KBs released.
-   * Exclude KB ID/package — you don’t want to get installed as part of this process. Updates not shown in the list could be installed based on the time between last assessment and release of newer updates since then that are available for the selected machines. You can choose to exclude Windows updates that require a reboot by selecting the option **Exclude KBs requiring reboot for Windows server**.
+   * Include KB ID/package—for Windows, you can refer to [MSRC](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest KBs released.
+   * Exclude KB ID/package—you don’t want to get installed as part of this process. Updates not shown in the list could be installed based on the time between last assessment and release of newer updates since then that are available for the selected machines. You can choose to exclude Windows updates that require a reboot by selecting the option **Exclude KBs requiring reboot for Windows server**.
    
       ![Specify updates to exclude pane example.](./media/manage-multiple-machines/update-center-deploy-exclude-updates-pane.png)
    * Include by maximum patch publish date
@@ -140,7 +140,7 @@ For the selected machine(s), if you want to proceed with installing updates on t
 1. In **Properties** page, select the **Reboot option** and enter the duration in **Maintenance window (in minutes)**.
 1. In the **Review + install** page, verify your update deployment options and then select **Install**. 
 
-A notification appears to confirm that an activity has started and another is created when it's completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you are redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
+A notification appears to confirm that an activity has started and another is created when it's completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you're redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
 ### Set up a recurring update deployment
 
@@ -156,25 +156,25 @@ Update management center (Preview) enables you to browse information about your 
 
 :::image type="content" source="./media/manage-multiple-machines/update-center-history-page-inline.png" alt-text="Update Center History page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-page-expanded.png":::
 
-Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a machine specifics to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
+Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a machine specific to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
 
    - **Machine Name**
-   - **Status** - reports if an assessment or update deployment is **Failed**, **Successful**, or **InProgress** to indicate the action is underway.
+   - **Status**—reports if an assessment or update deployment is **Failed**, **Successful**, or **InProgress** to indicate the action is underway.
    - **Update installed**
-   - **Update operation**- reports if the action performed was an **Assessment** or **Install Updates**. 
-   - **Operation type** - reports that the assessment and deployment were manually initiated. 
+   - **Update operation**—reports if the action performed is an **Assessment** or **Install Updates**. 
+   - **Operation type**—reports that the assessment and deployment were manually initiated. 
    - **Operation start time**
    - **Resource Type**
    - **Tags**
    - **Last assessed time**
 
 ## Update deployment history by maintenance run ID
-Within the history page, select **By maintenance run ID**to view history of the maintenance run schedules. Each record shows 
+Within the history page, select **By maintenance run ID** to view history of the maintenance run schedules. Each record shows 
 - Maintenance run ID
 - Status
 - Updated machines
 - Operation start time
-- Opration end time 
+- Operation end time 
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-inline.png" alt-text="Update Center History page by maintenance run ID in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-expanded.png":::
 
