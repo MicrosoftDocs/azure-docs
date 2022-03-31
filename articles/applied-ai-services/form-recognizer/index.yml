@@ -185,6 +185,29 @@ landingContent:
          url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
   #Card 8
+   - title: Invoice model
+     linkLists:
+      - linkListType: overview
+        links:
+          - text: Model overview
+            url: concept-invoice.md
+      - linkListType: get-started
+        links:
+          - text:  .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
+          - text:  Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
+          - text:  Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
+          - text:  JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
+          - text:  REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
+          - text: Form Recognizer Studio
+            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+          - text:  Sample Labeling tool
+            url: "concept-business-card.md#sample-labeling-tool"
+   #Card 9
    - title: Custom model
      linkLists:
       - linkListType: overview
@@ -208,29 +231,6 @@ landingContent:
           - text: Sample Labeling tool
             url: "concept-custom.md"
 
-#Card 9
-   - title: Invoice model
-     linkLists:
-      - linkListType: overview
-        links:
-          - text: Model overview
-            url: concept-invoice.md
-      - linkListType: get-started
-        links:
-          - text:  .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
-          - text:  REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-          - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
-          - text:  Sample Labeling tool
-            url: "concept-business-card.md#sample-labeling-tool"
 #Card 10
    - title: Receipt model
      linkLists:
