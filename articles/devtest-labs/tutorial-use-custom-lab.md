@@ -2,6 +2,8 @@
 title: Access a lab and lab VM
 description: Learn how to access a lab in Azure DevTest Labs, and claim, connect to, and unclaim a lab virtual machine.
 ms.topic: tutorial
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/30/2022
 ---
 

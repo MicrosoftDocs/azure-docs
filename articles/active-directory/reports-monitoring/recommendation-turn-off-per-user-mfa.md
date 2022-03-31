@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory recommendation - Convert from per-user MFA to conditional access MFA in Azure AD | Microsoft Docs
-description: Learn why you should convert from per-user MFA to conditional access MFA in Azure AD
+title: Azure Active Directory recommendation - Turn off per user MFA in Azure AD | Microsoft Docs
+description: Learn why you should turn off per user MFA in Azure AD
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,19 +13,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/21/2022
+ms.date: 03/31/2022
 ms.author: markvi
 ms.reviewer: hafowler
 
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD recommendation: Convert from per-user MFA to conditional access MFA 
+# Azure AD recommendation: Turn off per user MFA 
 
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 
-This article covers the recommendation to convert from per-user MFA to conditional access MFA. 
+This article covers the recommendation to turn off per user MFA. 
 
 
 ## Description

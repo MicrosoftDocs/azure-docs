@@ -16,7 +16,7 @@ ms.date: 02/11/2022
 
 This article describes how to set up an Azure Cognitive Search indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview).
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure SQL.
 
 Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
 
