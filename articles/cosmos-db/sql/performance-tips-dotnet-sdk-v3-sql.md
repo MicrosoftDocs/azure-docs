@@ -241,11 +241,13 @@ When all the query results are consumed by the current component, you do not nee
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
     "SELECT * FROM c WHERE c.city = 'Seattle'",
     requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey("Washington")}))
-while (feedIterator.HasMoreResults) 
 {
-    foreach(MyItem document in await feedIterator.ReadNextAsync())
+    while (feedIterator.HasMoreResults) 
     {
-        // Iterate through documents
+        foreach(MyItem document in await feedIterator.ReadNextAsync())
+        {
+            // Iterate through documents
+        }
     }
 }
 ```
@@ -256,7 +258,9 @@ For queries, tune the [MaxConcurrency](/dotnet/api/microsoft.azure.cosmos.queryr
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
     "SELECT * FROM c WHERE c.city = 'Seattle'",
-    requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey("Washington")}))
+    requestOptions: new QueryRequestOptions() { 
+        PartitionKey = new PartitionKey("Washington"),
+        MaxConcurrency = -1 }))
 {
     // ...
 }
