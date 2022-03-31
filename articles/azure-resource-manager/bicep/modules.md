@@ -83,7 +83,7 @@ If you've [published a module to a registry](bicep-cli.md#publish), you can link
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-- **br** is the schema name for a Bicep registry.
+- **br** is the scheme name for a Bicep registry.
 - **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
