@@ -47,11 +47,12 @@ You must add a Client Secret while you register Nutanix Clusters with Azure. The
 > [!NOTE] 
 > Copy and save the secret value for later usage while adding an Azure cloud account to Nutanix Clusters 
 For up-to-date and detailed instructions about how to create and register an application with Azure, see the Microsoft Azure documentation at Create an Azure AD application and service principal. 
-Open the Azure PowerShell and make sure you have selected the right subscription to apply the following configuration. 
- 
+Open the Azure PowerShell and make sure you have selected the right subscription to apply the following configuration.  
+
 ```
 C:\>Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
 ```
+
 This registers the Microsoft network provider for your account. See RegisterAzResourceProvider for more information about registering the Microsoft network provider for your account. 
  
 6. Create a resource group in Azure.  
