@@ -65,8 +65,6 @@ To assign user-assigned managed identity to an existing application in the Azure
 4. Within the **User assigned** tab, select **Add**.
 5. Choose one or more user-assigned managed identities from right panel and then select **Add** from this panel.
 
-   :::image type="content" source="media/how-to-manage-user-assigned-managed-identities/add-user-assigned-managed-identity.jpg" alt-text="Azure portal screenshot of application identity screen with `Add user assigned managed identity` pane showing." lightbox="media/how-to-manage-user-assigned-managed-identities/add-user-assigned-managed-identity.jpg":::
-
 ### [Azure CLI](#tab/azure-cli)
 
 Use the following command to assign one or more user-assigned managed identities on an existing app:
@@ -100,8 +98,6 @@ To remove user-assigned managed identities from an application that no longer ne
 1. Sign in to the Azure portal using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
 1. Navigate to the desired application and select **Identity**.
 1. Under **User assigned**, select target identities and then select **Remove**.
-
-   :::image type="content" source="media/how-to-manage-user-assigned-managed-identities/remove-user-assigned-managed-identity.jpg" alt-text="Azure portal screenshot of application identity screen with 'User assigned (preview)' pane showing." lightbox="media/how-to-manage-user-assigned-managed-identities/remove-user-assigned-managed-identity.jpg":::
 
 ### [Azure CLI](#tab/azure-cli)
 
