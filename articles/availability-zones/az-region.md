@@ -33,8 +33,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | West US 2 | Switzerland North* | | |
 | West US 3 | | | |
 
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer 
-representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
