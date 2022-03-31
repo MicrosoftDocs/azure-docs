@@ -30,7 +30,7 @@ Open the [Log Analytics demo environment](https://portal.azure.com/#blade/Micros
 
 You can view the scope in the upper-left corner of the screen. If you're using your own environment, you'll see an option to select a different scope. This option isn't available in the demo environment.
 
-:::image type="content" source="media/log-analytics-tutorial/scope.png" alt-text="Screenshot that shows the Log Analytics scope for the demo." lightbox="media/log-analytics-tutorial/log-analytics-query-scope.png":::
+:::image type="content" source="media/log-analytics-tutorial/log-analytics-query-scope.png" alt-text="Screenshot that shows the Log Analytics scope for the demo." lightbox="media/log-analytics-tutorial/log-analytics-query-scope.png":::
 
 ## View table information
 The left side of the screen includes the **Tables** tab, where you can inspect the tables that are available in the current scope. These tables are grouped by **Solution** by default, but you can change their grouping or filter them. 
