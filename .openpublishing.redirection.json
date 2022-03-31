@@ -27799,6 +27799,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/private-5g-core/activate-sims.md",
+      "redirect_url": "/azure/private-5g-core/provision-sims-azure-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-template-lock.md",
       "redirect_url": "/azure/templates/microsoft.authorization/locks",
       "redirect_document_id": false
