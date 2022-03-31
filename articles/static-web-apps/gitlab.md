@@ -62,7 +62,7 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Search for **Static Web Apps**.
 1. Select **Static Web Apps**.
 1. Select **Create**.
-1. In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
+1. In the _Basics_ section, begin by configuring your new app.
 
     | Setting | Value |
     |--|--|
@@ -70,8 +70,8 @@ Now that the repository is created, you can create a static web app from the Azu
     | Resource Group | Select the **Create new** link and enter **static-web-apps-gitlab**. |
     | Name | Enter **my-first-static-web-app**. |
     | Plan type | Select **Free**. |
-    | Region for Azure Functions API and staging environments | Select the region closet to you. |
-    | Source | Select **other**. |
+    | Region for Azure Functions API and staging environments | Select the region closest to you. |
+    | Source | Select **Other**. |
 
 1. Select **Review + create**.
 1. Select **Create**.
@@ -178,7 +178,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 ### Configuration properties
 
-The following configuration properties are used in the *.gitlab-cli.yml* file to configure your static web app.
+The following configuration properties are used in the *.gitlab-ci.yml* file to configure your static web app.
 
 The `$CI_PROJECT_DIR` variable maps to the repository's root folder location during the build process.
 
