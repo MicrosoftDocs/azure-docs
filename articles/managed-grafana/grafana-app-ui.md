@@ -14,7 +14,7 @@ This reference covers the main Grafana UI components, including panels, visualiz
 
 ## Panels
 
-A Grafana panel is the basic building block in Grafana. Each panel displays a dataset from a data source query using a [visualization](#visualizations). Refer to the following for more information about panels:
+A Grafana panel is a basic building block in Grafana. Each panel displays a dataset from a data source query using a [visualization](#visualizations). For more information about panels, refer to the following items:
 
 * [Working with Grafana panels](https://grafana.com/docs/grafana/latest/panels/working-with-panels/)
 * [Query a data source](https://grafana.com/docs/grafana/latest/panels/query-a-data-source/)
