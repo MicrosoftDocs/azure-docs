@@ -22,13 +22,11 @@
   items:
   - name: Deploy
     items:
-    - name: Enable Update management center
-      href: enable-machines.md
     - name: Configure Windows Update client
       href: configure-wu-agent.md
   - name: Manage
     items:
-    - name: View update compliance 
+    - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
       href: deploy-updates.md
