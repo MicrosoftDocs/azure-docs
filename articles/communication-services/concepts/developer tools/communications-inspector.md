@@ -27,12 +27,12 @@ The Communications Inspector provides developers three categories of information
 | Category                       | Descriptions                      |
 |--------------------------------|-----------------------------------|
 | General Call Information       | Includes call id, participants, devices and user agent information (browser, version, etc.) |
-| Media Quality Stats            | Metrics and statistics provided by [Media Quality APIs](./voice-video-calling/media-quality-sdk). Metrics are clickable for timeseries view.|
-| User Facing Diagnostics        | List of [user facing diagnostics](./voice-video-calling/user-facing-diagnostics).|
+| Media Quality Stats            | Metrics and statistics provided by [Media Quality APIs](../voice-video-calling/media-quality-sdk). Metrics are clickable for timeseries view.|
+| User Facing Diagnostics        | List of [user facing diagnostics](../voice-video-calling/user-facing-diagnostics).|
 
 Data collected by the tool is only kept locally and temporarily. It can be downloaded from within the interface. 
 
-Communications Inspector is compatible with the same browsers as the Calling SDK [here](./voice-video-calling/calling-sdk-features?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
+Communications Inspector is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
 
 ## Using the Communications Inspector
 
