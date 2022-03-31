@@ -259,6 +259,26 @@ By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spend
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send, the following example shows standard configuration options for enabling correlation:
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+### Server side snippet
+
 Support for correlation requests requires the returned HTML page contain dynamic JavaScript which as part of the SDK initialization uses a callback function to populate the Server-Side Operation ID.
 
 Sample using Razor and a dynamic JS snippet:
@@ -279,31 +299,13 @@ Sample using Razor and a dynamic JS snippet:
 
 If not using a snippet a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
 
-The following example shows standard configuration options for enabling correlation:
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    disableFetchTracking: false,
-    enableCorsCorrelation: true,
-    enableRequestHeaderTracking: true,
-    enableResponseHeaderTracking: true,
-    correlationHeaderExcludedDomains: ['*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
-
 ### Correlation header excluded domains
 
 The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
 An example would be `*.queue.core.windows.net`, as seen in the code sample above.
 Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
 
-### CORS configuration
+### Access control allow headers
 
 The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
 
@@ -319,9 +321,16 @@ By default, this SDK will **not** handle state-based route changing that occurs 
 > [!NOTE]
 > If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
-## Single Page Applications
+### Single Page Applications
 
-For Single Page Applications please reference [plugin documentation](#extensions) for plugin specific guidance.
+For Single Page Applications, please reference plugin documentation for plugin specific guidance. 
+
+| Plugins |
+|---------------|
+| [React](javascript-react-plugin.md#enable-correlation)|
+| [React Native](javascript-react-native-plugin.md#enable-correlation)|
+| [Angular](javascript-angular-plugin.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
 
 ## Extensions
 
