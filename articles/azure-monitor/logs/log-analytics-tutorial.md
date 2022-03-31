@@ -86,13 +86,20 @@ Let's reduce our results further by adding another filter condition. A query can
 ## Analyze results
 In addition to helping you write and run queries, Log Analytics provides features for working with the results. Start by expanding a record to view the values for all of its columns.
 
-:::image type="content" source="media/log-analytics-tutorial/expand-record.png" alt-text="Screenshot that shows expanding a record." lightbox="media/log-analytics-tutorial/expand-record.png":::
+:::image type="content" source="media/log-analytics-tutorial/expand-query-search-result.png" alt-text="Screenshot that shows a record expanded in the search results." lightbox="media/log-analytics-tutorial/expand-query-search-result.png":::
 
 Select the name of any column to sort the results by that column. Select the filter icon next to it to provide a filter condition. This is similar to adding a filter condition to the query itself, except that this filter is cleared if the query is run again. Use this method if you want to quickly analyze a set of records as part of interactive analysis.
 
-For example, set a filter on the **DurationMs** column to limit the records to those that took more than **100** milliseconds. 
+For example, set a filter on the **DurationMs** column to limit the records to those that took more than **150** milliseconds. 
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-filter.png" alt-text="Screenshot that shows a query results filter." lightbox="media/log-analytics-tutorial/query-results-filter.png":::
+
+
+Let's search through the query results using the search box at the top right of the result pane.
+
+Enter **Chicago** in the query results search box and click the arrows to find all instances of this string in your search results.
+
+:::image type="content" source="media/log-analytics-tutorial/search-query-results.png" alt-text="Screenshot the search box at the top right of the result pane." lightbox="media/log-analytics-tutorial/search-query-results.png":::
 
 Instead of filtering the results, you can group records by a particular column. Clear the filter that you just created and then turn on the **Group columns** toggle. 
 
