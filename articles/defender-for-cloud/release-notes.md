@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 03/30/2022
+ms.date: 03/31/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -32,6 +32,7 @@ Updates in March include:
 - [Deprecated Microsoft Defender for IoT device recommendations](#deprecated-microsoft-defender-for-iot-device-recommendations)
 - [Deprecated Microsoft Defender for IoT device alerts](#deprecated-microsoft-defender-for-iot-device-alerts)
 - [Posture management and threat protection for AWS and GCP released for general availability (GA)](#posture-management-and-threat-protection-for-aws-and-gcp-released-for-general-availability-ga)
+- [Registry scan for Windows images in ACR added support for national clouds](#registry-scan-for-windows-images-in-acr-added-support-for-national-clouds)
 
 ### Deprecated the recommendations to install the network traffic data collection agent
 
@@ -134,6 +135,12 @@ All Microsoft Defender for IoT device alerts are  no longer visible in Microsoft
 - **Microsoft Defender for servers** brings threat detection and advanced defenses to your compute instances in AWS and GCP. The Defender for servers plan includes an integrated license for Microsoft Defender for Endpoint, vulnerability assessment scanning, and more. Learn about all of the [supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md). Automatic onboarding capabilities allow you to easily connect any existing or new compute instances discovered in your environment.
 
 Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.md) and [GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+
+### Registry scan for Windows images in ACR added support for national clouds
+
+Registry scan for Windows images is now supported in Azure Government and Azure China 21Vianet. This addition is currently in preview.
+
+Learn more about our [feature's availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 ## February 2022
 
