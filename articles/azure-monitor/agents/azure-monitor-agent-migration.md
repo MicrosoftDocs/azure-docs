@@ -27,7 +27,7 @@ The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monito
 - **A single agent** that will consolidate all the features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11) as compared to running various different monitoring agents. This is the eventual goal, though AMA is currently converging with the Log Analytics agents.
 
 ## When should I migrate to the Azure Monitor agent?
-You migration plan to the Azure Monitor agent should include the following considerations:
+Your migration plan to the Azure Monitor agent should include the following considerations:
 
 |Consideration  |Description  |
 |---------|---------|
