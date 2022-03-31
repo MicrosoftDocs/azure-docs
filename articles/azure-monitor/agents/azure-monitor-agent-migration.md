@@ -21,7 +21,7 @@ The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monito
   - Using DCRs, you can filter out data to remove unused events and save additional costs.  
 
 - **Simpler management** of data collection, including ease of troubleshooting
-  - **Multi homing** on both Windows and Linux is possible easily
+  - **Multihoming** on both Windows and Linux is possible easily
   - Every action across the data collection lifecycle, from onboarding/setup to deployment to updates and changes over time, is significantly easier and scalable thanks to agent configuration becoming centralized and ‘in the cloud’ as compared to configuring things on every machine.
   - Enabling/disabling of additional capabilities or services (Sentinel, Defender for Cloud, VM Insights, etc) is more transparent and controlled, using the extensibility architecture of AMA.
 - **A single agent** that will consolidate all the features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11) as compared to running various different monitoring agents. This is the eventual goal, though AMA is currently converging with the Log Analytics agents.
