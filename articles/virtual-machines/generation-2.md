@@ -23,6 +23,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 ## Generation 2 VM sizes
 
 Azure now offers generation 2 support for the following selected VM series:
+
 | VM Series | Generation 1 | Generation 2 | 
 |-----------|--------------|--------------|
 |[Av2-series](av2-series.md) |  :heavy_check_mark:  |  :x:  |
@@ -30,14 +31,14 @@ Azure now offers generation 2 support for the following selected VM series:
 |[DCsv2-series](dcv2-series.md) |  :x:  | :heavy_check_mark: |
 |[Dv2-series](dv2-dsv2-series.md) |  :heavy_check_mark: |  :x:  |
 |[DSv2-series](dv2-dsv2-series.md) |  :heavy_check_mark: | :heavy_check_mark: |
-[Dv3-series](dv3-dsv3-series.md) | :heavy_check_mark: |  :x: |
+|[Dv3-series](dv3-dsv3-series.md) | :heavy_check_mark: |  :x: |
 |[Dsv3-series](dv3-dsv3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-[Dv4-series](dv4-dsv4-series.md) | :heavy_check_mark: |  :heavy_check_mark: |
+|[Dv4-series](dv4-dsv4-series.md) | :heavy_check_mark: |  :heavy_check_mark: |
 |[Dsv4-series](dv4-dsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-[Dav4-series](dav4-dasv4-series.md) | :heavy_check_mark: |  :x: |
+|[Dav4-series](dav4-dasv4-series.md) | :heavy_check_mark: |  :x: |
 |[Dasv4-series](dav4-dasv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-|[Ddv4-series](ddv4-ddsv4-series.md) |:heavy_check_mark: | :heavy_check_mark: |
-|[Ddsv4-series](ddv4-ddsv4-series.md) |:heavy_check_mark: | :heavy_check_mark: |
+|[Ddv4-series](ddv4-ddsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
+|[Ddsv4-series](ddv4-ddsv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dasv5-series](dasv5-dadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Dadsv5-series](dasv5-dadsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[DCasv5-series](dcasv5-dcadsv5-series.md) |  :x: | :heavy_check_mark: |
@@ -46,9 +47,9 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Dsv5-series](dv5-dsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddv5-series](ddv5-ddsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ddsv5-series](ddv5-ddsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-[Ev3-series](ev3-esv3-series.md) | :heavy_check_mark: | :x: |
+|[Ev3-series](ev3-esv3-series.md) | :heavy_check_mark: | :x: |
 |[Esv3-series](ev3-esv3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-[Ev4-series](ev4-esv4-series.md) |  :heavy_check_mark:|  :x: |
+|[Ev4-series](ev4-esv4-series.md) |  :heavy_check_mark:|  :x: |
 |[Esv4-series](ev4-esv4-series.md) |  :heavy_check_mark:| :heavy_check_mark: |
 |[Eav4-series](eav4-easv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Easv4-series](eav4-easv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
