@@ -30,8 +30,8 @@ Cognitive Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint consist of:
 
-+ Creating and managing indexes, indexers, and other objects
-+ Sending requests for indexing, running indexer jobs, executing skills
++ Creating or managing indexes, indexers, data sources, skillsets, or synonym lists
++ Running indexers and skillsets
 + Querying an index
 
 For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with [network security features](#service-access-and-authentication). You can create either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 

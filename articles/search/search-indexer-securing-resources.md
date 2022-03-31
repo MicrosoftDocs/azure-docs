@@ -69,7 +69,7 @@ The above options depend on Azure Active Directory for authentication, which mea
 
 #### Services in different regions
 
-when search and storage are in different regions, you can use the previous options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments.
+When search and storage are in different regions, you can use the previous options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments.
 
 ## Indexer execution environment
 
