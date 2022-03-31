@@ -34,16 +34,51 @@ Data collected by the tool is only kept locally and temporarily. It can be downl
 
 Communications Inspector is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features.md?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
 
-## Using the Communications Inspector
+## Get Started with Communications Inspector
 
 The tool can be accessed through an npm package `azure/communication-tools`. There developers can find the `CommunicationsInspector` object that can be attached to a `Call`.
 
-CommunicationsInspector(call:Call);
+```javascript
+import { CallClient, CallAgent } from "@azure/communication-calling";
+import { CommunicationsInspector } from "@azure/communication-tools";
+
+const callClient = new callClient();
+const callAgent = await callClient.createCallAgent({INSERT TOKEN CREDENTIAL});
+const call = callAgent.startCall({INSERT CALL INFORMATION});
+
+const communicationsInspector =  new CommunicationsInspector(call);
+
+```
+## Usage
+
+`start`: enable the `CommunicationsInspector` to start reading data from the call object and storing it locally for visualization.
+
+```javascript
 
 CommunicationsInspector.start()
 
+```
+
+`stop`: disable the `CommunicationsInspector` from reading data from the call object.
+
+```javascript
+
 CommunicationsInspector.stop()
+
+```
+
+`open`: Open the `CommunicationsInspector` in the UI.
+
+```javascript
 
 CommunicationsInspector.open()
 
+```
+
+`close`: Dismiss the `CommunicationsInspector` in the UI.
+
+```javascript
+
 CommunicationsInspector.close()
+
+```
