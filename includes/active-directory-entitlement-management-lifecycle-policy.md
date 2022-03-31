@@ -23,7 +23,7 @@ On the **Lifecycle** tab, you specify when a user's assignment to the access pac
 
     Based on your selection, a user's assignment to the access package expires on a certain date, a certain number of days after they are approved, or never.
 
-1. If you want the user to determine the date their access expires, click **yes** next to the **Users can request specific timeline** toggle.
+1. If you want the user to request a specific start and end date for their access, click **yes** next to the **Users can request specific timeline** toggle.
 
 1. Click **Show advanced expiration settings** to show additional settings.
 
