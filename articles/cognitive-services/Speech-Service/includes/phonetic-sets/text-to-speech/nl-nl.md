@@ -5,11 +5,11 @@
 | `ɑ`   | 2        | **a**f       | b**a**k      | bavar**ois**    |
 | `aː`  | 2        | **aa**n      | m**aa**l     | j**a**          |
 | `ɑ̃`  | 2        | **en**fin    | m**an**chet  | croiss**ant**   |
-| `ɑ͡u` | 2 7      | **ou**d      | b**ou**t     | h**ou**         |
+| `ɑ͡u` | 2,7      | **ou**d      | b**ou**t     | h**ou**         |
 | `ɛ`   | 4        | **e**n       | w**e**g      | h**è**          |
 | `eː`  | 4        | **éé**n      | h**ee**t     | n**ee**         |
 | `ɛː`  | 4        | **ai**rbag   | bl**è**r     |                 |
-| `ɛ͡i` | 4 6      | **ei**s      | w**ij**n     | z**ij**         |
+| `ɛ͡i` | 4,6      | **ei**s      | w**ij**n     | z**ij**         |
 | `ɛ̃`  | 4        |              | l**in**gerie | elektric**ien** |
 | `øː`  | 1        | **eu**ro     | d**eu**r     | mili**eu**      |
 | `ɪ`   | 6        | **i**k       | d**i**ng     |                 |
@@ -21,7 +21,7 @@
 | `oː`  | 8        | **oo**k      | b**oo**m     | z**o**          |
 | `ʏ`   | 7        | **u**rn      | d**u**s      |                 |
 | `ə`   | 1        | **ee**n      | tromm**e**l  | d**e**          |
-| `œ͡y` | 4 4      | **ui**l      | j**ui**st    | b**ui**         |
+| `œ͡y` | 4,4      | **ui**l      | j**ui**st    | b**ui**         |
 | `œ`   | 4        | **oeu**vre   | s**er**vice  |                 |
 | `y`   | 4        | **uu**r      | t**uu**r     | n**u**          |
 
@@ -51,3 +51,4 @@
 | `v`   | 18       | **v**oor     | ha**v**en    |                 |
 | `ʋ`   | 18       | **w**at      | fusie**w**et |                 |
 | `z`   | 15       | **z**al      | le**z**en    |                 |
+| `ʒ`   | 16       | **j**us      | bei**g**e    |                 |

@@ -3,38 +3,39 @@
 | `ipa` | `viseme` | Example 1       | Example 2            | Example 3        |
 |-------|----------|-----------------|----------------------|------------------|
 | `ɑ`   | 2        | **a**vautuu     | vaihtuv**a**n        | pout**a**        |
-| `ɑ͡i` | 2 6      | **ai**ka        | v**ai**htuu          | lauant**ai**     |
-| `ɑ͡u` | 2 7      | **au**ra        | uloskirj**au**du     | Pass**au**       |
+| `ɑ͡i` | 2,6      | **ai**ka        | v**ai**htuu          | lauant**ai**     |
+| `ɑ͡u` | 2,7      | **au**ra        | uloskirj**au**du     | Pass**au**       |
 | `ɑː`  | 2        | **ay**-väen     | neutr**aa**li        | pout**aa**       |
 | `æ`   | 1        | **ä**veriäs     | öljyj**ä**tin        | pöyt**ä**        |
-| `æ͡i` | 1 6      | **äi**ti        | iäkk**äi**den        | t**äi**          |
-| `æ͡y` | 1 4      | **äy**rin       | t**äy**tyy           | k**äy**          |
+| `æ͡i` | 1,6      | **äi**ti        | iäkk**äi**den        | t**äi**          |
+| `æ͡y` | 1,4      | **äy**rin       | t**äy**tyy           | k**äy**          |
 | `æː`  | 1        | **ää**riryhmiä  | h**ää**det**ää**n    | päiv**ää**       |
 | `e`   | 4        | **e**nköhän     | t**e**rve            | m**e**           |
-| `e͡i` | 4 6      | **ei**          | vaiht**ei**ta        | h**ei**          |
+| `e͡i` | 4,6      | **ei**          | vaiht**ei**ta        | h**ei**          |
 | `ø`   | 1        | **ö**ljyalan    | ulkonä**ö**n         | tiedänk**ö**     |
-| `ø͡i` | 1 6      | **öi**sin       | t**öi**tä            | viittil**öi**    |
-| `ø͡y` | 1 4      | **öy**lätti     | p**öy**tä            |                  |
+| `ø͡i` | 1,6      | **öi**sin       | t**öi**tä            | viittil**öi**    |
+| `ø͡y` | 1,4      | **öy**lätti     | p**öy**tä            |                  |
 | `øː`  | 1        | **Öö**lanti     | ulkoministeri**öö**n | Bod**ø**         |
-| `e͡u` | 4 7      | **eu**rot       | kyläs**eu**ra        | l**eu**          |
-| `e͡y` | 4 4      | **Ey**sturoy    | kesk**ey**tyä        |                  |
+| `e͡u` | 4,7      | **eu**rot       | kyläs**eu**ra        | l**eu**          |
+| `e͡y` | 4,4      | **Ey**sturoy    | kesk**ey**tyä        |                  |
 | `eː`  | 4        | **ee**sti       | kyljell**ee**n       | aiheuttan**ee**  |
 | `i`   | 6        | **i**äkästä     | v**i**ha             | Berliin**i**     |
-| `i͡e` | 6 4      | **ie**ntaskun   | k**ie**li            | l**ie**          |
-| `i͡u` | 6 7      |                 | v**iu**lu            |                  |
-| `i͡y` | 6 4      |                 | vihk**iy**tynyt      |                  |
+| `i͡e` | 6,4      | **ie**ntaskun   | k**ie**li            | l**ie**          |
+| `i͡u` | 6,7      |                 | v**iu**lu            |                  |
+| `i͡y` | 6,4      |                 | vihk**iy**tynyt      |                  |
 | `iː`  | 6        | **Ii**da        | s**ii**ka            | solm**ii**       |
 | `o`   | 8        | **o**ksa        | asuintal**o**ja      | spekulaati**o**  |
-| `o͡i` | 8 6      | **oi**via       | k**oi**ttaa          | spekul**oi**     |
-| `o͡u` | 8 7      | **ou**to        | autok**ou**lu        | wind**ow**       |
+| `o͡i` | 8,6      | **oi**via       | k**oi**ttaa          | spekul**oi**     |
+| `o͡u` | 8,7      | **ou**to        | autok**ou**lu        | wind**ow**       |
 | `oː`  | 8        | **o**k          | k**oo**staa          | y**o**           |
 | `u`   | 7        | **u**foista     | Bärl**u**nd          | jätemaks**u**    |
-| `u͡i` | 7 6      | **ui**          | m**ui**ta            | epäonnist**ui**  |
-| `u͡o` | 7 8      | **Uo**levi      | S**uo**mi            | Hilav**uo**      |
+| `u͡i` | 7,6      | **ui**          | m**ui**ta            | epäonnist**ui**  |
+| `u͡o` | 7,8      | **Uo**levi      | S**uo**mi            | Hilav**uo**      |
 | `uː`  | 7        | **u**rl         | innokk**uu**s        | kiikk**uu**      |
 | `y`   | 4        | **y**din        | ök**y**rikas         | kes**y**         |
-| `y͡ø` | 4 1      | **yö**          | t**yö**tä            | järjestöt**yö**  |
-| `y͡i` | 4 6      | **Yi**changin   | s**yi**tä            | järjestäyt**yi** |
+| `y͡ø` | 4,1      | **yö**          | t**yö**tä            | järjestöt**yö**  |
+| `y͡i` | 4,6      | **Yi**changin   | s**yi**tä            | järjestäyt**yi** |
+| `yː`  | 4        | **y**o          | r**yy**ppy           | iskeyt**yy**     |
 
 ### Consonant
 

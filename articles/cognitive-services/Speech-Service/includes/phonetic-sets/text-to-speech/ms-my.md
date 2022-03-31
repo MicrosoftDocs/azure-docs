@@ -8,9 +8,9 @@
 | `e`   | 4        | **e**dar     | aktr**e**s      | ku**e**          |
 | `o`   | 8        | **o**rang    | angg**o**ta     | pidat**o**       |
 | `a`   | 2        | **a**njing   | an**a**k        | ad**a**          |
-| `a͡i` | 2 6      |              |                 | cer**ai**        |
-| `au`  | 2 7      | **au**to     | ak**au**n       | bak**au**        |
-| `oi`  | 8 6      |              |                 | amb**oi**        |
+| `a͡i` | 2,6      |              |                 | cer**ai**        |
+| `au`  | 2,7      | **au**to     | ak**au**n       | bak**au**        |
+| `oi`  | 8,6      |              |                 | amb**oi**        |
 
 ### Consonant
 
@@ -23,8 +23,8 @@
 | `k`   | 20       | **k**etat    | a**k**ak        | boo**k**         |
 | `g`   | 20       | **g**abung   | bo**g**el       | dialo**g**       |
 | `ʔ`   | 19       | **a**bang    | kepercay**aa**n | leta**k**        |
-| `t͡ʃ` | 19 16    | **c**epat    | ba**c**a        |                  |
-| `d͡ʒ` | 19 16    | **j**abatan  | a**j**a         | kole**j**        |
+| `t͡ʃ` | 19,16    | **c**epat    | ba**c**a        |                  |
+| `d͡ʒ` | 19,16    | **j**abatan  | a**j**a         | kole**j**        |
 | `m`   | 21       | **m**emang   | la**m**an       | mala**m**        |
 | `n`   | 19       | **n**egeri   | ta**n**am       | tama**n**        |
 | `ɲ`   | 19       | **ny**anyi   | ta**ny**a       |                  |

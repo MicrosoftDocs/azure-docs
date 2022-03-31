@@ -20,12 +20,12 @@
 | `ʉ`   | 6        | **u**nder     | for**u**ndret    | jagg**u**     |
 | `ʉː`  | 6        | **u**le       | um**u**lig       | intervj**u**  |
 | `yː`  | 4        | **y**te       | bel**y**se       | parapl**y**   |
-| `æɪ`  | 1 6      | **ei**endom** | utl**ei**de      | snarv**ei**   |
-| `æʉ`  | 1 6      | **au**ra      | Lit**au**en      | fort**au**    |
-| `ɑɪ`  | 2 6      | **ai**bel**   | Aserb**aj**dsjan | Dub**ai**     |
-| `œʏ`  | 4 7      | **øy**er      | ableg**øy**er    | syltet**øy**  |
-| `ɔʏ`  | 3 7      | **Oi**lers    | b**oi**kotten    | konv**oi**    |
-| `ʉɪ`  | 6 6      |               | Br**ui**ns       | Mits**ui**    |
+| `æɪ`  | 1,6      | **ei**endom** | utl**ei**de      | snarv**ei**   |
+| `æʉ`  | 1,6      | **au**ra      | Lit**au**en      | fort**au**    |
+| `ɑɪ`  | 2,6      | **ai**bel**   | Aserb**aj**dsjan | Dub**ai**     |
+| `œʏ`  | 4,7      | **øy**er      | ableg**øy**er    | syltet**øy**  |
+| `ɔʏ`  | 3,7      | **Oi**lers    | b**oi**kotten    | konv**oi**    |
+| `ʉɪ`  | 6,6      |               | Br**ui**ns       | Mits**ui**    |
 
 ### Consonant
 

@@ -12,9 +12,9 @@
 | `aː`  | 2        | **á**rijské    | br**á**n          | hořk**á**      |
 | `oː`  | 8        | **ó**du        | fam**ó**zního     | j**ó**         |
 | `uː`  | 7        | **ú**bočí      | pet**ú**nie       | gril**ů**      |
-| `o͡ʊ̯`| 8 4      | **ou**ha       | fan**ou**ška      | hanb**ou**     |
-| `a͡ʊ` | 2 4      | **au**to       | hydr**au**liky    |                |
-| `ɛ͡ʊ̯`| 4 4      | **eu**forie    | terap**eu**tická  |                |
+| `o͡ʊ̯`| 8,4      | **ou**ha       | fan**ou**ška      | hanb**ou**     |
+| `a͡ʊ` | 2,4      | **au**to       | hydr**au**liky    |                |
+| `ɛ͡ʊ̯`| 4,4      | **eu**forie    | terap**eu**tická  |                |
 | `ə`   | 1        |                |                   |                |
 
 ### Consonant
@@ -29,10 +29,10 @@
 | `ɟ`   | 16       | **ď**ábel      | hr**d**iny        |                |
 | `k`   | 20       | **k**aligrafie | dů**k**azní       | grafi**k**     |
 | `g`   | 20       | **g**angstera  | hy**g**ienici     |                |
-| `t͡s` | 19 15    | **c**ivilistům | evolu**c**e       | klávesni**c**  |
-| `d͡z` | 19 15    |                | le**c**kde        |                |
-| `t͡ʃ` | 19 16    | **č**epice     | hlída**č**i       | klí**č**       |
-| `d͡ʒ` | 19 16    | **dž**usy      | kilo**j**oulů     |                |
+| `t͡s` | 19,15    | **c**ivilistům | evolu**c**e       | klávesni**c**  |
+| `d͡z` | 19,15    |                | le**c**kde        |                |
+| `t͡ʃ` | 19,16    | **č**epice     | hlída**č**i       | klí**č**       |
+| `d͡ʒ` | 19,16    | **dž**usy      | kilo**j**oulů     |                |
 | `f`   | 18       | **f**ádní      | gra**f**ice       | gra**f**       |
 | `v`   | 18       | **v**abank     | exkluzi**v**ita   |                |
 | `s`   | 15       | **s**ekundě    | grima**s**ami     | impul**s**     |

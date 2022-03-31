@@ -13,12 +13,12 @@
 | `aː`  | 2        | **á**no          | anim**á**cia       | druhov**á**    |
 | `oː`  | 8        | **ó**dy          | bili**ó**n         | hal**ó**       |
 | `uː`  | 7        | **ú**bočí        | absol**ú**tna      | druh**ú**      |
-| `i͡a` | 6 2      |                  | p**ia**tkové       | maškrt**ia**   |
-| `i͡e` | 6 4      |                  | domn**ie**nka      | námest**ie**   |
-| `i͡u` | 6 7      |                  |                    | väčš**iu**     |
-| `u͡o` | 7 8      | **ô**sma         | jah**ô**d          | malin**ô**     |
-| `au`  | 2 7      | **au**dio        | apl**au**dovalo    | sred**au**     |
-| `ou`  | 8 7      |                  |                    |                |
+| `i͡a` | 6,2      |                  | p**ia**tkové       | maškrt**ia**   |
+| `i͡e` | 6,4      |                  | domn**ie**nka      | námest**ie**   |
+| `i͡u` | 6,7      |                  |                    | väčš**iu**     |
+| `u͡o` | 7,8      | **ô**sma         | jah**ô**d          | malin**ô**     |
+| `au`  | 2,7      | **au**dio        | apl**au**dovalo    | sred**au**     |
+| `ou`  | 8,7      |                  |                    |                |
 | `ə`   | 1        |                  |                    |                |
 
 ### Consonant
@@ -33,10 +33,10 @@
 | `ɟ`   | 16       | **ď**alej        | stre**d**e         | lo**ď**        |
 | `k`   | 20       | **k**abaret      | báb**k**ový        | chudáči**k**   |
 | `g`   | 20       | **g**alón        | dema**g**ó**g**ia  | mozo**g**      |
-| `t͡s` | 19 15    | **c**ertifikácie | ci**c**av**c**e    | bá**c**        |
-| `d͡z` | 19 15    |                  | me**dz**í          |                |
-| `t͡ʃ` | 19 16    | **č**ajový       | fr**č**í           | bohá**č**      |
-| `d͡ʒ` | 19 16    | **dž**úsu        | bran**dž**e        |                |
+| `t͡s` | 19,15    | **c**ertifikácie | ci**c**av**c**e    | bá**c**        |
+| `d͡z` | 19,15    |                  | me**dz**í          |                |
+| `t͡ʃ` | 19,16    | **č**ajový       | fr**č**í           | bohá**č**      |
+| `d͡ʒ` | 19,16    | **dž**úsu        | bran**dž**e        |                |
 | `f`   | 18       | **f**abrík       | biogra**f**ie      | fotogra**f**   |
 | `v`   | 18       | **v**okály       | e**v**anjelické    |                |
 | `s`   | 15       | **s**ekunda      | e**s**á            | algoritmu**s** |

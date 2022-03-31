@@ -6,11 +6,11 @@
 | `ɨ`   | 6        | **î**nspre    | hotăr**â**re     | îh**î**          |
 | `a`   | 2        | **a**bsolut   | prem**a**tur     | Prag**a**        |
 | `e`   | 4        | **e**ducație  | tabl**e**te      | alianț**e**      |
-| `e̯a` | 4 2      |               | studenț**ea**scă | bad**ea**        |
-| `e̯o` | 4 8      |               | bl**eu**marin    | vr**eo**         |
+| `e̯a` | 4,2      |               | studenț**ea**scă | bad**ea**        |
+| `e̯o` | 4,8      |               | bl**eu**marin    | vr**eo**         |
 | `i`   | 6        | **I**talia    | ar**i**pi        | aberaț**ii**     |
 | `o`   | 8        | **o**ricum    | catac**o**mbe    | radi**o**        |
-| `o̯a` | 8 2      | **oa**ră      | închis**oa**re   | șam**oa**        |
+| `o̯a` | 8,2      | **oa**ră      | închis**oa**re   | șam**oa**        |
 | `u`   | 7        | **u**mble     | grad**u**l       | Alexandr**u**    |
 
 ### Consonant
@@ -20,8 +20,8 @@
 | `b`   | 21       | **b**ăi       | vizi**b**il      | ara**b**         |
 | `bʲ`  | 21       |               |                  | micro**bi**      |
 | `d`   | 19       | **d**octor    | vi**d**eo        | miliar**d**      |
-| `d͡ʒ` | 19 16    | **g**er       | ve**g**etație    |                  |
-| `d͡ʒʲ`| 19 16    |               |                  | cole**gi**       |
+| `d͡ʒ` | 19,16    | **g**er       | ve**g**etație    |                  |
+| `d͡ʒʲ`| 19,16    |               |                  | cole**gi**       |
 | `f`   | 18       | **f**urtună   | e**f**ort        | ecogra**f**      |
 | `fʲ`  | 18       |               |                  | filoso**fi**     |
 | `g`   | 20       | **g**aleria   | e**g**al         | filolo**g**      |
@@ -46,13 +46,14 @@
 | `ʃʲ`  | 16       |               |                  | gro**și**        |
 | `t`   | 19       | **t**eracota  | ma**t**erial     | abonamen**t**    |
 | `tʲ`  | 19       |               |                  | foș**ti**        |
-| `t͡s` | 19 15    | **ț**ar       | cu**ț**it        | vorbăre**ț**     |
-| `t͡ʃ` | 19 16    | **c**irca     | me**ci**uri      |                  |
-| `t͡sʲ`| 19 15    |               |                  | usca**ți**       |
-| `t͡ʃʲ`| 19 16    |               |                  | indi**ci**       |
+| `t͡s` | 19,15    | **ț**ar       | cu**ț**it        | vorbăre**ț**     |
+| `t͡ʃ` | 19,16    | **c**irca     | me**ci**uri      |                  |
+| `t͡sʲ`| 19,15    |               |                  | usca**ți**       |
+| `t͡ʃʲ`| 19,16    |               |                  | indi**ci**       |
 | `v`   | 18       | **v**accin    | gra**v**idă      | fugiti**v**      |
 | `vʲ`  | 18       |               |                  | ner**vi**        |
 | `w`   | 7        | **u**au       | c**u**antificare | pli**u**         |
 | `z`   | 15       | **z**oologică | fra**z**ă        | parbri**z**      |
 | `ʒ`   | 16       | **j**ar       | aba**j**ur       | pasa**j**        |
 | `zʲ`  | 15       |               |                  | semne**zi**      |
+| `ʒʲ`  | 16       |               |                  | dâr**ji**        |

@@ -23,9 +23,9 @@
 | `b`   | 21       | **b**rez               | bo**b**er       | le**b**deča      |
 | `d`   | 19       | **d**ajal              | degra**d**acija | nave**d**bah     |
 | `dˡ`  | 19       | **d**leto              |                 | nave**d**la      |
-| `dn`  | 19 19    | **d**na                |                 | doho**d**ne      |
-| `d͡ʒ` | 19 16    | **dž**ezovske          | bri**dž**a      | mene**dž**ment   |
-| `d͡z` | 19 15    | o**dz**ivajo           |                 | Ko**c**bek       |
+| `dn`  | 19,19    | **d**na                |                 | doho**d**ne      |
+| `d͡ʒ` | 19,16    | **dž**ezovske          | bri**dž**a      | mene**dž**ment   |
+| `d͡z` | 19,15    | o**dz**ivajo           |                 | Ko**c**bek       |
 | `f`   | 18       | **f**agota             | fotogra**f**a   | gol**f**         |
 | `ɱ`   | 21       |                        |                 | ni**m**fa        |
 | `ɣ`   | 20       |                        |                 | a**h**deloja     |
@@ -45,12 +45,13 @@
 | `ʃ`   | 16       | **š**ah                | su**š**ijo      | tovari**š**      |
 | `t`   | 19       | **t**abela             | goji**t**i      | flavtis**t**     |
 | `tˡ`  | 19       | **t**la                | ška**t**la      | dese**t**letne   |
-| `tn`  | 19 19    |                        |                 | deve**t**najst   |
-| `t͡ʃ` | 19 16    | **č**aj                | gne**č**a       | hla**č**         |
-| `t͡s` | 19 15    | **c**ar                | ra**c**a        | reje**c**        |
+| `tn`  | 19,19    |                        |                 | deve**t**najst   |
+| `t͡ʃ` | 19,16    | **č**aj                | gne**č**a       | hla**č**         |
+| `t͡s` | 19,15    | **c**ar                | ra**c**a        | reje**c**        |
 | `u̯`  | 7        |                        |                 | a**v**to         |
 | `v`   | 18       | **v**eja               | a**v**anture    |                  |
 | `w`   | 7        | **v**gradila           |                 | slabokr**v**nost |
 | `ʍ`   | 7        | **v**stati             |                 |                  |
 | `x`   | 12       | **h**iša               | ja**h**ači      | jama**h**        |
 | `ʒ`   | 16       | **ž**aba               | je**ž**a        | mo**ž**gani      |
+| `z`   | 15       | **z**maj               | do**z**a        | i**z**voza       |

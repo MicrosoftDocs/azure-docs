@@ -17,18 +17,18 @@
 |-------|----------|--------------------|--------------------|---------------------|
 | `b`   | 21       | **b**liska         | wyśru**b**owane    |                     |
 | `bʲ`  | 21       | **bi**uro          | zapo**bi**egać     |                     |
-| `t͡ɕ` | 19 16    | **ci**ągników      | uczu**ci**owych    | suchoś**ć**         |
-| `t͡ʂ` | 19 15    | **cz**ąstkowe      | odpo**cz**ynek     | nisz**cz**          |
+| `t͡ɕ` | 19,16    | **ci**ągników      | uczu**ci**owych    | suchoś**ć**         |
+| `t͡ʂ` | 19,15    | **cz**ąstkowe      | odpo**cz**ynek     | nisz**cz**          |
 | `c`   | 16       | **ki**je           | lisi**ki**ewicz    |                     |
 | `d`   | 19       | **d**rogowy        | poro**d**ówkę      | bastar**d**         |
 | `d̪ʲ` | 19       | **di**alizy        | stu**di**uję       |                     |
-| `d͡z` | 19 15    | **dz**wonnica      | wro**dz**ony       |                     |
-| `d͡ʑ` | 19 16    | **dzi**urawe       | pocho**dzi**łam    |                     |
+| `d͡z` | 19,15    | **dz**wonnica      | wro**dz**ony       |                     |
+| `d͡ʑ` | 19,16    | **dzi**urawe       | pocho**dzi**łam    |                     |
 | `f`   | 18       | **w**prost         | długo**f**alowy    | konserwantó**w**    |
 | `fʲ`  | 18       | **fi**lmoteki      | gra**fi**ką        |                     |
 | `ɡ`   | 20       | **g**eometrią      | nawi**g**acja      |                     |
 | `ɟ`   | 16       | **gi**tarzysta     | reli**gi**jnym     |                     |
-| `d͡ʐ` | 19 15    | **dż**unglę        | mene**dż**erskie   |                     |
+| `d͡ʐ` | 19,15    | **dż**unglę        | mene**dż**erskie   |                     |
 | `k`   | 20       | **k**rólestwa      | nau**k**owo        | matematy**k**       |
 | `l`   | 14       | **l**atający       | popu**l**acje      | hande**l**          |
 | `l̪ʲ` | 14       | **l**isek          | oko**li**ca        |                     |
@@ -46,7 +46,7 @@
 | `ʃ`   | 16       | **sz**anowanych    | wpat**rz**eniu     | skręca**sz**        |
 | `t`   | 19       | **t**alentom       | kwa**t**erze       | dowó**d**           |
 | `t̪ʲ` | 19       | **ti**rami         | marke**ti**ngiem   |                     |
-| `t͡s` | 19 15    | **c**yfrą          | agen**c**yjne      | palą**c**           |
+| `t͡s` | 19,15    | **c**yfrą          | agen**c**yjne      | palą**c**           |
 | `v`   | 18       | **w**ysłaniu       | przepro**w**adzają |                     |
 | `vʲ`  | 18       | **wi**niarstwa     | buko**wi**anka     |                     |
 | `w`   | 7        | **ł**ączenie       | pra**ł**ata        | drukowa**ł**        |
@@ -55,3 +55,4 @@
 | `j`   | 6        | **j**eździła       | popi**j**ałam      | najważniejsze**j**  |
 | `z`   | 15       | **z**askakują      | party**z**anckich  | wi**z**             |
 | `ʑ`   | 16       | **zi**emniaki      | zgry**zi**enia     |                     |
+| `ʒ`   | 16       | **ż**yrandol       | nowo**ż**ytnej     |                     |

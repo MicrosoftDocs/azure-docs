@@ -28,7 +28,7 @@ For some locales, Speech service defines its own phonetic alphabets, which ordin
 
 See the sections in this article for the phonemes that are specific to each locale.
 
-## ar-EG
+## ar-EG/ar-SA
 [!INCLUDE [ar-EG](./includes/phonetic-sets/text-to-speech/ar-eg.md)]
 
 ## bg-BG
@@ -40,13 +40,19 @@ See the sections in this article for the phonemes that are specific to each loca
 ## cs-CZ
 [!INCLUDE [cs-CZ](./includes/phonetic-sets/text-to-speech/cs-cz.md)]
 
-## de-DE
+## da-DK
+[!INCLUDE [da-DK](./includes/phonetic-sets/text-to-speech/da-dk.md)]
+
+## de-DE/de-CH/de-AT
 [!INCLUDE [de-DE](./includes/phonetic-sets/text-to-speech/de-de.md)]
 
-## en-GB
+## el-GR
+[!INCLUDE [el-GR](./includes/phonetic-sets/text-to-speech/el-gr.md)]
+
+## en-GB/en-IE/en-AU
 [!INCLUDE [en-GB](./includes/phonetic-sets/text-to-speech/en-gb.md)]
 
-## en-US
+## en-US/en-CA
 [!INCLUDE [en-US](./includes/phonetic-sets/text-to-speech/en-us.md)]
 
 ## es-ES
@@ -58,7 +64,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## fi-FI
 [!INCLUDE [fi-FI](./includes/phonetic-sets/text-to-speech/fi-Fi.md)]
 
-## fr-FR
+## fr-FR/fr-CA/fr-CH
 [!INCLUDE [fr-FR](./includes/phonetic-sets/text-to-speech/fr-fr.md)]
 
 ## he-IL
@@ -88,7 +94,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## nb-NO
 [!INCLUDE [nb-NO](./includes/phonetic-sets/text-to-speech/nb-no.md)]
 
-## nl-NL
+## nl-NL/nl-BE
 [!INCLUDE [nl-NL](./includes/phonetic-sets/text-to-speech/nl-nl.md)]
 
 ## pl-PL
@@ -112,11 +118,14 @@ See the sections in this article for the phonemes that are specific to each loca
 ## sl-SI
 [!INCLUDE [sl-SI](./includes/phonetic-sets/text-to-speech/sl-si.md)]
 
+## sv-SE
+[!INCLUDE [sv-SE](./includes/phonetic-sets/text-to-speech/sv-se.md)]
+
 ## th-TH
 [!INCLUDE [th-TH](./includes/phonetic-sets/text-to-speech/th-th.md)]
 
-## tr-tr
-[!INCLUDE [tr-tr](./includes/phonetic-sets/text-to-speech/tr-tr.md)]
+## tr-TR
+[!INCLUDE [tr-TR](./includes/phonetic-sets/text-to-speech/tr-tr.md)]
 
 ## vi-VN
 [!INCLUDE [vi-VN](./includes/phonetic-sets/text-to-speech/vi-vn.md)]

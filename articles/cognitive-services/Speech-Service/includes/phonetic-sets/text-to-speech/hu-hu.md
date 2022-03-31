@@ -28,10 +28,10 @@
 | `ɟ`   | 16       | **gy**ártó     | franciaá**gy**as    | huszone**gy**      |
 | `dː`  | 19       |                | Go**dd**ess         | ha**dd**           |
 | `ɟː`  | 16       |                | ebé**dj**én         | ha**gyj**          |
-| `d͡ʒ` | 19 16    | **Dzs**ó       | mene**dzs**elési    | colle**ge**        |
-| `d͡ʒː`| 19 16    |                | Ba**ggi**o          |                    |
-| `dz`  | 19 15    | **dz**émsz     | e**dz**õ            | McDonal**ds**      |
-| `dzː` | 19 15    |                | e**ddz**eni         |                    |
+| `d͡ʒ` | 19,16    | **Dzs**ó       | mene**dzs**elési    | colle**ge**        |
+| `d͡ʒː`| 19,16    |                | Ba**ggi**o          |                    |
+| `dz`  | 19,15    | **dz**émsz     | e**dz**õ            | McDonal**ds**      |
+| `dzː` | 19,15    |                | e**ddz**eni         |                    |
 | `f`   | 18       | **f**igura     | ko**f**a            | gol**f**           |
 | `fː`  | 18       |                | ko**ff**er          | seri**ff**         |
 | `g`   | 20       | **g**ondolom   | számító**g**ép      | rú**g**            |
@@ -63,10 +63,10 @@
 | `c`   | 16       |                | e**gy**házmegye     | dir**ty**          |
 | `tː`  | 19       |                | hi**tt**e           | vágodo**tt**       |
 | `cː`  | 16       |                | bá**tyj**a          | Pre**tty**         |
-| `t͡s` | 19 15    | **c**íme       | bi**c**iklis        | huszonnyol**c**    |
-| `t͡ʃ` | 19 16    | **cs**igán     | húgo**cs**kám       | Gregori**cs**      |
-| `t͡sː`| 19 15    |                | já**tsz**ad         | já**tsz**          |
-| `t͡ʃː`| 19 16    |                | bará**ts**ágos      | futballme**ccs**   |
+| `t͡s` | 19,15    | **c**íme       | bi**c**iklis        | huszonnyol**c**    |
+| `t͡ʃ` | 19,16    | **cs**igán     | húgo**cs**kám       | Gregori**cs**      |
+| `t͡sː`| 19,15    |                | já**tsz**ad         | já**tsz**          |
+| `t͡ʃː`| 19,16    |                | bará**ts**ágos      | futballme**ccs**   |
 | `v`   | 18       | **v**arr       | Olí**v**ia          | Dönö**v**          |
 | `vː`  | 18       |                | e**vv**el           |                    |
 | `x`   | 12       | **h**rabovszki | i**h**letével       |                    |
@@ -74,3 +74,4 @@
 | `z`   | 15       | **z**úgást     | csi**z**mám         | csimpán**z**       |
 | `ʒ`   | 16       | **zs**ûrivel   | félmá**zs**ás       | Balá**zs**         |
 | `zː`  | 15       |                | hú**zz**a           | féke**zz**         |
+| `ʒː`  | 16       |                | gará**zzs**al       |                    |

@@ -1,5 +1,3 @@
-# [ar-EG](#tab/ar-EG)
-
 ### Vowels
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3        |

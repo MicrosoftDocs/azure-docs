@@ -24,8 +24,8 @@
 | `n`   | 19       | **n**a          | že**n**e           | jefti**n**    |
 | `l`   | 14       | **l**ogor       | konstatira**l**i   | kapita**l**   |
 | `ʎ`   | 14       | **lj**udski     | košu**lj**u        | kra**lj**     |
-| `t͡s` | 19 15    | **c**arina      | krivi**c**e        | prava**c**    |
-| `t͡ʃ` | 19 16    | **č**etvorica   | kriti**č**an       | osniva**č**   |
+| `t͡s` | 19,15    | **c**arina      | krivi**c**e        | prava**c**    |
+| `t͡ʃ` | 19,16    | **č**etvorica   | kriti**č**an       | osniva**č**   |
 | `j`   | 6        | **j**ednostavan | ku**j**u           | ova**j**      |
 | `x`   | 12       | **h**rvatskog   | ma**h**ala         | ovakvi**h**   |
 | `z`   | 15       | **z**nanstvenom | mehani**z**acije   | prijela**z**  |
@@ -38,6 +38,7 @@
 | `ʨ`   | 16       | **ć**elija      | neispla**ć**ene    | mladi**ć**    |
 | `f`   | 18       | **f**abula      | nostri**f**ikaciji | še**f**       |
 | `b`   | 21       | **B**elgija     | o**b**a            | suko**b**     |
-| `d͡ʒ` | 19 16    | **dž**empera    | Ili**dž**e         | Geor**ge**    |
+| `d͡ʒ` | 19,16    | **dž**empera    | Ili**dž**e         | Geor**ge**    |
 | `ɲ`   | 19       | **nj**e         | emitira**nj**a     | stupa**nj**   |
 | `ʥ`   | 16       | **đ**akovačkim  | ga**đ**ati         | vo**đ**       |
+| `ʃ`   | 16       | **š**ef         | sti**š**ati        | Glava**š**    |

@@ -4,15 +4,15 @@
 |-------|----------|-------------|---------------|-----------------|
 | `ə`   | 1        |             | b**e**nar     | komit**e**      |
 | `a`   | 2        |             | b**a**b**a**t | engg**a**       |
-| `a͡i` | 2 6      | **ai**r     | r**ai**kage   | pant**ai**      |
-| `a͡ʊ` | 2 4      | **au**rat   | at**au**pun   | pis**au**       |
+| `a͡i` | 2,6      | **ai**r     | r**ai**kage   | pant**ai**      |
+| `a͡ʊ` | 2,4      | **au**rat   | at**au**pun   | pis**au**       |
 | `e`   | 4        | **e**nergi  | f**e**ri      | temp**e**       |
 | `ɛ`   | 4        | **e**nrique | nen**e**k     |                 |
 | `ɪ`   | 6        | **i**ndah   | yak**i**n     | k**ey**         |
 | `i`   | 6        | **i**rama   | b**i**ar      | deflas**i**     |
 | `ɔ`   | 3        | **o**ff     | es**o**k      | l**aw**         |
 | `o`   | 8        | **o**bat    | b**o**bot     | domin**o**      |
-| `ɔ͡i` | 3 6      |             | reb**oi**sasi | sepoi-sep**oi** |
+| `ɔ͡i` | 3,6      |             | reb**oi**sasi | sepoi-sep**oi** |
 | `u`   | 7        | **u**mur    | b**u**ah      | lin**u**        |
 | `ʊ`   | 4        |             | dud**u**k     |                 |
 
@@ -23,7 +23,7 @@
 | `ʔ`   | 19       | **a**mores  | m**aa**f      | penc**a**k      |
 | `b`   | 21       | **b**abat   | ne**b**ak     | dishu**b**      |
 | `d`   | 19       | **d**eder   | pe**d**ang    | clou**d**       |
-| `d͡ʒ` | 19 16    | **ja**rum   | pen**ja**jah  | buru**j**       |
+| `d͡ʒ` | 19,16    | **ja**rum   | pen**ja**jah  | buru**j**       |
 | `f`   | 18       | **f**lat    | a**v**ersi    | geniti**f**     |
 | `g`   | 20       | **g**abus   | da**g**el     | hambur**g**     |
 | `h`   | 12       | **h**ama    | tu**h**an     | enta**h**       |
@@ -39,6 +39,7 @@
 | `s`   | 15       | **s**abuk   | tete**s**an   | jeniu**s**      |
 | `ʃ`   | 16       | **sy**arat  | i**sy**arat   | briti**sh**     |
 | `t`   | 19       | **t**abir   | adap**t**asi  | dura**t**       |
-| `t͡ʃ` | 19 16    | **c**akap   | di**c**ari    |                 |
+| `t͡ʃ` | 19,16    | **c**akap   | di**c**ari    |                 |
 | `w`   | 7        | **w**ajah   | yu**w**ana    |                 |
 | `x`   | 12       | **kh**usuk  | a**kh**irnya  | barza**kh**     |
+| `z`   | 15       | **z**akat   | pe**z**ina    | mahfu**z**      |
