@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 03/31/2022
 ms.author: victorh
 
 ---
@@ -38,7 +38,8 @@ The following steps can be completed to create a new subnet:
 
 The Private link configuration defines the infrastructure used by Application Gateway to enable connections from Private Endpoints. To create the Private link configuration, complete the following steps:
 
-1. Go to the [Azure portal](https://portal.azure.com) to view your virtual networks. Search for and select **Application Gateways**.
+1. Go to the [Azure portal](https://portal.azure.com)
+1. Search for and select **Application Gateways**.
 1. Select the name of the application gateway you want to enable private link.
 1. Select **Private link**
 1. Configure the following items:
@@ -53,7 +54,8 @@ The Private link configuration defines the infrastructure used by Application Ga
 
 A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your gateway. Each of the clients will use the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
 
-1. Go to the [Azure portal](https://portal.azure.com) to view your virtual networks. Search for and select **Application Gateways**.
+1. Go to the [Azure portal](https://portal.azure.com)
+1. Search for and select **Application Gateways**.
 1. Select the name of the application gateway you want to enable private link.
 1. Select **Private Link**.
 1. Select the **Private endpoint connections** tab.
