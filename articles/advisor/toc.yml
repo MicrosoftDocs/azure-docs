@@ -16,7 +16,7 @@
       href: advisor-get-started.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
-      href: advisor-alerts.bicep.md
+      href: advisor-alerts-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
