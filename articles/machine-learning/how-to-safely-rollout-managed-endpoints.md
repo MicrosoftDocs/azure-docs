@@ -10,7 +10,7 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, cliv2
 ---
 
 # Safe rollout for online endpoints (preview)

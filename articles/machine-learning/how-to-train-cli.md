@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: amibp
 ms.author: amipatel
-ms.date: 03/14/2022
+ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---

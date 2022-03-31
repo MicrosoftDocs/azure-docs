@@ -6,6 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
+ms.custom: cliv2
 
 author: rsethur
 ms.author: seramasu
