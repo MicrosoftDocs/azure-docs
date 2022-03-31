@@ -21,7 +21,7 @@ Virtual Machine Scale Sets have two modes:
 
 To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). 
 
-This content applies to the flexible orchestration mode. For uniform orchestration mode, go to [Associate a virtual machine scale set with flexible orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)
+This content applies to the flexible orchestration mode. For uniform orchestration mode, go to [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)
 
 
 > [!IMPORTANT]
