@@ -30,26 +30,6 @@ If you're trying to improve your database performance, consider the options pres
 
 ## Hosting recommendations
 
-**For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing**
-
-We recommend Windows 64-bit host processing for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. 
-
-For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call is made to the gateway to get the optimized query. 
-
-The four application types listed here use 32-bit host processing by default. To change host processing to 64-bit processing for your application type, do the following:
-
-- **For executable applications**: In the **Project Properties** window, on the **Build** pane, set the [platform target](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) to **x64**.
-
-- **For VSTest-based test projects**: On the Visual Studio **Test** menu, select **Test** > **Test Settings**, and then set **Default Processor Architecture** to **X64**.
-
-- **For locally deployed ASP.NET web applications**: Select **Tools** > **Options** > **Projects and Solutions** > **Web Projects**, and then select **Use the 64-bit version of IIS Express for web sites and projects**.
-
-- **For ASP.NET web applications deployed on Azure**: In the Azure portal, in **Application settings**, select the **64-bit** platform.
-
-> [!NOTE] 
-> By default, new Visual Studio projects are set to **Any CPU**. We recommend that you set your project to **x64** so it doesn't switch to **x86**. A project that's set to **Any CPU** can easily switch to **x86** if an x86-only dependency is added.<br/>
-> The ServiceInterop.dll file needs to be in the folder that the SDK DLL is being executed from. This should be a concern only if you manually copy DLLs or have custom build or deployment systems.
-    
 **Turn on server-side garbage collection**
 
 Reducing the frequency of garbage collection can help in some cases. In .NET, set [gcServer](/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) to `true`.
