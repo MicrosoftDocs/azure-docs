@@ -1,5 +1,5 @@
 ---
-title: Grafana application UI 
+title: Grafana UI 
 description: Learn about the Grafana UI components--panels, visualizations and dashboards.
 author: maud-lv 
 ms.author: malev 
