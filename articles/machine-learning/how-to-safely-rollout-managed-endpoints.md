@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: seramasu
-ms.reviewer: laobri
+ms.reviewer: larryfr
 author: rsethur
-ms.date: 10/21/2021
+ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---

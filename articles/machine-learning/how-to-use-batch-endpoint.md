@@ -8,8 +8,8 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: tracych
 ms.author: tracych
-ms.reviewer: laobri
-ms.date: 03/15/2022
+ms.reviewer: larryfr
+ms.date: 03/31/2022
 ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.

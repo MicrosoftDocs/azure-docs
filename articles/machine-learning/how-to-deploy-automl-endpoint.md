@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
-ms.reviewer: laobri
+ms.reviewer: larryfr
 author: shivanissambare
-ms.date: 03/14/2022
+ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, devx-track-azurecli 
 ms.devlang: azurecli

@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: blackmist
-ms.date: 03/15/2022
+ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: devplatv2, devx-track-azurecli 
 ms.devlang: azurecli

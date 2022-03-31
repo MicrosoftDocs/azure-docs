@@ -8,9 +8,9 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
-ms.reviewer: laobri
+ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021
-ms.date: 12/22/2021
+ms.date: 03/31/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
