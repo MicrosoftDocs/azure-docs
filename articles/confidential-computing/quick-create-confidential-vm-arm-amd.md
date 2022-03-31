@@ -210,7 +210,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     
         ```azurecli
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-        az keyvault set-policy --name $hsm --object-id $cvmAgent.objectId --key-permission get release    
+        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.objectId --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName 
         ```
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
