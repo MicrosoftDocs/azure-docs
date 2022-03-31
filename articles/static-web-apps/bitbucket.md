@@ -1,5 +1,5 @@
 ---
-title: Deploy Bitbucket repositories on Azure Static Web Apps
+title: "Tutorial: Deploy Bitbucket repositories on Azure Static Web Apps"
 description: Use Bitbucket with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
@@ -9,12 +9,19 @@ ms.date: 03/31/2021
 ms.author: cshoe
 ---
 
-# Deploy Bitbucket repositories on Azure Static Web Apps
+# Tutorial: Deploy Bitbucket repositories on Azure Static Web Apps
 
-Azure Static Web Apps has flexible deployment options that allow to work with various providers. In this article, you deploy a web application hosted in Bitbucket to Azure Static Web Apps using a Linux virtual machine.
+Azure Static Web Apps has flexible deployment options that allow to work with various providers. In this tutorial, you deploy a web application hosted in Bitbucket to Azure Static Web Apps using a Linux virtual machine.
 
 > [!NOTE]
 > The Static Web Apps pipeline task currently only works on Linux machines.
+
+In this tutorial, you learn to:
+
+> [!div class="checklist"]
+> * Import a repository to Bitbucket
+> * Create a static web app
+> * Configure the Bitbucket repo to deploy to Azure Static Web Apps
 
 ## Prerequisites
 
@@ -27,7 +34,7 @@ Azure Static Web Apps has flexible deployment options that allow to work with va
 
 This article uses a GitHub repository as the source to import code into a Bitbucket repository.
 
-1. Sign in to Bitbucket.
+1. Sign in to [Bitbucket](https://bitbucket.org).
 1. Navigate to [https://bitbucket.org/repo/import](https://bitbucket.org/repo/import) to begin the import process.
 1. Under the *Old repository* label, in the *URL* box, enter the repository URL for your choice of framework.
 
@@ -53,7 +60,9 @@ This article uses a GitHub repository as the source to import code into a Bitbuc
     
     ---
 
-1. Select the **Import repository** button.
+1. Next to the *Project* label, select **Create new project**.
+1. Enter **MyStaticWebApp**.
+1. Select the **Import repository** button and wait a moment while the website creates your repository.
 
 ## Create a static web app
 
@@ -85,9 +94,11 @@ Now that the repository is created, you can create a static web app from the Azu
 ## Create the pipeline task in Bitbucket
 
 1. Navigate to the repository in Bitbucket.
+1. Select the **Source** menu item.
+1. Ensure the **main** branch is selected in the branch drop down.
 1. Select **Pipelines**.
-1. Select **Create your first pipeline**.
-1. Select **Starter pipeline**.
+1. Select text link **Create your first pipeline**.
+1. On the *Starter pipeline* card, select the **Select** button.
 1. Enter the following YAML into the configuration file.
 
     # [No Framework](#tab/vanilla-javascript)
@@ -182,8 +193,6 @@ Now that the repository is created, you can create a static web app from the Azu
 
     ---
 
-1. Select **Commit**
-
 ### Properties reference
 
 The following configuration properties are used in the configuration file for your static web app.
@@ -192,7 +201,7 @@ The `$BITBUCKET_CLONE_DIR` variable maps to the repository's root folder locatio
 
 | Property | Description | Example | Required |
 |--|--|--|--|
-| app_location | Location of your application code. Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
+| app_location | Location of your application code. | Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
 | api_location | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
 | output_location | Location of the build output directory relative to the app_location. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the output_location value. | No |
 
@@ -201,11 +210,10 @@ The `$BITBUCKET_CLONE_DIR` variable maps to the repository's root folder locatio
 Next, define value for the `API_TOKEN` variable.
 
 1. Select **Add variables**.
-1. Add a new variable in *Deployments* section.
-1. Name the variable **deployment_token**, which matches the name in the workflow.
+1. In the *Name* box, enter **deployment_token**, which matches the name in the workflow.
 1. In the *Value* box, paste in the deployment token value you set aside in a previous step.
 1. Check the **Secured** checkbox.
-1. Select **Add**.
+1. Select the **Add** button.
 1. Select **Commit file** and return to your pipelines tab.
 
 ## View the website
