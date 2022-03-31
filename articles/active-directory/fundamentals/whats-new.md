@@ -34,8 +34,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ## March 2022
  
 
-[1138837](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1138837&triage=true&fullScreen=false&_a=edit)
-
 ### Tenant enablement of combined security information registration for Azure Active Directory
 
 **Type:** Plan for change  
@@ -49,8 +47,6 @@ We announced in April 2020 General Availability of our new combined registration
 
 ---
  
-
-[1831996](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1831996&triage=true&fullScreen=false&_a=edit)
 
 ### Public preview - New provisioning connectors in the Azure AD Application Gallery - March 2022
 
@@ -77,7 +73,6 @@ For more information about how to better secure your organization by using autom
 ---
  
 
-[1066704](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1066704&triage=true&fullScreen=false&_a=edit)
 
 ### Public preview - Azure AD Recommendations
 
@@ -93,23 +88,6 @@ Azure AD Recommendations is now in public preview. This feature provides persona
 ---
  
 
-[1080447](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1080447&triage=true&fullScreen=false&_a=edit)
-
-### General Availability- Microsoft Defender for Endpoint Signal in Identity Protection
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection  
- 
-
-Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
- 
-
----
- 
-
-[1257331](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1257331&triage=true&fullScreen=false&_a=edit)
-
 ### Public Preview: Dynamic administrative unit membership for users and devices
 
 **Type:** New feature  
@@ -124,8 +102,6 @@ Administrative units now support dynamic membership rules for user and device me
 ---
  
 
-[1502752](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1502752&triage=true&fullScreen=false&_a=edit)
-
 ### Public Preview: Devices in Administrative Units
 
 **Type:** New feature  
@@ -139,8 +115,6 @@ Devices can now be added as members of administrative units. This enables scoped
 
 ---
  
-
-[1832929](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1832929&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - March 2022
 
@@ -158,12 +132,8 @@ You can also find the documentation of all the applications from here https://ak
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
 
- 
-
 ---
  
-
-[746811](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=746811&triage=true&fullScreen=false&_a=edit)
 
 ### Public Preview - New APIs for fetching transitive role assignments and role permissions
 
@@ -182,9 +152,6 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ---
  
-
-
-
 
 
 ## February 2022
@@ -947,144 +914,3 @@ Identity Governance Administrator can create and manage Azure AD access reviews 
  
 ---
 
-## September 2021
-
-### Limits on the number of configured API permissions for an application registration will be enforced starting in October 2021
-
-**Type:** Plan for change  
-**Service category:** Other  
-**Product capability:** Developer Experience
- 
-Occasionally, application developers configure their apps to require more permissions than it's possible to grant. To prevent this from happening, we're enforcing a limit on the total number of required permissions that can be configured for an app registration.
-
-The total number of required permissions for any single application registration must not exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out no sooner than mid-October 2021. Applications exceeding the limit can't increase the number of permissions they're configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and can't exceed 50 APIs.
-
-In the Azure portal, the required permissions are listed under Azure Active Directory > Application registrations > (select an application) > API permissions. Using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an application entity. [Learn more](../enterprise-users/directory-service-limits-restrictions.md).
-
----
-
-###  My Apps performance improvements
-
-**Type:** Fixed  
-**Service category:** My Apps  
-**Product capability:** End User Experiences
- 
-The load time of My Apps has been improved. Users going to myapps.microsoft.com load My Apps directly, rather than being redirected through another service. [Learn more](../user-help/my-apps-portal-end-user-access.md).
-
----
-
-### Single Page Apps using the `spa` redirect URI type must use a CORS enabled browser for auth
-
-**Type:** Known issue  
-**Service category:** Authentications (Logins)  
-**Product capability:** Developer Experience
- 
-The modern Edge browser is now included in the requirement to provide an `Origin` header when redeeming a [single page app authorization code](../develop/v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps). A compatibility fix accidentally exempted the modern Edge browser from CORS controls, and that bug is being fixed during October. A subset of applications depended on CORS being disabled in the browser, which has the side effect of removing the `Origin` header from traffic. This is an unsupported configuration for using Azure AD, and these apps that depended on disabling CORS can no longer use modern Edge as a security workaround.  All modern browsers must now include the `Origin` header per HTTP spec, to ensure CORS is enforced. [Learn more](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt). 
-
----
-
-### General availability - On the My Apps portal, users can choose to view their apps in a list
-
-**Type:** New feature  
-**Service category:** My Apps  
-**Product capability:** End User Experiences
- 
-By default, My Apps displays apps in a grid view. Users can now toggle their My Apps view to display apps in a list. [Learn more](../user-help/my-apps-portal-end-user-access.md).
- 
----
-
-### General availability - New and enhanced device-related audit logs
-
-**Type:** New feature  
-**Service category:** Audit  
-**Product capability:** Device Lifecycle Management
- 
-Admins can now see various new and improved device-related audit logs. The new audit logs include the create and delete passwordless credentials (Phone sign-in, FIDO2 key, and Windows Hello for Business), register/unregister device and pre-create/delete pre-create device. Additionally, there have been minor improvements to existing device-related audit logs that include adding more device details. [Learn more](../reports-monitoring/concept-audit-logs.md).
-
----
-
-### General availability - Azure AD users can now view and report suspicious sign-ins and manage their accounts within Microsoft Authenticator
-
-**Type:** New feature  
-**Service category:** Microsoft Authenticator App  
-**Product capability:** Identity Security & Protection
- 
-This feature allows Azure AD users to manage their work or school accounts within the Microsoft Authenticator app. The management features will allow users to view sign-in history and sign-in activity. They can report any suspicious or unfamiliar activity based on the sign-in history and activity if necessary. Users also can change their Azure AD account passwords and update the account's security information. [Learn more](../user-help/my-account-portal-sign-ins-page.md).
- 
----
-
-### General availability - New MS Graph APIs for role management
-
-**Type:** New feature  
-**Service category:** RBAC  
-**Product capability:** Access Control
- 
-New APIs for role management to MS Graph v1.0 endpoint are generally available. Instead of old [directory roles](/graph/api/resources/directoryrole?view=graph-rest-1.0&preserve-view=true), use [unifiedRoleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-1.0&preserve-view=true) and [unifiedRoleAssignment](/graph/api/resources/unifiedroleassignment?view=graph-rest-1.0&preserve-view=true).
- 
----
-
-### General availability - Access Packages can expire after number of hours
-
-**Type:** New feature  
-**Service category:** User Access Management  
-**Product capability:** Entitlement Management
-
-It's now possible in entitlement management to configure an access package that will expire in a matter of hours in addition to the previous support for days or specific dates. [Learn more](../governance/entitlement-management-access-package-create.md#lifecycle).
- 
----
-
-### New provisioning connectors in the Azure AD Application Gallery - September 2021
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration
- 
-You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
-
-- [BLDNG APP](../saas-apps/bldng-app-provisioning-tutorial.md)
-- [Cato Networks](../saas-apps/cato-networks-provisioning-tutorial.md)
-- [Rouse Sales](../saas-apps/rouse-sales-provisioning-tutorial.md)
-- [SchoolStream ASA](../saas-apps/schoolstream-asa-provisioning-tutorial.md)
-- [Taskize Connect](../saas-apps/taskize-connect-provisioning-tutorial.md)
-
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
- 
----
-
-### New Federated Apps available in Azure AD Application gallery - September 2021
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-In September 2021, we have added following 44 new applications in our App gallery with Federation support
-
-[Studybugs](https://studybugs.com/signin), [Yello](https://yello.co/yello-for-microsoft-teams/), [LawVu](../saas-apps/lawvu-tutorial.md), [Formate eVo Mail](https://www.document-genetics.co.uk/formate-evo-erp-output-management), [Revenue Grid](https://app.revenuegrid.com/login), [Orbit for Office 365](https://azuremarketplace.microsoft.com/marketplace/apps/aad.orbitforoffice365?tab=overview), [Upmarket](https://app.upmarket.ai/), [Alinto Protect](https://protect.alinto.net/), [Cloud Concinnity](https://cloudconcinnity.com/), [Matlantis](https://matlantis.com/), [ModelGen for Visio (MG4V)](https://crecy.com.au/model-gen/), [NetRef: Classroom Management](https://oauth.net-ref.com/microsoft/sso), [VergeSense](../saas-apps/vergesense-tutorial.md), [iAuditor](../saas-apps/iauditor-tutorial.md), [Secutraq](https://secutraq.net/login), [Active and Thriving](../saas-apps/active-and-thriving-tutorial.md), [Inova](https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=1bacdba3-7a3b-410b-8753-5cc0b8125f81&response_type=code&redirect_uri=https:%2f%2fbroker.partneringplace.com%2fpartner-companion%2f&code_challenge_method=S256&code_challenge=YZabcdefghijklmanopqrstuvwxyz0123456789._-~&scope=1bacdba3-7a3b-410b-8753-5cc0b8125f81/.default), [TerraTrue](../saas-apps/terratrue-tutorial.md), [Facebook Work Accounts](../saas-apps/facebook-work-accounts-tutorial.md), [Beyond Identity Admin Console](../saas-apps/beyond-identity-admin-console-tutorial.md), [Visult](https://app.visult.io/), [ENGAGE TAG](https://app.engagetag.com/), [Appaegis Isolation Access Cloud](../saas-apps/appaegis-isolation-access-cloud-tutorial.md), [CrowdStrike Falcon Platform](../saas-apps/crowdstrike-falcon-platform-tutorial.md), [MY Emergency Control](https://my-emergency.co.uk/app/auth/login), [AlexisHR](../saas-apps/alexishr-tutorial.md), [Teachme Biz](../saas-apps/teachme-biz-tutorial.md), [Zero Networks](../saas-apps/zero-networks-tutorial.md), [Mavim iMprove](https://improve.mavimcloud.com/), [Azumuta](https://app.azumuta.com/login?microsoft=true), [Frankli](https://beta.frankli.io/login), [Amazon Managed Grafana](../saas-apps/amazon-managed-grafana-tutorial.md), [Productive](../saas-apps/productive-tutorial.md), [Create!Webフロー](../saas-apps/createweb-tutorial.md), [Evercate](https://evercate.com/us/sign-up/), [Ezra Coaching](../saas-apps/ezra-coaching-tutorial.md), [Baldwin Safety and Compliance](../saas-apps/baldwin-safety-&-compliance-tutorial.md), [Nulab Pass (Backlog,Cacoo,Typetalk)](../saas-apps/nulab-pass-tutorial.md), [Metatask](../saas-apps/metatask-tutorial.md), [Contrast Security](../saas-apps/contrast-security-tutorial.md), [Animaker](../saas-apps/animaker-tutorial.md), [Traction Guest](../saas-apps/traction-guest-tutorial.md), [True Office Learning - LIO](../saas-apps/true-office-learning-lio-tutorial.md), [Qiita Team](../saas-apps/qiita-team-tutorial.md)
-
-You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
-
----
-
-###  Gmail users signing in on Microsoft Teams mobile and desktop clients will sign in with device login flow starting September 30, 2021
-
-**Type:** Changed feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-Starting on September 30 2021, Azure AD B2B guests and Azure AD B2C customers signing in with their self-service signed up or redeemed Gmail accounts will have an extra login step. Users will now be prompted to enter a code in a separate browser window to finish signing in on Microsoft Teams mobile and desktop clients. If you haven't already done so, make sure to modify your apps to use the system browser for sign-in. See [Embedded vs System Web UI in the MSAL.NET](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) documentation for more information. All MSAL SDKs use the system web-view by default. 
-
-As the device login flow will start September 30, 2021, it's may not be available in your region immediately. If it's not available yet, your end-users will be met with the error screen shown in the doc until it gets deployed to your region.) For more details on the device login flow and details on requesting extension to Google, see [Add Google as an identity provider for B2B guest users](../external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
- 
----
-
-### Improved Conditional Access Messaging for Non-compliant Device
-
-**Type:** Changed feature  
-**Service category:** Conditional Access  
-**Product capability:** End User Experiences
- 
-The text and design on the Conditional Access blocking screen shown to users when their device is marked as non-compliant has been updated. Users will be blocked until they take the necessary actions to meet their company's device compliance policies. Additionally, we have streamlined the flow for a user to open their device management portal. These improvements apply to all conditional access supported OS platforms. [Learn more](https://support.microsoft.com/account-billing/troubleshooting-the-you-can-t-get-there-from-here-error-message-479a9c42-d9d1-4e44-9e90-24bbad96c251) 
-
----
