@@ -10,16 +10,6 @@
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
-- name: Concepts
-  items:
-  - name: Updates and maintenance
-    href: updates-maintenance-schedules.md
-  - name: Log on to Azure Resource Graph
-    href: query-logs-resource-graph.md 
-  - name: Configure Update management center
-    href: configure-update-management-center.md
-  - name: Manage multiple machines
-    href: manage-multiple-machines.md
 - name: How-to guides
   items:
   - name: Deploy
