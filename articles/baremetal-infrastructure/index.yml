@@ -180,7 +180,7 @@ landingContent:
           - text: User VM (UVM) Network Management 
             url:  workloads/nutanix-public-preview/uvm-network-management.md
           - text: Cluster Management
-            url: cluster-management.md
-          - text: Cluster Administration
-            url:  workloads/nutanix-public-preview/cluster-administration.md
+            url:  workloads/nutanix-public-preview/cluster-management.md
+          - text: Cluster Account Administration
+            url:  workloads/nutanix-public-preview/cluster-account-administration.md
   
