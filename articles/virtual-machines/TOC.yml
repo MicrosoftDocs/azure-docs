@@ -416,7 +416,8 @@
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: image-version-encryption.md
-      - name: Managed disk from image version
+      - name: Export an image to a managed disk
+        desplayName: export, image version, disk, SIG, gallery
         href: managed-disk-from-image-version.md
       - name: Purchase plan information
         href: marketplace-images.md
