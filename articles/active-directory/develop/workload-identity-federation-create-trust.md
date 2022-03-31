@@ -55,7 +55,7 @@ When you configure a federated identity credential on an app, there are several 
 
 Run the [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) command on your app (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
-For examples, see [Configure an app to trust a GitHub repo](workload-identity-federation-create-trust-github?tabs=microsoft-graph).
+For examples, see [Configure an app to trust a GitHub repo](workload-identity-federation-create-trust-github.md?tabs=microsoft-graph).
 
 # [Portal](#tab/azure-portal)
 
@@ -108,6 +108,51 @@ Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and
 - **Cluster issuer URL** is the [OIDC issuer URL](/azure/aks/cluster-configuration#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
 - **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod.  - - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which cannot be changed later.
+
+---
+
+### Other identity providers example
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following command to configure a federated identity credential on an app and create a trust relationship with an external identity provider.  Specify the following parameters (using a software workload running in Google Cloud as an example):
+
+- *name* is the name of the federated credential, which cannot be changed later.
+- *<ObjectID>*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
+- *subject*: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
+- *issuer*: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the *issuer* is "https://accounts.google.com".
+- *audiences*: must match the `aud` claim in the external token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is "api://AzureADTokenExchange".
+
+```azurecli
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<ObjectID>/federatedIdentityCredentials' --body '{"name":"GcpFederation","issuer":"https://accounts.google.com","subject":"112633961854638529490","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
+```
+
+And you get the response:
+```azurecli
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('f6475511-fd81-4965-a00e-41e7792b7b9c')/federatedIdentityCredentials/$entity",
+  "audiences": [
+    "api://AzureADTokenExchange"
+  ],
+  "description": "Testing",
+  "id": "51ecf9c3-35fc-4519-a28a-8c27c6178bca",
+  "issuer": "https://accounts.google.com"",
+  "name": "GcpFederation",
+  "subject": "112633961854638529490"
+}
+```
+
+# [Portal](#tab/azure-portal)
+
+Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
+
+Select the **Other issuer** scenario from the dropdown menu.
+
+Specify the following fields (using a software workload running in Google Cloud as an example):
+
+- **Name** is the name of the federated credential, which cannot be changed later.
+- **Subject identifier**: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
+- **Issuer**: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the *issuer* is "https://accounts.google.com".
 
 ---
 
