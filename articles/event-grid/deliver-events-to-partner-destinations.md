@@ -15,6 +15,15 @@ A partner creates a channel that in turn creates a partner destination in a reso
 
 Then, you as an end user, can create event subscriptions to topics or domains using the partner destination as an endpoint. 
 
+## Activate a partner destination
+Before you can use a partner destination as an endpoint for an event subscription, you need to activate the partner destination. 
+
+1. In the search bar of the Azure portal, search for and select **Event Grid Partner Destinations**.
+1. On the **Event Grid Partner Destinations** page, select the partner destination in the list. 
+1. Review the activate message, and select **Activate** on the page or on the command bar to activate the partner topic before the expiration time mentioned on the page. 
+1. Confirm that the activation status is set to **Activated**.
+
+
 ## Create an event subscription using partner destination
 
 In the Azure portal, when creating an event subscription, follow these steps: 
