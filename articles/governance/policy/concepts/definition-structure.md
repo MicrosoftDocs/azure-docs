@@ -951,7 +951,7 @@ functions](../../../azure-resource-manager/templates/template-functions.md) are 
 within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
-- dayTimeAdd()
+- dateTimeAdd()
 - deployment()
 - environment()
 - extensionResourceId()
