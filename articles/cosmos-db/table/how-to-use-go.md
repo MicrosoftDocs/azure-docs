@@ -85,6 +85,13 @@ type InventoryEntity struct {
 	OnSale      bool
 }
 
+type PurchasedEntity struct {
+	aztables.Entity
+	Price float32
+	ProductName string
+	OnSale bool
+}
+
 func getClient() *aztables.Client {
 	accountName, ok := os.LookupEnv("AZURE_STORAGE_ACCOUNT")
 	if !ok {
@@ -153,7 +160,7 @@ func listEntities(client *aztables.Client) {
 }
 
 func queryEntity(client *aztables.Client) {
-        filter := fmt.Sprintf("PartitionKey eq '%s' or RowKey eq '%s'", "pk001", "rk001")
+	filter := fmt.Sprintf("PartitionKey eq '%v' or RowKey eq '%v'", "pk001", "rk001")
 	options := &aztables.ListEntitiesOptions{
 		Filter: &filter,
 		Select: to.StringPtr("RowKey,Price,Inventory,ProductName,OnSale"),
@@ -167,13 +174,13 @@ func queryEntity(client *aztables.Client) {
 			panic(err)
 		}
 		for _, entity := range resp.Entities {
-			var myEntity aztables.EDMEntity
+			var myEntity PurchasedEntity 
 			err = json.Unmarshal(entity, &myEntity)
 			if err != nil {
 				panic(err)
 			}
-
-			fmt.Printf("Received: %v, %v, %v, %v, %v\n", myEntity.RowKey, myEntity.Properties["Price"], myEntity.Properties["Inventory"], myEntity.Properties["ProductName"], myEntity.Properties["OnSale"])
+			fmt.Println("Return custom type [PurchasedEntity]")
+			fmt.Printf("Price: %v; ProductName: %v; OnSale: %v\n", myEntity.Price, myEntity.ProductName, myEntity.OnSale)
 		}
 	}
 }
@@ -289,6 +296,13 @@ if err != nil {
 ### Get an entitiy
 
 ```go
+type PurchasedEntity struct {
+	aztables.Entity
+	Price       float32
+	ProductName string
+	OnSale      bool
+}
+
 filter := fmt.Sprintf("PartitionKey eq '%v' or RowKey eq '%v'", "pk001", "rk001")
 options := &aztables.ListEntitiesOptions{
 	Filter: &filter,
@@ -303,13 +317,13 @@ for pager.More() {
 		panic(err)
 	}
 	for _, entity := range resp.Entities {
-		var myEntity aztables.EDMEntity
+		var myEntity PurchasedEntity
 		err = json.Unmarshal(entity, &myEntity)
 		if err != nil {
 			panic(err)
 		}
-
-		fmt.Printf("Received: %v, %v, %v, %v, %v\n", myEntity.RowKey, myEntity.Properties["Price"], myEntity.Properties["Inventory"], myEntity.Properties["ProductName"], myEntity.Properties["OnSale"])
+		fmt.Println("Return custom type [PurchasedEntity]")
+		fmt.Printf("Price: %v; ProductName: %v; OnSale: %v\n", myEntity.Price, myEntity.ProductName, myEntity.OnSale)
 	}
 }
 ```
