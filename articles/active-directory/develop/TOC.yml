@@ -18,11 +18,11 @@
           href: authentication-vs-authorization.md
         - name: OAuth 2.0 and OpenID Connect
           href: active-directory-v2-protocols.md
-        - name: Security tokens
-          href: security-tokens.md
         - name: App types and authentication flows
           displayName: Auth flows
           href: authentication-flows-app-scenarios.md
+        - name: Security tokens
+          href: security-tokens.md
         - name: Microsoft Authentication Library (MSAL)
           href: msal-overview.md
         - name: Microsoft Graph
@@ -30,7 +30,7 @@
     - name: Permissions and access
       displayName: Access control
       items:
-        - name: "Authorization: common approaches"
+        - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
           href: custom-rbac-for-developers.md
