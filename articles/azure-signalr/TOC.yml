@@ -40,11 +40,11 @@
     items:
     - name: Overview
       href: signalr-reference-cli.md
-    - name: Create a new SignalR Service
+    - name: Create SignalR Service
       href: scripts/signalr-cli-create-service.md
-    - name: Create a new SignalR Service and Web App
+    - name: Create SignalR Service and Web App
       href: scripts/signalr-cli-create-with-app-service.md
-    - name: Create a new SignalR Service and Web App with GitHub OAuth
+    - name: Create SignalR Service and Web App with GitHub OAuth
       href: scripts/signalr-cli-create-with-app-service-github-oauth.md
 - name: Concepts
   items:
