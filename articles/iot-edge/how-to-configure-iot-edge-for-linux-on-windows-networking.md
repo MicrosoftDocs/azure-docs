@@ -34,6 +34,15 @@ Before starting the deployment, make sure that your virtual switch name and type
 ```powershell
 Get-VmSwitch
 ```
+Depending on the virtual switches of the Windows host, the output should be similar to the following:
+
+```output
+Name           SwitchType NetAdapterInterfaceDescription
+----           ---------- ------------------------------
+Default Switch Internal
+IntOff         Internal
+EFLOW-Ext      External
+```
 
 If you aren't using the **default switch** and you want to set up the EFLOW VM with your custom virtual switch, make sure you specify the correct parameters: `-vSwitchName` and `vSwitchType`. For example, if you want to deploy the EFLOW VM with an **external switch** named **EFLOW-Ext**, then you should use the following command:
 
