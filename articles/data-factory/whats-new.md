@@ -26,13 +26,17 @@ This page is updated monthly, so revisit it regularly.
 <table>
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
-<tr><td rowspan=4><b>Data Flow</b></td><td>ScriptLines and Parameterized Linked Service support added mapping data flows</td><td>It is now super-easy to detect changes to your data flow script in Git with ScriptLines in your data flow JSON definition. Parameterized Linked Services can now also be used inside your data flows for flexible generic connection patterns.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-mapping-data-flows-adds-scriptlines-and-link-service/ba-p/3249929#M589">Learn more</a></td></tr>
+<tr><td rowspan=5><b>Data Flow</b></td><td>ScriptLines and Parameterized Linked Service support added mapping data flows</td><td>It is now super-easy to detect changes to your data flow script in Git with ScriptLines in your data flow JSON definition. Parameterized Linked Services can now also be used inside your data flows for flexible generic connection patterns.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-mapping-data-flows-adds-scriptlines-and-link-service/ba-p/3249929#M589">Learn more</a></td></tr>
 
 <tr><td>Flowlets General Availability (GA)</td><td>Flowlets is now generally available to create reusable portions of data flow logic that you can share in other pipelines as inline transformations. Flowlets enable ETL jobs to be composed of custom or common logic components.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450">Learn more</a></td></tr> 
  
 <tr><td>Change Feed connectors are available in 5 data flow source transformations</td><td>Change Feed connectors are available in data flow source transformations for Cosmos DB, Blob store, ADLS Gen1, ADLS Gen2, and CDM.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450">Learn more</a></td></tr> 
  
 <tr><td>Data Preview and Debug Improvements in Mapping Data Flows</td><td>A few new exciting features were added to data preview and the debug experience in Mapping Data Flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254">Learn more</a></td></tr> 
+ 
+<tr><td>SFTP connector for Mapping Data Flow</td><td>The SFTP connector is now available for Mapping Data Flows.<br><a href="connector-sftp.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td><b>Data Movement</b></td><td>Support for Always Encrypted for the Lookup activity under managed VNET</td><td>The Lookup activity now supports Always Encrypted under managed VNET.</td></tr>
  
 <tr><td><b>Integration Runtime</b></td><td>New UI layout in Azure integration runtime creation and edit page</td><td>The UI layout of the integration runtime creation/edit page has been changed to tab style including Settings, Virtual Network and Data flow runtime.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/new-ui-layout-in-azure-integration-runtime-creation-and-edit/ba-p/3248237">Learn more</a></td></tr>
  
