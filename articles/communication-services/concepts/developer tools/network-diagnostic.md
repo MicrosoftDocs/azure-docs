@@ -27,7 +27,7 @@ As part of the diagnostics performed, the user is asked to enable permissions fo
   
   | Test                              | Description                              |
   |-----------------------------------|------------------------------------------|
-  | Browser Diagnostic                |  Checks for browser comaptibility. Azure Communication Services support specific browsers for [calling](./voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser) and [cha](../chat/sdk-features.md#javascript-chat-sdk-support-by-os-and-browser). | 
+  | Browser Diagnostic                |  Checks for browser comaptibility. Azure Communication Services support specific browsers for [calling](../voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) and [chat](../chat/sdk-features.md#javascript-chat-sdk-support-by-os-and-browser). | 
   | Media Device Diagnostic           | Checks for availability of device (camera, microphone and speaker) and enabled permissions for those devices on the browser. |
   | Service Connectivity              | Checks whether it can connect to Azure Communication Services |
   | Audio Test                        | Performs an echo bot call, where the user can talk to echo bot and hear themselves back. The test records media quality statistics for audio including jitter, bitrate, packet loss and RTT with thresholds for optimal conditions. |
