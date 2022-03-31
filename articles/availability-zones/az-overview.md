@@ -42,7 +42,7 @@ Some organizations require high availability of availability zones and protectio
 
 ## Azure regions with availability zones
 
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones.
+Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. The following regions currently support availability zones.
 
 | Americas | Europe | Africa | Asia Pacific |
 |--------------------|----------------------|---------------------|----------------|
@@ -52,7 +52,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
 | South Central US | West Europe | | East Asia |
-| US Gov Virginia | Sweden Central| | China North 3 |
+| US Gov Virginia | Sweden Central | | China North 3 |
 | West US 2 | Switzerland North* | | |
 | West US 3 | | | |
 
