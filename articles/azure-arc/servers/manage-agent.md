@@ -32,7 +32,7 @@ You can perform a **connect** and **disconnect** manually while logged on intera
 
 ### check
 
-This parameter allows you to run the network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
+This parameter allows you to run network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
 
 When running a network connectivity check, you must provide the name of the Azure region (for example, eastus) that you want to test. It's also recommended to use the `--verbose` parameter to see the results of both successful and unsuccessful tests:
 
@@ -40,7 +40,7 @@ When running a network connectivity check, you must provide the name of the Azur
 
 ### connect
 
-This parameter specifies a resource in Azure Resource Manager to create the machine in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine unless otherwise specified.
+This parameter specifies a resource in Azure Resource Manager and connects it to Azure Arc. You must specify the subscription and resource group of the resource to connect. Data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine unless otherwise specified.
 
 A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and guest configuration agent service begins synchronizing with Azure Arc-enabled servers.
 
@@ -58,7 +58,7 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 
 ### disconnect
 
-This parameter specifies a resource in Azure Resource Manager to delete the machine in Azure. It doesn't remove the agent from the machine; you must uninstall the agent separately. After the machine is disconnected, you can re-register it with Azure Arc-enabled servers using `azcmagent connect` so a new resource is created for it in Azure.
+This parameter specifies a resource in Azure Resource Manager to delete from Azure Arc. Running this parameter doesn't remove the agent from the machine; you must uninstall the agent separately. After the machine is disconnected, you can re-register it with Azure Arc-enabled servers using `azcmagent connect` so a new resource is created for it in Azure.
 
 > [!NOTE]
 > If you have deployed one or more Azure VM extensions to your Azure Arc-enabled server and you delete its registration in Azure, the extensions are still installed. Depending on the extension installed, it's actively performing its function. Any machine intended to be retired or no longer managed by Azure Arc-enabled servers should first have its extensions removed before removing its registration from Azure.
