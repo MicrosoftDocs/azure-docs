@@ -96,7 +96,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 <!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
 
-Following are queries that you can use to help you monitor your [Service resource]. 
+Following are queries that you can use to help you monitor your DPS instance.
 
 <!-- Put in a code section here. -->  
 ```Kusto

@@ -61,57 +61,19 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 This section lists the types of resource logs you can collect for DPS.
 
-<!-- List all the resource log types you can have and what they are for -->  
+Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/essentials/resource-logs-categories?branch=pr-en-us-193324#microsoftdevicesprovisioningservices)
+
+| Category | Display Name | *TODO replace this label with other information*  |
+|:---------|:-------------|------------------|
+| DeviceOperations   | Device Operations  | *TODO other important information about this type* |
+| ServiceOperations   | Service Operations | *TODO other important information about this type* |
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
-This section lists all the resource log category types collected for [TODO-replace-with-service-name].  
-
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Web Sites | [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites) |
-| Web Site Slots | [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots) 
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
--->
-
-<!-- Example format. Add extra information -->
-
-### Web Sites
-
-Resource Provider and Type: [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites)
-
-| Category | Display Name | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
-| AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
-|  etc.               |                              |                                                   |  
-
-### Web Site Slots
-
-Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
-
-| Category | Display Name | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
-| AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
-|  etc.               |                              |                                                   |  
-
---------------**END Examples** -------------
 
 ## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to [TODO-replace-with-service-name] and available for query by Log Analytics.
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to DPS and available for query by Log Analytics.
 
 ------------**OPTION 1 EXAMPLE** ---------------------
 
@@ -122,43 +84,17 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to [T
 
 |Resource Type | Notes |
 |-------|-----|
-| [Virtual Machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
-| [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics).  
-
-NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
--->
-
-### Virtual Machines
-
-| Table |  Description | *TODO replace this label with proper title for your additional information*  |
-|:---------|:-------------|------------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | *TODO other important information about this type |
-| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-### Virtual Machine Scale Sets
-
-| Table |  Description | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)   | <!-- description copied from previous link --> Recommendations generated by AD assessments that are started through a scheduled task. When you schedule the assessment it runs by default every 7 days and upload the data into Azure Log Analytics | *TODO other important information about this type |
-| [ADReplicationResult](/azure/azure-monitor/reference/tables/adreplicationresult) | <!-- description copied from previous link --> The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
+| [Device Provisioning Service](/azure/azure-monitor/reference/tables/tables-resourcetype#device-provisioning-services) | |
 
 <!-- Add extra information if required -->
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
---------------**END EXAMPLES** -------------
-
 ### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
-DPS uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
+DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
 | Property | Data type | Description |
 |:--- |:---|:---|
