@@ -12,7 +12,7 @@
     href: quickstart-on-demand.md
 - name: Concepts
   items:
-  - name: Updates and maintenance
+  - name: Update options
     href: updates-maintenance-schedules.md
   - name: Log on to Azure Resource Graph
     href: query-logs-resource-graph.md 
