@@ -60,7 +60,7 @@ sections:
       - question: |
           How can I find out whether a continuous backup mode account was restored from another account?
         answer: |
-          You can identify whether an account is restored and get the restore details. For more details, see how to get the restore details by using [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).
+          You can identify whether an account is restored and get the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).
           
       - question: |
           What is the use of `instanceID` in the account definition?
