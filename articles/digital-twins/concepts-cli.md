@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins CLI command set
 
-Apart from managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins also has a command set for the [Azure CLI](/cli/azure/what-is-azure-cli) that you can use to do most major actions with the service. This article covers the [Azure CLI](/cli/azure/what-is-azure-cli) in terms of its uses, how to get it, and the requirements for using it.
+Apart from managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins also has a command set for the [Azure CLI](/cli/azure/what-is-azure-cli) that you can use to do most major actions with the service. This article covers the Azure CLI command set for Azure Digital twins including its uses, how to get it, and the requirements for using it.
 
 Some of the actions you can do using the command set include:
 * Managing an Azure Digital Twins instance
