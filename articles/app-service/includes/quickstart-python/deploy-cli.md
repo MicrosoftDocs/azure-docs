@@ -67,3 +67,5 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
   "src_path": "&lt;your-folder-location>"
 }
 </pre>
+
+[!INCLUDE [az webapp up command note](../../../../includes/app-service-web-az-webapp-up-note.md)
