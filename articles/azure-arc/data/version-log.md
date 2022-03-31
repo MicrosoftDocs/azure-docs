@@ -42,7 +42,7 @@ This article identifies the component versions with each release of Azure Arc-en
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
-|Container images tag |v1.3.0_2022-01-27
+|Container images tag |`v1.3.0_2022-01-27`
 |CRD names and versions	|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1, v2</br>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2</br>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2</br>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1, v2, v3</br>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2</br>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1</br>`dags.sql.arcdata.microsoft.com`: v1beta1, v2beta2</br>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1|
 |ARM API version|2021-11-01|
 |`arcdata` Azure CLI extension version|	1.2.0|
@@ -55,7 +55,7 @@ The following table describes the components in this release.
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
-|Container images tag                                    | v1.2.0_2021-12-15 |
+|Container images tag                                    | `v1.2.0_2021-12-15` |
 |CRD names and versions                                  | `datacontrollers.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2 <br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1 <br/>`dags.sql.arcdata.microsoft.com`: v1beta1, v2beta2<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1 |
 |ARM API version                                         | 2021-11-01 |
 |`arcdata` Azure CLI extension version                   | 1.1.2 |
@@ -68,7 +68,7 @@ The following table describes the components in this release.
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
-|Container images tag                                    | v1.1.0_2021-11-02 |
+|Container images tag                                    | `v1.1.0_2021-11-02` |
 |CRD names and versions                                  | `datacontrollers.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1, v2 <br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2 <br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1 <br/>`dags.sql.arcdata.microsoft.com`: v1beta1, v2beta2 |
 |ARM API version                                         | 2021-11-01 |
 |`arcdata` Azure CLI extension version                   | 1.1.0, (Nov 3),</br>1.1.1 (Nov4) |
@@ -91,7 +91,7 @@ This release introduces general availability for Azure Arc-enabled SQL Managed I
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
-|Container images tag                                    | v1.0.0_2021-07-30 |
+|Container images tag                                    | `v1.0.0_2021-07-30` |
 |CRD names and versions                                  |`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 <br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1 <br/>`monitors.arcdata.microsoft.com`: v1beta1, v1 <br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 <br/>`postgresqls.arcdata.microsoft.com`: v1beta1 <br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1 <br/>`dags.sql.arcdata.microsoft.com`: v1beta1 <br/> |
 |ARM API version                                         | 2021-08-01 (stable) |
 |`arcdata` Azure CLI extension version                   | 1.0 |
