@@ -81,18 +81,18 @@ https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 
 To find the endpoints for an application you've registered, in the [Azure portal](https://portal.azure.com) navigate to:
 
-**Azure Active Directory** > **App registrations** > *{YOUR-APPLICATION}* > **Endpoints**
+**Azure Active Directory** > **App registrations** > \<YOUR-APPLICATION\> > **Endpoints**
 
 ## Next steps
 
 Next, learn about the OAuth 2.0 authentication flows used by each application type and the libraries you can use in your apps to perform them:
 
 * [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
-* [Microsoft authentication libraries](reference-v2-libraries.md)
+* [Microsoft Authentication Library (MSAL)](msal-overview.md)
 
-Always prefer using an authentication library over making raw HTTP calls to execute auth flows. However, if you have an app that requires it or you'd like to learn more about the identity platform's implementation of OAuth and OIDC, see:
+**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft authentication library](reference-v2-libraries.md) is safer and much easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
 
-* [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)
 * [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
 * [Client credentials flow](v2-oauth2-client-creds-grant-flow.md) - Server-side processes, scripts, daemons
 * [On-behalf-of (OBO) flow](v2-oauth2-on-behalf-of-flow.md) - Web APIs that call another web API on a user's behalf
+* [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)
