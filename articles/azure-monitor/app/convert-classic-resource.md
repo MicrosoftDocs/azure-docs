@@ -95,6 +95,8 @@ We still provide full backwards compatibility for your Application Insights clas
 
 To write queries against the [new workspace-based table structure/schema](apm-tables.md), you must first navigate to your Log Analytics workspace. 
 
+To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](apm-tables.md#appmetrics). 
+
 When you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
 > [!NOTE]

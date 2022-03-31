@@ -28,7 +28,7 @@ The second component is the virtual machine base operating system. The EFLOW vir
 
 The third component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service and the PowerShell module. 
 
-IoT Edge for Linux on Windows updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates until the desired version. 
+EFLOW updates aren't cumulative, so in order to get to the latest version, you'll have to either do a fresh installation using the latest version, or apply all the previous servicing updates up to the desired version. 
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
@@ -53,6 +53,13 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 1. Select **Advanced options**.
 
 1. Toggle the *Receive updates for other Microsoft products when you update Windows* button to **On**.
+
+
+## Update using Windows Server Update Services (WSUS)
+
+Windows Server Update Services (WSUS) enables organizations to deploy the latest Microsoft product updates to their Windows IoT devices. You can use WSUS to fully manage the distribution of updates that are released through Microsoft Update to devices on your network, in particular the IoT Edge for Linux on Windows updates.
+
+For more information about WSUS, see [Device Management Overview - WSUS](/windows/iot/iot-enterprise/device-management/device-management-overview#windows-server-update-services-wsus).
 
 
 ## Offline manual update
@@ -82,6 +89,22 @@ In some scenarios with restricted or limited internet connectivity, you may want
 1. Install the extracted *AzureIoTEdge.msi*.
 <!-- end 1.2 -->
 :::moniker-end
+
+
+## Managing Microsoft Updates
+
+As explained before, IoT Edge for Linux on Windows updates are serviced using Microsoft Update channel, so it's not possible to turn on/off EFLOW specific updates, without turning on/off Microsoft Updates. Listed below are some of the ways to automate turning on/off Microsoft updates. For more information about managing OS updates, see [OS Updates](/windows/iot/iot-enterprise/os-features/updates#completely-turn-off-windows-updates).
+
+1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
+
+1. **Registry Keys** - By modifying the Windows Update AU registry key, following these steps:
+    1. Open the Run dialog (Windows key + R).
+    1. Type `regedit` and hit the Enter key.
+    1. When the Registry Editor opens, navigate to the following location: `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU`
+    1. Right select on the right side panel and select on New > DWORD (32-bit) Value.
+    1. Set the name of this newly created DWORD as `AllowMUUpdateService`.
+    1. Double select on the newly created DWORD and set its value as 1
+    1. Select OK and close the registry editor.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
