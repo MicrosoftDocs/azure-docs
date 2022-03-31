@@ -6,31 +6,29 @@ ms.date: 03/28/2022
 ---
 
 # Onboard as an Azure Event Grid partner using the Azure portal
-This article describes the way third-party SaaS providers, also known as event publishers or partners, are onboarded to Event Grid to be able to publish events from their services and how those events are consumed by end users.
+This article describes the way third-party SaaS providers, also known as partners are onboarded to Event Grid to be able to publish events from their services and how those events are consumed by end users.
 
 > [!IMPORTANT]
-> If you are not familiar with Partner Events, see [Partner Events overview](partner-events-overview.md) for a detailed introduction of key concepts that are critical to understand and follow the steps in this article.
+> If you are not familiar with Partner Events, see [Partner Events overview](partner-events-overview-for-partners.md) for a detailed introduction of key concepts that are critical to understand and follow the steps in this article.
 
-## Onboarding process for event publishers (partners)
+## Onboarding process for partners
 In a nutshell, enabling your service’s events to be consumed by users typically involves the following process:
 
 1. [Communicate your interest in becoming a partner](#communicate-your-interest-in-becoming-a-partner) to the Event Grid service team.
-1. Create a partner topic type by creating a **registration**. 
-1. Create a **namespace**.
-1. Create a **channel** (recommended)/**event channel** (legacy), and a **partner topic** in a single step.
+1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
+1. [Create a **partner registration**](#create-a-partner-registration). 
+1. [Create a **namespace**](#create-a-partner-namespace).
+1. [Create a **channel** and a **partner topic** or a **partner destination** in a single step](#create-a-channel).
 
     > [!IMPORTANT]
-    > **Channel** is the new routing resource type and is the preferred option. An **event channel** is a legacy resource and will be deprecated soon. 
+    > You may be able to create an event channel (legacy), which supports only partner topics, not partner destinations. **Channel** is the new routing resource type and is the preferred option, which supports both sending events via partner topics and receiving events via partner destinations. An **event channel** is a legacy resource and will be deprecated soon. 
 1. Test the Partner Events functionality end to end.
 
-For step #4, you should decide what kind of user experience you want to provide. You have the following options:
-- Provide your own solution, typically a web graphical user interface (GUI) experience, hosted under your domain using our SDK and/or REST API to create an event channel and its corresponding partner topic. With this option, you can ask the user for the subscription and resource group under which you'll create a partner topic.
+For step #5, you should decide what kind of user experience you want to provide. You have the following options:
+- Provide your own solution, typically a web graphical user interface (GUI) experience, hosted under your domain using our SDK and/or REST API to create a channel (latest and recommended) /event channel (legacy) and its corresponding partner topic. With this option, you can ask the user for the subscription and resource group under which you'll create a partner topic.
 - Use Azure portal or CLI to create the channel (recommended)/event channel (legacy) and an associated partner topic. With this option, you must have get in the user’s Azure subscription some way and resource group under which you'll create a partner topic. 
 
 This article shows you how to **onboard as an Azure Event Grid partner** using the **Azure portal**. 
-
-> [!NOTE]
-> Registering a partner topic type is an optional step. To help you decide if you should create a partner topic type, see [Resources managed by event publisher](partner-events-overview-for-partners.md#resources-managed-by-partners).
 
 ## Communicate your interest in becoming a partner
 Fill out [this form](https://aka.ms/gridpartnerform) and contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
@@ -41,7 +39,10 @@ To complete the remaining steps, make sure you have:
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - An Azure [tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-## Register a partner topic type (optional)
+
+[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+
+## Create a partner registration 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** from the left navigation pane, then type in **Event Grid Partner Registrations** in the search bar, and select it. 
@@ -87,11 +88,12 @@ To complete the remaining steps, make sure you have:
     1. In the **Namespace details** section, do the following steps:
         1. Enter a **name** for the namespace. 
         1. Select a **location** for the namespace. 
-        1. For **Partner topic routing mode**, select **Channel name header** and **Source attribute in event**. If you select **Channel name header** option, the partner namespace can have **channels** (latest and recommended). If you select **Source attribute in event**, the partner namespace can have **event channels** (legacy). A partner namespace serves as container to routing resources and it can hold only one type of routing resource, either **channels** or **event channels**. In the near future, there will be only channels, which will support both source-based routing and channel-name routing. For more information, see [Channels](partner-events-overview-for-partners.md#channel).
+        1. For **Partner topic routing mode**, select **Channel name header** or **Source attribute in event**. If you select **Channel name header** option, the partner namespace can have **channels** (latest and recommended). If you select **Source attribute in event**, the partner namespace can have **event channels** (legacy). A partner namespace serves as container to routing resources and it can hold only one type of routing resource, either **channels** or **event channels**. In the near future, there will be only channels, which will support both source-based routing and channel-name routing. For more information, see [Channels](partner-events-overview-for-partners.md#channel).
 
             > [!IMPORTANT]
             > - **Channel** is the new routing resource type and is the preferred option. An **event channel** is a legacy resource and will be deprecated soon. 
             > - It's not possible to update the routing mode once the namespace is created.             
+            > You'll need to request from your user an Azure subscription, resource group, location, and partner topic name to create a partner topic that your user will own and manage.
     1. In the **Registration details** section, follow these steps to associate the namespace with a partner registration. 
         1. Select the **subscription** in which the partner registration exists. 
         1. Select the **resource group** that contains the partner registration. 
@@ -116,14 +118,14 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
     
         Partner topics are resources that hold published events. Partner destinations define target endpoints or services to which events are delivered. 
         
-        Select **Partner Topic** if you want the channel to **forward events to a partner topic** that holds events to be processed by a handler later. 
+        Select **Partner Topic** if you want to **forward events to a partner topic** that holds events to be processed by a handler later. 
 
-        Select **Partner Destination** if you want the channel to **forward events to a handler or destination** that processes the events. 
+        Select **Partner Destination** if you want to **forward events to a partner service** that processes the events. 
     3. If you selected **Partner Topic**, enter the following details:
         1. **ID of the subscription** in which the partner topic will be created. 
         1. **Resource group** in which the partner topic will be created. 
         1. **Name** of the partner topic. 
-        1. Specify **source** information for the partner topic. Source is contextual information on the source of events provided by the event publisher that the end user can see. This information is helpful when end user is considering activating a partner topic, for example.
+        1. Specify **source** information for the partner topic. Source is contextual information on the source of events provided by the partner that the end user can see. This information is helpful when end user is considering activating a partner topic, for example.
 
             :::image type="content" source="./media/onboard-partner/channel-partner-topic-basics.png" alt-text="Image showing the Create Channel - Basics page.":::
     1. If you selected **Partner Destination**, enter the following details:
@@ -160,6 +162,7 @@ If you selected **Source attribute in event** for **Partner topic routing mode**
 
 > [!IMPORTANT]
 > You'll need to request from your user an Azure subscription, resource group, location, and partner topic name to create a partner topic that your user will own and manage.
+> - **Channel** is the new routing resource type and is the preferred option. An **event channel** is a legacy resource and will be deprecated soon. 
 
 1. Go to the **Overview** page of the namespace you created. 
 

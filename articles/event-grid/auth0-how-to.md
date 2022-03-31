@@ -56,4 +56,4 @@ Auth0 events are delivered to Azure via a streaming mechanism. Each event is sen
 
 - [Auth0 Partner Topic](auth0-overview.md)
 - [Partner topics overview](partner-events-overview.md)
-- [Become an Event Grid partner](partner-onboarding-overview.md)
+- [Become an Event Grid partner](onboard-partner.md)
