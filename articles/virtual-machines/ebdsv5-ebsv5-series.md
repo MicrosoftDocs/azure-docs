@@ -30,14 +30,14 @@ The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8272CL (Ice Lake)
 
 Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) processors. The Ebdsv5 VM sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2400 GiB). These VMs are ideal for memory-intensive enterprise applications and applications that benefit from high remote storage performance, low latency, high-speed local storage. Remote Data disk storage is billed separately from VMs. 
 
-[Premium Storage](premium-storage-performance.md): Supported <br>
-[Premium Storage caching](premium-storage-performance.md): Supported <br>
-[Live Migration](maintenance-and-updates.md): Supported <br>
-[Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
-[VM Generation Support](generation-2.md): Generation 1 and Generation 2 <br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (required) <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br><br>
-Nested virtualization: Supported
+- [Premium Storage](premium-storage-performance.md): Supported
+- [Premium Storage caching](premium-storage-performance.md): Supported
+- [Live Migration](maintenance-and-updates.md): Supported
+- [Memory Preserving Updates](maintenance-and-updates.md): Supported
+- [VM Generation Support](generation-2.md): Generation 1 and Generation 2
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (required)
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- Nested virtualization: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -62,14 +62,14 @@ Nested virtualization: Supported
 
 Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These VMs are ideal for memory-intensive enterprise applications and applications that benefit from high remote storage performance but with no local SSD storage. Ebsv5-series VMs feature Intel® Hyper-Threading Technology. Remote Data disk storage is billed separately from VMs. 
 
-[Premium Storage](premium-storage-performance.md): Supported <br>
-[Premium Storage caching](premium-storage-performance.md): Supported <br>
-[Live Migration](maintenance-and-updates.md): Supported <br>
-[Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
-[VM Generation Support](generation-2.md): Generation 1 and Generation 2 <br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (required) <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not supported <br><br>
-Nested virtualization: Supported
+- [Premium Storage](premium-storage-performance.md): Supported
+- [Premium Storage caching](premium-storage-performance.md): Supported
+- [Live Migration](maintenance-and-updates.md): Supported
+- [Memory Preserving Updates](maintenance-and-updates.md): Supported
+- [VM Generation Support](generation-2.md): Generation 1 and Generation 2
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (required)
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
+- Nested virtualization: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
