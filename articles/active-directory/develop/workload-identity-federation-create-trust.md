@@ -106,7 +106,8 @@ Select the **Kubernetes accessing Azure resources** scenario from the dropdown m
 Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
 
 - **Cluster issuer URL** is the [OIDC issuer URL](/azure/aks/cluster-configuration#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
-- **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod.  - - **Namespace** is the service account namespace.
+- **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod. 
+- **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which cannot be changed later.
 
 ---
