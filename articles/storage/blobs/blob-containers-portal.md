@@ -162,16 +162,16 @@ Read more about how to [Configure immutability policies for containers](immutabl
 
 A container lease is used to establish or manage a lock for delete operations. When a lease is acquired in the Azure portal, the lock can only be created with an infinite duration. When created programmatically, the lock duration can range from 15 to 60 seconds, or it can be infinite.
 
-There are five different lease operation modes, though only two are available when using the Azure portal:
+There are five different lease operation modes, though only two are available within the Azure portal:
 
-[!div class="mx-tdCol2BreakAll"]
-|                 | Use case                            | Available in Azure portal|
-|-----------------|-------------------------------------|--------------------------|
-|**Acquire mode** | Request a new lease.                |&check;                   |
-|**Renew mode**   | Renew an existing lease.            |                          |
-|**Change mode**  | Change the ID of an existing lease. |                          |
-|**Release mode** | End the current lease; allows other clients to acquire a new lease                                       |&check; |
-|**Break mode**   | End the current lease; prevents other clients from acquiring a new lease during the current lease period |        |
+> [!div class="mx-tdCol2BreakAll"]
+> |                 | Use case                            | Available in Azure portal|
+> |-----------------|-------------------------------------|--------------------------|
+> |**Acquire mode** | Request a new lease.                |&check;                   |
+> |**Renew mode**   | Renew an existing lease.            |                          |
+> |**Change mode**  | Change the ID of an existing lease. |                          |
+> |**Release mode** | End the current lease; allows other clients to acquire a new lease |&check; |
+> |**Break mode**   | End the current lease; prevents other clients from acquiring a new lease during the current lease period |        |
 
 ### Acquire a lease
 
@@ -183,9 +183,9 @@ To acquire a lease using the Azure portal, follow these steps:
 
     :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
 
-1. The **Container** and **Lease ID** property values of the newly-requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and cannot be retrieved after the pane is closed. 
+1. The **Container** and **Lease ID** property values of the newly-requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and cannot be retrieved after the pane is closed.
 
-    :::image type="content" source="media/blob-containers-portal/view-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/view-container-lease-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/view-container-lease-sml.png" alt-text="Screenshot showing how to access container lease status pane within the Azure portal" lightbox="media/blob-containers-portal/view-container-lease-lrg.png":::
 
 ### Break a lease
 
@@ -195,11 +195,11 @@ To break a lease using the Azure portal, follow these steps:
 1. Select the checkbox next to the name of the container for which you will break a lease.
 1. Select the container's **More** button (**...**), and select **Break lease** to break the lease.
 
-    :::image type="content" source="media/blob-containers-portal/break-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/break-container-lease-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/break-container-lease-sml.png" alt-text="Screenshot showing how to break a container lease within the Azure portal" lightbox="media/blob-containers-portal/break-container-lease-lrg.png":::
 
 1. After the lease is broken, the selected container's **Lease state** value will update, and a status confirmation will appear.
 
-    :::image type="content" source="media/blob-containers-portal/broken-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/broken-container-lease-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/broken-container-lease-sml.png" alt-text="Screenshot showing a container's broken lease within the Azure portal" lightbox="media/blob-containers-portal/broken-container-lease-lrg.png":::
 
 ## Delete a container
 
