@@ -26,4 +26,4 @@ For more information, see Deployment.
 
 
 > [!div class="nextstepaction"]
-> [Requirements](requirements.md)
+> [About the Public Preview](about-the-public-preview.md)

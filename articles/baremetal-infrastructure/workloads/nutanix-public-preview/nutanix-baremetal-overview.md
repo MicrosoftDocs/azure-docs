@@ -25,11 +25,11 @@ The following protocols are used for different mount points within BareMetal ser
 
 ### Licensing
 
-- You bring your own on-premises operating system and Nutanix licenses.
+You can bring your own on-premises CBL Nutanix licenses. Alternatively, you can purchase licenses from Nutanix or the Azure Marketplace.
 
 ### Operating system
 
-Servers are pre-loaded with operating system RHEL 7.6.
+Servers are pre-loaded with AOS 6.1, [Nutanix's Acropolis Operating System](https://www.nutanixbible.com/4-book-of-aos.html).
 
 ## Next steps
 
