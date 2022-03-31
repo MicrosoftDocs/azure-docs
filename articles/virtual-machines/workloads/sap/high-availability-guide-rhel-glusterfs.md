@@ -72,8 +72,7 @@ Read the following SAP Notes and papers first
 
 ## Overview
 
-To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems.
-Be aware that Red Hat is phasing out Red Hat Gluster Storage. For more information see [Red Hat Gluster Storage Life Cycle](https://access.redhat.com/support/policy/updates/rhs).  
+To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems. Be aware that Red Hat is phasing out Red Hat Gluster Storage. The configuration will be supported for SAP on Azure until it reaches end of life stage as defined in [Red Hat Gluster Storage Life Cycle](https://access.redhat.com/support/policy/updates/rhs). 
 
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
