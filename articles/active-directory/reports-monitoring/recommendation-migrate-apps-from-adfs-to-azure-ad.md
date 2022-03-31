@@ -30,14 +30,14 @@ This article covers the recommendation to migrate apps from ADFS to Azure AD.
 
 ## Description
 
-As an admin responsible for managing applications, I want my applications to leverage Azure AD’s security features and maximize their value. 
+As an admin responsible for managing applications, I want my applications to use Azure AD’s security features and maximize their value. 
 
 
 
 
 ## Logic 
 
-If a Tenant is using apps on AD FS, and any of these apps are deemed 100% migratable,the tenant will receive a recommendation. 
+If a tenant has apps on AD FS, and any of these apps are deemed 100% migratable, this recommendation shows up. 
 
 ## Value 
 
@@ -51,7 +51,7 @@ Using Azure AD gives you granular per-application access control
 
 3. Read the solution guide for [migrating applications to Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md). 
 
-4. Migrate applications to Azure AD. For more informmation, use [the deployment plan for enabling signle sign-on](https://go.microsoft.com/fwlink/?linkid=2110877&amp;clcid=0x409).
+4. Migrate applications to Azure AD. For more information, use [the deployment plan for enabling single sign-on](https://go.microsoft.com/fwlink/?linkid=2110877&amp;clcid=0x409).
  
 
  
