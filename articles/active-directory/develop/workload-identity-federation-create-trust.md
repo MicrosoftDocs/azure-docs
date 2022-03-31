@@ -118,7 +118,7 @@ Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and
 Run the following command to configure a federated identity credential on an app and create a trust relationship with an external identity provider.  Specify the following parameters (using a software workload running in Google Cloud as an example):
 
 - *name* is the name of the federated credential, which cannot be changed later.
-- *<ObjectID>*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
+- *ObjectID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
 - *subject*: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
 - *issuer*: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the *issuer* is "https://accounts.google.com".
 - *audiences*: must match the `aud` claim in the external token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is "api://AzureADTokenExchange".
