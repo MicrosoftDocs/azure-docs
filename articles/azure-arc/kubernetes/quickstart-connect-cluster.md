@@ -19,13 +19,13 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
 
 * Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
-  ```
+  ```azurecli
   az extension add --name connectedk8s
   ```
 
@@ -39,7 +39,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
   * If you want to connect a OpenShift cluster to Azure Arc, execute the following command one time on your cluster before running `az connectedk8s connect`:
 
-    ```
+    ```bash
     oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
     ```
 
@@ -52,7 +52,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
 * [Azure PowerShell version 5.9.0 or later](/powershell/azure/install-az-ps)
 
@@ -76,7 +76,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
   * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `New-AzConnectedKubernetes`:
 
-    ```
+    ```bash
     oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
     ```
 
@@ -99,7 +99,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 | ----------------- | ------------- |
 | `https://management.azure.com` (for Azure Cloud), `https://management.usgovcloudapi.net` (for Azure US Government) | Required for the agent to connect to Azure and register the cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
-| `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
+| `https://login.microsoftonline.com`, `https://<region>.login.microsoft.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us`, `<region>.login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
@@ -162,7 +162,7 @@ az group create --name AzureArcTest --location EastUS --output table
 
 Output:
 
-```
+```output
 Location    Name
 ----------  ------------
 eastus      AzureArcTest
@@ -176,7 +176,7 @@ New-AzResourceGroup -Name AzureArcTest -Location EastUS
 
 Output:
 
-```
+```output
 ResourceGroupName : AzureArcTest
 Location          : eastus
 ProvisioningState : Succeeded
@@ -201,7 +201,7 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 
 Output:
 
-```
+```output
 Helm release deployment succeeded
 
     {
@@ -247,7 +247,7 @@ New-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName AzureArc
 
 Output:
 
-```
+```output
 Location Name          Type
 -------- ----          ----
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
@@ -311,7 +311,7 @@ az connectedk8s list --resource-group AzureArcTest --output table
 
 Output:
 
-```
+```output
 Name           Location    ResourceGroup
 -------------  ----------  ---------------
 AzureArcTest1  eastus      AzureArcTest
@@ -325,7 +325,7 @@ Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
 
 Output:
 
-```
+```output
 Location Name          Type
 -------- ----          ----
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
@@ -342,7 +342,7 @@ Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace
 
 1. View these deployments and pods using:
 
-   ```
+   ```bash
    kubectl get deployments,pods -n azure-arc
    ```
 
@@ -350,7 +350,7 @@ Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace
 
    Output:
 
-   ```
+   ```output
     NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
     deployment.apps/cluster-metadata-operator   1/1     1            1           13d
     deployment.apps/clusterconnect-agent        1/1     1            1           13d

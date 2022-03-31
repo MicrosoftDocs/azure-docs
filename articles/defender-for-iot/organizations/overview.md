@@ -50,6 +50,6 @@ Detect anomalous or unauthorized activities with specialized IoT/OT-aware threat
 
 Integrate into Microsoft Sentinel for a bird's-eye view of your entire organization. Implement unified IoT/OT security governance with integration into your existing workflows, including third-party tools like Splunk, IBM QRadar, and ServiceNow.
 
-## See also
+## Next steps
 
-[Microsoft Defender for IoT architecture](architecture.md)
+For more information, see [Microsoft Defender for IoT architecture](architecture.md).

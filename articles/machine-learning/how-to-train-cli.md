@@ -10,7 +10,7 @@ author: amibp
 ms.author: amipatel
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, cliv2
 ---
 
 # Train models with the CLI (v2) (preview)
@@ -41,7 +41,7 @@ Using `--depth 1` clones only the latest commit to the repository, which reduces
 
 ### Create compute
 
-You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
+You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.  (This code assumes you've first followed the steps in [the v2 installation prerequisite](how-to-configure-cli.md#set-up) to configure the default --workspace/-w and --resource-group/-g parameters.)
 
 :::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 

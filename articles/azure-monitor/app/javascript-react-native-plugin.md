@@ -2,7 +2,6 @@
 title: React Native plugin for Application Insights JavaScript SDK 
 description: How to install and use the React Native plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual

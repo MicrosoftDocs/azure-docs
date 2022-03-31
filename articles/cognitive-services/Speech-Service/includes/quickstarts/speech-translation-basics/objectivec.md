@@ -3,7 +3,7 @@ author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
-ms.author: eric-urban
+ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/objectivec.md)]

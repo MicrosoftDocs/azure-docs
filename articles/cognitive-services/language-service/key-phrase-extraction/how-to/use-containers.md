@@ -21,7 +21,7 @@ Containers enable you to host the Key Phrase Extraction API on your own infrastr
 
 
 > [!NOTE]
-> * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data Limits](call-api.md#data-limits).
+> * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data and service limits](../../concepts/data-limits.md).
 
 Containers enable you to run the Key Phrase Extraction APIs in your own environment and are great for your specific security and data governance requirements. The Key Phrase Extraction containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, Key Phrase Extraction, and language detection.
 

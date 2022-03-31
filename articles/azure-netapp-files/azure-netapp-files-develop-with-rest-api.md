@@ -42,7 +42,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
    2. Enter the following command in the Azure CLI: 
     
         ```azurecli
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor --scopes /subscriptions/{subscription-id}
         ```
 
       The command output is similar to the following example:  

@@ -34,7 +34,7 @@ Use the Anomaly Detector client library for Python to:
 
 [!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
-### Create a new python application
+### Create a new Python application
 
  Create a new Python file and import the following libraries.
 

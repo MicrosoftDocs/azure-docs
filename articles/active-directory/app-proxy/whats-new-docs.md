@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application proxy"
 description: "New and updated documentation for the Azure Active Directory application proxy."
-ms.date: 02/03/2022
+ms.date: 03/09/2022
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: reference
@@ -14,6 +14,13 @@ manager: karenhoran
 # Azure Active Directory application proxy: What's new
 
 Welcome to what's new in Azure Active Directory application proxy documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## February 2022
+
+### Updated articles
+
+- [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md)
+- [Secure access to on-premises APIs with Azure Active Directory Application Proxy](application-proxy-secure-api-access.md)
 
 ## January 2022
 

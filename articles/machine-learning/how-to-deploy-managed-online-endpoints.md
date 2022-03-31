@@ -10,7 +10,7 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2, ignite-fall-2021
+ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2
 ---
 
 # Deploy and score a machine learning model by using an online endpoint (preview)

@@ -3,7 +3,6 @@ title: Security detection Pack with Azure Application Insights
 description: Monitor application with Azure Application Insights and smart detection for potential security issues.
 ms.topic: conceptual
 ms.date: 12/12/2017
-
 ---
 
 # Application security detection pack (preview)
