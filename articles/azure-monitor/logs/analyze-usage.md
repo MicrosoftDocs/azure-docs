@@ -18,25 +18,6 @@ Each Log Analytics workspace is charged as a separate service and contributes to
 
 An unexpected increase in any of these factors can result in increased charges for data retention. The rest of this article provides methods for detecting such a situation and then analyzing collected data to identify and mitigate the source of the increased usage.
 
-## Create an alert when data collection is high
-In order to avoid unexpected bills, you should be proactively notified any time you experience excessive usage. This allows you to address any potential anomalies before the end of your billing period. When you receive an alert, use the guidance in this article to determine why usage is higher than expected and make appropriate changes before you incur additional charges.
-
-The following example is a [log alert rule](../alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** to use a different threshold based on expected usage in your environment.
-
-| Setting | Value |
-|:---|:---|
-| **Scope** | |
-| Target scope | Select your Log Analytics workspace. |
-| **Condition** | |
-| Query | `Usage \| where IsBillable \| summarize DataGB = sum(Quantity / 1000.)` |
-| Measurement | Measure: *DataGB*<br>Aggregation type: Total<br>Aggregation granularity: 1 day |
-| Alert Logic | Operator: Greater than<br>Threshold value: 50<br>Frequency of evaluation: 1 day |
-| Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
-| **Details** | |
-| Severity| Warning |
-| Alert rule name | Billable data volume greater than 50 GB in 24 hours |
-
-
 ## Usage analysis in Azure Monitor
 You should start your analysis with existing tools in Azure Monitor. These require no configuration and can often provide the information you require with minimal effort. If you need deeper analysis into your collected data than existing Azure Monitor features, you use any of the following [log queries](log-query-overview.md) in [Log Analytics](log-analytics-overview.md). 
 ### Log Analytics Workspace Insights

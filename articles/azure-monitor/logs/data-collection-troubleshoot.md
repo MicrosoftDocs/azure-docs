@@ -1,8 +1,6 @@
 ---
 title: Troubleshoot why data is no longer being collected in Azure Monitor
 description: Steps to take if data is no longer being collected in Log Analytics workspace in Azure Monitor.
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/18/2022
 ---
@@ -57,3 +55,4 @@ There are additional Log Analytics limits, some of which depend on the Log Analy
 
 ## Next steps
 
+- See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for details on analyzing the data in your workspace to determine to source of any higher than expected usage and opportunities to reduce your amount of data collected.
