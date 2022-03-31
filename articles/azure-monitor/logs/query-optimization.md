@@ -29,7 +29,7 @@ Here is a detailed video walkthrough on optimizing queries.
 ## Query Details pane
 After you run a query in Log Analytics, select **Query details** at the bottom right corner of the screen to open the **Query Details** side pane. This pane shows the results of several performance indicators for the query. These performance indicators are each described in the following section.
 
-![A screenshot showing the Query details pane in Azure Monitor Log Analytics](media/query-optimization/query-details-pane.png)
+:::image type="content" source="media/query-optimization/query-details-pane.png" alt-text="A screenshot showing the Query details pane in Azure Monitor Log Analytics." lightbox="media/query-optimization/query-details-pane.png":::
 
 
 ## Query performance indicators
