@@ -74,6 +74,9 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
 
     If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for their consent when signing in to it.
 
+> [!NOTE]
+> Authorized client applications setting only works for users of the tenant with which the app registered. If a multi-tenant application request **Authorized scopes** to users of other tenants, consent is required.
+
 ## Add a scope requiring admin consent
 
 Next, add another example scope named `Employees.Write.All` that only admins can consent to. Scopes that require admin consent are typically used for providing access to higher-privileged operations, and often by client applications that run as backend services or daemons that don't sign in a user interactively.
