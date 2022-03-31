@@ -166,7 +166,7 @@ Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMoni
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings $settingsString -ProtectedSettings $protectedSettingsString
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
 ```
 
 # [Linux Arc enabled server](#tab/PowerShellLinuxArc)
@@ -174,7 +174,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType Az
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings $settingsString -ProtectedSettings $protectedSettingsString
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
 ```
 
 ---
