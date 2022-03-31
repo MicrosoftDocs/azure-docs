@@ -31,7 +31,7 @@ highlightedContent:
     - title: Authentication & authorization basics
       url: authentication-vs-authorization.md
       itemType: concept
-    - title: OAuth 2.0 and OpenID Connect (OIDC) on the identity platform
+    - title: OAuth 2.0 and OpenID Connect (OIDC)
       url: active-directory-v2-protocols.md
       itemType: concept
     - title: Code samples
