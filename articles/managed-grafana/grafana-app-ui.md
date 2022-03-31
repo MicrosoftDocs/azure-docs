@@ -30,7 +30,7 @@ A Grafana panel is a basic building block in Grafana. Each panel displays a data
 
 ## Visualizations
 
-Grafana [panels](#panels) support a variety of visualizations, each of which is a visual (often graphical) representation of underlying data. These include:
+Grafana [panels](#panels) support various visualizations, which are visual representations of underlying data. These representations are often graphical and include:
 
 * Graphs and charts
   * [Time series](https://grafana.com/docs/grafana/latest/visualizations/time-series/)
