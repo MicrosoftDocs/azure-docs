@@ -44,9 +44,9 @@ Outbound requests from a search service to other applications are typically made
 
 Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset:
 
-+ Indexer [connects to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
-+ Indexer writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ A custom skill connects to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
++ Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
++ Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
++ Custom skills connect to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
@@ -55,7 +55,10 @@ If your Azure resource is behind a firewall, you'll need to [create rules that a
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, private endpoint connections, and requests made to Cognitive Services for built-in skills.
+Internal requests are secured and managed by Microsoft. Internal traffic consists of:
+
++ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, and private endpoint connections.
++ Requests made to Cognitive Services APIs for built-in skills.
 
 <a name="service-access-and-authentication"></a>
 

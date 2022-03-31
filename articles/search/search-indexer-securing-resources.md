@@ -15,17 +15,20 @@ ms.date: 03/30/2022
 
 Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains the concepts behind indexer access to content that's protected by IP firewalls, private endpoints, or other Azure network-level security mechanisms. 
 
-An indexer makes outbound calls in two situations:
+## Resources accessed by indexers
+
+An indexer makes outbound calls in three situations:
 
 - Connecting to external data sources during indexing
 - Connecting to external, encapsulated code through a skillset
+- Connecting to Azure Storage during indexing to cache enrichments, save debug session state, and write to a knowledge store
 
 A list of all possible resource types that an indexer might access in a typical run are listed in the table below.
 
 | Resource | Purpose within indexer run |
 | --- | --- |
-| Azure Storage (blobs, tables, ADLS Gen 2) | Data source |
-| Azure Storage (blobs, tables) | Skillsets (caching enriched documents, and storing knowledge store projections) |
+| Azure Storage (blobs, ADLS Gen 2, files, tables) | Data source |
+| Azure Storage (blobs, tables) | Skillsets (caching enrichments, debug sessions, knowledge store projections) |
 | Azure Cosmos DB (various APIs) | Data source |
 | Azure SQL Database | Data source |
 | SQL Server on Azure virtual machines | Data source |
@@ -34,14 +37,14 @@ A list of all possible resource types that an indexer might access in a typical 
 | Cognitive Services | Attached to a skillset and used to bill enrichment beyond the 20 free documents limit |
 
 > [!NOTE]
-> A Cognitive Service resource attached to a skillset is used for billing, based on the enrichments performed and written into the search index or a knowledge store. It isn't used for accessing the Cognitive Services APIs. Access from an indexer's enrichment pipeline to Cognitive Services APIs occurs via an internal secure communication channel, where data is strongly encrypted in transit and is never stored at rest.
+> A Cognitive Service resource attached to a skillset is used for billing and not for access to the Cognitive Services APIs. Access to Cognitive Services APIs occurs via an internal secure communication channel, where data is strongly encrypted in transit and is never stored at rest.
 
 Your Azure resources could be protected using any number of the network isolation mechanisms offered by Azure. Depending on the resource and region, Cognitive Search indexers can make outbound connections through IP firewalls and private endpoints, subject to the limitations indicated in the following table.
 
 | Resource | IP restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure Storage for text-based indexing (blobs, ADLS Gen 2, files, tables) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions. | Unsupported |
+| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Unsupported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
@@ -50,13 +53,23 @@ Your Azure resources could be protected using any number of the network isolatio
 | SQL Managed Instance | Supported | N/A |
 | Azure Functions | Supported | Supported, only for certain tiers of Azure functions |
 
+### Access to a network-protected storage account
+
+The storage capacity of your search service is reserved for indexes and synonym lists. Other features within Cognitive Search that have storage requirements take a dependency on Azure Storage. Enrichment caching, debug sessions, and knowledge stores fall into this category. The location of each service and network security requirements will determine your data access strategy.
+
+#### Same-region services
+
 If Azure Storage and Azure Cognitive Search are in the same region, and network security is a requirement, you have two options for setting up data access:
 
 - Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md). The search request can bypass the  virtual network or IP restrictions on the storage account and access data under the system identity of the search service. For more information about this capability in Azure Storage, see [Trusted access based on a managed identity](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity).
 
 - Configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) in Azure Storage that admits inbound requests from an Azure resource.
 
-The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a system-assigned managed identity is supported for same-region connections through a firewall. Any Azure AD login that's used for a connection must have a role assignment that grants the appropriate permissions.
+The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a Cognitive Search [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) is supported for same-region connections through a firewall. Any Azure AD login that's used for a connection must have a role assignment that grants the appropriate permissions.
+
+#### Services in different regions
+
+when search and storage are in different regions, you can use the previous options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments.
 
 ## Indexer execution environment
 

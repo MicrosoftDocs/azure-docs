@@ -38,7 +38,7 @@ Cognitive Search can use a system-assigned or user-assigned managed identity on 
 
 Cognitive Search uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 
-For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. In Cognitive Search, a system managed identity supports more network scenarios, whereas a user managed identity is viable only if Azure Storage accepts requests from any public IP address. See ["Allow firewall access"](#allow-firewall-access) for details.
+For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
 ## Create a system managed identity
 
@@ -105,7 +105,7 @@ See [Create a search service with a system assigned managed identity (Azure CLI)
 A user-assigned managed identity is a resource on Azure. It's useful if you need more granularity in role assignments because you can create separate identities for different applications and scenarios.
 
 > [!IMPORTANT]
->This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). User managed identities are not currently supported for data access to network-protected resources. A search service request made under a user managed identity must be made over a public IP address.
 
 ### [**Azure portal**](#tab/portal-user)
 
