@@ -106,8 +106,8 @@ Start by creating your Azure resources using a system-assigned managed identity 
     # Create a web app
     az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime '"DOTNETCORE|3.1"' --plan <myPlanName>
 
-    # [Optional]: skip this step if you already have a managed identity. Create a user-assigned managed identity.
-    az identity create -g <myResourceGroupName> -n <myIdentityName>
+    # [Optional] create service principal, save output for later use. skip this if you have one aleady
+    az ad sp create-for-rbac --name <mySPName> --role Contributor
     ```
 
     ### [Connection string](#tab/connectionstring)
@@ -214,6 +214,7 @@ Create a connection between your web application and your App Configuration stor
 ```azurecli
 az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --user-identity client-id=<myIdentityClientId> subs-id=<myTestSubsId>
 ```
+
 `user-identity` refers to the user-assigned managed identity authentication type. Service Connector also supports the following authentications: system-assigned managed identity, connection string (secret) and service principal.
 
 There are two ways you can find the `client-id`:
