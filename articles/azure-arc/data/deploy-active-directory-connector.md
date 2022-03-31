@@ -149,6 +149,9 @@ spec:
 
 The following example is an example of an Automatic AD connector uses an AD domain of name `CONTOSO.LOCAL`. Ensure to replace the values with the ones for your AD domain. The `adarc-dsa-secret` contains the AD domain service account that was created prior to the AD deployment. 
 
+> [!IMPORTANT]
+> Make sure the DSA acccount password doesn't contain '!' as special characaters. 
+
 ```yaml
 apiVersion: v1 
 kind: Secret 
