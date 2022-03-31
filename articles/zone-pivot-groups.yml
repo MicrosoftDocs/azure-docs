@@ -1729,4 +1729,12 @@ groups:
     title: Azure Resouce Manager
   - id: aro-bicep
     title: Bicep   
-
+# Owner: cshoe
+- id: devops-or-github
+  title: Code host
+  prompt: Select a code hosting platform
+  pivots:
+  - id: github
+    title: GitHub
+  - id: azure-devops
+    title: Azure DevOps

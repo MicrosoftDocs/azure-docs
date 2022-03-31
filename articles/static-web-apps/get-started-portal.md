@@ -7,21 +7,86 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom: mode-ui
+zone_pivot_groups: devops-or-github
 ---
 
 # Quickstart: Building your first static site in the Azure portal
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
+Azure Static Web Apps publishes a website to a production environment by building apps from an Azure DevOps or GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
 ## Prerequisites
 
+::: zone pivot="github"
+
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
 
+::: zone-end
+
+::: zone pivot="azure-devops"
+
+- [Azure DevOps](https://azure.microsoft.com/services/devops) account
+- [Azure](https://portal.azure.com) account
+
+::: zone-end
+
+
+::: zone pivot="github"
+
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
+
+::: zone-end
+
+::: zone pivot="azure-devops"
+
+## Create a repository
+
+This article uses a GitHub repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
+
+1. Sign in to Azure DevOps.
+1. Select the **New repository** button.
+1. In the *Create new project* window, expand the **Advanced** button and make the following selections:
+
+    | Setting | Value |
+    |--|--|
+    | Project | Enter **my-first-web-static-app**. |
+    | Visibility | Select **Private**. |
+    | Version control | Select **Git**.  |
+    | Work item process | Select the option that best suits your development methods. |
+
+1. Select the **Create** button.
+1. Select the **Repos** menu item.
+1. Select the **Files** menu item.
+1. Under the *Import repository* card, select the **Import** button.
+1. Copy a repository URL for the framework of your choice, and paste it into the *Clone URL* box.
+
+    # [No Framework](#tab/vanilla-javascript)
+    
+    [https://github.com/staticwebdev/vanilla-basic.git](https://github.com/staticwebdev/vanilla-basic.git)
+    
+    # [Angular](#tab/angular)
+    
+    [https://github.com/staticwebdev/angular-basic.git](https://github.com/staticwebdev/angular-basic.git)
+    
+    # [Blazor](#tab/blazor)
+    
+    [https://github.com/staticwebdev/blazor-basic.git](https://github.com/staticwebdev/blazor-basic.git)
+    
+    # [React](#tab/react)
+    
+    [https://github.com/staticwebdev/react-basic.git](https://github.com/staticwebdev/react-basic.git)
+    
+    # [Vue](#tab/vue)
+    
+    [https://github.com/staticwebdev/vue-basic.git](https://github.com/staticwebdev/vue-basic.git)
+    
+    ---
+
+1. Select the **Import** button and wait for the import process to complete.
+
+::: zone-end
 
 ## Create a static web app
 
@@ -32,6 +97,8 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Search for **Static Web Apps**.
 1. Select **Static Web Apps**.
 1. Select **Create**.
+
+::: zone pivot="github"
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
@@ -55,6 +122,25 @@ After you sign in with GitHub, enter the repository information.
 
    > [!NOTE]
    > If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
+::: zone-end
+
+::: zone pivot="azure-devops"
+
+In the _Basics_ section, begin by configuring your new app and linking it to an Azure DevOps repository.
+
+1. Select your _Azure subscription_.
+1. Next to _Resource Group_, select the **Create new** link.
+1. Enter **static-web-apps-test** in the textbox.
+1. Under to _Static Web App details_, enter **my-first-static-web-app** in the textbox.
+1. Under _Azure Functions and staging details_, select a region closest to you.
+1. Under _Deployment details_, select **DevOps**.
+1. From the *Organization* drop down, select your organization name.
+1. From the *Project* drop down, select your project.
+1. From the *Repository* drop down, select **my-first-web-static-app**.
+1. From the *Branch* drop down, select **main**.
+
+::: zone-end
 
 1. In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
 
@@ -99,8 +185,12 @@ After you sign in with GitHub, enter the repository information.
 
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
+::: zone pivot="github"
+
     > [!NOTE]
     > You can edit the [workflow file](build-configuration.md) to change these values after you create the app.
+
+::: zone-end
 
 1. Select **Create**.
 
@@ -110,7 +200,29 @@ After you sign in with GitHub, enter the repository information.
 
     :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
 
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+## View the website
+
+There are two aspects to deploying a static app. The first creates the underlying Azure resources that make up your app. The second is a workflow that builds and publishes your application.
+
+Before you can navigate to your new static site, the deployment build must first finish running.
+
+The Static Web Apps overview window displays a series of links that help you interact with your web app.
+
+::: zone pivot="github"
+
+:::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Overview window":::
+
+1. Clicking on the banner that says, _Click here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
+
+2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
+
+::: zone-end
+
+::: zone pivot="github"
+
+Once DevOps pipeline workflow is complete, you can click on the _URL_ link to open the website in new tab.
+
+::: zone-end
 
 ## Clean up resources
 
@@ -126,3 +238,11 @@ If you're not going to continue to use this application, you can delete the Azur
 
 > [!div class="nextstepaction"]
 > [Add an API](add-api.md)
+
+::: zone pivot="azure-devops"
+
+::: zone-end
+
+::: zone pivot="github"
+
+::: zone-end
