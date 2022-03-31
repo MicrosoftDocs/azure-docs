@@ -35,9 +35,9 @@ To create a container in the [Azure portal](https://portal.azure.com), follow th
     :::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button in the browser" lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
 
 1. In the navigation pane for the storage account, scroll to the **Data storage** section and select **Containers**.
-1. Select the **+ Container** button.
-1. Provide a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-1. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
+1. Within the **Containers** pane, select the **+ Container** button to open the **New container** pane.
+1. Within the **New Container** pane, provide a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+1. Set the **Public access level** for the container. The default level is **Private (no anonymous access)**.
 1. Select **Create** to create the container.
 
     :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container within the Azure portal" lightbox="media/blob-containers-portal/create-container-lrg.png":::
@@ -50,11 +50,11 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 
 ### Container properties
 
-To display the properties of a container within the Azure portal, follow these steps:
+To display the properties of a container within the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the list of containers within your storage account.
+1. Navigate to the list of containers within your storage account.
 1. Select the checkbox next to the name of the container whose properties you want to view.
-1. Select the container's **More** button (**...**), and select **Container properties** to display the container's **Properties** page.
+1. Select the container's **More** button (**...**), and select **Container properties** to display the container's **Properties** pane.
 
     :::image type="content" source="media/blob-containers-portal/select-container-properties-sml.png" alt-text="Screenshot showing how to display container properties within the Azure portal" lightbox="media/blob-containers-portal/select-container-properties-lrg.png":::
 
@@ -62,15 +62,15 @@ To display the properties of a container within the Azure portal, follow these s
 
 Users that have large numbers of objects within their storage account can locate containers based on their metadata.
 
-To manage a container's metadata, follow these steps:
+To manage a container's metadata within the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the list of containers in your storage account.
+1. Navigate to the list of containers in your storage account.
 1. Select the checkbox next to the name of the container whose metadata you want to manage.
 1. Select the container's **More** button (**...**), and then select **Edit metadata** to display the **Container metadata** pane.
 
     :::image type="content" source="media/blob-containers-portal/select-container-metadata-sml.png" alt-text="Screenshot showing how to access container metadata within the Azure portal" lightbox="media/blob-containers-portal/select-container-metadata-lrg.png":::
 
-1. The **Container metadata** pane will display existing metadata key-value pairs. Existing data can be edited by selecting the existing key or value and overwriting the data. You can add additional metadata by and supplying data in the empty fields provided. Finally, select **Save** to commit your data.
+1. The **Container metadata** pane will display existing metadata key-value pairs. Existing data can be edited by selecting an existing key or value and overwriting the data. You can add additional metadata by and supplying data in the empty fields provided. Finally, select **Save** to commit your data.
 
     :::image type="content" source="media/blob-containers-portal/add-container-metadata-sml.png" alt-text="Screenshot showing how to update container metadata within the Azure portal" lightbox="media/blob-containers-portal/add-container-metadata-lrg.png":::
 
@@ -243,4 +243,9 @@ You can restore a soft-deleted container and its contents within the retention p
 
     :::image type="content" source="media/blob-containers-portal/soft-delete-container-portal-restore.png" alt-text="Screenshot showing how to restore a soft-deleted container in Azure portal":::
 
-<!--Point-in-time restore (which is different from soft delete): /azure/storage/blobs/point-in-time-restore-manage?tabs=portal-->
+## See also
+
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Manage blob containers using PowerShell](blob-containers-powershell.md)
+
+<!--Point-in-time restore: /azure/storage/blobs/point-in-time-restore-manage?tabs=portal-->

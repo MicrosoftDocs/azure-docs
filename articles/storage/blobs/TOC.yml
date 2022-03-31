@@ -324,6 +324,8 @@ items:
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
+      - name: Manage containers (Azure portal)
+      - href: blob-containers-portal.md
       - name: Manage containers (CLI)
         href: blob-containers-cli.md
       - name: Manage containers (PowerShell)
