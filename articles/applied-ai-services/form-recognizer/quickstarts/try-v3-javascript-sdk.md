@@ -28,6 +28,8 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [🆕 **General document**](#general-document-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
+* [🆕 **Read**](#read-model)—Analyze and extract printed and handwritten text lines, words, locations, and detected languages.
+
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
 * [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
@@ -93,6 +95,8 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 1. Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
     * [**General document**](#general-document-model)
+
+    * [**Read**](#read-model)
 
     * [**Layout**](#layout-model)
 
@@ -214,6 +218,133 @@ Entities:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
+
+## Read model
+
+Extract printed and handwritten text lines, words, locations, and detected languages from documents and images.
+
+> [!div class="checklist"]
+>
+> * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * We've added the file URL value to the `formUrl` variable near the top of the file.
+> * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-read` as the model Id.
+
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+
+```javascript
+
+ const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+
+const dotenv = require("dotenv");
+// const { getTextOfSpans } = require("util");
+dotenv.config();
+
+function* getTextOfSpans(content, spans) {
+  for (const span of spans) {
+    yield content.slice(span.offset, span.offset + span.length);
+  }
+}
+
+async function main() {
+  const endpoint = process.env.FORM_RECOGNIZER_ENDPOINT || "https://formrecognizer-jp.cognitiveservices.azure.com/";
+  const credential = new AzureKeyCredential(process.env.FORM_RECOGNIZER_API_KEY || "092e23363b8b492dbc402cbebbf1c1d9");
+
+  const client = new DocumentAnalysisClient(endpoint, credential);
+
+  const poller = await client.beginReadDocument(
+    // The form recognizer service will access the following URL to a receipt image and extract data from it
+    "https://raw.githubusercontent.com/Azure/azure-sdk-for-js/main/sdk/formrecognizer/ai-form-recognizer/assets/forms/Invoice_1.pdf"
+  );
+
+  // The "prebuilt-read" model (`beginReadDocument` method) only extracts information about the textual content of the
+  // document, such as page text elements and information about the language of the text.
+  const { content, pages, languages, styles } = await poller.pollUntilDone();
+
+  if (pages.length <= 0) {
+    console.log("No pages were extracted from the document.");
+  } else {
+    console.log("Pages:");
+    for (const page of pages) {
+      console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
+      console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
+      console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
+
+      if (page.lines.length > 0) {
+        console.log("  Lines:");
+
+        for (const line of page.lines) {
+          console.log(`  - "${line.content}"`);
+
+          // The words of the line can also be iterated independently. The words are computed based on their
+          // corresponding spans.
+          for (const word of line.words()) {
+            console.log(`    - "${word.content}"`);
+          }
+        }
+      }
+    }
+  }
+
+  if (languages.length <= 0) {
+    console.log("No language spans were extracted from the document.");
+  } else {
+    console.log("Languages:");
+    for (const languageEntry of languages) {
+      console.log(
+        `- Found language: ${languageEntry.languageCode} (confidence: ${languageEntry.confidence})`
+      );
+      for (const text of getTextOfSpans(content, languageEntry.spans)) {
+        const escapedText = text.replace(/\r?\n/g, "\\n").replace(/"/g, '\\"');
+        console.log(`  - "${escapedText}"`);
+      }
+    }
+  }
+
+  if (styles.length <= 0) {
+    console.log("No text styles were extracted from the document.");
+  } else {
+    console.log("Styles:");
+    for (const style of styles) {
+      console.log(
+        `- Handwritten: ${style.isHandwritten ? "yes" : "no"} (confidence=${style.confidence})`
+      );
+
+      for (const word of getTextOfSpans(content, style.spans)) {
+        console.log(`  - "${word}"`);
+      }
+    }
+  }
+}
+
+main().catch((error) => {
+  console.error("An error occurred:", error);
+  process.exit(1);
+});
+
+```
+
+### Layout model output
+
+Here's a snippet of the expected output:
+
+```console
+Pages:
+- Page 1 (unit: inch)
+  8.5x11, angle: 0
+  18 lines, 34 words
+  Lines:
+  - "Contoso"
+    - "Contoso"
+  - "Address:"
+    - "Address:"
+  - "1 Redmond way Suite"
+    - "1"
+    - "Redmond"
+    - "way"
+    - "Suite"
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-layout-output.md)
 
 ## Layout model
 
