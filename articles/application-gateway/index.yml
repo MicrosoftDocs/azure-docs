@@ -125,4 +125,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Well-Architected review of Application Gateway
-            url: /azure/architecture/framework/services/networking/application-gateway.md
+            url: /azure/architecture/framework/services/networking/azure-application-gateway.md
