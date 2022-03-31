@@ -17,7 +17,7 @@ The feature will be of great use when a teaching assistant is an educator for on
 1. Sign in to the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). You see the labs that you own. These labs can be labs you created yourself or the labs that admin assigned to you as owner.
 2. To access VMs for classes that you attend as a student, select the computer icon in the top-right corner. Confirm that you see VMs you can access as a student. In the following example, the user is a teaching assistant for the Python lab, but a student of the Java lab. So, the user sees the VM from the Java lab in the drop-down list. The user can start the VM and connect to it.
 
-    :::image type="content" source="./media/instructors-access-virtual-machines/access-student-virtual-machines.png" alt-text="Access student VMs.":::
+    :::image type="content" source="./media/instructors-access-virtual-machines/access-student-virtual-machines.png" alt-text="Screenshot that shows how to access student VMs.":::
 
 ## Next steps
 
