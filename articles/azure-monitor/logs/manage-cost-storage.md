@@ -447,7 +447,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, query on the **Usage** data type.
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results **per computer**, query on the **Usage** data type.
 
 ### Data volume by Azure resource, resource group, or subscription
 
@@ -485,7 +485,7 @@ If needed, you can also parse the **_ResourceId** more fully:
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resouce group, or resource name, query on the **Usage** data type.
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resouce group, or resource name, query on the **Usage** data type.
 
 > [!WARNING]
 > Some of the fields of the **Usage** data type, while still in the schema, have been deprecated and their values are no longer populated. 
@@ -580,7 +580,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 ```
 
 > [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
 
 ### Nodes billed by the legacy Per Node pricing tier
 
@@ -601,7 +601,7 @@ The number of units on your bill is in units of node months, which is represente
 If the workspace has the Update Management solution installed, add the **Update** and **UpdateSummary** data types to the list in the where clause in the above query. Finally, there's some additional complexity in the actual billing algorithm when solution targeting is used that's not represented in the above query. 
 
 > [!TIP]
-> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
+> Use these `find` queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results **per computer**, then query on the **Usage** data type.
                   
 ### Getting Security and Automation node counts
 
