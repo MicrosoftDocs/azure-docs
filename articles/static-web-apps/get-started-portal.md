@@ -32,7 +32,6 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ::: zone-end
 
-
 ::: zone pivot="github"
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
@@ -142,7 +141,7 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 
 ::: zone-end
 
-1. In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
+In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -181,9 +180,9 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 
     ---
 
-1. Select **Review + create**.
+Select **Review + create**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
 ::: zone pivot="github"
 
@@ -192,13 +191,13 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 
 ::: zone-end
 
-1. Select **Create**.
+Select **Create**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
+:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
 
-1. Select **Go to resource**.
+Select **Go to resource**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
+:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
 
 ## View the website
 
