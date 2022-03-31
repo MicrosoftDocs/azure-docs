@@ -9,8 +9,8 @@ ms.topic: reference
 ms.custom: cliv2
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 03/14/2022
-ms.reviewer: laobri
+ms.date: 03/31/2022
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) command component YAML schema

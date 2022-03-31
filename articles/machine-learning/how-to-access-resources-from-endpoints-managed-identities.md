@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: seramasu
-ms.reviewer: laobri
+ms.reviewer: larryfr
 author: rsethur
-ms.date: 03/14/2022
+ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: devplatv2, cliv2
 

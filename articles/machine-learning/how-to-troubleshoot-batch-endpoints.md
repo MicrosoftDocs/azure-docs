@@ -10,7 +10,7 @@ ms.custom: troubleshooting, devplatv2, cliv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
-ms.date: 10/21/2021
+ms.date: 03/31/2022
 #Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
 
 ---
