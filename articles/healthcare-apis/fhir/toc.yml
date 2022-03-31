@@ -77,7 +77,7 @@ items:
         href: store-profiles-in-fhir.md
       - name: Use $validate
         href: validation-against-profiles.md
-    - name: Patient-everything
+    - name: Patient-$everything
       href: patient-everything.md
     - name: $member-match
       href: tutorial-member-match.md
