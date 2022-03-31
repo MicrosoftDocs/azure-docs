@@ -18,7 +18,7 @@ ms.author: kumud
 ---
 # Azure PowerShell samples for virtual network
 
-The following table includes links to Azure Powershell scripts:
+The following table includes links to Azure PowerShell scripts:
 
 | Script | Description |
 |----|----|

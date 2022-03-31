@@ -4,7 +4,6 @@ description: Sample Azure Resource Manager templates to deploy an Azure App Serv
 ms.topic: sample
 ms.custom: devx-track-dotnet
 ms.date: 08/06/2020
-
 ---
 
 # Resource Manager template samples for creating Azure App Services web apps with Application Insights monitoring
@@ -293,7 +292,7 @@ The following sample creates a basic Azure App Service web app with the ASP.NET 
 
 ## Node.js runtime (Linux)
 
-The following sample creates a basic Azure App Service Linux web app with the node.js runtime and a [classic Application Insights resource](../app/create-new-resource.md) with monitoring enabled. 
+The following sample creates a basic Azure App Service Linux web app with the Node.js runtime and a [classic Application Insights resource](../app/create-new-resource.md) with monitoring enabled. 
 
 ### Template file
 

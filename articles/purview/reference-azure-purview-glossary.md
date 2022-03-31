@@ -31,6 +31,8 @@ A type of annotation used to identify an attribute of an asset or a column such 
 A classification rule is a set of conditions that determine how scanned data should be classified when content matches the specified pattern.
 ## Classified asset
 An asset where Azure Purview extracts schema and applies classifications during an automated scan. The scan rule set determines which assets get classified. If the asset is considered a candidate for classification and no classifications are applied during scan time, an asset is still considered a classified asset.
+## Collection
+An organization-defined grouping of assets, terms, annotations, and sources. Collections allow for easier fine-grained access control and discoverability of assets within a data catalog.
 ## Column pattern
 A regular expression included in a classification rule that represents the column names that you want to match.
 ## Contact
@@ -82,7 +84,7 @@ An individual or group in charge of managing a data asset.
 ## Pattern rule
 A configuration that overrides how Azure Purview groups assets as resource sets and displays them within the catalog.
 ## Azure Purview instance
-A single Azure Purview resource.
+A single Azure Purview account.
 ## Registered source
 A source that has been added to an Azure Purview instance and is now managed as a part of the Data catalog.
 ## Related terms
@@ -91,6 +93,8 @@ Glossary terms that are linked to other terms within the organization.
 A single asset that represents many partitioned files or objects in storage. For example, Azure Purview stores partitioned Apache Spark output as a single resource set instead of unique assets for each individual file.
 ## Role
 Permissions assigned to a user within an Azure Purview instance. Roles, such as Azure Purview Data Curator or Azure Purview Data Reader, determine what can be done within the product.
+## Root collection
+A system-generated collection that has the same friendly name as the Azure Purview account. All assets belong to the root collection by default.
 ## Scan
 An Azure Purview process that examines a source or set of sources and ingests its metadata into the data catalog. Scans can be run manually or on a schedule using a scan trigger.
 ## Scan ruleset

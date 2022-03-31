@@ -2,10 +2,8 @@
 title: IT Service Management Connector - Secure Export in Azure Monitor
 description: This article shows you how to connect your ITSM products/services with Secure Export in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 09/08/2020
-
+ms.date: 2/23/2022
 ---
-
 
 # Connect Azure to ITSM tools by using Secure Export
 
@@ -15,16 +13,12 @@ Secure Export is an updated version of [IT Service Management Connector (ITSMC)]
 
 ITSMC uses username and password credentials. Secure Export has stronger authentication because it uses Azure Active Directory (Azure AD). Azure AD is Microsoft's cloud-based identity and access management service. It helps users sign in and access internal or external resources. Using Azure AD with ITSM helps to identify Azure alerts (through the Azure AD application ID) that were sent to the external system.
 
-> [!NOTE]
-> The ability to connect Azure to ITSM tools by using Secure Export is in preview.
-
 ## Secure Export architecture
 
 The Secure Export architecture introduces the following new capabilities:
 
 * **New action group**: Alerts are sent to the ITSM tool through the Secure Webhook action group, instead of the ITSM action group that ITSMC uses.
 * **Azure AD authentication**: Authentication occurs through Azure AD instead of username/password credentials.
-
 ## Secure Export data flow
 
 The steps of the Secure Export data flow are:

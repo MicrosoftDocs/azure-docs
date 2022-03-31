@@ -47,6 +47,8 @@
     href: signalr-concept-internals.md
   - name: Service mode
     href: concept-service-mode.md
+  - name: Connection string
+    href: concept-connection-string.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
@@ -113,6 +115,8 @@
       href: signalr-howto-authorize-application.md
     - name: Authorize from Managed Identity
       href: signalr-howto-authorize-managed-identity.md
+    - name: Custom domain
+      href: howto-custom-domain.md
   - name: Integrate
     items:
     - name: Azure Functions bindings

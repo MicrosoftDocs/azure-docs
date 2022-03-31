@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 02/16/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -21,7 +21,7 @@ To grant access to users in Azure Active Directory (Azure AD), you assign Azure 
 
 ## Prerequisites
 
-- Privileged Role Administrator or Global Administrator
+- Privileged Role Administrator or Global Administrator. To know who your Privileged Role Administrator or Global Administrator is, see [List Azure AD role assignments](view-assignments.md)
 - Azure AD Premium P2 license when using Privileged Identity Management (PIM)
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API

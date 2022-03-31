@@ -378,7 +378,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -397,7 +397,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az group create --name AzureFunctionsContainers-rg --location <REGION>
     ```
  
-    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. In the above command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az_account_list_locations) command.
+    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. In the above command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -417,7 +417,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
     ```
 
-    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
+    The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -457,7 +457,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
 
-    In the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command, the *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image.
+    In the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command, the *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image. NOTE: If you are using a custom container registry then the *deployment-container-image-name* parameter will refer to the registry URL.
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
@@ -465,7 +465,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     ```
     ---
     
-    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID.    
+    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID. When deploying from a custom container registry, use the `deployment-container-image-name` parameter to indicate the URL of the registry.   
     
     > [!TIP]  
     > You can use the [`DisableColor` setting](functions-host-json.md#console) in the host.json file to prevent ANSI control characters from being written to the container logs. 
@@ -498,7 +498,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     ```azurecli
     az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<CONNECTION_STRING>
     ```
-    The [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set) command creates the setting. 
+    The [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-ppsettings-set) command creates the setting. 
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
@@ -514,7 +514,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 1. The function can now use this connection string to access the storage account.
 
 > [!NOTE]    
-> If you publish your custom image to a private container account, you should use environment variables in the Dockerfile for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You should also set the variables `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`. To use the values, then, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
+> If you publish your custom image to a private container registry, you should use environment variables in the Dockerfile for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You should also set the variables `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`. To use the values, then, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
 
 ## Verify your functions on Azure
 
@@ -546,7 +546,7 @@ You can enable Azure Functions to automatically update your deployment of an ima
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <APP_NAME> --resource-group AzureFunctionsContainers-rg
     ```
     
-    The [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_config) command enables continuous deployment and returns the deployment webhook URL. You can retrieve this URL at any later time by using the [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_show_cd_url) command.
+    The [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command enables continuous deployment and returns the deployment webhook URL. You can retrieve this URL at any later time by using the [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) command.
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell

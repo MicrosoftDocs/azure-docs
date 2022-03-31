@@ -8,6 +8,9 @@
       href: quotas-skus-regions.md
     - name: Supported Kubernetes version
       href: supported-kubernetes-versions.md
+    - name: Add-ons, extensions, and other integrations
+      href: integrations.md
+      displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul
     - name: Solution architectures
       href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Quickstarts
@@ -160,7 +163,7 @@
       items:
         - name: Scale an AKS cluster
           href: scale-cluster.md
-        - name: Stop/Deallocate nodes with Scale-down Mode (preview)
+        - name: Stop/Deallocate nodes with Scale-down Mode
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
@@ -202,6 +205,8 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
+            - name: Use Dedicated Hosts with AKS (preview)
+              href: use-azure-dedicated-hosts.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
@@ -212,6 +217,8 @@
               href: use-wasi-node-pools.md
             - name: Start/stop node pools (preview)
               href: start-stop-nodepools.md
+            - name: Resize node pools
+              href: resize-node-pool.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -219,6 +226,8 @@
           href: kubernetes-portal.md
         - name: Use tags
           href: use-tags.md
+        - name: Use labels
+          href: use-labels.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -440,8 +449,8 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Configure Azure Monitor
-          href: open-service-mesh-azure-monitor.md
+        - name: Open Service Mesh integrations
+          href: open-service-mesh-integrations.md
         - name: Troubleshoot Open Service Mesh
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
@@ -462,12 +471,14 @@
           href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
+        - name: CI/CD with Azure Pipelines
+          href: ../aks/devops-pipeline.md
     - name: Troubleshoot
       items:
         - name: Common issues
           href: troubleshooting.md
-        - name: SSH node access
-          href: ssh.md
+        - name: Node access
+          href: node-access.md
         - name: Linux performance tools
           href: troubleshoot-linux.md
         - name: Check for Resource Health events (preview)

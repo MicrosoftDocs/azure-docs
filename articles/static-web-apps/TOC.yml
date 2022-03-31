@@ -84,6 +84,8 @@
           href: private-endpoint.md
         - name: Secure authentication secrets
           href: key-vault-secrets.md
+        - name: Set up password protection
+          href: password-protection.md
     - name: Set up local development
       href: local-development.md
     - name: Configure app settings
@@ -130,6 +132,10 @@
       href: front-door-manual.md
     - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
+- name: Samples
+  items:
+    - name: Serverless app with Azure SQL
+      href: https://github.com/Azure-Samples/azure-sql-db-fullstack-serverless-kickstart
 - name: Reference
   items:
     - name: Azure CLI
@@ -154,3 +160,4 @@
       href: quotas.md
     - name: Frequently asked questions
       href: faq.yml
+      displayName: faq

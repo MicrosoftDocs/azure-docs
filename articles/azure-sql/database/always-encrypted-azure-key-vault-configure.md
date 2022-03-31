@@ -6,7 +6,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: azurecli
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto

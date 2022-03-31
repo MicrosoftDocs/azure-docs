@@ -73,7 +73,7 @@ The [SQL Server command-line tools](/sql/linux/sql-server-linux-setup-tools) are
 
 ## Connect to Azure SQL Edge from another container on the same host
 
-Because two containers that are running on the same host are on the same Docker network, you can easily access them by using the container name and the port address for the service. For example, if you're connecting to the instance of Azure SQL Edge from another python module (container) on the same host, you can use a connection string similar to the following. (This example assumes that Azure SQL Edge is configured to listen on the default port.)
+Because two containers that are running on the same host are on the same Docker network, you can easily access them by using the container name and the port address for the service. For example, if you're connecting to the instance of Azure SQL Edge from another Python module (container) on the same host, you can use a connection string similar to the following. (This example assumes that Azure SQL Edge is configured to listen on the default port.)
 
 ```python
 
@@ -89,7 +89,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## Connect to Azure SQL Edge from another network machine
 
-You might want to connect to the instance of Azure SQL Edge from another machine on the network. To do so, use the IP address of the Docker host and the host port to which the Azure SQL Edge container is mapped. For example, if the IP address of the Docker host is *xxx.xxx.xxx.xxx*, and the Azure SQL Edge container is mapped to host port *1600*, then the server address for the instance of Azure SQL Edge would be *xxx.xxx.xxx.xxx,1600*. The updated python script is:
+You might want to connect to the instance of Azure SQL Edge from another machine on the network. To do so, use the IP address of the Docker host and the host port to which the Azure SQL Edge container is mapped. For example, if the IP address of the Docker host is *xxx.xxx.xxx.xxx*, and the Azure SQL Edge container is mapped to host port *1600*, then the server address for the instance of Azure SQL Edge would be *xxx.xxx.xxx.xxx,1600*. The updated Python script is:
 
 ```python
 

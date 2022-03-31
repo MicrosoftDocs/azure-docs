@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.devlang: csharp, javascript, azurecli
+ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 

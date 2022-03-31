@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/09/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -15,13 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
-
-**Data extraction features**
-
-| **Read model**   | **Text Extraction**   | **Language detection** |
-| --- | --- | --- | 
-| Read  | ✓  |✓  |
+The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF and TIFF) and images (JPG, PNG, and BMP).
 
 ## Development options
 
@@ -31,9 +25,15 @@ The following resources are supported by Form Recognizer v3.0:
 |----------|------------|------------|
 |**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-read**|
 
+## Data extraction
+
+| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-by-read)** |
+| --- | --- | --- | 
+prebuilt-read  | ✓  |✓  |
+
 ### Try Form Recognizer
 
-See how text is extracted from forms and documents using the Form Recognizer Studio. You'll need the following:
+See how text is extracted from forms and documents using the Form Recognizer Studio. You'll need the following assets:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -67,7 +67,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 
 ## Supported languages and locales
 
@@ -81,7 +81,7 @@ Read API extracts text from documents and images with multiple text angles and c
 
 ### Language detection (v3.0 preview)
 
-Read API in v3.0 preview 2 adds language detection as a new feature for text lines. Read will try to detect the languages at the text line level and output the language code with the highest confidence score for one or more text lines.
+Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-by-read) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
 
 ### Handwritten classification for text lines (Latin only)
 

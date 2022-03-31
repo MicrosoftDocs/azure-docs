@@ -3,10 +3,9 @@ metadata:
   title: Azure Container Registry
   description: Answers for frequently asked questions related to the Azure Container Registry service 
   author: sajayantony
-  ms.topic: article
+  ms.topic: faq
   ms.date: 09/17/2021
   ms.author: sajaya
-    
 title: Frequently asked questions - Azure Container Registry
 summary: |
   This article addresses frequently asked questions and known issues about Azure Container Registry.

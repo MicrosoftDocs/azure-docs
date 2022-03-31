@@ -2,10 +2,7 @@
 title: Azure Application Insights .Net Agent API reference
 description: Application Insights Agent API reference. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: yingqunpku
-ms.author: quying
 ms.date: 04/23/2019
-
 ---
 
 # Azure Monitor Application Insights Agent API Reference
@@ -15,6 +12,8 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 > [!NOTE] 
 > - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
 > - This cmdlet requires that you review and accept our license and privacy statement.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).

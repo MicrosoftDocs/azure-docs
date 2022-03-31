@@ -10,7 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli, cliv2
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
@@ -88,7 +88,18 @@ By default the logs are pulled from the inference server. Logs include the conso
 
 You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
 
-Add `--help` and/or `--debug` to commands to see more information. Include the `x-ms-client-request-id` header to help with troubleshooting.
+Add `--help` and/or `--debug` to commands to see more information. 
+
+## Request tracing
+
+There are three supported tracing headers:
+
+- `x-request-id` is reserved for server tracing. We override this header to ensure it's a valid GUID.
+
+   > [!Note]
+   > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
+   
+- `x-ms-request-id` and `x-ms-client-request-id` are available for client tracing scenarios. We sanitize these headers to remove non-alphanumeric symbols. These headers are truncated to 72 characters.
 
 ## Common deployment errors
 
@@ -108,6 +119,7 @@ Below is a list of common resources that might run out of quota when using Azure
 
 * [CPU](#cpu-quota)
 * [Disk](#disk-quota)
+* [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
 * [Endpoints](#endpoint-quota)
 * [Kubernetes](#kubernetes-quota)
@@ -121,7 +133,12 @@ A possible mitigation is to check if there are unused deployments that can be de
 
 #### Disk quota
 
-This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try an SKU with more disk space.
+This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a SKU with more disk space.
+* Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more disk space
+* Try reducing image and model size
+
+#### Memory quota
+This issue happens when the memory footprint of the model is larger than the available memory. Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more memory.<br>
 
 #### Role assignment quota
 

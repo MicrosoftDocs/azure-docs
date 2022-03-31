@@ -1,11 +1,11 @@
 ---
-title: Migrate from instrumentation keys to connection strings
+title: Migrate from Application Insights instrumentation keys to connection strings
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings
 ms.topic: conceptual
 ms.date: 02/14/2022
 ---
 
-# Migration process to connection strings for Application Insights resources
+# Migrate from Application Insights instrumentation keys to connection strings
 
 This guide walks through migrating from [instrumentation keys](separate-resources.md#about-resources-and-instrumentation-keys) to [connection strings](sdk-connection-string.md#overview).
 
@@ -14,24 +14,28 @@ This guide walks through migrating from [instrumentation keys](separate-resource
 - A [supported SDK version](#supported-sdk-versions)
 - An existing [application insights resource](create-workspace-resource.md)
 
-## Migration process
+## Migration
 
-1.  Find your connection string displayed on the Overview blade of your Application Insights resource.
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string" lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+1. Go to the Overview blade of your Application Insights resource.
 
-2.  Hover over the connection string and select the “Copy to clipboard” icon.
+1. Find your connection string displayed on the right.
 
-3.  Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#how-to-set-a-connection-string).
+1. Hover over the connection string and select the “Copy to clipboard” icon.
+
+1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#how-to-set-a-connection-string).
 
 > [!IMPORTANT]
 > Using both a connection string and instrumentation key isn't recommended. Whichever was set last takes precedence.
 
-## Migration at scale (for multiple subscriptions)
+## Migration at scale
 
-You can use environment variables to easily pass a connection string to the Application Insights SDK or Agent. If you hardcode an instrumentation key in your application code, that programming may take precedence before environment variables.
+Use environment variables to pass a connection string to the Application Insights SDK or agent.
 
-To set a connection string via environment variable, place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”. This process can be automated in your Azure deployments. For example, the following ARM template shows how you can automatically include the  correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
+To set a connection string via environment variable, place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”.
+
+This process can be [automated in your Azure deployments](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-with-arm-templates-and-azure-portal). For example, the following ARM template shows how you can automatically include the correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
 
 ```JSON
 {
@@ -79,19 +83,9 @@ To set a connection string via environment variable, place the value of the conn
 }
 
 ```
-## Supported SDK Versions
-
-- .NET and .NET Core v2.12.0
-- Java v2.5.1 and Java 3.0
-- JavaScript v2.3.0
-- NodeJS v1.5.0
-- Python v1.0.0
-
 ## New capabilities
 
-Just like instrumentation keys, connections strings identify a resource to associate your telemetry data with. Connection strings provide a single configuration setting and eliminate the need for multiple proxy settings. It's a reliable, secure, and useful technology for sending data to the monitoring service.
-
-Connection strings allow you to take advantage of the latest capabilities of Application Insights.
+Connection strings provide a single configuration setting and eliminate the need for multiple proxy settings. 
 
 - **Reliability:** Connection strings make telemetry ingestion more reliable by removing dependencies on global ingestion endpoints.
 
@@ -101,31 +95,44 @@ Connection strings allow you to take advantage of the latest capabilities of App
 
 - **Privacy (regional endpoints)** – Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
+## Supported SDK Versions
+
+- .NET and .NET Core [LTS](https://dotnet.microsoft.com/download/visual-studio-sdks)
+- Java v2.5.1 and Java 3.0+
+- JavaScript v2.3.0+
+- NodeJS v1.5.0+
+- Python v1.0.0+
 ## Troubleshooting
+### Alert: "Transition to using connection strings for data ingestion"
 
-Follow these steps if data isn't arriving after migration:
+Follow the [migration steps](#migration) in this article to resolve this alert.
+### Missing data
 
-1. Confirm you're using a supported SDK/agent that supports connection strings. If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
+- Confirm you're using a [supported SDK version](#supported-sdk-versions). If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
 
-2. Confirm you aren't setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be removed from your configuration.
+- Confirm you aren't setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be removed from your configuration.
 
-3. Confirm your connection string is exactly as provided in the Azure portal.
+- Confirm your connection string is exactly as provided in the Azure portal.
+
+### Environment variables aren't working
+
+ If you hardcode an instrumentation key in your application code, that programming may take precedence before environment variables.
 
 ## FAQ
 
 ### Where else can I find my connection string?
 The connection string is also included in the ARM resource properties for your Application Insights resource, under the field name “ConnectionString”.
-### How does this impact auto instrumentation?
+### How does this affect auto instrumentation?
 
 Auto instrumentation scenarios aren't impacted.
 
-### Is auto instrumentation affected?
+### Can I use Azure AD authentication with auto instrumentation?
 
 You can't enable [Azure AD authentication](azure-ad-authentication.md) for [auto instrumentation](codeless-overview.md) scenarios. We have plans to address this limitation in the future.
 
 ### What is the difference between global and regional ingestion?
 
-Global ingestion sends all telemetry data to a single endpoint, no matter where this data will end up or be stored. Regional ingestion allows you to define specific endpoints per region for data ingestion, ensuring data stays within a specific region during processing and storage.
+Global ingestion sends all telemetry data to a single endpoint, no matter where this data will be stored. Regional ingestion allows you to define specific endpoints per region for data ingestion, ensuring data stays within a specific region during processing and storage.
 
 ### How do connection strings impact the billing?
 
@@ -133,4 +140,4 @@ Billing isn't impacted.
 
 ### Microsoft Q&A
 
-Post questions to the [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the [answers forum](/answers/topics/24223/azure-monitor.html).
