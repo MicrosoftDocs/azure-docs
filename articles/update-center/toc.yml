@@ -4,11 +4,11 @@
   items:
   - name: About Azure Update management center
     href: overview.md
-  - name: Update management support
+  - name: Update management center support
     href: support-matrix.md
 - name: Quickstarts
   items:
-  - name: On-demand patching
+  - name: Check and install on-demand updates
     href: quickstart-on-demand.md
 - name: How-to guides
   items:
