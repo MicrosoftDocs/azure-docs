@@ -29,7 +29,6 @@ az webapp up \
     --logs
 ```
 
-
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
@@ -50,4 +49,5 @@ az webapp up `
     --os-type Linux `
     --logs
 ```
+
 ---
