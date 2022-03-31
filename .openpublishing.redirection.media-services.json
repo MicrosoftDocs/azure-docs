@@ -705,27 +705,27 @@
 			"redirect_document_id": false
 		},
 		{
-			"source_path_from_root": "/articles//media-services/azure-media-player/azure-media-player-api-methods.md",
+			"source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-api-methods.md",
 			"redirect_url": "https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-api-methods",
 			"redirect_document_id": false
 		},
 		{
-			"source_path_from_root": "/articles//media-services/azure-media-player/azure-media-player-error-codes.md",
+			"source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-error-codes.md",
 			"redirect_url": "https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-error-codes",
 			"redirect_document_id": false
 		},
 		{
-			"source_path_from_root": "/articles//media-services/azure-media-player/azure-media-player-feature-list.md",
+			"source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-feature-list.md",
 			"redirect_url": "https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-feature-list",
 			"redirect_document_id": false
 		},
 		{
-			"source_path_from_root": "/articles//media-services/azure-media-player/azure-media-player-full-setup.md",
+			"source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-full-setup.md",
 			"redirect_url": "https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup",
 			"redirect_document_id": false
 		},
 		{
-			"source_path_from_root": "/articles//media-services/azure-media-player/azure-media-player-known-issues.md",
+			"source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-known-issues.md",
 			"redirect_url": "https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-known-issues",
 			"redirect_document_id": false
 		},
