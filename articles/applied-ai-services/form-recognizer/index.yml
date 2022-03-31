@@ -15,6 +15,7 @@ metadata:
   ms.date: 03/25/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# Limits: https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -39,31 +40,6 @@ landingContent:
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
 #Card 2
-   - title: Explore Development Options
-     linkLists:
-      - linkListType: quickstart
-        links:
-        - text: 🆕Form Recognizer Studio (preview)
-          url: quickstarts/try-v3-form-recognizer-studio.md
-        - text: Form Recognizer Sample Labeling tool
-          url: quickstarts/try-sample-label-tool.md
-        - text: REST API
-          url: quickstarts/try-v3-rest-api.md
-        - text: C# SDK
-          url: quickstarts/try-v3-csharp-sdk.md
-        - text: Java SDK
-          url: quickstarts/try-v3-java-sdk.md
-        - text: JavaScript SDK
-          url: quickstarts/try-v3-javascript-sdk.md
-        - text: Python SDK
-          url: quickstarts/try-v3-python-sdk.md
-      - linkListType: video
-        links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
-#Card 3
    - title: View Form Recognizer Features
      linkLists:
       - linkListType: concept
@@ -86,31 +62,30 @@ landingContent:
             url: concept-id-document.md
           - text: Business card model
             url: concept-business-card.md
+      - linkListType: quickstart
+        links:
+        - text: 🆕Form Recognizer Studio (preview)
+          url: quickstarts/try-v3-form-recognizer-studio.md
+        - text: Form Recognizer Sample Labeling tool
+          url: quickstarts/try-sample-label-tool.md
+        - text: REST API
+          url: quickstarts/try-v3-rest-api.md
+        - text: C# SDK
+          url: quickstarts/try-v3-csharp-sdk.md
+        - text: Java SDK
+          url: quickstarts/try-v3-java-sdk.md
+        - text: JavaScript SDK
+          url: quickstarts/try-v3-javascript-sdk.md
+        - text: Python SDK
+          url: quickstarts/try-v3-python-sdk.md
+      - linkListType: video
+        links:
+          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
+            url: /Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+          - text: AI-powered process automation
+            url: /Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
-#Card 4
-   - title: Try Sample Labeling tool
-     linkLists:
-     - linkListType: how-to-guide
-       links:
-          - text: Deploy the Sample Labeling tool
-            url: deploy-label-tool.md
-     - linkListType: get-started
-       links:
-          - text: Get started
-            url: quickstarts/try-sample-label-tool.md
-          - text: Use the Layout model
-            url: concept-layout.md#sample-labeling-tool
-          - text: Use the Invoice model
-            url: concept-invoice.md
-          - text: Use the Receipt model
-            url: concept-receipt.md#sample-labeling-tool
-          - text: Use the ID document model
-            url: concept-id-document.md#sample-labeling-tool
-          - text: Use the Business card model
-            url: concept-business-card.md#sample-labeling-tool
-          - text: Use the Custom model
-            url: concept-custom.md
-#Card 5
+#Card 3
    - title: 🆕Try Form Recognizer Studio
      linkLists:
       - linkListType: overview
@@ -137,7 +112,7 @@ landingContent:
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
           - text: Use the Business Card model
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-#Card 6
+#Card 4
    - title: 🆕Try General document model
      linkLists:
       - linkListType: overview
@@ -158,7 +133,7 @@ landingContent:
             url: "quickstarts/try-v3-rest-api.md#reference-table"
           - text: Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
-#Card 7
+#Card 5
    - title: 🆕Try Read model
      linkLists:
      - linkListType: overview
@@ -172,7 +147,7 @@ landingContent:
         - text: Form Recognizer Studio
           url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
- #Card 8
+ #Card 6
    - title: Try Layout model
      linkLists:
      - linkListType: overview
@@ -195,7 +170,8 @@ landingContent:
           url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
         - text: Sample Labeling tool
           url: "concept-layout.md#sample-labeling-tool"
-# Card 9
+
+# Card 7
    - title: Try Custom model
      linkLists:
       - linkListType: overview
@@ -218,7 +194,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#custom-models"
           - text: Sample Labeling tool
             url: "concept-custom.md"
-#Card 10
+#Card 8
    - title: 🆕Try W-2 Form model
      linkLists:
      - linkListType: overview
@@ -230,8 +206,8 @@ landingContent:
        - text: REST API (cURL)
          url: quickstarts/try-v3-rest-api.md#
        - text: Form Recognizer Studio
-         url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"         
-#Card 11
+         url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+#Card 9
    - title: Try Invoice model
      linkLists:
       - linkListType: overview
@@ -254,7 +230,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
-#Card 12
+#Card 10
    - title: Try Receipt model
      linkLists:
       - linkListType: overview
@@ -277,7 +253,7 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
           - text:  Sample Labeling tool
             url: "concept-receipt.md#sample-labeling-tool"
-#Card 13
+#Card 11
    - title: Try  ID document model
      linkLists:
       - linkListType: overview
@@ -324,7 +300,7 @@ landingContent:
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
 
-# # Card 13
+# LIMITED TO 12 CARDS
 #    - title: Responsible AI and Community Support
 #      linkLists:
 #       - linkListType: reference
