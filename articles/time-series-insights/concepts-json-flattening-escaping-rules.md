@@ -14,6 +14,8 @@ ms.date: 01/21/2021
 
 # JSON Flattening, Escaping, and Array Handling
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Your Azure Time Series Insights Gen2 environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
 
 > [!IMPORTANT]

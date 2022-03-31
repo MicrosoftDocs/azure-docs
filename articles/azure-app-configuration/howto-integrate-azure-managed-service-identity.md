@@ -5,7 +5,7 @@ description: Authenticate to Azure App Configuration using managed identities
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp, fasttrack-edit
+ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps
 ms.topic: conceptual
 ms.date: 04/08/2021
 ---
@@ -54,20 +54,25 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Grant access to App Configuration
 
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
 1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the quickstart.
 
 1. Select **Access control (IAM)**.
 
-1. On the **Check access** tab, select **Add** in the **Add role assignment** card UI.
+1. Select **Add** > **Add role assignment**.
 
-1. Under **Role**, select **App Configuration Data Reader**. Under **Assign access to**, select **App Service** under **System assigned managed identity**.
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
-1. Under **Subscription**, select your Azure subscription. Select the App Service resource for your app.
+1. On the **Role** tab, select the **App Configuration Data Reader** role.
 
-1. Select **Save**.
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-    ![Add a managed identity](./media/add-managed-identity.png)
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
+1. Select your Azure subscription, select **System-assigned managed identity**, and then select **App Service**.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Use a managed identity
 

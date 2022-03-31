@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/25/2022
+ms.date: 03/30/2022
 ---
 
 # Resource management in Azure SQL Database
@@ -48,7 +48,6 @@ vCore resource limits are listed in the following articles, please be sure to up
 | DTU / eDTU quota per logical server | 54,000 |
 | vCore quota per logical server | 540 |
 | Max elastic pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
-|||
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per logical server, the following can occur:
@@ -73,7 +72,7 @@ When encountering high compute utilization, mitigation options include:
 
 When data space used reaches the maximum data size limit, either at the database level or at the elastic pool level, inserts and updates that increase data size fail and clients receive an [error message](troubleshoot-common-errors-issues.md). SELECT and DELETE statements remain unaffected.
 
-In Premium and Business Critical service tiers, clients also receive an error message if combined storage consumption by data, transaction log, and tempdb for a single database or an elastic pool exceeds maximum local storage size. For more information, see [Storage space governance](#storage-space-governance).
+In Premium and Business Critical service tiers, clients also receive an error message if combined storage consumption by data, transaction log, and `tempdb` for a single database or an elastic pool exceeds maximum local storage size. For more information, see [Storage space governance](#storage-space-governance).
 
 When encountering high space utilization, mitigation options include:
 
@@ -81,7 +80,7 @@ When encountering high space utilization, mitigation options include:
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool, so that its storage space isn't shared with other databases.
 - Shrink a database to reclaim unused space. In elastic pools, shrinking a database provides more storage for other databases in the pool. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 - Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of row older versions in PVS.
-- For databases and elastic pools in Premium and Business Critical service tiers that consume large amounts of storage, you may receive an out-of-space error even though used space in the database or elastic pool is below its maximum data size limit. This may happen if tempdb or transaction log files consume a large amount of storage toward the maximum local storage limit. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset tempdb to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) transaction log to reduce local storage consumption.
+- For databases and elastic pools in Premium and Business Critical service tiers that consume large amounts of storage, you may receive an out-of-space error even though used space in the database or elastic pool is below its maximum data size limit. This may happen if `tempdb` or transaction log files consume a large amount of storage toward the maximum local storage limit. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset `tempdb` to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) transaction log to reduce local storage consumption.
 
 ### Sessions, workers, and requests
 
@@ -122,9 +121,10 @@ After database engine startup, as the workload starts reading data from storage,
 
 Besides the data cache, memory is used in other components of the database engine. When there is demand for memory and all available memory has been used by the data cache, the database engine will dynamically reduce data cache size to make memory available to other components, and will dynamically grow data cache when other components release memory.
 
-In rare cases, a sufficiently demanding workload may cause an insufficient memory condition, leading to out-of-memory errors. This can happen at any level of memory utilization between 0% and 100%. This is more likely to occur on smaller compute sizes that have proportionally smaller memory limits, and/or with workloads using more memory for query processing, such as in [dense elastic pools](elastic-pool-resource-management.md).
+In rare cases, a sufficiently demanding workload may cause an insufficient memory condition, leading to out-of-memory errors. This can happen at any level of memory utilization between 0% and 100%. This is more likely to occur on smaller compute sizes that have proportionally smaller memory limits, and/or with workloads using more memory for query processing, such as in [dense elastic pools](elastic-pool-resource-management.md). 
 
 When encountering out-of-memory errors, mitigation options include:
+- Review the details of the OOM condition in [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries and configuration to reduce memory utilization. Common solutions are described in the following table.
 
@@ -162,7 +162,7 @@ Azure SQL Database resource governance is hierarchical in nature. From top to bo
 
 Data I/O governance is a process in Azure SQL Database used to limit both read and write physical I/O against data files of a database. IOPS limits are set for each service level to minimize the "noisy neighbor" effect, to provide resource allocation fairness in a multi-tenant service, and to stay within the capabilities of the underlying hardware and storage.
 
-For single databases, workload group limits are applied to all storage I/O against the database. For elastic pools, workload group limits apply to each database in the pool. Additionally, the resource pool limit additionally applies to the cumulative I/O of the elastic pool. Tempdb I/O is subject to workload group limits, with the exception of Basic, Standard, and General Purpose service tier, where higher tempdb I/O limits apply. In general, resource pool limits may not be achievable by the workload against a database (either single or pooled), because workload group limits are lower than resource pool limits and limit IOPS/throughput sooner. However, pool limits may be reached by the combined workload against multiple databases in the same pool.
+For single databases, workload group limits are applied to all storage I/O against the database. For elastic pools, workload group limits apply to each database in the pool. Additionally, the resource pool limit additionally applies to the cumulative I/O of the elastic pool. In `tempdb`, I/O is subject to workload group limits, with the exception of Basic, Standard, and General Purpose service tier, where higher `tempdb` I/O limits apply. In general, resource pool limits may not be achievable by the workload against a database (either single or pooled), because workload group limits are lower than resource pool limits and limit IOPS/throughput sooner. However, pool limits may be reached by the combined workload against multiple databases in the same pool.
 
 For example, if a query generates 1000 IOPS without any I/O resource governance, but the workload group maximum IOPS limit is set to 900 IOPS, the query won't be able to generate more than 900 IOPS. However, if the resource pool maximum IOPS limit is set to 1500 IOPS, and the total I/O from all workload groups associated with the resource pool exceeds 1500 IOPS, then the I/O of the same query may be reduced below the workgroup limit of 900 IOPS.
 
@@ -194,12 +194,11 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback control, availability group physical replication in Premium/Business Critical not keeping up |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback control, limiting rates to avoid an out of log space condition |
 | HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Geo-replication feedback control, limiting log rate to avoid high data latency and unavailability of geo-secondaries|
-|||
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
 
 - Scale up to a higher service level in order to get the maximum log rate of a service tier, or switch to a different service tier. The [Hyperscale](service-tier-hyperscale.md) service tier provides 100 MB/s log rate regardless of chosen service level.
-- If data being loaded is transient, such as staging data in an ETL process, it can be loaded into tempdb (which is minimally logged).
+- If data being loaded is transient, such as staging data in an ETL process, it can be loaded into `tempdb` (which is minimally logged).
 - For analytic scenarios, load into a clustered [columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) table, or a table with indexes that use [data compression](/sql/relational-databases/data-compression/data-compression). This reduces the required log rate. This technique does increase CPU utilization and is only applicable to data sets that benefit from clustered columnstore indexes or data compression.
 
 ### Storage space governance
@@ -222,28 +221,27 @@ WHERE database_id = DB_ID();
 |`database_name`|Database name|
 |`slo_name`|Service objective name, including hardware generation|
 |`user_data_directory_space_quota_mb`|**Maximum local storage**, in MB|
-|`user_data_directory_space_usage_mb`|Current local storage consumption by data files, transaction log files, and tempdb files, in MB. Updated every five minutes.|
-|||
+|`user_data_directory_space_usage_mb`|Current local storage consumption by data files, transaction log files, and `tempdb` files, in MB. Updated every five minutes.|
 
 This query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
 
 > [!IMPORTANT]
-> In Premium and Business Critical service tiers, if the workload attempts to increase combined local storage consumption by data files, transaction log files, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
+> In Premium and Business Critical service tiers, if the workload attempts to increase combined local storage consumption by data files, transaction log files, and `tempdb` files over the **maximum local storage** limit, an out-of-space error will occur.
 
 As databases are created, deleted, and increase or decrease in size, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low, and a database or an elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
 
 This move occurs in an online fashion, similarly to a database scaling operation, and has a similar [impact](single-database-scale.md#impact), including a short (seconds) failover at the end of the operation. This failover terminates open connections and rolls back transactions, potentially impacting applications using the database at that time.
 
-Because all data is copied to local storage volumes on different machines, moving larger databases may require a substantial amount of time. During that time, if local space consumption by a database or an elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
+Because all data is copied to local storage volumes on different machines, moving larger databases may require a substantial amount of time. During that time, if local space consumption by a database or an elastic pool, or by the `tempdb` database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
 
 > [!NOTE]
 > Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
 
 ## Tempdb sizes
 
-Size limits for tempdb in Azure SQL Database depend on the purchasing and deployment model. 
+Size limits for `tempdb` in Azure SQL Database depend on the purchasing and deployment model. 
 
-To learn more, review tempdb size limits for: 
+To learn more, review `tempdb` size limits for: 
 - vCore purchasing model: [single databases](resource-limits-vcore-single-databases.md), [pooled databases](resource-limits-vcore-elastic-pools.md)
 - DTU purchasing model: [single databases](resource-limits-dtu-single-databases.md#tempdb-sizes),  [pooled databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 
 
@@ -251,4 +249,4 @@ To learn more, review tempdb size limits for:
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-purchasing-model).
-- For information about tempdb size limits, see [single vCore databases](resource-limits-vcore-single-databases.md), [pooled vCore databases](resource-limits-vcore-elastic-pools.md), [single DTU databases](resource-limits-dtu-single-databases.md#tempdb-sizes), and [pooled DTU databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 
+- For information about `tempdb` size limits, see [single vCore databases](resource-limits-vcore-single-databases.md), [pooled vCore databases](resource-limits-vcore-elastic-pools.md), [single DTU databases](resource-limits-dtu-single-databases.md#tempdb-sizes), and [pooled DTU databases](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 

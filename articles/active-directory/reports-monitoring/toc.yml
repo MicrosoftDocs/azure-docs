@@ -104,6 +104,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
   - name: Basic info in the sign-in logs
     href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
@@ -130,6 +132,8 @@
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
     - name: Risk analysis
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 

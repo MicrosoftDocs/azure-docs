@@ -27,7 +27,7 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.RabbitMQ).
+Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus).
 
 # [Isolated process](#tab/isolated-process)
 
@@ -163,7 +163,7 @@ This section describes the configuration settings available for this binding, wh
             "maxAutoLockRenewalDuration": "00:05:00",
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
-            "maxMessages": 1000,
+            "maxMessageBatchSize": 1000,
             "sessionIdleTimeout": "00:01:00",
             "enableCrossEntityTransactions": false
         }
@@ -187,7 +187,7 @@ When you set the `isSessionsEnabled` property or attribute on [the trigger](func
 |**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that the should be initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting only applies for functions that receive a single message at a time.|
-|**maxMessages**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
+|**maxMessageBatchSize**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
 |**sessionIdleTimeout**|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session. This setting only applies for functions that receive a single message at a time.|
 |**enableCrossEntityTransactions**|`false`|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 

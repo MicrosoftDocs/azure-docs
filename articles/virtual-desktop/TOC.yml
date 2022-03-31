@@ -4,10 +4,32 @@
   items:
   - name: What is Azure Virtual Desktop?
     href: overview.md
+  - name: Prerequisites
+    href: prerequisites.md
   - name: What's new?
-    href: whats-new.md
-  - name: What's new for Azure Monitor
-    href: whats-new-azure-monitor.md
+    items:
+    - name: Azure Virtual Desktop
+      href: whats-new.md
+    - name: Azure Virtual Desktop Agent
+      href: whats-new-agent.md
+    - name: Azure Monitor for Azure Virtual Desktop
+      href: whats-new-azure-monitor.md
+    - name: FSLogix
+      href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
+    - name: Remote Desktop clients
+      items:
+      - name: Windows (Desktop)
+        href: /windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Windows (Microsoft Store)
+        href: /windows-server/remote/remote-desktop-services/clients/windows-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: macOS
+        href: /windows-server/remote/remote-desktop-services/clients/mac-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: iOS
+        href: /windows-server/remote/remote-desktop-services/clients/ios-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Android
+        href: /windows-server/remote/remote-desktop-services/clients/android-whatsnew?context=/azure/virtual-desktop/context/context
+      - name: Web
+        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?context=/azure/virtual-desktop/context/context
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Quickstarts
@@ -55,12 +77,18 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Determine user connection latency
+      - name: Determine user connection quality
         href: connection-latency.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
-  - name: Delegated access in Azure Virtual Desktop
-    href: delegated-access-virtual-desktop.md
+  - name: Identity and access management
+    items:
+    - name: Identities and authentication
+      href: authentication.md
+    - name: Azure RBAC roles
+      href: rbac.md
+    - name: Delegated access
+      href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
   - name: FSLogix profile containers and Azure files
@@ -141,6 +169,8 @@
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
+      - name: Deploy Windows Server based machine
+        href: deploy-windows-server-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
@@ -201,6 +231,8 @@
         href: autoscale-diagnostics.md
       - name: Autoscale glossary (preview)
         href: autoscale-glossary.md
+      - name: Autoscale scenarios (preview)
+        href: autoscale-scenarios.md
       - name: Autoscale feature FAQ (preview)
         href: autoscale-faq.yml
   - name: Customize feed
@@ -287,6 +319,8 @@
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
+  - name: Connection quality issues
+    href: troubleshoot-connection-quality.md
 - name: Reference
   items:
   - name: Azure CLI

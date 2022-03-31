@@ -21,7 +21,7 @@ The decision to migrate to AMA will be based on the different features and servi
 
 Azure Monitor agent currently supports the following core functionality:
 
-- **Collect guest logs and metrics** from any machine in Azure, in other clouds, or on-premises. [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) are required for machines outside of Azure.
+- **Collect guest logs and metrics** from any machine in Azure, in other clouds, or on-premises. [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) are required for machines outside of Azure.
 - **Centrally manage data collection configuration** using [data collection rules](/azure/azure-monitor/agents/data-collection-rule-overview), and management configuration using Azure Resource Manager (ARM) templates or policies.
 - **Use Windows event filtering or multi-homing** for Windows or Linux logs.
 - **Improved extension management.** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
@@ -29,9 +29,9 @@ Azure Monitor agent currently supports the following core functionality:
 > [!NOTE]
 > Windows and Linux machines that reside on cloud platforms other than Azure, or are on-premises machines, must be Azure Arc-enabled so that the AMA can send logs to the Log Analytics workspace. For more information, see: 
 >
-> - [What are Azure Arc–enabled servers?](/azure/azure-arc/servers/overview)
-> - [Overview of Azure Arc – enabled servers agent](/azure/azure-arc/servers/agent-overview)
-> - [Plan and deploy Azure Arc – enabled servers at scale](/azure/azure-arc/servers/plan-at-scale-deployment)
+> - [What are Azure Arc–enabled servers?](../../azure-arc/servers/overview.md)
+> - [Overview of Azure Arc – enabled servers agent](../../azure-arc/servers/agent-overview.md)
+> - [Plan and deploy Azure Arc – enabled servers at scale](../../azure-arc/servers/plan-at-scale-deployment.md)
 
 ## Plan your migration
 
@@ -39,8 +39,8 @@ You migration plan to the Azure Monitor agent should include the following consi
 
 |Consideration  |Description  |
 |---------|---------|
-|**Environment requirements**     | Verify that your environment is currently supported by the AMA. For more information, see [Supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).         |
-|**Current and new feature requirements**     | While the AMA provides [several new features](#current-capabilities), such as filtering, scoping, and multi-homing, it is not yet at parity with the legacy Log Analytics agent.As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date. See [Supported services and features](/azure/azure-monitor/agents/azure-monitor-agent-overview#supported-services-and-features) for a current status of features that are supported and that may be in preview. | 
+|**Environment requirements**     | Verify that your environment is currently supported by the AMA. For more information, see [Supported operating systems](./agents-overview.md#supported-operating-systems).         |
+|**Current and new feature requirements**     | While the AMA provides [several new features](#current-capabilities), such as filtering, scoping, and multi-homing, it is not yet at parity with the legacy Log Analytics agent.As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features) for a current status of features that are supported and that may be in preview. | 
 
 
 ## Gap analysis between agents
