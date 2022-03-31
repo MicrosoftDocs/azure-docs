@@ -17,7 +17,10 @@ In a nutshell, enabling your service’s events to be consumed by users typicall
 1. **Communicate your interest** in becoming a partner to the Event Grid service team before proceeding with the next steps.
 1. Create a partner topic type by creating a **registration**. 
 1. Create a **namespace**.
-1. Create an **event channel** and **partner topic** (single step).
+1. Create a **channel** (recommended) or **event channel** (legacy) and **partner topic** (single step).
+
+    > [!IMPORTANT]
+    > **Channel** is the new routing resource type and is the preferred option. An **event channel** is a legacy resource and will be deprecated soon. 
 1. Test the Partner Events functionality end to end.
 
 For step #4, you should decide what kind of user experience you want to provide. You have the following options:
@@ -59,7 +62,7 @@ To complete the remaining steps, make sure you have:
         4. Enter a **description for the scenario**. It should explain the ways or scenarios in which the partner topics for your resources can be used.  
 
             :::image type="content" source="./media/onboard-partner/create-partner-registration-page.png" alt-text="Create partner registration":::            
-1. Select **Next: Custom Service** at the bottom of the page. On the **Customer Service** tab of the **Create Partner Registration** page, enter information that subscriber users will use to contact you in case of a problem with the event source:
+1. Select **Next: Custom Service** at the bottom of the page. On the **Customer Service** tab of the **Create Partner Registration** page, enter information that subscriber users will use to contact you when there's a problem with the event source:
     1. Enter the **Phone number**.
     1. Enter **extension** for the phone number.
     1. Enter a support web site **URL**. 
@@ -83,18 +86,11 @@ To complete the remaining steps, make sure you have:
     1. In the **Namespace details** section, do the following steps:
         1. Enter a **name** for the namespace. 
         1. Select a **location** for the namespace. 
-        1. For **Partner topic routing mode**, select **Channel name header** and **Source attribute in event**. 
-        
-            > [!NOTE]
-            > It's not possible to update the routing mode once the namespace is created. 
-        
-            A partner namespace serves as container to routing resources. A namespace holds only one kind of routing resource, either **channels** or **event channels**. 
+        1. For **Partner topic routing mode**, select **Channel name header** and **Source attribute in event**. If you select **Channel name header** option, the partner namespace can have **channels**. If you select **Source attribute in event**, the partner namespace can have **event channels**. A partner namespace serves as container to routing resources and it can hold only one type of routing resource, either **channels** or **event channels**. In the near future, there will be only channels, which will support both source-based routing and channel-name routing.
 
-            **Channel** is the new routing resource type and is the preferred option. Select **Channel name header** to have the partner namespace hold only channels. 
-
-            An **event channel** is a legacy resource and will be deprecated. Select **Source attribute in event** to have the partner namespace hold only event channels. 
-
-            In the near future, there will be only channels, which will support both source-based routing and channel-name routing.
+            > [!IMPORTANT]
+            > - **Channel** is the new routing resource type and is the preferred option. An **event channel** is a legacy resource and will be deprecated soon. 
+            > - It's not possible to update the routing mode once the namespace is created.             
     1. In the **Registration details** section, follow these steps to associate the namespace with a partner registration. 
         1. Select the **subscription** in which the partner registration exists. 
         1. Select the **resource group** that contains the partner registration. 
