@@ -11,16 +11,26 @@ ms.custom: references_regions
 
 # Update management center support matrix
 
- The article summarizes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by update management center (Preview) including the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. 
+
+## Make WSUS configuration settings
+
+Update Management supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
+
+To restrict machines to the internal update service, set [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
+
+## Third-party updates on Windows
+
+Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/configmgr/sum/tools/install-updates-publisher).
 
 ## Supported regions
-Update management center (preview) will scale to all regions in public preview stage. Listed below are the Azure public cloud where you can use update management center (preview).
+Update management center (preview) will scale to all regions for both Azure VMs and Azure Arc-enabled servers. Listed below are the Azure public cloud where you can use update management center (preview).
 
 # [Azure virtual machine](#tab/azurevm)
 
-Update management center (preview) **on demand assessment, on demand patching** on **Azure Compute virtual machines** is available in all Azure public regions where Compute virtual machines are available.
+Update management center (preview) **on demand assessment, on demand patching** on **Azure Compute virtual machines** is available in all Azure public regions where compute virtual machines are available.
 
-# [Azure arc-enabled servers](#tab/azurearc)
+# [Azure Arc-enabled servers](#tab/azurearc)
 Update management center (preview) **on demand assessment, on demand patching** on **Azure arc-enabled servers** is supported in the following regions currently. It implies that VMs must be in below regions:
 
 **Geography** | **Supported Regions**
@@ -33,19 +43,9 @@ United Kingdom | UK South
 
 ---
 
-The Update management center (preview) **periodic assessment** and **scheduled patching** features are currently supported in the below regions:
-
-**Geography** | **Supported Regions**
---- | ---
-Australia | Australia East
-United States | South Central US </br> West Central US </br>
-Europe | North Europe
-Asia | South East Asia
-United Kingdom | UK South
-
 ## Supported operating systems
 
-Update management center (preview) supports specific versions of the Windows Server and Linux operating systems that run on Azure VMs or machines managed by Arc enabled servers. Before you enable update management center (preview), confirm that the target machines meet the operating system requirements.
+The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (Preview), ensure that the target machines meet the operating system requirements.
 
 # [Azure VMs](#tab/azurevm-os)
 
