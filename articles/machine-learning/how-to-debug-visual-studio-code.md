@@ -210,11 +210,11 @@ args = parser.parse_args()
 if args.remote_debug:
     print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
     # Log the IP and port
-    # ip = socket.gethostbyname(socket.gethostname())
-    try:
-        ip = args.remote_debug_client_ip
-    except:
-        print("Need to supply IP address for VS Code client")
+    ip = socket.gethostbyname(socket.gethostname())
+    # try:
+    #     ip = args.remote_debug_client_ip
+    # except:
+    #     print("Need to supply IP address for VS Code client")
     print(f'ip_address: {ip}')
     debugpy.listen(address=(ip, args.remote_debug_port))
     # Wait for the timeout for debugger to attach
