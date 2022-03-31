@@ -140,15 +140,16 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Optional modules for port expansion:
 
-|Location|Type|Specifications|
-|:----|:-----|:----|
-|PCI Slot 1 (Low profile)|Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 adp's SI| 
-|PCI Slot 1 (Low profile)|DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|
-|PCI Slot 2 (High profile)|Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI|
-|PCI Slot 2 (High profile)|DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|
-|PCI Slot 2 (High profile)|Quad Port F/O NIC|869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI|
-|SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
-|SFPs for Fiber Optic NICs|SingleMode, Long Range|455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+|Location |Type|Specifications|
+|-------------- | --------------| --------- |
+| PCI Slot 1 (Low profile)| Quad Port Eth NIC| 811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI |
+| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr| 
+| PCI Slot 2 (High profile)| Quad Port Eth NIC|811546-B21 - HPE 1GbE 4p BASE-T I350 Adptr SI|
+| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10GbE 2p FLR-SFP+ X710 Adptr|
+| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10GbE 4p SFP+ X710 Adptr SI|
+| SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
+| SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+
 
 ### Enterprise deployment: HPE ProLiant DL20+
 
