@@ -247,7 +247,7 @@ sections:
       - question: |
          How often can I replicate data?
         answer: |
-              * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
+              * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or five minutes.
               * **Azure VMs, VMware VMs, physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
       - question: |

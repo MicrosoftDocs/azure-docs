@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to create and manage search objects in a .NET application using C# and Microsoft.Azure.Search (version 10) of the .NET SDK. Code snippets demonstrate connecting to the service, creating indexes, and queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: conceptual

@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 03/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -134,13 +134,13 @@ Your final configuration file should look like the following JSON:
 1. Go to `https://localhost:44316`. 
 1. Select **Sign Up/In**.
 
-    ![Screenshot of the "Sign Up/In" button on the project Welcome page.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)
+    :::image type="content" source="./media/configure-authentication-sample-web-app/web-app-sign-in.png" alt-text="Screenshot of the  sign in and sign up button on the project Welcome page.":::
 
 1. Complete the sign-up or sign-in process.
 
 After successful authentication, you'll see your display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
-![Screenshot of the web app token claims.](./media/configure-authentication-sample-web-app/web-app-token-claims.png)
+  :::image type="content" source="./media/configure-authentication-sample-web-app/web-app-token-claims.png" alt-text="Screenshot of the web app token claims.":::
 
 ## Deploy your application 
 

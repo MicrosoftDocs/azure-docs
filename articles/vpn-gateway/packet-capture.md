@@ -32,6 +32,9 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
 - The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
 
+> [!NOTE]  
+> Set the **CaptureSingleDirectionTrafficOnly** option to **false** if you want to capture both inner and outer packets.
+
 ### Example JSON
 ```JSON-interactive
 {
@@ -319,6 +322,9 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 ## Start packet capture - portal
 
 You can set up packet capture in the Azure portal by navigating to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Start Packet Capture button**
+
+> [!NOTE]  
+> Do not select the **Capture Single Direction Traffic Only** option if you want to capture both inner and outer packets.
 
 :::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of start packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
 

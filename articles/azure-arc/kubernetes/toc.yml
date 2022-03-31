@@ -96,7 +96,7 @@
     - name: Enforce threat protection using Microsoft Defender for Cloud
       href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: In-cluster policy enforcements using Azure Policy
-      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
+      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes
     - name: Deploy Azure Arc-enabled Open Service Mesh
       href: tutorial-arc-enabled-open-service-mesh.md
     - name: Access secrets from Azure Key Vault

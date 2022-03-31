@@ -85,8 +85,10 @@
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
-      - name: Device connectivity concepts
-        href: core/concepts-get-connected.md
+      - name: Device implementation and best practices
+        href: core/concepts-device-implementation.md
+      - name: Device authentication
+        href: core/concepts-device-authentication.md
       - name: Device templates
         href: core/concepts-device-templates.md      
       - name: Connect IoT Edge devices
@@ -190,6 +192,8 @@
           href: core/howto-query-with-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Manage organizations
+          href: core/howto-manage-organizations-with-rest-api.md
         - name: Data export
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates

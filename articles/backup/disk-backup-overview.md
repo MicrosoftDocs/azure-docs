@@ -2,7 +2,10 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 03/10/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Overview of Azure Disk Backup
@@ -66,12 +69,6 @@ Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-
 Incremental snapshots are always stored on standard storage, irrespective of the storage type of parent-managed disks, and are charged based on  the pricing of standard storage. For example, incremental snapshots of a Premium SSD-Managed Disk are stored on standard storage. By default, they are stored on ZRS  in regions that support ZRS. Otherwise, they are stored on locally redundant storage (LRS). The per GiB pricing of both the options, LRS and ZRS, is the same. 
 
 The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. ForTo more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
-
-During a backup operation, the Azure Backup service creates a Storage Account in the Snapshot Resource Group, where the snapshots are stored. Managed disk’s incremental snapshots are ARM resources created on Resource group and not in Storage Account. 
-
-Storage Account is used to store metadata for each recovery point. Azure Backup service creates a Blob container per disk backup instance. For each recovery point, a block blob is created to store metadata information describing the recovery point, such as subscription, disk ID, disk attributes, and so on, that occupies a small space (in a few KiBs). 
-
-The storage account is created as RA GZRS if the region supports zonal redundancy. If the region doesn’t support Zonal redundancy, the storage account is created as RAGRS. If your existing policy stops creation of storage accounts on the subscription or resource group with GRS redundancy, the Storage account is created as LRS. The storage account created is General Purpose v2 with block blobs stored on Hot tier in the blob container. You’re charged for the Storage Account according to the storage account's redundancy. These charges are for the size of the block blobs. However, this will be a minimal amount as it stores metadata only, which are few KiBs per recovery point. 
 
 The number of recovery points is determined by the Backup policy used to configure backups of the disk backup instances. Older block blobs are deleted according to the garbage collection process as the corresponding older recovery points are pruned.
 

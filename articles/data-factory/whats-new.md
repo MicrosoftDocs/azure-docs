@@ -21,6 +21,31 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## March 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=5><b>Data Flow</b></td><td>ScriptLines and Parameterized Linked Service support added mapping data flows</td><td>It is now super-easy to detect changes to your data flow script in Git with ScriptLines in your data flow JSON definition. Parameterized Linked Services can now also be used inside your data flows for flexible generic connection patterns.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-mapping-data-flows-adds-scriptlines-and-link-service/ba-p/3249929#M589">Learn more</a></td></tr>
+
+<tr><td>Flowlets General Availability (GA)</td><td>Flowlets is now generally available to create reusable portions of data flow logic that you can share in other pipelines as inline transformations. Flowlets enable ETL jobs to be composed of custom or common logic components.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450">Learn more</a></td></tr> 
+ 
+<tr><td>Change Feed connectors are available in 5 data flow source transformations</td><td>Change Feed connectors are available in data flow source transformations for Cosmos DB, Blob store, ADLS Gen1, ADLS Gen2, and CDM.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450">Learn more</a></td></tr> 
+ 
+<tr><td>Data Preview and Debug Improvements in Mapping Data Flows</td><td>A few new exciting features were added to data preview and the debug experience in Mapping Data Flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254">Learn more</a></td></tr> 
+ 
+<tr><td>SFTP connector for Mapping Data Flow</td><td>The SFTP connector is now available for Mapping Data Flows.<br><a href="connector-sftp.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td><b>Data Movement</b></td><td>Support Always Encrypted for SQL related connectors in Lookup Activity under Managed VNET</td><td>Always Encrypted is supported for SQL Server, Azure SQL DB, Azure SQL MI, Azure Synapse Analytics in Lookup Activity under Managed VNET.<br><a href="control-flow-lookup-activity.md">Learn more</a></td></tr>
+ 
+<tr><td><b>Integration Runtime</b></td><td>New UI layout in Azure integration runtime creation and edit page</td><td>The UI layout of the integration runtime creation/edit page has been changed to tab style including Settings, Virtual Network and Data flow runtime.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/new-ui-layout-in-azure-integration-runtime-creation-and-edit/ba-p/3248237">Learn more</a></td></tr>
+ 
+<tr><td rowspan=2><b>Orchestration</b></td><td>Transform data using the Script activity</td><td>You can use a Script activity to invoke a SQL script in Azure SQL Database, Azure Synapse Analytics, SQL Server Database, Oracle, or Snowflake.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/execute-sql-statements-using-the-new-script-activity-in-azure/ba-p/3239969">Learn more</a></td></tr>
+ 
+<tr><td>Web activity timeout improvement</td><td>You can configure response timeout in a Web activity to prevent it from timing out if the response period is more than 1 minute, especially in the case of synchronous APIs.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307">Learn more</a></td></tr> 
+
+</table>
+
 ## February 2022
 <br>
 <table>
@@ -126,19 +151,15 @@ This page is updated monthly, so revisit it regularly.
 <tr><td>New Stringify data transformation in mapping data flows</td><td>Mapping data flows adds a new data transformation called Stringify to make it easy to convert complex data types like structs and arrays into string form that can be sent to structured output destinations.<br><a href="data-flow-stringify.md">Learn more</a></td></tr>
   
 <tr>
-  <td rowspan=2><b>Integration Runtime</b></td>
-  <td>Azure Data Factory Managed vNet goes GA</td>
-  <td>You can now provision the Azure Integration Runtime as part of a managed Virtual Network and leverage Private Endpoints to securely connect to supported data stores. Data traffic goes through Azure Private Links which provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet.<br><a href="managed-virtual-network-private-endpoint.md">Learn more</a></td>
- </tr>
- <tr>
-   <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
-   <td>The SSIS integration runtime now supports express VNet injection.<br>
-     Learn more:<br>
-     <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
-     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
-     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
-   </td>
- </tr>
+ <td><b>Integration Runtime</b></td>
+  <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
+  <td>The SSIS integration runtime now supports express VNet injection.<br>
+    Learn more:<br>
+    <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
+    <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
+    <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
+  </td>
+</tr>
 
 <tr><td rowspan=2><b>Security</b></td><td>Azure Key Vault integration improvement</td><td>We have improved Azure Key Vault integration by adding user selectable drop-downs to select the secret values in the linked service, increasing productivity and not requiring users to type in the secrets, which could result in human error.</td></tr>
 <tr><td>Support for user-assigned managed identity in Azure Data Factory</td><td>Credential safety is crucial for any enterprise. With that in mind, the Azure Data Factory (ADF) team is committed to making the data engineering process secure yet simple for data engineers. We are excited to announce the support for user-assigned managed identity (Preview) in all connectors/ linked services that support Azure Active Directory (Azure AD) based authentication.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">Learn more</a></td></tr>

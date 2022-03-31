@@ -179,4 +179,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API reference
-            url: https://docs.microsoft.com/rest/api/azurespringcloud/
+            url: /rest/api/azurespringcloud/

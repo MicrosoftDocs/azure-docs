@@ -7,13 +7,19 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 03/17/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
+ROBOTS: NOINDEX
 ---
 
 # Support additional protocols for IoT Hub
 
 Azure IoT Hub natively supports communication over the MQTT, AMQP, and HTTPS protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway enables protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. You can use the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) as a custom gateway to enable protocol adaptation for IoT Hub.
+
+>[!NOTE]
+>The Azure IoT protocol gateway is no longer the recommended method for protocol adaptation. Instead, consider using Azure IoT Edge as a gateway.
+>
+>For more information, see [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md).
 
 ## Azure IoT protocol gateway
 
@@ -32,13 +38,3 @@ For flexibility, the Azure IoT protocol gateway and MQTT implementation are prov
 To learn more about the Azure IoT protocol gateway and how to use and deploy it as part of your IoT solution, see:
 
 * [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-
-* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
-
-To learn more about planning your IoT Hub deployment, see:
-
-* [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
-
-* [Scaling, high availability, and disaster recovery](iot-hub-scaling.md)
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
