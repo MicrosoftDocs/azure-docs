@@ -169,6 +169,8 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 [!INCLUDE [Deploy using ZIP file](<./includes/quickstart-python/deploy-zip-file.md>)]
 
+[!INCLUDE [az webapp up command note](<./includes/app-service-web-az-webapp-up-note.md>)]
+
 ---
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
