@@ -10,7 +10,7 @@ ms.date: 3/31/2022
 
 # Grafana application UI
 
-This reference covers the main Grafana UI components, including panels, visualizations and dashboards. For consistency, it links to the corresponding topics in the Grafana documentation instead of duplicating the content.
+This reference covers the main Grafana UI components, including panels, visualizations, and dashboards. For consistency, it links to the corresponding topics in the Grafana documentation.
 
 ## Panels
 
