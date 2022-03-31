@@ -1468,6 +1468,18 @@ items:
   items:
   - name: Azure Synapse Success by Design
     items:
+    - name: Introduction
+      href: ./guidance/success-by-design-introduction.md
+    - name: Synapse proof of concept playbook
+      items:
+      - name: Overview
+        href: ./guidance/proof-of-concept-playbook-overview.md
+      - name: Data warehousing with dedicated SQL pool
+        href: ./guidance/proof-of-concept-playbook-dedicated-sql-pool.md
+      - name: Data lake exploration with serverless SQL pool
+        href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
+      - name: Big data analytics with Apache Spark pool
+        href: ./guidance/proof-of-concept-playbook-apache-spark-pool.md
     - name: Synapse implementation success method
       items:
       - name: Overview
