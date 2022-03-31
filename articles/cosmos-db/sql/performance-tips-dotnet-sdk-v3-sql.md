@@ -217,7 +217,7 @@ The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries l
 > By default, new Visual Studio projects are set to **Any CPU**. We recommend that you set your project to **x64** so it doesn't switch to **x86**. A project set to **Any CPU** can easily switch to **x86** if an x86-only dependency is added.<br/>
 > ServiceInterop.dll needs to be in the folder that the SDK DLL is being executed from. This should be a concern only if you manually copy DLLs or have custom build/deployment systems.
 
-**Prefer queries that target a Partition Key**
+**Use single partition queries**
 
 For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By):
 
@@ -229,6 +229,9 @@ using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem
     // ...
 }
 ```
+
+> [!NOTE]
+> Cross-partition queries require the SDK to visit all existing partitions to check for results. The more [physical partitions](../partitioning-overview.md#physical-partitions) the container has, the slowed they can potentially be.
 
 **Avoid recreating the iterator unnecessarily**
 
