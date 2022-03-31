@@ -31,6 +31,10 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 - (**For federated domains**) At least Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
+> [!NOTE] 
+> Azure AD Connect doesn't require trust between forests by design. But some features that needs to query other forests (like configuring SCP here) will need trust to query and show the configured values. 
+When you run AADC wizard to add a new forest you will provide credentials for a forest to be added, but when you open the wizard later it will try to use credentials of the logged in user who runs the wizard to query already configured forests and if there was no trust then it will fai
+
 ### Network connectivity requirements
 
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
