@@ -27,13 +27,13 @@ The following tables describe supported deployment options for your OT sensors a
 
 ### Enterprise monitoring at the site level
 
-|Name  |Max Throughput (OT Traffic)  |Max Monitored Assets  |Deployment  |
+|Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
 |E1800 (Enterprise)     |1 Gbps         |10K         |Physical / Virtual         |
 
 ### Securing production lines
 
-|Name  |Max Throughput (OT Traffic  |Max Monitored Assets  |Deployment  |
+|Name  |Max throughput (OT Traffic)  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
 |L500 (Line)    | 200 Mbps        |   1,000      |Physical / Virtual         |
 |L100 (Line)    | 60 Mbps        |   800      | Physical / Virtual        |
@@ -41,19 +41,19 @@ The following tables describe supported deployment options for your OT sensors a
 
 ### On-premises management console
 
-|Name  |Max Monitored Sensors  |Deployment  |
+|Name  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
 |E1800 (Enterprise)     |Up to 300         |Physical / Virtual         |
 
 ## Supported hardware
 
-The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support. The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
+The following hardware has been validated for physical appliances and we recommend them for deployments that require significant scale and support.
 
 ### Required operating systems
 
 Defender for IoT sensor and on-premises management console software is built on Ubuntu 18.04. All hardware components must be compatible with Ubuntu version 18.04.
 
-### Central Processing Unit (CPU)
+### Central processing unit (CPU)
 
 |Name  |Supported models and versions |
 |---------|---------|
@@ -114,18 +114,13 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ## Corporate deployment: HPE ProLiant DL360
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360" border="false":::
 
 |Component  |Specifications|
 |---------|---------|
 |Chassis     |1U Rack Server         |
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 70.7 cm <br> -1.69 x 17.11 x 27.83 in         |
 |Weight    | Max 16.72 kg / 35.86 lb        |
-
-### Corporate deployment: HPE ProLiant DL360
-
-|Component|Technical specifications|
-|---------|--------|
 |Chassis |1U rack server|
 |Dimensions| 42.9 x 43.46 x 70.7 (cm)/1.69" x 17.11" x 27.83" (in)|
 |Weight| Max 16.27 kg (35.86 lb)|
@@ -134,11 +129,6 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Memory	| 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM|
 |Storage|	6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5|
 |Network controller|	On-board: 2 x 1 Gb <br> On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
-
-### Corporate deployment: HPE ProLiant DL360
-
-|Component |Technical Specifications  |
-|---------|---------|
 |Management     |HPE iLO Advanced         |
 |Device access     | Two rear USB 3.0        |
 |One front    | USB 2.0        |
@@ -168,7 +158,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 ### Enterprise deployment: HPE ProLiant DL20+
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="HPE ProLiant D120+ View":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="HPE ProLiant D120+ View" border="false":::
 
 |Component  |Specifications|
 |---------|---------|
@@ -176,7 +166,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 |Dimensions   |4 x 3.5" chassis: <br> -4.29 x 43.46 x 38.22 cm <br> -1.70 x 17.11 x 15.05 in         |
 |Weight    | Max 7.9 kg / 17.41 lb        |
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel":::
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20+.png" alt-text="Photo of the DL20+ panel" border="false":::
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -204,7 +194,7 @@ Optional modules for port expansion:
 | SFPs for Fiber Optic NICs | MultiMode, Short Range | 455883-B21 - HPE BLc 10G SFP+ SR Transceiver    |
 | SFPs for Fiber Optic NICs | SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver   |
 
-:::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20":::
+:::image type="content" source="media/ot-system-requirements/dl20-profile-backview.png" alt-text="Profile view of back of DL20" border="false":::
 
 ### Enterprise deployment: HPE ProLiant DL20
 
@@ -264,7 +254,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |Power|	Dual Hot Plug Power Supplies 350W|
 |Rack support|	ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks with support for optional tool-less cable management arm.
 
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340":::
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Back Panel view of Dell PowerEdge 340" border="false":::
 
 
  ### Optional modules for port expansion:
@@ -280,6 +270,8 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |SFPs for Fiber Optic NICs|MultiMode, Short Range|Dell SFP+, SR, Optical Transceiver, Intel, 10Gb-1Gb|
 |SFPs for Fiber Optic NICs|SingleMode, Long Range|Dell SFP+, LR Optical Transceiver, 1/10GbE|
 
+
+### Deployment BOM
 |Description|SKU|Qty|
 |:----|:----|:----|
 |OEM PowerEdge R340 XL|210-ARGO|1|
@@ -321,9 +313,7 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 
 
 ### SMB Deployment: HPE ProLiant DL20+
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+":::
-
-### SMB Deployment: HPE ProLiant DL20
+:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus-back-panel-view.png" alt-text="Back Panel View of HPE Proliant DL20+" border="false":::
 
 |Component|Technical specifications|
 |----|----|
@@ -359,3 +349,10 @@ Enterprise Deployment: Dell PowerEdge R340 XL
 |P06683-B21|HPE DL20 Gen10 M.2 SATA/LFF AROC Cable Kit|1|
 |512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
 |775612-B21|HPE 1U Short Friction Rail Kit|1|
+
+## Next Steps
+For more information, see:
+
+- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for the on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](how-to-install-software.md)
