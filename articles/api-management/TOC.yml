@@ -215,7 +215,7 @@
                     href: api-management-howto-setup-delegation.md
                   - name: Enable console OAuth support
                     href: api-management-howto-oauth2.md
-                  - name: E-mail notifications and templates
+                  - name: Email notifications and templates
                     href: api-management-howto-configure-notifications.md
                   - name: Integrate Application Insights
                     href: developer-portal-integrate-application-insights.md

@@ -68,13 +68,13 @@ items:
   items:
     - name: Configure IP addresses for an Azure network interface
       href: virtual-network-network-interface-addresses.md
-    - name: Custom IP address prefix (BYOIP)
+    - name: Create a custom IP address prefix (BYOIP)
       items:
-      - name: Create a custom IP address prefix (BYOIP) - Portal
+      - name: Portal
         href: create-custom-ip-address-prefix-portal.md      
-      - name: Create a custom IP address prefix (BYOIP) - PowerShell
+      - name: PowerShell
         href: create-custom-ip-address-prefix-powershell.md
-      - name: Create a custom IP address prefix (BYOIP) - Azure CLI
+      - name: CLI
         href: create-custom-ip-address-prefix-cli.md
     - name: Resource management
       items:
