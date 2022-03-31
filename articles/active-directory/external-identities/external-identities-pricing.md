@@ -72,9 +72,9 @@ If no subscriptions are available in the **Link a subscription** pane, here are 
 
 - A subscription exists, but it hasn't been associated with your directory yet. You can [associate an existing subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
-- No subscription exists. In the **Link a subscription** pane, you can create a subscription by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) in the new subscription, and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
+- No subscription exists. In the **Link a subscription** pane, you can create a subscription by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) in the new subscription, and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
 ## Next steps
 
 For the latest pricing information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-Learn more about [managing Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+Learn more about [managing Azure resources](../../azure-resource-manager/management/overview.md).
