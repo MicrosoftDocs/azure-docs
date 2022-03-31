@@ -102,7 +102,7 @@ Follow these steps to deploy the template:
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools. We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md).  
+You first need to create the virtual machines for this cluster.    
 
 1. Create a Resource Group
 1. Create a Virtual Network
