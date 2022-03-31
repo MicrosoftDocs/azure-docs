@@ -213,7 +213,7 @@ items:
     displayName: firewall, firewall exceptions, whitelist
 - name: How-to guides
   items:
-  - name: Azure Monitor best practices
+  - name: Best practices
     items:
     - name: Overview
       href: best-practices.md
@@ -475,8 +475,8 @@ items:
         href: logs/tutorial-ingestion-time-transformations.md
       - name: Tutorial (API)
         href: logs/tutorial-ingestion-time-transformations-api.md
-      - name: Troubleshoot
-        href: logs/data-collection-troubleshoot.md
+    - name: Troubleshoot
+      href: logs/data-collection-troubleshoot.md
   - name: Agents
     items:
     - name: Overview
