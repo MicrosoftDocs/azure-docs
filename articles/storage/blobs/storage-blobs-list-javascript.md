@@ -1,242 +1,124 @@
 ---
-title: Get started with Azure Blob Storage and JavaScript
-titleSuffix: Azure Storage
-description: Get started developing a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
+title: List blobs with JavaScript - Azure Storage
+description: Learn how to list blobs in your storage account using the Azure Storage client library for JavaScript. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 03/28/2022
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: template-how-to
+ms.devlang: javascript
+ms.custom: devx-track-js
 ---
 
-storage questions:
+# List blobs using the Azure Storage client library for JavaScript
 
-pivots of client/Node.js
-ES6 import or old requires or both
-no namespaces so how to group/show - all or just subset
+When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
+## Understand blob listing options
 
-# Get started with Azure Blob Storage and JavaScript
+To list the blobs in a storage account, call one of these methods:
 
-This article shows you to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+- [BlobContainerClient.GetBlobs]()
+- [BlobContainerClient.GetBlobsByHierarchy]()
 
-[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+### Manage how many results are returned
 
-## Prerequisites
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages.
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
-- [Node.js LTS](https://nodejs.org/)
-- Optionally, you need [bundling tools](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md) if you are developing for a web client.
+### Filter results with a prefix
 
-## Set up your project
+To filter the list of blobs, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
 
-1. Open a command prompt and change into your project folder:
+### Return metadata
 
-    ```bash
-    cd YOUR-DIRECTORY
-    ```
+You can return blob metadata with the results by specifying the **Metadata** value for the [BlobTraits]() enumeration.
 
-1. If you don't have a `package.json` file already in your directory, initialize the project to create the file:
+### Flat listing versus hierarchical listing
 
-    ```bash
-    npm init -y
-    ```
+Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character.
 
-1. Install the Azure Blob Storage client library for JavaScript:
+To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
-    ```bash
-    npm install @azure/storage-blob
-    ```
+If you name your blobs using a delimiter, then you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
 
-1. In your `index.js` file, add the package:
+## Use a flat listing
 
-    ```javascript
-    const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");    
-    ```
+By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs are not organized by virtual directory.
 
-- [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
+The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
 
-- [Azure.Storage.Blobs.Specialized](/dotnet/api/azure.storage.blobs.specialized): Contains classes that you can use to perform operations specific to a blob type (For example: append blobs).
+If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
 
-- [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models): All other utility classes, structures, and enumeration types.
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-## Connect to Blob Storage
+```javascript
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and it's containers. You can create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using an account access key, a shared access signature (SAS), or by using an Azure Active Directory (Azure AD) authorization token. 
-
-To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
-
-#### Authorize with an account key
-
-Create a [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
-
-```csharp
-public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
-    string accountName, string accountKey)
-{
-    Azure.Storage.StorageSharedKeyCredential sharedKeyCredential =
-        new StorageSharedKeyCredential(accountName, accountKey);
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-    blobServiceClient = new BlobServiceClient
-        (new Uri(blobUri), sharedKeyCredential);
-}
 ```
 
-You can also create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using a connection string. 
+The sample output is similar to:
 
-```csharp
-    BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+```console
+Blob name: FolderA/blob1.txt
+Blob name: FolderA/blob2.txt
+Blob name: FolderA/blob3.txt
+Blob name: FolderA/FolderB/blob1.txt
+Blob name: FolderA/FolderB/blob2.txt
+Blob name: FolderA/FolderB/blob3.txt
+Blob name: FolderA/FolderB/FolderC/blob1.txt
+Blob name: FolderA/FolderB/FolderC/blob2.txt
+Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
-For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
+## Use a hierarchical listing
 
-#### Authorize with a SAS token
+When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy.
 
-Create a [Uri](/dotnet/api/system.uri) by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using the [Uri](/dotnet/api/system.uri).
+To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy]() method.
 
-```csharp
-public static void GetBlobServiceClientSAS(ref BlobServiceClient blobServiceClient,
-    string accountName, string sasToken)
-{
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-    blobServiceClient = new BlobServiceClient
-    (new Uri($"{blobUri}?{sasToken}"), null);
-}
+The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
+
+```javascript
+
 ```
 
-To generate and manage SAS tokens, see any of these articles:
+The sample output is similar to:
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+```console
+Virtual directory prefix: FolderA/
+Blob name: FolderA/blob1.txt
+Blob name: FolderA/blob2.txt
+Blob name: FolderA/blob3.txt
 
-- [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
+Virtual directory prefix: FolderA/FolderB/
+Blob name: FolderA/FolderB/blob1.txt
+Blob name: FolderA/FolderB/blob2.txt
+Blob name: FolderA/FolderB/blob3.txt
 
-- [Create a service SAS for a container or blob](sas-service-create.md)
-
-- [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
-
-#### Authorize with Azure AD
-
-To authorize with Azure AD, you'll need to use a security principal. Which type of security principal you need depends on where your application runs. Use this table as a guide.
-
-| Where the application runs | Security principal | Guidance |
-|--|--|---|
-| Local machine (developing and testing) | User identity or service principal | [Use the Azure Identity library to get an access token for authorization](../common/identity-library-acquire-token.md) | 
-| Azure | Managed identity | [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md) |
-| Servers or clients outside of Azure | Service principal | [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) |
-
-If you're testing on a local machine, or your application will run in Azure virtual machines (VMs), function apps, virtual machine scale sets, or in other Azure services, obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
-
-```csharp
-public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
-{
-    TokenCredential credential = new DefaultAzureCredential();
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-        blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
-}
+Virtual directory prefix: FolderA/FolderB/FolderC/
+Blob name: FolderA/FolderB/FolderC/blob1.txt
+Blob name: FolderA/FolderB/FolderC/blob2.txt
+Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
-If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme) which derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
+> [!NOTE]
+> Blob snapshots cannot be listed in a hierarchical listing operation.
 
-This example creates a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) instance by using the client ID, client secret, and tenant ID. You can obtain these values when you create an app registration and service principal.
+### List blob versions or snapshots
 
-```csharp
-public static void GetBlobServiceClientAzureAD(ref BlobServiceClient blobServiceClient,
-    string accountName, string clientID, string clientSecret, string tenantID)
-{
-    TokenCredential credential = new ClientSecretCredential(
-        tenantID, clientID, clientSecret, new TokenCredentialOptions());
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);
-}
+To list blob versions or snapshots, specify the [BlobStates]() parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. 
+
+The following code example shows how to list blob versions.
+
+```javascript
 ```
 
-#### Connect anonymously
+## Next steps
 
-If you explicitly enable anonymous access, then your code can create connect to Blob Storage without authorize your request. You can create a new service client object for anonymous access by providing the Blob storage endpoint for the account. However, you must also know the name of a container in that account that's available for anonymous access. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-```csharp
-public static void CreateAnonymousBlobClient()
-{
-    // Create the client object using the Blob storage endpoint for your account.
-    BlobServiceClient blobServiceClient = new BlobServiceClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/"));
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = blobServiceClient.GetBlobContainerClient("sample-container");
-    // Read the container's properties. 
-    // Note this is only possible when the container supports full public read access.          
-    Console.WriteLine(container.GetProperties().Value.LastModified);
-    Console.WriteLine(container.GetProperties().Value.ETag);
-}
-```
-
-Alternatively, if you have the URL to a container that is anonymously available, you can use it to reference the container directly.
-
-```csharp
-public static void ListBlobsAnonymously()
-{
-    // Get a reference to a container that's available for anonymous access.
-    BlobContainerClient container = new BlobContainerClient
-        (new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
-    // List blobs in the container.
-    // Note this is only possible when the container supports full public read access.
-    foreach (BlobItem blobItem in container.GetBlobs())
-    {
-        Console.WriteLine(container.GetBlockBlobClient(blobItem.Name).Uri);
-    }
-}
-```
-
-## Build your application
-
-As you build your application, your code will primarily interact with three types of resources:
-
-- The storage account, which is the unique top-level namespace for your Azure Storage data.
-
-- Containers, which organize the blob data in your storage account.
-
-- Blobs, which store unstructured data like text and binary data.
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Each type of resource is represented by one or more associated .NET classes. These are the basic classes:
-
-| Class | Description |
-|---|---|
-| [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | Allows you to manipulate Azure Storage blobs.|
-| [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
-| [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
-
-The following guides show you how to use each of these classes to build your application.
-
-| Guide | Description |
-|--|---|
-| [Create a container](storage-blob-container-create.md) | Create containers. |
-| [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
-| [List containers](storage-blob-containers-list.md) | List containers in an account and the various options available to customize a listing. |
-| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Get and set properties and metadata for containers. |
-| [Create and manage leases](storage-blob-container-lease.md) | Establish and manage a lock on a container or the blobs in a container. |
-| [Append data to blobs](storage-blob-append.md) | Learn how to create an append blob and then append data to that blob. |
-| [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
-| [Copy blobs](storage-blob-copy.md) | Copy a blob from one account to another account. |
-| [List blobs](storage-blobs-list.md) | List blobs in different ways. |
-| [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags as well as use tags to find blobs. |
-| [Manage properties and metadata](storage-blob-properties-metadata.md) | Get and set properties and metadata for blobs. |
-
-## See also
-
-- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
-- [API reference](/dotnet/api/azure.storage.blobs)
-- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
-- [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+- [List Blobs](/rest/api/storageservices/list-blobs)
+- [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+- [Blob versioning](versioning-overview.md)
