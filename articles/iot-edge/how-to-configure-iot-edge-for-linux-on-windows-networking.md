@@ -42,7 +42,7 @@ Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext"
 ```
 
 
-## Configure IP address allocation
+## Configure VM IP address allocation
 
 The second step after deciding the type of virtual switch to be used, is to determine the type of IP address allocation of the virtual switch. For more information about IP allocation options, see [EFLOW supported IP allocations](./iot-edge-for-linux-on-windows-networking.md). Depending on the type of virtual switch used, make sure to use 
 
@@ -65,12 +65,38 @@ Deploy-EflowVm -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192
 >[!TIP]
 > The EFLOW VM will keep the same MAC address for the main (used during deployment) virtual switch across reboots. If you are using DHCP MAC address reservation, you can get the main virtual switch MAC address using the PowerShell cmdlet: `Get-EflowVmAddr`.
 
+### Check IP allocation
+There are multiple ways to check the IP address that was allocated to the EFLOW VM. First, you can use the EFLOW PowerShell cmdlet `Get-EflowVmAddr`. The output should be something similar to the following:
 
-## Configure DNS servers
+```output
+C:\> Get-EflowVmAddr
+
+[03/31/2022 12:54:31] Querying IP and MAC addresses from virtual machine (DESKTOP-EFLOW)
+
+ - Virtual machine MAC: 00:15:5d:4e:15:2c
+ - Virtual machine IP : 172.27.120.111 retrieved directly from virtual machine
+00:15:5d:4e:15:2c
+172.27.120.111
+``` 
+
+Another way, is from inside the EFLOW VM, you can use the `ifconfig eth0` bash command, and check for the *eth0* interface. The output should be something similar to the following:
+
+```output
+eth0      Link encap:Ethernet  HWaddr 00:15:5d:4e:15:2c
+          inet addr:172.27.120.111  Bcast:172.27.127.255  Mask:255.255.240.0
+          inet6 addr: fe80::215:5dff:fe4e:152c/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5636 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2214 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:766832 (766.8 KB)  TX bytes:427274 (427.2 KB)
+```
+
+## Configure VM DNS servers
 
 By default, the EFLOW virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. If using Static IP, the DNS server needs to be set up manually. For more information about EFLOW VM DNS, see [EFLOW DNS configuration](./iot-edge-for-linux-on-windows-networking.md).
 
-To check the DNS servers used by the default interface (eth0), you can use the following command:
+To check the DNS servers used by the default interface (*eth0*), you can use the following command:
 
 ```bash
 resolvectl | grep eth0 -A 8
@@ -98,6 +124,7 @@ There are multiple ways to check the DNS resolution.
 First, from inside the EFLOW VM, use the `resolvectl query` command to query a specific URL. For example, to check if the name resolution is working for the address _microsoft.com_, use the `resolvectl query microsoft.com` command. The output should be something similar to the following:
 
 ```output
+PS C:\> resolvectl query
 microsoft.com: 40.112.72.205
                40.113.200.201
                13.77.161.179
@@ -111,6 +138,7 @@ microsoft.com: 40.112.72.205
 Another way is using the `dig` command to query a specific URL. For example, to check if the name resolution is working for the address _microsoft.com_, use the `dig microsoft.com` command. The output should be something similar to the following:
 
 ```
+PS C:\> dig microsoft.com
 ; <<>> DiG 9.16.22 <<>> microsoft.com
 ;; global options: +cmd
 ;; Got answer:
