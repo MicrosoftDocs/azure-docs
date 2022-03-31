@@ -21,10 +21,16 @@ In the Azure portal, when creating an event subscription, follow these steps:
 
 1. In the **Endpoint details** section, select **Partner Destination** for **Endpoint Type**. 
 1. Click **Select an endpoint**.
+
+    :::image type="content" source="./media/deliver-events-to-partner-destinations/select-endpoint-link.png" alt-text="Screenshot showing the Create Event Subscription page with Select an endpoint link selected.":::
 1. On the **Select Partner Destination** page, select the **Azure subscription** and **resource group** that contains the partner destination. 
 1. For **Partner Destination**, select a partner destination. 
 1. Select **Confirm selection**. 
 
+    :::image type="content" source="./media/deliver-events-to-partner-destinations/subscription-partner-destination.png" alt-text="Screenshot showing the Select Partner Destination page.":::
+1. On the **Create Event Subscription** page, confirm that you see **Endpoint Type** is set to **Partner Destination**, and the endpoint is set to a partner destination, and then select **Create**. 
+
+    :::image type="content" source="./media/deliver-events-to-partner-destinations/partner-destination-configure.png" alt-text="Screenshot showing the Create Event Subscription page with a partner destination configured.":::
 
 ## Next steps
 See the following articles: 
