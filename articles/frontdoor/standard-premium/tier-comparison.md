@@ -49,4 +49,4 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 ## Next steps
 
 * Learn how to [create an Azure Front Door](create-front-door-portal.md)
-* Learn how about the [Azure Front Door architecture](front-door-routing-architecture.md)
+* Learn how about the [Azure Front Door architecture](standard-premium/front-door-routing-architecture.md)
