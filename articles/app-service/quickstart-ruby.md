@@ -27,7 +27,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 ## Download the sample
 
-1. In a terminal window, clone the sample application to your local machine, and navigate to the directory containing the sample code. 
+1. In a terminal window, clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
     ```bash
     git clone https://github.com/Azure-Samples/ruby-docs-hello-world
@@ -39,7 +39,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
     ```bash
     git branch -m main
     ```
-    
+
     > [!TIP]
     > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
 
@@ -71,9 +71,9 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 ## Create a web app
 
-1. Create a [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
+1. Create a [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan.
 
-    In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.6`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
+    In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.6`. To see all supported runtimes, run [`az webapp list-runtimes --os linux`](/cli/azure/webapp).
 
     ```azurecli-interactive
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.6' --deployment-local-git
@@ -96,7 +96,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
       &lt; JSON data removed for brevity. &gt;
     }
     </pre>
-    
+
     You've created an empty new web app, with git deployment enabled.
 
     > [!NOTE]
@@ -115,7 +115,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 ## Deploy your application
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)] 
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
    <pre>
    remote: Using turbolinks 5.2.0

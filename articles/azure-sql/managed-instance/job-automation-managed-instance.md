@@ -12,7 +12,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer:
-ms.date: 06/03/2021
+ms.date: 02/23/2022
 ---
 # Automate management tasks using SQL Agent jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,12 +96,14 @@ A schedule can define the following conditions for the time when a job runs:
 - One time, at a specific date and time, which is useful for delayed execution of some job.
 - On a recurring schedule.
 
+For more information on scheduling a SQL Agent job, see [Schedule a Job](/sql/ssms/agent/schedule-a-job).
+
 > [!Note]
-> SQL Managed Instance currently does not enable you to start a job when the CPU is idle.
+> Azure SQL Managed Instance currently does not enable you to start a job when the CPU is idle.
 
 ### SQL Agent job notifications
 
-SQL Agent Jobs enable you to get notifications when the job finishes successfully or fails. You can receive notifications via email.
+SQL Agent jobs enable you to get notifications when the job finishes successfully or fails. You can receive notifications via email.
 
 If it isn't already enabled, first you would need to configure [the Database Mail feature](/sql/relational-databases/database-mail/database-mail) on SQL Managed Instance:
 
@@ -178,6 +180,8 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 ### SQL Agent job history
 
 SQL Managed Instance currently doesn't allow you to change any SQL Agent properties because they are stored in the underlying registry values. This means options for adjusting the Agent retention policy for job history records are fixed at the default of 1000 total records and max 100 history records per job.
+
+For more information, see [View SQL Agent job history](/sql/ssms/agent/view-the-job-history).
 
 ### SQL Agent fixed database role membership
 

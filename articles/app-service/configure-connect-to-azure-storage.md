@@ -89,6 +89,9 @@ The following features are supported for Linux containers:
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
+> [!NOTE]
+> Ensure ports 80 and 445 are open when using Azure Files with VNET integration.
+> 
 ::: zone-end
 
 ::: zone pivot="container-linux"
@@ -101,6 +104,11 @@ The following features are supported for Linux containers:
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
+> [!NOTE]
+> When VNET integration is used, ensure the following ports are open:
+> * Azure Files: 80 and 445.
+> * Azure Blobs: 80 and 443.
+> 
 ::: zone-end
 
 ::: zone pivot="container-windows"
@@ -124,7 +132,7 @@ The following features are supported for Linux containers:
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
-    | **Mount path** | Directory inside the Windows container to mount to Azure Storage. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
+    | **Mount path** | Directory inside your file/blob storage that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
     ::: zone-end
     ::: zone pivot="container-linux"
     | Setting | Description |
@@ -140,7 +148,7 @@ The following features are supported for Linux containers:
 
 # [Azure CLI](#tab/cli)
 
-Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command. For example:
+Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command. For example:
 
 ```azurecli-interactive
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>

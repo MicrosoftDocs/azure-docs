@@ -97,11 +97,6 @@ The following parameters can be leveraged to configure Private DNS Zone.
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
-### Create a private AKS cluster with a BYO Private DNS SubZone
-
-Prerequisites:
-
-* Azure CLI >= 2.32.0 or later.
 
 ### Create a private AKS cluster with Custom Private DNS Zone or Private DNS SubZone
 

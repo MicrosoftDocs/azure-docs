@@ -5,8 +5,8 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/02/2022
-ms.author: v-nisba
-author: NishthaBabith-V
+ms.author: mtillman
+author: mtillman
 manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
@@ -155,6 +155,10 @@ For more information, see [Optimize reauthentication prompts and understand sess
 A major step in every multifactor authentication deployment is getting users registered to use Azure AD Multi-Factor Authentication. Authentication methods such as Voice and SMS allow pre-registration, while others like the Authenticator App require user interaction. Administrators must determine how users will register their methods. 
 
 ### Combined registration for SSPR and Azure AD MFA
+
+> [!NOTE]
+> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
+> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. 
 
 We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 

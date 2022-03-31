@@ -5,10 +5,9 @@ metadata:
   author: mmccrory
   ms.service: automanage
   ms.workload: infrastructure
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 12/10/2021
   ms.author: memccror
-    
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
   This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).

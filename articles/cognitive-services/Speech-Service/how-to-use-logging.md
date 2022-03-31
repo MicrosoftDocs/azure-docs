@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"

@@ -12,7 +12,7 @@ ms.date: 01/03/2022
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Share.
 
-|Powershell Samples|Description|
+|PowerShell Samples|Description|
 |---|---|
 |[Create a new data share account](scripts/powershell/create-new-share-account-powershell.md)| This PowerShell script creates a new data share account. |
 |[Create a new data share](scripts/powershell/create-new-share-powershell.md)| This PowerShell script creates a new data share. |
