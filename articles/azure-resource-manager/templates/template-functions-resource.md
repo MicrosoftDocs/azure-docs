@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 03/28/2022
+ms.date: 03/31/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -633,33 +633,31 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-When the template is deployed at the scope of a resource group, the resource ID is returned in the following format:
+The resource ID is returned in different formats at different scopes:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+* Resource group scope:
 
-You can use the `resourceId` function for other deployment scopes, but the format of the ID changes.
+    ```json
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
-If you use `resourceId` while deploying to a subscription, the resource ID is returned in the following format:
+* Subscription scope:
 
-```json
-/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+    ```json
+    /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
-If you use `resourceId` while deploying to a management group or tenant, the resource ID is returned in the following format:
+* Management group or tenant scope:
 
-```json
-/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+    ```json
+    /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
 To avoid confusion, we recommend that you don't use `resourceId` when working with resources deployed to the subscription, management group, or tenant. Instead, use the ID function that is designed for the scope.
 
-For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
-
-For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
-
-For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
+* For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
+* For [management group-level resources](deploy-to-management-group.md), use the [managementGroupResourceId](#managementGroupResourceId) function. Use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
+* For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
 
 ### Remarks
 
