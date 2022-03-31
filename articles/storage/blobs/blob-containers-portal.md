@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/28/2022
 ms.author: shaas
 ms.subservice: blobs
 ---
@@ -76,7 +76,7 @@ Properly managing access to containers and their blobs is key to ensuring that y
 
 ### Manage Azure RBAC role assignments for the container
 
-Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment. 
+Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
 
 You can read about the assignment of roles at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=current).
 
@@ -86,7 +86,7 @@ Although anonymous read access for containers is supported, it is disabled by de
 
 Read about enabling public access level in the [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md?tabs=portal) article.
 
-### Generate container SAS tokens
+### Generate an SAS token
 
 <!--https://docs.microsoft.com/en-us/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers-->
 Shared access signature (SAS) tokens permit secure, delegated access to resources in your Azure storage account. The token itself is a series of HTTP query string values that specify the conditions for access to a resource. The token is appended to the storage resource Uniform Resource Identifier (URI) when a request is made.
@@ -138,7 +138,7 @@ Configuring a stored access policy is a two-step process: the policy must first 
 
 1. Within the **Access policy** pane, select **+ Add policy** in the **Stored access policies** section to display the **Add policy** pane. Any existing policies will be displayed in either the appropriate section.
 
-    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to access container stored access policy settings in the Azure portal" lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-add-policy-sml.png" alt-text="Screenshot showing how to add a stored access policy settings in the Azure portal" lightbox="media/blob-containers-portal/select-add-policy-lrg.png":::
 
 1. Within the **Add policy** pane, select the **Identifier** box and add a name for your new policy.
 1. Select the **Permissions** field, then select the check boxes corresponding to the permissions desired for your new policy.
@@ -148,7 +148,7 @@ Configuring a stored access policy is a two-step process: the policy must first 
     > [!CAUTION]
     > Although your policy is now displayed in the **Stored access policy** table, it is still not applied to the container. If you navigate away from the **Access policy** pane at this point, the policy will *not* be saved or applied and you will lose your work.
 
-    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing a defined stored access policy in the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
+    :::image type="content" source="media/blob-containers-portal/select-save-policy-sml.png" alt-text="Screenshot showing how to define a stored access policy in the Azure portal" lightbox="media/blob-containers-portal/select-save-policy-lrg.png":::
 
 1. In the **Access policy** pane, select **+ Add policy** to define another policy, or select **Save** to apply your new policy the the container. After creating at least one stored access policy, you will be able to associate other secure access signatures (SAS) with it.
 
@@ -157,6 +157,49 @@ Configuring a stored access policy is a two-step process: the policy must first 
 #### Create an immutability policy
 
 Read more about how to [Configure immutability policies for containers](immutable-storage-overview.md). For help in implementing immutability policies, follow the steps outlined in the [Configure a retention policy](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-a-retention-policy-on-a-container) or [Configure or clear a legal hold](immutable-policy-configure-container-scope.md?tabs=azure-portal#configure-or-clear-a-legal-hold) articles.
+
+## Manage leases
+
+A container lease is used to establish or manage a lock for delete operations. When a lease is acquired in the Azure portal, the lock can only be created with an infinite duration. When created programmatically, the lock duration can range from 15 to 60 seconds, or it can be infinite.
+
+There are five different lease operation modes, though only two are available when using the Azure portal:
+
+[!div class="mx-tdCol2BreakAll"]
+|                 | Use case                            | Available in Azure portal|
+|-----------------|-------------------------------------|--------------------------|
+|**Acquire mode** | Request a new lease.                |&check;                   |
+|**Renew mode**   | Renew an existing lease.            |                          |
+|**Change mode**  | Change the ID of an existing lease. |                          |
+|**Release mode** | End the current lease; allows other clients to acquire a new lease                                       |&check; |
+|**Break mode**   | End the current lease; prevents other clients from acquiring a new lease during the current lease period |        |
+
+### Acquire a lease
+
+To acquire a lease using the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the list of containers in your storage account.
+1. Select the checkbox next to the name of the container for which you will acquire a lease.
+1. Select the container's **More** button (**...**), and select **Acquire lease** to request a new lease and display the details in the **Lease status** pane.
+
+    :::image type="content" source="media/blob-containers-portal/acquire-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/acquire-container-lease-lrg.png":::
+
+1. The **Container** and **Lease ID** property values of the newly-requested lease are displayed within the **Lease status** pane. Copy and paste these values in a secure location. They'll only be displayed once and cannot be retrieved after the pane is closed. 
+
+    :::image type="content" source="media/blob-containers-portal/view-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/view-container-lease-lrg.png":::
+
+### Break a lease
+
+To break a lease using the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the list of containers in your storage account.
+1. Select the checkbox next to the name of the container for which you will break a lease.
+1. Select the container's **More** button (**...**), and select **Break lease** to break the lease.
+
+    :::image type="content" source="media/blob-containers-portal/break-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/break-container-lease-lrg.png":::
+
+1. After the lease is broken, the selected container's **Lease state** value will update, and a status confirmation will appear.
+
+    :::image type="content" source="media/blob-containers-portal/broken-container-lease-sml.png" alt-text="Screenshot showing how to access container lease settings in the Azure portal" lightbox="media/blob-containers-portal/broken-container-lease-lrg.png":::
 
 ## Delete a container
 
