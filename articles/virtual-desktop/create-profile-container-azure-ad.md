@@ -175,7 +175,7 @@ To enable Azure AD authentication on a storage account, you need to create an Az
     ```
 
     > [!IMPORTANT]
-    > The password expires every 6 months and must be updated by following the steps in [Update the service principal's password](#update-the-service-principals-password).
+    > This password expires every six months, so you must update it by following the steps in [Update the service principal's password](#update-the-service-principals-password).
 
 ### Set the API permissions on the newly created application
 
@@ -376,16 +376,16 @@ Finally, test the profile to make sure that it works:
 
 ## Update the service principal's password
 
-To update the service principal's password, every 6 months if you followed the steps above, follow the instructions below:
+The service principal's password will expire every six months. To update the password:
 
-- Install the Azure Storage and Azure AD PowerShell module. To install the modules, open PowerShell and run the following commands:
+1. Install the Azure Storage and Azure AD PowerShell module. To install the modules, open PowerShell and run the following commands:
 
     ```powershell
     Install-Module -Name Az.Storage
     Install-Module -Name AzureAD
     ```
 
-- Set the required variables for your tenant, subscription, storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
+2. Set the required variables for your tenant, subscription, storage account name, and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
 
     ```powershell
     $tenantId = "<MyTenantId>"
@@ -394,7 +394,7 @@ To update the service principal's password, every 6 months if you followed the s
     $storageAccountName = "<MyStorageAccount>"
     ```
 
-- Generate a new kerb1 key and password for the service principal:
+3. Generate a new kerb1 key and password for the service principal by running this command:
 
     ```powershell
     Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
@@ -404,7 +404,7 @@ To update the service principal's password, every 6 months if you followed the s
     $password = "kk:" + [System.Convert]::ToBase64String($azureAdPasswordBuffer);
     ```
 
-- Connect to Azure AD and retrieve the tenant information, application and service principal by running the following cmdlets:
+4. Connect to Azure AD and retrieve the tenant information, application, and service principal by running the following cmdlets:
 
     ```powershell
     Connect-AzureAD
@@ -415,7 +415,7 @@ To update the service principal's password, every 6 months if you followed the s
     $servicePrincipal = Get-AzureADServicePrincipal | Where-Object {$_.AppId -eq $($application.AppId)}
     ```
 
-- Set the password for the storage account's service principal by running the following cmdlets.
+5. Set the password for the storage account's service principal by running the following cmdlets.
 
     ```powershell
     $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken;
