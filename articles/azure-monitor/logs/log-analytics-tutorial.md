@@ -41,7 +41,7 @@ Expand the **Log Management** solution and locate the **AppRequests** table. You
 
 Select the link below **Useful links** to go to the table reference that documents each table and its columns. Select **Preview data** to have a quick look at a few recent records in the table. This preview can be useful to ensure that this is the data that you're expecting before you run a query with it.
 
-:::image type="content" source="media/log-analytics-tutorial/sample-data.png" alt-text="Screenshot that shows sample data." lightbox="media/log-analytics-tutorial/sample-data.png":::
+:::image type="content" source="media/log-analytics-tutorial/preview-data.png" alt-text="Screenshot that shows preview data for the AppRequests table." lightbox="media/log-analytics-tutorial/preview-data.png":::
 
 ## Write a query
 Let's write a query by using the **AppRequests** table. Double-click its name to add it to the query window. You can also type directly in the window. You can even get IntelliSense that will help complete the names of tables in the current scope and Kusto Query Language (KQL) commands.
@@ -56,11 +56,11 @@ You can see that we do have results. The number of records that the query has re
 
 Let's add a filter to the query to reduce the number of records that are returned. Select the **Filter** tab on the left pane. This tab shows columns in the query results that you can use to filter the results. The top values in those columns are displayed with the number of records that have that value. Select **200** under **ResultCode**, and then select **Apply & Run**. 
 
-:::image type="content" source="media/log-analytics-tutorial/query-pane.png" alt-text="Screenshot that shows the query pane." lightbox="media/log-analytics-tutorial/query-pane.png":::
+:::image type="content" source="media/log-analytics-tutorial/query-filter-pane.png" alt-text="Screenshot that shows the query filter pane." lightbox="media/log-analytics-tutorial/query-filter-pane.png":::
 
 A **where** statement is added to the query with the value that you selected. The results now include only records with that value, so you can see that the record count is reduced.
 
-:::image type="content" source="media/log-analytics-tutorial/query-results-filter-01.png" alt-text="Screenshot that shows query results filtered." lightbox="media/log-analytics-tutorial/query-results-filter-01.png":::
+:::image type="content" source="media/log-analytics-tutorial/query-filter.png" alt-text="Screenshot that shows a filter being applied to the query." lightbox="media/log-analytics-tutorial/query-filter.png":::
 
 
 ### Time range
@@ -74,13 +74,13 @@ Let’s change the time range of the query by selecting **Last 12 hours** from t
 > [!NOTE]
 > Changing the time range using the **Time range** dropdown does not change the query in the query editor.
 
-:::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Screenshot that shows the time range." lightbox="media/log-analytics-tutorial/query-results-max.png":::
+:::image type="content" source="media/log-analytics-tutorial/query-time-range.png" alt-text="Screenshot that shows the time range." lightbox="media/log-analytics-tutorial/query-time-range.png":::
 
 
 ### Multiple query conditions
 Let's reduce our results further by adding another filter condition. A query can include any number of filters to target exactly the set of records that you want. Select **Get Home/Index** under **Name**, and then select **Apply & Run**. 
 
-:::image type="content" source="media/log-analytics-tutorial/query-results-filter-02.png" alt-text="Screenshot that shows query results with multiple filters." lightbox="media/log-analytics-tutorial/query-results-filter-02.png":::
+:::image type="content" source="media/log-analytics-tutorial/query-multiple-filters.png" alt-text="Screenshot that shows query results with multiple filters." lightbox="media/log-analytics-tutorial/query-multiple-filters.png":::
 
 
 ## Analyze results
