@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Communications Inspector
+# Communications inspector
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
