@@ -89,6 +89,9 @@ You can also [create log alert rules using Azure Resource Manager templates](../
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 ## Enable recommended out-of-the-box alert rules in the Azure portal (preview)
+> [!NOTE]
+> The alert recommendations feature is currently in preview and is only enabled for VMs.
+
 If you don't have any alerts defined for the selected resource, you can enable our recommended out-of-the-box alert rules. 
 
 :::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
@@ -96,8 +99,6 @@ If you don't have any alerts defined for the selected resource, you can enable o
 The system compiles a list of recommended alert rules based on:
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
 - Telemetry that tells us what customers commonly alert on for this resource.
-> [!NOTE]
-> The alert recommendations feature is currently in preview and is only enabled for VMs.
 
 To enable recommended alert rules:
 1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
