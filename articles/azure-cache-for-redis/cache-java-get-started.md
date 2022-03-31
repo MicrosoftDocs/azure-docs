@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
-#Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
+
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java
@@ -17,7 +17,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a Java app using 
 
 ## Skip to the code on GitHub
 
-If you want to skip straight to the code, see the [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) on GitHub.
+Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) on GitHub.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ If you want to skip straight to the code, see the [Java quickstart](https://gith
 
 ## Setting up the working environment 
 
-Depending on your operating system, add environment variables for your **Host name** and **Primary access key**. Open a command prompt, or a terminal window, and set up the following values:
+Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted above. Open a command prompt, or a terminal window, and set up the following values:
 
 ```CMD 
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
@@ -59,7 +59,7 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Darchetyp
 
 Change to the new *redistest* project directory.
 
-Open the *pom.xml* file and add a dependency for [Jedis](https://github.com/xetorthio/jedis):
+Open the *pom.xml* file. In the file, you'll see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
 ```xml
     <dependency>
@@ -75,7 +75,6 @@ Save the *pom.xml* file.
 
 Open *App.java* and replace the code with the following code:
 
-<!-- Should we use the same approach here and put a link to the code. We are including a whole file so that seems reasonable. -->
 ```java
 package example.demo;
 
