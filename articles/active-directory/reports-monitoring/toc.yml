@@ -142,5 +142,7 @@
   items:
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
+    - name: Minimize MFA prompts from known devices
+      href: recommendation-mfa-from-known-devices.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
