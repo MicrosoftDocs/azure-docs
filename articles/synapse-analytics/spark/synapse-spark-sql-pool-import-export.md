@@ -210,6 +210,18 @@ Benefits of this approach over printing the end state result to console (partial
 
 Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/2.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
 
+### Configuration Options
+
+To successfully bootstrap and orchestrate the read or write operation, the Connector expects certain configuration parameters. The object definition - `com.microsoft.spark.sqlanalytics.utils.Constants` provides a list of standardized constants for each parameter key.
+
+Following table describes the essential configuration options that must be set for each usage scenario:
+
+|Usage Scenario|Authentication Mode| Options to configure |
+|--------------|-------------------|----------------------------------|
+| Write | AAD based authentication | <ul><li>Dedicated SQL End Point<ul><li>By default, the end point will be inferred from user provided database name in the `synapsesql` method's three-part table name argument.</li><li>If user configures `Constants.SERVER` option, instead of inferring will use user provided option value.</li></ul></li><li>Staging Folders<ul><li>Table type - Internal<ul><li>By default will use runtime configuration `spark.sqlanalyticsconnector.stagingdir.prefix` (`Constants.TEMP_FOLDER_SPARK_CONFIG`) available in the Serverless Spark Pool.</li><li>Else, user is required to provide `Constants.TEMP_FOLDER` option.</li><li>Or, if user has provided `Constants.DATASOURCE`, then location associated with the data source will be used to stage data.</li></ul></li><li>Table Type - External<ul><li>User is required to provide `Constants.DATASOURCE` option</li></ul></li></ul></li></ul>|
+| Write | SQL Basic Authentication | <ul><li>Dedicated SQL End Point<ul><li>`Constants.SERVER`</li><li>`Constants.USER`</li><li>`Constants.PASSWORD`</li><li>`Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` or `Constants.DATASOURCE` (key to be used with COPY-command)</li></ul></li><li>Staging Folders<ul><li>`Constants.TEMP_FOLDERS` or `Constants.DATASOURCE`</li></ul></li></ul>|
+|Read
+  
 ## Code Templates
 
 This section presents reference code templates to describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
