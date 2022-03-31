@@ -4,7 +4,7 @@ description: Description of Microsoft Defender for Cloud's secure score and its 
 author: Elazark
 ms.author: elkrieger
 ms.topic: article
-ms.date: 03/29/2022
+ms.date: 03/31/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
@@ -36,7 +36,7 @@ For more information, see [How your secure score is calculated](secure-score-sec
 
 ## Manage your security posture
 
-On the Security posture page, you are able to see the secure score for your entire subscription, as well as each environment in your subscription. By default all environments are shown.
+On the Security posture page, you're able to see the secure score for your entire subscription, and each environment in your subscription. By default all environments are shown.
 
 :::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page.":::
 
@@ -87,9 +87,9 @@ In this example:
 
 - **Insights** - :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: 
 
-    Gives you additional details for each recommendation. Which can be; 
+    Gives you extra details for each recommendation. Which can be: 
 
-    - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation will not affect your secure score until it's GA.
+    - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation won't affect your secure score until it's GA.
 
     - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue.
 
@@ -102,8 +102,8 @@ In this example:
 |Metric|Formula and example|
 |-|-|
 |**Security control's current score**|<br>![Equation for calculating a security control's score.](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
-|**Secure score**<br>Single subscription, or connector|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription, or connector with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png) <br> This equation is the same equation for a connector with just the word subscription being replaced by the word connector. |
-|**Secure score**<br>Multiple subscriptions, and connectors|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, and connectors, Defender for Cloud includes a *weight* for each subscription, and connector. The relative weights for your subscriptions, and connectors are determined by Defender for Cloud based on factors such as the number of resources.<br>The current score for each subscription,a dn connector is calculated in the same way as for a single subscription, or connector, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, and connectors, the secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (22) and the maximum score available (58).|
+|**Secure score**<br>Single subscription, or connector|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there's a single subscription, or connector with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png) <br> This equation is the same equation for a connector with just the word subscription being replaced by the word connector. |
+|**Secure score**<br>Multiple subscriptions, and connectors|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, and connectors, Defender for Cloud includes a *weight* for each subscription, and connector. The relative weights for your subscriptions, and connectors are determined by Defender for Cloud based on factors such as the number of resources.<br>The current score for each subscription, a dn connector is calculated in the same way as for a single subscription, or connector, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, and connectors, the secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>Here too, if you go to the recommendations page and add up the potential points available, you'll find that it's the difference between the current score (22) and the maximum score available (58).|
  
 ### Which recommendations are included in the secure score calculations?
 
@@ -132,7 +132,7 @@ We recommend every organization carefully reviews their assigned Azure Policy in
 > [!TIP]
 > For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
 
-Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. Consequently, it is sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
+Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
