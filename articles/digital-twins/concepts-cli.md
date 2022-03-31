@@ -71,7 +71,7 @@ Use these special character tips for Bash environments.
 
 #### Queries
 
-In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest#az-dt-twin-query) command to query in the Cloud Shell Bash environment, escape the `$` character with a backtick character.
+In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command to query in the Cloud Shell Bash environment, escape the `$` character with a backtick character.
 
 Here is an example of querying for a twin with a CLI command in the Cloud Shell Bash environment:
 
@@ -85,7 +85,7 @@ Use these special character tips for PowerShell environments.
 
 #### Inline JSON
 
-Some commands, like [az dt twin create](/cli/azure/dt/twin?view=azure-cli-latest#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in the PowerShell environment, escape double quote characters (`"`) inside the JSON with `\`. 
+Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in the PowerShell environment, escape double quote characters (`"`) inside the JSON with `\`. 
 
 Here is an example of creating a twin with a CLI command in PowerShell:
 
@@ -95,7 +95,7 @@ az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwin
 
 #### Queries
 
-In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest#az-dt-twin-query) command to query in a PowerShell environment, escape the `$` character with a backtick character.
+In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command to query in a PowerShell environment, escape the `$` character with a backtick character.
 
 Here is an example of querying for a twin with a CLI command in PowerShell:
 ```azurecli
@@ -108,7 +108,7 @@ Use these special character tips for the local Windows CMD.
 
 #### Inline JSON
 
-Some commands, like [az dt twin create](/cli/azure/dt/twin?view=azure-cli-latest#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in a local Windows CMD window, enclose the parameter value with double quotes (`"`) instead of single quotes (`'`), and escape double quote characters inside the JSON with `\`. 
+Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in a local Windows CMD window, enclose the parameter value with double quotes (`"`) instead of single quotes (`'`), and escape double quote characters inside the JSON with `\`. 
 
 Here is an example of creating a twin with a CLI command in the local Windows CMD:
 
