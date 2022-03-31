@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/30/2022
+ms.date: 03/31/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return a Data Box to upload on-premises data from my server onto Azure.
