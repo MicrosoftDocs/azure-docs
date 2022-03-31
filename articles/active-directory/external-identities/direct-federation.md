@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/29/2022
+ms.date: 03/31/2022
 
 ms.author: mimart
 author: msmimart
@@ -61,13 +61,13 @@ You can also give guest users a direct link to an application or resource by inc
 ## Frequently asked questions
 
 ### Can I set up SAML/WS-Fed IdP federation with Azure AD verified domains?
-No, we block SAML/WS-Fed IdP federation for Azure AD verified domains in favor of native Azure AD managed domain capabilities. If you try to set up SAML/WS-Fed IdP federation with a domain that is DNS-verified in Azure AD, you'll see an error in the Azure portal or PowerShell.
+No, we block SAML/WS-Fed IdP federation for Azure AD verified domains in favor of native Azure AD managed domain capabilities. If you try to set up SAML/WS-Fed IdP federation with a domain that is DNS-verified in Azure AD, you'll see an error.
 
 ### Can I set up SAML/WS-Fed IdP federation with a domain for which an unmanaged (email-verified) tenant exists? 
 Yes, you can set up SAML/WS-Fed IdP federation with domains that aren't DNS-verified in Azure AD, including unmanaged (email-verified or "viral") Azure AD tenants. Such tenants are created when a user redeems a B2B invitation or performs self-service sign-up for Azure AD using a domain that doesn’t currently exist. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../enterprise-users/domains-admin-takeover.md), you can set up federation with that domain.
 
 ### How many federation relationships can I create?
-Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](/powershell/module/msonline/set-msoldomainfederationsettings) and SAML/WS-Fed IdP federations.
+Currently, a maximum of 1,000 federation relationships is supported. This limit includes both internal federations and SAML/WS-Fed IdP federations.
 
 ### Can I set up federation with multiple domains from the same tenant?
 We don’t currently support SAML/WS-Fed IdP federation with multiple domains from the same tenant.
@@ -170,7 +170,7 @@ Required claims for the WS-Fed token issued by the IdP:
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
-Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
+Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the Microsoft Graph API. It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
 
 - Issuer URI of partner IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
@@ -197,44 +197,31 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
    > [!NOTE]
    > Metadata URL is optional, however we strongly recommend it. If you provide the metadata URL, Azure AD can automatically renew the signing certificate when it expires. If the certificate is rotated for any reason before the expiration time or if you do not provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
-7. Select **Save**. 
+7. Select **Save**.
 
-### To configure SAML/WS-Fed IdP federation in Azure AD using PowerShell
+### To configure federation using the Microsoft Graph API
 
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). If you need detailed steps, the Quickstart includes the guidance, [PowerShell module](b2b-quickstart-invite-powershell.md#prerequisites).
-2. Run the following command:
-
-   ```powershell
-   Connect-AzureAD
-   ```
-
-3. At the sign-in prompt, sign in with the managed Global Administrator account.
-4. Run the following commands, replacing the values from the federation metadata file. For AD FS Server and Okta, the federation file is federationmetadata.xml, for example: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
-
-   ```powershell
-   $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
-   $federationSettings.PassiveLogOnUri ="https://sts.totheclouddemo.com/adfs/ls/"
-   $federationSettings.LogOffUri = $federationSettings.PassiveLogOnUri
-   $federationSettings.IssuerUri = "http://sts.totheclouddemo.com/adfs/services/trust"
-   $federationSettings.MetadataExchangeUri="https://sts.totheclouddemo.com/adfs/services/trust/mex"
-   $federationSettings.SigningCertificate= <Replace with X509 signing cert’s public key>
-   $federationSettings.PreferredAuthenticationProtocol="WsFed" OR "Samlp"
-   $domainName = <Replace with domain name>
-   New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
-   ```
+You can use the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta) resource type to set up federation with an identity provider that supports either the SAML or WS-Fed protocol.
 
 ## Step 4: Test SAML/WS-Fed IdP federation in Azure AD
 Now test your federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Azure portal](add-users-administrator.md).
  
-## How do I edit a SAML/WS-Fed IdP federation relationship?
+## How do I manage a SAML/WS-Fed IdP federation relationship?
+
+On the All identity providers page, you can view the list of SAML/WS-Fed identity providers you've configured, along with details such as the protocol configuration, domain name of the IdP, and the date of certificate expiration.
+
+![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/saml-ws-fed-identity-provider-list.png)
+
+To modify the configuration:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **External Identities**.
-3. Select **All identity providers**
-4. Under **SAML/WS-Fed identity providers**, select the provider.
-5. In the identity provider details pane, update the values.
-6. Select **Save**.
-
+1. Select **External Identities**.
+1. Select **All identity providers**.
+1. Under **SAML/WS-Fed identity providers**, view details for an identity provider, including the certificate expiration date. You can update the configuration:
+   - To update the certificate, select the link in the **Certificate expiration** column.
+   - To update the domain name of the identity provider, select the link in the Domains column.
+   - To update other details, select the link in the Configuration column.
+ 1. Select **Save**.
 
 ## How do I remove federation?
 
@@ -245,23 +232,9 @@ To remove federation with an IdP in the Azure AD portal:
 2. Select **External Identities**.
 3. Select **All identity providers**.
 4. Select the identity provider, and then select **Delete**.
-5. Select **Yes** to confirm deletion. 
+5. Select **Yes** to confirm deletion.
 
-To remove federation with an identity provider by using PowerShell:
-
-1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Run the following command:
-
-   ```powershell
-   Connect-AzureAD
-   ```
-
-3. At the sign-in prompt, sign in with the managed Global Administrator account.
-4. Enter the following command:
-
-   ```powershell
-   Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
-   ```
+You can also remove federation using the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta) resource type.
 
 ## Next steps
 
