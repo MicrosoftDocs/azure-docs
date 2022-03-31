@@ -40,11 +40,9 @@ Register and scan each Storage account with Azure Purview to later define access
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
-Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
+Follow this link to [Enable the data source for access policies](./how-to-enable-data-use-governance.md) in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png)
-
-Follow this link for more information and best practices related to [registering a data resource for Data use governance](./how-to-enable-data-use-governance.md)
 
 ## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:

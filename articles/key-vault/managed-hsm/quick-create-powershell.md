@@ -109,7 +109,7 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 
