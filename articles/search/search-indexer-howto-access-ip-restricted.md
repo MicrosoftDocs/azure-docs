@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 03/30/2022
 ---
 
 # Configure IP firewall rules to allow indexer connections from Azure Cognitive Search
@@ -17,8 +17,11 @@ On behalf of an indexer, a search service will issue outbound calls to an extern
 
 This article explains how to find the IP address of your search service and configure an inbound IP rule on an Azure Storage account. While specific to Azure Storage, this approach also works for other Azure resources that use IP firewall rules for data access, such as Cosmos DB and Azure SQL.
 
-> [!NOTE]
-> IP firewall rules for a storage account are only effective if the storage account and the search service are in different regions. If your setup does not permit this, we recommend utilizing the [trusted service exception option](search-indexer-howto-access-trusted-service-exception.md) as an alternative.
+## Prerequisites
+
+The storage account and the search service must be in different regions. 
+
+If your setup does not permit this, we recommend the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) as alternatives.
 
 ## Get a search service IP address
 
@@ -94,6 +97,8 @@ Now that you have the necessary IP addresses, you can set up the inbound rule. T
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border="true":::
 
 It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access the data in the storage account.
+
+## 
 
 ## Next Steps
 

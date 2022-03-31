@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 03/30/2022
 ---
 
 # Indexer access to content protected by Azure network security features
@@ -38,10 +38,10 @@ A list of all possible resource types that an indexer might access in a typical 
 
 Your Azure resources could be protected using any number of the network isolation mechanisms offered by Azure. Depending on the resource and region, Cognitive Search indexers can make outbound connections through IP firewalls and private endpoints, subject to the limitations indicated in the following table.
 
-| Resource | IP Restriction | Private endpoint |
+| Resource | IP restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure Storage for text-based indexing (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions, and when the search service connects using a full access connection string. Managed identity is not currently supported for write back operations to an IP restricted storage account. | Unsupported |
+| Azure Storage for AI enrichment (caching, knowledge store, debug sessions) | Supported only if the storage account and search service are in different regions. Also, the connection must be made using either a full access connection string that includes a key or a system-assigned managed identity. | Unsupported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
@@ -50,8 +50,13 @@ Your Azure resources could be protected using any number of the network isolatio
 | SQL Managed Instance | Supported | N/A |
 | Azure Functions | Supported | Supported, only for certain tiers of Azure functions |
 
-> [!NOTE]
-> In addition to the options listed above, for network-secured Azure Storage accounts, you can make Azure Cognitive Search a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role-based access control is enabled on the storage account. For more information, see [Indexer connections using the trusted service exception](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service can't be moved to a different region.
+If Azure Storage and Azure Cognitive Search are in the same region, and network security is a requirement, you have two options for setting up access:
+
+- Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md). The search request can bypass the  virtual network or IP restrictions on the storage account and access data under the system identity of the search service. For more information about this capability in Azure Storage, see [Trusted access based on a managed identity](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity).
+
+- Configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) in Azure Storage that admits inbound requests from an Azure resource having a system managed identity.
+
+The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a system-assigned managed identity is supported for same-region connections through a firewall. The Azure AD login must have a role assignment in the storage account that grants read or write permissions.
 
 ## Indexer execution environment
 

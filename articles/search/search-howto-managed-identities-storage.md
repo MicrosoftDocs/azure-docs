@@ -9,14 +9,14 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 03/30/2022
 ---
 
 # Set up a connection to an Azure Storage account using a managed identity
 
-This article describes how to set up an indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the data source object connection string.
+This article describes how to set up an Azure Cognitive Search indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview).
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure Storage.
 
 This article assumes familiarity with indexer concepts and configuration. If you're new to indexers, start with these links:
 
@@ -29,8 +29,10 @@ This article assumes familiarity with indexer concepts and configuration. If you
 For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 > [!NOTE]
-> If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
+> Currently in Azure Cognitive Search, a system managed identity supports more scenarios than a user managed identity. If Azure Storage is network protected, a system managed identity can leverage the trusted service exception or the resource instance rule to [get requests through the firewall](search-indexer-securing-resources.md) when both services are in the same region (applies to Blob Storage and ADLS Gen 2 only). 
 
+<!-- If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
+ -->
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.

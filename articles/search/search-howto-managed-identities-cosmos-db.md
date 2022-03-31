@@ -14,7 +14,7 @@ ms.date: 02/11/2022
 
 # Set up an indexer connection to a Cosmos DB database using a managed identity
 
-This article describes how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the data source object connection string.
+This article describes how to set up an Azure Cognitive Search indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the connection string.
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview).
 

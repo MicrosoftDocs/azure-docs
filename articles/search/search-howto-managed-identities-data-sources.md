@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/30/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -30,17 +30,17 @@ Cognitive Search can use a system-assigned or user-assigned managed identity on 
 | [Indexer connections to supported Azure data sources](search-indexer-overview.md) | Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | Yes |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	 | Yes | No |
-| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1,</sup> <sup>2</sup>| Yes |
-| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes <sup>2</sup>| Yes |
+| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1</sup> | Yes <sup>1</sup> |
+| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes | Yes |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | Yes |
 
-<sup>1</sup> The Import data wizard doesn't currently accept a managed identity connection string for enrichment cache, but after the wizard completes, you can update the connection string in indexer JSON definition to specify the managed identity, and then rerun the indexer.
+<sup>1</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user managed identity, and then rerun the indexer.
 
-<sup>2</sup> If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
+Cognitive Search uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. 
 
-Debug sessions, enrichment cache, and knowledge store are features that write to Blob Storage. Assign a managed identity to the **Storage Blob Data Contributor** role to support these features.
++ For search features that write back to storage, you'll need Contributor role assignments as described in the [Assign a role](#assign-a-role) section. 
 
-Knowledge store will also write to Table Storage. Assign a managed identity to the **Storage Table Data Contributor** role to support table projections.
++ Network configuration imposes constraints on which type of managed identity you use. In general, a system managed identity supports more networking scenarios. A user managed identity is viable if Azure Storage accepts requests from any public IP address. See [Allow firewall access](#allow-firewall-access) for details.
 
 ## Create a system managed identity
 
@@ -170,7 +170,7 @@ You can use the Management REST API instead of the portal to assign a user manag
 
 If your Azure resource is behind a firewall, make sure there's an inbound rule that admits requests from your search service. 
 
-+ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use the  [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) to admit requests.
++ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use a system managed identity and the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or configure a [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) to admit requests.
 
 + For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for more detail.
 

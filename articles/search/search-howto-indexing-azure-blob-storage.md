@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 03/30/2022
 ---
 
 # Index data from Azure Blob Storage
@@ -26,9 +26,13 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob Storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blobs containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Blobs containing text. If blobs contain binary data or unstructured text, consider adding [AI enrichment](cognitive-search-concept-intro.md) for image and natural language processing. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
-+ Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles instead, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
++ A supported network configuration and data access strategy.
+
+  At a minimum, you'll need read permissions in Azure Storage. A storage connection string that includes an access key will convey read access to storage content. If you're using Azure AD and roles instead, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
+
+  By default, both search and storage accept requests from public IP addresses. If you're using sample data and network security isn't an immediate priority, you can index blob data using just the connection string and read permissions. For network configurations, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).
 
 + A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
 
