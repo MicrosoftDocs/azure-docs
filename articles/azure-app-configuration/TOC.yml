@@ -37,9 +37,12 @@
           href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
+    - name: Bicep
+      href: quickstart-bicep.md
+      displayName: ARM, Resource Manager, Template
     - name: ARM template
       href: quickstart-resource-manager.md
-      displayName: ARM, azure resource manager template
+      displayName: Resource Manager
     - name: .NET App in Visual Studio
       href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Tutorials
