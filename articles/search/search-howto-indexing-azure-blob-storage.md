@@ -30,9 +30,9 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
 + A supported network configuration and data access strategy.
 
-  At a minimum, you'll need read permissions in Azure Storage. A storage connection string that includes an access key will convey read access to storage content. If you're using Azure AD and roles instead, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
+  At a minimum, you'll need read permissions in Azure Storage. A storage connection string that includes an access key will give you read access to storage content. If you're using Azure AD and roles instead, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
 
-  By default, both search and storage accept requests from public IP addresses. If network security isn't an immediate priority, you can index blob data using just the connection string and read permissions. Once you add network protections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for guidance on a data access strategy.
+  By default, both search and storage accept requests from public IP addresses. If network security isn't an immediate concern, you can index blob data using just the connection string and read permissions. When you're ready to add network protections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for guidance about data access.
 
 + A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
 

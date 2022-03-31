@@ -17,7 +17,7 @@ Indexers in an Azure Cognitive Search service that access blob data in Azure Sto
 
 ## Prerequisites 
 
-+ A search service with a [system-assigned managed identity](search-howto-managed-identities-data-sources.md). A system managed identity is an Azure AD login. It needs either a **Storage Blob Data Reader** or **Storage Blob Data Contributor** role assignment. User managed identities are not currently supported.
++ A search service with a [**system-assigned managed identity**](search-howto-managed-identities-data-sources.md). A system managed identity is an Azure AD login. It needs either a **Storage Blob Data Reader** or **Storage Blob Data Contributor** role assignment. Cognitive Search does not currently support user managed identities for a trusted service connection. 
 
 + Azure Storage with the **Allow trusted Microsoft services to access this storage account** option.
 

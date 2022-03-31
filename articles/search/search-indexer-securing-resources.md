@@ -34,10 +34,9 @@ A list of all possible resource types that an indexer might access in a typical 
 | SQL Server on Azure virtual machines | Data source |
 | SQL Managed Instance | Data source |
 | Azure Functions | Attached to a skillset and used to host for custom web api skills |
-| Cognitive Services | Attached to a skillset and used to bill enrichment beyond the 20 free documents limit |
 
 > [!NOTE]
-> A Cognitive Service resource attached to a skillset is used for billing and not for access to the Cognitive Services APIs. Access to Cognitive Services APIs occurs via an internal secure communication channel, where data is strongly encrypted in transit and is never stored at rest.
+> An indexer also connects to Cognitive Services for built-in skills. However, that connection is made over the internal network and isn't subject to any network provisions under your control.
 
 Your Azure resources could be protected using any number of the network isolation mechanisms offered by Azure. Depending on the resource and region, Cognitive Search indexers can make outbound connections through IP firewalls and private endpoints, subject to the limitations indicated in the following table.
 
