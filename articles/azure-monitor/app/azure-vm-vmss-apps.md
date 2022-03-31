@@ -197,6 +197,12 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWi
 
 ## Release notes
 
+### 2.8.44
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enabled SQL query collection.
+- Enabled support for Azure Active Directory (AAD) authentication.
+
 ### 2.8.42
 
 - Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.

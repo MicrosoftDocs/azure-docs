@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 02/02/2022
 
 ms.author: justinha
-author: NishthaBabith-V
+author: gargi-sinha
 manager: martinco
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
+adobe-target: true
 ---
 # Plan an Azure Active Directory self-service password reset deployment
 

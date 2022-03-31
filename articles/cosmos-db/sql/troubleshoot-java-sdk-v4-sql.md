@@ -43,7 +43,7 @@ The Diagnostics are returned as a string. The string changes with each version a
 The following code sample shows how to read diagnostic logs using the Java V4 SDK:
 
 > [!IMPORTANT]
-> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](/azure/cosmos-db/sql/sql-api-sdk-java-v4#recommended-version). 
+> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](./sql-api-sdk-java-v4.md#recommended-version). 
 
 # [Sync](#tab/sync)
 
@@ -165,34 +165,8 @@ filteredFamilies.byPage().toIterable().forEach(familyFeedResponse -> {
 ``` 
 ---
 
-## Retry Logic <a id="retry-logics"></a>
-Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
-
-1. Read and query IO failures will get retried by the SDK without surfacing them to the end user.
-2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is required that user's application logic to handle the failure and retry.
-3. [Trouble shooting sdk availability](troubleshoot-sdk-availability.md) explains retries for multi-region Cosmos DB accounts.
-
-## Retry design
-
-The application should be designed to retry on any exception unless it is a known issue where retrying will not help. For example, the application should retry on 408 request timeouts, this timeout is possibly transient so a retry may result in success. The application should not retry on 400s, this typically means that there is an issue with the request that must first be resolved. Retrying on the 400 will not fix the issue and will result in the same failure if retried again. The table below shows known failures and which ones to retry on.
-
-## Common error status codes <a id="error-codes"></a>
-
-| Status Code | Retryable | Description | 
-|----------|-------------|-------------|
-| 400 | No | Bad request (i.e. invalid json, incorrect headers, incorrect partition key in header)| 
-| 401 | No | [Not authorized](troubleshoot-unauthorized.md) | 
-| 403 | No | [Forbidden](troubleshoot-forbidden.md) |
-| 404 | No | [Resource is not found](troubleshoot-not-found.md) |
-| 408 | Yes | [Request timed out](troubleshoot-request-timeout-java-sdk-v4-sql.md) |
-| 409 | No | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |
-| 410 | Yes | Gone exceptions (transient failure that should not violate SLA) |
-| 412 | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
-| 413 | No | [Request Entity Too Large](../concepts-limits.md#per-item-limits) |
-| 429 | Yes | It is safe to retry on a 429. This can be avoided by following the link for [too many requests](troubleshoot-request-rate-too-large.md).|
-| 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
-| 500 | Yes | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
-| 503 | Yes | [Service unavailable](troubleshoot-service-unavailable-java-sdk-v4-sql.md) |
+## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
+See our guide to [designing resilient applications with Azure Cosmos SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 

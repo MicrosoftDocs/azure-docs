@@ -51,11 +51,12 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 | | Links |
 |---|---|
+| **Release Notes** | [Release notes for Async Java SDK](https://github.com/Azure/azure-cosmosdb-java/blob/master/changelog/README.md) |
 | **SDK Download** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
-|**API documentation** |[Java API reference documentation](/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) | 
-|**Contribute to SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
-|**Get started** | [Get started with the Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
-|**Code sample** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
+| **API documentation** |[Java API reference documentation](/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) | 
+| **Contribute to SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
+| **Get started** | [Get started with the Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
+| **Code sample** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
 | **Performance tips**| [GitHub readme](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **Minimum supported runtime**|[JDK 8](/java/azure/jdk/) | 
 

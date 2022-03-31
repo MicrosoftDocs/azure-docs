@@ -18,7 +18,7 @@ This article introduces a PowerShell script which creates a Standard Load Balanc
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that no [outbound connection](./load-balancer-outbound-connections.md) will not be provided by the Standard Internal Load Balancer.
+* Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that [outbound connection](./load-balancer-outbound-connections.md) will not be provided by the Standard Internal Load Balancer.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly created Standard Load Balancer.
 * Seamlessly move the private IPs from Basic Load Balancer to the newly created Standard Load Balancer.
 * Seamlessly move the VMs from backend pool of the Basic Load Balancer to the backend pool of the Standard Load Balancer
